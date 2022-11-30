@@ -1,0 +1,43 @@
+{% section 'account-header' %}
+
+<section class="page page--less-padding">
+    <section class="wrapper account-content">
+        {% render 'account-nav', current: 'wishlist' %}
+        
+        <div class="account-info orders-container">
+            <h4 class="wishlist-title">{{ customer.first_name }}'s wishlist <span class="wishlist-count wishlist-count--page"></span></h4>
+            <div class="wishlist-items">
+                <div class="loading-animation__overlay"><div class="loading-animation"></div></div>
+            </div>
+            <div class="wishlist-empty">
+                <div class="wishlist-empty__message">No wishlist items selected.</div>
+                <a href="/collections/best-sellers" class="button button--dark">Explore Best Sellers</a>
+                <div class="featured-products__container">
+                    <div class="featured-products scrolling-target row__grid">
+                        {% for product in collections['best-sellers'].products limit: 20 %}
+                            {% render 'product-unit' with product, swatches: true %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="explore-arrows" data-scroll-amount="1 item" data-scroll-offset="0" data-scroll-offset-mobile="0" data-scroll-amount-mobile="1 item" data-for="featured-products"> <a class="explore-arrow explore-arrow--prev" href="#" title="Back">Back</a> <a class="explore-arrow explore-arrow--next" href="#" title="Forward">Forward</a></div>
+            </div>
+            {% comment %} <div style="display: flex; gap: 10px; align-items:center;">
+            <input type="email" style="width: 250px;" placeholder="Email address" id="email-share"> <a href="#" class="wishlist__share button">Share</a>
+            </div>
+            <script>
+                document.querySelector('.wishlist__share').addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    window._swat.sendEmailWishList(
+                        function(r) {
+                            document.querySelector('.wishlist__share').innerHTML = 'Email sent!';
+                        },
+                        document.querySelector('#email-share').value,
+                        "Admin",
+                        "Hey, check out these products!"
+                    );
+                });
+            </script> {% endcomment %}
+        </div>
+    </section>
+</div>

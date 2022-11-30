@@ -1,0 +1,48 @@
+<section class="menu-popup menu-popup--discover" data-id="discover">
+    <button class="menu-close" title="Close"></button>
+    <div class="menu-popup__background"></div>
+    <div class="menu-popup__content">
+        <section class="menu-popup__main">
+            <ul class="menu">
+                <li class="menu-item menu-item--active">
+                    <a href="#">The Edits</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">Community Gallery</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">About us</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">Press</a>
+                </li>
+            </ul>
+
+            <div class="articles__list">
+                <div class="articles__list-title">
+                    Latest Edits
+                </div>
+                <div class="article__cards">
+                    {% for article in blogs["destination"].articles limit: 3 %}
+                    <div class="article__card">
+                        <div class="article__card-image">
+                            {% render 'image' with article.image, sizes: '20vw', height: '53.937' %}
+                        </div>
+                        <div class="article__card-title">{{ article.title | escape }}</div>
+                        <div class="article__card-description">{{ article.excerpt }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <aside class="menu-side">
+            <section class="media-grid">
+                <div class="media-cell">
+                    <div class="media-cell__title">Edit name here</div>
+                    <div class="media-cell__description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+            </section>
+        </aside> 
+    </div>
+</section>

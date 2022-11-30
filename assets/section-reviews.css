@@ -1,0 +1,68 @@
+.shopify-section--reviews {
+    padding: var(--gap);
+}
+
+.slider__wrapper--reviews {
+    border: 1px dashed #707070;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.reviews__slide--spacer {
+    opacity: 0;
+}
+
+.reviews__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.reviews__slide {
+    display: flex;
+    gap: var(--gap);
+}
+
+.reviews__slide-img {
+    flex: 1;
+    background: #abc;
+}
+
+.reviews__slide-content {
+    padding: 25px var(--gap) 25px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-slide__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-slide__main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.review-slide__review {
+    font-size: 35px;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+}
+
+.review-slide__review--quotes p:first-child::before {
+    content: '“';
+}
+
+.review-slide__review--quotes p:last-child::after {
+    content: '”';
+}
+
+.review-slide__pictured a {
+    text-decoration: underline;
+}

@@ -1,0 +1,42 @@
+.collection-subcategories {
+    display: flex;
+    gap: var(--gap);
+}
+
+.collection-filters {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.collection-sort {
+    display: flex;
+    gap: 20px;
+}
+
+.featured__collections {
+    border-width: 1px 0;
+    border-style: dashed;
+    border-color: #707070;
+    padding: var(--gap) 0;
+    display: flex;
+    gap: var(--gap);
+    margin-top: var(--gap);
+}
+
+.featured__collection {
+    flex: 1;
+    min-width: 0;
+}
+
+.featured__collection-image {
+    background: #c5c5c5;
+    padding-top: 66.6667%;
+    margin-bottom: 5px;
+    border-radius: 9px;
+}
+
+.featured__collection-title {
+    font-weight: var(--font-body-weight-bold);
+}

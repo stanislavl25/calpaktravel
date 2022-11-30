@@ -1,0 +1,73 @@
+{{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
+{{ 'component-tabs.css' | asset_url | stylesheet_tag }}
+
+<nav class="featured-col__nav tabs__nav">
+    {%- for block in section.blocks -%}
+
+        {%- assign collection = block.settings.collection -%}
+        {%- if collection.products.size == 0 or collection == blank -%}
+            {%- continue -%}
+        {%- endif -%}
+
+        <button data-index="{{ forloop.index }}" class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button" data-index="{{ forloop.index }}">
+            {%- if block.settings.title != blank -%}
+                {{- block.settings.title | escape -}}
+            {%- else -%}
+                {{- collection.title | escape -}}
+            {%- endif -%}
+        </button>
+
+    {%- endfor -%}
+</nav>
+<section class="featured-col__lists tabs__target">
+    {%- for block in section.blocks -%}
+        
+        {%- assign collection = block.settings.collection -%}
+        {%- if collection.products.size == 0 or collection == blank -%}
+            {%- continue -%}
+        {%- endif -%}
+
+        <div data-index="{{ forloop.index }}" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper" data-index="{{ forloop.index }}">
+            <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+            <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
+            <div class="slider slider--scrollbar">
+                {%- for product in collection.products limit: 20 -%}
+                    {%- render 'product-unit' with product, class: 'slide', quick_view: true -%}
+                {%- endfor -%}
+            </div>
+        </div>
+
+    {%- endfor -%}
+</section>
+
+{% schema %}
+    {
+        "name": "Fearured Collections",
+        "class": "shopify-section--featured-collections",
+        "settings": [
+        ],
+        "blocks": [
+            {
+                "type": "collection",
+                "name": "Collection",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Override Title"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Featured Collections"
+            }
+        ]
+    }
+{% endschema %}

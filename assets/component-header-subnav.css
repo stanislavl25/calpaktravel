@@ -1,0 +1,19 @@
+.site-header__subnav {
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    border: 1px dashed #707070;
+    padding: 10px 15px;
+    left: -15px;
+    min-width: 140px;
+    border-radius: 9px;
+    line-height: 1.8em;
+}
+
+.site-header__dropdown--active .site-header__subnav {
+    display: block;
+}
+
+.site-header__dropdown--active .subnav__activator::after {
+    transform: translateY(-9px) rotate(180deg);
+}

@@ -1,0 +1,22 @@
+.floating-link {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: var(--gap);
+    left: var(--gap);
+    right: var(--gap);
+    padding-right: var(--gap);
+    border-radius: 9px;
+    background: #fff;
+    align-items: center;
+    height: 42px;
+}
+
+.floating-link--top {
+    bottom: auto;
+    top: var(--gap);
+}
+
+.floating-link__pictured a {
+    text-decoration: underline;
+}

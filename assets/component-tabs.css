@@ -1,0 +1,7 @@
+.tabs__content {
+    padding: 0 var(--gap);
+}
+
+.tabs__content:not(.tabs__content--active) {
+    display: none;
+}

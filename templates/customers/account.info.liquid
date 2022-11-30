@@ -1,0 +1,21 @@
+{% section 'account-header' %}
+
+<section class="page page--less-padding">
+    <section class="wrapper account-content">
+        {% render 'account-nav', current: 'info' %}
+        
+        <div class="account-info">
+            <h4>Review Your Information</h4>
+            <div class="account-name">{{ customer.name }}</div>
+            <div class="account-user-info">
+                {{ customer.email }}<br>
+                {{ customer.phone }}
+
+                <div class="account-control-buttons">
+                    <a href="/account/login#recover" class="button">Reset Password</a>
+                    <a href="/account?view=wishlist" class="button medium-up-hide">Wishlist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

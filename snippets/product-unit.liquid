@@ -1,0 +1,31 @@
+{%- liquid
+    assign product = product-unit
+-%}
+<div class="product-unit{% if class != blank %} {{ class }}{% endif %}">
+    {%- if quick_view == true -%}
+        <a class="quick-view__link" href="{{ product-unit.url }}" title="Quick View">
+            <img alt="Quick View" src="{{ 'quick-view.svg' | asset_url }}" loading="lazy">
+        </a>
+    {%- endif -%}
+    
+    <div class="product-unit__image-wrapper">
+        {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+        <div class="product-unit__reviews">
+            {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+        </div>
+        {%- endif -%}
+
+        <div class="product-unit__colors">
+            <div class="product-unit__colors-text">in 6 colors</div>
+            <div class="product-unit__swatches"></div>
+        </div>
+
+        <div class="product-unit__image">
+            {%- render 'image' with product.featured_image, lazy: true, no_wrapper: true, sizes: '20vw' -%}
+        </div>
+    </div>
+
+    <div class="product-unit__title">{{ product.title | escape }}</div>
+
+    <div class="product-unit__price">{{ product.price | money_without_trailing_zeros }}</div>
+</div>

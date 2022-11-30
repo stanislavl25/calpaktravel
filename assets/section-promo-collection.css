@@ -1,0 +1,44 @@
+.shopify-section--promo-col {
+    margin: 50px 0;
+}
+
+.promo-collection {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 65px var(--gap);
+    gap: var(--gap);
+}
+
+.promo-collection__title {
+    flex: 0 0 100%;
+    min-width: 0;
+    font-size: 58px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+    margin-bottom: var(--gap);
+}
+
+.promo-collection__products {
+    flex: 1;
+    display: grid;
+    gap: var(--gap);
+    min-width: 10px;
+}
+
+.promo-collection__media {
+    flex: 1;
+    min-width: 10px;
+    position: relative;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.promo-collection__media .ratio-container {
+    position: static;
+}
+
+.promo-collection .product-unit__image-wrapper {
+    border-radius: 9px;
+    overflow: hidden;
+}

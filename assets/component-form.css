@@ -1,0 +1,48 @@
+.form__field-line {
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.field__input {
+    height: 42px;
+    border: 1px solid #000;
+    border-radius: 9px;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    padding: 0 13px;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+}
+
+.field__input:focus {
+    outline: none;
+}
+
+.field__input::placeholder {
+    color: inherit;
+    opacity: 1;
+}
+
+.form__field-line .field__input {
+    flex: 1;
+    border: 0;
+    border-radius: 0;
+}
+
+.form__field-line .field__input:not(:first-child) {
+    border-left: 1px solid #000;
+}
+
+.form__disclaimer {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #858585;
+}
+
+.form__disclaimer a {
+    text-decoration: underline;
+}

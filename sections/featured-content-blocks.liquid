@@ -1,0 +1,125 @@
+{{ 'section-featured-content-blocks.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-floating-link.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="content-blocks{% if section.settings.gap %} content-blocks--gap{% endif %}">
+{%- assign size = 100 | divided_by: section.blocks.size | round: 4 | append: 'vw' -%}
+{% for block in section.blocks %}
+    <div class="content-block">
+        {%- if block.settings.title != blank -%}
+        <div class="content-block__title">
+            <a href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
+        </div>
+        {%- endif -%}
+
+        {%- if block.settings.description != blank -%}
+        <div class="content-block__description">
+            {{- block.settings.description -}}
+        </div>
+        {%- endif -%}
+
+        <div class="content-block__image">
+        {%- if block.settings.image != blank -%}
+            <a href="{{ block.settings.target_link }}">
+                {%- render 'image' with block.settings.image, sizes: size -%}
+            </a>
+        {%- endif -%}
+        </div>
+
+        <div class="floating-link">
+            <a href="{{ block.settings.target_link }}" class="button button--secondary">{{- block.settings.button-text | escpe -}}</a>
+            {% if block.settings.product_title != blank %}
+            <div class="floating-link__pictured">
+                Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>  
+
+{% schema %}
+    {
+        "name": "Featured Content Blocks",
+        "class": "shopify-section--content-blocks",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "gap",
+                "label": "Add a gap between blocks",
+                "default": false
+            },
+            {
+                "type": "select",
+                "id": "mobile-layout",
+                "label": "Mobile Layout",
+                "options": [
+                    {
+                        "value": "stacked",
+                        "label": "Stacked"
+                    },
+                    {
+                        "value": "scrollable",
+                        "label": "Scrollable list"
+                    }
+                ],
+                "default": "stacked"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "block",
+                "name": "Block",
+                "settings": [
+                    {
+                        "type": "url",
+                        "id": "target_link",
+                        "label": "Object link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image-mobile",
+                        "label": "Image for mobile"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text",
+                        "default": "Shop now"
+                    },
+                    {
+                        "type": "url",
+                        "id": "pictured_product",
+                        "label": "Pictured Product URL"
+                    },
+                    {
+                        "type": "text",
+                        "id": "product_title",
+                        "label": "Product Title"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Featured Content Blocks"
+            }
+        ]
+    }
+{% endschema %}

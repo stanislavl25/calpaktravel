@@ -1,0 +1,71 @@
+{{ 'section-collection-filter.css' | asset_url | stylesheet_tag }}
+
+<section class="collection-filters">
+    <div class="collection-sort">
+        <div class="subnav__container">
+            <a href="#" class="subnav__activator">
+                Color
+            </a>
+
+            <ul class="site-header__subnav list-unstyled">
+                <li>Color 1</li>
+                <li>Color 2</li>
+                <li>Color 3</li>
+            </ul>
+        </div>
+
+        <div class="subnav__container">
+            <a href="#" class="subnav__activator">
+                Sort by
+            </a>
+
+            <ul class="site-header__subnav list-unstyled">
+                <li>Name</li>
+                <li>Date</li>
+                <li>Best Sellers</li>
+            </ul>
+        </div>
+    </div>
+    <div class="collection-subcategories">
+        <button class="button button--secondary">All Products ({{ collection.products.size }})</button>
+        <button class="button button--secondary">Luggage</button>
+        <button class="button button--secondary">Bags</button>
+        <button class="button button--secondary">Organizers</button>
+        <button class="button button--secondary">Accessories</button>
+    </div>
+    <div class="collection-view">
+        View <a>3</a> <a style="text-decoration: underline">5</a>
+    </div>
+</section>
+
+<section class="featured__collections">
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">New</div>
+    </div>
+
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">Bestsellers</div>
+    </div>
+
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">In Stock &amp; Ready to Ship</div>
+    </div>
+
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">On SALE</div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Collection Filter",
+        "class": "shopify-section--padded",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

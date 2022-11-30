@@ -1,0 +1,30 @@
+.sticky-promo {
+    display: block;
+    position: fixed;
+    bottom: var(--gap);
+    right: var(--gap);
+    border: 1px solid #000;
+    border-radius: 9px;
+    overflow: hidden;
+    width: 220px;
+    z-index: 10;
+}
+
+.sticky-promo__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: 45px;
+    height: 45px;
+}
+
+.sticky-promo__info {
+    height: 42px;
+    background: var(--orange);
+    color: #000;
+    line-height: 1.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

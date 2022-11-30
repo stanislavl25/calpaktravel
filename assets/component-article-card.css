@@ -1,0 +1,33 @@
+.article__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.article__card {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 10px;
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: auto 1fr;
+}
+
+.article__card-image {
+    grid-row: span 2;
+}
+
+.article__card-image .ratio-container {
+    background: #c5c5c5;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.article__card-title {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+}
+
+.article__card-description {
+
+}

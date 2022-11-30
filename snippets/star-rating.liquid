@@ -1,0 +1,26 @@
+<div class="star-rating">
+    <div class="star-background">
+        <img alt="Star Inactive" src="{{- 'icon-star-gray.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star Inactive" src="{{- 'icon-star-gray.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star Inactive" src="{{- 'icon-star-gray.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star Inactive" src="{{- 'icon-star-gray.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star Inactive" src="{{- 'icon-star-gray.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+    </div>
+    <div class="star-reviews" style="width: {{ star-rating | divided_by: 5 | times: 100 }}%;">
+        <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+        <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+    </div>
+</div>
+
+{%- if number_of_reviews != blank -%}
+<div class="star-rating__number">
+    {%- if number_of_reviews == 1 -%}
+        1 Review
+    {%- else -%}
+        {{ number_of_reviews }} Reviews
+    {%- endif -%}
+</div>
+{%- endif -%}

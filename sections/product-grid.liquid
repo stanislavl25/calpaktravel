@@ -1,0 +1,22 @@
+{{ 'section-product-grid.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-star-rating.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-star-rating.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="product-grid">
+    {%- liquid
+        for product in collection.products
+            render 'product-unit' with product, quick_view: true
+        endfor
+    -%}
+</section>
+
+{% schema %}
+    {
+        "name": "Product Grid",
+        "class": "shopify-section--padded",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

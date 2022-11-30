@@ -1,0 +1,40 @@
+.shopify-section--featured-collections {
+    margin: 50px 0;
+}
+
+.featured-col__lists .product-unit {
+    flex: 0 0 20%;
+}
+
+.featured-col__nav {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: var(--gap);
+}
+
+.tabs__content {
+    overflow: hidden;
+}
+
+.tabs__content .button-tri-left,
+.tabs__content .button-tri-right {
+    position: absolute;
+    top: 13.5vw;
+    margin-top: -21px;
+    transform: translateX(-100%);
+    left: 0;
+    z-index: 3;
+    transition: transform 0.3s;
+}
+
+.tabs__content .button-tri-right {
+    transform: translateX(100%);
+    right: 0;
+    left: auto;
+}
+
+.tabs__content:not(.slider__wrapper--start):hover .button-tri-left,
+.tabs__content:not(.slider__wrapper--end):hover .button-tri-right {
+    transform: translateX(0);
+}

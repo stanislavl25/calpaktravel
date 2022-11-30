@@ -1,0 +1,105 @@
+{{ 'section-reviews.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-star-rating.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-star-rating.css' | asset_url | stylesheet_tag }}</noscript>
+
+{% if section.blocks.size > 0 %}
+<div class="slider__wrapper--reviews slider__wrapper slider__wrapper--start">
+    <div class="reviews__slide reviews__slide--spacer">
+        {% render 'review-content' with section.blocks[0] as block %}
+    </div>
+    <div class="reviews__slider slider slider--vertical">
+        {% for block in section.blocks %}
+        <div class="reviews__slide slide">
+            {% render 'review-content' with block as block %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Reviews",
+        "class": "shopify-section--reviews",
+        "settings": [
+            {
+                "type": "range",
+                "id": "autoslide",
+                "min": 3,
+                "max": 15,
+                "step": 1,
+                "unit": "sec",
+                "label": "Autoslide timeout",
+                "default": 5
+            }
+        ],
+        "blocks": [
+            {
+                "type": "review",
+                "name": "Review",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "name",
+                        "label": "Name"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "review",
+                        "label": "Review text"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "add-quotes",
+                        "label": "Add Quotes",
+                        "default": true
+                    },
+                    {
+                        "type": "range",
+                        "id": "stars",
+                        "min": 3.5,
+                        "max": 5,
+                        "step": 0.1,
+                        "label": "Stars",
+                        "default": 5
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-link",
+                        "label": "Button Link"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Pictured Product"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "product",
+                        "id": "pictured-product",
+                        "label": "Pictured Product"
+                    },
+                    {
+                        "type": "text",
+                        "id": "pictured-product-title",
+                        "label": "Product Title"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Reviews"
+            }
+        ]
+    }
+{% endschema %}

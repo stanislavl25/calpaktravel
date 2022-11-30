@@ -1,0 +1,11 @@
+{{ 'section-product-grid.css' | asset_url | stylesheet_tag }}
+
+<div style="font-size: 36px; letter-spacing: -0.02em; text-align: center; margin-bottom: 40px; margin-top: 40px;">Your wishlist</div>
+<div style="font-size: 24px; text-align: center; letter-spacing: -0.02em;">No wishlist items selected</div>
+<section class="product-grid">
+    {%- liquid
+        for product in collections['best-sellers'].products limit: 5
+            render 'product-unit' with product, quick_view: true
+        endfor
+    -%}
+</section>

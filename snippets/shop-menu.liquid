@@ -1,0 +1,106 @@
+<section class="menu-popup menu-popup--shop" data-src="{{ 'menu.js' | asset_url }}" data-func="openMenu" data-id="shop">
+    <button class="menu-close" title="Close"></button>
+    <div class="menu-popup__background"></div>
+    <div class="menu-popup__content">
+        <section class="menu-popup__main">
+            <ul class="menu">
+                {% for link in linklists['shop'].links %}
+                <li data-id="{{ forloop.index }}" class="menu-item{% if forloop.first %} menu-item--active{% endif %}">
+                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                    {% if link.links.size > 0 %}
+                    <ul class="submenu">
+                        {% for sublink in link.links %}
+                        <li class="submenu-item">
+                            <a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div data-id="1 3 4 5" class="product-slider menu__dynamic-element menu__dynamic-element--active slider__wrapper slider__wrapper--start">
+                <div class="product-slider__header">
+                    <div class="product-slider__title">Bestsellers</div>
+                    <nav class="slider__nav">
+                        <button class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                        <button class="slider__control tri-right slider__control--next" title="Next"></button>
+                    </nav>
+                </div>
+                <div class="slider">
+                    {%- liquid
+                        for product in collections.best-sellers.products limit: 6
+                            render 'product-unit' with product, class: 'slide'
+                        endfor
+                    -%}
+                </div>
+            </div>
+        </section>
+        <aside class="menu-side">
+            <section data-num="1" class="media-grid">
+                <div data-id="1" class="media-cell menu__dynamic-element menu__dynamic-element--active">
+                    <div class="media-cell__title">Lorem Ipsum Dolor</div>
+                    <div class="media-cell__description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="2" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 2</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="3" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 3</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="3" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 4</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="4" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 5</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="4" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 6</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="4" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 7</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="5" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 8</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="5" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 9</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="5" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 10</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+                <div data-id="5" class="media-cell menu__dynamic-element">
+                    <div class="media-cell__title">Lorem Ipsum Dolor 11</div>
+                    <a href="#" class="button button--secondary">Shop now</a>
+                </div>
+            </section>
+            <div data-id="2" class="product-slider menu__dynamic-element slider__wrapper slider__wrapper--start">
+                <div class="product-slider__header">
+                    <div class="product-slider__title">Bestsellers</div>
+                    <nav class="slider__nav">
+                        <button class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                        <button class="slider__control tri-right slider__control--next" title="Next"></button>
+                    </nav>
+                </div>
+                <div class="slider">
+                    {%- liquid
+                        for product in collections.best-sellers.products limit: 6
+                            render 'product-unit' with product, class: 'slide'
+                        endfor
+                    -%}
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>

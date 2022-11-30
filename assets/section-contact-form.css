@@ -1,0 +1,37 @@
+.shopify-section--contact-form {
+    padding: var(--gap);
+}
+
+.section__contact-form {
+    border-radius: 9px;
+    background: var(--yellow);
+    padding: 25px var(--gap);
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+}
+
+.contact-form__text {
+    flex: 1;
+}
+
+.contact-form__title {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+    margin-bottom: 10px;
+}
+
+.contact-form__description {
+    margin-bottom: 5px;
+}
+
+.newsletter-form {
+    flex: 1;
+}
+
+@media (max-width: 900px) {
+    .section__contact-form {
+        display: block;
+    }
+}

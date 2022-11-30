@@ -1,0 +1,111 @@
+.menu-popup--search {
+    z-index: 999;
+}
+
+.search-popup__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.search-popup__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 10px 10px;
+    background: #fff;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search__top {
+    border-bottom: 1px dashed #777;
+    height: 42px;
+    padding: 0 var(--gap);
+    position: relative;
+    flex: 0 0 100%;
+}
+
+.search__top form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.search-button {
+    flex: 0 0 30px;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin-left: -7px;
+    cursor: pointer;
+}
+
+.search-input__container {
+    position: relative;
+    flex: 1;
+}
+
+.search-input__container .search-placeholders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 0 10px;
+    border: 0;
+    outline: none;
+}
+
+.search-input:valid + .search-placeholders {
+    opacity: 0;
+}
+
+.menu-popup--search .menu-popup__content {
+    margin: 0;
+    border: 0;
+    flex-wrap: wrap;
+}
+
+.menu-popup--search .menu-popup__main {
+    padding-bottom: 30px;
+    max-height: calc(100vh - 142px);
+}
+
+.menu-popup--search .menu-side {
+    flex: 1;
+}
+
+.menu-popup__collections-buttons {
+    padding: var(--gap);
+}
+
+.collections-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.menu-popup--search:not([data-status="results"]) .search-section[data-id="results"],
+.menu-popup--search:not([data-status="init"]) .search-section[data-id="init"],
+.menu-popup--search:not([data-status="empty"]) .search-section[data-id="empty"] {
+    display: none;
+}
+
+.search__empty-message {
+    padding: var(--gap);
+    border-bottom: 1px dashed #707070;
+    flex: 0 0 100%;
+}

@@ -1,0 +1,230 @@
+body.modal-open {
+    position: sticky;
+    overflow: hidden;
+}
+
+.menu-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.menu-popup--active {
+    display: flex;
+}
+
+.menu-popup--discover .menu-popup__background,
+.menu-popup--shop .menu-popup__background {
+    background: var(--yellow);
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 42px;
+    width: 0;
+    transition: height 0.3s, width 0.3s;
+}
+
+.menu-popup--discover .menu-popup__background {
+    background: #fff;
+}
+
+.menu-popup--discover.menu-popup--visible .menu-popup__background,
+.menu-popup--shop.menu-popup--visible .menu-popup__background {
+    /* width: 100%; */
+    /* height: 100%; */
+    animation: backgroundUnfold ease-in-out both 0.6s;
+}
+
+.menu-popup--discover .menu-side,
+.menu-popup--discover .menu-popup__main,
+.menu-popup--shop .menu-side,
+.menu-popup--shop .menu-popup__main {
+    opacity: 0;
+    transform: translateX(70px);
+    transition: opacity 0.4s, transform 0.4s;
+    transition-delay: 0.6s;
+}
+
+.menu-popup--discover .menu-side,
+.menu-popup--shop .menu-side {
+    transition-delay: 0.8s;
+}
+
+.menu-popup--discover.menu-popup--visible .menu-side,
+.menu-popup--discover.menu-popup--visible .menu-popup__main,
+.menu-popup--shop.menu-popup--visible .menu-side,
+.menu-popup--shop.menu-popup--visible .menu-popup__main {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@keyframes backgroundUnfold {
+    0% {
+        width: 0;
+        height: 42px;
+    }
+
+    50% {
+        width: 100%;
+        height: 42px;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.menu-popup--discover .menu-popup__content,
+.menu-popup--shop .menu-popup__content {
+    position: relative;
+    z-index: 2;
+}
+
+.menu-popup--shop .menu-popup__content::before {
+    position: absolute;
+    top: -1px;
+    left: var(--gap);
+    border-top: 1px solid #000;
+    content: '';
+    width: 35px;
+}
+
+.menu-popup--discover .menu-popup__content::before {
+    position: absolute;
+    top: -1px;
+    left: calc(55px + var(--gap));
+    border-top: 1px solid #000;
+    content: '';
+    width: 57px;
+}
+
+.menu-close {
+    position: absolute;
+    cursor: pointer;
+    top: 7px;
+    right: var(--gap);
+    width: 30px;
+    height: 30px;
+    border: 0;
+    z-index: 5;
+    padding: 0;
+    margin-right: -7px;
+    background: transparent;
+}
+
+.menu-close::before,
+.menu-close::after {
+    content: '';
+    width: 20px;
+    border-top: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-close::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.menu-popup__content {
+    border-top: 1px dashed #707070;
+    margin: 42px 0 0;
+    display: flex;
+    flex: 1;
+}
+
+.menu-side {
+    flex: 0 0 50%;
+    border-left: 1px dashed #707070;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.menu-side::-webkit-scrollbar {
+    display: none;
+}
+
+.menu__dynamic-element:not(.menu__dynamic-element--active) {
+    display: none;
+}
+
+.media-grid {
+    flex: 1;
+    padding: var(--gap);
+    gap: var(--gap);
+    display: grid;
+    min-height: 400px;
+}
+
+.media-grid[data-num="3"],
+.media-grid[data-num="4"] {
+    grid-template-columns: 1fr 1fr;
+}
+
+.media-grid[data-num="3"] .media-cell {
+    grid-column: span 2;
+}
+
+.media-grid[data-num="3"] .media-cell.menu__dynamic-element--active ~ .media-cell.menu__dynamic-element--active {
+    grid-column: span 1;
+}
+
+.media-cell {
+    background: #c5c5c5;
+    color: #fff;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.media-cell .button {
+    min-width: 155px;
+}
+
+.media-cell__title {
+    font-size: 36px;
+    line-height: 1.25em;
+    letter-spacing: -0.02em;
+}
+
+.media-cell__description {
+    line-height: 1.25em;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.menu-side .product-slider {
+    border-top: 1px dashed #707070;
+    padding: var(--gap);
+}
+
+.menu-popup__main {
+    flex: 2;
+    padding: var(--gap);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+}
+
+.menu-popup__main .menu {
+    margin-bottom: 40px;
+}
+
+.menu-popup__main::-webkit-scrollbar {
+    display: none;
+}

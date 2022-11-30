@@ -1,0 +1,43 @@
+{% unless no_wrapper == true %}
+{%- liquid
+    if height != blank
+        assign ratio = height
+    else
+        assign ratio = 100 | divided_by: image.aspect_ratio
+    endif
+    if ratio > max_ratio and max_ratio != blank
+        assign ratio = max_ratio
+    endif
+-%}
+<div class="ratio-container" style="padding-top: {{ ratio }}%">
+{% endunless %}
+
+{%- liquid
+    unless preload == true and preload != blank
+        assign preload = false
+    endunless
+
+    unless lazy == true and lazy != blank
+        assign lazy = false
+    endunless
+
+    if sizes == blank
+        assign sizes = '100vw'
+    endif
+
+    if lazy == true
+        assign loading = 'lazy'
+    else
+        assign loading = 'eager'
+    endif
+
+    if asset == true
+        echo image | asset_img_url: 'master' | img_tag
+    elsif image != blank
+        echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '300, 450, 650, 950, 1200, 1600, 2000', preload: preload, alt: '', loading: loading
+    endif
+%}
+
+{% unless no_wrapper == true %}
+</div>
+{% endunless %}

@@ -1,0 +1,106 @@
+{{ 'section-header.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-header-subnav.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-list.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-header-subnav.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-menu-popup.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-menu-list.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="site-header">
+    <nav class="site-header__nav">
+        {% render 'shop-menu' %}
+        {% render 'discover-menu' %}
+        <ul>
+            <li class="site-header__menu-item hide-small">
+                <a href="#" class="menu-popup__activator" data-target="shop">Shop</a>
+            </li>
+            <li class="site-header__menu-item hide-small">
+                <a href="#" class="menu-popup__activator" data-target="discover">Discover</a>
+            </li>
+            <li class="site-header__menu-item hide-small">
+                {% assign rand = 'now' | date: '%M' | times: 1 | modulo: 2 %}
+                <a href="#" class="header__live-link{% if rand == 0 %} header__live-link--active{% endif %}">Live</a>
+            </li>
+            <li class="site-header__menu-item">
+                <a href="#" class="header__search-link">
+                    <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
+                    {% render 'search-placeholders', class: 'hide-small' %}
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="site-header__logo">
+        <a href="{{ shop.url }}" title="Home">
+            {% render 'image' with 'logo.png', asset: true, preload: true, sizes: '120px', no_wrapper: true %}
+        </a>
+    </div>
+    <nav class="site-header__nav">
+        <ul>
+            <li class="site-header__menu-item hide-small">
+                <a href="#">Rewards</a>
+            </li>
+            <li class="site-header__dropdown subnav__container site-header__menu-item hide-small">
+                <a href="/account" class="subnav__activator">
+                    {%- if customer -%}
+                        Hi, {{ customer.first_name | escape }}
+                    {%- else -%}
+                        My Account
+                    {%- endif -%}
+                </a>
+
+                <ul class="site-header__subnav list-unstyled">
+                    {%- if customer -%}
+                    <li>
+                        <a href="/account">My Account</a>
+                    </li>
+                    <li>
+                        {{ 'Logout' | customer_logout_link }}
+                    </li>
+                    {% else %}
+                    <li>
+                        {{ 'Log in' | customer_login_link }}
+                    </li>
+                    <li>
+                        {{ 'Register' | customer_register_link }}
+                    </li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="site-header__menu-item hide-small">
+                <a href="#" class="header__notifications-link notifications-icon--active" title="Notifications">
+                    {% render 'icon-notifications' %}
+                </a>
+            </li>
+            <li class="site-header__menu-item">
+                <a href="/pages/wishlist" class="header__wishlist-link" title="Wishlist">
+                    {% render 'icon-heart' %}
+                </a>
+            </li>
+            <li class="site-header__menu-item">
+                <a href="#" class="header__bag-link" title="Cart">
+                    <span class="header__bag-title hide-small">Bag</span>
+                    <span class="header__bag-icon{% if cart.item_count > 0 %} header__bag-icon--full{% endif %}">
+                        <div class="header__bag-count">{{ cart.item_count }}</div>
+                        {% render 'icon-bag' %}
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</section>
+
+{% render 'search' %}
+
+{% schema %}
+{
+    "name": "Header",
+    "class": "shopify-section--header",
+    "settings": [
+        
+    ]
+}
+{% endschema %}

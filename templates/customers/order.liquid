@@ -1,0 +1,109 @@
+{% section 'account-header' %}
+
+<section class="page page--less-padding">
+    <section class="wrapper account-content">
+        {% render 'account-nav', current: 'orders' %}
+        
+        <div class="account-info orders-container">
+            <div class="orders">
+                <div class="order-summary-container">
+                    <div class="order-summary order-summary--single">
+                        <div>
+                            <div class="order-id">
+                                Order No. {{ order.order_number }}
+                                <span class="order-price-mobile">{{ order.total_price | money_without_trailing_zeros }}</span>
+                            </div>
+                            <div class="order-status">
+                                <div class="order-placed">
+                                    <div>Order placed: {{ order.created_at | date: '%m/%d/%y' }}</div>
+                                    {%- assign order_key =  order.customer_url | split: '/orders/' | last -%}
+                                    {% comment %} <div><a class="single-order-status-link" href="https://checkout.shopify.com/9414996/orders/{{ order_key }}">Check Status</a></div> {% endcomment %}
+                                    <div><a class="single-order-status-link" href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a></div>
+                                </div>
+                            </div>
+                            <div class="order-data">
+                                <div class="order-data__shipping">
+                                    <h4>Shipping Address</h4>
+                                    {{ order.shipping_address.name }}<br>
+                                    {{ order.shipping_address.address1 }}<br>
+                                    {% if order.shipping_address.address2 != blank %}
+                                    {{ order.shipping_address.address2 }}<br>
+                                    {% endif %}
+                                    {{ order.shipping_address.city }}, {{ order.shipping_address.province }} {{ order.shipping_address.zip }}<br>
+                                    {{ order.shipping_address.country }}<br>
+                                    {{ order.shipping_address.phone }}
+                                </div>
+                                <div class="order-data__billing">
+                                    <h4>Billing Address</h4>
+                                    {{ order.billing_address.name }}<br>
+                                    {{ order.billing_address.address1 }}<br>
+                                    {% if order.billing_address.address2 != blank %}
+                                    {{ order.billing_address.address2 }}<br>
+                                    {% endif %}
+                                    {{ order.billing_address.city }}, {{ order.billing_address.province }} {{ order.billing_address.zip }}<br>
+                                    {{ order.billing_address.country }}<br>
+                                    {{ order.billing_address.phone }}
+                                </div>
+                                <div class="order-data__total">
+                                    <h4><span>Order Total</span> <span>{{ order.total_price | money_without_trailing_zeros }}</span></h4>
+                                    <div><span>Savings</span> <span>{{ order.total_discounts | money_without_trailing_zeros }}</span></div>
+                                    <div><span>Shipping</span> <span>{% if order.shipping_price == 0 %}Free{% else %}{{ order.shipping_price | money_without_trailing_zeros }}{% endif %}</span></div>
+                                    <div><span>Taxes</span> <span>{{ order.tax_price | money_without_trailing_zeros }}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-products">
+                        <h4>Order Summary</h4>
+                        {% for item in order.line_items %}
+                            {%- assign option1 = item.variant.option1 | handleize -%}
+                            {%- assign url = '/products/' | append: item.product.handle | append: '/' | append: option1 -%}
+                        <div class="order__line-item">
+                            <div class="order__item-image">
+                                <a href="{{ url }}">{% render 'image' with item.image, sizes: '200px' %}</a>
+                            </div>
+                            <div class="order__item-text">
+                                <div class="order__item-text-center">
+                                    <h4>
+                                        <a href="{{ url }}">
+                                            {% if settings.remove-words-from-titles %}
+                                                {{ item.product.title | replace: ' - Jade', '' | replace: ' - Final', '' | replace: ' - FW', '' }}
+                                            {% else %}
+                                                {{ item.product.title }}
+                                            {% endif %}
+                                        </a>
+                                    </h4>
+                                    <div>{{ item.variant.option1 | downcase }}
+                                    {% if item.variant.option2 != blank %}
+                                    / {{ item.variant.option2 | downcase }}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                                <div class="order__item-text-bottom">
+                                    {% if item.properties['_final-sale'] != blank %}
+                                        {% if item.properties['_final-sale'] == true or item.properties['_final-sale'] == "true" %}
+                                            <div class="final-sale-tag">Final Sale</div>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if item.properties['_preorder'] != blank %}
+                                        {% if item.properties['_preorder'] != false or item.properties['_preorder'] != "false" %}
+                                            <div class="preorder-message">Est. ship date: <strong>{{ item.properties['_preorder'] }}</strong></div>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="order__item-price">
+                                <h4>{% if item.original_price > item.final_line_price %}<s>{{ item.original_price | money_without_trailing_zeros }}</s> {% endif %}{{ item.final_line_price | money_without_trailing_zeros }}</h4>
+                                Qty: {{ item.quantity }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="order-back">
+                        <a class="button" href="/account?view=orders">Exit order details</a>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
+</section>

@@ -1,0 +1,29 @@
+.star-rating {
+    position: relative;
+    display: inline-block;
+}
+
+.star-background {
+    display: flex;
+    gap: 3px;
+}
+
+.star-rating .star-icon {
+    flex: 0 0 11px;
+    height: auto;
+    fill: #858585;
+    width: 11px;
+}
+
+.star-reviews .star-icon {
+    fill: #000;
+}
+
+.star-reviews {
+    display: flex;
+    gap: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}

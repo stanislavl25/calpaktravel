@@ -1,0 +1,142 @@
+.product-unit {
+    position: relative;
+}
+
+.quick-view__link {
+    position: absolute;
+    right: var(--gap);
+    top: var(--gap);
+    width: 33px;
+    height: 33px;
+    z-index: 3;
+}
+
+.quick-view__link::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #000;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.quick-view__link img {
+    display: block;
+}
+
+.product-unit:hover .quick-view__link::after {
+    opacity: 1;
+}
+
+.product-unit__image {
+    padding-top: 133.333%;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.product-unit__image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -20px;
+    width: 40px;
+    height: 40px;
+    border: 4px solid;
+    border-color: #707070 #707070 transparent #707070;
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotate 1s infinite linear;
+}
+
+.product-unit__image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.product-unit__title {
+    margin-bottom: 3px;
+}
+
+.product-slider__header {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-slider__header .slider__nav {
+    margin-right: -12px;
+}
+
+.product-slider .slider {
+    border-radius: 15px 15px 0 0;
+}
+
+.product-slider .slide {
+    flex: 0 0 33.333%;
+}
+
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+}
+
+@media (max-width: 1220px) {
+    .products__grid {
+        grid-template-columns: repeat(auto-fill,minmax(180px, 1fr));
+    }
+}
+
+.content-section__title {
+    margin-bottom: var(--gap);
+}
+
+.products__grid .product-unit__image {
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.product-unit__image-wrapper {
+    margin-bottom: 9px;
+    position: relative;
+}
+
+.product-unit__colors {
+    position: absolute;
+    bottom: var(--gap);
+    left: var(--gap);
+    z-index: 5;
+}
+
+.product-unit__colors-text {
+    color: #858585;
+    font-size: 14px;
+}
+
+.product-unit__reviews {
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    left: var(--gap);
+    top: var(--gap);
+    z-index: 5;
+    align-items: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-unit:hover .product-unit__reviews {
+    opacity: 1;
+}

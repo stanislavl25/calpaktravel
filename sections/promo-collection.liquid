@@ -1,0 +1,174 @@
+{{ 'section-promo-collection.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-floating-link.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="promo-collection promo-collection--{{ section.id }}">
+    {%- if section.settings.title != blank -%}
+    <div class="promo-collection__title">{{- section.settings.title | escape -}}</div>
+    {%- endif -%}
+    <div class="promo-collection__products">
+        {%- liquid
+            for block in section.blocks
+                if block.settings.product == blank
+                    continue
+                endif
+
+                render 'product-unit' for block.settings.product, quick_view: true
+            endfor
+        -%}
+    </div>
+    <div class="promo-collection__media">
+        {% render 'image' with section.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true %}
+
+        <div class="floating-link floating-link--{{ section.settings.pictured-product-display }}">
+            {%- if section.settings.button-text != blank -%}
+            <a href="{{ block.settings.button-link }}" class="button button--secondary">{{- section.settings.button-text | escpe -}}</a>
+            {%- endif -%}
+
+            {%- liquid
+                assign product = false
+                if section.settings.pictured-product != blank
+                    assign product = all_products[section.settings.pictured-product]
+                endif
+            -%}
+
+            {% if product %}
+            <div class="floating-link__pictured">
+                Pictured: <a href="{{ product.url }}">
+                    {%- if section.settings.pictured-product-title != blank -%}
+                        {{- section.settings.pictured-product-title | escape -}}
+                    {%- else -%}
+                        {{- product.title | escape -}}
+                    {%- endif -%}
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% style %}
+    .promo-collection--{{ section.id }} {
+        background: {{- section.settings.background -}};
+    }
+
+    .promo-collection--{{ section.id }} .promo-collection__products {
+        grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    }
+{% endstyle %}
+
+
+{% schema %}
+    {
+        "name": "Promo Collection",
+        "class": "shopify-section--promo-col",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "header",
+                "content": "Media"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "video_url",
+                "id": "video",
+                "label": "Video",
+                "accept": ["youtube", "vimeo"],
+                "info": "Overrides the image"
+            },
+            {
+                "type": "header",
+                "content": "Links"
+            },
+            {
+                "type": "product",
+                "id": "pictured-product",
+                "label": "Pictured Product"
+            },
+            {
+                "type": "text",
+                "id": "pictured-product-title",
+                "label": "Pictured Product Title Override"
+            },
+            {
+                "type": "text",
+                "id": "button-text",
+                "label": "Button Text"
+            },
+            {
+                "type": "url",
+                "id": "button-link",
+                "label": "Button Link"
+            },
+            {
+                "type": "header",
+                "content": "Display"
+            },
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color",
+                "default": "#ff6b0e"
+            },
+            {
+                "type": "select",
+                "id": "pictured-product-display",
+                "label": "Pictured Product Position",
+                "options": [
+                    {
+                        "value": "top",
+                        "label": "Top"
+                    },
+                    {
+                        "value": "bottom",
+                        "label": "Bottom"
+                    }
+                ],
+                "default": "top"
+            },
+            {
+                "type": "select",
+                "id": "columns",
+                "label": "Product Columns",
+                "options": [
+                    {
+                        "value": "2",
+                        "label": "2"
+                    },
+                    {
+                        "value": "3",
+                        "label": "3"
+                    }
+                ],
+                "default": "3"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "product",
+                "name": "Product",
+                "settings": [
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Promo Collection"
+            }
+        ]
+    }
+{% endschema %}

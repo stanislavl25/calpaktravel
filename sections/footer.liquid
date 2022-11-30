@@ -1,0 +1,115 @@
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
+
+<footer class="site-footer">
+    <section class="footer__widgets">
+        {%- for block in section.blocks -%}
+            <div class="footer__widget footer__widget--{{ block.type }}" {{ block.shopify_attributes }}>
+            {%- case block.type -%}
+                {%- when 'link_list' -%}
+                    {%- if block.settings.heading != blank -%}
+                        <div class="footer__widget-title">
+                            {{- block.settings.heading | escape -}}
+                        </div>
+                    {%- endif -%}
+                    {%- if block.settings.menu != blank -%}
+                    <ul class="list-menu list-unstyled">
+                        {%- for link in block.settings.menu.links -%}
+                        <li>
+                            <a href="{{ link.url }}" class="list-menu__item {% if link.active %} list-menu__item--active{% endif %}">
+                                {{ link.title }}
+                            </a>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                    {%- endif -%}
+                {%- when 'social' -%}
+                    {%- if block.settings.heading != blank -%}
+                        <div class="footer__widget-title footer__widget-title--big">
+                            {{- block.settings.heading | escape -}}
+                        </div>
+                    {%- endif -%}
+                    <div class="footer-socials">
+                        {% if settings.facebook != blank %}
+                        <a href="{{ settings.facebook }}" title="Facebook"><img alt="Facebook" loading="lazy" src="{{ 'facebook.svg' | asset_url }}"></a>
+                        {% endif %}
+                        {% if settings.instagram != blank %}
+                        <a href="{{ settings.instagram }}" title="Instagram"><img alt="Instagram" loading="lazy" src="{{ 'instagram.svg' | asset_url }}"></a>
+                        {% endif %}
+                        {% if settings.twitter != blank %}
+                        <a href="{{ settings.twitter }}" title="Twitter"><img alt="Twitter" loading="lazy" src="{{ 'twitter.svg' | asset_url }}"></a>
+                        {% endif %}
+                        {% if settings.youtube != blank %}
+                        <a href="{{ settings.youtube }}" title="Youtube"><img alt="Youtube" loading="lazy" src="{{ 'youtube.svg' | asset_url }}"></a>
+                        {% endif %}
+                        {% if settings.pinterest != blank %}
+                        <a href="{{ settings.pinterest }}" title="Pinterest"><img alt="Pinterest" loading="lazy" src="{{ 'pinterest.svg' | asset_url }}"></a>
+                        {% endif %}
+                    </div>
+            {%- endcase -%}
+            </div>
+        {%- endfor -%}
+    </section>
+
+    <div class="site-footer__bottom">
+        {% if section.settings.bottom-menu != blank %}
+        <ul class="site-footer__line-menu list-unstyled list-row">
+            {%- for link in section.settings.bottom-menu.links -%}
+            <li>
+                <a href="{{ link.url }}">
+                    {{ link.title }}
+                </a>
+            </li>
+            {%- endfor -%}
+        </ul>
+        {% endif %}
+        <div class="site-footer__copyright">
+            &copy; {{ 'now' | date: '%Y' }}, California Pak, LLC.
+        </div>
+    </div>
+</footer>
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "bottom-menu",
+            "label": "Bottom Menu"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "link_list",
+            "name": "Menu",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading"
+                },
+                {
+                    "type": "link_list",
+                    "id": "menu",
+                    "label": "Menu"
+                }
+            ]
+        },
+        {
+            "type": "social",
+            "name": "Social",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

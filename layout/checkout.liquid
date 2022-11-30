@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+  {% comment %} https://upsaddresscheck.herokuapp.com/?address1=21600%20Hawthorne%20Boulevard&address2=&city=New%20York&state=CA&zip=90503 {% endcomment %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ 'checkout.scss.css' | asset_url | stylesheet_tag }}
+    {{ checkout_scripts }}
+
+    {% comment %} <script src="https://cdn.attn.tv/calpak/checkout/checkout.js" defer></script> {% endcomment %}
+    <script>
+        const env = 'preview';'{%- if checkout_scripts contains "previewBarInjector.init();" -%}preview{%- else -%}live{%- endif -%}';
+    </script>
+  <!-- Snap Pixel Code -->
+  <script type='text/javascript'>
+    (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+    {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+    a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+    r.src=n;var u=t.getElementsByTagName(s)[0];
+    u.parentNode.insertBefore(r,u);})(window,document,
+    'https://sc-static.net/scevent.min.js');
+    snaptr('init', '4b9a3e5a-d360-427d-8a74-f2b2faf37f4d');
+  </script>
+  <!-- End Snap Pixel Code -->
+
+  {% include '3wh-gtm' %}
+
+      <!-- Anti-flicker snippet (recommended) -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-5VKKRGV':true});</script>
+
+    <noscript>
+        <style>
+            .order-summary__section--product-list .product-table {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+</head>
+    {%- liquid
+        assign non_exped_items = false
+        assign exped_items = false
+        for item in checkout.line_items
+            if item.product.tags contains '2dayexclude'
+                assign non_exped_items = true
+            else
+                assign exped_items = true
+            endif
+        endfor
+        assign exped_class = ''
+
+        if exped_items and non_exped_items
+            assign exped_class = 'excludeSome2d'
+        elsif non_exped_items
+            assign exped_class = 'exclude2d'
+        endif
+    -%}
+<body class="{% if customer %}customer-logged-in {% endif %}{% if settings.sale-active %}holiday-sale-active{% endif %} {{ exped_class }}">
+    {{ skip_to_content_link }}
+
+    {% section 'mini-cart-items' %}
+    {% section 'checkout-promos' %}
+
+    <script>document.body.classList.add('step--' + Shopify.Checkout.step);</script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VKKRGV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    {%- if checkout_html_classes contains 'thank-you' -%}
+        {% assign all_items = '' %}
+        {% assign all_items_num = 0 %}
+        {% for item in checkout.line_items %}
+            {% assign all_items_num = all_items_num | plus: item.quantity %}
+            {% unless forloop.first %} {% assign all_items = all_items | append: ',' %} {% endunless %}
+            {% assign all_items = all_items | append: item.product_id %}
+        {% endfor %}
+
+      <script>
+        // snaptr('track', 'PURCHASE', {'item_ids': [{{ all_items }}]});
+      </script>
+
+      <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+      <div class="yotpo-widget-instance" data-yotpo-instance-id="4351"></div>
+    {%- endif -%}
+
+    <div class="banner" data-header>
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </div>
+
+    {{ order_summary_toggle }}
+
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main" role="main">
+          <div class="main__header">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </div>
+          <div class="main__content">
+            {{ content_for_layout }}
+
+            {% comment %} <div data-address-field="gift_note" data-autocomplete-field-container="false" class="gift-note-field-container {% if checkout.note != blank %}gift-note-field-container--active{% endif %} field--optional field--show-floating-label">
+
+                <div class="fieldset-description" data-buyer-accepts-marketing="">
+                    <div class="section__content">
+                        <div class="checkbox-wrapper">
+                            <div class="checkbox__input">
+                                <input name="checkout[add-note]" {% if checkout.add-note or checkout.note != blank %}checked="checked"{% endif %} autocomplete="off" class="input-checkbox gift-checkbox" data-backup="buyer_accepts_marketing" type="checkbox" value="1" id="add_gift_note">
+                            </div>
+                            <label class="checkbox__label checkbox__label--gift-note" for="add_gift_note">
+                                {% render 'image-n' with 'gift.png', asset: true, no_wrapper: true, lazy: true %} Add a gift note.
+                                <div class="gift-textarea-container">
+                                    <textarea maxlength="150" class="field__input field__input--textarea" autocomplete="off" data-trekkie-id="gift_note_field" value="" name="checkout[note]" data-backup="gift_note">{{ checkout.note }}</textarea>
+                                    <div class="textarea-character-count" data-max="150">(<span>{% if checkout.note.size != blank %}{{ checkout.note.size }}{% else %}0{% endif %}</span>/150 Characters)</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+            {% comment %} <div data-address-field="gift_note" data-autocomplete-field-container="false" class="gift-note-field-container field--optional field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="checkout_gift_note">Gift note (optional)</label>
+                    <input value="{{ checkout.note }}" placeholder="Gift note (optional)" autocomplete="off" data-trekkie-id="gift_note_field" data-backup="gift_note" class="field__input gift-note-input" size="30" type="text" value="" name="checkout[note]" id="checkout_gift_note">
+                </div>
+            </div> {% endcomment %}
+
+            {% if settings.checkout_message_enabled %}
+            <div class="direct-relief">
+              <div class="direct-relief-image">
+                <div class="direct-relief-image-cont">
+                  {{ settings.checkout_message_image | img_url: 'large' | img_tag }}
+                </div>
+              </div>
+              <div class="direct-relief-content">{{ settings.checkout_message_text }}</div>
+            </div>
+            {% endif %}
+            
+            {% comment %} {% if checkout.attributes.["Note"] != blank %}
+            <div role="row" class="review-block add-review-block">
+              <div class="review-block__inner">
+                <div role="gridcell" class="review-block__label">
+                  Note
+                </div>
+                <div role="gridcell" class="review-block__content">
+                  {{ checkout.note }}
+                </div>
+              </div>
+              <div role="gridcell" class="review-block__link">
+                <a class="link--small" data-trekkie-id="change_shipping_address_link" href="/checkout?step=contact_information">
+                  <span aria-hidden="true">Change</span>
+                  <span class="visually-hidden">Change note</span>
+                </a>
+              </div>
+            </div>
+            {% endif %} {% endcomment %}
+            
+          </div>
+          <div class="main__footer">
+            {{ content_for_footer }}
+          </div>
+        </div>
+        <div class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'checkout-gtm' %} 
+
+    {{ tracking_code }}
+
+    {% if settings.checkout_under_discount_text != blank %}
+    <script>
+        function insertAfter(newNode, referenceNode) {
+            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        }
+
+        let discountSection = document.querySelector('.order-summary__section--discount');
+        if(discountSection) {
+            let node = document.createElement("div");
+            node.classList.add('coupon_disclaimer');
+            node.innerHTML = 'Please note 1 discount code per order can be applied';
+            insertAfter(node, discountSection);
+        }
+    </script>
+    {% endif %}
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5VKKRGV');</script>
+    <!-- End Google Tag Manager -->
+
+    {% comment %}
+    {%- if checkout_html_classes contains 'thank-you' -%}
+    <script>
+        let covidNode = document.createElement('section');
+        covidNode.classList.add('covid-notice');
+        covidNode.innerHTML = '<div class="covid-notice__title">COVID-19 Shipping Update</div><div class="covid-notice__text">We are doing everything within our power to make sure that your order is delivered accurately, completely, and on time.  However, due to the significant impact of COVID-19, we are experiencing some delays.  Our shipping carriers are facing extremely high holiday volume and delivery of your order can take longer due to cargo disruptions.  Your order may also take more than 48 hours for a carrier status update.  We thank you for your patience and understanding.</div>';
+        document.querySelector('.step__sections').insertBefore(covidNode, document.querySelectorAll('.step__sections .section')[1]);
+    </script>
+    {%- endif -%}
+    {% endcomment %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    {% include 'address-validator' %}
+    {% include 'swell-checkout-rangeslider' %}
+
+    {%- if checkout_html_classes contains 'thank-you' -%}
+        {%- if order.fulfillment_status != 'fulfilled' and order.cancelled == false and order.financial_status != 'refunded' and order.financial_status != 'partially_refunded' and order.financial_status != 'voided' -%}
+            <script>
+                document.querySelector('.heading-2.os-step__title').innerHTML = 'Your order is processing';
+            </script>
+        {%- endif -%}
+    {%- endif -%}
+
+    {%- if checkout_html_classes contains 'thank-you' -%}
+        <script>
+            let cart_items = [];
+            {% for item in checkout.line_items %}
+            cart_items.push([{{ item.product_id }}, "{{ item.product.handle }}", ["{{ item.variant.option1 }}"{% if item.variant.option2 != blank %},"{{ item.variant.option2 }}"{% endif %}], "{{ item.product.type }}"]);
+            {% endfor %}
+        </script>
+        <div class="checkout-product-recommendations mini-cart__section--mc_recommended">
+            {% render 'feat-collection' with 'empty', title: "Best Paired With" %}
+        </div>
+    {%- endif -%}
+
+    {%- if checkout_html_classes contains 'thank-you' -%}
+        <script>
+            let fs_node = false;
+            let node = false;
+        </script>
+        {% for item in checkout.line_items %}
+            {% if item.properties['_final-sale'] == true or item.properties['_final-sale'] == 'true' %}
+                <script>
+                  fs_node = document.createElement("p");
+                  fs_node.classList.add("final-sale-sign");
+                  fs_node.innerHTML = "Final sale";
+
+                  document.querySelectorAll('.product-table .product')[{{ forloop.index0 }}].querySelector('.product__description').appendChild(fs_node);
+                </script>
+            {% endif %}
+            {% if item.properties['_preorder'] != blank and item.properties['_preorder'] != false and item.properties['_preorder'] != 'false' %}
+                <script>
+                    node = document.createElement("p");
+                    node.classList.add("preorder-sign");
+                    node.innerHTML = "Est. ship date: <strong>{{ item.properties['_preorder'] }}</strong>";
+                    document.querySelector(".product[data-variant-id='{{ item.variant_id }}'] .product__description").appendChild(node);
+                </script>
+            {% endif %}
+        {% endfor %}
+
+    {%- endif -%}
+
+    {% if customer != blank and customer.default_address != blank %}
+    <script>
+        if(Shopify.Checkout.step == 'contact_information') {
+            if(!document.querySelector('#checkout_shipping_address_id option[value="{{ customer.default_address.id }}"]')) {
+                let json = '{{ customer.default_address | json }}';
+                document.querySelector('#checkout_shipping_address_id').innerHTML = '<option value="{{ customer.default_address.id }}" data-properties=\'' + json.replaceAll("'", "\\'") + '\'>{{ customer.default_address.address1 }} {{ customer.default_address.address2 }}, {{ customer.default_address.city }} {{ customer.default_address.province_code }} {{ customer.default_address.zip }}, {{ customer.default_address.country }} ({{ customer.default_address.first_name }} {{ customer.default_address.last_name }})</option>' + document.querySelector('#checkout_shipping_address_id').innerHTML;
+            }
+            if(document.querySelector('#checkout_shipping_address_address1').value == '') document.querySelector('#checkout_shipping_address_id').value = {{ customer.default_address.id }};
+        }
+    </script>
+    {% endif %}
+
+    <script src="{{ 'simplebar.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'checkout.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'checkout-promo.js' | asset_url }}" defer="defer"></script>
+    <noscript>
+        <style>
+            [data-simplebar] {
+            overflow: auto;
+            }
+        </style>
+    </noscript>
+</body>
+</html>

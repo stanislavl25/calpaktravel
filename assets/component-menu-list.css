@@ -1,0 +1,46 @@
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-item > a {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    line-height: 1.2em;
+    border: 1px solid transparent;
+}
+
+.menu-item--active > a,
+.menu-item > a:hover {
+    padding: 0 5px;
+    border: 1px solid #000;
+    border-radius: 9px;
+}
+
+.menu-item--active > a {
+    background: #fff;
+}
+
+.menu-popup--discover .menu-item--active > a {
+    background: var(--yellow);
+}
+
+.submenu {
+    list-style-type: none;
+    padding: 15px 0 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-item--active .submenu {
+    display: flex;
+}

@@ -1,0 +1,240 @@
+:root {
+    --yellow: #f7f177;
+    --orange: #ff6b0e;
+    --gap: 18px;
+}
+
+body {
+    margin: 0;
+}
+
+iframe {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+.grecaptcha-badge {
+    display: none !important;
+}
+
+p:last-child {
+    margin: 0;
+}
+
+body > div:empty {
+    display: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+    .hide-small {
+        display: none !important;
+    }
+
+    :root {
+        --gap: 10px;
+    }
+}
+
+@media (min-width: 901px) {
+    .hide-large {
+        display: none !important;
+    }
+}
+
+.ratio-container {
+    position: relative;
+    padding-top: 50%;
+}
+
+.ratio-container > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shopify-section--padded {
+    padding: var(--gap);
+}
+
+.list-unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-row {
+    display: flex;
+    gap: var(--gap);
+}
+
+.content-placeholder {
+    background: #e4dfd5;
+    border-radius: 9px;
+    margin: var(--gap);
+    height: 400px;
+}
+
+.content-placeholder:nth-child(odd) {
+    background: #c5c5c5;
+}
+
+.tri-left,
+.tri-right {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 12px;
+    display: block;
+    border-color: transparent #000 transparent transparent;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.tri-right {
+    border-color: transparent transparent transparent #000;
+}
+
+.button-tri-left,
+.button-tri-right {
+    width: 42px;
+    height: 42px;
+    display: block;
+    border: 1px solid #000;
+    border-radius: 9px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+}
+
+.button-tri-left::before,
+.button-tri-right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    margin: -6px 0 0 -19px;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 12px;
+    border-color: transparent #000 transparent transparent;
+}
+
+.button-tri-right::before {
+    border-color: transparent transparent transparent #000;
+    margin: -6px 0 0 -3px;
+}
+
+.button {
+    height: 42px;
+    line-height: 42px;
+    white-space: nowrap;
+    border: 1px solid #000;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #000;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: var(--font-body-weight-bold);
+    padding: 0 17px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button--secondary {
+    background: #fff;
+    color: #000;
+}
+
+.transparent-button {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 0 5px;
+    height: 42px;
+    background: transparent;
+    cursor: pointer;
+    line-height: 1em;
+}
+
+.tabs__button--active.transparent-button,
+.transparent-button--active,
+.transparent-button:hover {
+    border-color: #000;
+}
+
+.tabs__button--active.transparent-button,
+.transparent-button--active {
+    background: var(--yellow);
+}
+
+.subnav__container {
+    position: relative;
+}
+
+.subnav__activator {
+    padding-right: 13px;
+    position: relative;
+}
+
+.subnav__activator::after {
+    border-style: solid;
+    border-width: 6px 3px;
+    border-color: #000 transparent transparent;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-2px);
+}
+
+.close-button {
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 0;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-button::before,
+.close-button::after {
+    content: '';
+    width: 20px;
+    border-top: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-button--white::before,
+.close-button--white::after {
+    border-color: #fff;
+}
+
+.close-button::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}

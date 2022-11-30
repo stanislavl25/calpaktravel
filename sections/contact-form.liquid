@@ -1,0 +1,116 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-form.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-form.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="section__contact-form">
+    <aside class="contact-form__text">
+        <div class="contact-form__title">{{ section.settings.title | escape }}</div>
+        {% if section.settings.description != blank %}
+        <div class="contact-form__description">{{ section.settings.description }}</div>
+        {% endif %}
+    </aside>
+
+    {% form 'customer', class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        <div class="form__field-line">
+            <input
+                type="email"
+                name="contact[email]"
+                placeholder="Email"
+                class="field__input"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="Newsletter-error--{{ section.id }}"
+                {% elsif form.posted_successfully? %}
+                    aria-describedby="Newsletter-success--{{ section.id }}"
+                {% endif %}
+                required>
+            
+            {%- if section.settings.show-phone -%}
+                <input
+                    type="tel"
+                    placeholder="Phone (optional)"
+                    name="contact[phone]"
+                    class="field__input"
+                    value="{{ form.phone }}"
+                    aria-required="false"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="phone"
+                    {% if form.errors %}
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                        aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}>
+            {%- endif -%}
+
+
+            <button type="submit" class="button" name="commit">
+                {{- section.settings.button-text | escape -}}
+            </button>
+        </div>
+
+        {%- if section.settings.disclaimer != blank -%}
+        <div class="form__disclaimer">{{- section.settings.disclaimer -}}</div>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+            <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? -%}
+            <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+        {%- endif -%}
+    {% endform %}
+</div>
+
+{% schema %}
+    {
+        "name": "Contact Form",
+        "class": "shopify-section--contact-form",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description"
+            },
+            {
+                "type": "richtext",
+                "id": "disclaimer",
+                "label": "Disclaimer"
+            },
+            {
+                "type": "checkbox",
+                "id": "show-phone",
+                "label": "Show Phone Field",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "button-text",
+                "label": "Button Text",
+                "default": "Join mailing list"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Contact Form"
+            }
+        ]
+    }
+{% endschema %}

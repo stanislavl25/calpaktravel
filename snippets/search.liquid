@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="{{ 'component-search-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-search-popup.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="menu-popup menu-popup--search" data-status="init" data-src="{{ 'search.js' | asset_url }}">
+    <div class="search-popup__overlay"></div>
+    <div class="search-popup__content">
+        <div class="search__top">
+            <button class="menu-close" title="Close"></button>
+            <form class="search-form" action="/" method="get">
+                <button class="search-button" type="submit"><img loading="lazy" src="{{ 'icon-search.svg' | asset_url }}"></button>
+                <div class="search-input__container">
+                    <input class="search-input" required="required" type="text" name="s">
+                    {% render 'search-placeholders' %}
+                </div>
+            </form>
+        </div>
+        <div class="menu-popup__content search-section" data-id="init">
+            <div class="menu-popup__main">
+                <div class="content-section">
+                    <div class="content-section__title">Popular Searches</div>
+                    <div class="products__grid">
+                        {%- liquid
+                            for product in collections['best-sellers'].products limit: 4
+                                render 'product-unit' with product, quick_view: true
+                            endfor
+                        -%}
+                    </div>
+                </div>
+            </div>
+            <aside class="menu-side">
+                <div class="menu-popup__collections-buttons">
+                    <section class="content-section">
+                        <div class="content-section__title">Search by Category</div>
+                        <div class="collections-buttons">
+                            <a class="button button--secondary" href="#">All Products</a>
+                            <a class="button button--secondary" href="#">Luggage</a>
+                            <a class="button button--secondary" href="#">Bags</a>
+                            <a class="button button--secondary" href="#">Organizers</a>
+                            <a class="button button--secondary" href="#">Accessories</a>
+                            <a class="button button--secondary" href="#">On SALE</a>
+                        </div>
+                    </section>
+                </div>
+            </aside>
+        </div>
+        <div class="menu-popup__content search-section" data-id="empty">
+            <div class="search__empty-message">Your search for "<span class="search-term">no</span>" didn't return any results. Please try again or browse below.</div>
+            <div class="menu-popup__main">
+                <div class="content-section">
+                    <div class="content-section__title">Popular Searches</div>
+                    <div class="products__grid">
+                        {%- liquid
+                            for product in collections['best-sellers'].products limit: 4
+                                render 'product-unit' with product, quick_view: true
+                            endfor
+                        -%}
+                    </div>
+                </div>
+            </div>
+            <aside class="menu-side">
+                <div class="menu-popup__collections-buttons">
+                    <section class="content-section">
+                        <div class="content-section__title">Search by Category</div>
+                        <div class="collections-buttons">
+                            <a class="button button--secondary" href="#">All Products</a>
+                            <a class="button button--secondary" href="#">Luggage</a>
+                            <a class="button button--secondary" href="#">Bags</a>
+                            <a class="button button--secondary" href="#">Organizers</a>
+                            <a class="button button--secondary" href="#">Accessories</a>
+                            <a class="button button--secondary" href="#">On SALE</a>
+                        </div>
+                    </section>
+                </div>
+            </aside>
+        </div>
+        <div class="menu-popup__content search-section" data-id="results">
+            <div class="menu-popup__main">
+                <div class="content-section">
+                    <div class="content-section__title">Products (20) <a href="#" style="font-weight: 500; text-decoration: underline; margin-left: 4px;">View all results</a></div>
+                    <div class="products__grid">
+                        {%- liquid
+                            for product in collections['best-sellers'].products limit: 20
+                                render 'product-unit' with product, quick_view: true
+                            endfor
+                        -%}
+                    </div>
+                </div>
+            </div>
+            <aside class="menu-side">
+                <div class="menu-popup__collections-buttons">
+                    <section class="content-section">
+                        <div class="content-section__title">Search by Category</div>
+                        <div class="collections-buttons">
+                            <a class="button button--secondary" href="#">All Products</a>
+                            <a class="button button--secondary" href="#">Luggage</a>
+                            <a class="button button--secondary" href="#">Bags</a>
+                            <a class="button button--secondary" href="#">Organizers</a>
+                            <a class="button button--secondary" href="#">Accessories</a>
+                            <a class="button button--secondary" href="#">On SALE</a>
+                        </div>
+                    </section>
+                </div>
+            </aside> 
+        </div>
+    </div>
+</section>
