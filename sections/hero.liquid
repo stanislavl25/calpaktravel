@@ -1,4 +1,4 @@
-{{ 'section-hero.css' | asset_url | stylesheet_tag }}
+{{ 'section-hero.css' | asset_url | stylesheet_tag: preload: true }}
 
 {% if section.settings.enable-sticky-promo %}
 

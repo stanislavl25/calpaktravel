@@ -6,6 +6,7 @@
     border: 1px dashed #707070;
     border-radius: 9px;
     overflow: hidden;
+    position: relative;
 }
 
 .reviews__slide--spacer {

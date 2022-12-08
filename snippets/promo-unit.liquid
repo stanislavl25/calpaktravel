@@ -8,6 +8,16 @@
         <div class="promo-unit__image">
             {%- render 'image' with block.settings.banner, height: 133.333, sizes: '20vw', lazy: true -%}
         </div>
-        <div class="promo-unit__text"></div>
+        {%- if block.settings.title != blank or block.settings.text != blank -%}
+        <div class="promo-unit__text">
+            {%- if block.settings.title != blank -%}
+            <div class="promo-unit__title">{{- block.settings.title | escape -}}</div>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+            <div class="promo-unit__description">{{- block.settings.text -}}</div>
+            {%- endif -%}
+        </div>
+        {%- endif -%}
     </div>
 </div>

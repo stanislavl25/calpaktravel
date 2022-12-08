@@ -17,7 +17,7 @@
 
         <div class="product-unit__colors" data-count="0">
             <div class="product-unit__colors-text">in <i>x</i> colors</div>
-            <div class="product-unit__swatches"></div>
+            <div class="product-unit__swatches-container"><div class="product-unit__swatches"></div></div>
         </div>
 
         <a href="{{ product.url }}" class="product-unit__link">
@@ -43,6 +43,10 @@
                 -%}
             </div>
         </a>
+    </div>
+
+    <div class="product-unit__wishlist">
+        <button class="wishlist__button">{% render 'icon-heart' %}</button>
     </div>
 
     <div class="product-unit__title">

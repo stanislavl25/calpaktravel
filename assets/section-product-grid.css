@@ -16,12 +16,14 @@
     grid-column: var(--column) / span 2;
 }
 
+/* Tablet */
 @media (max-width: 900px) {
     .product-grid {
         grid-template-columns: repeat(var(--tablet-columns), 1fr);
     }
 }
 
+/* Mobile */
 @media (max-width: 650px) {
     .product-grid {
         grid-template-columns: repeat(var(--mobile-columns), 1fr);

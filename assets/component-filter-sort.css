@@ -1,4 +1,4 @@
-input[type="radio"] {
+.collection-filter--sort input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -6,8 +6,37 @@ input[type="radio"] {
     border-radius: 50%;
     border: 1px solid #000;
     transition: background 0.3s;
+    margin: 0 10px 0 0;
 }
 
-input[type="radio"]:checked {
+.collection-filter--sort input[type="radio"]:checked {
     background: #000;
+}
+
+.collection-filter--sort {
+    padding: var(--gap) 0;
+}
+
+[data-active="sort"] .collection-filter--sort {
+    display: block;
+}
+
+.collection-filter--sort ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+[data-active="sort"] .filter__activator--sort::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -1px;
+    border-top: 1px solid #000;
+}
+
+.collection-filters[data-active="sort"] {
+    width: 500px;
+    max-width: 100%;
 }

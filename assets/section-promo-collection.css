@@ -24,6 +24,9 @@
     display: grid;
     gap: var(--gap);
     min-width: 10px;
+    align-self: flex-start;
+    position: sticky;
+    top: calc(42px + var(--gap));
 }
 
 .promo-collection__media {

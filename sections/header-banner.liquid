@@ -8,6 +8,8 @@
         assign display = false
         if block.settings.display == 'everywhere'
             assign display = true
+        elsif block.settings.display == 'homepage' and template == 'index'
+            assign display = true
         elsif block.settings.display == 'not-homepage' and template != 'index'
             assign display = true
         elsif block.settings.display == 'collections' and template contains 'collection'
@@ -91,6 +93,10 @@
                             {
                                 "value": "everywhere",
                                 "label": "Everywhere"
+                            },
+                            {
+                                "value": "homepage",
+                                "label": "Homepage only"
                             },
                             {
                                 "value": "not-homepage",

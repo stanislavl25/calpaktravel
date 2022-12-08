@@ -4,15 +4,43 @@
 
 .promo-unit__inner {
     display: flex;
+    position: relative;
 }
 
 .promo-unit__image {
-    flex: 1;
+    flex: 0 0 50%;
     min-width: 0;
+}
+
+.promo-unit__image:not(:only-child) {
+    position: relative;
+}
+
+.promo-unit__image .ratio-container {
+    position: static;
 }
 
 .promo-unit__text {
     flex: 1;
     min-width: 0;
     background: #e4dfd5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 32px;
+}
+
+.promo-unit__title {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1em;
+}
+
+.promo-unit__description {
+    line-height: 1.5em;
+}
+
+.section-filtered .promo-unit {
+    display: none;
 }

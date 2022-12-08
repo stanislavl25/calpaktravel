@@ -1,4 +1,4 @@
-{{ 'section-collection-filter.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-filter.css' | asset_url | stylesheet_tag: preload: true }}
 
 <link rel="stylesheet" href="{{ 'component-filter-color.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-filter-sort.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -12,20 +12,20 @@
 <section class="collection-filters__control">
     <div class="collection-filter__activators">
         <button class="filter__activator filter__activator--color">
-            Color
+            Color <i></i>
         </button>
 
         <button class="filter__activator filter__activator--sort">
             Sort by
         </button>
     </div>
-    <div class="collection-subcategories">
-        <button class="button button--secondary">All Products ({{ collection.products.size }})</button>
-        <button class="button button--secondary">Luggage</button>
-        <button class="button button--secondary">Bags</button>
-        <button class="button button--secondary">Organizers</button>
-        <button class="button button--secondary">Accessories</button>
+    {%- if linklists[section.settings.menu] != blank and section.settings.menu != blank -%}
+    <div class="collections-menu">
+        {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}" class="button{% if link.current %} collections-menu__current{% endif %} button--secondary">{{- link.title | escape -}} {% if link.current %}<i>{{ collection.products.size }}</i>{% endif %}</a>
+        {%- endfor -%}
     </div>
+    {%- endif -%}
     <div class="collection-view">
         <span class="col-view__text">View</span>
         <button class="col-view__button col-view__button--less">
@@ -39,11 +39,19 @@
             <span class="desktop-only">5</span>
         </button>
     </div>
+    <div class="current-filters-list"></div>
 </section>
 
 <section class="collection-filters">
-    <nav>
-        Color Sort
+    <button class="filter__reset">Clear All</button>
+    <nav class="active-filters-nav">
+        <button class="filter__activator filter__activator--color">
+            Color <i></i>
+        </button>
+
+        <button class="filter__activator filter__activator--sort">
+            Sort by
+        </button>
     </nav>
     <div class="collection-filter collection-filter--color">
         <div class="slider__wrapper">
@@ -51,15 +59,15 @@
                
             </div>
         </div>
-        <div>
-            <button class="button">Apply</button>
-            <button class="button button--secondary">Close</button>
+        <div class="filter__buttons">
+            <button class="button filters__close">Apply</button>
+            <button class="button button--secondary filters__close">Close</button>
         </div>
     </div>
     <div class="collection-filter collection-filter--sort">
         <ul class="list-unstyled">
             <li>
-                <label><input value="featured" type="radio" name="sort"> Featured</labe>
+                <label><input value="featured" checked="checked" type="radio" name="sort"> Featured</labe>
             </li>
             <li>
                 <label><input value="new" type="radio" name="sort"> Newest</labe>
@@ -82,7 +90,11 @@
         "name": "Collection Filter",
         "class": "shopify-section--col-filter",
         "settings": [
-        
+            {
+                "type": "link_list",
+                "id": "menu",
+                "label": "Menu"
+            }
         ]
     }
 {% endschema %}

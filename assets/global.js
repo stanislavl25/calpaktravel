@@ -23,25 +23,15 @@ function handleize(str) {
     return str.toLowerCase().replace(/[^\w\u00C0-\u024f]+/g, "-").replace(/^-+|-+$/g, "");
 }
 
+function unhandleize(str) {
+    if(!str) return '';
+    return str.replace('-', ' ');
+}
+
 function formatPrice(x) {
     x = Math.floor(x);// / 100;
     return '$' + (x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace('.00', ''));
 }
-
-let windowScrollThrottle = false;
-let windowLastScroll = window.pageYOffset;
-let headerStatus = 'visible';
-let headerEl = document.querySelector('.shopify-section--header');
-window.addEventListener('scroll', function() {
-    if(windowScrollThrottle !== false) clearTimeout(windowScrollThrottle);
-    windowScrollThrottle = setTimeout(() => {
-        if(windowLastScroll < window.pageYOffset && headerStatus == 'visible' && !document.body.classList.contains('modal-open')) headerStatus = 'hidden';
-        else if(windowLastScroll > window.pageYOffset && headerStatus == 'hidden') headerStatus = 'visible';
-
-        headerEl.setAttribute('data-status', headerStatus);
-        windowLastScroll = window.pageYOffset;
-    }, 10);
-}, {passive: true});
 
 let searchPlaceholders = document.querySelectorAll('.search-placeholders');
 if(searchPlaceholders.length > 0) {
@@ -83,11 +73,6 @@ searchActivator.addEventListener('click', async function(e) {
     document.body.classList.add('modal-open');
 
     document.querySelector('.menu-popup--search .search-input').focus();
-
-    if(headerStatus == 'hidden') {
-        headerStatus = 'visible';
-        headerEl.setAttribute('data-status', headerStatus);
-    }
 
     try {
         if(typeof performSearch == 'undefined') {
@@ -137,10 +122,6 @@ for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListene
     }
 
     document.body.classList.add('modal-open');
-    if(headerStatus == 'hidden') {
-        headerStatus = 'visible';
-        headerEl.setAttribute('data-status', headerStatus);
-    }
 
     menu.classList.add('menu-popup--active');
     setTimeout(() => {
@@ -167,6 +148,7 @@ for(let i = 0; i < menuDeactivators.length; i++) menuDeactivators[i].addEventLis
 let subnavActivators = document.querySelectorAll('.subnav__activator');
 for(let i = 0; i < subnavActivators.length; i++) subnavActivators[i].addEventListener('click', function(e) {
     e.preventDefault();
+    e.stopPropagation();
     this.closest('.subnav__container').classList.toggle('site-header__dropdown--active');
 });
 
@@ -176,6 +158,7 @@ if(notifiactionsActivator && notifiactionPopup) {
 
     notifiactionsActivator.addEventListener('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         notifiactionPopup.classList.add('notifications-popup--active');
     });
 
@@ -184,6 +167,9 @@ if(notifiactionsActivator && notifiactionPopup) {
         notifiactionPopup.classList.remove('notifications-popup--active');
     });
 }
+
+let notificationsPopup = document.querySelector('.notifications-popup');
+if(notificationsPopup) notificationsPopup.addEventListener('click', (e) => e.stopPropagation());
 
 
 function loadScript(src) {
@@ -397,122 +383,146 @@ const stickyClose = document.querySelectorAll('.sticky-promo__close');
 stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.closest('.sticky-promo').style.display = "none"));
 
 
+/////////////////////// PRODUCT UNITS /////////////////////////
 
+function setProductUnitData(data, target) {
+    const product = data.product;
+    const handle = product.handle;
+    const tags = product.tags.split(', ');
+    let colorIndex = false;
+    let hide = false;
 
-function activateProductUnit(target) {
-    const handle = target.getAttribute('data-handle');
+    tags.forEach(tag => {
+        if(tag.indexOf('hide:') === 0) {
+            let _hide = tag.replace('hide:', '').split(';');
+            if(hide !== false) hide.push(..._hide);
+            else hide = _hide;
+        } else if(tag.indexOf('early-access:') === 0) {
+            let _hide = tag.replace('early-access:', '').split(';');
+            if(hide !== false) hide.push(..._hide);
+            else hide = _hide;
+        }
+    });
 
-    fetch('/products/' + handle + '/product.json')
-    .then(response => response.json())
-    .then(data => {
-        const product = data.product;
-        const tags = product.tags.split(', ');
-        let hide = false;
+    for(let i = 0; i < product.options.length; i++) {
+        if( product.options[i].name.toLowerCase().trim() == 'color' ) colorIndex = i;
+    }
 
-        tags.forEach(tag => {
-            if(tag.indexOf('hide:') === 0) {
-                let _hide = tag.replace('hide:', '').split(';');
-                if(hide !== false) hide.push(..._hide);
-                else hide = _hide;
-            } else if(tag.indexOf('early-access:') === 0) {
-                let _hide = tag.replace('early-access:', '').split(';');
-                if(hide !== false) hide.push(..._hide);
-                else hide = _hide;
-            }
-        });
+    let colors = {
+        _count: 0
+    };
 
-        let colors = {
-            _count: 0
-        };
+    let options = '';
 
-        let options = '';
+    product.variants.forEach(variant => {
+        const opt1 = handleize(variant.option1);
+        let opt2 = false;
+        if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
+        let colorOption = false;
+        if(colorIndex === 0) colorOption = opt1;
+        else if(colorIndex === 1 && opt2 != false) colorOption = opt2;
 
-        product.variants.forEach(variant => {
-            const opt1 = handleize(variant.option1);
-            let opt2 = false;
-            if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
+        if(hide !== false && hide.indexOf(opt1) > -1) return;
 
-            if(hide !== false && hide.indexOf(opt1) > -1) return;
+        let available = true;
 
-            let available = true;
+        if(variant.inventory_policy == "deny" && variant.inventory_quantity == 0) {
+            available = false;
+        }
 
-            if(variant.inventory_policy == "deny" && variant.inventory_quantity == 0) {
-                available = false;
-            }
-
-            let selected = false;
+        let selected = false;
+        if(colorOption !== false) {
             if(colors._count == 0) selected = true;
 
-            if(opt1 in colors) {
-                if(colors[opt1].available === false && available === true) colors[opt1].available = true;
+            if(colorOption in colors) {
+                if(colors[colorOption].available === false && available === true) colors[colorOption].available = true;
             } else {
-                colors[opt1] = {
+                colors[colorOption] = {
                     available: available,
                     selected: selected,
                     title: variant.option1,
-                    url: `${shopUrl}/products/${handle}/${opt1}`
+                    url: `${shopUrl}/products/${handle}/${colorOption}`
                 };
 
                 colors._count++
             }
+        }
 
-            let img = '';
-            for(let i = 0; i < product.images.length; i++) {
-                const image = product.images[i];
-                if(image.variant_ids.indexOf(variant.id) > -1) {
-                    img = image.src;
-                    break;
-                }
+        let img = '';
+        for(let i = 0; i < product.images.length; i++) {
+            const image = product.images[i];
+            if(image.variant_ids.indexOf(variant.id) > -1) {
+                img = image.src;
+                break;
             }
-
-            options += `<option
-                    ${selected?'selected="selected"':''}
-                    data-image="${img}"
-                    data-option1="${opt1}"
-                    data-option2="${opt2}"
-                    value="${variant.id}"
-                    data-price="${formatPrice(variant.price)}"
-                    ${(variant.compare_at_price && variant.compare_at_price > variant.price)?`data-cprice="${formatPrice(variant.compare_at_price)}"`:''}
-                    >
-                        ${variant.title}
-                </option>`;
-        });
-
-        let select = document.createElement('select');
-        select.classList.add('variant-select');
-        select.setAttribute('name', 'id');
-        select.innerHTML = options;
-        target.appendChild(select);
-
-        if(colors._count === 0) return;
-        target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
-        target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
-
-        const swatches = target.querySelector('.product-unit__swatches');
-
-        for (const color in colors) {
-            if(color == '_count') continue;
-            let el = document.createElement('a');
-            el.setAttribute('href', colors[color].url);
-            el.classList.add('color-swatch');
-            el.classList.add('color-' + color);
-            el.setAttribute('title', colors[color].title);
-            el.setAttribute('data-value', color);
-            if(colors[color].available === false) el.classList.add('color-swatch--na');
-            if(colors[color].selected === true) el.classList.add('color-swatch--active');
-
-            swatches.appendChild(el);
         }
 
-        if( colors._count > 3 ) {
-            let extra_colors = document.createElement('a');
-            extra_colors.classList.add('extra-colors');
-            extra_colors.setAttribute('href', `${shopUrl}/products/${handle}`);
-            extra_colors.innerHTML = '+' + (colors._count - 3);
-
-            swatches.appendChild(extra_colors);
-        }
+        options += `<option
+                ${selected?'selected="selected"':''}
+                data-image="${img}"
+                data-option1="${opt1}"
+                data-option2="${opt2}"
+                value="${variant.id}"
+                data-price="${formatPrice(variant.price)}"
+                ${(variant.compare_at_price && variant.compare_at_price > variant.price)?`data-cprice="${formatPrice(variant.compare_at_price)}"`:''}
+                >
+                    ${variant.title}
+            </option>`;
     });
+
+    let select = document.createElement('select');
+    select.classList.add('variant-select');
+    select.setAttribute('name', 'id');
+    select.innerHTML = options;
+    target.appendChild(select);
+
+    if(colors._count === 0) return;
+    target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
+    target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
+
+    const swatches = target.querySelector('.product-unit__swatches');
+
+    for (const color in colors) {
+        if(color == '_count') continue;
+        let el = document.createElement('a');
+        el.setAttribute('href', colors[color].url);
+        el.classList.add('color-swatch');
+        el.classList.add('color-' + color);
+        el.setAttribute('title', colors[color].title);
+        el.setAttribute('data-value', color);
+        if(colors[color].available === false) el.classList.add('color-swatch--na');
+        if(colors[color].selected === true) el.classList.add('color-swatch--active');
+
+        swatches.appendChild(el);
+    }
+
+    if( colors._count > 3 ) {
+        const swatchesContainer = target.querySelector('.product-unit__swatches-container');
+
+        let extra_colors = document.createElement('a');
+        extra_colors.classList.add('extra-colors');
+        extra_colors.setAttribute('href', `${shopUrl}/products/${handle}`);
+        extra_colors.innerHTML = '+' + (colors._count - 3);
+
+        swatchesContainer.appendChild(extra_colors);
+    }
+}
+
+function activateProductUnit(target) {
+    if(target.classList.contains('product-unit--loaded')) return;
+    
+    const handle = target.getAttribute('data-handle');
+
+    target.classList.add('product-unit--loaded');
+
+    return new Promise((resolve, reject) => {
+        fetch('/products/' + handle + '/product.json')
+        .then(response => response.json())
+        .then(data => {
+            setProductUnitData(data, target);
+            resolve(true);
+        });
+    })
 }
 
 window.addEventListener("click", async (e) => {
@@ -525,6 +535,11 @@ window.addEventListener("click", async (e) => {
 
         swatchClickedCallback(e.target);
     }
+    const openDropdowns = document.querySelectorAll('.site-header__dropdown--active');
+    if(openDropdowns.length > 0) openDropdowns.forEach(openDropdown => openDropdown.classList.remove('site-header__dropdown--active'));
+
+    const openNotifications = document.querySelector('.notifications-popup--active');
+    if(openNotifications) openNotifications.classList.remove('notifications-popup--active');
 })
 
 window.addEventListener("load", () => {

@@ -10,5 +10,11 @@ if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filt
         await loadScript(scripts.filter);
     }
 
-    document.querySelector('.collection-filters').style.display = 'block';
+    let selectedFilter = false;
+    if(e.target.classList.contains('filter__activator--color')) selectedFilter = 'color'
+    else if(e.target.classList.contains('filter__activator--sort')) selectedFilter = 'sort';
+
+    if(document.querySelector('.collection-filters').getAttribute('data-active') == selectedFilter)
+        document.querySelector('.collection-filters').removeAttribute('data-active');
+    else document.querySelector('.collection-filters').setAttribute('data-active', selectedFilter);
 }));

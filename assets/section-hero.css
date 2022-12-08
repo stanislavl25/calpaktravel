@@ -9,6 +9,10 @@
     grid-template-rows: 1fr 1fr;
 }
 
+.hero--2 {
+    grid-template-rows: 1fr;
+}
+
 .hero--1 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;

@@ -127,13 +127,13 @@
     content: '';
     width: 6px;
     height: 6px;
-    background: #ff6b0e;
+    background: #000;
     display: block;
     border-radius: 50%;
 }
 
-.header__live-link--active {
-    background: #fff;
+.header__live-link--active::before {
+    background: #ff6b0e;
 }
 
 .header__notifications-link svg {

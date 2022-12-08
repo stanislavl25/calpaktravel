@@ -1,10 +1,7 @@
-.shopify-section--header-banner {
-    padding: var(--gap) var(--gap) 0;
-}
-
 .header-banner {
     border-bottom: 1px dashed #707070;
     padding-bottom: var(--gap);
+    margin: var(--gap) var(--gap) 0;
 }
 
 .header-banner--text-banner {
