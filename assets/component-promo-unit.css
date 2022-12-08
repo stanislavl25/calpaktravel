@@ -1,0 +1,18 @@
+.promo-unit {
+    opacity: 1;
+}
+
+.promo-unit__inner {
+    display: flex;
+}
+
+.promo-unit__image {
+    flex: 1;
+    min-width: 0;
+}
+
+.promo-unit__text {
+    flex: 1;
+    min-width: 0;
+    background: #e4dfd5;
+}

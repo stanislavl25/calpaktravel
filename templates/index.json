@@ -1,8 +1,300 @@
 {
-    "sections": {
-        
+  "sections": {
+    "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
+      "type": "hero",
+      "blocks": {
+        "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/products\/small-hat-box",
+            "title": "Header Text",
+            "description": "<p>Subcopy for the single image hero<\/p>",
+            "button-text": "",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/438428408-img_9868-2.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/products\/ambeur-vanity-case",
+            "title": "Heading Text",
+            "description": "<p>Supporting subtext goes here.<\/p>",
+            "button-text": "Button Link",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
+          "type": "text-block",
+          "settings": {
+            "title": "Bags for brighter days.",
+            "description": "<p>What you need for your everyday, made more fun.<\/p>",
+            "button-text": "Show New Arrivals",
+            "button-url": "shopify:\/\/collections\/new-arrivals",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        },
+        "2d973b40-5bb7-4766-96a5-e54015769ff0": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "video": "",
+            "main-link": "",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd",
+        "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
+        "2d973b40-5bb7-4766-96a5-e54015769ff0"
+      ],
+      "settings": {
+        "enable-sticky-promo": true,
+        "promo-image": "shopify:\/\/shop_images\/IMG_9609.jpg",
+        "promo-text": "•Trnk Collection Live Now",
+        "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
+        "close-color-scheme": "white"
+      }
     },
-    "order": [
-
-    ]
+    "c77438d3-e596-410d-9341-7eea51a24a37": {
+      "type": "featured-content-blocks",
+      "blocks": {
+        "d9543652-11c5-4789-9a4c-e6288bdf2eca": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/luggage",
+            "title": "Luggage",
+            "description": "",
+            "image": "shopify:\/\/shop_images\/PORTABLE-CHARGER-EMERALD-LIFESTYLE.jpg",
+            "button-text": "Shop now",
+            "pictured_product": "",
+            "product_title": "Ambeur Medium"
+          }
+        },
+        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/bags",
+            "title": "Bags",
+            "description": "",
+            "image": "shopify:\/\/shop_images\/LUKA-DUFFEL-BAG-MERLOT-LIFESTYLE1_50941881-df78-4c4b-9b9b-df443bc873f4.jpg",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/luka-duffel",
+            "product_title": "Luka Duffel"
+          }
+        },
+        "700226a3-3f37-4ff5-8158-d8903d803420": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/organizers",
+            "title": "Organizers",
+            "description": "",
+            "image": "shopify:\/\/shop_images\/IMG_9609.jpg",
+            "button-text": "Shop now",
+            "pictured_product": "",
+            "product_title": "Compression Cubes"
+          }
+        }
+      },
+      "block_order": [
+        "d9543652-11c5-4789-9a4c-e6288bdf2eca",
+        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e",
+        "700226a3-3f37-4ff5-8158-d8903d803420"
+      ],
+      "settings": {
+        "gap": false,
+        "mobile-layout": "stacked"
+      }
+    },
+    "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75": {
+      "type": "featured-collections",
+      "blocks": {
+        "97749904-2195-42da-9b4e-7a6f7995c1ca": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": "On SALE"
+          }
+        },
+        "02f79c4f-6737-4220-a31c-992d094df8ee": {
+          "type": "collection",
+          "settings": {
+            "collection": "new-arrivals",
+            "title": "New In"
+          }
+        },
+        "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": "Bestsellers"
+          }
+        }
+      },
+      "block_order": [
+        "97749904-2195-42da-9b4e-7a6f7995c1ca",
+        "02f79c4f-6737-4220-a31c-992d094df8ee",
+        "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684"
+      ],
+      "settings": {}
+    },
+    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
+      "type": "promo-collection",
+      "blocks": {
+        "b8eca0bb-f0e9-4ac8-8328-5e15e28b63e6": {
+          "type": "product",
+          "settings": {
+            "product": "baye-mini-sale"
+          }
+        },
+        "2cab7273-4ba5-4ba0-880c-fae125d6919b": {
+          "type": "product",
+          "settings": {
+            "product": "astyll-2-piece-luggage-set"
+          }
+        },
+        "6c9e73fa-4367-44ff-8f4b-7ac22bbd4e59": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "ambeur-vanity-case"
+          }
+        },
+        "ac75ac0f-12f3-490f-aa03-287b65a869ec": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "clear-cosmetic-case"
+          }
+        }
+      },
+      "block_order": [
+        "b8eca0bb-f0e9-4ac8-8328-5e15e28b63e6",
+        "2cab7273-4ba5-4ba0-880c-fae125d6919b",
+        "6c9e73fa-4367-44ff-8f4b-7ac22bbd4e59",
+        "ac75ac0f-12f3-490f-aa03-287b65a869ec"
+      ],
+      "settings": {
+        "title": "Promotional collection text here",
+        "image": "shopify:\/\/shop_images\/IMG_9609.jpg",
+        "video": "",
+        "pictured-product": "compression-packing-cubes",
+        "pictured-product-title": "Packing Cubes",
+        "button-text": "Shop Now",
+        "button-link": "shopify:\/\/products\/astyll-3-piece-luggage-set",
+        "background": "#ff6b0e",
+        "pictured-product-display": "top",
+        "columns": "3"
+      }
+    },
+    "b12b4161-2d41-4027-a740-a9f3f7ced561": {
+      "type": "featured-content-blocks",
+      "blocks": {
+        "ac73ae99-5b85-4dca-b2ef-7a4700451a47": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/blogs\/destination\/trend-watch-utility",
+            "title": "Trend Watch: Utility",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/small-hat-box",
+            "product_title": "Baye Hat Box"
+          }
+        },
+        "f98ea68c-3c90-41b8-bc5a-a7a80de6bf2b": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/blogs\/destination\/meet-the-luka-collection",
+            "title": "Luka Collection",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
+            "product_title": "Ambeur Vanity Case"
+          }
+        }
+      },
+      "block_order": [
+        "ac73ae99-5b85-4dca-b2ef-7a4700451a47",
+        "f98ea68c-3c90-41b8-bc5a-a7a80de6bf2b"
+      ],
+      "settings": {
+        "gap": true,
+        "mobile-layout": "stacked"
+      }
+    },
+    "951d1a57-9c08-4431-a932-aafbc04369f5": {
+      "type": "reviews",
+      "blocks": {
+        "dd177056-3b6c-4548-8888-c6f0c04155a5": {
+          "type": "review",
+          "settings": {
+            "name": "Rachel M.",
+            "review": "<p>CALPAK has the most functional every day bag on the market.<\/p>",
+            "add-quotes": true,
+            "stars": 4.5,
+            "button-text": "Community gallery",
+            "button-link": "#",
+            "image": "shopify:\/\/shop_images\/IMG_9651-final_copy-4_4cee553d-0e25-4ad8-9080-08d7cdd22cf2.png",
+            "pictured-product": "ambeur-carry-on-luggage",
+            "pictured-product-title": ""
+          }
+        },
+        "b5768f42-e3ec-43c3-bc45-86ac83ab57ff": {
+          "type": "review",
+          "settings": {
+            "name": "John D.",
+            "review": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "add-quotes": true,
+            "stars": 4.2,
+            "button-text": "Community Gallery",
+            "button-link": "#",
+            "image": "shopify:\/\/shop_images\/CALPAK-HOLIDAY-44-3.jpg",
+            "pictured-product": "kaya-backpack",
+            "pictured-product-title": ""
+          }
+        }
+      },
+      "block_order": [
+        "dd177056-3b6c-4548-8888-c6f0c04155a5",
+        "b5768f42-e3ec-43c3-bc45-86ac83ab57ff"
+      ],
+      "settings": {
+        "autoslide": 5
+      }
+    },
+    "ec3f6c4d-e4c0-4c75-b62f-fd442b2aaa84": {
+      "type": "contact-form",
+      "settings": {
+        "title": "Happier travel this way.",
+        "description": "<p>Be the first to know about special announcements. Plus, get 10% off your first purchase.<\/p>",
+        "disclaimer": "<p>By signing up for emails and\/or texts, you accept the <a href=\"\/policies\/privacy-policy\" title=\"Privacy Policy\">Privacy Policy<\/a> and the <a href=\"\/policies\/terms-of-service\" title=\"Terms of Service\">Terms of Service<\/a>.<\/p>",
+        "show-phone": true,
+        "button-text": "Join mailing list"
+      }
+    }
+  },
+  "order": [
+    "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
+    "c77438d3-e596-410d-9341-7eea51a24a37",
+    "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
+    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
+    "b12b4161-2d41-4027-a740-a9f3f7ced561",
+    "951d1a57-9c08-4431-a932-aafbc04369f5",
+    "ec3f6c4d-e4c0-4c75-b62f-fd442b2aaa84"
+  ]
 }

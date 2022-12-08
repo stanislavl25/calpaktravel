@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="{{ 'component-promo-unit.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-promo-unit.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- assign block = promo-unit -%}
+
+<div class="promo-unit" style="--row: {{ block.settings.row }}; --column: {{ block.settings.column }};">
+    <div class="promo-unit__inner">
+        <div class="promo-unit__image">
+            {%- render 'image' with block.settings.banner, height: 133.333, sizes: '20vw', lazy: true -%}
+        </div>
+        <div class="promo-unit__text"></div>
+    </div>
+</div>

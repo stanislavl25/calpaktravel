@@ -1,7 +1,7 @@
 {%- liquid
     assign product = product-unit
 -%}
-<div class="product-unit{% if class != blank %} {{ class }}{% endif %}">
+<div data-handle="{{ product.handle }}" class="product-unit{% if class != blank %} {{ class }}{% endif %}">
     {%- if quick_view == true -%}
         <a class="quick-view__link" href="{{ product-unit.url }}" title="Quick View">
             <img alt="Quick View" src="{{ 'quick-view.svg' | asset_url }}" loading="lazy">
@@ -15,17 +15,46 @@
         </div>
         {%- endif -%}
 
-        <div class="product-unit__colors">
-            <div class="product-unit__colors-text">in 6 colors</div>
+        <div class="product-unit__colors" data-count="0">
+            <div class="product-unit__colors-text">in <i>x</i> colors</div>
             <div class="product-unit__swatches"></div>
         </div>
 
-        <div class="product-unit__image">
-            {%- render 'image' with product.featured_image, lazy: true, no_wrapper: true, sizes: '20vw' -%}
-        </div>
+        <a href="{{ product.url }}" class="product-unit__link">
+            <div class="product-unit__image">
+                {%- liquid
+                    if img_lazy == blank and img_lazy != false
+                        assign img_lazy = true
+                    else
+                        assign img_lazy = false
+                    endif
+
+                    if img_preload == blank
+                        assign img_preload = false
+                    endif
+                    
+                    if product.selected_or_first_available_variant.featured_image != blank
+                        assign img = product.selected_or_first_available_variant.featured_image
+                    else
+                        assign img = product.featured_image
+                    endif
+                    
+                    render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: '20vw'
+                -%}
+            </div>
+        </a>
     </div>
 
-    <div class="product-unit__title">{{ product.title | escape }}</div>
+    <div class="product-unit__title">
+        <a href="{{ product.url }}" class="product-unit__link">{{ product.title | escape }}</a>
+    </div>
 
-    <div class="product-unit__price">{{ product.price | money_without_trailing_zeros }}</div>
+    <div class="product-unit__price">
+        {%- if product.compare_at_price > product.price -%}
+            <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+            <b>{{ product.price | money_without_trailing_zeros }}</b>
+        {%- else -%}
+            <b>{{ product.price | money_without_trailing_zeros }}</b>
+        {%- endif -%}
+    </div>
 </div>

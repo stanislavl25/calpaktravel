@@ -1,67 +1,67 @@
 [
-    {
-        "name": "theme_info",
-        "theme_name": "Calpak",
-        "theme_author": "Calpak",
-        "theme_version": "3.0.1",
-        "theme_documentation_url": "http:\/\/calpaktravel.com\/",
-        "theme_support_email": "hello@calpaktravel.com"
-    },
-    {
-        "name": "General Settings",
-        "settings": [
-            {
-                "type": "image_picker",
-                "id": "favicon",
-                "label": "Favicon"
-            }
-        ]
-    },
-    {
-        "name": "Typography",
-        "settings": [
-            {
-                "type": "font_picker",
-                "id": "type_body_font",
-                "default": "assistant_n4",
-                "label": "Main font"
-            },
-            {
-                "type": "font_picker",
-                "id": "type_body_font_bolder",
-                "default": "assistant_n4",
-                "label": "Bolder font"
-            }
-        ]
-    },
-    {
-        "name": "Social",
-        "settings": [
-            {
-                "type": "url",
-                "id": "facebook",
-                "label": "Facebook"
-            },
-            {
-                "type": "url",
-                "id": "instagram",
-                "label": "Instagram"
-            },
-            {
-                "type": "url",
-                "id": "twitter",
-                "label": "Twitter"
-            },
-            {
-                "type": "url",
-                "id": "youtube",
-                "label": "Youtube"
-            },
-            {
-                "type": "url",
-                "id": "pinterest",
-                "label": "Pinterest"
-            }
-        ]
-    }
+  {
+    "name": "theme_info",
+    "theme_name": "Calpak",
+    "theme_author": "Calpak",
+    "theme_version": "3.0.1",
+    "theme_documentation_url": "http:\/\/calpaktravel.com\/",
+    "theme_support_email": "hello@calpaktravel.com"
+  },
+  {
+    "name": "General Settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "Main font"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font_bolder",
+        "default": "assistant_n4",
+        "label": "Bolder font"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "url",
+        "id": "facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "url",
+        "id": "youtube",
+        "label": "Youtube"
+      },
+      {
+        "type": "url",
+        "id": "pinterest",
+        "label": "Pinterest"
+      }
+    ]
+  }
 ]

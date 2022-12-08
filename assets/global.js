@@ -18,6 +18,16 @@ const color_groups = {
     'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow']
 };
 
+function handleize(str) {
+    if(!str) return '';
+    return str.toLowerCase().replace(/[^\w\u00C0-\u024f]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+function formatPrice(x) {
+    x = Math.floor(x);// / 100;
+    return '$' + (x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace('.00', ''));
+}
+
 let windowScrollThrottle = false;
 let windowLastScroll = window.pageYOffset;
 let headerStatus = 'visible';
@@ -89,6 +99,21 @@ searchActivator.addEventListener('click', async function(e) {
         console.log(e);
     }
 });
+
+let quickViewLinks = document.querySelectorAll('.quick-view__link');
+if(quickViewLinks.length > 0) quickViewLinks.forEach(quickViewLink => quickViewLink.addEventListener('click', async function(e) {
+    e.preventDefault();
+
+    try {
+        if(typeof getQuickView == 'undefined') {
+            await loadScript(scripts.quickview);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+    
+    getQuickView();
+}));
 
 let menuActivators = document.querySelectorAll('.menu-popup__activator');
 for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListener('click', function(e) {
@@ -173,9 +198,7 @@ function loadScript(src) {
     });
 }
 
-//////////////////////////////////////////////////////////
 /////////////////////// SLIDERS //////////////////////////
-//////////////////////////////////////////////////////////
 
 let sliderControls = document.querySelectorAll('.slider__control');
 for(let i = 0; i < sliderControls.length; i++) sliderControls[i].addEventListener('click', function(e) {
@@ -344,9 +367,9 @@ function runSlider(slider, autoslide) {
     }, autoslide * 1000);
 }
 
-//////////////////////////////////////////////////////////
 //////////////////// END SLIDERS /////////////////////////
-//////////////////////////////////////////////////////////
+
+///////////////////////// TABS ///////////////////////////
 
 const tabButtons = document.querySelectorAll('.tabs__button');
 for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click', (e) => {
@@ -368,5 +391,153 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
     if(tab) tab.classList.add('tabs__content--active');
 });
 
+/////////////////////// END TABS /////////////////////////
+
 const stickyClose = document.querySelectorAll('.sticky-promo__close');
 stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.closest('.sticky-promo').style.display = "none"));
+
+
+
+
+function activateProductUnit(target) {
+    const handle = target.getAttribute('data-handle');
+
+    fetch('/products/' + handle + '/product.json')
+    .then(response => response.json())
+    .then(data => {
+        const product = data.product;
+        const tags = product.tags.split(', ');
+        let hide = false;
+
+        tags.forEach(tag => {
+            if(tag.indexOf('hide:') === 0) {
+                let _hide = tag.replace('hide:', '').split(';');
+                if(hide !== false) hide.push(..._hide);
+                else hide = _hide;
+            } else if(tag.indexOf('early-access:') === 0) {
+                let _hide = tag.replace('early-access:', '').split(';');
+                if(hide !== false) hide.push(..._hide);
+                else hide = _hide;
+            }
+        });
+
+        let colors = {
+            _count: 0
+        };
+
+        let options = '';
+
+        product.variants.forEach(variant => {
+            const opt1 = handleize(variant.option1);
+            let opt2 = false;
+            if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
+
+            if(hide !== false && hide.indexOf(opt1) > -1) return;
+
+            let available = true;
+
+            if(variant.inventory_policy == "deny" && variant.inventory_quantity == 0) {
+                available = false;
+            }
+
+            let selected = false;
+            if(colors._count == 0) selected = true;
+
+            if(opt1 in colors) {
+                if(colors[opt1].available === false && available === true) colors[opt1].available = true;
+            } else {
+                colors[opt1] = {
+                    available: available,
+                    selected: selected,
+                    title: variant.option1,
+                    url: `${shopUrl}/products/${handle}/${opt1}`
+                };
+
+                colors._count++
+            }
+
+            let img = '';
+            for(let i = 0; i < product.images.length; i++) {
+                const image = product.images[i];
+                if(image.variant_ids.indexOf(variant.id) > -1) {
+                    img = image.src;
+                    break;
+                }
+            }
+
+            options += `<option
+                    ${selected?'selected="selected"':''}
+                    data-image="${img}"
+                    data-option1="${opt1}"
+                    data-option2="${opt2}"
+                    value="${variant.id}"
+                    data-price="${formatPrice(variant.price)}"
+                    ${(variant.compare_at_price && variant.compare_at_price > variant.price)?`data-cprice="${formatPrice(variant.compare_at_price)}"`:''}
+                    >
+                        ${variant.title}
+                </option>`;
+        });
+
+        let select = document.createElement('select');
+        select.classList.add('variant-select');
+        select.setAttribute('name', 'id');
+        select.innerHTML = options;
+        target.appendChild(select);
+
+        if(colors._count === 0) return;
+        target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
+        target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
+
+        const swatches = target.querySelector('.product-unit__swatches');
+
+        for (const color in colors) {
+            if(color == '_count') continue;
+            let el = document.createElement('a');
+            el.setAttribute('href', colors[color].url);
+            el.classList.add('color-swatch');
+            el.classList.add('color-' + color);
+            el.setAttribute('title', colors[color].title);
+            el.setAttribute('data-value', color);
+            if(colors[color].available === false) el.classList.add('color-swatch--na');
+            if(colors[color].selected === true) el.classList.add('color-swatch--active');
+
+            swatches.appendChild(el);
+        }
+
+        if( colors._count > 3 ) {
+            let extra_colors = document.createElement('a');
+            extra_colors.classList.add('extra-colors');
+            extra_colors.setAttribute('href', `${shopUrl}/products/${handle}`);
+            extra_colors.innerHTML = '+' + (colors._count - 3);
+
+            swatches.appendChild(extra_colors);
+        }
+    });
+}
+
+window.addEventListener("click", async (e) => {
+    if(e.target.classList.contains('color-swatch')) {
+        e.preventDefault();
+
+        if(typeof swatchClickedCallback == 'undefined') {
+            await loadScript(scripts.variants);
+        }
+
+        swatchClickedCallback(e.target);
+    }
+})
+
+window.addEventListener("load", () => {
+    const productUnits = document.querySelectorAll(".product-unit");
+    
+    let observer = new IntersectionObserver(function(entries){
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                activateProductUnit(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold: 0, rootMargin: '0px'});
+
+    productUnits.forEach( productUnit => observer.observe(productUnit) );
+});

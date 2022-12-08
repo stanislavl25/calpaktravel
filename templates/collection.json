@@ -1,16 +1,39 @@
 {
-    "sections": {
-        "collection-filter": {
-            "type": "collection-filter",
-            "settings": {}
-        },
-        "product-grid": {
-            "type": "product-grid",
-            "settings": {}
-        }
+  "sections": {
+    "collection-filter": {
+      "type": "collection-filter",
+      "settings": {}
     },
-    "order": [
-        "collection-filter",
-        "product-grid"
-    ]
+    "d9c9aa22-d858-4d68-b0f6-c9c71a495406": {
+      "type": "collection-categories",
+      "settings": {}
+    },
+    "product-grid": {
+      "type": "product-grid",
+      "blocks": {
+        "b401a37d-55aa-49b7-b987-45893897281b": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/PORTABLE-CHARGER-EMERALD-LIFESTYLE.jpg",
+            "link": "",
+            "show-for-collections": [],
+            "starts-on": "",
+            "ends-on": "",
+            "row": 2,
+            "column": 1,
+            "row-mob": 1
+          }
+        }
+      },
+      "block_order": [
+        "b401a37d-55aa-49b7-b987-45893897281b"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-filter",
+    "d9c9aa22-d858-4d68-b0f6-c9c71a495406",
+    "product-grid"
+  ]
 }

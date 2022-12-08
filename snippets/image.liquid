@@ -17,9 +17,9 @@
         assign preload = false
     endunless
 
-    unless lazy == true and lazy != blank
+    if lazy != true
         assign lazy = false
-    endunless
+    endif
 
     if sizes == blank
         assign sizes = '100vw'

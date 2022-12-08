@@ -1,0 +1,41 @@
+{{ 'section-collection-categories.css' | asset_url | stylesheet_tag }}
+
+<section class="featured__collections">
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">New</div>
+    </div>
+
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">Bestsellers</div>
+    </div>
+
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">In Stock &amp; Ready to Ship</div>
+    </div>
+
+    <div class="featured__collection">
+        <div class="featured__collection-image"></div>
+        <div class="featured__collection-title">On SALE</div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Collection Categories",
+        "class": "shopify-section--col-categories",
+        "settings": [
+        
+        ],
+        "blocks": [
+
+        ],
+        "presets": [
+            {
+                "name": "Collection Categories"
+            }
+        ]
+    }
+{% endschema %}

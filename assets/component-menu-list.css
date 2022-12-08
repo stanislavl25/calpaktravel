@@ -44,3 +44,7 @@
 .menu-item--active .submenu {
     display: flex;
 }
+
+.submenu-item a:hover {
+    text-decoration: underline;
+}

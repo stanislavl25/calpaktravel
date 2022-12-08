@@ -3,10 +3,21 @@
 <link rel="stylesheet" href="{{ 'component-star-rating.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-star-rating.css' | asset_url | stylesheet_tag }}</noscript>
 
+<link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
+
 <section class="product-grid">
     {%- liquid
         for product in collection.products
-            render 'product-unit' with product, quick_view: true
+            if forloop.index <= 5
+                render 'product-unit' with product, quick_view: true, img_lazy: false, img_preload: true
+            else
+                render 'product-unit' with product, quick_view: true
+            endif
+        endfor
+
+        for block in section.blocks
+            render 'promo-unit' with block
         endfor
     -%}
 </section>
@@ -14,9 +25,91 @@
 {% schema %}
     {
         "name": "Product Grid",
-        "class": "shopify-section--padded",
+        "class": "shopify-section--product-grid shopify-section--padded",
         "settings": [
         
+        ],
+        "blocks": [
+            {
+                "type": "promo",
+                "name": "Promo",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "banner",
+                        "label": "Banner"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "banner-mobile",
+                        "label": "Banner for mobile"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Link"
+                    },
+                    {
+                        "type": "collection_list",
+                        "label": "Limit to these collections",
+                        "id": "show-for-collections"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Time Frame"
+                    },
+                    {
+                        "type": "text",
+                        "id": "starts-on",
+                        "label": "Starts on"
+                    },
+                    {
+                        "type": "text",
+                        "id": "ends-on",
+                        "label": "Ends on"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Desktop Position"
+                    },
+                    {
+                        "type": "range",
+                        "id": "row",
+                        "min": 1,
+                        "max": 60,
+                        "step": 1,
+                        "label": "Row",
+                        "default": 1
+                    },
+                    {
+                        "type": "range",
+                        "id": "column",
+                        "min": 1,
+                        "max": 4,
+                        "step": 1,
+                        "label": "Column",
+                        "default": 1
+                    },
+                    {
+                        "type": "header",
+                        "content": "Mobile Position"
+                    },
+                    {
+                        "type": "range",
+                        "id": "row-mob",
+                        "min": 1,
+                        "max": 100,
+                        "step": 1,
+                        "label": "Row",
+                        "default": 1
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Product Grid"
+            }
         ]
     }
 {% endschema %}

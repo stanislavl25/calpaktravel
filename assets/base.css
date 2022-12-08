@@ -17,6 +17,19 @@ a {
     color: inherit;
 }
 
+button {
+    font-family: var(--font-body-family);
+    font-size: 1em;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
 p {
     margin: 0 0 1em;
 }
@@ -38,7 +51,27 @@ body > div:empty {
     to { transform: rotate(360deg); }
 }
 
+
+/* MOBILE */
+@media (max-width: 650px) {
+    .tablet-only {
+        display: none !important;
+    }
+}
+
+/* LARGER THAN MOBILE */
+@media (min-width: 651px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+/* MOBILE AND TABLET */
 @media (max-width: 900px) {
+    .desktop-only {
+        display: none !important;
+    }
+
     .hide-small {
         display: none !important;
     }
@@ -48,8 +81,13 @@ body > div:empty {
     }
 }
 
+/* DESKTOP */
 @media (min-width: 901px) {
     .hide-large {
+        display: none !important;
+    }
+
+    .tablet-only {
         display: none !important;
     }
 }

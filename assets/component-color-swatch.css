@@ -1,0 +1,695 @@
+.product-unit__swatches {
+    display: flex;
+    gap: 9px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.product-unit__swatches .color-swatch:nth-child(n + 4) {
+    display: none;
+}
+
+.product-unit:hover .product-unit__swatches {
+    opacity: 1
+}
+
+.color-swatch {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #aaa;
+    position: relative;
+}
+
+.color-swatch--na::after {
+    width: 100%;
+    left: 0;
+    top: 50%;
+    margin-top: -1px;
+    border-top: 2px solid #f7f7f7;
+    content: '';
+    position: absolute;
+    transform: rotate(-45deg);
+}
+
+.extra-colors {
+    text-decoration: underline;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.color-swatch--active {
+    border: 1px solid #000;
+}
+
+.color-swatch--active::before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.color-wavy {
+    background: #000;
+}
+
+.color-onyx,
+.color-black-new,
+.color-brushed-black,
+.color-luka-black,
+.color-ambeur-black,
+.color-black,
+.color-gunmetal-black,
+.color-obsidian,
+.color-trnk-black {
+    background: #000;
+}
+
+.color-moss {
+    background: #4d4f3a;
+}
+
+.color-dune {
+    background: #ddd0c8;
+}
+
+.color-canyon {
+    background: #FFCFA8;
+}
+
+.color-glacier {
+    background: #7C98D0;
+}
+
+.color-juniper {
+    background: #A8AD95;
+}
+
+.color-pear {
+    background: #e8d179;
+}
+
+.color-aurora-pink {
+    background: #D9B0B8;
+}
+
+.color-pink,
+.color-shimmer-pink {
+    background: #D9B0B8;
+}
+
+.color-pink-sand {
+    background: #EDD3CE;
+}
+
+.color-eclipse {
+    background: #d3ad80;
+}
+
+.color-terracotta {
+    background: #DF9384;
+}
+
+.color-red {
+    background: #BB1E25;
+}
+
+.color-linen {
+    background: #E3DCCC;
+}
+
+.color-brick {
+    background: #cc3b14;
+}
+
+.color-oatmeal {
+    background: #e3dccd;
+}
+
+.color-orange {
+    background: #FD5D00;
+}
+
+.color-mist {
+    background: #cddfe9;
+}
+
+.color-arctic {
+    background: #758f9c;
+}
+
+.color-cappuccino-tie-dye {
+    background: #cabaab;
+}
+
+.color-rosewood-tie-dye {
+    background: #ccb0af;
+}
+
+.color-rust {
+    background: #a06c55;
+}
+
+.color-maroon {
+    background: #883935;
+}
+
+.color-espresso {
+    background: #765E56;
+}
+
+.color-forest {
+    background: #455E49;
+}
+
+.color-mauve {
+    background: #b7979f;
+}
+
+.color-sedona {
+    background: #a84a31;
+}
+
+.color-sage {
+    background: #a1a095;
+}
+
+.color-bermuda {
+    background: #0e4459;
+}
+
+.color-bluebell {
+    background: #95a8b5;
+}
+
+.color-burgundy {
+    background: #4f3031;
+}
+
+.color-sand {
+    background: #DED3CE;
+}
+
+.color-silver-stardust {
+    background: #D4D5D5;
+}
+
+.color-palm-leaf {
+    background: #465768;
+}
+
+.color-stars {
+    background: #7b7b99;
+}
+
+.color-terrazzo {
+    background: #878183;
+}
+
+.color-terracota {
+    background: #DF9384;
+}
+
+.color-caramel {
+    background: #C49A84;
+}
+
+.color-charcoal-grey,
+.color-charcoal {
+    background: #6A6C6C;
+}
+
+.color-confetti,
+.color-cream {
+    background: #FFFAF0;
+}
+
+.color-sunset {
+    background: #fb4d4f;
+}
+
+.color-gingham {
+    background: #c7a885;
+}
+
+.color-cloud {
+    background: #b4d3ef;
+}
+
+.color-daisy {
+    background: #c6c9b1;
+}
+
+.color-sand-tide {
+    background: #a6957d;
+}
+
+.color-sand-tide,
+.color-gingham,
+.color-cloud,
+.color-daisy,
+.color-cheetah,
+.color-pink-gold,
+.color-cappuccino-tie-dye,
+.color-rosewood-tie-dye,
+.color-things-between,
+.color-sand-tie-dye-wash,
+.color-sky-tie-dye-wash,
+.color-shimmer-pink,
+.color-gold,
+.color-silver,
+.color-bronze,
+.color-sorbet,
+.color-white-bandana,
+.color-mustard-bandana,
+.color-tutti-fruity,
+.color-terrazzo,
+.color-leopard,
+.color-gold-marble,
+.color-groovy-blue,
+.color-retro-sunset,
+.color-astrology,
+.color-stars,
+.color-trnk-black,
+.color-trnk-grey,
+.color-rose-gold,
+.color-trnk-nude,
+.color-midnight-marble,
+.color-milk-marble,
+.color-palm-leaf,
+.color-pink-n-gold,
+.color-floral,
+.color-stripe,
+.color-confetti,
+.color-polka-dot,
+.color-trnk-almond,
+.color-sunset {
+    /* border: 0; */
+    border: 1px solid #aeaeae;
+}
+
+.color-atlantic {
+    background: #667893;
+}
+
+.color-birch {
+    background: #D7D2C1;
+}
+
+.color-toffee {
+    background: #A26F4E;
+}
+
+.color-sky {
+    background: #C0DAFF;
+}
+
+.color-honey {
+    background: #EFB94E;
+}
+
+.color-cognac {
+    background: #8B5D39;
+}
+
+.color-deep-sea {
+    background: #206091;
+}
+
+.color-denim {
+    background: #ABC6DE;
+}
+
+.color-emerald {
+    background: #004B37;
+}
+
+.color-mint {
+    background: #BACFBC;
+}
+
+.color-mustard-bandana {
+    background: #CCA837;
+}
+
+.color-things-between {
+    background: #ada9b6;
+}
+
+.color-ash {
+    background: #cccbc7;
+}
+
+.color-navy {
+    background: #273145;
+}
+
+.color-gold-marble {
+    background: #eae5e9;
+}
+
+.color-blush {
+    background: #EDC7C8;
+}
+
+.color-shell-pink {
+    background: #e9d1cc;
+}
+
+.color-blush-pink {
+    background: #EDC7C8;
+}
+
+.color-sky-tie-dye-wash,
+.color-sky-tie-dye {
+    background: #8fa5a9;
+}
+
+.color-sand-tie-dye-wash,
+.color-sand-tie-dye {
+    background: #c5b7ac;
+}
+
+.color-bon-voyage,
+.color-bronze {
+    background: #E0BEAD;
+}
+
+.color-kaya-bronze {
+    background: #baa286;
+}
+
+[data-product-handle="kaya-laptop-backpack"] .color-emerald,
+[data-product-handle="kaya-laptop-backpack-sale"] .color-emerald,
+#kaya-laptop-backpack-on-sale-calpak .color-emerald,
+#kaya-laptop-backpack-calpak .color-emerald {
+    background: #294f34;
+}
+
+[data-product-handle="kaya-laptop-backpack"] .color-lavender,
+[data-product-handle="kaya-laptop-backpack-sale"] .color-lavender,
+#kaya-laptop-backpack-on-sale-calpak .color-lavender,
+#kaya-laptop-backpack-calpak .color-lavender {
+    background: #e2bce1;
+}
+
+.color-mocha {
+    background: #604831;
+}
+
+.color-plaid {
+    background: #685856;
+}
+
+.color-polka-dot {
+    background: #EDE2DA;
+}
+
+.color-cheetah {
+    background: #B99475;
+}
+
+.color-lavender {
+    background: #e2bce1;
+}
+
+.color-petal {
+    background: #f1ced4;
+}
+
+.color-olive {
+    background: #605b43;
+}
+
+.color-gold {
+    background: #d0bdaf;
+}
+
+[data-product-handle*="kaya"] .color-gold {
+    background: #F0DCCF;
+}
+
+.color-periwinkle {
+    background: #83A4CC;
+}
+
+.color-cool-grey {
+    background: #B2B2B6;
+}
+
+.color-rose-gold {
+    background: #c79e95;
+}
+
+.color-silver {
+    background: #d2d4d8;
+}
+
+.color-grey,
+.color-trnk-grey {
+    background: #D4D5D5;
+}
+
+.color-trnk-almond {
+    background: #ebbb94;
+}
+
+.color-wild-free {
+    background: #C5D4E2;
+}
+
+.color-white-bandana,
+.color-white {
+    background: #fff;
+    border: 1px solid #aaa;
+}
+
+.color-stone {
+    background: #f4f1eb;
+}
+
+.color-retro-sunset {
+    background: #F8A439;
+}
+
+.color-groovy-blue {
+    background: #95B8FF;
+}
+
+.color-poppy {
+    background: #F94E3D;
+}
+
+.color-cobalt {
+    background: #263BD3;
+}
+
+.color-beige {
+    background: #efe1d6;
+}
+
+.color-blue {
+    background: #3C5F91;
+}
+
+.color-brown {
+    background: #96634D;
+}
+
+.color-matte-black {
+    background: #000;
+}
+
+.color-rose-quartz {
+    background: #c6a99c;
+}
+
+.color-green {
+    background: #667541;
+}
+
+.color-dove-grey {
+    background: #cfcbbf;
+}
+
+.color-iron {
+    background: #7e7e7d;
+}
+
+.color-chocolate {
+    background: #877769;
+}
+
+.color-yellow {
+    background: #FF9B00;
+}
+
+.color-lemonade {
+    background: #FFEEB3;
+}
+
+.color-dijon {
+    background: #E6AF51;
+}
+
+.color-jade {
+    background: #C1D2C7;
+}
+
+.color-nude,
+.color-trnk-nude {
+    background: #E5D7D1;
+}
+
+.color-bloom {
+  background: #e0cfe0;
+}
+
+.color-kaya-olive {
+    background: #757453;
+}
+
+.color-hue-olive {
+    background: #48573B;
+}
+
+.color-midnight-marble {
+    background: #333;
+}
+
+.color-merlot {
+    background: #902C4A;
+}
+
+.color-pumpkin {
+    background: #D78943;
+}
+
+.color-hazel {
+    background: #8C5138;
+}
+
+.color-orchid {
+    background: #b78ae3;
+}
+
+.color-celery {
+    background: #D4DD5A;
+}
+
+.color-kale {
+    background: #006B57;
+}
+
+.color-dragonfruit {
+    background: #F6639C;
+}
+
+.color-papaya {
+    background: #F08247;
+}
+
+.color-guava {
+    background: #F5B3D6;
+}
+
+.color-honeydew {
+    background: #A5C0A5;
+}
+
+.color-astrology {
+    background: #32576d;
+}
+
+.color-sunset {
+    background: #f81562; 
+}
+
+.color-slate {
+    background: #5E6263; 
+}
+
+.color-milk-marble {
+    background: #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.color-group-beige {
+    background: #efe1d6;
+}
+
+.color-group-black {
+    background: #000;
+}
+
+.color-group-blue {
+    background: #3C5F91;
+}
+
+.color-group-brown {
+    background: #96634D;
+}
+
+.color-group-green {
+    background: #667541;
+}
+
+.color-group-grey {
+    background: #ABACAC;
+}
+
+.color-group-lavender {
+    background: #CAC3EB;
+}
+
+.color-group-metallic {
+    background: #ccc;
+}
+
+.color-group-pink {
+    background: #EDD3CE;
+}
+
+.color-group-print {
+    background: #aaa;
+}
+
+.color-group-red {
+    background: #BB1E25;
+}
+
+.color-group-rose-gold {
+    background: #c79e95;
+}
+
+.color-group-white {
+    background: #fff;
+}
+
+.color-group-yellow {
+    background: #E8D179;
+}
+
+.color-group-orange {
+    background: #F08247;
+}

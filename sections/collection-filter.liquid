@@ -1,30 +1,23 @@
 {{ 'section-collection-filter.css' | asset_url | stylesheet_tag }}
 
-<section class="collection-filters">
-    <div class="collection-sort">
-        <div class="subnav__container">
-            <a href="#" class="subnav__activator">
-                Color
-            </a>
+<link rel="stylesheet" href="{{ 'component-filter-color.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-filter-sort.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>
+    {{ 'component-filter-color.css' | asset_url | stylesheet_tag }}
+    {{ 'component-filter-sort.css' | asset_url | stylesheet_tag }}
+</noscript>
 
-            <ul class="site-header__subnav list-unstyled">
-                <li>Color 1</li>
-                <li>Color 2</li>
-                <li>Color 3</li>
-            </ul>
-        </div>
+<script src="{{ 'filter-basic.js' | asset_url }}" defer="defer"></script>
 
-        <div class="subnav__container">
-            <a href="#" class="subnav__activator">
-                Sort by
-            </a>
+<section class="collection-filters__control">
+    <div class="collection-filter__activators">
+        <button class="filter__activator filter__activator--color">
+            Color
+        </button>
 
-            <ul class="site-header__subnav list-unstyled">
-                <li>Name</li>
-                <li>Date</li>
-                <li>Best Sellers</li>
-            </ul>
-        </div>
+        <button class="filter__activator filter__activator--sort">
+            Sort by
+        </button>
     </div>
     <div class="collection-subcategories">
         <button class="button button--secondary">All Products ({{ collection.products.size }})</button>
@@ -34,36 +27,60 @@
         <button class="button button--secondary">Accessories</button>
     </div>
     <div class="collection-view">
-        View <a>3</a> <a style="text-decoration: underline">5</a>
+        <span class="col-view__text">View</span>
+        <button class="col-view__button col-view__button--less">
+            <span class="mobile-only">1</span>
+            <span class="tablet-only">2</span>
+            <span class="desktop-only">3</span>
+        </button>
+        <button class="col-view__button col-view__button--more">
+            <span class="mobile-only">2</span>
+            <span class="tablet-only">3</span>
+            <span class="desktop-only">5</span>
+        </button>
     </div>
 </section>
 
-<section class="featured__collections">
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">New</div>
+<section class="collection-filters">
+    <nav>
+        Color Sort
+    </nav>
+    <div class="collection-filter collection-filter--color">
+        <div class="slider__wrapper">
+            <div class="slider slider--filt-col">
+               
+            </div>
+        </div>
+        <div>
+            <button class="button">Apply</button>
+            <button class="button button--secondary">Close</button>
+        </div>
     </div>
-
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">Bestsellers</div>
-    </div>
-
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">In Stock &amp; Ready to Ship</div>
-    </div>
-
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">On SALE</div>
+    <div class="collection-filter collection-filter--sort">
+        <ul class="list-unstyled">
+            <li>
+                <label><input value="featured" type="radio" name="sort"> Featured</labe>
+            </li>
+            <li>
+                <label><input value="new" type="radio" name="sort"> Newest</labe>
+            </li>
+            <li>
+                <label><input value="best" type="radio" name="sort"> Best Selling</labe>
+            </li>
+            <li>
+                <label><input value="price-desc" type="radio" name="sort"> Price high - low</labe>
+            </li>
+            <li>
+                <label><input value="price-asc" type="radio" name="sort"> Price low - high</labe>
+            </li>
+        </ul>
     </div>
 </section>
 
 {% schema %}
     {
         "name": "Collection Filter",
-        "class": "shopify-section--padded",
+        "class": "shopify-section--col-filter",
         "settings": [
         
         ]

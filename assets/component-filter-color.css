@@ -1,0 +1,42 @@
+.collection-filters {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.slider--filt-col {
+    gap: var(--gap);
+    padding: var(--gap) 0;
+}
+
+.filt-col-group {
+    height: 42px;
+    padding: 0 10px;
+    flex: initial;
+    border: 1px solid #aeaeae;
+    border-radius: 9px;
+    min-width: 95px;
+    color: #858585;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.filt-col-group:hover {
+    border-color: #000;
+}
+
+.color-group {
+    background: #aeaeae;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex: 0 0 20px;
+}
+
+.collection-filter--color .button {
+    min-width: 210px;
+}
