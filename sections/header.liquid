@@ -1,4 +1,4 @@
-{{ 'section-header.css' | asset_url | stylesheet_tag }}
+{{ 'section-header.css' | asset_url | stylesheet_tag: preload: true }}
 
 <link rel="stylesheet" href="{{ 'component-header-subnav.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-popup.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -15,8 +15,10 @@
 
 <section class="site-header">
     <nav class="site-header__nav">
+        <div class="site-header__overlay"></div>
         {% render 'shop-menu' %}
         {% render 'discover-menu' %}
+
         <ul>
             <li class="site-header__menu-item hide-small">
                 <a href="#" class="menu-popup__activator" data-target="shop">Shop</a>
@@ -95,6 +97,10 @@
         </ul>
     </nav>
 </section>
+
+<script>
+    if(sessionStorage.getItem('notificationsSeen')) document.querySelector('.header__notifications-link').classList.remove('notifications-icon--active');
+</script>
 
 {% render 'search' %}
 

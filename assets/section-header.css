@@ -216,3 +216,11 @@
 .notifications-popup {
     display: none;
 }
+
+.menu-popup__background {
+    display: none;
+}
+
+.site-header__overlay {
+    display: none;
+}

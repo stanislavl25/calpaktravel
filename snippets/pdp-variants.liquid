@@ -1,0 +1,29 @@
+<section class="pdp__variants">
+    <div class="pdp__variants-selected">
+        <label>Selected Color</label>
+        <span>
+            {{ current_variant.option1 | downcase }}
+        </span>
+        <span class="tooltip">i<span class="tooltip__message">Color may vary due to lighting on images</span></span>
+    </div>
+
+    <div class="pdp__swatches-group">
+        <div>Limited</div>
+        <div class="pdp__swatches">
+            {% for variant in product.variants limit: 2 %}
+                {%- assign color = variant.option1 | handleize -%}
+                <a class="color-swatch color-{{ color }}"></a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="pdp__swatches-group">
+        <div>Classics</div>
+        <div class="pdp__swatches">
+            {% for variant in product.variants limit: 5 %}
+                {%- assign color = variant.option1 | handleize -%}
+                <a class="color-swatch color-{{ color }}"></a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

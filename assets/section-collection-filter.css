@@ -9,6 +9,7 @@
 .collections-menu {
     display: flex;
     gap: var(--gap);
+    justify-content: center;
 }
 
 .collections-menu .button {
@@ -44,16 +45,15 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    border-bottom: 1px dashed #707070;
+    border-bottom: 1px dashed #AEAEAE;
 }
 
 .collection-filters__control {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     padding: var(--gap) 0;
-    border-bottom: 1px dashed #707070;
+    border-bottom: 1px dashed #AEAEAE;
+    gap: 10px;
 }
 
 .collection-filter__activators {
@@ -134,14 +134,22 @@
     --mobile-columns: 1;
 }
 
-.current-filters-list {
-    flex: 0 0 100%;
+.current-filters {
+    grid-column: span 3;
     display: flex;
     gap: 10px;
-    margin-top: 10px;
+}
+
+.current-filters-list {
+    display: flex;
+    gap: 10px;
 }
 
 .current-filters-list:empty {
+    display: none;
+}
+
+.current-filters-list:empty + .current-filters-clear {
     display: none;
 }
 

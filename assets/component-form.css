@@ -1,6 +1,6 @@
 .form__field-line {
     display: flex;
-    border: 1px solid #000;
+    box-shadow: 0 0 0 1px #000;
     border-radius: 9px;
     overflow: hidden;
 }
@@ -25,6 +25,10 @@
 .field__input::placeholder {
     color: inherit;
     opacity: 1;
+}
+
+.field__input:focus::placeholder {
+    opacity: 0;
 }
 
 .form__field-line .field__input {

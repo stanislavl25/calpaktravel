@@ -1,26 +1,24 @@
 {{ 'section-collection-categories.css' | asset_url | stylesheet_tag }}
 
-<section class="featured__collections">
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">New</div>
-    </div>
-
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">Bestsellers</div>
-    </div>
-
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">In Stock &amp; Ready to Ship</div>
-    </div>
-
-    <div class="featured__collection">
-        <div class="featured__collection-image"></div>
-        <div class="featured__collection-title">On SALE</div>
-    </div>
-</section>
+<div class="collection-categories__wrapper slider__wrapper">
+    <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
+    <section class="filter__collections slider slider--scrollbar">
+        {%- for block in section.blocks -%}
+        <div class="filter__collection slide">
+            <div class="filter__collection-image">
+                {%- if block.settings.image != blank -%}
+                    {%- render 'image' with block.settings.image, sizes: '25vw', no_wrapper: true -%}
+                {%- endif -%}
+            </div>
+            <div class="filter__collection-title">{{- block.settings.title | escape -}}</div>
+            {%- if block.settings.description != blank -%}
+            <div class="filter__collection-desc">{{- block.settings.description -}}</div>
+            {%- endif -%}
+        </div>
+        {%- endfor -%}
+    </section>
+</div>
 
 {% schema %}
     {

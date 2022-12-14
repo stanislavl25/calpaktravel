@@ -1,10 +1,8 @@
 <div class="reviews__slide-img">
-    {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true -%}
+    {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', no_wrapper: no_wrapper, lazy: true -%}
 </div>
 <div class="reviews__slide-content">
     <div class="review-slide__header">
-        {% render 'star-rating' with block.settings.stars %}
-
         {%- if block.settings.pictured-product != blank -%}
         <div class="review-slide__pictured">
             {%- assign product = all_products[block.settings.pictured-product] -%}
@@ -15,8 +13,16 @@
                     {{- product.title | escape -}}
                 {%- endif -%}
             </a>
+            <span class="review-slide__pictured-price">
+            {%- if product.compare_at_price > product.price -%}
+                <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+            {%- endif -%}
+            {{ product.price | money_without_trailing_zeros }}
+            </span>
         </div>
         {%- endif -%}
+
+        {% render 'star-rating' with block.settings.stars %}
     </div>
     
     <div class="review-slide__main">
@@ -28,7 +34,9 @@
     
     <div class="review-slide__footer">
         {%- if block.settings.button-text != blank -%}
-        <a href="{{ block.settings.button-link }}" class="button">{{- block.settings.button-text | escape -}}</a>
+        <a href="{{ block.settings.button-link }}" class="button">
+            <span>{{- block.settings.button-text | escape -}}</span>
+        </a>
         {%- endif -%}
     </div>
 </div>

@@ -1,0 +1,12 @@
+{{ 'component-upsell.css' | asset_url | stylesheet_tag }}
+
+<section class="pdp__upsell slider__wrapper">
+    {%- if title != blank -%}
+    <div class="pdp__upsell-title">{{- title | escape -}}</div>
+    {%- endif -%}
+    <div class="slider slider--scrollbar">
+        {%- for product in collections['best-sellers'].products limit: 4 -%}
+        {%- render 'product-unit' with product, class: "slide", quick_view: true -%}
+        {%- endfor -%}
+    </div>
+</section>

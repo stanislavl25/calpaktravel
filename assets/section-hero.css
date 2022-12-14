@@ -1,5 +1,7 @@
 .shopify-section--hero {
-    padding: var(--gap);
+    padding: 0 var(--gap);
+    position: relative;
+    margin: var(--gap) 0 var(--section-gap);
 }
 
 .hero {
@@ -23,7 +25,7 @@
 }
 
 .hero__block {
-    min-height: 300px;
+    min-height: 50px;
     background: #e4dfd5;
     border-radius: 9px;
     position: relative;

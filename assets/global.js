@@ -66,10 +66,13 @@ let searchActivator = document.querySelector('.header__search-link');
 searchActivator.addEventListener('click', async function(e) {
     e.preventDefault();
     
-    const actives = document.querySelectorAll('.menu-popup--active');
-    for(let i = 0; i < actives.length; i++) actives[i].classList.remove('menu-popup--active');
+    const actives = document.querySelectorAll('.menu-popup--visible');
+    for(let i = 0; i < actives.length; i++) actives[i].classList.remove('menu-popup--visible');
+
+    const header = document.querySelector('.site-header__nav');
+    setTimeout(() => header.removeAttribute('data-menu'), 500);
     
-    document.querySelector('.menu-popup--search').classList.add('menu-popup--active');
+    document.querySelector('.menu-popup--search').classList.add('menu-popup--visible');
     document.body.classList.add('modal-open');
 
     document.querySelector('.menu-popup--search .search-input').focus();
@@ -104,29 +107,40 @@ let menuActivators = document.querySelectorAll('.menu-popup__activator');
 for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListener('click', function(e) {
     e.preventDefault();
     const target = this.getAttribute('data-target');
+    const header = document.querySelector('.site-header__nav');
     const menu = document.querySelector('.menu-popup[data-id="' + target + '"]');
 
     if(!menu) return;
 
-    if(menu.classList.contains('menu-popup--active')) {
-        menu.classList.remove('menu-popup--active');
+    if(menu.classList.contains('menu-popup--visible')) {
         menu.classList.remove('menu-popup--visible');
+        setTimeout(() => header.removeAttribute('data-menu'), 500);
         document.body.classList.remove('modal-open');
         return;
     }
 
-    const actives = document.querySelectorAll('.menu-popup--active');
+    
+    const actives = document.querySelectorAll('.menu-popup--visible');
     for(let i = 0; i < actives.length; i++) {
-        actives[i].classList.remove('menu-popup--active');
         actives[i].classList.remove('menu-popup--visible');
     }
+    
+    if(actives.length > 0) {
+        setTimeout(() => {
+            header.setAttribute('data-menu', target);
+            setTimeout(() => {
+                menu.classList.add('menu-popup--visible');
+            }, 5);
+        }, 300);
+    } else {
+        header.setAttribute('data-menu', target);
+        document.body.classList.add('modal-open');
+        setTimeout(() => {
+            menu.classList.add('menu-popup--visible');
+        }, 5);
+    }
 
-    document.body.classList.add('modal-open');
 
-    menu.classList.add('menu-popup--active');
-    setTimeout(() => {
-        menu.classList.add('menu-popup--visible');
-    }, 5);
 
     const func = menu.getAttribute('data-func');
     if(func && typeof window[func] === 'undefined') {
@@ -139,8 +153,10 @@ let menuDeactivators = document.querySelectorAll('.menu-close');
 for(let i = 0; i < menuDeactivators.length; i++) menuDeactivators[i].addEventListener('click', function() {
     let menuPopup = this.closest('.menu-popup');
     if(menuPopup) {
-        menuPopup.classList.remove('menu-popup--active');
         menuPopup.classList.remove('menu-popup--visible');
+
+        const header = document.querySelector('.site-header__nav');
+        setTimeout(() => header.removeAttribute('data-menu'), 500);
     }
     document.body.classList.remove('modal-open');
 });
@@ -155,11 +171,16 @@ for(let i = 0; i < subnavActivators.length; i++) subnavActivators[i].addEventLis
 let notifiactionsActivator = document.querySelector('.header__notifications-link');
 let notifiactionPopup = document.querySelector('.notifications-popup');
 if(notifiactionsActivator && notifiactionPopup) {
-
+    
     notifiactionsActivator.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         notifiactionPopup.classList.add('notifications-popup--active');
+
+        setTimeout(() => {
+            sessionStorage.setItem('notificationsSeen', true);
+            notifiactionsActivator.classList.remove('notifications-icon--active');
+        }, 500);
     });
 
     notifiactionPopup.querySelector('.menu-close').addEventListener('click', function(e) {
@@ -243,21 +264,37 @@ for(let i = 0; i < sliderControls.length; i++) sliderControls[i].addEventListene
 });
 
 function moveToSlide(slider, currentPage = 0) {
-    if(currentPage > 0) currentPage--;
+    // if(currentPage > 0) currentPage--;
     let wrapper = slider.closest('.slider__wrapper');
+    let gap = 0;
     if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
     let firstSlide = slider.querySelector('.slide');
-    let maxScroll = slider.scrollWidth - slider.clientWidth;
+    let vertical = slider.classList.contains('slider--vertical');
+
+    let maxScroll = 0;
+    
+    if(vertical) maxScroll = slider.scrollHeight - slider.clientHeight;
+    else maxScroll = slider.scrollWidth - slider.clientWidth;
 
     if(maxScroll == 0) return;
 
     if(!firstSlide) firstSlide = slider.querySelector('*');
 
-    let slideWidth = firstSlide.offsetWidth;
+    let slideWidth = 0;
+
+    if(vertical) {
+        slideWidth = firstSlide.offsetHeight;
+    } else {
+        slideWidth = firstSlide.offsetWidth;
+    }
 
     let currentScroll = (slideWidth + gap) * currentPage;
 
-    slider.scrollLeft = currentScroll;
+    if(vertical) {
+        slider.scrollTop = currentScroll;
+    } else {
+        slider.scrollLeft = currentScroll;
+    }
 
     if(maxScroll - currentScroll < 20) {
         wrapper.classList.add('slider__wrapper--end');
@@ -278,10 +315,24 @@ function checkSlider(slider) {
     let firstSlide = slider.querySelector('.slide');
     if(!firstSlide) firstSlide = slider.querySelector('*');
     if(!firstSlide) return;
-    let slideWidth = firstSlide.offsetWidth;
+    let slideWidth = 0;
+    let vertical = slider.classList.contains('slider--vertical');
 
-    let currentScroll = Math.ceil(slider.scrollLeft);
-    let maxScroll = slider.scrollWidth - slider.clientWidth;
+    wrapper.classList.add('slider__wrapper--loaded');
+
+    let currentScroll = 0;
+    let maxScroll = 0;
+
+    if(vertical) {
+        currentScroll = Math.ceil(slider.scrollTop);
+        maxScroll = slider.scrollHeight - slider.clientHeight;
+        slideWidth = firstSlide.offsetHeight;
+    } else {
+        currentScroll = Math.ceil(slider.scrollLeft);
+        maxScroll = slider.scrollWidth - slider.clientWidth;
+        slideWidth = firstSlide.offsetWidth;
+    }
+
     let maxPage = Math.round(maxScroll / slideWidth);
     let currentPage = Math.round(currentScroll / slideWidth);
 
@@ -298,48 +349,76 @@ function checkSlider(slider) {
     else wrapper.classList.remove('slider__wrapper--start');
 }
 
-let sliders = document.querySelectorAll('.slider');
 let sliderThrottle = false;
-for(let i = 0; i < sliders.length; i++) {
-    let slider = sliders[i];
-    slider.classList.add('scrolling-back');
-    slider.scrollLeft = 0;
-    setTimeout(() => slider.classList.remove('scrolling-back'), 10);
-    checkSlider(slider);
-    slider.addEventListener('scroll', function() {
-        if(sliderThrottle !== false) clearTimeout(sliderThrottle);
-        sliderThrottle = setTimeout(() => checkSlider(this), 305);
-    }, {passive: true});
+window.addEventListener("load", () => {
+    const sliders = document.querySelectorAll(".slider");
+    
+    let observer = new IntersectionObserver(function(entries){
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                observer.unobserve(entry.target);
+                let slider = entry.target;
+                let vertical = slider.classList.contains('slider--vertical');
+                slider.classList.add('scrolling-back');
+                if(vertical) slider.scrollTop = 0;
+                else slider.scrollLeft = 0;
+                setTimeout(() => slider.classList.remove('scrolling-back'), 10);
 
-    if(slider.hasAttribute('data-autoslide')) {
-        let autoslide = Number(slider.getAttribute('data-autoslide'));
-        if(isNaN(autoslide)) continue;
-        
-        runSlider(slider, autoslide);
-    }
-}
+                checkSlider(slider);
+
+                slider.addEventListener('scroll', function() {
+                    if(sliderThrottle !== false) clearTimeout(sliderThrottle);
+                    sliderThrottle = setTimeout(() => checkSlider(this), 305);
+                }, {passive: true});
+            
+                if(slider.hasAttribute('data-autoslide')) {
+                    let autoslide = Number(slider.getAttribute('data-autoslide'));
+                    if(!isNaN(autoslide)) runSlider(slider, autoslide);
+                }
+            }
+        });
+    }, {threshold: 0, rootMargin: '0px'});
+
+    sliders.forEach( slider => observer.observe(slider) );
+});
 
 function runSlider(slider, autoslide) {
     setInterval(function() {
-        let slideWidth = slider.offsetWidth;
-        let currentScroll = slider.scrollLeft;
-        let maxScroll = slider.scrollWidth - slider.clientWidth;
-        let gap = 0;
         let wrapper = slider.closest('.slider__wrapper');
+        if(wrapper.matches(':hover')) return;
+
+        let vertical = slider.classList.contains('slider--vertical');
+        let slideWidth = 0;
+        let currentScroll = slider.scrollLeft;
+        if(vertical) currentScroll = slider.scrollTop;
+
+        let maxScroll = 0;
+        
+        if(vertical) {
+            maxScroll = slider.scrollHeight - slider.clientHeight;
+            slideWidth = slider.offsetHeight;
+        } else {
+            maxScroll = slider.scrollWidth - slider.clientWidth;
+            slideWidth = slider.offsetWidth;
+        }
+
+        let gap = 0;
         if(wrapper && wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
-    
+        
         let maxPage = Math.round(maxScroll / slideWidth);
         let currentPage = Math.round(currentScroll / slideWidth);
     
         currentPage++;
     
-        slider.scrollLeft = currentPage * slideWidth + gap;
-    
+        if(vertical) slider.scrollTop = currentPage * slideWidth + gap;
+        else slider.scrollLeft = currentPage * slideWidth + gap;
+
         if(currentPage >= maxPage) {
             currentPage = 0;
             setTimeout(function() {
                 slider.classList.add('scrolling-back');
-                setTimeout(() => slider.scrollLeft = 0, 50);
+                if(vertical) setTimeout(() => slider.scrollTop = 0, 50);
+                else setTimeout(() => slider.scrollLeft = 0, 50);
                 setTimeout(() => slider.classList.remove('scrolling-back'), 50);
             }, 1000);
         }
@@ -352,6 +431,23 @@ function runSlider(slider, autoslide) {
 
     }, autoslide * 1000);
 }
+
+const sliderDots = document.querySelectorAll('.slider__dot');
+if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', e => {
+    let index = 0;
+    let dots = e.target.parentNode.querySelectorAll('.slider__dot');
+    let wrapper = e.target.closest('.slider__wrapper');
+    if(!wrapper) return;
+
+    for(let i = 0; i < dots.length; i++) {
+        if(dots[i] == e.target) {
+            index = i;
+            dots[i].classList.add('slider__dot--active');
+        } else dots[i].classList.remove('slider__dot--active');
+    }
+
+    moveToSlide(wrapper.querySelector('.slider'), index);
+}));
 
 //////////////////// END SLIDERS /////////////////////////
 
@@ -462,6 +558,7 @@ function setProductUnitData(data, target) {
                 data-image="${img}"
                 data-option1="${opt1}"
                 data-option2="${opt2}"
+                data-available="${available}"
                 value="${variant.id}"
                 data-price="${formatPrice(variant.price)}"
                 ${(variant.compare_at_price && variant.compare_at_price > variant.price)?`data-cprice="${formatPrice(variant.compare_at_price)}"`:''}
@@ -492,6 +589,7 @@ function setProductUnitData(data, target) {
         el.setAttribute('data-value', color);
         if(colors[color].available === false) el.classList.add('color-swatch--na');
         if(colors[color].selected === true) el.classList.add('color-swatch--active');
+        if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         swatches.appendChild(el);
     }

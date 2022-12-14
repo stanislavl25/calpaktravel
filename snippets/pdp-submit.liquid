@@ -1,0 +1,26 @@
+<section class="pdp__submit">
+    <div class="pdp__submit-row">
+        <button class="button button--pdp__submit" type="submit">
+            <div class="pdp__submit-label">Add to Bag</div>
+            <div class="pdp__submit-price">
+                {%- if product.compare_at_price > product.price -%}
+                <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+                {%- endif -%}
+                {{ product.price | money_without_trailing_zeros }}
+            </div>
+        </button>
+        <button class="button button--secondary button--pdp__wishlist">
+            {% render 'icon-heart' %}
+            Wishlist
+        </button>
+    </div>
+
+    <div class="pdp__extend">
+        <label><input type="checkbox"> Add product protection offered by Extend</label>
+    </div>
+
+    <div class="pdp__submit-bottom">
+        <div class="pdp__stock">10 In Stock</div>
+        <div class="pdp__payments">4 easy payments of $XX with shopPay</div>
+    </div>
+</section>

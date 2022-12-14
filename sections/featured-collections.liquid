@@ -27,7 +27,7 @@
             {%- continue -%}
         {%- endif -%}
 
-        <div data-index="{{ forloop.index }}" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper" data-index="{{ forloop.index }}">
+        <div data-index="{{ forloop.index }}" data-slide="5" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper" data-index="{{ forloop.index }}">
             <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
             <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
             <div class="slider slider--scrollbar">

@@ -1,0 +1,11 @@
+<section class="pdp__meta">
+    <div class="pdp__feat-col">Part of <a>Hue Collection</a></div>
+    <div class="pdp__reviews">
+        {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+            {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+        {%- endif -%}
+    </div>
+    <div class="pdp__price">
+        <div>{{- product.price | money_without_trailing_zeros -}}</div>
+    </div>
+</section>

@@ -29,6 +29,9 @@ function swatchClickedCallback(swatch) {
         const option = select.querySelector(`option[data-option1="${opt1}"]`);
         const img = option.getAttribute('data-image');
 
+        if(option.getAttribute('data-available') == 'false') productUnit.classList.add('product-unit--na');
+        else productUnit.classList.remove('product-unit--na');
+
         if(img) productUnit.querySelector('.product-unit__image img').setAttribute('srcset', lazyloadImageSrcset(img));
     }
 }

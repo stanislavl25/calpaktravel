@@ -47,6 +47,9 @@
                         {% if settings.pinterest != blank %}
                         <a href="{{ settings.pinterest }}" title="Pinterest"><img alt="Pinterest" loading="lazy" src="{{ 'pinterest.svg' | asset_url }}"></a>
                         {% endif %}
+                        {% if settings.tiktok != blank %}
+                        <a href="{{ settings.tiktok }}" title="TikTok"><img width="17" alt="TikTok" loading="lazy" src="{{ 'tiktok.svg' | asset_url }}"></a>
+                        {% endif %}
                     </div>
             {%- endcase -%}
             </div>

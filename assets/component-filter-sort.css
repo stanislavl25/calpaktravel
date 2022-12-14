@@ -37,6 +37,6 @@
 }
 
 .collection-filters[data-active="sort"] {
-    width: 500px;
+    width: auto;
     max-width: 100%;
 }

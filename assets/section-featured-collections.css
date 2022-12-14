@@ -1,5 +1,5 @@
 .shopify-section--featured-collections {
-    margin: 50px 0;
+    margin: var(--section-gap) 0;
 }
 
 .featured-col__lists .product-unit {

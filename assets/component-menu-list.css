@@ -45,6 +45,10 @@
     display: flex;
 }
 
+.submenu-item a {
+    text-decoration: none;
+}
+
 .submenu-item a:hover {
     text-decoration: underline;
 }

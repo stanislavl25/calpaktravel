@@ -22,7 +22,9 @@
     {%- if linklists[section.settings.menu] != blank and section.settings.menu != blank -%}
     <div class="collections-menu">
         {%- for link in linklists[section.settings.menu].links -%}
-        <a href="{{ link.url }}" class="button{% if link.current %} collections-menu__current{% endif %} button--secondary">{{- link.title | escape -}} {% if link.current %}<i>{{ collection.products.size }}</i>{% endif %}</a>
+        <a href="{{ link.url }}" class="button{% if link.current %} collections-menu__current{% endif %} button--secondary">
+            <span>{{- link.title | escape -}} {% if link.current %}<i>{{ collection.products.size }}</i>{% endif %}</span>
+        </a>
         {%- endfor -%}
     </div>
     {%- endif -%}
@@ -39,7 +41,12 @@
             <span class="desktop-only">5</span>
         </button>
     </div>
-    <div class="current-filters-list"></div>
+    <div class="current-filters">
+        <div class="current-filters-list"></div>
+        <button class="filter__reset current-filters-clear">
+            Clear All
+        </button>
+    </div>
 </section>
 
 <section class="collection-filters">
@@ -55,13 +62,15 @@
     </nav>
     <div class="collection-filter collection-filter--color">
         <div class="slider__wrapper">
+            <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+            <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
             <div class="slider slider--filt-col">
                
             </div>
         </div>
         <div class="filter__buttons">
-            <button class="button filters__close">Apply</button>
-            <button class="button button--secondary filters__close">Close</button>
+            <button class="button filters__close"><span>Apply</span></button>
+            <button class="button button--secondary filters__close"><span>Close</span></button>
         </div>
     </div>
     <div class="collection-filter collection-filter--sort">

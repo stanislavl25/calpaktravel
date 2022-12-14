@@ -1,0 +1,7 @@
+.pdp__labels {
+    display: block;
+    position: absolute;
+    top: var(--gap);
+    left: var(--gap);
+    z-index: 2;
+}

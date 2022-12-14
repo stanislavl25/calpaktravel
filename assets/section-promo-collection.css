@@ -1,5 +1,5 @@
 .shopify-section--promo-col {
-    margin: 50px 0;
+    margin: var(--section-gap) 0;
 }
 
 .promo-collection {

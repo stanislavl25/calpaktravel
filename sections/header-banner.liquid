@@ -48,7 +48,9 @@
             {% if block.settings.button != blank and block.settings.link != blank %}
                 {%- if block.settings.button-display == 'both' -%}
                     <a class="header-banner__text" href="{{ block.settings.link }}">{{ block.settings.text }}</a>
-                    <a href="{{ block.settings.link }}" class="button button--secondary">{{ block.settings.button | escape }}</a>
+                    <a href="{{ block.settings.link }}" class="button button--secondary">
+                        <span>{{ block.settings.button | escape }}</span>
+                    </a>
                 {%- else -%}
                     {%- liquid
                         assign buttonClass = ''
@@ -60,7 +62,9 @@
                     -%}
 
                     <a href="{{ block.settings.link }}" class="header-banner__text">{{ block.settings.text }}</a>
-                    <a href="{{ block.settings.link }}" class="button button--secondary {{ buttonClass }}">{{ block.settings.button | escape }}</a>
+                    <a href="{{ block.settings.link }}" class="button button--secondary {{ buttonClass }}">
+                        <span>{{ block.settings.button | escape }}</span>
+                    </a>
                 {%- endif -%}
             {% else %}
                 <div class="header-banner__text">{{ block.settings.text }}</div>

@@ -23,7 +23,9 @@
 
         <div class="floating-link floating-link--{{ section.settings.pictured-product-display }}">
             {%- if section.settings.button-text != blank -%}
-            <a href="{{ block.settings.button-link }}" class="button button--secondary">{{- section.settings.button-text | escpe -}}</a>
+            <a href="{{ block.settings.button-link }}" class="button button--secondary">
+                <span>{{- section.settings.button-text | escpe -}}</span>
+            </a>
             {%- endif -%}
 
             {%- liquid
@@ -55,6 +57,24 @@
 
     .promo-collection--{{ section.id }} .promo-collection__products {
         grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    }
+
+    .promo-collection--{{ section.id }} .product-unit__na-link a,
+    .promo-collection--{{ section.id }} .product-unit__price s {
+        color: {{ section.settings.text-color }};
+    }
+
+    .promo-collection--{{ section.id }} .product-unit {
+        color: {{ section.settings.text-color }};
+        --sale-price-color: {{ section.settings.accent-color }};
+    }
+
+    .promo-collection--{{ section.id }} .product-unit__label--final-sale {
+        color: {{ section.settings.accent-color }};
+    }
+
+    .promo-collection--{{ section.id }} .icon-heart {
+        fill: {{ section.settings.text-color }};
     }
 {% endstyle %}
 
@@ -118,6 +138,18 @@
                 "id": "background",
                 "label": "Background Color",
                 "default": "#ff6b0e"
+            },
+            {
+                "type": "color",
+                "id": "text-color",
+                "label": "Text color",
+                "default": "#fff"
+            },
+            {
+                "type": "color",
+                "id": "accent-color",
+                "label": "Accent color",
+                "default": "#fff"
             },
             {
                 "type": "select",

@@ -28,7 +28,9 @@
         </div>
 
         <div class="floating-link">
-            <a href="{{ block.settings.target_link }}" class="button button--secondary">{{- block.settings.button-text | escpe -}}</a>
+            <a href="{{ block.settings.target_link }}" class="button button--secondary">
+                <span>{{- block.settings.button-text | escpe -}}</span>
+            </a>
             {% if block.settings.product_title != blank %}
             <div class="floating-link__pictured">
                 Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>

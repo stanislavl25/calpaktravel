@@ -1,7 +1,11 @@
 .header-banner {
-    border-bottom: 1px dashed #707070;
+    border-bottom: 1px dashed #AEAEAE;
     padding-bottom: var(--gap);
     margin: var(--gap) var(--gap) 0;
+}
+
+.header-banner a {
+    text-decoration: none;
 }
 
 .header-banner--text-banner {
@@ -10,24 +14,27 @@
 }
 
 .header-banner__text {
-    font-size: 36px;
+    font-size: 20px;
     letter-spacing: -0.02em;
     line-height: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (max-width: 900px) {
     .header-banner__text {
         font-size: 24px;
     }
-
-    .header-banner--text-banner {
-        display: block;
-    }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .header-banner .button {
         display: block;
         margin-top: var(--gap);
+    }
+
+    .header-banner--text-banner {
+        display: block;
     }
 }

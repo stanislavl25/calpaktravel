@@ -8,12 +8,20 @@
     <div class="reviews__slide reviews__slide--spacer">
         {% render 'review-content' with section.blocks[0] as block %}
     </div>
-    <div class="reviews__slider slider slider--vertical">
+    <div class="slider__dots">
+        {%- for block in section.blocks -%}
+        <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}"></div>
+        {%- endfor -%}
+    </div>
+    <div class="reviews__slider slider slider--vertical" data-autoslide="4">
         {% for block in section.blocks %}
         <div class="reviews__slide slide">
-            {% render 'review-content' with block as block %}
+            {% render 'review-content' with block as block, no_wrapper: true %}
         </div>
         {% endfor %}
+        <div class="reviews__slide slide">
+            {% render 'review-content' with section.blocks[0] as block, no_wrapper: true %}
+        </div>
     </div>
 </div>
 {% endif %}

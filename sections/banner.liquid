@@ -1,0 +1,179 @@
+{{ 'section-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="banner-section banner-section--{{ section.settings.height }} banner-section--{{ section.id }}">
+    {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
+    <a href="{{ section.settings.link }}">
+    {%- endif -%}
+    {%- if section.settings.image != blank -%}
+        {%- if section.settings.height == 'image' -%}
+            {%- assign no_wrapper = false -%}
+        {%- else -%}
+            {%- assign no_wrapper = true -%}
+        {%- endif -%}
+
+        {%- render 'image' with section.settings.image, no_wrapper: no_wrapper -%}
+    {%- endif -%}
+    <div class="banner-section__content banner-section__content--{{ section.settings.text-color-scheme }} banner-section__content--{{ section.settings.text-alignment }}">
+        {%- if section.settings.title != blank -%}
+        <div class="banner-section__title">{{- section.settings.title | escape -}}</div>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+        <div class="banner-section__text">{{- section.settings.text -}}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button-text != blank -%}
+            {%- if section.settings.link-for-button -%}
+                <a
+                    href="{{ section.settings.link }}"
+                    class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
+                    <span>{{- section.settings.button-text | escape -}}</span>
+                </a>
+            {%- else -%}
+                <span
+                    class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
+                    <span>{{- section.settings.button-text | escape -}}</span>
+                </span>
+            {%- endif -%}
+        {%- endif -%}
+    </div>
+    {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
+    </a>
+    {%- endif -%}
+</section>
+
+{% style %}
+.banner-section--{{ section.id }} {
+    background: {{section.settings.background }};
+
+    {%- if section.settings.height == 'custom' -%}
+    height: {{ section.settings.height-percent }}vw;
+    {%- endif -%}
+}
+{% endstyle %}
+
+{% schema %}
+    {
+        "name": "Banner",
+        "class": "shopify-section--banner",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Content"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "text",
+                "id": "button-text",
+                "label": "Button Text"
+            },
+            {
+                "type": "url",
+                "id": "link",
+                "label": "Link"
+            },
+            {
+                "type": "checkbox",
+                "id": "link-for-button",
+                "label": "Link for button only",
+                "default": false
+            },
+            {
+                "type": "header",
+                "content": "Display"
+            },
+            {
+                "type": "select",
+                "id": "height",
+                "label": "Height",
+                "options": [
+                    {
+                        "value": "image",
+                        "label": "Image dimensions"
+                    },
+                    {
+                        "value": "content",
+                        "label": "Content dimensions"
+                    },
+                    {
+                        "value": "custom",
+                        "label": "Custom"
+                    }
+                ],
+                "default": "image"
+            },
+            {
+                "type": "range",
+                "id": "height-percent",
+                "min": 10,
+                "max": 100,
+                "step": 5,
+                "unit": "%",
+                "label": "Height percent",
+                "default": 50,
+                "info": "Only when \"Custom\" is selected. Relative to screen width."
+            },
+            {
+                "type": "select",
+                "id": "text-alignment",
+                "label": "Text Alignment",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "center",
+                        "label": "Center"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ],
+                "default": "left"
+            },
+            {
+                "type": "select",
+                "id": "text-color-scheme",
+                "label": "Text Color Scheme",
+                "options": [
+                    {
+                        "value": "white",
+                        "label": "White"
+                    },
+                    {
+                        "value": "black",
+                        "label": "Black"
+                    }
+                ],
+                "default": "white"
+            },
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background color",
+                "default": "#e4dfd5"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Banner"
+            }
+        ]
+    }
+{% endschema %}

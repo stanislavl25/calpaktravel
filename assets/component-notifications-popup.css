@@ -20,7 +20,7 @@
 
 .notifications-header {
     height: 42px;
-    border-bottom: 1px dashed #707070;
+    border-bottom: 1px dashed #AEAEAE;
     display: flex;
     gap: var(--gap);
     align-items: center;

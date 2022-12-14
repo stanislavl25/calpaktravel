@@ -1,5 +1,6 @@
 .menu-popup--search {
     z-index: 999;
+    height: 100%;
 }
 
 .search-popup__overlay {
@@ -26,7 +27,7 @@
 }
 
 .search__top {
-    border-bottom: 1px dashed #777;
+    border-bottom: 1px dashed #AEAEAE;
     height: 42px;
     padding: 0 var(--gap);
     position: relative;
@@ -106,6 +107,10 @@
 
 .search__empty-message {
     padding: var(--gap);
-    border-bottom: 1px dashed #707070;
+    border-bottom: 1px dashed #AEAEAE;
     flex: 0 0 100%;
+}
+
+.menu-popup--search.menu-popup--visible {
+    display: block;
 }

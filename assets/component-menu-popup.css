@@ -10,33 +10,78 @@ body.modal-open {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: 2;
 }
 
-.menu-popup--active {
+@media (min-width: 1728px) {
+    .menu-popup {
+        height: auto;
+    }
+}
+
+.menu-popup__activator {
+    height: 42px;
+    display: block;
+    line-height: 42px;
+    position: relative;
+}
+
+[data-menu="discover"] [data-target="discover"]::before,
+[data-menu="shop"] [data-target="shop"]::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    border-top: 1px solid #000;
+    left: 0;
+    width: 100%;
+}
+
+[data-menu="shop"] .menu-popup[data-id="shop"],
+[data-menu="discover"] .menu-popup[data-id="discover"] {
     display: flex;
 }
 
-.menu-popup--discover .menu-popup__background,
-.menu-popup--shop .menu-popup__background {
+.menu-popup__background {
+    display: block;
     background: var(--yellow);
     position: absolute;
     z-index: 1;
     left: 0;
     top: 0;
-    height: 42px;
-    width: 0;
-    transition: height 0.3s, width 0.3s;
+    /* height: 42px; */
+    width: 100%;
+    height: 100%;
+    /* width: 0; */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s, background 0.2s;
+    opacity: 0;
 }
 
-.menu-popup--discover .menu-popup__background {
+.menu-popup--visible .menu-popup__background {
+    transition: none;
+}
+
+.modal-open .menu-popup__background,
+.menu-popup--visible .menu-popup__background {
+    opacity: 1;
+}
+
+[data-menu="discover"] .menu-popup__background,
+[data-menu="shop"] .menu-popup--visible .menu-popup__background {
+    background: var(--yellow);
+}
+
+[data-menu="shop"] .menu-popup__background,
+[data-menu="discover"] .menu-popup--visible .menu-popup__background {
     background: #fff;
 }
 
-.menu-popup--discover.menu-popup--visible .menu-popup__background,
-.menu-popup--shop.menu-popup--visible .menu-popup__background {
-    /* width: 100%; */
-    /* height: 100%; */
-    animation: backgroundUnfold ease-in-out both 0.6s;
+[data-menu="shop"] .menu-popup__background,
+[data-menu="discover"] .menu-popup__background {
+    /* opacity: 1; */
+    pointer-events: all;
+    /* animation: backgroundUnfold ease-in-out both 0.6s; */
 }
 
 .menu-popup--discover .menu-side,
@@ -46,20 +91,20 @@ body.modal-open {
     opacity: 0;
     transform: translateX(70px);
     transition: opacity 0.4s, transform 0.4s;
-    transition-delay: 0.6s;
-}
-
-.menu-popup--discover .menu-side,
-.menu-popup--shop .menu-side {
-    transition-delay: 0.8s;
 }
 
 .menu-popup--discover.menu-popup--visible .menu-side,
+.menu-popup--shop.menu-popup--visible .menu-side {
+    transition-delay: 0.6s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .menu-popup--discover.menu-popup--visible .menu-popup__main,
-.menu-popup--shop.menu-popup--visible .menu-side,
 .menu-popup--shop.menu-popup--visible .menu-popup__main {
     opacity: 1;
     transform: translateX(0);
+    transition-delay: 0.4s;
 }
 
 @keyframes backgroundUnfold {
@@ -83,24 +128,6 @@ body.modal-open {
 .menu-popup--shop .menu-popup__content {
     position: relative;
     z-index: 2;
-}
-
-.menu-popup--shop .menu-popup__content::before {
-    position: absolute;
-    top: -1px;
-    left: var(--gap);
-    border-top: 1px solid #000;
-    content: '';
-    width: 35px;
-}
-
-.menu-popup--discover .menu-popup__content::before {
-    position: absolute;
-    top: -1px;
-    left: calc(55px + var(--gap));
-    border-top: 1px solid #000;
-    content: '';
-    width: 57px;
 }
 
 .menu-close {
@@ -133,7 +160,7 @@ body.modal-open {
 }
 
 .menu-popup__content {
-    border-top: 1px dashed #707070;
+    border-top: 1px dashed #AEAEAE;
     margin: 42px 0 0;
     display: flex;
     flex: 1;
@@ -141,7 +168,7 @@ body.modal-open {
 
 .menu-side {
     flex: 0 0 50%;
-    border-left: 1px dashed #707070;
+    border-left: 1px dashed #AEAEAE;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -161,7 +188,6 @@ body.modal-open {
     padding: var(--gap);
     gap: var(--gap);
     display: grid;
-    min-height: 400px;
 }
 
 .media-grid[data-num="3"],
@@ -206,7 +232,7 @@ body.modal-open {
 }
 
 .menu-side .product-slider {
-    border-top: 1px dashed #707070;
+    border-top: 1px dashed #AEAEAE;
     padding: var(--gap);
 }
 
@@ -227,4 +253,38 @@ body.modal-open {
 
 .menu-popup__main::-webkit-scrollbar {
     display: none;
+}
+
+.menu__dynamic-element.slider__wrapper--start .slider__control--prev  {
+    opacity: 0.3;
+}
+
+.menu__dynamic-element.slider__wrapper--end .slider__control--next {
+    opacity: 0.3;
+}
+
+.site-header__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: opacity 0.5s;
+    background: #000;
+    pointer-events: none;
+    display: block;
+}
+
+[data-menu="shop"] .site-header__overlay,
+[data-menu="discover"] .site-header__overlay {
+    opacity: 0.4;
+    pointer-events: all;
+}
+
+@media (min-width: 1728px) {
+    .media-cell {
+        min-height: 20vw;
+    }
 }

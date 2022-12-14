@@ -20,6 +20,8 @@ function renderColorGroups() {
         filterGroupList.appendChild(el);
     }
 
+    checkSlider(filterGroupList);
+
     let colGroupButtons = document.querySelectorAll('.filt-col-group');
     if(colGroupButtons.length) colGroupButtons.forEach(colGroupButton => colGroupButton.addEventListener('click', (e) => {
         e.preventDefault();

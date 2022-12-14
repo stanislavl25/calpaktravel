@@ -61,6 +61,11 @@
                 "type": "url",
                 "id": "pinterest",
                 "label": "Pinterest"
+            },
+            {
+                "type": "url",
+                "id": "tiktok",
+                "label": "TikTok"
             }
         ]
     }

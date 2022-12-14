@@ -1,14 +1,20 @@
 {%- liquid
     assign product = product-unit
 -%}
-<div data-handle="{{ product.handle }}" class="product-unit{% if class != blank %} {{ class }}{% endif %}">
-    {%- if quick_view == true -%}
-        <a class="quick-view__link" href="{{ product-unit.url }}" title="Quick View">
-            <img alt="Quick View" src="{{ 'quick-view.svg' | asset_url }}" loading="lazy">
-        </a>
-    {%- endif -%}
-    
+<div data-handle="{{ product.handle }}" class="product-unit{% if class != blank %} {{ class }}{% endif %}">    
     <div class="product-unit__image-wrapper">
+        {%- if quick_view == true -%}
+            <a class="quick-view__link" href="{{ product-unit.url }}" title="Quick View">
+                <img alt="Quick View" src="{{ 'quick-view.svg' | asset_url }}" loading="lazy">
+            </a>
+        {%- endif -%}
+
+        {%- if product.compare_at_price > product.price -%}
+        <div class="product-unit__label product-unit__label--top product-unit__label--sale">
+            Save {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%
+        </div>
+        {%- endif -%}
+    
         {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
         <div class="product-unit__reviews">
             {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
@@ -53,12 +59,19 @@
         <a href="{{ product.url }}" class="product-unit__link">{{ product.title | escape }}</a>
     </div>
 
-    <div class="product-unit__price">
-        {%- if product.compare_at_price > product.price -%}
-            <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
-            <b>{{ product.price | money_without_trailing_zeros }}</b>
-        {%- else -%}
-            <b>{{ product.price | money_without_trailing_zeros }}</b>
-        {%- endif -%}
+    <div class="product-unit__row">
+        <div class="product-unit__price">
+            {%- if product.compare_at_price > product.price -%}
+                <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+                <b>{{ product.price | money_without_trailing_zeros }}</b>
+            {%- else -%}
+                <b>{{ product.price | money_without_trailing_zeros }}</b>
+            {%- endif -%}
+        </div>
+        <div class="product-unit__na-link"><a href="{{ product.url }}">Join Waitlist</a></div>
     </div>
+
+    {%- if product.tags contains 'Final Sale' -%}
+    <div class="product-unit__label product-unit__label--final-sale">This item is Final Sale</div>
+    {%- endif -%}
 </div>

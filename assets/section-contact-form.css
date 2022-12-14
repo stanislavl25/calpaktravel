@@ -1,5 +1,6 @@
 .shopify-section--contact-form {
-    padding: var(--gap);
+    padding: 0 var(--gap);
+    margin: var(--section-gap) 0;
 }
 
 .section__contact-form {

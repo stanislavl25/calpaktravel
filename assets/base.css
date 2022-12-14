@@ -2,6 +2,7 @@
     --yellow: #f7f177;
     --orange: #ff6b0e;
     --gap: 18px;
+    --section-gap: 54px;
 }
 
 body {
@@ -13,7 +14,7 @@ iframe {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: inherit;
 }
 
@@ -196,6 +197,16 @@ body > div:empty {
     padding: 0 17px;
     text-align: center;
     cursor: pointer;
+    transition: line-height 0.3s;
+}
+
+.button span {
+    transition: transform 0.3s;
+    display: block;
+}
+
+.button:hover span {
+    transform: translateY(-3px);
 }
 
 .button--secondary {
@@ -275,4 +286,8 @@ body > div:empty {
 
 .close-button::after {
     transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.tooltip {
+    display: none;
 }

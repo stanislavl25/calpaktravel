@@ -1,5 +1,9 @@
+.shopify-section--content-blocks {
+    margin: var(--section-gap) 0;
+}
+
 .content-blocks {
-    padding: var(--gap);
+    padding: 0 var(--gap);
     display: flex;
 }
 
@@ -19,6 +23,10 @@
     letter-spacing: -0.02em;
     margin-bottom: var(--gap);
     line-height: 1.25em;
+}
+
+.content-block__title a {
+    text-decoration: none;
 }
 
 .content-block__description {
