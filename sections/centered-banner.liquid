@@ -1,0 +1,53 @@
+{{ 'section-rewards-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="rewards-banner">
+    <div class="rewards-banner__content">
+        {% if section.settings.title != blank %}
+        <div class="rewards-banner__title">{{ section.settings.title | escape }}</div>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+            <div>{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.button-title != blank %}
+        <div>
+            <a class="button" href="{{ section.settings.button-url }}"><span>{{ section.settings.button-title }}</span></a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Centered Banner",
+        "class": "shopify-section--centered-banner",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "text",
+                "id": "button-title",
+                "label": "Button title"
+            },
+            {
+                "type": "url",
+                "id": "button-url",
+                "label": "Button URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Centered Banner"
+            }
+        ]
+    }
+{% endschema %}

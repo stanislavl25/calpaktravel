@@ -1,0 +1,401 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Which toiletry bag is right for you?",
+        "title-size": "medium",
+        "text": "<p>Bring your glow on-the-go and find the <strong>best toiletry bag for traveling. <\/strong><\/p>"
+      }
+    },
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/which-toiletry-bag-is-right-for-you.png",
+        "image-mobile": "shopify:\/\/shop_images\/which-toiletry-bag-is-right-for-you-mobile.png",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "0d276ec6-de71-4ffe-989b-8f96381eb04e": {
+      "type": "page-header",
+      "settings": {
+        "title": "For compact organization:",
+        "title-size": "large",
+        "text": ""
+      }
+    },
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
+      "type": "product-showcase",
+      "blocks": {
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "Luka Toiletry Bag",
+            "description": "<p>The Luka zippered cosmetic pouch is lightweight, flexible, and composed of an ultra-protective scratch-resistant fabric to protect all your prized possessions. Featuring multiple pockets for optimal organization, this small toiletry bag has a practical carrying handle for you to grab-and-go, making it the ideal toiletry bag for the gym. If you like to match your cosmetics bag to your hand-luggage, you can pack it inside your Luka Backpack or Duffel, and get on the move.<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/luka-toiletry-bag"
+          }
+        },
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
+          "type": "product",
+          "settings": {
+            "product": "luka-toiletry-bag"
+          }
+        },
+        "1b775b70-f16b-4f85-a218-760455abe4b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/luka-toiletry-bag.png"
+          }
+        }
+      },
+      "block_order": [
+        "db964836-931d-46f8-847a-85e26721b352",
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03",
+        "1b775b70-f16b-4f85-a218-760455abe4b0"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
+      "type": "product-showcase",
+      "blocks": {
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "hue-toiletry-bag"
+          }
+        },
+        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/medium-cosmetics-case.png"
+          }
+        },
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
+          "type": "text",
+          "settings": {
+            "title": "Hue Toiletry Bag",
+            "description": "<p>This best-selling women’s and men’s toiletry bag can promise you even more storage. Buttery soft, and made from smooth vegan leather; this sophisticated compact toiletry bag is the perfect unisex piece for storing plenty of travel-sized cosmetics on your next out-of-town adventure. Featuring snaps on both sides, it has an extra-wide opening and multiple interior pockets. If you’re looking for a compact travel toiletry bag, with extra space, and minimalist appeal—this is the one for you. <\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/hue-toiletry-bag"
+          }
+        }
+      },
+      "block_order": [
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f",
+        "999f1999-abe3-4175-b42f-0de5ff5d695e",
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "07131daf-be0f-416b-b264-9452b0810cc1": {
+      "type": "product-showcase",
+      "blocks": {
+        "0b804748-efb8-4e0d-84a7-4e141cbd2af3": {
+          "type": "text",
+          "settings": {
+            "title": "Terra Hanging Toiletry Bag",
+            "description": "<p>If you’re in search of a sustainable option, and always open to an adventure, our hanging toiletry bag for travel is designed for you. Each cosmetic bag is made from 6 recycled plastic bottles, and its ripstop polyester fabric is water-resistant and designed for all terrains, making it the perfect toiletry bag for camping. Whether you take it on your travels, or keep it hanging in your bathroom—all your essentials, including cosmetics, accessories, and even toothbrushes—can be stored harmoniously in one, organized place. <\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/terra-hanging-toiletry-bag"
+          }
+        },
+        "08a3b9c9-44f2-4b66-bdab-4808a746ba10": {
+          "type": "product",
+          "settings": {
+            "product": "terra-hanging-toiletry-bag"
+          }
+        },
+        "6e933b91-624d-43f7-b714-dbdd220a6bdc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/terra-hanging-toiletry-bag.png"
+          }
+        }
+      },
+      "block_order": [
+        "0b804748-efb8-4e0d-84a7-4e141cbd2af3",
+        "08a3b9c9-44f2-4b66-bdab-4808a746ba10",
+        "6e933b91-624d-43f7-b714-dbdd220a6bdc"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "a4648127-67f1-45b8-b845-010b253cb361": {
+      "type": "text-and-media",
+      "blocks": {
+        "f6d06cad-cd5d-4659-a131-db4ea8b06197": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "<p>Durable, and water-resistant, these cosmetic carriers will keep your liquids and gels safe and sound.<\/p>",
+            "button-text": "",
+            "button-url": "",
+            "hide-on-mobile": false
+          }
+        },
+        "c6fd4a1a-cbca-4a8e-b839-08abf5c0681c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ambeur-vanity-case-gold.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "f6d06cad-cd5d-4659-a131-db4ea8b06197",
+        "c6fd4a1a-cbca-4a8e-b839-08abf5c0681c"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "e905ad4f-8a00-456b-8b16-94645ead264a": {
+      "type": "page-header",
+      "settings": {
+        "title": "For ultimate transparency:",
+        "title-size": "large",
+        "text": ""
+      }
+    },
+    "e200f0e1-71de-469e-b441-c8ed4b3ceb24": {
+      "type": "product-showcase",
+      "blocks": {
+        "bf6b95e3-e5be-42d5-a2a2-3f9157f908a5": {
+          "type": "text",
+          "settings": {
+            "title": "Large Clear Cosmetics Case",
+            "description": "<p>Our largest clear toiletry bag with handle is durable, light-weight, and has two spacious compartments to keep all your full-sized products organized. Made from a see-through material, this clear makeup case with top handle will ensure you can pack it, grab it and leave no beauty staple behind, since it’s all there for you to see. This clear toiletry bag with compartments is loved by makeup artists and beauty junkies for good reason!<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/large-clear-cosmetic-case"
+          }
+        },
+        "96bdeac1-1177-4e28-82f8-335f42503bab": {
+          "type": "product",
+          "settings": {
+            "product": "large-clear-cosmetic-case"
+          }
+        },
+        "77552ec4-62c9-410b-9b21-5ec0d1e22d89": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/large-cosmetics-case.png"
+          }
+        }
+      },
+      "block_order": [
+        "bf6b95e3-e5be-42d5-a2a2-3f9157f908a5",
+        "96bdeac1-1177-4e28-82f8-335f42503bab",
+        "77552ec4-62c9-410b-9b21-5ec0d1e22d89"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "774750df-17c4-4f68-9c28-97a5641b6a90": {
+      "type": "product-showcase",
+      "blocks": {
+        "57a739d0-8ea3-448d-84c1-c3a10b726b11": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "a99ac4bc-a910-4e90-8795-42a5ed9a9f73": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/medium-cosmetics-case_b1d8f1c2-04f9-4ee5-ad2c-5f90394d4b13.png"
+          }
+        },
+        "06742756-a8cd-4a82-9226-6c292be7861f": {
+          "type": "text",
+          "settings": {
+            "title": "Medium Clear Cosmetics Case",
+            "description": "<p>The perfect self-care accessory *does* exist, and it’s our medium-sized see through toiletry bag. Small enough to fit in your carry-on roller or duffel, and spacious enough to fit all your skincare essentials—we like to think of this clear toiletry bag as the perfect size for trips not too short, and not too long. Its transparent material is water-resistant, meaning any spills or leaks will be contained, and can easily be cleaned up. <\/p>",
+            "button-text": "",
+            "button-link": ""
+          }
+        }
+      },
+      "block_order": [
+        "57a739d0-8ea3-448d-84c1-c3a10b726b11",
+        "a99ac4bc-a910-4e90-8795-42a5ed9a9f73",
+        "06742756-a8cd-4a82-9226-6c292be7861f"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "0297d7a2-ff9c-4342-8574-d9a708ede761": {
+      "type": "product-showcase",
+      "blocks": {
+        "48a43928-a7de-40bb-868b-1207d0bbce39": {
+          "type": "text",
+          "settings": {
+            "title": "Small Clear Cosmetics Case",
+            "description": "<p>Meet the mini clear makeup case designed for mini breaks, from our best-selling Kaya Collection, that will store all your essentials (and a whole lot more). Featuring two spacious zippered compartments, and an easy-to-grab handle, this mini toiletry bag with compartments might be small, but it’s mighty, and can fit everything you need for your quick getaway. Happy travels!<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/mini-clear-cosmetics-case"
+          }
+        },
+        "7c472fd6-a156-400b-b1e0-2fa38143009c": {
+          "type": "product",
+          "settings": {
+            "product": "mini-clear-cosmetics-case"
+          }
+        },
+        "d674599a-42e0-4a78-a703-7a022004ae4a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/small-cosmetics-case.png"
+          }
+        }
+      },
+      "block_order": [
+        "48a43928-a7de-40bb-868b-1207d0bbce39",
+        "7c472fd6-a156-400b-b1e0-2fa38143009c",
+        "d674599a-42e0-4a78-a703-7a022004ae4a"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "7fe81031-8244-42b3-90b7-93dc43fc3d30": {
+      "type": "page-header",
+      "settings": {
+        "title": "For even more space:",
+        "title-size": "large",
+        "text": ""
+      }
+    },
+    "5532cccd-ee61-48ae-a30f-04a31885fef6": {
+      "type": "product-showcase",
+      "blocks": {
+        "497c5077-737b-4eac-a9c6-80ad4a67e132": {
+          "type": "product",
+          "settings": {
+            "product": "ambeur-vanity-case"
+          }
+        },
+        "c7605265-06bf-43a2-be23-e711a35a89ca": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ambeur-vanity-case.png"
+          }
+        },
+        "16ef6ac6-370f-4f8e-ab1d-f32b9d3b515d": {
+          "type": "text",
+          "settings": {
+            "title": "Ambeur Vanity Case",
+            "description": "<p>Are you the type of person who never knows what to pack, so you bring it all? This is the hard shell cosmetic travel case of every die-hard beauty enthusiast’s dreams. Part of our Ambeur Collection, this makeup vanity case has a luxe exterior with a metallic sheen. With two large interior dividers, a shoulder strap, and a luggage sleeve to slip onto your roller—you can bring the entire contents of your bathroom cabinets with you in this hard case toiletry bag, just like that! <\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/ambeur-vanity-case"
+          }
+        }
+      },
+      "block_order": [
+        "497c5077-737b-4eac-a9c6-80ad4a67e132",
+        "c7605265-06bf-43a2-be23-e711a35a89ca",
+        "16ef6ac6-370f-4f8e-ab1d-f32b9d3b515d"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "b3fb537d-3112-48b0-8ca2-26c3e123253b": {
+      "type": "product-showcase",
+      "blocks": {
+        "174af5e8-2886-45c0-9ad1-7ceb27853746": {
+          "type": "text",
+          "settings": {
+            "title": "TRNK Vanity Case",
+            "description": "<p>Whether you’re a pro make-up artist, or simply obsessed with all things skincare—this luxurious travel vanity case has you covered. Featuring a deep packable interior with multiple pockets, this hard shell vanity case will have you feeling more organized than ever while you’re en route. It’s offered in two versatile colorways and features a shoulder strap and luggage sleeve, for your most stress-free travel experience. If you like to pack your full sized beauty staples, and plenty of them—make sure you take this dream hard shell crossbody bag with you to your dream destination. <\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/trnk-vanity-case"
+          }
+        },
+        "561cbbbb-1779-477a-b21c-a360e89c8eab": {
+          "type": "product",
+          "settings": {
+            "product": "trnk-vanity-case"
+          }
+        },
+        "489be6cd-9aab-425d-a4d2-487656653e7d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/trnk-vanity-case.png"
+          }
+        }
+      },
+      "block_order": [
+        "174af5e8-2886-45c0-9ad1-7ceb27853746",
+        "561cbbbb-1779-477a-b21c-a360e89c8eab",
+        "489be6cd-9aab-425d-a4d2-487656653e7d"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "settings": {
+            "title": "Travel Necessities",
+            "description": "Leave no beauty staple behind.",
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "settings": {
+            "title": "Travel Necessities",
+            "description": "Discover the cosmetics case that's perfect for you.",
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7",
+    "0d276ec6-de71-4ffe-989b-8f96381eb04e",
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc",
+    "07131daf-be0f-416b-b264-9452b0810cc1",
+    "a4648127-67f1-45b8-b845-010b253cb361",
+    "e905ad4f-8a00-456b-8b16-94645ead264a",
+    "e200f0e1-71de-469e-b441-c8ed4b3ceb24",
+    "774750df-17c4-4f68-9c28-97a5641b6a90",
+    "0297d7a2-ff9c-4342-8574-d9a708ede761",
+    "7fe81031-8244-42b3-90b7-93dc43fc3d30",
+    "5532cccd-ee61-48ae-a30f-04a31885fef6",
+    "b3fb537d-3112-48b0-8ca2-26c3e123253b",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
+  ]
+}

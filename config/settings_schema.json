@@ -1,72 +1,377 @@
 [
-    {
-        "name": "theme_info",
-        "theme_name": "Calpak",
-        "theme_author": "Calpak",
-        "theme_version": "3.0.1",
-        "theme_documentation_url": "http:\/\/calpaktravel.com\/",
-        "theme_support_email": "hello@calpaktravel.com"
-    },
-    {
-        "name": "General Settings",
-        "settings": [
-            {
-                "type": "image_picker",
-                "id": "favicon",
-                "label": "Favicon"
-            }
-        ]
-    },
-    {
-        "name": "Typography",
-        "settings": [
-            {
-                "type": "font_picker",
-                "id": "type_body_font",
-                "default": "assistant_n4",
-                "label": "Main font"
-            },
-            {
-                "type": "font_picker",
-                "id": "type_body_font_bolder",
-                "default": "assistant_n4",
-                "label": "Bolder font"
-            }
-        ]
-    },
-    {
-        "name": "Social",
-        "settings": [
-            {
-                "type": "url",
-                "id": "facebook",
-                "label": "Facebook"
-            },
-            {
-                "type": "url",
-                "id": "instagram",
-                "label": "Instagram"
-            },
-            {
-                "type": "url",
-                "id": "twitter",
-                "label": "Twitter"
-            },
-            {
-                "type": "url",
-                "id": "youtube",
-                "label": "Youtube"
-            },
-            {
-                "type": "url",
-                "id": "pinterest",
-                "label": "Pinterest"
-            },
-            {
-                "type": "url",
-                "id": "tiktok",
-                "label": "TikTok"
-            }
-        ]
-    }
+  {
+    "name": "theme_info",
+    "theme_name": "Calpak",
+    "theme_author": "Calpak",
+    "theme_version": "3.0.1",
+    "theme_documentation_url": "http:\/\/calpaktravel.com\/",
+    "theme_support_email": "hello@calpaktravel.com"
+  },
+  {
+    "name": "General Settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "collection",
+        "id": "best-sellers",
+        "label": "Best Sellers collection",
+        "info": "Must contain all products sorted by best selling"
+      },
+      {
+        "type": "collection",
+        "id": "new-arrivals",
+        "label": "New Arrivals collection"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "range",
+        "id": "free-shipping",
+        "label": "Free Shipping starting from",
+        "default": 75,
+        "min": 0,
+        "max": 300,
+        "step": 5,
+        "unit": "$"
+      }
+    ]
+  },
+  {
+    "name": "Preorder",
+    "settings": [
+      {
+        "type": "color",
+        "id": "preorder-highlight-col",
+        "label": "Preorder highlight",
+        "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "preorder-highlight-t-col",
+        "label": "Preorder highlight text",
+        "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "Collections",
+    "settings": [
+        {
+            "type": "color",
+            "id": "product-unit-info-col",
+            "label": "Additional info color",
+            "default": "#707070"
+        },
+        {
+            "type": "range",
+            "id": "product-unit-sw-count",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 4,
+            "label": "Swatches shown per product"
+        }
+    ]
+  },
+  {
+    "name": "Sale",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "sale-enabled",
+            "label": "Sale Enabled",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "sale-tag",
+            "label": "Eligible products tag"
+        },
+        {
+            "type": "text",
+            "id": "sale-text",
+            "label": "Sale text",
+            "info": "Use %% to show actual discount"  
+        },
+        {
+            "type": "text",
+            "id": "sale-text-pdp",
+            "label": "Sale text for PDP",
+            "info": "Use %% to show actual discount"  
+        },
+        {
+            "type": "header",
+            "content": "Colors"
+        },
+        {
+            "type": "color",
+            "id": "sale_price_color",
+            "label": "Sale price color",
+            "default": "#ff0000"
+        },
+        {
+            "type": "color",
+            "id": "sale_accent",
+            "label": "Sale label color",
+            "default": "#ff0000"
+        },
+        {
+            "type": "color",
+            "id": "sale_background",
+            "label": "Sale label background color",
+            "default": "#f7f7f7"
+        },
+        {
+            "type": "header",
+            "content": "Final Sale"
+        },
+        {
+            "type": "color",
+            "id": "final-sale-highlight-col",
+            "label": "Final sale highlight",
+            "default": "#F00"
+        },
+        {
+            "type": "color",
+            "id": "final-sale-highlight-t-col",
+            "label": "Final sale highlight text",
+            "default": "#FFF"
+        },
+        {
+            "type": "color",
+            "id": "final-sale-main-text",
+            "label": "Final sale text",
+            "default": "#F00"
+        }
+    ]
+  },
+  {
+    "name": "Flash Sale",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "flash-sale-enabled",
+        "label": "Flash Sale Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "flash-sale-tag",
+        "label": "Eligible products tag"
+      },
+      {
+        "type": "text",
+        "id": "flash-sale-text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "flash-sale-starts",
+        "label": "Start date\/time"
+      },
+      {
+        "type": "text",
+        "id": "flash-sale-ends",
+        "label": "End date\/time"
+      },
+      {
+        "type": "select",
+        "id": "flash-sale-countdown",
+        "label": "Show countdown when",
+        "options": [
+          {
+            "value": "24",
+            "label": "less than 24 hours left"
+          },
+          {
+            "value": "48",
+            "label": "less than 48 hours left"
+          }
+        ],
+        "default": "24"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "flash-sale-accent",
+        "label": "Accent color",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "flash-sale-text-col",
+        "label": "Text color",
+        "default": "#fff"
+      }
+    ]
+  },
+  {
+    "name": "Sale Badge",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sale-badge-enabled",
+        "label": "Sale Badge Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-tag",
+        "label": "Eligible products tag"
+      },
+      {
+        "type": "textarea",
+        "id": "sale-badge-text",
+        "label": "Text",
+        "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "sale-badge-bg",
+        "label": "Background",
+        "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "sale-badge-color",
+        "label": "Text",
+        "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "Promo Message",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sale-msg-enabled",
+        "label": "Sale Message Enabled",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sale-msg-pdp-only",
+        "label": "Show on PDP only"
+      },
+      {
+        "type": "text",
+        "id": "sale-msg-tag",
+        "label": "Eligible products tag"
+      },
+      {
+        "type": "text",
+        "id": "sale-msg-highlighted",
+        "label": "Highlighted text"
+      },
+      {
+        "type": "text",
+        "id": "sale-msg-message",
+        "label": "Main message"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "sale-msg-highlight-col",
+        "label": "Highlight",
+        "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "sale-msg-highlight-t-col",
+        "label": "Highlight text",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "sale-msg-main-text",
+        "label": "Main text",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "sale-msg-main-col-text",
+        "label": "Main text for collections",
+        "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "Main font"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font_bolder",
+        "default": "assistant_n4",
+        "label": "Bolder font"
+      }
+    ]
+  },
+  {
+    "name": "Dev",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "disable_extra_scripts",
+        "label": "Disable extra scripts"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "url",
+        "id": "facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "url",
+        "id": "youtube",
+        "label": "Youtube"
+      },
+      {
+        "type": "url",
+        "id": "pinterest",
+        "label": "Pinterest"
+      },
+      {
+        "type": "url",
+        "id": "tiktok",
+        "label": "TikTok"
+      }
+    ]
+  }
 ]

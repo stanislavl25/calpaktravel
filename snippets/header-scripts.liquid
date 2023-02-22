@@ -1,0 +1,47 @@
+<script>
+  document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+</script>
+
+{% if template contains 'customers' %}
+    {% comment %} {{ "shopify_common.js" | shopify_asset_url | script_tag }} {% endcomment %}
+    {% comment %} {{ "customer_area.js"  | shopify_asset_url | script_tag }} {% endcomment %}
+{% endif %}
+
+{% comment %} {% include '3wh-gtm' %} {% endcomment %}
+
+{%- unless settings.disable_extra_scripts -%}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5VKKRGV');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Anti-flicker snippet (recommended) -->
+    <style>.async-hide { opacity: 0 !important} </style>
+    <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-5VKKRGV':true});</script>
+
+    <!-- Global Site Tag (gtag.js) - Google AdWords: 837246369 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-837246369"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-837246369', {'send_page_view': false, 'allow_enhanced_conversions': true});
+    </script>
+{%- endunless -%}
+
+<script>var CRL8_SITENAME = 'calpaks-bc3kle';!function(){var e=window.crl8=window.crl8||{},n=!1,i=[];e.ready=function(e){n?e():i.push(e)},e.pixel=e.pixel||function(){e.pixel.q.push(arguments)},e.pixel.q=e.pixel.q||[];var t=window.document,o=t.createElement("script"),c=e.debug||-1!==t.location.search.indexOf("crl8-debug=true")?"js":"min.js";o.async=!0,o.src=t.location.protocol+"//edge.curalate.com/sites/"+CRL8_SITENAME+"/site/latest/site."+c,o.onload=function(){n=!0,i.forEach(function(e){e()})};var r=t.getElementsByTagName("script")[0];r.parentNode.insertBefore(o,r.nextSibling)}();</script>
+
+
+{% comment %} {{ shop.metafields.okendo.ReviewsWidgetStyleTag }} {% endcomment %}
+{% comment %} {{ shop.metafields.okendo.StyleCustomizations }} {% endcomment %}
+{% comment %} {% render 'okendo-reviews-json-ld' %} {% endcomment %}
+
+{% comment %} {% if template contains 'product' or page.url contains 'pages/reviews' or page.url contains 'pages/press' %}{{ 'okendo-reviews.js' | asset_url | script_tag }}{% endif %} {% endcomment %}
+
+
+<!-- Extend -- Renders Extend SDK Configuration script -->
+{% comment %} {% render 'extend-configuration' %} {% endcomment %}
+<!-- Extend -- End Extend code -->

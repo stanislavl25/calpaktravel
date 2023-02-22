@@ -1,0 +1,66 @@
+{% unless product.metafields.custom.features_titles == blank %}
+<section class="pdp-features">
+    {{ 'section-product-features.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'pdp-features.js' | asset_url }}" defer="defer"></script>
+
+    <div class="pdp-features__info">
+        {%- if product.metafields.custom.features_heading != blank -%}
+        <div class="pdp-features__title">{{- product.metafields.custom.features_heading | escape -}}</div>
+        {%- endif -%}
+
+        <div class="pdp-features__list">
+        {% for title in product.metafields.custom.features_titles.value %}
+            <div class="pdp-feature{% if forloop.first %} pdp-feature--active{% endif %}">
+                <button aria-label="Show feature details" class="pdp-feature__title">{{- title -}}</button>
+                {%- liquid
+                    assign index = forloop.index0
+                    assign description = false
+                    if product.metafields.custom.features_descriptions.value[index] != blank
+                        assign description = product.metafields.custom.features_descriptions.value[index]
+                    endif
+                -%}
+
+                {%- if description.size > 1 and description != false -%}
+                <div class="pdp-feature__content">{{- description -}}</div>
+                {%- endif -%}
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    {%- if product.metafields.custom.features_images != blank -%}
+    <div class="pdp-features__media">
+        {% for media in product.metafields.custom.features_images.value %}
+            <div class="pdp-feature__media{% if forloop.first %} pdp-feature__media--active{% endif %}">
+                {%- liquid
+                    assign video = false
+                    assign alt = media.alt
+
+                    if alt contains 'vimeo.com/'
+                        assign video = alt | split: ';' | first
+                        assign alt = alt | split: ';' | last
+                    endif
+
+                    assign sizes = '(min-width: 901px) 50vw, 100vw'
+
+                    if video == false
+                        render 'image' with media, sizes: sizes, lazy: true
+                    else
+                        render 'video' with video, video_ratio: '16/9', loop: true, controls: false, autoplay: true, poster: media, alt: alt, sizes: sizes, lazy: true
+                    endif
+                -%}
+            </div>
+        {% endfor %}
+    </div>
+    {%- endif -%}
+</section>
+{% endunless %}
+
+{% schema %}
+    {
+        "name": "Product Features",
+        "class": "shopify-section--product-features",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

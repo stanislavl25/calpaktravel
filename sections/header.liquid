@@ -1,7 +1,7 @@
 {{ 'section-header.css' | asset_url | stylesheet_tag: preload: true }}
 
 <link rel="stylesheet" href="{{ 'component-header-subnav.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-menu-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-popup.css' | asset_url }}" media="print" onload="this.media='screen and (min-width: 901px)'">
 <link rel="stylesheet" href="{{ 'component-menu-list.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -12,28 +12,50 @@
 <noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 
-
 <section class="site-header">
     <nav class="site-header__nav">
         <div class="site-header__overlay"></div>
         {% render 'shop-menu' %}
         {% render 'discover-menu' %}
-
-        <ul>
-            <li class="site-header__menu-item hide-small">
-                <a href="#" class="menu-popup__activator" data-target="shop">Shop</a>
-            </li>
-            <li class="site-header__menu-item hide-small">
-                <a href="#" class="menu-popup__activator" data-target="discover">Discover</a>
-            </li>
-            <li class="site-header__menu-item hide-small">
-                {% assign rand = 'now' | date: '%M' | times: 1 | modulo: 2 %}
-                <a href="#" class="header__live-link{% if rand == 0 %} header__live-link--active{% endif %}">Live</a>
+        <ul class="header__nav header__nav--excerpt hide-large">
+            <li class="site-header__menu-item">
+                <a href="#" class="mobile-menu__activator burger-link" data-target="shop">
+                    Shop
+                </a>
             </li>
             <li class="site-header__menu-item">
                 <a href="#" class="header__search-link">
                     <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
-                    {% render 'search-placeholders', class: 'hide-small' %}
+                </a>
+            </li>
+        </ul>
+        <ul class="header__nav header__nav--full">
+            <li class="site-header__menu-item">
+                <a href="#" class="menu-popup__activator" data-target="shop">Shop</a>
+            </li>
+            <li class="site-header__menu-item">
+                <a href="#" class="menu-popup__activator" data-target="discover">Discover</a>
+            </li>
+            <li class="site-header__menu-item">
+                <a href="/pages/live-shopping" class="header__live-link{% if section.settings.live %} header__live-link--active{% endif %}">Live</a>
+            </li>
+            <li class="site-header__menu-item">
+                <a href="#" class="header__search-link">
+                    <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
+
+                    {%- assign placeholders = section.settings.placeholder-text | newline_to_br | split: '<br />' -%}
+                    {%- if placeholders.size > 0 -%}
+                    <div class="search-placeholders" data-num="{{- placeholders.size -}}">
+                        <div class="search-placeholders__inner">
+                            {%- for placeholder in placeholders -%}
+                            <div class="search-placeholder"><em>{{- placeholder | escape -}}</em></div>
+                            {%- endfor -%}
+                            {%- if placeholders.size > 1 -%}
+                            <div class="search-placeholder"><em>{{- placeholders | first | escape -}}</em></div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                    {%- endif -%}
                 </a>
             </li>
         </ul>
@@ -46,7 +68,7 @@
     <nav class="site-header__nav">
         <ul>
             <li class="site-header__menu-item hide-small">
-                <a href="#">Rewards</a>
+                <a href="/pages/rewards">Rewards</a>
             </li>
             <li class="site-header__dropdown subnav__container site-header__menu-item hide-small">
                 <a href="/account" class="subnav__activator">
@@ -76,7 +98,7 @@
                 </ul>
             </li>
             <li class="site-header__menu-item hide-small">
-                <a href="#" class="header__notifications-link notifications-icon--active" title="Notifications">
+                <a href="#" class="header__notifications-link notifications-icon" title="Notifications">
                     {% render 'icon-notifications' %}
                 </a>
             </li>
@@ -86,7 +108,7 @@
                 </a>
             </li>
             <li class="site-header__menu-item">
-                <a href="#" class="header__bag-link" title="Cart">
+                <a href="{{ routes.cart_url }}" class="header__bag-link{% if template != 'cart' %} open-cart-link{% endif %}" title="Cart">
                     <span class="header__bag-title hide-small">Bag</span>
                     <span class="header__bag-icon{% if cart.item_count > 0 %} header__bag-icon--full{% endif %}">
                         <div class="header__bag-count">{{ cart.item_count }}</div>
@@ -98,18 +120,281 @@
     </nav>
 </section>
 
-<script>
-    if(sessionStorage.getItem('notificationsSeen')) document.querySelector('.header__notifications-link').classList.remove('notifications-icon--active');
-</script>
-
-{% render 'search' %}
-
 {% schema %}
 {
     "name": "Header",
     "class": "shopify-section--header",
     "settings": [
-        
+        {
+            "type": "link_list",
+            "id": "shop-menu",
+            "label": "Shop Menu"
+        },
+        {
+            "type": "link_list",
+            "id": "discover-menu",
+            "label": "Discover Menu"
+        },
+        {
+            "type": "text",
+            "id": "edits-title",
+            "label": "Stories title",
+            "default": "Latest Stories"
+        },
+        {
+            "type": "textarea",
+            "id": "placeholder-text",
+            "label": "Search placeholders",
+            "info": "Each one on a new line"
+        },
+        {
+            "type": "checkbox",
+            "id": "live",
+            "label": "Live Shopping active",
+            "default": false
+        }
+    ],
+    "blocks": [
+        {
+            "type": "featured-collection",
+            "name": "Featured Collection",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Label",
+                    "info": "For organization purposes. Not shown on site."
+                },
+                {
+                    "type": "range",
+                    "id": "submenu-number",
+                    "min": 1,
+                    "max": 10,
+                    "step": 1,
+                    "label": "Submenu number",
+                    "default": 1
+                },
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                },
+                {
+                    "type": "text",
+                    "id": "block-title",
+                    "label": "Title"
+                }
+            ]
+        },
+        {
+            "type": "discover-block",
+            "name": "Discover Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Label",
+                    "info": "For organization purposes. Not shown on site."
+                },
+                {
+                    "type": "url",
+                    "id": "button-url",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "block-title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "text",
+                    "id": "button-text",
+                    "label": "Button Text"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "link-for-button",
+                    "label": "Link for button only",
+                    "default": false
+                },
+                {
+                    "type": "select",
+                    "id": "text-color-scheme",
+                    "label": "Text Color Scheme",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ],
+                    "default": "white"
+                },
+                {
+                    "type": "header",
+                    "content": "Media"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "video_url",
+                    "id": "video",
+                    "label": "Video",
+                    "accept": ["vimeo"]
+                },
+                {
+                    "type": "text",
+                    "id": "video-ratio-w",
+                    "label": "Video aspect ratio width",
+                    "default": "16",
+                    "info": "16/9 - standard widescreen, 9/16 - portrait, 1/1 square, etc."
+                },
+                {
+                    "type": "text",
+                    "id": "video-ratio-h",
+                    "label": "Video aspect ratio height",
+                    "default": "9"
+                }
+            ]
+        },
+        {
+            "type": "shop-block",
+            "name": "Shop Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Label",
+                    "info": "For organization purposes. Not shown on site."
+                },
+                {
+                    "type": "range",
+                    "id": "submenu-number",
+                    "min": 1,
+                    "max": 10,
+                    "step": 1,
+                    "label": "Submenu number",
+                    "default": 1
+                },
+                {
+                    "type": "url",
+                    "id": "button-url",
+                    "label": "Link"
+                },
+                {
+                    "type": "header",
+                    "content": "Text"
+                },
+                {
+                    "type": "text",
+                    "id": "block-title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "text",
+                    "id": "button-text",
+                    "label": "Button Text"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "link-for-button",
+                    "label": "Link for button only",
+                    "default": false
+                },
+                {
+                    "type": "select",
+                    "id": "text-color-scheme",
+                    "label": "Text Color Scheme",
+                    "options": [
+                        {
+                            "value": "white",
+                            "label": "White"
+                        },
+                        {
+                            "value": "black",
+                            "label": "Black"
+                        }
+                    ],
+                    "default": "white"
+                },
+                {
+                    "type": "header",
+                    "content": "Media"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "video_url",
+                    "id": "video",
+                    "label": "Video",
+                    "accept": ["vimeo"]
+                },
+                {
+                    "type": "text",
+                    "id": "video-ratio-w",
+                    "label": "Video aspect ratio width",
+                    "default": "16",
+                    "info": "16/9 - standard widescreen, 9/16 - portrait, 1/1 square, etc."
+                },
+                {
+                    "type": "text",
+                    "id": "video-ratio-h",
+                    "label": "Video aspect ratio height",
+                    "default": "9"
+                }
+            ]
+        },
+        {
+            "type": "edit",
+            "name": "Edit",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Label",
+                    "info": "For organization purposes. Not shown on site."
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "edit-title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                }
+            ]
+        }
     ]
 }
 {% endschema %}

@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "54fe76e6-8048-4692-91d2-901b54bf2d98": {
+      "type": "page-header",
+      "settings": {
+        "title": "Featured Press",
+        "title-size": "small",
+        "text": "<p>Press Inquiries — <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a><\/p>"
+      }
+    },
+    "press": {
+      "type": "page-press",
+      "blocks": {
+        "b739062f-6e16-4069-b755-2f06f1f2d6b1": {
+          "type": "press",
+          "settings": {
+            "product": "kaya-laptop-backpack",
+            "description": "<p>\"Calpak totally gets the vibe when it comes to understanding backpack and this faux leather laptop backpack is stellar. The bag no doubt is smart, tech-friendly, giving you ample space to keep your travel essentials along...\"<\/p>",
+            "image": "shopify:\/\/shop_images\/entrepreneur_80ff3923-de4c-418c-a377-f271e7042d72.png"
+          }
+        },
+        "16ee6b60-84e8-44fe-b73b-cc533dd9e79e": {
+          "type": "press",
+          "settings": {
+            "product": "hue-carry-on-luggage-with-pocket",
+            "description": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight at 7 lbs. Plus, the interior pockets make it easy to stay organized without a second thought\"<\/p>",
+            "image": "shopify:\/\/shop_images\/esquire_60fd5a2d-c23f-44ce-a88d-a9a915e465d7.png"
+          }
+        },
+        "b4391abb-45d4-4a79-8f8b-bf3b7d090780": {
+          "type": "press",
+          "settings": {
+            "product": "trnk-carry-on-luggage",
+            "description": "<p>\"I’d rather be safe than sorry with my carry-on luggage so I’m going with a cool black tone to avoid any spills or overhead compartment drama. This snakeskin guy is super chic and it’s wheels are 360 double spinners-no tripping over your suitcase...\"<\/p>",
+            "image": "shopify:\/\/shop_images\/coveteur_1_5055ca8e-7b44-42eb-b288-bab5e658a8d6.png"
+          }
+        },
+        "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7": {
+          "type": "press",
+          "settings": {
+            "product": "travel-wallet-croc",
+            "description": "<p>\"When traveling, the last thing you want is a bulky bag weighing you down. Meet the Calpak Travel Wallet. This wallet\/purse hybrid was made for keeping you organized... switch up how you style it depending on your mood.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/forbes_e6a977d4-b2b2-4b22-885a-c61a2459041b.png"
+          }
+        },
+        "40827c3d-e165-4953-8c92-b4043f1b932a": {
+          "type": "press",
+          "settings": {
+            "product": "power-luggage-tag",
+            "description": "<p>\"Meet your new favorite travel companion! This luggage tag attaches to your carry-on, charges your phone at the airport, goes on all your adventures, and never complains about jet jag.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/oprah-mag_6a329b7c-c662-4bcd-8b25-67d4dedf8eb5.png"
+          }
+        },
+        "178c08bf-e865-4dde-8e2d-dabc2d7a57e6": {
+          "type": "press",
+          "settings": {
+            "product": "trnk-vanity-case",
+            "description": "<p>\"A miniature version of the cult-favorite suitcase, this durable hard-shell cosmetics case is big enough to carry your styling tools as well as your makeup and toiletries. It's also super lightweight and you can easily throw it over your shoulder.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/harpersbazzar_5bf417c1-79a8-4182-970a-7833b506388b.png"
+          }
+        }
+      },
+      "block_order": [
+        "b739062f-6e16-4069-b755-2f06f1f2d6b1",
+        "16ee6b60-84e8-44fe-b73b-cc533dd9e79e",
+        "b4391abb-45d4-4a79-8f8b-bf3b7d090780",
+        "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7",
+        "40827c3d-e165-4953-8c92-b4043f1b932a",
+        "178c08bf-e865-4dde-8e2d-dabc2d7a57e6"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "54fe76e6-8048-4692-91d2-901b54bf2d98",
+    "press"
+  ]
+}

@@ -10,6 +10,7 @@
     background: #fff;
     align-items: center;
     height: 42px;
+    z-index: 2;
 }
 
 .floating-link--top {
@@ -17,6 +18,14 @@
     top: var(--gap);
 }
 
+.floating-link__pictured {
+  line-height: 1;
+}
+
 .floating-link__pictured a {
     text-decoration: underline;
+}
+
+.floating-link .button:not(:last-child) {
+  margin-right: 15px;
 }

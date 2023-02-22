@@ -31,8 +31,18 @@
     flex: 1;
 }
 
-@media (max-width: 900px) {
+.shopify-section--contact-form .field__input {
+    border-color: #000;
+}
+
+@media (max-width: 992px) {
     .section__contact-form {
         display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form__title {
+      font-size: 24px;
     }
 }

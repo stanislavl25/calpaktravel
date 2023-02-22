@@ -1,0 +1,31 @@
+.pdp__waitlist {
+    border: 1px dashed #aeaeae;
+    border-radius: 9px;
+    padding: var(--gap);
+    flex-direction: column;
+    gap: var(--gap);
+    position: relative;
+}
+
+.pdp__waitlist .form__field-line {
+    position: relative;
+}
+
+.pdp__waitlist-success-msg {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    background: #fff;
+    line-height: 40px;
+    padding-left: 13px;
+    border-radius: 9px;
+    display: none;
+}
+
+.pdp__waitlist--success .pdp__waitlist-success-msg {
+    display: block;
+}
+
+.pdp__waitlist--success .form__field-line {
+    pointer-events: none;
+}

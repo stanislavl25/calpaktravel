@@ -10,9 +10,9 @@
 
 .star-rating .star-icon {
     flex: 0 0 11px;
-    height: auto;
-    fill: #858585;
+    fill: var(--gray);
     width: 11px;
+    height: 11px;
 }
 
 .star-reviews .star-icon {

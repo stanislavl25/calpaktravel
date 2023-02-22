@@ -1,11 +1,110 @@
 {
-    "sections": {
-        "product-template": {
-            "type": "product-template",
-            "settings": {}
+  "sections": {
+    "product-template": {
+      "type": "product-template",
+      "blocks": {
+        "38dd47f4-7ad6-4f58-9949-bd511635652e": {
+          "type": "title",
+          "settings": {}
+        },
+        "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
+          "type": "variants",
+          "settings": {}
+        },
+        "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
+          "type": "submit",
+          "settings": {}
+        },
+        "48138d37-8473-4c57-adc6-882525675315": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [],
+            "collection-list": [],
+            "show-for-all": true,
+            "heading": "Make it a set and save $75",
+            "product": "astyll-2-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add set to bag",
+            "include-price": true,
+            "add-to-cart": true,
+            "button-url": ""
+          }
+        },
+        "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [],
+            "collection-list": [],
+            "show-for-all": true,
+            "image": "shopify:\/\/shop_images\/210330_CALPAK_Q223891_Hi.jpg",
+            "title": "Title goes here",
+            "text": "<p>Lorem ipsum dolor sit amet, cons ectetur adipi.<\/p><p><a href=\"#\" title=\"#\">See details.<\/a><\/p>",
+            "button-text": "",
+            "button-url": ""
+          }
+        },
+        "75a99ef6-7ca3-4335-bad4-dd2156d3efe8": {
+          "type": "text-banner",
+          "settings": {
+            "product-list": [],
+            "collection-list": [],
+            "show-for-all": true,
+            "title": "Heading here",
+            "text": "<p>Consectetur adipiscing elit. Lorem ipsum dolor sit.<\/p>",
+            "button-text": "Button link",
+            "button-url": "#"
+          }
+        },
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7": {
+          "type": "description",
+          "settings": {}
+        },
+        "55301f07-d8ac-43aa-818d-84b0fe0c47bd": {
+          "type": "upsell",
+          "settings": {}
         }
+      },
+      "block_order": [
+        "38dd47f4-7ad6-4f58-9949-bd511635652e",
+        "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
+        "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
+        "48138d37-8473-4c57-adc6-882525675315",
+        "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
+        "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7",
+        "55301f07-d8ac-43aa-818d-84b0fe0c47bd"
+      ],
+      "settings": {}
     },
-    "order": [
-        "product-template"
-    ]
+    "pdp-product-features": {
+        "type": "pdp-product-features",
+        "settings": {}
+    },
+    "pdp-featured-collection": {
+      "type": "pdp-featured-collection",
+      "settings": {}
+    },
+    "167267170152804e97": {
+      "type": "apps",
+      "blocks": {
+        "eb465944-400d-4d86-afd8-5b1728a69de0": {
+          "type": "shopify:\/\/apps\/okendo-product-reviews-ugc\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "eb465944-400d-4d86-afd8-5b1728a69de0"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "product-template",
+    "pdp-product-features",
+    "pdp-featured-collection",
+    "167267170152804e97"
+  ]
 }

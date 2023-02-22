@@ -1,0 +1,44 @@
+{{ 'section-live-shopping-header.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- if section.settings.buttons -%}
+    <script src="{{ 'live-shopping.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<div class="live-shopping__title">{{ section.settings.title | escape }}</div>
+
+{% if section.settings.description != blank %}
+    <div class="live-shopping__description">{{ section.settings.description }}</div>
+{% endif %}
+
+{% if section.settings.buttons %}
+    <div class="live-shopping__buttons">
+        <a href="#" data-index="0" class="button"><span>Upcoming Shows</span></a>
+        <a href="#" data-index="1" class="button"><span>1-to-1 Live Shopping</span></a>
+    </div>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Live Shopping Header",
+        "class": "shopify-section--live-shopping-head",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Live Shopping"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description"
+            },
+            {
+                "type": "checkbox",
+                "id": "buttons",
+                "label": "Show buttons",
+                "default": false
+            }
+        ]
+    }
+{% endschema %}

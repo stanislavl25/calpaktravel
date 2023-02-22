@@ -44,7 +44,7 @@
         endif
     -%}
     {% if display == true %}
-        <div class="header-banner header-banner--{{ block.type }}">
+        <div data-id="{{ block.id }}" class="header-banner header-banner--{{ block.type }}">
             {% if block.settings.button != blank and block.settings.link != blank %}
                 {%- if block.settings.button-display == 'both' -%}
                     <a class="header-banner__text" href="{{ block.settings.link }}">{{ block.settings.text }}</a>
@@ -69,13 +69,19 @@
             {% else %}
                 <div class="header-banner__text">{{ block.settings.text }}</div>
             {% endif %}
+
+            {% style %}
+            .header-banner[data-id="{{ block.id }}"] .header-banner__text {
+                font-size: {{ block.settings.font-size }}px;
+            }
+            {% endstyle %}
         </div>
     {% endif %}
 {% endfor %}
 
 {% schema %}
     {
-        "name": "Header Banner",
+        "name": "Text Promo Banner",
         "class": "shopify-section--header-banner",
         "settings": [
             
@@ -133,6 +139,16 @@
                         "type": "richtext",
                         "id": "text",
                         "label": "Text"
+                    },
+                    {
+                        "type": "range",
+                        "id": "font-size",
+                        "min": 16,
+                        "max": 36,
+                        "step": 1,
+                        "unit": "px",
+                        "label": "Font Size",
+                        "default": 20
                     },
                     {
                         "type": "url",

@@ -1,0 +1,103 @@
+{{ 'section-content-slider.css' | asset_url | stylesheet_tag }}
+
+<section class="content-slider content-slider--{{ section.id }}">
+    <div class="slider__wrapper">
+        <div class="slider__dots content-slider__nav">
+            {%- for block in section.blocks -%}
+            <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %} content-slider__nav-slide">{{- block.settings.title | escape -}}</div>
+            {%- endfor -%}
+        </div>
+        <div class="slider">
+            {%- for block in section.blocks -%}
+            <div class="content-slider__main-slide slide">
+
+                {%- if block.settings.image1 != blank or block.settings.image2 != blank -%}
+                <div class="content-slider__main-media">
+                    {%- if block.settings.image1 != blank -%}
+                    <div class="content-slider__media">
+                        {% render 'image' with block.settings.image1, sizes: '25vw', lazy: true %}
+                    </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.image2 != blank -%}
+                    <div class="content-slider__media">
+                        {% render 'image' with block.settings.image2, sizes: '25vw', lazy: true %}
+                    </div>
+                    {%- endif -%}
+                </div>
+                {%- endif -%}
+
+                <div class="content-slider__main-text">
+                    {{- block.settings.text -}}
+                </div>
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+{% style %}
+.content-slider--{{ section.id }} {
+    background: {{ section.settings.background-color }};
+}
+{% endstyle %}
+
+{% schema %}
+    {
+        "name": "Content Slider",
+        "class": "shopify-section--content-slider",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background-color",
+                "label": "Background Color",
+                "default": "#f7f177"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Slide",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image1",
+                        "label": "Image #1"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image2",
+                        "label": "Image #2"
+                    },
+                    {
+                        "type": "video_url",
+                        "id": "video1",
+                        "label": "Video #1",
+                        "accept": ["youtube", "vimeo"]
+                    },
+                    {
+                        "type": "video_url",
+                        "id": "video2",
+                        "label": "Video #2",
+                        "accept": ["youtube", "vimeo"]
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Content Slider"
+            }
+        ]
+    }
+{% endschema %}

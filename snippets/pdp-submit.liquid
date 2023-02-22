@@ -1,26 +1,47 @@
-<section class="pdp__submit">
-    <div class="pdp__submit-row">
-        <button class="button button--pdp__submit" type="submit">
-            <div class="pdp__submit-label">Add to Bag</div>
-            <div class="pdp__submit-price">
-                {%- if product.compare_at_price > product.price -%}
-                <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
-                {%- endif -%}
-                {{ product.price | money_without_trailing_zeros }}
-            </div>
-        </button>
-        <button class="button button--secondary button--pdp__wishlist">
-            {% render 'icon-heart' %}
-            Wishlist
-        </button>
-    </div>
+{%- liquid
+    assign soldout = false
+    for tag in product.tags
+        assign tagSpl = tag | split: ':'
+        if 'soldout' == tagSpl[0]
+            if tagSpl.size == 1
+                assign soldout = true
+            else
+                assign soldout = tagSpl[1] | downcase | split: ';'
+            endif
+        endif
+    endfor
+-%}
 
-    <div class="pdp__extend">
-        <label><input type="checkbox"> Add product protection offered by Extend</label>
-    </div>
+<section
+    class="pdp__submit-container{% if soldout == true %} pdp__submit-container--soldout{% endif %}"
+    {% if soldout != false and soldout != true %}data-soldout="{{ soldout | join: ' ' }}"{% endif %}
+    >
+    <section class="pdp__submit">
+        {% render 'pdp-submit-row', current_variant: current_variant %}
 
-    <div class="pdp__submit-bottom">
-        <div class="pdp__stock">10 In Stock</div>
-        <div class="pdp__payments">4 easy payments of $XX with shopPay</div>
-    </div>
+        {% comment %} <div class="pdp__extend">
+            <label><input type="checkbox"> Add product protection offered by Extend</label>
+        </div> {% endcomment %}
+
+        {%- if quick_view == true -%}
+            <div class="qv__full-details-dsk hide-small"><a class="qv__full-details-link" href="{{- product.url -}}">View Full Details</a></div>
+        {%- endif -%}
+        
+        {% render 'pdp-submit-bottom', current_variant: current_variant %}
+    </section>
+    <section class="pdp__waitlist">
+        <div class="form__field-line">
+            <div class="pdp__waitlist-success-msg">You've been added</div>
+            <input type="email" class="field__input" placeholder="Email" aria-required="true" autocorrect="off" autocapitalize="none" autocomplete="email">
+            <button aria-label="Join the waitlist" type="button" class="button pdp__waitlist-submit">
+                <span>Join the Waitlist</span>
+            </button>
+        </div>
+        <div>
+            <label class="checkbox-label"><input type="checkbox" checked="checked" autocomplete="off"> Add me to the mailing list!</label>
+        </div>
+        <a href="#" class="klaviyo-bis-trigger">JOIN WAITLIST</a>
+    </section>
+
+
 </section>

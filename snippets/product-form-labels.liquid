@@ -1,0 +1,76 @@
+{%- liquid
+    assign opt1 = current_variant.option1 | handleize
+    
+    assign finalSale = false
+    for tag in product.tags
+        assign tagSpl = tag | split: ':'
+        assign handle = tagSpl[0] | handleize
+        if 'final-sale' == handle
+            if tagSpl.size == 1
+                assign finalSale = true
+            else
+                assign finalSale = tagSpl[1] | downcase | split: ';'
+            endif
+        endif
+    endfor
+-%}
+{%- if finalSale != false -%}
+<div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
+    {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
+    {%- if unit == true -%}
+    <strong>This item is Final Sale</strong>
+    {%- else -%}
+    <strong>This item is Final Sale</strong>
+    <span>Not eligible for additional discount</span>
+    {%- endif -%}
+</div>
+{%- endif -%}
+
+{%- if settings.sale-msg-enabled and location == 'pdp' or settings.sale-msg-pdp-only == false -%}
+    {%- liquid
+        if settings.sale-msg-tag == blank
+            assign promoMsg = true
+        else
+            assign promoMsg = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.sale-msg-tag == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign promoMsg = true
+                    else
+                        assign promoMsg = tagSpl[1] | split: ';'
+                    endif
+                endif
+            endfor
+        endif
+    -%}
+
+    {%- if promoMsg != false -%}
+    <div class="product-label product-label--promo{% if promoMsg contains opt1 and promoMsg != true %} product-label--active{% endif %}"
+        {% if promoMsg != true %}data-options="{{ promoMsg | join: ' ' }}"{% endif %}>
+
+        {%- if settings.sale-msg-highlighted != blank and location == 'pdp' -%}
+        <strong>{{- settings.sale-msg-highlighted | escape -}}</strong>
+        {%- endif -%}
+
+        {%- if settings.sale-msg-message != blank -%}
+        <span>{{- settings.sale-msg-message | escape -}}</span>
+        {%- endif -%}
+
+    </div>
+    {%- endif -%}
+
+{%- endif -%}
+
+{%- liquid
+    if current_variant.metafields.custom.preorder != blank
+        assign preorder = current_variant.metafields.custom.preorder
+    elsif product.metafields.custom.preorder != blank
+        assign preorder = product.metafields.custom.preorder
+    else
+        assign preorder = false
+    endif
+-%}
+<div class="product-label{% if preorder != false %} product-label--active{% endif %} product-label--preorder">
+    <label>Expected to Ship</label> <div class="preorder-date">{%- if preorder != false -%}{{- preorder | escape -}}{%- endif -%}</div>
+</div>

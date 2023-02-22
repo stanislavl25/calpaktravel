@@ -1,18 +1,28 @@
 {{ 'section-banner.css' | asset_url | stylesheet_tag }}
 
+<div class="page-anchor"></div>
+
 <section class="banner-section banner-section--{{ section.settings.height }} banner-section--{{ section.id }}">
     {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
     <a href="{{ section.settings.link }}">
     {%- endif -%}
-    {%- if section.settings.image != blank -%}
-        {%- if section.settings.height == 'image' -%}
-            {%- assign no_wrapper = false -%}
-        {%- else -%}
-            {%- assign no_wrapper = true -%}
-        {%- endif -%}
 
-        {%- render 'image' with section.settings.image, no_wrapper: no_wrapper -%}
-    {%- endif -%}
+    {%- liquid
+        if section.settings.height == 'image'
+            assign no_wrapper = false
+        else
+            assign no_wrapper = true
+        endif
+
+        if section.settings.image-mobile != blank and section.settings.image != blank
+            render 'image' with section.settings.image, class: 'hide-small', no_wrapper: no_wrapper
+            render 'image' with section.settings.image-mobile, class: 'hide-large', no_wrapper: no_wrapper
+        elsif section.settings.image != blank
+            render 'image' with section.settings.image, no_wrapper: no_wrapper
+        elsif section.settings.image-mobile != blank
+            render 'image' with section.settings.image-mobile, no_wrapper: no_wrapper
+        endif
+    -%}
     <div class="banner-section__content banner-section__content--{{ section.settings.text-color-scheme }} banner-section__content--{{ section.settings.text-alignment }}">
         {%- if section.settings.title != blank -%}
         <div class="banner-section__title">{{- section.settings.title | escape -}}</div>
@@ -47,7 +57,7 @@
     background: {{section.settings.background }};
 
     {%- if section.settings.height == 'custom' -%}
-    height: {{ section.settings.height-percent }}vw;
+    min-height: {{ section.settings.height-percent }}vw;
     {%- endif -%}
 }
 {% endstyle %}
@@ -61,6 +71,11 @@
                 "type": "image_picker",
                 "id": "image",
                 "label": "Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image-mobile",
+                "label": "Image (mobile)"
             },
             {
                 "type": "header",

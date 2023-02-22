@@ -1,0 +1,33 @@
+.account-nav__sub-section {
+    padding: 7px 0 var(--gap) var(--gap);
+    display: none;
+}
+
+.account-nav__sub-section .account-nav__link--active {
+    background: var(--yellow);
+    border-radius: 6px;
+    padding: 0 3px;
+}
+
+.account-nav__link--active + .account-nav__sub-section {
+    display: block;
+}
+
+.account-nav__link {
+    text-decoration: none;
+}
+
+.account-nav__link--active,
+.account-nav__link:hover {
+    text-decoration: underline;
+}
+
+.account-nav__section > .account-nav__link--active {
+    font-weight: var(--font-body-weight-bold);
+}
+
+.account-nav__link--wishlist {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}

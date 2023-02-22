@@ -5,8 +5,16 @@
 
 {% if section.blocks.size > 0 %}
 <div class="slider__wrapper--reviews slider__wrapper slider__wrapper--start">
-    <div class="reviews__slide reviews__slide--spacer">
-        {% render 'review-content' with section.blocks[0] as block %}
+    <div class="reviews__slide-spacer">
+        {%- for block in section.blocks -%}
+        <div class="reviews__slide">
+            {%- if forloop.first -%}
+                {% render 'review-content' with block as block %}
+            {%- else -%}
+                {% render 'review-content' with block as block, no_wrapper: true %}
+            {%- endif -%}
+        </div>
+        {%- endfor -%}
     </div>
     <div class="slider__dots">
         {%- for block in section.blocks -%}
@@ -90,6 +98,11 @@
                         "type": "image_picker",
                         "id": "image",
                         "label": "Image"
+                    },
+                    {
+                        "type": "url",
+                        "id": "image-link",
+                        "label": "Image link"
                     },
                     {
                         "type": "product",

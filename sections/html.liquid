@@ -1,0 +1,33 @@
+{{ 'section-html.css' | asset_url | stylesheet_tag }}
+
+<div class="scroll-anchor"></div>
+<div class="html__section{% if section.settings.add-padding %} html__section--padded{% endif %}">
+    {%- if section.settings.html != blank -%}
+        {{- section.settings.html -}}
+    {%- endif -%}
+</div>
+
+{% schema %}
+    {
+        "name": "HTML",
+        "class": "shopify-section--html",
+        "settings": [
+            {
+                "type": "html",
+                "id": "html",
+                "label": "HTML"
+            },
+            {
+                "type": "checkbox",
+                "id": "add-padding",
+                "label": "Add padding",
+                "default": false
+            }
+        ],
+        "presets": [
+            {
+                "name": "HTML"
+            }
+        ]
+    }
+{% endschema %}

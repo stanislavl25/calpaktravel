@@ -1,0 +1,68 @@
+{{ 'section-cart.css' | asset_url | stylesheet_tag: preload: true }}
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+<section class="cart-page{% if cart.item_count == 0 %} cart__container--empty{% endif %}">
+
+    {%- liquid
+        assign free_shipping = settings.free-shipping | times: 100
+        if free_shipping == 0
+            assign free_shipping_progress = 100
+        else
+            assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+            if free_shipping_progress > 100
+                assign free_shipping_progress = 100
+            endif
+        endif
+
+        assign totalPrice = cart.total_price
+        if free_shipping_progress < 100
+            assign totalPrice = totalPrice | plus: 795
+        endif
+    -%}
+
+
+    <div class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</div>
+    <div class="cart-page__table">
+        <main class="cart__body-top">
+            <div class="cart__items-container">
+                <div class="cart__items">
+                    {%- render 'cart-item' for cart.items, cart_page: true -%}
+                </div>
+            </div>
+        </main>
+        <aside class="cart-sidebar">
+            {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
+            <div class="cart-sidebar__title">Order Summary</div>
+            <div class="cart__body-bottom">
+                <div class="cart__rewards"><a href="#">Sign in</a> to see your rewards</div>
+                <dl class="cart__total-row cart__total-row--subtotal">
+                    <dt class="cart__total-name">Subtotal</dt>
+                    <dd class="cart__total-value">{{- cart.items_subtotal_price | money_without_trailing_zeros -}}</dd>
+                </dl>
+                <dl class="cart__total-row cart__total-row--shipping">
+                    <dt class="cart__total-name">Shipping</dt>
+                    <dd class="cart__total-value">$7.95</dd>
+                </dl>
+            </div>
+            <div class="cart__footer-total">
+                <dl class="cart__total-row cart__total-row--total">
+                    <dt class="cart__total-name">Estimated Total</dt>
+                    <dd class="cart__total-value">
+                        {{- totalPrice | money_without_trailing_zeros -}}
+                    </dd>
+                </dl>
+                <div class="cart__4-payments">
+                    <span>4 easy payments of <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span> with </span>
+                    {% render 'icon-shop-pay' %}
+                </div>
+            </div>
+            <a href="{% if customer == blank %}/account/login/checkout{% else %}/checkout{% endif %}" class="button button--checkout"><span>Checkout</span></a>
+            {% if additional_checkout_buttons %}
+            <div class="cart__extra-checkout">
+                {{ content_for_additional_checkout_buttons }}
+                <script> var delayed_checkout_buttons = '{{ content_for_additional_checkout_buttons }}'; </script>
+            </div>
+            {% endif %}
+        </aside>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+<div class="collection-filters__control">
+    <div class="collection-filter__activators">
+        <button aria-controls="collection-filters" aria-label="Filter products by color" class="filter__activator filter__activator--color">
+            Color <i></i>
+        </button>
+
+        <button aria-controls="collection-filters" aria-label="Sort product list" class="filter__activator filter__activator--sort">
+            Sort by <i></i>
+        </button>
+    </div>
+    <div class="collections-menu">
+        {%- assign num = 0 -%}
+        {%- for block in section.blocks -%}
+            {%- unless block.type == 'category' -%}{%- continue -%}{%- endunless -%}
+            {%- assign num = num | plus: 1 -%}
+            <button
+                data-index="{{ num }}"
+                class="button button--secondary collections-category{% if block.settings.selected %} collections-category--all collections-category--active{% endif %}"
+                {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
+                    {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
+                {%- endfor -%}"
+                {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
+                >
+                <span>{{- block.settings.title | strip_html | escape -}} <i></i></span>
+            </button>
+        {%- endfor -%}
+    </div>
+    <div class="collection-view">
+        <span class="col-view__text">View</span>
+        <button aria-label="Show less products in one row" aria-current="false" class="col-view__button col-view__button--less">
+            <span class="mobile-only">1</span>
+            <span class="tablet-only">2</span>
+            <span class="desktop-only">3</span>
+        </button>
+        <button aria-label="Fit more products in one row" aria-current="true" class="col-view__button col-view__button--more">
+            <span class="mobile-only">2</span>
+            <span class="tablet-only">3</span>
+            <span class="desktop-only">5</span>
+        </button>
+    </div>
+    <div class="current-filters">
+        <div class="current-filters-list"></div>
+        <button aria-label="Clear all filters" class="filter__reset current-filters-clear">
+            Clear All
+        </button>
+    </div>
+</div>

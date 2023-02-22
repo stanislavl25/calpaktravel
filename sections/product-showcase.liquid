@@ -1,0 +1,111 @@
+{{ 'section-product-showcase.css' | asset_url | stylesheet_tag }}
+
+<div class="product-showcase product-showcase--mob-{{ section.settings.mobile-layout }}">
+{%- for block in section.blocks -%}
+    <div class="product-showcase__block product-showcase__block--{{- block.type -}}">
+    {%- case block.type -%}
+        {%- when 'image' -%}
+            {%- render 'image' with block.settings.image, height: '133.333', lazy: true, sizes: '(min-width: 901px) 33vw, 50vw' -%}
+        {%- when 'product' -%}
+            {%- render 'product-unit' with block.settings.product, quick_view: true, wishlist: true -%}
+        {%- when 'text' -%}
+            {%- if block.settings.title != blank -%}
+            <div class="product-showcase__title">{{- block.settings.title | escape -}}</div>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+            <div class="product-showcase__description">{{- block.settings.description -}}</div>
+            {%- endif -%}
+
+            {%- if block.settings.button-text != blank -%}
+                <a href="{{- block.settings.button-link -}}" class="button">
+                    <span>
+                        {{- block.settings.button-text | escape -}}
+                    </span>
+                </a>
+            {%- endif -%}
+    {%- endcase -%}
+    </div>
+{%- endfor -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Product Showcase",
+        "class": "shopify-section--product-showcase",
+        "max_blocks": 3,
+        "settings": [
+            {
+                "type": "select",
+                "id": "mobile-layout",
+                "label": "Mobile layout",
+                "options": [
+                    {
+                        "value": "one-line",
+                        "label": "One line"
+                    },
+                    {
+                        "value": "stack",
+                        "label": "Stack"
+                    }
+                ],
+                "default": "one-line"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            },
+            {
+                "type": "product",
+                "name": "Product",
+                "settings": [
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "name": "Text",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-link",
+                        "label": "Button link"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Product Showcase"
+            }
+        ]
+    }
+{% endschema %}

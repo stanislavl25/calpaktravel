@@ -1,0 +1,253 @@
+<div class="order-summary__section order-summary__section--swell swell-checkout-page" style="display:none;" data-type="apply-points" id="swell-checkout">
+  <div class="swell-attributes" style="display:none;">
+    <span id="swell-checkout-customer-id">{{ customer.id }}</span>
+    <span id="swell-checkout-customer-email">{{ customer.email }}</span>
+    <span id="swell-checkout-customer-tags">{{ customer.tags | json }}</span>
+    <span id="swell-checkout-total-price-cents">{{ checkout.subtotal_price }}</span>
+    <input id="swell-checkout-points-amount" value="0"></input>
+    <span class="discounts_amount">{{ checkout.discounts_amount }}</span>
+    <span class="subtotal_price">{{ checkout.subtotal_price }}</span>
+  </div>
+
+  <div class="swell-checkout-error-message" id="swell-checkout-error-message-amount" style="display:none;color:red;">Oops, You don't have any points to redeem yet.</div>
+  <div class="swell-checkout-error-message" id="swell-checkout-error-message-general" style="display:none;color:red;">Sorry something went wrong.  Try again and if the problem persists please contact support.</div>
+
+  <div class="fieldset">
+    <div class="field">
+      <label class="BrandonTextWeb-Bold redeem-credits-title">You have <span class="swell-point-balance">0</span> Points </label>
+
+      <div class="input-holder">
+      </div>
+
+      <div class="footer-holder">
+        <span class="BrandonTextWeb-Bold redeem-content">Redeem <strong>$<span class="point-balance swell-adjusted-point-balance swell-checkout-dollar-balance-1"></span> (<span class="slider-point-balance"></span> Points)</strong></span>
+
+        <button type="submit" id="swell-checkout-redeem-btn" class="field__input-btn btn btn--default swell-button">
+          <span class="btn__content visually-hidden-on-mobile">Apply</span>
+          <svg class="icon-svg icon-svg--size-16 btn__icon shown-on-mobile" aria-hidden="true" focusable="false"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow"></use> </svg>
+          <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#spinner-button"></use> </svg>
+          <i class="btn__content shown-on-mobile icon icon--arrow"></i>
+          <i style="display:none;" class="fa fa-spinner fa-spin"></i>
+        </button>
+        <div class="points-overflow">For rewards points, customers are eligible to apply up to $200 equivalent of points. If you have any questions, please reach out to our team at <a href="mailto:help@calpaks.com">help@calpaks.com</a>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+    .input-holder{
+        margin: 5px 0;
+    }
+
+    .swell-point-balance {
+        color: #6aabb6;
+    }
+
+    .redeem-content {
+        color: #333;
+    }
+
+    .redeem-content strong {
+        color: #333;
+        font-weight: normal;
+    }
+  .footer-holder {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  }
+
+  .footer-holder .points-overflow {
+    flex: 0 0 100%;
+    font-size: 13px;
+    display: none;
+    margin-top: 10px;
+  }
+
+  .footer-holder .points-overflow.active {
+    display: block;
+  }
+
+    .rangeslider__fill {
+        background: #6aabb6;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .rangeslider--horizontal {
+        height: 8px;
+        box-shadow: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 0;
+        background: #f6f6f6;
+    }
+  .rangeslider--horizontal .rangeslider__handle {
+    top: -4px;
+    box-shadow: none;
+  }
+  .rangeslider__handle {
+    background: #fff;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d9d9d9;
+  }
+  .rangeslider__handle::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    background: #b59677;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    display: none;
+  }
+
+  #swell-checkout-redeem-btn {
+    height: 44px;
+    background: #6aabb6;
+    width: 137px;
+  }
+</style>
+
+<script type="text/javascript">
+  $(document).one("swell:initialized", function() {
+    Swell.Cart.selectors.couponCode = ".reduction-code__text";
+  });
+
+  if(window.location.href.indexOf("checkout") > -1 && window.location.href.indexOf("thank_you") == -1) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://cdn.swellrewards.com/loader/j0R3HMDaDyhf40m2xcICbQ.js?shop=calpak.myshopify.com";
+
+    document.getElementsByTagName("head")[0].appendChild(script);
+
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.min.css";
+    document.getElementsByTagName("head")[0].appendChild(link);
+
+    var range_script = document.createElement("script");
+    range_script.src = "https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.2/rangeslider.min.js";
+    document.getElementsByTagName("head")[0].appendChild(range_script);
+    
+    $(document).on("swell:setup", function() {
+
+      if($(window).width() <= 999)
+      {
+        $("[data-trekkie-id='order_summary_toggle']").click();
+
+        if(Shopify.Checkout.step == 'payment_method') {
+            $('#swell-checkout').insertBefore('.section--reductions.hidden-on-desktop div[data-reduction-form]');
+        }
+      }
+      
+      Swell.Checkout.showLoadingSpinner = function() {
+        $('#swell-checkout-redeem-btn .icon-svg--spinner-button').css('opacity', '1');
+        $('#swell-checkout-redeem-btn .icon-svg--spinner-button').css( 'animation', 'rotate 0.5s linear infinite');
+        if($(window).width() < 748)
+        {
+          $('#swell-checkout-redeem-btn .arrow-btn').hide();
+        }
+        $('#swell-checkout-redeem-btn .icon-svg--spinner-button').show();
+      }
+
+      Swell.Checkout.hideLoadingSpinner = function() {
+        $('#swell-checkout-redeem-btn .icon-svg--spinner-button').hide();
+        $('#swell-checkout-redeem-btn .icon-svg--spinner-button').css('opacity', '0');
+        //debugger;
+        if($(window).width() < 748)
+        {
+          $('#swell-checkout-redeem-btn .arrow-btn').show();
+        }
+      }
+
+      var pointsToRedeem, dollarsToRedeem;
+      var customerAdjustedPoints = spapi.customer.adjusted_points_balance;
+      var cartTotalCents = {{ checkout.discounts_amount }} + {{ checkout.subtotal_price }};
+      var centsPerPoint = spapi.variableRedemptionOption ? spapi.variableRedemptionOption.discount_rate_cents : 1; 
+      var cartTotalDollars = cartTotalCents / 100;
+      var customerAdjustedCents = Math.floor(customerAdjustedPoints * centsPerPoint);
+
+      if(customerAdjustedCents > cartTotalCents) {
+        customerAdjustedCents = cartTotalCents;
+        customerAdjustedPoints = Math.floor(customerAdjustedCents / centsPerPoint);
+      }
+
+      if(customerAdjustedCents > 20000) {
+        customerAdjustedCents = 20000;
+        customerAdjustedPoints = Math.floor(customerAdjustedCents / centsPerPoint);
+        document.querySelector('.footer-holder .points-overflow').classList.add('active');
+      } else document.querySelector('.footer-holder .points-overflow').classList.remove('active');
+
+      var customerAdjustedDollar = parseFloat( customerAdjustedCents / 100.0 ).toFixed(2);
+      $(".slider-point-balance").html(customerAdjustedPoints);
+      $(".swell-checkout-dollar-balance-1").html(customerAdjustedDollar);
+
+      var slider_value_points = customerAdjustedPoints;
+      var slider_value_cents = slider_value_points * centsPerPoint;
+      if (slider_value_cents > cartTotalCents) {
+        pointsToRedeem = cartTotalCents / centsPerPoint;
+      } else {
+        pointsToRedeem = slider_value_points;
+      }
+
+      dollarsToRedeem = parseFloat( pointsToRedeem * centsPerPoint / 100.0 ).toFixed(2);
+      $(".input-holder").append('<input type="range" class="swell-range-slider" min="0" max="' + customerAdjustedPoints + '" step="1" value="'+ customerAdjustedPoints + '">');
+
+      $("#swell-checkout-points-amount").val(pointsToRedeem);
+
+      $('.input-holder input[type="range"]').rangeslider({
+        polyfill: false,
+        // Default CSS classes
+        rangeClass: 'rangeslider',
+        disabledClass: 'rangeslider--disabled',
+        horizontalClass: 'rangeslider--horizontal',
+        verticalClass: 'rangeslider--vertical',
+        fillClass: 'rangeslider__fill',
+        handleClass: 'rangeslider__handle',
+
+        // Callback function
+        onInit: function() {},
+
+        // Callback function
+        onSlide: function(position, value) {},
+
+        // Callback function
+        onSlideEnd: function(position, value) {}
+      });
+
+      $( ".swell-range-slider" ).change(function() {
+        slider_value_points = $(".swell-range-slider").val();
+        slider_value_cents = slider_value_points * centsPerPoint;
+
+        if (slider_value_cents > cartTotalCents) {
+          pointsToRedeem = cartTotalCents / centsPerPoint;
+        } else {
+          pointsToRedeem = slider_value_points;
+        }
+        
+        $("#swell-checkout-points-amount").val(pointsToRedeem);
+        $(".slider-point-balance").html(slider_value_points);
+        $(".swell-checkout-dollar-balance-1").html(parseFloat( slider_value_points * centsPerPoint / 100.0 ).toFixed(2));
+      });
+
+      //reset the last redeemPoints
+      $(document).on("swell:redemption", function(){
+        var lastRedeemPoints = $("#swell-checkout-points-amount").val();
+        setTimeout(function(){
+          $("#swell-checkout-points-amount").val(lastRedeemPoints);
+        }, 200);         
+      });
+    }); 
+  }
+</script>

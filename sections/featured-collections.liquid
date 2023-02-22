@@ -1,7 +1,6 @@
-{{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
-{{ 'component-tabs.css' | asset_url | stylesheet_tag }}
-
 <nav class="featured-col__nav tabs__nav">
+    {{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
+    {{ 'component-tabs.css' | asset_url | stylesheet_tag }}
     {%- for block in section.blocks -%}
 
         {%- assign collection = block.settings.collection -%}
@@ -9,7 +8,7 @@
             {%- continue -%}
         {%- endif -%}
 
-        <button data-index="{{ forloop.index }}" class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button" data-index="{{ forloop.index }}">
+        <button aria-label="Display tab #{{ forloop.index }}" data-index="{{ forloop.index }}" class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button" data-index="{{ forloop.index }}">
             {%- if block.settings.title != blank -%}
                 {{- block.settings.title | escape -}}
             {%- else -%}
@@ -27,12 +26,12 @@
             {%- continue -%}
         {%- endif -%}
 
-        <div data-index="{{ forloop.index }}" data-slide="5" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper" data-index="{{ forloop.index }}">
-            <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-            <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
+        <div data-index="{{ forloop.index }}" data-slide="5" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper slider__wrapper--buttons-side" data-index="{{ forloop.index }}">
+            <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+            <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
             <div class="slider slider--scrollbar">
                 {%- for product in collection.products limit: 20 -%}
-                    {%- render 'product-unit' with product, class: 'slide', quick_view: true -%}
+                    {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quick-view -%}
                 {%- endfor -%}
             </div>
         </div>
@@ -45,6 +44,12 @@
         "name": "Fearured Collections",
         "class": "shopify-section--featured-collections",
         "settings": [
+            {
+                "type": "checkbox",
+                "id": "quick-view",
+                "label": "Enable quick view",
+                "default": false
+            }
         ],
         "blocks": [
             {

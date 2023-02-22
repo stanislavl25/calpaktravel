@@ -1,0 +1,120 @@
+{{ 'section-collections-showcase.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-floating-link.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
+
+<link rel="stylesheet" href="{{ 'component-text-dropdown.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-text-dropdown.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- if section.blocks.size > 1 -%}
+    <script src="{{ 'text-dropdown.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<div class="collection-showcase__switch-cont">
+    <div class="collection-showcase__switch-text">{{- section.settings.text | escape -}}</div>
+    <div class="text-dropdown" data-target=".collection-showcase__list--{{- section.id -}}">
+        <div class="text-dropdown__value">
+            {%- assign firstBlock = section.blocks | first -%}
+            {{- firstBlock.settings.dropdown-title | escape -}}
+        </div>
+        <div class="text-dropdown__inner">
+            {%- for block in section.blocks -%}
+            <div class="text-dropdown__option{% if forloop.first %} text-dropdown__option--selected{% endif %}">
+                {{- block.settings.dropdown-title | escape -}}
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+</div>
+<div class="collection-showcase__list collection-showcase__list--{{- section.id -}}">
+    {%- for block in section.blocks -%}
+    <div class="collection-showcase{% if forloop.first %} collection-showcase--active{% endif %}">
+        <div class="collection-showcase__media">
+            {%- render 'image' with block.settings.image, sizes: '50vw', no_wrapper: true, lazy: true -%}
+
+            {%- if block.settings.button-text != blank -%}
+            <div class="floating-link">
+                <a href="{{ block.settings.main-link }}" class="button button--secondary">
+                    <span>{{- block.settings.button-text | escpe -}}</span>
+                </a>
+
+                {% if block.settings.product_title != blank %}
+                <div class="floating-link__pictured">
+                    Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+                </div>
+                {% endif %}
+            </div>
+            {%- endif -%}
+        </div>
+        <div class="collection-showcase__products slider__wrapper">
+            <div class="slider slider--scrollbar">
+                {%- for product in block.settings.product_list -%}
+                    {%- render 'product-unit' with product, class: "slide", quick_view: true -%}
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+    {%- endfor -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Collections Showcase",
+        "class": "shopify-section--collections-showcase",
+        "settings": [
+            {
+                "type": "text",
+                "id": "text",
+                "label": "Text before dropdown"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Showcase",
+                "type": "showcase",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "dropdown-title",
+                        "label": "Dropdown title"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "main-link",
+                        "label": "Link"
+                    },
+                    {
+                        "type": "url",
+                        "id": "pictured_product",
+                        "label": "Pictured Product URL"
+                    },
+                    {
+                        "type": "text",
+                        "id": "product_title",
+                        "label": "Product Title"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "product_list",
+                        "label": "Featured Products"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Collections Showcase"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "2c965d8f-2457-454a-a651-b4d589db05a8": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-BANNER2.jpg",
+            "video": "",
+            "main-link": "",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "2846884e-b8cd-4474-a152-7bf4ea6fb5a8": {
+          "type": "text-block",
+          "settings": {
+            "title": "Welcome to the club, [name]!",
+            "description": "<p>As a member you’ll earn points & Exclusive rewards every time you shop.<\/p>",
+            "main-link": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-condition": "logged-in",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        },
+        "d413d89b-94af-4456-8fd1-1f9c05a566d3": {
+          "type": "text-block",
+          "settings": {
+            "title": "Are you a member yet?",
+            "description": "<p>Join our rewards program, and get insider perks, exclusive early access to sales, and stackable credit.<\/p><p>You literally get a $5 credit just for signing up.<\/p>",
+            "main-link": "\/account",
+            "button-text": "Join now \/ Login",
+            "add-link-to-button-only": true,
+            "show-condition": "logged-out",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        }
+      },
+      "block_order": [
+        "2c965d8f-2457-454a-a651-b4d589db05a8",
+        "2846884e-b8cd-4474-a152-7bf4ea6fb5a8",
+        "d413d89b-94af-4456-8fd1-1f9c05a566d3"
+      ],
+      "settings": {
+        "hero-height": "limited",
+        "height-limit": 80,
+        "enable-sticky-promo": false,
+        "sticky-promo-floating": false,
+        "promo-text": "",
+        "promo-link": "",
+        "close-color-scheme": "white"
+      }
+    },
+    "7a534b13-e0e0-4aee-abc7-11b75cc3e5e6": {
+      "type": "html",
+      "settings": {
+        "html": "<script src=\"https:\/\/cdn-widgetsrepository.yotpo.com\/v1\/loader\/j0R3HMDaDyhf40m2xcICbQ\" async=\"\"><\/script>\n<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"130075\"><\/div>\n<script>\n    let checkYotpoReady = setInterval(function() {\n        let desc = document.querySelector('body:not(.customer-logged-in) .yotpo-text-and-buttons .yotpo-description');\n        if(desc) {\n            clearInterval(checkYotpoReady);\n            desc.innerHTML = '<p>Are you a CALPAK VIT yet?<\/p><p>Join our rewards program, and get insider perks, exclusive early access to sales, and stackable credit.<\/p><p>You literally get a $5 credit just for signing up.<\/p>';\n            desc.classList.add('yotpo-description--active');\n            console.log(desc);\n        }\n    }, 100);\n<\/script>",
+        "add-padding": true
+      }
+    },
+    "ce8c6516-3a50-4d0d-90c7-412f43a4e3cd": {
+      "type": "centered-banner",
+      "disabled": true,
+      "settings": {
+        "title": "Stay Connected",
+        "text": "<p>Join our private Facebook group - CALPAK Lounge. A place where our community can connect together and discuss travel inspiration, tips, guides, and so much more!<\/p>",
+        "button-title": "Join Now",
+        "button-url": "#"
+      }
+    },
+    "222feffe-9c48-4fc5-9d3c-ad6b1a20b55a": {
+      "type": "faq-category",
+      "blocks": {
+        "21cf3361-61c5-4894-9700-4b22031646f6": {
+          "type": "faq",
+          "settings": {
+            "title": "What do I get for joining?",
+            "answer": "",
+            "hide": false
+          }
+        },
+        "7fa674fa-915f-419c-b704-fd35047bba33": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I combine my offers?",
+            "answer": "",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "21cf3361-61c5-4894-9700-4b22031646f6",
+        "7fa674fa-915f-419c-b704-fd35047bba33"
+      ],
+      "settings": {
+        "title": "FAQ’s",
+        "standalone": true
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "7a534b13-e0e0-4aee-abc7-11b75cc3e5e6",
+    "ce8c6516-3a50-4d0d-90c7-412f43a4e3cd",
+    "222feffe-9c48-4fc5-9d3c-ad6b1a20b55a"
+  ]
+}

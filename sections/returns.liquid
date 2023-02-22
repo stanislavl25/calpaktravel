@@ -1,0 +1,93 @@
+{{ 'section-returns.css' | asset_url | stylesheet_tag: preload: true }}
+
+<script src="{{ 'returns.js' | asset_url }}" defer="defer"></script>
+
+{%- if section.settings.title != blank -%}
+<div class="returns__title">
+    {{- section.settings.title | escape -}}
+</div>
+{%- endif -%}
+
+<div class="returns__container">
+{%- for block in section.blocks -%}
+    <div class="returns__block">
+        <button aria-label="Show more information on this topic" class="returns__button">
+            {%- if block.settings.image != blank -%}
+                <div class="returns__block-image">
+                    {% render 'image' with block.settings.image, sizes: '28vw', no_wrapper: true %}
+                </div>
+            {%- endif -%}
+
+            <div class="returns__block-title">
+                {{- block.settings.title | escape -}}
+            </div>
+        </button>
+
+        <div class="returns__info">
+            {%- if block.settings.desc-title != blank -%}
+                <div class="returns__desc-title">{{- block.settings.desc-title | escape -}}</div>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+                <div class="returns__description">{{- block.settings.description -}}</div>
+            {%- endif -%}
+
+            {%- if block.settings.button-text != blank -%}
+                <a href="block.settings.button-link" class="button">{{- block.settings.button-text | escape -}}</a>
+            {%- endif -%}
+        </div>
+    </div>
+{%- endfor -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Returns and Exchanges",
+        "class": "shopify-section--returns",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "info",
+                "name": "Info",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "desc-title",
+                        "label": "Description Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-link",
+                        "label": "Button Link"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

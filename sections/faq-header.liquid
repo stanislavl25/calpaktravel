@@ -1,0 +1,55 @@
+{{ 'section-faq-header.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'section-faq-category.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-accordion.css' | asset_url | stylesheet_tag: preload: true }}
+
+<script src="{{ 'accordion.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'faq.js' | asset_url }}" defer="defer"></script>
+
+<div class="faq-header">
+    {%- if section.settings.title != blank -%}
+    <div class="faq-header__title">{{- section.settings.title | escape -}}</div>
+    {%- endif -%}
+    <div class="faq-header__content">
+        {%- if section.settings.content-on-desktop == blank or section.settings.content-on-mobile == blank -%}
+            {{- section.settings.content-on-desktop -}}
+            {{- section.settings.content-on-mobile -}}
+        {%- else-%}
+            <div class="hide-small">
+                {{- section.settings.content-on-desktop -}}
+            </div>
+            <div class="hide-large">
+                {{- section.settings.content-on-mobile -}}
+            </div>
+        {%- endif -%}
+    </div>
+</div>
+
+<div data-gap="18" class="faq-navigation__outer slider__wrapper slider__wrapper--buttons-side">
+    <nav class="faq-navigation slider"></nav>
+    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+</div>
+
+{% schema %}
+    {
+        "name": "FAQ Header",
+        "class": "shopify-section--faq-header",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "content-on-desktop",
+                "label": "Content on desktop"
+            },
+            {
+                "type": "richtext",
+                "id": "content-on-mobile",
+                "label": "Content on mobile"
+            }
+        ]
+    }
+{% endschema %}

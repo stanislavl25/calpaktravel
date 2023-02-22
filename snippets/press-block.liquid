@@ -1,0 +1,19 @@
+{%- assign block = press-block -%}
+
+<div class="press-block">
+    {%- if block.settings.product != blank -%}
+        {%- render 'product-unit' with block.settings.product, class: 'press-block__product', add_to_cart: true, labels: false -%}
+    {%- endif -%}
+
+    {%- if block.settings.description != blank -%}
+        <div class="press-block__description">
+            {{- block.settings.description -}}
+        </div>
+    {%- endif -%}
+
+    {%- if block.settings.image != blank -%}
+    <div class="press-block__image">
+        {% render 'image' with block.settings.image, sizes: '300px', no_wrapper: true %}
+    </div>
+    {%- endif -%}
+</div>

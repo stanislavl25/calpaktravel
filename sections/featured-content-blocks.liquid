@@ -3,43 +3,85 @@
 <link rel="stylesheet" href="{{ 'component-floating-link.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="content-blocks{% if section.settings.gap %} content-blocks--gap{% endif %}">
+{% if section.settings.heading != blank %}
+    <h2 class="content-blocks__title">{{- section.settings.heading | strip_html | escape -}}</h2>
+{% endif %}
+
+<div class="content-blocks content-blocks--{{ section.settings.content-position }} content-blocks--{{ section.settings.general-layout }} content-blocks--mobile-{{ section.settings.mobile-layout }}{% if section.settings.gap %} content-blocks--gap{% endif %}">
 {%- assign size = 100 | divided_by: section.blocks.size | round: 4 | append: 'vw' -%}
 {% for block in section.blocks %}
     <div class="content-block">
-        {%- if block.settings.title != blank -%}
-        <div class="content-block__title">
-            <a href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
-        </div>
-        {%- endif -%}
+        {%- if block.settings.description != blank or block.settings.title != blank -%}
+        <div class="content-block__info">
+            {%- if block.settings.title != blank -%}
+            <div class="content-block__title">
+                {%- if block.settings.target_link != blank -%}
+                <a href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
+                {%- else -%}
+                {{- block.settings.title | escape -}}
+                {%- endif -%}
+            </div>
+            {%- endif -%}
 
-        {%- if block.settings.description != blank -%}
-        <div class="content-block__description">
-            {{- block.settings.description -}}
+            {%- if block.settings.description != blank -%}
+            <div class="content-block__description">
+                {{- block.settings.description -}}
+            </div>
+            {%- endif -%}
         </div>
         {%- endif -%}
 
         <div class="content-block__image">
-        {%- if block.settings.image != blank -%}
-            <a href="{{ block.settings.target_link }}">
-                {%- render 'image' with block.settings.image, sizes: size -%}
-            </a>
-        {%- endif -%}
+            {%- liquid
+                if block.settings.target_link != blank
+                    echo '<a href="' | append: block.settings.target_link | append: '">'
+                endif
+
+                if block.settings.video != blank
+                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+
+                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
+                else
+                    if block.settings.image_mobile != blank and block.settings.image != blank
+                        render 'image' with block.settings.image, lazy: true, sizes: size, class: 'hide-small'
+                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
+                    elsif block.settings.image != blank
+                        render 'image' with block.settings.image, lazy: true, sizes: size
+                    elsif block.settings.image_mobile != blank
+                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size
+                    endif
+                endif
+
+                if block.settings.target_link != blank
+                    echo '</a>'
+                endif
+            -%}
         </div>
 
+        {%- if block.settings.button-text != blank -%}
         <div class="floating-link">
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
                 <span>{{- block.settings.button-text | escpe -}}</span>
             </a>
+
             {% if block.settings.product_title != blank %}
             <div class="floating-link__pictured">
                 Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
             </div>
             {% endif %}
         </div>
+        {%- endif -%}
     </div>
 {% endfor %}
-</div>  
+</div>
+
+{%- if section.settings.button-text != blank -%}
+<div class="content-blocks__button">
+    <a href="{{ section.settings.button-link }}" class="button">
+        <span>{{- section.settings.button-text | strip_html | escape -}}</span>
+    </a>
+</div>
+{%- endif -%}
 
 {% schema %}
     {
@@ -47,10 +89,47 @@
         "class": "shopify-section--content-blocks",
         "settings": [
             {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading"
+            },
+            {
                 "type": "checkbox",
                 "id": "gap",
                 "label": "Add a gap between blocks",
                 "default": false
+            },
+            {
+                "type": "select",
+                "id": "general-layout",
+                "label": "General Layout",
+                "options": [
+                    {
+                        "value": "text-media",
+                        "label": "Text then media"
+                    },
+                    {
+                        "value": "media-text",
+                        "label": "Media then text"
+                    }
+                ],
+                "default": "text-media"
+            },
+            {
+                "type": "select",
+                "id": "content-position",
+                "label": "Content Position",
+                "options": [
+                    {
+                        "value": "stretch",
+                        "label": "Stretch"
+                    },
+                    {
+                        "value": "top",
+                        "label": "Top"
+                    }
+                ],
+                "default": "stretch"
             },
             {
                 "type": "select",
@@ -67,6 +146,16 @@
                     }
                 ],
                 "default": "stacked"
+            },
+            {
+                "type": "text",
+                "id": "button-text",
+                "label": "Button text"
+            },
+            {
+                "type": "url",
+                "id": "button-link",
+                "label": "Button link"
             }
         ],
         "blocks": [
@@ -80,6 +169,10 @@
                         "label": "Object link"
                     },
                     {
+                        "type": "header",
+                        "content": "Text"
+                    },
+                    {
                         "type": "text",
                         "id": "title",
                         "label": "Title"
@@ -90,20 +183,13 @@
                         "label": "Description"
                     },
                     {
-                        "type": "image_picker",
-                        "id": "image",
-                        "label": "Image"
-                    },
-                    {
-                        "type": "image_picker",
-                        "id": "image-mobile",
-                        "label": "Image for mobile"
-                    },
-                    {
                         "type": "text",
                         "id": "button-text",
-                        "label": "Button Text",
-                        "default": "Shop now"
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Product"
                     },
                     {
                         "type": "url",
@@ -114,6 +200,39 @@
                         "type": "text",
                         "id": "product_title",
                         "label": "Product Title"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Media"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "video_url",
+                        "id": "video",
+                        "label": "Video",
+                        "accept": ["vimeo"]
+                    },
+                    {
+                        "type": "text",
+                        "id": "video-ratio-w",
+                        "label": "Video aspect ratio width",
+                        "default": "16",
+                        "info": "16/9 - standard widescreen, 9/16 - portrait, 1/1 square, etc."
+                    },
+                    {
+                        "type": "text",
+                        "id": "video-ratio-h",
+                        "label": "Video aspect ratio height",
+                        "default": "9"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image_mobile",
+                        "label": "Image for mobile"
                     }
                 ]
             }

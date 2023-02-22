@@ -1,0 +1,16 @@
+{{ 'section-404.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="search-404">
+    <input type="text" placeholder="Search">
+    <button aria-label="Perform Search" class="search-button"><img loading="lazy" src="{{ 'icon-search.svg' | asset_url }}"></button>
+</div>
+
+{% schema %}
+    {
+        "name": "Search 404",
+        "class": "shopify-section--404",
+        "settings": [
+
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,146 @@
+<div class="cart__container{% if cart.item_count == 0 %} cart__container--empty{% endif %}">
+    <div class="cart__overlay"></div>
+    <div class="cart__body">
+        <a class="close-button close-button--cart" title="Close"></a>
+        {% render 'cart-empty' %}
+        
+        {%- liquid
+            assign free_shipping = settings.free-shipping | times: 100
+            if free_shipping == 0
+                assign free_shipping_progress = 100
+            else
+                assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+                if free_shipping_progress > 100
+                    assign free_shipping_progress = 100
+                endif
+            endif
+
+            assign totalPrice = cart.total_price
+            if free_shipping_progress < 100
+                assign totalPrice = totalPrice | plus: 795
+            endif
+        -%}
+
+        <div class="cart__header">
+            {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
+
+            {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
+
+            {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
+        </div>
+
+        <div class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</div>
+
+        <div class="cart__body-mobile-main">
+            <div class="cart__body-main">
+
+                <div class="cart__body-top">
+                    <div class="cart__items-container">
+                        <div class="cart__items">
+                            {%- render 'cart-item' for cart.items -%}
+                        </div>
+                    </div>
+                    
+                    {% render 'cart-promo', blocks: section.blocks, position: 'under-products' %}
+                </div>
+
+
+                <div class="cart__body-bottom">
+                    <div class="cart__rewards"><a href="#">Sign in</a> to see your rewards</div>
+                    <dl class="cart__total-row cart__total-row--subtotal">
+                        <dt class="cart__total-name">Subtotal</dt>
+                        <dd class="cart__total-value">{{- cart.items_subtotal_price | money_without_trailing_zeros -}}</dd>
+                    </dl>
+                    <dl class="cart__total-row cart__total-row--shipping">
+                        <dt class="cart__total-name">Shipping</dt>
+                        <dd class="cart__total-value">$7.95</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="cart__upsell slider__wrapper">
+                <div class="cart__upsell-title">More for you</div>
+                <div class="cart__upsell-items slider slider--scrollbar slider--vertical">
+                    {% comment %} {%- for i in (1..5) -%}
+                        {%- render 'product-unit-placeholder', class: "slide", add_to_cart: true -%}
+                    {%- endfor -%} {% endcomment %}
+                    {%- for product in collections['best-sellers'].products limit: 9 -%}
+                        {%- render 'product-unit' with product, class: "slide", all_colors: true, add_to_cart: true, location: 'cart' -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+
+        <div class="cart__footer">
+            <div class="cart__footer-total">
+                <dl class="cart__total-row cart__total-row--total">
+                    <dt class="cart__total-name">Estimated Total</dt>
+                    <dd class="cart__total-value">
+                        {{- totalPrice | money_without_trailing_zeros -}}
+                    </dd>
+                </dl>
+                <div class="cart__4-payments">
+                    <span>4 easy payments of <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span> with </span>
+                    {% render 'icon-shop-pay' %}
+                </div>
+            </div>
+            <a href="{% if customer == blank %}/account/login/checkout{% else %}/checkout{% endif %}" class="button button--checkout"><span>Checkout</span></a>
+            <div class="cart__extra-checkout">
+                {% comment %} Extra buttons {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Cart",
+        "class": "shopify-section--cart",
+        "settings": [
+        
+        ],
+        "blocks": [
+            {
+                "type": "announcement",
+                "name": "Announcement",
+                "settings": [
+                    {
+                        "type": "select",
+                        "id": "position",
+                        "label": "Position",
+                        "options": [
+                            {
+                                "value": "top",
+                                "label": "On the top"
+                            },
+                            {
+                                "value": "above-products",
+                                "label": "Above products"
+                            },
+                            {
+                                "value": "under-products",
+                                "label": "Under products"
+                            }
+                        ],
+                        "default": "top"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

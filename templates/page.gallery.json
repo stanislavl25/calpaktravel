@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Community Gallery",
+        "text": "<p>Show us how you get there with CALPAK. Tag us @calpak #calpaktravel on <a href=''>Instagram<\/a> and <a href='#'>TikTok<\/a> to join the fun.<\/p>"
+      }
+    },
+    "1ac6c6c2-28e6-4d80-aedc-790db9c1f245": {
+      "type": "html",
+      "settings": {
+        "html": "<div data-crl8-container-id=\"gallery-8nWaE8NH\"><\/div>"
+      }
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "title": "Heading Text",
+        "text": "<p>Supporting subtext goes here.<\/p>",
+        "button-text": "Button Link",
+        "link": "#",
+        "link-for-button": true,
+        "height": "custom",
+        "height-percent": 20,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#c5c5c5"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "1ac6c6c2-28e6-4d80-aedc-790db9c1f245",
+    "banner"
+  ]
+}

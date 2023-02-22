@@ -1,0 +1,200 @@
+{%- liquid
+    if thumbnails == true
+        assign sizes = '88px'
+    else
+        assign sizes = '(min-width: 901px) 29vw, 100vw'
+    endif
+
+    if zoom != true
+        assign zoom = false
+    endif
+
+    if current_variant == false or current_variant == blank
+        assign current_variant = product.selected_or_first_available_variant
+    endif
+-%}
+
+{% if current_variant.metafields.custom.featured_images != blank %}
+{% comment %}
+    New system with metafields
+{% endcomment %}
+
+    {%- assign varVideoActive = false -%}
+    {% for variant in product.variants %}
+        {% for media in variant.metafields.custom.featured_images.value %}
+            {%- liquid
+                assign isVideo = false
+                capture mediaContent
+                    case media.media_type
+                        when 'image'
+                            assign alt = media.alt
+                            assign video = false
+                            if alt contains 'vimeo.com/'
+                                assign video = alt | split: ';' | first
+                                assign alt = alt | split: ';' | last
+                            endif
+
+                            if variant.id == current_variant.id
+                                assign lazy = false
+                            else
+                                assign lazy = true
+                            endif
+
+                            if video == false
+                                render 'image' with media, sizes: sizes, height: '133.333', zoom: zoom, lazy: lazy
+                            else
+                                if thumbnails == true
+                                    render 'image' with media, sizes: sizes, height: '133.333', class: 'video-link-image', lazy: lazy
+                                else
+                                    render 'video' with video, contain: true, poster: media, alt: alt, sizes: sizes, height: '133.333', lazy: true
+                                    assign isVideo = true
+                                endif
+                            endif
+                        when 'video'
+                            echo '<div class="video-tag-container">'
+                            echo media | video_tag: controls: false, autoplay: true, muted: true, loop: true
+                            echo '</div>'
+                            assign isVideo = true
+                    endcase
+                endcapture
+
+                if isVideo and variant.id == current_variant.id
+                    assign varVideoActive = true
+                endif
+            -%}
+            <div data-id="{{ variant.id }}" class="pdp__media{% if thumbnails == true %}-thumb{% endif %}{% if isVideo %} pdp__media--var-video{% endif %}{% if forloop.first %} pdp__media--wide{% endif %}{% if variant.id == current_variant.id %} pdp__media--active slide{% endif %}">
+                {{ mediaContent }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {%- if product.metafields.product.video != blank -%}
+        {% render 'pdp-product-video', thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
+    {%- endif -%}
+
+{% else %}
+{% comment %}
+    Old system with alt-tags
+{% endcomment %}
+
+    {%- assign option1 = current_variant.option1 | handleize -%}
+    {%- assign first = true -%}
+    {%- assign varVideoActive = false -%}
+    {%- assign videoShown = false -%}
+    {%- assign activeCount = 0 -%}
+    {% for media in product.media %}
+        {%- liquid
+            assign active = false
+            assign mediaAlt = ''
+            assign sku = current_variant.sku | handleize
+            assign opt1 = current_variant.option1 | handleize
+
+            if media.alt contains ';'
+                assign alt = media.alt | split: ';'
+
+                if alt.size > 1
+                    assign mediaAlt = alt | first | strip
+                    assign alt = alt | last | strip
+                else
+                    assign firstChar = media.alt | slice: 0, 1
+                    if firstChar == ';'
+                        assign mediaAlt = alt | first | strip
+                        assign alt = alt | last | strip
+                    else
+                        assign alt = ''
+                    endif
+                endif
+            else
+                assign alt = media.alt | strip
+            endif
+
+            assign tmp = ''
+            assign alt = alt | split: ','
+            for _alt in alt
+                assign val = _alt | strip | handleize
+                unless forloop.first
+                    assign tmp = tmp | append: ','
+                endunless
+                assign tmp = tmp | append: val
+            endfor
+            assign alt = tmp | split: ','
+
+            assign preload = false
+            if alt contains opt1 or alt contains sku or alt == product.title or alt == ''
+                assign active = true
+                assign lazy = false
+                assign activeCount = activeCount | plus: 1
+                if first
+                    assign preload = true
+                endif
+            else
+                assign lazy = true
+            endif
+
+            assign alt = alt | join: ' '
+
+            assign isVideo = false
+            capture mediaContent
+                case media.media_type
+                    when 'image'
+                        render 'image' with media, sizes: sizes, height: '133.333', alt: mediaAlt, zoom: zoom, lazy: lazy, preload: preload
+                    when 'external_video'
+                        echo media | external_video_tag
+                        assign isVideo = true
+                    when 'video'
+                        echo media | video_tag: controls: true
+                        assign isVideo = true
+                endcase
+            endcapture
+
+            if isVideo and active
+                assign varVideoActive = true
+            endif
+
+            if product.metafields.product.video != blank and product.metafields.custom.product_video_position == activeCount and product.metafields.custom.product_video_position != blank
+                assign videoShown = true
+                assign activeCount = activeCount | plus: 1
+                render 'pdp-product-video', thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes
+            endif
+
+            assign classList = 'pdp__media'
+            if thumbnails == true
+                assign classList = classList | append: '-thumb'
+            endif
+
+            if isVideo
+                assign classList = classList | append: ' pdp__media--var-video'
+            endif
+
+            if first and active
+                assign first = false
+                assign classList = classList | append: ' pdp__media--wide'
+            endif
+
+            if active
+                assign classList = classList | append: ' pdp__media--active slide'
+            endif
+
+            if section.settings.gallery-limit > 0 and location =='pdp' and active
+                if activeCount > section.settings.gallery-limit
+                    assign classList = classList | append: ' pdp__media--extra'
+                elsif activeCount == section.settings.gallery-limit
+                    assign countMod = activeCount | modulo: 2
+                    if countMod == 0
+                        assign classList = classList | append: ' pdp__media--wide'
+                    endif
+                endif
+            endif
+        -%}
+
+        <div
+            data-variants="{{ alt }}"
+            class="{{ classList }}">
+            {{ mediaContent }}
+        </div>
+    {% endfor %}
+
+    {%- if product.metafields.product.video != blank and videoShown == false -%}
+        {% render 'pdp-product-video', thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
+    {%- endif -%}
+{% endif %}

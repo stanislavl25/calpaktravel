@@ -1,0 +1,76 @@
+{{ 'section-more-links.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.title != blank -%}
+    <div class="more-links__title">{{- section.settings.title | escape -}}</div>
+{%- endif -%}
+
+<div class="more-links">
+    {%- for block in section.blocks -%}
+    <a href="{{ block.settings.link }}" class="more-link">
+        {%- if block.settings.image != blank -%}
+        <div class="more-link__image">
+            {% render 'image' with block.settings.image, lazy: true, sizes: '250px' %}
+        </div>
+        {%- endif -%}
+        <div class="more-link__info">
+            {%- if block.settings.title != blank -%}
+            <div class="more-link__title">{{- block.settings.title | escape -}}</div>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+            <div class="more-link__description">
+                {{- block.settings.description -}}
+            </div>
+            {%- endif -%}
+        </div>
+    </a>
+    {%- endfor -%}
+</div>
+
+{% schema %}
+    {
+        "name": "More links",
+        "class": "shopify-section--more-links",
+        "max_blocks": 2,
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "link",
+                "name": "Link",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Link"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "More Links"
+            }
+        ]
+    }
+{% endschema %}

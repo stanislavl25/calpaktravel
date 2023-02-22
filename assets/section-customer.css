@@ -1,0 +1,50 @@
+.customer__page-title {
+    font-size: 36px;
+    line-height: 1.2em;
+    letter-spacing: -0.02em;
+    margin-bottom: 5px;
+}
+
+.customer__page-cta {
+    margin-bottom: var(--gap);
+}
+
+.customer__page {
+    padding: 0 var(--gap);
+}
+
+.customer__main {
+    display: flex;
+    padding: 0 var(--gap);
+    gap: var(--gap);
+    min-height: 500px;
+}
+
+.account-nav {
+    flex: 0 0 300px;
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.account-info {
+    line-height: 1.5em;
+}
+
+.account-info__title {
+    font-weight: var(--font-body-weight-bold);
+    margin-bottom: 30px;
+}
+
+.account-user-info {
+    color: var(--gray);
+}
+
+.account-control-buttons {
+    margin-top: 30px;
+}
+
+.no-orders .button {
+    margin-top: 30px;
+}

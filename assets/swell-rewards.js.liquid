@@ -1,0 +1,184 @@
+(function () {
+  $(document).ready(function()
+  {
+    $("body").on("click", ".close-thank-you", function(){
+      $(".swell-post-checkout").remove();
+    });
+    $(document).on("swell:setup", function()
+    {
+      $(".swell-post-checkout").css("display","flex");
+      Swell.Campaign.initializeCampaigns(".swell-campaign-list", SwellConfig.Campaign.opts);
+      Swell.Referral.initializeReferral(".swell-referral", SwellConfig.Referral.opts);
+      SwellConfig.Referral.authenticated();
+      SwellConfig.Referral.populateReferrals();
+
+      $(".swell-referral-loader").hide();
+    });
+
+    $(document).on("swell:referral:success", function() {
+      swellAPI.refreshCustomerDetails(function() {
+        $(".table-data").html("");
+        SwellConfig.Referral.populateReferrals();
+      });
+    });
+
+    $(document).on("swell:referral:error", function(jqXHR, textStatus, errorThrown) {
+      if(textStatus && textStatus === "EMAILS_ALREADY_PURCHASED") {
+        $(".refer-customer-error").remove();
+        $(".swell-referral-form-body").before('<p class="refer-customer-error">Sorry! Looks like this person has already made a purchase. Try referring another friend.</p>');
+      }
+
+      if(textStatus && textStatus === "Please enter a valid email address") {
+        $(".refer-customer-error").remove();
+        $(".swell-referral-form-body").after('<p class="refer-customer-error">Please enter valid email addresses</p>');
+      }
+    });
+
+  });
+}).call(this);
+
+// referral
+(function() {
+    if(typeof referralDetails == 'undefined') var referralDetails = "Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!";
+  window.SwellConfig = window.SwellConfig || {};
+
+  SwellConfig.Referral = {
+    opts: {
+      localization: {
+        referralSidebarDetailsAction: "Refer a Friend!",
+        referralSidebarDetailsReward: "<%= referralCampaign.reward_text %>",
+
+        referralRegisterHeading: "Give $25, Get $25",
+        referralRegisterFormDetails: "Enter your email below to get started.",
+        referralRegisterFormEmail: "Your Email",
+        referralRegisterFormSubmit: '<i class="swell-icon-return-arrow" aria-hidden="true"></i>',
+        referralRegisterDetails: referralDetails,
+
+        referralReferHeading:"Give $25, Get $25",
+        referralReferFormEmails: "Your friends’ emails (seperated by commas)",
+        referralReferFormSubmit: '<i class="swell-icon-return-arrow" aria-hidden="true"></i>',
+        referralReferFormDetails: "Now, enter your friends’ emails below.",
+        referralReferFormEmailsDetails: "",
+        referralReferDetails: referralDetails,
+
+        referralReferMediaDetails: "You can also share your link with the buttons below.",
+
+        referralShareFacebook: "Share",
+        referralShareTwitter: "Tweet",
+        referralShareCopy: "Copy Link",
+        referralShareMessenger: "Message",
+        referralShareSMS: "SMS",
+
+        referralFacebookIcon: "swell-icon-Fb",
+        referralTwitterIcon: "swell-icon-twitter",
+        referralSMSIcon: "swell-icon-SMS-ThreeDots",
+        referralMessengerIcon: "swell-icon-Message",
+        referralLinkIcon: "swell-icon-Copy-link",
+
+        referralThanksHeading: "Thanks for Referring!",
+        referralThanksDetails: "Remind your friends to check their emails.",
+
+        referralCopyHeading: "",
+        referralCopyButton: "Copy Link",
+        referralCopyDetails: "Copy link and share with your friends."
+      },
+      templates: {
+        referralRegister: '<div class="swell-referral-register"> <div class="swell-heading-border"></div> <h2 class="swell-referral-heading"><%= localization.referralRegisterHeading %></h2> <p class="swell-referral-details"><%= localization.referralRegisterDetails %></p> <div class="swell-referral-form-wrapper"> <form name="swell-referral-register-form" id="swell-referral-register-form" method="POST" action="."> <div class="swell-referral-form-header"> <p class="swell-referral-form-header-details"><%= localization.referralRegisterFormDetails %></p> </div> <div class="swell-referral-form-body"> <ul class="swell-referral-form-list"> <li class="swell-referral-form-list-field"> <input class="swell-referral-form-list-field-input" type="email" name="swell-referral-register-email" id="swell-referral-register-email" required="required" placeholder="<%= localization.referralRegisterFormEmail %>"> <button class="swell-referral-form-list-submit" type="submit" name="swell-referral-register-submit" id="swell-referral-register-submit"><%= localization.referralRegisterFormSubmit %></button> </li> </ul> </div> </form> </div> </div>',
+        referralRefer: `<div class="swell-referral-refer">
+            <div class="swell-heading-border"></div>
+            <h2 class="swell-referral-heading"><%= localization.referralReferHeading %></h2>
+            
+            <div class="swell-referral-form-wrapper">
+                <form class="swell-referral-form" name="swell-referral-refer-form" id="swell-referral-refer-form" method="POST" action="."> 
+                    <div class="swell-referral-form-header"> </div>
+                    <div class="swell-referral-form-body">
+                        <div class="field">
+                            <label>Enter your friends' emails below</label>
+                            <input class="field__input swell-referral-form-list-field-input" type="text" name="swell-referral-refer-emails" id="swell-referral-refer-emails" required="required">
+                        </div>
+                        
+                        <button class="button swell-referral-form-list-submit" type="submit" name="swell-referral-refer-submit" id="swell-referral-refer-submit">
+                            <span>Next</span>
+                        </button>
+                    </div> 
+                </form>
+            </div>
+            
+            <div class="swell-referral-media-wrapper">
+                <p class="swell-referral-media-details"><%= localization.referralReferMediaDetails %></p>
+                <ul class="swell-referral-media-list">
+                    <li class="swell-referral-medium">
+                        <div class="swell-referral-medium-content swell-share-referral-facebook">
+                            <i class="<%= localization.referralFacebookIcon %>" aria-hidden="true"></i>
+                            <%= localization.referralShareFacebook %>
+                        </div>
+                    </li>
+                    
+                    <li class="swell-referral-medium">
+                        <div class="swell-referral-medium-content swell-share-referral-twitter">
+                            <i class="<%= localization.referralTwitterIcon %>" aria-hidden="true"></i>
+                            <%= localization.referralShareTwitter %>
+                        </div>
+                    </li>
+                    
+                    <li class="swell-referral-medium swell-sms-link">
+                        <div class="swell-referral-medium-content swell-share-referral-sms">
+                            <i class="<%= localization.referralSMSIcon %>" aria-hidden="true"></i>
+                            <%= localization.referralShareSMS%>
+                        </div>
+                    </li>
+                    
+                    <li class="swell-referral-medium">
+                        <div class="swell-referral-medium-content swell-share-referral-messenger">
+                            <i class="<%= localization.referralMessengerIcon %>" aria-hidden="true"><span class="path1"></span><span class="path2"></span></i>
+                            
+                            <span> <%= localization.referralShareMessenger %></span>
+                        </div>
+                    </li>
+                    
+                    <li class="swell-referral-medium">
+                        <div class="swell-referral-medium-content swell-share-referral-copy">
+                            <i class=" <%= localization.referralLinkIcon %>" aria-hidden="true"></i>
+                            <%= localization.referralShareCopy %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>`
+      }
+    },
+    authenticated: function()
+    {
+      if(spapi.authenticated)
+      {
+        $(".redeem-holder").css("display","block");
+      }
+    },
+    populateReferrals: function(){
+      if (spapi.authenticated) {
+        var referral_receipts = spapi.customer.referral_receipts;
+        referral_receipts.forEach(function(referral_receipt) {
+          var email = referral_receipt.email;
+          var completed_at = referral_receipt.completed_at;
+          if (completed_at) {
+            status = "Purchased (" + spapi.activeReferralCampaign.reward_text + " earned)";
+          } else {
+            status = 'Invited';
+          }
+          $(".table-data").append("<tr class='swell-table-row'><td class='swell-td'><div class='swell-truncate'>" + email + "</div></td><td class='swell-td'>" + status + "</td></tr>");
+        });
+      }
+    }
+  };
+}).call(this);
+
+(function() {
+  window.SwellConfig = window.SwellConfig || {};
+  SwellConfig.Campaign = {
+    opts: {
+      templates: {
+        campaign: '<li class="swell-campaign"> <div class="swell-campaign-content" data-display-mode="modal" data-campaign-id="<%= campaign.id %>"> <div class="swell-campaign-icon"> <span class="swell-campaign-icon-content"> <i class=""> </i> </span> </div> <div class="swell-campaign-type"> <span class="swell-campaign-type-content"><%= campaign.title %></span> </div> <div class="swell-campaign-value"> <span class="swell-campaign-value-content"><%= campaign.reward_text %></span> </div> </div> </li>',
+      }
+    }
+  };
+}).call(this);

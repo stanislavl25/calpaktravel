@@ -1,0 +1,31 @@
+{%- for block in blocks -%}
+    {%- unless block.settings.position == position -%}
+        {%- continue -%}
+    {%- endunless -%}
+
+    <div class="cart__promo cart__promo--{{ block.settings.position }}">
+        {%- if block.settings.image != blank -%}
+            {%- liquid
+                if block.settings.position == 'above-products'
+                    assign sizes = '215px'
+                else
+                    assign sizes = '125px'
+                endif
+            -%}
+        <div class="cart__promo-image">
+            {% render 'image' with block.settings.image, lazy: true, sizes: sizes %}
+        </div>
+        {%- endif -%}
+        <div class="cart__promo-content">
+            {%- if block.settings.title != blank -%}
+            <div class="cart__promo-title">
+                {{- block.settings.title | escape -}}
+            </div>
+            {%- endif -%}
+
+            <div class="cart__promo-text">
+                {{- block.settings.text -}}
+            </div>
+        </div>
+    </div>
+{%- endfor -%}

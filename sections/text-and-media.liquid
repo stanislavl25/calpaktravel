@@ -1,0 +1,110 @@
+{{ 'section-text-and-media.css' | asset_url | stylesheet_tag }}
+
+<div class="text-and-media__container text-and-media__container--mob-{{ section.settings.mobile-layout }}">
+    <div class="scroll-anchor" id="1-to-1"></div>
+    {% for block in section.blocks %}
+        <div class="text-and-media{% if block.settings.hide-on-mobile %} small--hide{% endif %} text-and-media--{{ block.type }}">
+            {% case block.type %}
+                {% when 'image' %}
+                    {% render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true %}
+                {% when 'text' %}
+                    <div class="text-and-media__inner">
+                        {% if block.settings.title != blank %}
+                            <div class="text-and-media__title">{{ block.settings.title | escape }}</div>
+                        {% endif %}
+                        
+                        {% if block.settings.text != blank %}
+                            <div class="text-and-media__text">{{ block.settings.text }}</div>
+                        {% endif %}
+                    
+                        {% if block.settings.button-text != blank %}
+                            <a class="button" href="{{ block.settings.button-url }}">
+                                <span>{{ block.settings.button-text | escape }}</span>
+                            </a>
+                        {% endif %}
+                    </div>
+            {% endcase %}
+        </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+    {
+        "name": "Text and Media",
+        "class": "shopify-section--text-and-media",
+        "settings": [
+            {
+                "type": "select",
+                "id": "mobile-layout",
+                "label": "Mobile layout",
+                "options": [
+                    {
+                        "value": "stack",
+                        "label": "Stack"
+                    },
+                    {
+                        "value": "stack-reversed",
+                        "label": "Stack Reversed"
+                    }
+                ],
+                "default": "stack"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "hide-on-mobile",
+                        "label": "Hide on mobile",
+                        "default": false
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "name": "Text",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button URL"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "hide-on-mobile",
+                        "label": "Hide on mobile",
+                        "default": false
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Text and Media"
+            }
+        ]
+    }
+{% endschema %}

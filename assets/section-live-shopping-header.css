@@ -1,0 +1,30 @@
+.shopify-section--live-shopping-head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    align-items: center;
+    margin: 50px var(--gap);
+}
+
+.live-shopping__title {
+    font-size: 48px;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.live-shopping__title::before {
+    content: '';
+    width: var(--gap);
+    height: var(--gap);
+    background: #ff6b0e;
+    border-radius: 50%;
+}
+
+.live-shopping__buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: var(--gap);
+}

@@ -1,0 +1,115 @@
+.faq-header {
+    padding: var(--gap);
+    text-align: center;
+    margin-top: 50px;
+    grid-column: span 2;
+}
+
+.faq-header__title {
+    font-size: 48px;
+    letter-spacing: -0.02em;
+    font-weight: var(--font-body-weight);
+    line-height: 1.2em;
+    margin-bottom: var(--gap);
+}
+
+.template-page-faqs .content-for-layout {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: var(--gap);
+}
+
+.shopify-section--faq-header {
+    display: contents;
+}
+
+.faq-navigation__outer {
+    position: sticky;
+    top: 42px;
+    grid-column: span 2;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    margin: 0 var(--gap) 50px;
+    min-width: 0;
+    height: calc(2 * var(--gap) + 44px);
+    overflow: visible;
+}
+
+.faq-navigation__outer::before {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    border: 1px solid #fff;
+    content: '';
+    z-index: 4;
+}
+
+.faq-navigation {
+    padding: var(--gap) 0;
+    display: flex;
+    gap: var(--gap);
+    border-bottom: 1px dashed #aeaeae;
+    position: sticky;
+    top: 43px;
+    align-self: flex-start;
+    scroll-padding-left: 42px;
+}
+
+.faq-navigation a {
+    flex: 0 0 auto;
+}
+
+.shopify-section--faq-category {
+    grid-column: 1 / span 2;
+}
+
+.faq-category-qanda .accordion__title {
+    font-weight: var(--font-body-weight-bold);
+}
+
+.faq-category-qanda .accordion__content {
+    padding: 24px 0 15px;
+}
+
+.faq-navigation__outer.slider__wrapper--buttons-side .button-tri-left,
+.faq-navigation__outer.slider__wrapper--buttons-side .button-tri-right {
+    top: var(--gap);
+    margin: 0;
+    transform: translate(0);
+}
+
+.faq-navigation__outer.slider__wrapper--buttons-side .button-tri-right {
+    right: calc( -1 * var(--gap));
+}
+
+.faq-navigation__outer.slider__wrapper--buttons-side .button-tri-left {
+    left: calc( -1 * var(--gap));
+}
+
+.faq-navigation__outer.slider__wrapper--start > .slider__control--prev,
+.faq-navigation__outer.slider__wrapper--end > .slider__control--next {
+    opacity: 0;
+}
+
+@media (max-width: 900px) {
+    .faq-navigation__outer {
+        display: none;
+    }
+
+    .template-page-faqs .content-for-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .faq-header__title {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+
+    .faq-header__content {
+        margin-bottom: 25px;
+    }
+}

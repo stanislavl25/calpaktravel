@@ -1,0 +1,8 @@
+<div class="product-unit__placeholder{% if class != blank %} {{ class }}{% endif %}">
+    <div class="product-unit__placeholder-image"></div>
+    <div class="product-unit__placeholder-title"></div>
+    <div class="product-unit__placeholder-price"></div>
+    {% if add_to_cart == true %}
+    <div class="product-unit__placeholder-button">Add to Bag</div>
+    {% endif %}
+</div>

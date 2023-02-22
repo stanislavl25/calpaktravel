@@ -1,0 +1,29 @@
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag }}
+
+<section class="customer__main">
+    {% render 'account-nav', current: 'rewards' %}
+        
+    <div class="account-info">
+        <div class="account-info__title">Your Rewards Balance</div>
+
+        {% include 'swell-my-rewards' %}
+
+        <script>
+            const referralDetails = "{{ section.settings.swell-referral-details | replace: '<p>', '' | replace: '</p>', '<br>' }}";
+        </script>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Account Rewards",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "swell-referral-details",
+                "label": "Referral details",
+                "default": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!</p><p>Make. It. Rain.</p>"
+            }
+        ]
+    }
+{% endschema %}

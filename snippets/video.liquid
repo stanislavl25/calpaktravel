@@ -1,0 +1,86 @@
+{%- liquid
+    assign video_id = video | split: "/" | last
+    assign video = "https://player.vimeo.com/video/" | append: video_id
+
+    assign params = '?title=0&byline=0&color=ffffff&portrait=0&muted=1&sidedock=0&api=1'
+
+    if autoplay == true
+        assign params = params | append: '&autoplay=1'
+    else
+        assign params = params | append: '&autoplay=0'
+    endif
+
+    if loop == true
+        assign params = params | append: '&loop=1'
+    else
+        assign params = params | append: '&loop=0'
+    endif
+
+    if controls == true
+        assign params = params | append: '&controls=1'
+    else
+        assign params = params | append: '&controls=0'
+    endif
+    
+    assign video = video | append: params
+-%}
+{% unless no_wrapper == true %}
+{%- liquid
+    if height != blank
+        assign ratio = height
+    else
+        assign ratio = 100 | divided_by: poster.aspect_ratio
+    endif
+    if ratio > max_ratio and max_ratio != blank
+        assign ratio = max_ratio
+    endif
+-%}
+<div class="ratio-container video-container{% if class != false and class != blank %} {{ class }}{% endif %}" style="padding-top: {{ ratio }}%">
+{% endunless %}
+
+<div class="video-iframe-container{% if contain == true %} video-iframe-container--contain{% endif %}{% if class != false and class != blank and no_wrapper %} {{ class}}{% endif %}"
+    {% if video_ratio != false and video_ratio != blank %}style="--ratio: {{ video_ratio }};"{% endif %}
+    data-video="{{ video }}"
+    data-vimeo-id="{{ video_id }}">
+    {% if lazy != true %}
+        <iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="{{ video }}"></iframe>
+    {% else %}
+    <noscript>
+        <iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="{{ video }}"></iframe>
+    </noscript>
+    {% endif %}
+</div>
+
+{%- liquid    
+    unless preload == true and preload != blank
+        assign preload = false
+    endunless
+
+    if lazy != true
+        assign lazy = false
+    endif
+
+    if sizes == blank
+        assign sizes = '100vw'
+    endif
+
+    if lazy == true
+        assign loading = 'lazy'
+    else
+        assign loading = 'eager'
+    endif
+
+    if alt == blank
+        assign alt = poster.alt
+    endif
+
+    if asset == true
+        echo poster | asset_img_url: 'master' | img_tag
+    elsif poster != false and poster != blank
+        echo poster | image_url: width: nil | image_tag: sizes: sizes, widths: '300, 450, 650, 950, 1200, 1600, 2000', preload: preload, alt: alt, loading: loading
+    endif
+%}
+
+{% unless no_wrapper == true %}
+</div>
+{% endunless %}

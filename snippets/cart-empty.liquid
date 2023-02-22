@@ -1,0 +1,23 @@
+<div class="cart__empty">
+    <div class="cart__empty-top">
+        <button aria-label="Go to shopping page" class="cart__empty-continue-button"><span class="round-icon round-icon--prev"></span>Continue Shopping</button>
+        <div class="cart__empty-text">Woops, you haven't packed yet.</div>
+        <a href="/collection/all" class="button"><span>Continue Shopping</span></a>
+    </div>
+    <div data-slide="3" class="product-slider slider__wrapper slider__wrapper--start">
+        <div class="product-slider__header">
+            <div class="product-slider__title">Bestsellers</div>
+            <nav class="slider__nav">
+                <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+            </nav>
+        </div>
+        <div class="slider">
+            {%- liquid
+                for product in collections.best-sellers.products limit: 9
+                    render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: true
+                endfor
+            -%}
+        </div>
+    </div>
+</div>

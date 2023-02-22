@@ -1,0 +1,6 @@
+{% layout none %}
+{%- paginate collection.products by 200 -%}
+    {%- for product in collection.products -%}
+    {{product.id}}<br>
+    {%- endfor -%}
+{%- endpaginate -%}

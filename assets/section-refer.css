@@ -1,0 +1,45 @@
+.shopify-section--refer {
+    padding: var(--gap);
+    display: flex;
+    gap: var(--gap);
+}
+
+.refer__form,
+.refer__content {
+    flex: 1;
+    min-width: 0;
+    border-radius: 9px;
+    overflow: hidden;
+    position: relative;
+}
+
+.refer__content .ratio-container {
+    position: static !important;
+}
+
+.refer__content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.refer__form {
+    background: #e4dfd5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.refer__content {
+    background: #d9d9d9;
+}
+
+@media (max-width: 900px) {
+    .shopify-section--refer {
+        flex-direction: column;
+    }
+}

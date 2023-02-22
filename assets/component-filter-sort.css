@@ -1,4 +1,20 @@
-.collection-filter--sort input[type="radio"] {
+.collection-filter__sort {
+    border-left: 1px dashed #aeaeae;
+    margin-left: 20px;
+    padding: var(--gap) 0 var(--gap) 20px;
+    position: relative;
+}
+
+.collection-filter__sort .collection-filter__title {
+    position: absolute;
+    margin: 0;
+}
+
+.collection-filter__sort label {
+    cursor: pointer;
+}
+
+.collection-filter__sort input[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -9,34 +25,26 @@
     margin: 0 10px 0 0;
 }
 
-.collection-filter--sort input[type="radio"]:checked {
+.collection-filter__sort input[type="radio"]:checked {
     background: #000;
 }
 
-.collection-filter--sort {
-    padding: var(--gap) 0;
-}
-
-[data-active="sort"] .collection-filter--sort {
-    display: block;
-}
-
-.collection-filter--sort ul {
+.collection-filter__sort ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: calc(1.25em + var(--gap));
 }
 
-[data-active="sort"] .filter__activator--sort::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    bottom: -1px;
-    border-top: 1px solid #000;
-}
+@media (max-width: 900px) {
+    .collection-filter__sort {
+        flex: 0 0 100%;
+        margin: 0;
+        border: 0;
+        padding: var(--gap);
+    }
 
-.collection-filters[data-active="sort"] {
-    width: auto;
-    max-width: 100%;
+    .collection-filter__sort ul {
+        margin: 0;
+    }
 }

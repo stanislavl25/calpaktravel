@@ -6,26 +6,52 @@
 <link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 
+{%- if section.blocks.size > 0 -%}
+<link rel="stylesheet" href="{{ 'component-promo-unit.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-promo-unit.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}
+
 <section class="product-grid">
     {%- liquid
-        for product in collection.products
-            if forloop.index <= 5
-                render 'product-unit' with product, quick_view: true, img_lazy: false, img_preload: true
-            else
-                render 'product-unit' with product, quick_view: true
+        assign show_short_info = false
+        assign show_luggage_size = false
+        if template contains 'collection'
+            if collection.metafields.custom.show_luggage_size
+                assign show_luggage_size = true
             endif
-        endfor
+
+            if collection.metafields.custom.show_short_info
+                assign show_short_info = true
+            endif
+        endif
+
+        paginate collection.products by 200
+            for product in collection.products
+                if product.tags contains "do not display"
+                    continue
+                endif
+                
+                if forloop.index <= 5
+                    render 'product-unit' with product, wishlist: true, quick_view: true, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true
+                else
+                    render 'product-unit' with product, wishlist: true, quick_view: true, show_luggage_size: show_luggage_size, show_short_info: show_short_info
+                endif
+            endfor
+        endpaginate
 
         for block in section.blocks
             render 'promo-unit' with block
         endfor
     -%}
 </section>
+<div class="product-grid__empty-text">
+    <h3>No matching products found</h3>
+</div>
 
 {% schema %}
     {
         "name": "Product Grid",
-        "class": "shopify-section--product-grid shopify-section--padded",
+        "class": "shopify-section--product-grid",
         "settings": [
         
         ],
@@ -35,14 +61,28 @@
                 "name": "Promo",
                 "settings": [
                     {
+                        "type": "header",
+                        "content": "Media"
+                    },
+                    {
                         "type": "image_picker",
                         "id": "banner",
                         "label": "Banner"
                     },
                     {
+                        "type": "video_url",
+                        "id": "video",
+                        "label": "Video",
+                        "accept": ["vimeo"]
+                    },
+                    {
                         "type": "image_picker",
                         "id": "banner-mobile",
                         "label": "Banner for mobile"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Content"
                     },
                     {
                         "type": "url",
@@ -63,6 +103,22 @@
                         "type": "collection_list",
                         "label": "Limit to these collections",
                         "id": "show-for-collections"
+                    },
+                    {
+                        "type": "header",
+                        "content": "colors"
+                    },
+                    {
+                        "type": "color",
+                        "id": "background",
+                        "label": "Background",
+                        "default": "#e4dfd5"
+                    },
+                    {
+                        "type": "color",
+                        "id": "text-color",
+                        "label": "Text color",
+                        "default": "#000"
                     },
                     {
                         "type": "header",

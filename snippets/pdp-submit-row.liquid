@@ -1,0 +1,22 @@
+<div class="pdp__submit-row">
+    <button aria-label="Add product" class="button button--pdp__submit" type="submit">
+        <div class="pdp__submit-label">
+            <span class="submit-label-add">Add to Bag</span>
+            <span class="submit-label-waitlist">Waitlist</span>
+            <span class="submit-label-sold-out">Sold Out</span>
+            <span class="submit-label-preorder">PREORDER</span>
+        </div>
+        <div class="pdp__submit-price">
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+            <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+            {%- endif -%}
+            <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+        </div>
+    </button>
+    <button aria-label="Add to wishlist" class="button button--secondary button--pdp__wishlist">
+        <span>
+            {% render 'icon-heart' %}
+            <span class="button-text">Wishlist</span>
+        </span>
+    </button>
+</div>

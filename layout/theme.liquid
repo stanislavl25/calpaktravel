@@ -30,6 +30,8 @@
         {% render 'meta-tags' %}
 
         <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
 
         {{ content_for_header }}
 
@@ -50,9 +52,32 @@
             --font-body-style: {{ settings.type_body_font.style }};
             --font-body-weight: {{ settings.type_body_font.weight }};
             --font-body-weight-bold: {{ body_font_bold.weight }};
+            
+            --sale-price-color: {{ settings.sale_price_color }};
 
-            --page-width: {{ settings.page_width | divided_by: 10 }}rem;
-            --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+            --flash-accent: {{ settings.flash-sale-accent }};
+            --flash-text: {{ settings.flash-sale-text-col }};
+
+            --promo-msg-hgt: {{ settings.sale-msg-highlight-col }};
+            --promo-msg-hgt-t: {{ settings.sale-msg-highlight-t-col }};
+            --promo-msg-t: {{ settings.sale-msg-main-text }};
+            --promo-msg-c-t: {{ settings.sale-msg-main-col-text }};
+
+            --final-hgt: {{ settings.final-sale-highlight-col }};
+            --final-hgt-t: {{ settings.final-sale-highlight-t-col }};
+            --final-t: {{ settings.final-sale-main-text }};
+
+            --preorder-hgt: {{ settings.preorder-highlight-col }};
+            --preorder-hgt-t: {{ settings.preorder-highlight-t-col }};
+
+            --sale-accent: {{ settings.sale_accent }};
+            --sale-background: {{ settings.sale_background }};
+
+            --sale-badge-bg: {{ settings.sale-badge-bg }};
+            --sale-badge-color: {{ settings.sale-badge-color }};
+
+            --product-unit-info-col: {{ settings.product-unit-info-col }};
+            --product-unit-sw-limit: {{ settings.product-unit-sw-count }};
         }
 
         *,
@@ -69,9 +94,8 @@
 
         body {
             min-height: 100%;
-            display: grid;
-            grid-template-rows: auto auto 1fr auto;
-            grid-template-columns: 100%;
+            display: flex;
+            flex-direction: column;
             line-height: 1.25em;
             font-family: var(--font-body-family);
             font-style: var(--font-body-style);
@@ -80,7 +104,16 @@
         {% endstyle %}
 
         {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
-        {{ 'component-product-unit.css' | asset_url | stylesheet_tag }}
+        {{ 'component-product-common.css' | asset_url | stylesheet_tag }}
+
+        <link rel="stylesheet" href="{{ 'component-product-unit.css' | asset_url }}" media="print" onload="this.media='all'">
+        <noscript>{{ 'component-product-unit.css' | asset_url | stylesheet_tag }}</noscript>
+        
+        <link rel="stylesheet" href="{{ 'component-floating-labels.css' | asset_url }}" media="print" onload="this.media='all'">
+        <noscript>{{ 'component-floating-labels.css' | asset_url | stylesheet_tag }}</noscript>
+
+        <link rel="stylesheet" href="{{ 'video.css' | asset_url }}" media="print" onload="this.media='all'">
+        <noscript>{{ 'video.css' | asset_url | stylesheet_tag }}</noscript>
 
         <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
         <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
@@ -99,11 +132,19 @@
                 document.documentElement.classList.add('shopify-design-mode');
             }
         </script>
+        
+        {%- render 'header-scripts' -%}
         {% comment %} <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script> {% endcomment %}
     </head>
 
-    <body>
+    <body class="template-{{ template | replace: '.', '-' }}">
         {% section 'header' %}
+        {% section 'mobile-menu' %}
+        {% section 'search' %}
+
+        {%- if template != 'cart' -%}
+            {% section 'cart' %}
+        {%- endif -%}
 
         <section class="header__container">
             {% section 'notifications' %}
@@ -114,6 +155,8 @@
             {{ content_for_layout }}
         </main>
 
+        {% section 'contact-form' %}
+        {% section 'cookies' %}
         {% section 'footer' %}
 
         <ul hidden>
@@ -121,44 +164,49 @@
             <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
         </ul>
 
-    <script>
-      window.shopUrl = '{{ request.origin }}';
-      window.routes = {
-        cart_add_url: '{{ routes.cart_add_url }}',
-        cart_change_url: '{{ routes.cart_change_url }}',
-        cart_update_url: '{{ routes.cart_update_url }}',
-        cart_url: '{{ routes.cart_url }}',
-        predictive_search_url: '{{ routes.predictive_search_url }}'
-      };
+        <script>
+        window.debug = false;
+        window.shopUrl = '{{ request.origin }}';
+        window.assetUrl = '{{ "asset.svg" | asset_url }}';
+        window.filesUrl = '{{ "file.svg" | file_url }}';
 
-      window.scripts = {
-        quickview: `{{ 'quick-view.js' | asset_url }}`,
-        variants: `{{ 'variants.js' | asset_url }}`,
-        filter: `{{ 'filter.js' | asset_url }}`
-      }
+        window.routes = {
+            cart_add_url: '{{ routes.cart_add_url }}',
+            cart_change_url: '{{ routes.cart_change_url }}',
+            cart_update_url: '{{ routes.cart_update_url }}',
+            cart_url: '{{ routes.cart_url }}',
+            predictive_search_url: '{{ routes.predictive_search_url }}'
+        };
 
-      window.cartStrings = {
-        error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
-      }
+        window.scripts = {
+            quickview: `{{ 'quick-view.js' | asset_url }}`,
+            variants: `{{ 'variants.js' | asset_url }}`,
+            filter: `{{ 'filter.js' | asset_url }}`,
+            menu: `{{ 'menu.js' | asset_url }}`,
+            cart: `{{ 'cart.js' | asset_url }}`,
+            ups: `{{ 'ups.js' | asset_url }}`,
+            pdp: `{{ 'pdp.js' | asset_url }}`,
+            klaviyo: 'https://a.klaviyo.com/media/js/onsite/onsite.js'
+        }
 
-      window.variantStrings = {
-        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
-        soldOut: `{{ 'products.product.sold_out' | t }}`,
-        unavailable: `{{ 'products.product.unavailable' | t }}`,
-        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
-      }
+        window.styles = {
+            cart: `{{ 'section-cart.css' | asset_url }}`,
+            pdp: `{{ 'section-pdp.css' | asset_url }}`,
+            pdpGallery: `{{ 'component-pdp-gallery.css' | asset_url }}`,
+            quickview: `{{ 'component-quick-view.css' | asset_url }}`,
+            starRating: `{{ 'component-star-rating.css' | asset_url }}`,
+            waitlist: `{{ 'component-waitlist.css' | asset_url }}`
+        }
 
-      window.accessibilityStrings = {
-        imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
-        shareSuccess: `{{ 'general.share.success_message' | t }}`,
-        pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
-        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
-      }
-    </script>
+        window.settings = {
+            bestSellers: {{ settings.best-sellers.handle | json }},
+            newArrivals: {{ settings.new-arrivals.handle | json }},
+            swatchesLimit: {{ settings.product-unit-sw-count }}
+        }
+        </script>
 
-    {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-  </body>
+        {%- unless settings.disable_extra_scripts -%}
+            {%- render 'footer-scripts' -%}
+        {%- endunless -%}
+    </body>
 </html>

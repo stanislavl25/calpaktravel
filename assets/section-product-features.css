@@ -1,0 +1,120 @@
+.shopify-section--product-features {
+    margin: calc(2 * var(--section-gap)) 0;
+    padding: 0 var(--gap);
+}
+
+.pdp-features {
+    display: flex;
+    gap: var(--gap);
+}
+
+.pdp-features__info {
+    background: #e4dfd5;
+    border-radius: 9px;
+    overflow: hidden;
+    padding: 30px;
+    flex: 1;
+}
+
+.pdp-features__title {
+    font-size: 48px;
+    line-height: 1.2em;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+}
+
+.pdp-features__media {
+    border-radius: 9px;
+    overflow: hidden;
+    flex: 1;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.pdp-features__media::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -23px 0 0 -23px;
+    width: 46px;
+    height: 46px;
+    border: 3px dashed var(--gray);
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotate 1.6s infinite linear;
+}
+
+.pdp-features__list {
+    gap: var(--gap);
+    display: flex;
+    flex-direction: column;
+}
+
+.pdp-features__list:only-child {
+    flex-direction: row;
+}
+
+.pdp-feature__content {
+    padding-top: 8px;
+    display: none;
+}
+
+.pdp-feature--active .pdp-feature__content {
+    display: block;
+}
+
+.pdp-feature__title {
+    border-radius: 9px;
+    border: 1px solid #aeaeae;
+    font-size: 36px;
+    line-height: 32px;
+    letter-spacing: -0.02em;
+    background: transparent;
+    padding: 5px 8px;
+}
+
+.pdp-feature__title:hover {
+    border-color: #000;
+}
+
+
+.pdp-features__list:not(:only-child) .pdp-feature--active .pdp-feature__title {
+    border-color: #000;
+    background: #fff;
+}
+
+.pdp-feature__media {
+    display: none;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    color: transparent;
+}
+
+.pdp-feature__media .ratio-container {
+    position: static;
+}
+
+.pdp-feature__media--active {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .pdp-features {
+        flex-direction: column;
+    }
+
+    .pdp-features__title {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .pdp-feature__title {
+        font-size: 24px;
+    }
+
+    .pdp-features__info {
+        padding: 14px;
+    }
+}

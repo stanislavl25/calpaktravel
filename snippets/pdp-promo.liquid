@@ -1,0 +1,178 @@
+{%- liquid
+    assign block = pdp-promo
+    assign show = false
+
+    if block.settings.product.available == false and block.settings.product != blank
+        assign show = false
+    else
+        if block.settings.show-for-all
+            assign show = true
+        endif
+        
+        if block.settings.product-list != blank and show == false
+            for prod in block.settings.product-list
+                if prod == product
+                    assign show = true
+                    break
+                endif
+            endfor
+        endif
+
+        if block.settings.collection-list != blank and show == false
+            for col in block.settings.collection-list
+                for pr in col.products
+                    if pr.id == product.id
+                        assign show = true
+                        break
+                    endif
+                endfor
+            endfor
+        endif
+    endif
+-%}
+{%- if show -%}
+<section class="pdp__promo-section pdp__promo-section--{{ block.type }}">
+    {%- if block.settings.heading != blank -%}
+        <div class="pdp__promo-title">
+            {%- liquid
+                assign set_product = block.settings.product
+                assign heading = block.settings.heading
+
+                if set_product.compare_at_price_max > set_product.price_min and set_product != blank
+                    if block.settings.heading contains '$$'
+                        assign savings = set_product.compare_at_price_max | minus: set_product.price_min | money_without_trailing_zeros
+
+                        assign heading = heading | replace: '$$', savings
+                    elsif block.settings.heading contains '%%'
+                        assign savings = set_product.compare_at_price_max | minus: set_product.price_min | times: 100 | divided_by: set_product.compare_at_price_max | append: '%'
+
+                        assign heading = heading | replace: '%%', savings
+                    endif
+                endif
+
+                echo heading | escape
+            -%}
+        </div>
+    {%- endif -%}
+
+    <div class="pdp-promo">
+    {%- case block.type -%}
+        {%- when 'upsell-banner' -%}
+            {%- liquid
+                assign set_product = block.settings.product
+                assign current_variant = set_product.selected_or_first_available_variant
+            -%}
+            <div class="pdp-promo__content">
+                <div class="pdp-promo__media">
+                    <a href="{{ set_product.url }}">
+                    {%- if block.settings.image-override != blank -%}
+                        {%- render 'image' with block.settings.image-override, sizes: '86px', lazy: true -%}
+                    {%- elsif current_variant.featured_image != blank -%}
+                        {%- render 'image' with current_variant.featured_image, sizes: '86px', lazy: true -%}
+                    {%- else -%}
+                        {%- render 'image' with set_product.featured_image, sizes: '86px', lazy: true -%}
+                    {%- endif -%}
+                    </a>
+                </div>
+            
+                <div class="pdp-promo__price">
+                    <span>
+                        <a href="{{ set_product.url }}">
+                            {%- if block.settings.title-override != blank -%}
+                                {{- block.settings.title-override | escape -}}
+                            {%- else -%}
+                                {{- set_product.title | escape -}}
+                            {%- endif -%}
+                        </a>
+                    </span>
+                    <span>
+                        {% if set_product.compare_at_price > set_product.price %}
+                        <s>{{ set_product.compare_at_price | money_without_trailing_zeros }}</s>
+                        {% endif %}
+                        {{ set_product.price | money_without_trailing_zeros }}
+                    </span>
+                </div>
+            </div>
+            
+            <a
+                {% if block.settings.button-behaviour == 'follow-link' %}
+                href="{{ block.settings.button-url }}"
+                {% else %}
+                href="{{ set_product.url }}"
+                {% endif %}
+
+                {% if block.settings.button-behaviour == 'add-to-cart' %}
+                    data-id="{{ current_variant.id }}"
+                    {% if current_variant.metafields.custom.preorder != blank %}
+                        data-preorder="{{- set_product.selected_or_first_available_variant.custom.preorder -}}"
+                    {% elsif set_product.metafields.custom.preorder != blank %}
+                        data-preorder="{{- set_product.metafields.custom.preorder -}}"
+                    {% endif %}
+
+                    {%- liquid
+                        assign opt1 = current_variant.option1 | handleize
+                        
+                        assign finalSale = false
+                        for tag in set_product.tags
+                            assign tagSpl = tag | split: ':'
+                            assign handle = tagSpl[0] | handleize
+                            if 'final-sale' == handle
+                                if tagSpl.size == 1
+                                    assign finalSale = true
+                                else
+                                    assign finalSale = tagSpl[1] | downcase | split: ';'
+                                endif
+                            endif
+                        endfor
+
+                        if finalSale contains opt1 and finalSale != true and finalSale != false
+                            assign finalSale = true
+                        endif
+                    -%}
+                    
+                    {% if finalSale %}
+                        data-final
+                    {% endif %}
+                {% endif %}
+
+                class="button button--secondary{% if block.settings.button-behaviour == 'add-to-cart' %} button--add-to-cart{% elsif block.settings.button-behaviour == 'quick-view' %} quick-view__link{% endif %}"
+                >
+                <span>{{ block.settings.button-text | escape }}{% if block.settings.include-price %} {{ set_product.price | money_without_trailing_zeros }}{% endif %}</span>
+            </a>
+        {%- when 'image-banner' -%}
+            <div class="pdp-promo__media">
+                {%- render 'image' with block.settings.image, sizes: '20vw', lazy: true -%}
+            </div>
+            <div class="pdp-promo__text-block">
+                {%- if block.settings.title != blank -%}
+                <div class="pdp-promo__title">
+                    {{- block.settings.title | escape -}}
+                </div>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                <div class="pdp-promo__text">
+                    {{- block.settings.text -}}
+                </div>
+                {%- endif -%}
+                {%- if block.settings.button-text != blank -%}
+                <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+                {%- endif -%}
+            </div>
+        {%- when 'text-banner' -%}
+            {%- if block.settings.title != blank -%}
+            <div class="pdp-promo__title">
+                {{- block.settings.title | escape -}}
+            </div>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+            <div class="pdp-promo__text">
+                {{- block.settings.text -}}
+            </div>
+            {%- endif -%}
+            {%- if block.settings.button-text != blank -%}
+            <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+            {%- endif -%}
+    {%- endcase -%}
+    </div>
+</section>
+{%- endif -%}

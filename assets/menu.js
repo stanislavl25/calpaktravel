@@ -1,9 +1,39 @@
 "use strict";
 
 console.log('menu.js loaded');
-function openMenu() {
+function openMenu(menu) {
+    document.body.classList.add('modal-open');
 
+    const header = document.querySelector('.shopify-section--header');
+    header.setAttribute('data-menu', menu);
 }
+
+const slideMenuLinks = document.querySelectorAll('.slide-menu-item > .slide-menu__sub-button');
+if(slideMenuLinks.length > 0) slideMenuLinks.forEach(slideMenuLink => slideMenuLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    const menu = this.closest('.slide-menu');
+    if(!menu) return;
+    const submenu = menu.querySelector('.slide-menu');
+    
+    if(submenu) {
+        const menuItem = this.closest('.slide-menu-item');
+        const currentLevel = Number(menu.getAttribute('data-level'));
+
+        menuItem.classList.add('slide-menu-item--active');
+        menu.closest('.slide-menu__container').style.setProperty('--depth', currentLevel + 1);
+    }
+}));
+
+const mobileMenuBackLinks = document.querySelectorAll('.slide-menu-item--back');
+if(mobileMenuBackLinks.length > 0) mobileMenuBackLinks.forEach(mobileMenuBackLink => mobileMenuBackLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    let menu = this.closest('.slide-menu');
+    let currentLevel = Number(menu.getAttribute('data-level'));
+    if(currentLevel > 0) {
+        menu.closest('.slide-menu__container').style.setProperty('--depth', currentLevel - 1);
+        menu.closest('.slide-menu-item').classList.remove('slide-menu-item--active');
+    }
+}));
 
 let menuItems = document.querySelectorAll('.menu-item > a');
 for(let i = 0; i < menuItems.length; i++) menuItems[i].addEventListener('click', e => {

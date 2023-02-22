@@ -1,0 +1,130 @@
+{%- if section.settings.standalone -%}
+    {{ 'section-faq-category.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'component-accordion.css' | asset_url | stylesheet_tag: preload: true }}
+
+    <script src="{{ 'accordion.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'faq.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<div class="faq-category-container{% if section.settings.standalone %} faq-category-container--standalone{% if section.settings.show-sidebar %} faq-category-container--with-sidebar{% endif %}{% endif %}">
+    <div class="page-anchor" id="faq--{{ section.settings.title | handleize }}"></div>
+    {%- assign sectionHandle = section.settings.title | handleize -%}
+    {% if section.settings.title != blank %}
+    <header class="faq-category-header">
+        <h2 class="faq-category-title">{{ section.settings.title }}</h2>
+    </header>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+    <section class="faq-category-qanda">
+        {%- assign index = 0 -%}
+        {% for block in section.blocks %}
+        {% if block.settings.hide %}{% continue %}{% endif %}
+        {%- assign index = index | plus: 1 -%}
+        {%- assign id = 'faq-' | append: sectionHandle | append: '-' | append: index -%}
+        <div class="accordion">
+            <div id="{{ id }}" class="scroll-anchor"></div>
+            <a href="#{{ id }}" class="accordion__title">{{ block.settings.title }}</a>
+            <div class="accordion__content">{{ block.settings.answer | replace: '[[', '<div class="iframe-container"><iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="360" frameborder="0" src="' | replace: ']]', '"></iframe></div>' | replace: 'vimeo.com/', 'player.vimeo.com/video/' | replace: '((', '<div><img alt="" src="' | replace: '))', '"></div>' }}</div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    {%- if section.settings.standalone and section.settings.show-sidebar -%}
+        <aside class="faq-category__sidebar">
+            {%- if section.settings.sidebar-title != blank -%}
+                <h3 class="faq-category__sidebar-title">{{- section.settings.sidebar-title | strip_html | escape | newline_to_br -}}</h3>
+            {%- endif -%}
+
+            {%- if section.settings.sidebar-text != blank -%}
+                <div class="faq-category__sidebar-text">{{- section.settings.sidebar-text -}}</div>
+            {%- endif -%}
+
+            {%- if section.settings.sidebar-button-text != blank -%}
+                <a href="{{- section.settings.sidebar-button-link -}}" class="button">
+                    <span>{{- section.settings.sidebar-button-text | strip_html | escape -}}</span>
+                </a>
+            {%- endif -%}
+        </aside>
+    {%- endif -%}
+</div>
+
+{% schema %}
+    {
+        "name": "FAQ Section",
+        "class": "shopify-section--faq-category",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "checkbox",
+                "id": "standalone",
+                "label": "Standalone",
+                "default": false
+            },
+            {
+                "type": "header",
+                "content": "Standalone settings"
+            },
+            {
+                "type": "checkbox",
+                "id": "show-sidebar",
+                "label": "Show sidebar",
+                "default": false
+            },
+            {
+                "type": "textarea",
+                "id": "sidebar-title",
+                "label": "Sidebar title"
+            },
+            {
+                "type": "richtext",
+                "id": "sidebar-text",
+                "label": "Sidebar text"
+            },
+            {
+                "type": "text",
+                "id": "sidebar-button-text",
+                "label": "Sidebar button text"
+            },
+            {
+                "type": "url",
+                "id": "sidebar-button-link",
+                "label": "Sidebar button link"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "faq",
+                "name": "FAQ",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Question"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "answer",
+                        "label": "Answer",
+                        "info": "[[video]], ((image))"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "hide",
+                        "label": "Do not display"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "FAQ Section"
+            }
+        ]
+    }
+{% endschema %}

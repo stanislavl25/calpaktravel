@@ -1,0 +1,297 @@
+{
+  "sections": {
+    "004e8da5-fa18-482b-9e48-1809383edbea": {
+      "type": "nav-hero",
+      "blocks": {
+        "672e3a78-7df4-4389-ab0b-be2caf77adc4": {
+          "type": "nav-item",
+          "settings": {
+            "title": "Our Mission",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER1.jpg",
+            "section-scroll": 2
+          }
+        },
+        "b27f5bf3-7751-466a-aa68-14cfc4ce87c0": {
+          "type": "nav-item",
+          "settings": {
+            "title": "History",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_bubblegum_0825-BANNER1.jpg",
+            "section-scroll": 5
+          }
+        },
+        "2cddfbd1-220b-42a6-bd11-4f52f1c92983": {
+          "type": "nav-item",
+          "settings": {
+            "title": "Community",
+            "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg",
+            "section-scroll": 6
+          }
+        }
+      },
+      "block_order": [
+        "672e3a78-7df4-4389-ab0b-be2caf77adc4",
+        "b27f5bf3-7751-466a-aa68-14cfc4ce87c0",
+        "2cddfbd1-220b-42a6-bd11-4f52f1c92983"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-3BANNER.jpg",
+        "video": ""
+      }
+    },
+    "09d0df49-64b7-45c2-9ef4-3220eed6bb3e": {
+      "type": "banner",
+      "settings": {
+        "title": "CALPAK is a bag company for the every day and far away.",
+        "text": "<p>Our purpose is to bring unique utility and a playful spirit everywhere you go. We do this to inspire everyone to go places and love getting there. Experience how fun getting there can be.<\/p>",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "content",
+        "height-percent": 50,
+        "text-alignment": "center",
+        "text-color-scheme": "black",
+        "background": "#ffffff"
+      }
+    },
+    "page-about-us": {
+      "type": "page-about-us",
+      "settings": {}
+    },
+    "a64e8714-8090-4b0a-a8d1-f520a82bb4c1": {
+      "type": "featured-content-blocks",
+      "blocks": {
+        "b095a6b7-2bda-425e-aa3f-4a8043e75633": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Travel",
+            "description": "<p>To us, travel isn't just about buying a ticket or catching a flight. There’s fun to be had near and far, alone or with friends. We're there to prepare you for every possibility, to keep your favorite things safe, and to help bring more with you. Where you're going is special, and we want to make sure you love getting there.<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-3BANNER.jpg"
+          }
+        },
+        "92b34ae7-e635-4299-95f0-8f2cad3d8e1e": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Design",
+            "description": "<p>Our products are defined by the people we create for and the places they go. We design without compromising quality or style while staying accessible to all — no matter where you’re headed.<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-3BANNER.jpg"
+          }
+        },
+        "abfec0d1-3069-4103-a24c-9ab9ee8a7ecc": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Evolution",
+            "description": "<p>Since 1989, we’ve been creating products to go places and pushing the boundaries. As we write the next chapter of our story, we want to create a world where anything and anywhere can be a fun place to get to.<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-3BANNER.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "b095a6b7-2bda-425e-aa3f-4a8043e75633",
+        "92b34ae7-e635-4299-95f0-8f2cad3d8e1e",
+        "abfec0d1-3069-4103-a24c-9ab9ee8a7ecc"
+      ],
+      "settings": {
+        "gap": false,
+        "general-layout": "media-text",
+        "content-position": "top",
+        "mobile-layout": "stacked"
+      }
+    },
+    "58ff044b-14b2-4dbf-99b2-9f436ba0ae34": {
+      "type": "separator",
+      "settings": {}
+    },
+    "a6a19d1c-0257-4196-b688-c8fb8af5911e": {
+      "type": "banner",
+      "settings": {
+        "title": "Going places since 1989, CALPAK exists for those who welcome the unknown, who seek the new, and find joy in the journey.",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "content",
+        "height-percent": 50,
+        "text-alignment": "center",
+        "text-color-scheme": "black",
+        "background": "#ffffff"
+      }
+    },
+    "07ba8d1b-d32a-444a-a37a-03484ec31f2d": {
+      "type": "content-slider",
+      "blocks": {
+        "c385d0db-2422-4569-9f7d-3e4fd0e24e77": {
+          "type": "slide",
+          "settings": {
+            "title": "1989",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "image1": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER2.jpg",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "64216624-259e-4c43-829d-9efa29166d19": {
+          "type": "slide",
+          "settings": {
+            "title": "1997",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "image1": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_bubblegum_0825-BANNER1.jpg",
+            "image2": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER1.jpg",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "2005ae55-4a98-4574-a5c3-3bc6e1fa473a": {
+          "type": "slide",
+          "settings": {
+            "title": "2008",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "141ff495-0da8-4687-944a-9ed6b2032db5": {
+          "type": "slide",
+          "settings": {
+            "title": "2013",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "ede3deb5-91ff-4845-9aff-f04245221e42": {
+          "type": "slide",
+          "settings": {
+            "title": "2019",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "32168260-bcfb-42e0-815e-dcfecc96f365": {
+          "type": "slide",
+          "settings": {
+            "title": "2020",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "0070ae7d-0f10-4736-b7d8-10c30ec808fc": {
+          "type": "slide",
+          "settings": {
+            "title": "Now",
+            "text": "<p>Born in LA, California Pak was the creative baby of Edward and Judy Kwon. We started out as a collection of handbags and wallets.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        }
+      },
+      "block_order": [
+        "c385d0db-2422-4569-9f7d-3e4fd0e24e77",
+        "64216624-259e-4c43-829d-9efa29166d19",
+        "2005ae55-4a98-4574-a5c3-3bc6e1fa473a",
+        "141ff495-0da8-4687-944a-9ed6b2032db5",
+        "ede3deb5-91ff-4845-9aff-f04245221e42",
+        "32168260-bcfb-42e0-815e-dcfecc96f365",
+        "0070ae7d-0f10-4736-b7d8-10c30ec808fc"
+      ],
+      "settings": {
+        "background-color": "#f7f177"
+      }
+    },
+    "45dd7428-972b-4560-9708-7d098ee87feb": {
+      "type": "text-slider",
+      "blocks": {
+        "d55a8b83-fcc6-4467-8c39-f52da0643762": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "381373bd-0593-4710-91a3-9ab76a8c3ac2": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "9d136df4-f1d0-4bfd-9334-29fb5a803897": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "b8810ee7-14d7-490f-9a44-27ca62034c65": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "d55a8b83-fcc6-4467-8c39-f52da0643762",
+        "381373bd-0593-4710-91a3-9ab76a8c3ac2",
+        "9d136df4-f1d0-4bfd-9334-29fb5a803897",
+        "b8810ee7-14d7-490f-9a44-27ca62034c65"
+      ],
+      "settings": {
+        "background": "#ffffff",
+        "add-border": true
+      }
+    },
+    "c44223a0-7165-4348-9696-6cf9be8dace5": {
+      "type": "collections-showcase",
+      "blocks": {
+        "f3bcd3bd-cb6a-49ba-a821-437f96d4b433": {
+          "type": "showcase",
+          "settings": {
+            "dropdown-title": "The Wanderluster",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-BANNER2.jpg",
+            "button-text": "Shop All",
+            "main-link": "shopify:\/\/collections\/backpacks",
+            "pictured_product": "shopify:\/\/products\/large-clear-cosmetic-case",
+            "product_title": "Product Name",
+            "product_list": [
+              "compression-packing-cubes",
+              "travel-wallet-croc",
+              "compakt-tote-bag",
+              "large-clear-cosmetic-case"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "f3bcd3bd-cb6a-49ba-a821-437f96d4b433"
+      ],
+      "settings": {
+        "text": "Designed for:"
+      }
+    }
+  },
+  "order": [
+    "004e8da5-fa18-482b-9e48-1809383edbea",
+    "09d0df49-64b7-45c2-9ef4-3220eed6bb3e",
+    "page-about-us",
+    "a64e8714-8090-4b0a-a8d1-f520a82bb4c1",
+    "58ff044b-14b2-4dbf-99b2-9f436ba0ae34",
+    "a6a19d1c-0257-4196-b688-c8fb8af5911e",
+    "07ba8d1b-d32a-444a-a37a-03484ec31f2d",
+    "45dd7428-972b-4560-9708-7d098ee87feb",
+    "c44223a0-7165-4348-9696-6cf9be8dace5"
+  ]
+}

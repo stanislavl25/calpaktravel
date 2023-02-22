@@ -1,0 +1,29 @@
+{%- liquid
+    assign block = mobile-menu-collection
+    assign collection = block.settings.collection
+-%}
+{%- if collection != blank -%}
+<div data-slide="2" class="slide-menu-item slider__wrapper slider__wrapper--start">
+    <div class="product-slider__header">
+        <div class="product-slider__title">
+            {%- if block.settings.override-title != blank -%}
+                {{- block.settings.override-title | escape -}}
+            {%- else -%}
+                {{- collection.title | escape -}}
+            {%- endif -%}
+        </div>
+
+        <nav class="slider__nav">
+            <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+            <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+        </nav>
+    </div>
+    <div class="slider">
+        {%- liquid
+            for product in collection.products limit: 6
+                render 'product-unit' with product, wishlist: true, class: 'slide'
+            endfor
+        -%}
+    </div>
+</div>
+{%- endif -%}

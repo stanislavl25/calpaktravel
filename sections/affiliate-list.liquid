@@ -1,0 +1,77 @@
+{{ 'section-affiliate-list.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="affiliate__list">
+    {%- if section.settings.image != blank -%}
+    <div class="affiliate__list-image">
+        {%- liquid
+            if section.settings.image-mobile != blank
+                render 'image' with section.settings.image, sizes: '50vw', preload: true, class: "hide-small"
+                render 'image' with section.settings.image-mobile, preload: true, class: "hide-large"
+            else
+                render 'image' with section.settings.image, sizes: '50vw', preload: true
+            endif
+        -%}
+    </div>
+    {%- endif -%}
+
+    <div class="affiliate__list-text">
+        {%- if section.settings.title != blank -%}
+        <h2 class="affiliate__list-title">
+            {{- section.settings.title | escape -}}
+        </h2>
+        {%- endif -%}
+        <div class="affiliate__list-entries">
+            {% for block in section.blocks %}
+            <div class="affiliate__list-entry">
+                <div class="affiliate__list-entry-title">
+                    {{- block.settings.title | escape -}}
+                </div>
+                <div class="affiliate__list-entry-text">
+                    {{- block.settings.text -}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Affiliate List",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image-mobile",
+                "label": "Image for mobile"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "block",
+                "name": "Block",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

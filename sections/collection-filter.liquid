@@ -1,98 +1,40 @@
-{{ 'section-collection-filter.css' | asset_url | stylesheet_tag: preload: true }}
+{%- liquid
+    assign show = false
 
-<link rel="stylesheet" href="{{ 'component-filter-color.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-filter-sort.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>
-    {{ 'component-filter-color.css' | asset_url | stylesheet_tag }}
-    {{ 'component-filter-sort.css' | asset_url | stylesheet_tag }}
-</noscript>
+    if section.settings.collection_list == blank
+        assign show = true
+    else
+        for col in section.settings.collection_list
+            if col.id == collection.id
+                assign show = true
+                break
+            endif
+        endfor
+    endif
+-%}
 
-<script src="{{ 'filter-basic.js' | asset_url }}" defer="defer"></script>
+{%- if show -%}
+    <section class="collection-filters__section">
+        {{ 'section-collection-filter.css' | asset_url | stylesheet_tag: preload: true }}
+        {{ 'section-collection-categories.css' | asset_url | stylesheet_tag }}
 
-<section class="collection-filters__control">
-    <div class="collection-filter__activators">
-        <button class="filter__activator filter__activator--color">
-            Color <i></i>
-        </button>
+        <link rel="stylesheet" href="{{ 'component-filter-color.css' | asset_url }}" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="{{ 'component-filter-sort.css' | asset_url }}" media="print" onload="this.media='all'">
+        <noscript>
+            {{ 'component-filter-color.css' | asset_url | stylesheet_tag }}
+            {{ 'component-filter-sort.css' | asset_url | stylesheet_tag }}
+        </noscript>
 
-        <button class="filter__activator filter__activator--sort">
-            Sort by
-        </button>
-    </div>
-    {%- if linklists[section.settings.menu] != blank and section.settings.menu != blank -%}
-    <div class="collections-menu">
-        {%- for link in linklists[section.settings.menu].links -%}
-        <a href="{{ link.url }}" class="button{% if link.current %} collections-menu__current{% endif %} button--secondary">
-            <span>{{- link.title | escape -}} {% if link.current %}<i>{{ collection.products.size }}</i>{% endif %}</span>
-        </a>
-        {%- endfor -%}
-    </div>
-    {%- endif -%}
-    <div class="collection-view">
-        <span class="col-view__text">View</span>
-        <button class="col-view__button col-view__button--less">
-            <span class="mobile-only">1</span>
-            <span class="tablet-only">2</span>
-            <span class="desktop-only">3</span>
-        </button>
-        <button class="col-view__button col-view__button--more">
-            <span class="mobile-only">2</span>
-            <span class="tablet-only">3</span>
-            <span class="desktop-only">5</span>
-        </button>
-    </div>
-    <div class="current-filters">
-        <div class="current-filters-list"></div>
-        <button class="filter__reset current-filters-clear">
-            Clear All
-        </button>
-    </div>
-</section>
+        <script src="{{ 'filter-basic.js' | asset_url }}" defer="defer"></script>
 
-<section class="collection-filters">
-    <button class="filter__reset">Clear All</button>
-    <nav class="active-filters-nav">
-        <button class="filter__activator filter__activator--color">
-            Color <i></i>
-        </button>
+        {%- render 'collection-filter-controls' -%}
 
-        <button class="filter__activator filter__activator--sort">
-            Sort by
-        </button>
-    </nav>
-    <div class="collection-filter collection-filter--color">
-        <div class="slider__wrapper">
-            <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-            <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
-            <div class="slider slider--filt-col">
-               
-            </div>
-        </div>
-        <div class="filter__buttons">
-            <button class="button filters__close"><span>Apply</span></button>
-            <button class="button button--secondary filters__close"><span>Close</span></button>
-        </div>
-    </div>
-    <div class="collection-filter collection-filter--sort">
-        <ul class="list-unstyled">
-            <li>
-                <label><input value="featured" checked="checked" type="radio" name="sort"> Featured</labe>
-            </li>
-            <li>
-                <label><input value="new" type="radio" name="sort"> Newest</labe>
-            </li>
-            <li>
-                <label><input value="best" type="radio" name="sort"> Best Selling</labe>
-            </li>
-            <li>
-                <label><input value="price-desc" type="radio" name="sort"> Price high - low</labe>
-            </li>
-            <li>
-                <label><input value="price-asc" type="radio" name="sort"> Price low - high</labe>
-            </li>
-        </ul>
-    </div>
-</section>
+        {%- render 'collection-filters' -%}
+    </section>
+
+    {%- render 'collection-subcategories' -%}
+
+{%- endif -%}
 
 {% schema %}
     {
@@ -100,9 +42,89 @@
         "class": "shopify-section--col-filter",
         "settings": [
             {
-                "type": "link_list",
-                "id": "menu",
-                "label": "Menu"
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Show for these collections only"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Category",
+                "type": "category",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "product_list",
+                        "label": "Product list",
+                        "info": "Overrides collection"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "selected",
+                        "label": "All products, selected by default",
+                        "default": false
+                    }
+                ]
+            },
+            {
+                "name": "Subcategory",
+                "type": "filter",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "product_list",
+                        "label": "Product list",
+                        "info": "Overrides collection"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "filter-in-parent",
+                        "label": "Filter within parent category product",
+                        "info": "If unchecked, child category can have products that aren't present in the parent category"
+                    }
+                ]
             }
         ]
     }

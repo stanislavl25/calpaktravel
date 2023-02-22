@@ -1,9 +1,23 @@
 .shopify-section--col-filter {
+    display: contents;
+}
+
+.collection-filters__section {
     position: sticky;
     top: 42px;
     z-index: 9;
     background: #fff;
+}
+
+.collection-filters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
     padding: 0 var(--gap);
+    border-radius: 0 0 9px 9px;
+    padding-top: 11px;
 }
 
 .collections-menu {
@@ -12,48 +26,79 @@
     justify-content: center;
 }
 
-.collections-menu .button {
-    color: #858585;
+.collections-category {
+    color: var(--gray);
     border-color: #aeaeae;
 }
 
-.collections-menu .button i {
+.collections-category i {
     font-style: normal;
     margin-left: 5px;
 }
 
-.collections-menu .button i::before {
+.collections-category i:not(:empty)::before {
     content: '(';
 }
 
-.collections-menu .button i::after {
+.collections-category i:not(:empty)::after {
     content: ')';
 }
 
+.collections-category i:empty {
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.collections-category i:empty::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border: 1px dashed var(--gray);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -4px 0 0 -5px;
+    animation: rotate 1.6s infinite linear;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.collections-category i {
+    display: none;
+}
+
 .collections-menu .button:hover,
-.collections-menu .collections-menu__current {
+.collections-menu .collections-category--active {
     color: #000;
     border-color: #000;
 }
 
-.collection-filters {
+.collections-category--active i {
+    display: inline-block;
+}
+
+.collection-filters:not(.collection-filters--active) {
     display: none;
 }
 
 .active-filters-nav {
     height: 43px;
-    display: flex;
     gap: 20px;
     align-items: center;
     border-bottom: 1px dashed #AEAEAE;
+    display: none;
+    padding: 0 var(--gap);
 }
 
 .collection-filters__control {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    padding: var(--gap) 0;
+    padding: var(--gap);
     border-bottom: 1px dashed #AEAEAE;
-    gap: 10px;
+    column-gap: 10px;
+    margin: 0 var(--gap);
 }
 
 .collection-filter__activators {
@@ -82,17 +127,16 @@
     transform: translateY(-1px);
 }
 
-.filter__activator--color i {
-    font-weight: var(--font-body-weight-bold);
+.filter__activator i {
     font-style: normal;
     pointer-events: none;
 }
 
-.filter__activator--color i:not(:empty)::before {
+.filter__activator i:not(:empty)::before {
     content: '(';
 }
 
-.filter__activator--color i:not(:empty)::after {
+.filter__activator i:not(:empty)::after {
     content: ')';
 }
 
@@ -114,7 +158,7 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
-    color: #aeaeae;
+    color: var(--gray);
     transition: color 0.3s;
 }
 
@@ -132,6 +176,14 @@
     --desktop-columns: 3;
     --tablet-columns: 2;
     --mobile-columns: 1;
+}
+
+@media (min-width: 901px) {
+    .col-filter--larger-active ~ .shopify-section--product-grid .product-grid {
+        max-width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .current-filters {
@@ -168,7 +220,7 @@
 }
 
 .current-filter:hover {
-    border-color: #707070;
+    border-color: var(--gray);
 }
 
 .current-filter__remove {
@@ -199,9 +251,150 @@
     flex: 0 0 12px;
 }
 
+.collection-filters__inner {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+}
+
+.filter__buttons {
+    display: flex;
+    gap: 25px;
+    border-top: 1px dashed #AEAEAE;
+    padding: var(--gap) 0;
+}
+
+.filter__buttons .button {
+    min-width: 200px;
+}
+
+.collection-filter__title {
+    margin-bottom: var(--gap);
+}
+
+.collection-filter__title i {
+    font-style: normal;
+}
+
+.collection-filter__title i:not(:empty)::before {
+    content: '(';
+}
+
+.collection-filter__title i:not(:empty)::after {
+    content: ')';
+}
+
+[data-sort="best"] .product-unit {
+    order: var(--ord-best);
+}
+
+[data-sort="new"] .product-unit {
+    order: var(--ord-date);
+}
+
+[data-sort="price-desc"] .product-unit {
+    order: var(--ord-prd);
+}
+
+[data-sort="price-asc"] .product-unit {
+    order: var(--ord-pra);
+}
+
+.section-filtered[data-sort="featured"] .product-unit--na {
+    order: 999;
+}
+
 @media (max-width: 900px) {
-    .collections-menu  {
+    .active-filters-nav {
+        display: flex;
+    }
+
+    .collection-filters__inner {
+        display: flex;
+    }
+
+    .collection-filter__color {
         flex: 0 0 100%;
+    }
+
+    .collection-filter__title {
+        display: none;
+    }
+
+    .current-filters,
+    .collections-menu {
+        grid-column: span 2;
+    }
+
+    .collections-menu {
         order: 5;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: var(--gap) 0 0;
+    }
+
+    .collections-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .collection-filters__control {
+        grid-template-columns: 1fr auto;
+        padding-left: 0;
+        padding-right: 0;
+        column-gap: 0;
+    }
+
+    .collection-filter__activators {
+        padding-left: var(--gap);
+        border-top: 1px dashed #aeaeae;
+        border-bottom: 1px dashed #aeaeae;
+    }
+
+    .current-filters {
+        padding: 0;
+        display: none;
+    }
+
+    .collection-view {
+        margin: 0;
+        border-top: 1px dashed #aeaeae;
+        border-bottom: 1px dashed #aeaeae;
+    }
+
+    .filter__buttons {
+        padding: var(--gap);
+    }
+
+    .filter__buttons .button--secondary {
+        display: none;
+    }
+
+    .filter__buttons .button {
+        width: 100%;
+    }
+
+    .collection-filters {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        padding: 0;
+    }
+    
+    .collection-filters__inner {
+        transition: transform 0.3s;
+    }
+
+    .collection-filters[data-tab="sort"] .collection-filters__inner {
+        transform: translateX(-100%);
+    }
+
+    .collection-filters[data-tab="sort"] .filter__activator--sort::after,
+    .collection-filters[data-tab="color"] .filter__activator--color::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #000;
     }
 }

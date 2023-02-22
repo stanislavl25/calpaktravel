@@ -1,0 +1,227 @@
+{%- liquid
+    assign opt1 = current_variant.option1 | handleize
+-%}
+
+{%- if settings.sale-badge-enabled and location != 'cart' -%}
+    {%- liquid
+        if settings.sale-badge-tag == blank
+            assign saleBadge = true
+        else
+            assign saleBadge = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.sale-badge-tag == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign saleBadge = true
+                    else
+                        assign saleBadge = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        endif
+    -%}
+
+    {%- if settings.sale-badge-text != blank and saleBadge != false -%}
+        {%- liquid
+            if current_variant.compare_at_price > current_variant.price
+                assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
+                assign discount = '<span class="dscnt">' | append: discount | append: '%' | append: '</span>'
+            else
+                assign discount = '<span class="dscnt"></span>'
+            endif
+        -%}
+    <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+        {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
+        {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+    </div>
+    {%- endif -%}
+{%- endif -%}
+
+<div class="floating-labels">
+    {%- if location != 'pdp' -%}
+
+        {%- liquid
+            assign soldout = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if 'soldout' == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign soldout = true
+                    else
+                        assign soldout = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        -%}
+
+        {%- if soldout != false -%}
+        <div class="product-label product-label--na product-label--sold-out{% if soldout contains opt1 and soldout != true %} product-label--active{% endif %}"
+            {% if soldout != true %}data-options="{{ soldout | join: ' ' }}"{% endif %}>
+            Sold out
+        </div>
+        {%- endif -%}
+
+        <div class="product-label product-label--na">
+            <a href="{{ product.url }}">Join waitlist</a>
+        </div>
+
+    {%- endif -%}
+
+    {%- if location != 'pdp' and settings.sale-msg-pdp-only == false and settings.sale-msg-enabled -%}
+        {%- liquid
+            if settings.sale-msg-tag == blank
+                assign promoMsg = true
+            else
+                assign promoMsg = false
+                for tag in product.tags
+                    assign tagSpl = tag | split: ':'
+                    if settings.sale-msg-tag == tagSpl[0]
+                        if tagSpl.size == 1
+                            assign promoMsg = true
+                        else
+                            assign promoMsg = tagSpl[1] | split: ';'
+                        endif
+                    endif
+                endfor
+            endif
+        -%}
+
+        {%- if promoMsg != false -%}
+        <div class="product-label product-label--promo{% if promoMsg contains opt1 and promoMsg != true %} product-label--active{% endif %}"
+            {% if promoMsg != true %}data-options="{{ promoMsg | join: ' ' }}"{% endif %}>
+            {%- if settings.sale-msg-highlighted != blank -%}
+                {{- settings.sale-msg-highlighted | escape -}}
+            {%- endif -%}
+        </div>
+        {%- endif -%}
+    {%- endif -%}
+
+    {%- if settings.sale-enabled -%}
+        {%- liquid
+            if settings.sale-tag == blank
+                assign sale = true
+            else
+                assign sale = false
+                for tag in product.tags
+                    assign tagSpl = tag | split: ':'
+                    if settings.sale-tag == tagSpl[0]
+                        if tagSpl.size == 1
+                            assign sale = true
+                        else
+                            assign sale = tagSpl[1] | downcase | split: ';'
+                        endif
+                    endif
+                endfor
+            endif
+        -%}
+
+        {%- if settings.sale-text-pdp != blank and sale != false -%}
+            {%- liquid
+                if current_variant.compare_at_price > current_variant.price
+                    assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
+                    assign discount = '<span class="dscnt">' | append: discount | append: '%' | append: '</span>'
+                else
+                    assign discount = '<span class="dscnt"></span>'
+                endif
+            -%}
+        <div class="product-label product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+            {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
+            {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
+        </div>
+        {%- endif -%}
+
+    {%- endif -%}
+
+
+    {%- liquid
+        assign comingSoon = false
+        if product.metafields.product.coming-soon
+            assign comingSoon = true
+        else
+            for variant in product.variants
+                if variant.metafields.product.coming-soon
+                    if comingSoon == false
+                        assign comingSoon = variant.id
+                    else
+                        assign comingSoon = comingSoon | append: ';' | append: variant.id
+                    endif
+                endif
+            endfor
+
+            if comingSoon != false
+                assign comingSoon = comingSoon | split: ';'
+            endif
+        endif
+    -%}
+    {%- if comingSoon != false -%}
+        <div class="product-label{% if comingSoon contains current_variant.id and comingSoon != true %} product-label--active{% endif %}"
+            {% if comingSoon != true %}data-options="{{ comingSoon | join: ' ' }}"{% endif %}>Coming soon</div>
+    {%- endif -%}
+
+    {%- liquid
+        assign preorder = false
+        if product.metafields.custom.preorder != blank
+            assign preorder = true
+        else
+            for variant in product.variants
+                if variant.metafields.custom.preorder != blank
+                    if preorder == false
+                        assign preorder = variant.id
+                    else
+                        assign preorder = preorder | append: ';' | append: variant.id
+                    endif
+                endif
+            endfor
+
+            if preorder != false
+                assign preorder = preorder | split: ';'
+            endif
+        endif
+    -%}
+    {%- if preorder != false -%}
+        <div class="product-label{% if preorder contains current_variant.id and preorder != true %} product-label--active{% endif %}"
+            {% if preorder != true %}data-options="{{ preorder | join: ' ' }}"{% endif %}>
+            Preorder
+        </div>
+    {%- endif -%}
+
+    {%- liquid
+        assign new = false
+        assign best = false
+        for col in product.collections
+            if settings.new-arrivals == col and new == false
+                assign new = true
+                continue
+            endif
+        endfor
+
+        if new == true
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.new-arrivals.handle == tagSpl[0]
+                    if tagSpl.size > 1
+                        assign new = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        endif
+
+        for prod in settings.best-sellers.products limit: 20
+            if product.id == prod.id
+                assign best = true
+                break
+            endif
+        endfor
+    -%}
+    
+    {%- if new != false -%}
+    <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
+        {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
+        New
+    </div>
+    {%- endif -%}
+    
+    {%- if best == true -%}
+        <div class="product-label">Bestseller</div>
+    {%- endif -%}
+</div>

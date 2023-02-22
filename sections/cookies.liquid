@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="{{ 'section-cookies.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-cookies.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script src="{{ 'cookies.js' | asset_url }}" defer="defer"></script>
+
+<div class="cookies-popup{% if section.settings.overlay %} cookies-popup--overlay{% endif %}">
+    {%- if section.settings.overlay -%}
+    <div class="cookies-popup__overlay"></div>
+    {%- endif -%}
+
+    <div class="cookies-popup__content">
+        <div class="cookies-popup__text">{{- section.settings.text -}}</div>
+        <button aria-label="Accept cookies" class="button button--accept-cookies"><span>{{- section.settings.button-text | escape -}}</span></button>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Cookies",
+        "class": "shopify-section--cookies",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "overlay",
+                "label": "Show Overlay",
+                "default": false
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "text",
+                "id": "button-text",
+                "label": "Button Text",
+                "default": "Accept cookies"
+            }
+        ]
+    }
+{% endschema %}

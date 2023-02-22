@@ -1,0 +1,20 @@
+{% layout none %}
+{
+    "metafields": {
+        "preorder": {{ product.metafields.custom.preorder | json }},
+        "variants": {
+            {%- for variant in product.variants -%}
+            {%- unless forloop.first -%},{%- endunless -%}
+            "{{ variant.id }}": {
+                "preorder": {{ variant.metafields.custom.preorder | json }},
+                "hover": {%- if variant.metafields.custom.hover_image != blank -%}
+                    {{ variant.metafields.custom.hover_image | image_url: width: nil | json }}
+                    {%- else -%}
+                    false
+                    {%- endif -%}
+            }
+            {%- endfor -%}
+        }
+    },
+    "product": {{ product | json }}
+}

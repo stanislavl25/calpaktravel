@@ -3,67 +3,76 @@
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
       "blocks": {
-        "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
-          "type": "media-block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
-            "video": "",
-            "main-link": "shopify:\/\/products\/small-hat-box",
-            "title": "Header Text",
-            "description": "<p>Subcopy for the single image hero<\/p>",
-            "button-text": "",
-            "text-color-scheme": "white",
-            "text-alignment": "center"
-          }
-        },
-        "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
-          "type": "media-block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/438428408-img_9868-2.jpg",
-            "video": "",
-            "main-link": "shopify:\/\/products\/ambeur-vanity-case",
-            "title": "Heading Text",
-            "description": "<p>Supporting subtext goes here.<\/p>",
-            "button-text": "Button Link",
-            "text-color-scheme": "white",
-            "text-alignment": "center"
-          }
-        },
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Bags for brighter days.",
-            "description": "<p>What you need for your everyday, made more fun.<\/p>",
-            "button-text": "Show New Arrivals",
-            "button-url": "shopify:\/\/collections\/new-arrivals",
+            "title": "Best for outdoor adventures",
+            "description": "<p>Inspired by the colors of earth's natural elements, made for multi-terrain. Explore the Terra collection.<\/p>",
+            "main-link": "shopify:\/\/collections\/terra-collection",
+            "button-text": "Shop Now",
+            "add-link-to-button-only": false,
             "text-alignment": "center",
             "text-color-scheme": "black",
             "background": "#e4dfd5"
           }
         },
-        "2d973b40-5bb7-4766-96a5-e54015769ff0": {
+        "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "image": "shopify:\/\/shop_images\/CalPak7030a.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/CalPak7030a.jpg",
             "video": "",
-            "main-link": "",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
+            "add-link-to-button-only": false,
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CalPak7180a-BANNER2X1.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/products\/starter-bundle",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "2d973b40-5bb7-4766-96a5-e54015769ff0": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/apparel",
+            "title": "",
+            "description": "",
+            "button-text": "Apparel Link",
+            "add-link-to-button-only": false,
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
         }
       },
       "block_order": [
-        "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd",
-        "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
         "ee068b0d-f69b-4136-8fef-be3ec21f588f",
+        "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
+        "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd",
         "2d973b40-5bb7-4766-96a5-e54015769ff0"
       ],
       "settings": {
+        "hero-height": "limited",
+        "height-limit": 110,
         "enable-sticky-promo": true,
-        "promo-image": "shopify:\/\/shop_images\/IMG_9609.jpg",
+        "sticky-promo-floating": true,
+        "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
         "close-color-scheme": "white"
@@ -78,10 +87,14 @@
             "target_link": "shopify:\/\/collections\/luggage",
             "title": "Luggage",
             "description": "",
-            "image": "shopify:\/\/shop_images\/PORTABLE-CHARGER-EMERALD-LIFESTYLE.jpg",
             "button-text": "Shop now",
-            "pictured_product": "",
-            "product_title": "Ambeur Medium"
+            "pictured_product": "shopify:\/\/collections\/ambeur-collection",
+            "product_title": "Ambeur Collection",
+            "image": "shopify:\/\/shop_images\/5X3A0397-4.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/5X3A0397-4.jpg"
           }
         },
         "9c0034de-15d7-4b59-b00f-58f2cca2ff6e": {
@@ -90,10 +103,13 @@
             "target_link": "shopify:\/\/collections\/bags",
             "title": "Bags",
             "description": "",
-            "image": "shopify:\/\/shop_images\/LUKA-DUFFEL-BAG-MERLOT-LIFESTYLE1_50941881-df78-4c4b-9b9b-df443bc873f4.jpg",
             "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/luka-duffel",
-            "product_title": "Luka Duffel"
+            "pictured_product": "shopify:\/\/collections\/luka-collection",
+            "product_title": "Luka Collection",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
           }
         },
         "700226a3-3f37-4ff5-8158-d8903d803420": {
@@ -102,10 +118,14 @@
             "target_link": "shopify:\/\/collections\/organizers",
             "title": "Organizers",
             "description": "",
-            "image": "shopify:\/\/shop_images\/IMG_9609.jpg",
             "button-text": "Shop now",
-            "pictured_product": "",
-            "product_title": "Compression Cubes"
+            "pictured_product": "shopify:\/\/collections\/tech-organizers",
+            "product_title": "Tech Organizers",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5.jpg"
           }
         }
       },
@@ -116,7 +136,9 @@
       ],
       "settings": {
         "gap": false,
-        "mobile-layout": "stacked"
+        "general-layout": "text-media",
+        "content-position": "stretch",
+        "mobile-layout": "scrollable"
       }
     },
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75": {
@@ -149,55 +171,131 @@
         "02f79c4f-6737-4220-a31c-992d094df8ee",
         "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684"
       ],
-      "settings": {}
+      "settings": {
+        "quick-view": true
+      }
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
+      "settings": {
+        "title": "Explore Our Bestselling Terra Collection",
+        "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste voluptates accusantium.<\/p>",
+        "quick-view": true,
+        "product-labels": true,
+        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1305_de157396-b3a1-4d4d-a64b-2df3fd32e39c.jpg",
+        "video": "",
+        "image-mobile": "shopify:\/\/shop_images\/trnk-vanity-case.png",
+        "media-link": "shopify:\/\/collections\/best-sellers",
+        "pictured-product": "terra-sling-bag",
+        "pictured-product-title": "Terra Sling Bag",
+        "button-text": "Shop Now",
+        "button-quick-view": true,
+        "button-link": "https:\/\/www.calpaktravel.com\/products\/terra-sling-bag\/amethyst",
+        "background": "#ff6b0e",
+        "text-color": "#000000",
+        "accent-color": "#000000",
+        "pictured-product-display": "top",
+        "featured-collection": "backpacks",
+        "collection-limit": 5,
+        "show-view-all": true,
+        "product_list": [
+          "terra-26l-backpack-duffel",
+          "terra-carry-on-luggage",
+          "terra-sling-bag",
+          "terra-hanging-toiletry-bag"
+        ],
+        "columns": "2"
+      }
+    },
+    "951d1a57-9c08-4431-a932-aafbc04369f5": {
+      "type": "reviews",
       "blocks": {
-        "b8eca0bb-f0e9-4ac8-8328-5e15e28b63e6": {
-          "type": "product",
+        "3ddcd8db-d11f-471d-8340-6eaf75e31fc6": {
+          "type": "review",
           "settings": {
-            "product": "baye-mini-sale"
+            "name": "Lexi",
+            "review": "<p><strong>Perfect weekender. <\/strong>Holds a lot and is comfortable to carry. Easy to pack and get into with lots of pockets for organizing.<\/p>",
+            "add-quotes": true,
+            "stars": 4.9,
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/luka-duffel",
+            "image": "shopify:\/\/shop_images\/Mask_group_2_42b5cf40-2743-4666-9f78-a0b198290a4c.jpg",
+            "image-link": "shopify:\/\/products\/luka-duffel",
+            "pictured-product": "luka-duffel",
+            "pictured-product-title": ""
           }
         },
-        "2cab7273-4ba5-4ba0-880c-fae125d6919b": {
-          "type": "product",
+        "dd177056-3b6c-4548-8888-c6f0c04155a5": {
+          "type": "review",
           "settings": {
-            "product": "astyll-2-piece-luggage-set"
+            "name": "Lara S.",
+            "review": "<p>I spent two weeks traveling in Europe and<strong> this was a lifesaver<\/strong>! It fit my phone, charger, kindle, and passports! I love the back zip pocket.<\/p>",
+            "add-quotes": true,
+            "stars": 4.9,
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/luka-belt-bag",
+            "image": "shopify:\/\/shop_images\/LUKA-MATTE-BELT-BAG-CHOCOLATE-LIFESTYLE1-2_60edfc53-06fd-455f-a0b8-3377fc13b231.jpg",
+            "image-link": "",
+            "pictured-product": "luka-belt-bag",
+            "pictured-product-title": ""
           }
         },
-        "6c9e73fa-4367-44ff-8f4b-7ac22bbd4e59": {
-          "type": "product",
+        "b5768f42-e3ec-43c3-bc45-86ac83ab57ff": {
+          "type": "review",
+          "settings": {
+            "name": "Isabel C.",
+            "review": "<p><strong>Very cute and functional. <\/strong>I love it! Very unique and cute for a lunch bag but also very spacious and has good insulation<\/p>",
+            "add-quotes": true,
+            "stars": 4.9,
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/insulated-lunch-bag",
+            "image": "shopify:\/\/shop_images\/Mask_group_6_a3231333-569f-4356-8b0c-ce86b1a926ac.jpg",
+            "image-link": "",
+            "pictured-product": "insulated-lunch-bag",
+            "pictured-product-title": ""
+          }
+        },
+        "b54d93f7-e8bd-4a08-af36-abeb870891ab": {
+          "type": "review",
+          "settings": {
+            "name": "Laura B.",
+            "review": "<p><strong>The BEST Backpack Ever Invented. <\/strong>I travel a ton and I cannot say enough good things about my experience with this bag. It's stylish, functional, and well-made. I get so many compliments on it.<\/p>",
+            "add-quotes": true,
+            "stars": 4.9,
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/terra-26l-backpack-duffel",
+            "image": "shopify:\/\/shop_images\/Mask_group_5_189bf8d0-2290-4b23-8b47-33aca2e98f9a.jpg",
+            "image-link": "",
+            "pictured-product": "terra-26l-backpack-duffel",
+            "pictured-product-title": ""
+          }
+        },
+        "d7a67ecc-883f-47a6-9d00-281d8d743f66": {
+          "type": "review",
           "disabled": true,
           "settings": {
-            "product": "ambeur-vanity-case"
-          }
-        },
-        "ac75ac0f-12f3-490f-aa03-287b65a869ec": {
-          "type": "product",
-          "disabled": true,
-          "settings": {
-            "product": "clear-cosmetic-case"
+            "name": "Noelle F.",
+            "review": "<p><strong>Structured, stylish perfection! <\/strong>This bagholds so much and looks great! This will be great for travel and a perfect everyday work bag!<\/p>",
+            "add-quotes": true,
+            "stars": 4.7,
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/kaya-laptop-backpack",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1499.jpg",
+            "image-link": "",
+            "pictured-product": "kaya-laptop-backpack",
+            "pictured-product-title": ""
           }
         }
       },
       "block_order": [
-        "b8eca0bb-f0e9-4ac8-8328-5e15e28b63e6",
-        "2cab7273-4ba5-4ba0-880c-fae125d6919b",
-        "6c9e73fa-4367-44ff-8f4b-7ac22bbd4e59",
-        "ac75ac0f-12f3-490f-aa03-287b65a869ec"
+        "3ddcd8db-d11f-471d-8340-6eaf75e31fc6",
+        "dd177056-3b6c-4548-8888-c6f0c04155a5",
+        "b5768f42-e3ec-43c3-bc45-86ac83ab57ff",
+        "b54d93f7-e8bd-4a08-af36-abeb870891ab",
+        "d7a67ecc-883f-47a6-9d00-281d8d743f66"
       ],
       "settings": {
-        "title": "Promotional collection text here",
-        "image": "shopify:\/\/shop_images\/IMG_9609.jpg",
-        "video": "",
-        "pictured-product": "compression-packing-cubes",
-        "pictured-product-title": "Packing Cubes",
-        "button-text": "Shop Now",
-        "button-link": "shopify:\/\/products\/astyll-3-piece-luggage-set",
-        "background": "#ff6b0e",
-        "pictured-product-display": "top",
-        "columns": "3"
+        "autoslide": 3
       }
     },
     "b12b4161-2d41-4027-a740-a9f3f7ced561": {
@@ -209,10 +307,13 @@
             "target_link": "shopify:\/\/blogs\/destination\/trend-watch-utility",
             "title": "Trend Watch: Utility",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
-            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/small-hat-box",
-            "product_title": "Baye Hat Box"
+            "product_title": "Baye Hat Box",
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
           }
         },
         "f98ea68c-3c90-41b8-bc5a-a7a80de6bf2b": {
@@ -221,10 +322,13 @@
             "target_link": "shopify:\/\/blogs\/destination\/meet-the-luka-collection",
             "title": "Luka Collection",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
-            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
-            "product_title": "Ambeur Vanity Case"
+            "product_title": "Ambeur Vanity Case",
+            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
           }
         }
       },
@@ -234,57 +338,24 @@
       ],
       "settings": {
         "gap": true,
+        "general-layout": "text-media",
+        "content-position": "stretch",
         "mobile-layout": "stacked"
       }
     },
-    "951d1a57-9c08-4431-a932-aafbc04369f5": {
-      "type": "reviews",
-      "blocks": {
-        "dd177056-3b6c-4548-8888-c6f0c04155a5": {
-          "type": "review",
-          "settings": {
-            "name": "Rachel M.",
-            "review": "<p>CALPAK has the most functional every day bag on the market.<\/p>",
-            "add-quotes": true,
-            "stars": 4.5,
-            "button-text": "Community gallery",
-            "button-link": "#",
-            "image": "shopify:\/\/shop_images\/IMG_9651-final_copy-4_4cee553d-0e25-4ad8-9080-08d7cdd22cf2.png",
-            "pictured-product": "ambeur-carry-on-luggage",
-            "pictured-product-title": ""
-          }
-        },
-        "b5768f42-e3ec-43c3-bc45-86ac83ab57ff": {
-          "type": "review",
-          "settings": {
-            "name": "John D.",
-            "review": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
-            "add-quotes": true,
-            "stars": 4.2,
-            "button-text": "Community Gallery",
-            "button-link": "#",
-            "image": "shopify:\/\/shop_images\/CALPAK-HOLIDAY-44-3.jpg",
-            "pictured-product": "kaya-backpack",
-            "pictured-product-title": ""
-          }
-        }
-      },
-      "block_order": [
-        "dd177056-3b6c-4548-8888-c6f0c04155a5",
-        "b5768f42-e3ec-43c3-bc45-86ac83ab57ff"
-      ],
+    "5a6f5490-2467-4517-8d4e-1b098c285ad9": {
+      "type": "banner",
       "settings": {
-        "autoslide": 5
-      }
-    },
-    "ec3f6c4d-e4c0-4c75-b62f-fd442b2aaa84": {
-      "type": "contact-form",
-      "settings": {
-        "title": "Happier travel this way.",
-        "description": "<p>Be the first to know about special announcements. Plus, get 10% off your first purchase.<\/p>",
-        "disclaimer": "<p>By signing up for emails and\/or texts, you accept the <a href=\"\/policies\/privacy-policy\" title=\"Privacy Policy\">Privacy Policy<\/a> and the <a href=\"\/policies\/terms-of-service\" title=\"Terms of Service\">Terms of Service<\/a>.<\/p>",
-        "show-phone": true,
-        "button-text": "Join mailing list"
+        "title": "Join the club—get $5 instantly.",
+        "text": "<p>Very Important Travelers earn points, get insider rewards, and exclusive early access to sales.<\/p>",
+        "button-text": "Become a VIT Now",
+        "link": "https:\/\/www.calpaktravel.com\/pages\/rewards",
+        "link-for-button": true,
+        "height": "custom",
+        "height-percent": 20,
+        "text-alignment": "center",
+        "text-color-scheme": "white",
+        "background": "#ff6b0e"
       }
     }
   },
@@ -293,8 +364,8 @@
     "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
-    "b12b4161-2d41-4027-a740-a9f3f7ced561",
     "951d1a57-9c08-4431-a932-aafbc04369f5",
-    "ec3f6c4d-e4c0-4c75-b62f-fd442b2aaa84"
+    "b12b4161-2d41-4027-a740-a9f3f7ced561",
+    "5a6f5490-2467-4517-8d4e-1b098c285ad9"
   ]
 }

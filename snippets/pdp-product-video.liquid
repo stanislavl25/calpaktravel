@@ -1,0 +1,11 @@
+<div data-variants="" class="pdp__media{% if thumbnails == true %}-thumb{% endif %} pdp__media--prod-video{% unless varVideoActive %} pdp__media--active slide{% endunless %}">
+    {%- liquid
+        assign video = product.metafields.product.video
+
+        if thumbnails == true
+            render 'image' with null, sizes: sizes, height: '133.333', class: 'video-link-image'
+        else
+            render 'video' with video, contain: true, poster: null, alt: alt, sizes: sizes, height: '133.333', lazy: true
+        endif
+    -%}
+</div>

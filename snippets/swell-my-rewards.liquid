@@ -1,0 +1,52 @@
+<div class="swell-rewards-calpak">
+    <div class="user-section account-page">
+        <div class="user-area">
+            <div class="user-text-holder">
+                <h2 class="user-heading">
+                    <span class="swell-point-balance">X</span> Rewards Points
+                </h2>
+                <ul class="swell-link-list">
+                    <li class="swell-link"><a class="redemption-link button to-checkout-btn button--dark" href="{% if customer != blank %}/checkout{% else %}/account/login/checkout{% endif %}">Redeem now</a></li>
+                    <li class="swell-link"><a class="history-link swell-history-link button" href="javascript:void(0);">Rewards history</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="swell-referral-main account-page">
+        {% comment %} <img class="show-on-mobile register-img" src="{{ 'swell-refer-register-mobile-img.png' | asset_url }}"> {% endcomment %}
+        <div class="swell-referral-main-content">
+            <div class="swell-referral"></div>
+        </div>
+        <div class="swell-redeem-section">
+            <div class="swell-redeem-area">
+                <div class="redeem-holder">
+                    <div class="swell-referral-heading">
+                        <h2>Your Referrals</h2>
+                        <div class="swell-link"><a class="check-rewards" href="/pages/rewards">Check Rewards Balance</a></div>
+                    </div>
+
+                    <div class="table-classes">
+                        <div class="swell-table-responsive">
+                            <table class="swell-referral-table">
+                            <thead>
+                                <tr>
+                                <th>Email</th>
+                                <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-data">
+                                
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>How do I redeem my rewards balance?</h3>
+                        <p>Now, the fun part! Simply redeem any rewards credit you've earned <a href="{% if customer != blank %}/checkout{% else %}/account/login/checkout{% endif %}" class="to-checkout-btn">directly at checkout</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

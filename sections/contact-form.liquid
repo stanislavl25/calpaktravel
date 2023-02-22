@@ -14,6 +14,12 @@
     {% form 'customer', class: 'newsletter-form' %}
         <input type="hidden" name="contact[tags]" value="newsletter">
         
+        {% if section.settings.text-above != blank %}
+        <div class="form__label-line">
+            <label>{{ section.settings.text-above }}</label>
+        </div>
+        {% endif %}
+
         <div class="form__field-line">
             <input
                 type="email"
@@ -55,7 +61,7 @@
             {%- endif -%}
 
 
-            <button type="submit" class="button" name="commit">
+            <button aria-label="Submit form" type="submit" class="button" name="commit">
                 <span>{{- section.settings.button-text | escape -}}</span>
             </button>
         </div>
@@ -91,6 +97,11 @@
             },
             {
                 "type": "richtext",
+                "id": "text-above",
+                "label": "Text above the form"
+            },
+            {
+                "type": "richtext",
                 "id": "disclaimer",
                 "label": "Disclaimer"
             },
@@ -105,11 +116,6 @@
                 "id": "button-text",
                 "label": "Button Text",
                 "default": "Join mailing list"
-            }
-        ],
-        "presets": [
-            {
-                "name": "Contact Form"
             }
         ]
     }

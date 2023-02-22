@@ -1,0 +1,33 @@
+{%- if settings.flash-sale-enabled -%}
+    {%- liquid
+        assign now = "now" | date: '%s' | times: 1
+        assign ends = settings.flash-sale-ends | date: '%s' | times: 1
+
+        if settings.flash-sale-tag == blank
+            assign flashSale = true
+        else
+            assign flashSale = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.flash-sale-tag == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign flashSale = true
+                    else
+                        assign flashSale = tagSpl[1] | split: ';'
+                    endif
+                endif
+            endfor
+        endif
+
+        assign timeLeft = ends | minus: now
+    -%}
+
+    {%- if timeLeft > 0 and flashSale != false -%}
+        {%- assign opt1 = current_variant.option1 | handleize -%}
+    <div class="product-label product-label--flash{% if flashSale contains opt1 and flashSale != true %} product-label--active{% endif %}"{% if flashSale != true %} data-options="{{ flashSale | join: ' ' }}"{% endif %}>
+        <label>{{- settings.flash-sale-text | escape -}}</label>
+        <div class="countdown-timer" data-time="{{- timeLeft -}}"></div>
+    </div>
+    {%- endif -%}
+
+{%- endif -%}

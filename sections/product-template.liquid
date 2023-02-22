@@ -1,12 +1,19 @@
 {{ 'section-pdp.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-pdp-gallery.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true, media: "screen and (max-width: 900px)" }}
 {{ 'component-star-rating.css' | asset_url | stylesheet_tag }}
+{{ 'component-pdp-promo.css' | asset_url | stylesheet_tag }}
 
 <link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-tooltip.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-pdp-labels.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-pdp-floating-submit.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-waitlist.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-pdp-labels.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script src="{{ 'pdp.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
     assign request_arg = request.path | split: "/"
@@ -17,7 +24,6 @@
         assign request_arg = request_arg[3] | handleize
         if request_arg == 'early-access'
             if product.tags contains 'early-access'
-                assign current_color = 1
                 assign early_access = true
             endif
         elsif request_arg contains 'early-access-'
@@ -39,52 +45,381 @@
             endif
         endfor
     endif
+
+    assign featured_collection = false
+    if product.metafields.custom.featured_collection != blank
+        assign featured_collection = collections[product.metafields.custom.featured_collection]
+    endif
+
+    assign current_product_group_type = false
+    assign product_type = product.type | downcase
+
+    if featured_collection != false and product_type contains 'luggage'
+        assign types = 'Mini Carry-On,Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Medium Luggage,Large,Trunk,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
+
+        for type in types
+            if product.title contains type
+                assign current_product_group_type = type
+                break
+            endif
+        endfor
+    endif
+
+    if current_variant.metafields.custom.preorder != blank
+        assign preorder = current_variant.metafields.custom.preorder
+    elsif product.metafields.custom.preorder != blank
+        assign preorder = product.metafields.custom.preorder
+    else
+        assign preorder = false
+    endif
 -%}
 
-<section class="pdp__grid">
+<section class="pdp__grid"
+    data-status="{% if current_variant.available == false %}sold-out{% elsif preorder != false %}preorder{% else %}default{% endif %}">
     
     <div class="pdp__breadcrumbs">
-        <a href="#">Shop All</a>
-        <a href="#">Luggage</a>
-        <a href="#">Hue Collection</a>
-        <span>Carry - On</span>
+        {% render 'pdp-breadcrumbs', current_product_group_type: current_product_group_type, featured_collection: featured_collection %}
     </div>
 
-    <aside class="pdp__gallery">
-        {% render 'pdp-labels' %}
-        {% render 'pdp-gallery' %}
+    <aside class="pdp__gallery-container">
+        {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
+        {% render 'pdp-gallery', current_variant: current_variant %}
+        <button aria-label="Show all product media" class="pdp-gallery__more-btn"><span>See more images (<em class="img-num">2</em>)</span></button>
     </aside>
 
-    <main class="pdp__info">
+    <main
+        class="pdp__info"
+        >
         {% form 'product', product %}
+            <script type="text/json" class="pdp-json" data-current-variant="{{ current_variant.id }}">{{ product | json }}</script>
+            <script type="text/json" class="pdp-meta-json">
+                {
+                    "preorder": {{ product.metafields.custom.preorder | json }},
+                    "variants": {
+                        {%- for variant in product.variants -%}
+                        {%- unless forloop.first -%},{%- endunless -%}
+                        "{{ variant.id }}": {
+                            "preorder": {{ variant.metafields.custom.preorder | json }}
+                        }
+                        {%- endfor -%}
+                    }
+                }
+            </script>
 
-            <section class="pdp__header">
-                <h1 class="pdp__title">{{ product.title }}</h1>
+            {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                    {%- when '@app' -%}
+                        {% render block %}
+                    {%- when 'title' -%}
+                        <section class="pdp__header">
+                            <h1 class="pdp__title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</h1>
 
-                {% render 'pdp-meta' %}
-            </section>
-
-            {% render 'pdp-variants', current_variant: current_variant %}
-
-            {% render 'pdp-submit' %}
-
-            {% render 'pdp-set' %}
-
-            {% render 'pdp-description' %}
-
-            {% render 'pdp-upsell', title: "Pairs well with" %}
-
+                            {% render 'pdp-meta', current_variant: current_variant %}
+                        </section>
+                    {%- when 'variants' -%}
+                        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant %}
+                    {%- when 'flash-sale' -%}
+                        {% render 'flash-sale-label', current_variant: current_variant %}
+                    {%- when 'product-labels' -%}
+                        <section class="pdp__form-labels">
+                        {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
+                        </section>
+                    {%- when 'shipping-calculator' -%}
+                        {% comment %} {% render 'shipping-calculator' %} {% endcomment %}
+                    {%- when 'submit' -%}
+                        {% render 'pdp-floating-submit', current_variant: current_variant %}
+                        {% render 'pdp-submit', current_variant: current_variant %}
+                    {%- when 'description' -%}
+                        {% render 'pdp-description', current_variant: current_variant %}
+                    {%- else -%}
+                        {% render 'pdp-promo' with block %}
+                {%- endcase -%}
+            {%- endfor -%}
         {% endform %}
+
+        {% render 'pdp-upsell', title: "Pairs well with" %}
     </main>
 
 </section>
+
+<script>
+    const pdpSettings = {
+        gallery_limit: {{ section.settings.gallery-limit }},
+        reapply_limit: {% if section.settings.gallery-limit-reapply %}true{% else %}false{% endif %},
+    };
+</script>
 
 {% schema %}
     {
         "name": "Single Product",
         "class": "shopify-section--single-product",
         "settings": [
-        
+            {
+                "type": "header",
+                "content": "Gallery"
+            },
+            {
+                "type": "checkbox",
+                "id": "zoom",
+                "label": "Enable zoom on images",
+                "default": false
+            },
+            {
+                "type": "range",
+                "id": "gallery-limit",
+                "min": 0,
+                "max": 10,
+                "step": 1,
+                "label": "Limit number of gallery items",
+                "default": 0,
+                "info": "0 for no limit"
+            },
+            {
+                "type": "checkbox",
+                "id": "gallery-limit-reapply",
+                "label": "Limit after variant change",
+                "default": true
+            },
+            {
+                "type": "header",
+                "content": "Content"
+            },
+            {
+                "type": "richtext",
+                "id": "specifications",
+                "label": "Specifications source"
+            },
+            {
+                "type": "richtext",
+                "id": "warranty-product-level",
+                "label": "Warranty source"
+            },
+            {
+                "type": "richtext",
+                "id": "warranty-and-return",
+                "label": "Default warranty and return policy"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "@app"
+            },
+            {
+                "type": "title",
+                "name": "Title",
+                "limit": 1
+            },
+            {
+                "type": "variants",
+                "name": "Variants",
+                "limit": 1
+            },
+            {
+                "type": "product-labels",
+                "name": "Product Labels",
+                "limit": 1
+            },
+            {
+                "type": "flash-sale",
+                "name": "Flash sale label",
+                "limit": 1
+            },
+            {
+                "type": "submit",
+                "name": "Submit",
+                "limit": 1
+            },
+            {
+                "type": "shipping-calculator",
+                "name": "Shipping Calculator",
+                "limit": 1
+            },
+            {
+                "type": "description",
+                "name": "Description",
+                "limit": 1
+            },
+            {
+                "type": "upsell-banner",
+                "name": "Upsell Banner",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "header",
+                        "content": "Display"
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading",
+                        "info": "Use %% to show discount percent. Use $$ to show money savings."
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title-override",
+                        "label": "Title override"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image-override",
+                        "label": "Image Override"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "include-price",
+                        "label": "Add product price to button",
+                        "default": false
+                    },
+                    {
+                        "type": "select",
+                        "id": "button-behaviour",
+                        "label": "Button behavior",
+                        "options": [
+                            {
+                                "value": "follow-link",
+                                "label": "Follow link"
+                            },
+                            {
+                                "value": "add-to-cart",
+                                "label": "Add to cart"
+                            },
+                            {
+                                "value": "quick-view",
+                                "label": "Quick view"
+                            }
+                        ],
+                        "default": "follow-link"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button link",
+                        "info": "When 'Follow link' selected above"
+                    }
+                ]
+            },
+            {
+                "type": "image-banner",
+                "name": "Banner with image",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "header",
+                        "content": "Display"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button Link"
+                    }
+                ]
+            },
+            {
+                "type": "text-banner",
+                "name": "Banner with text",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "header",
+                        "content": "Display"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button Link"
+                    }
+                ]
+            }
         ]
     }
 {% endschema %}

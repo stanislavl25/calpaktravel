@@ -5,7 +5,7 @@
 <section class="product-grid">
     {%- liquid
         for product in collections['best-sellers'].products limit: 5
-            render 'product-unit' with product, quick_view: true
+            render 'product-unit' with product, wishlist: true, quick_view: true
         endfor
     -%}
 </section>

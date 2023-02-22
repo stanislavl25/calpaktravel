@@ -1,0 +1,169 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Packing Cubes: Your Favorite Organizing Tool",
+        "title-size": "medium",
+        "text": "<p>Packing cubes are the #1 tool for travel organization— Not only do they make the packing experience more satisfying, they make your journeys more enjoyable. Meet your new traveling chest of drawers!<\/p>"
+      }
+    },
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_3308.png",
+        "image-mobile": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-BANNER2.jpg",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
+      "type": "product-showcase",
+      "blocks": {
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "Solo staycation",
+            "description": "<p>Whoever invented staycations should be given an award for “most creative getaway”. Imagine turning your own space into a spa retreat, only you never have to leave your home and you have all the privacy you could ever want. Remember all those days where you skipped your self-care routine? Well, here’s your chance to convert your home into the relaxing retreat you’ve always wanted. Ballin' on a budget definitely has its perks.<\/p><p>Just pop open your <a href=\"#\" title=\"#\">Vanity Case<\/a> with all of your skincare essentials and you’ve already started your self-care staycation!<\/p>",
+            "button-text": "Shop now",
+            "button-link": "#"
+          }
+        },
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
+          "type": "product",
+          "settings": {
+            "product": "trnk-vanity-case"
+          }
+        },
+        "1b775b70-f16b-4f85-a218-760455abe4b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TRNK-VANITY-CASE-TRNK-BLACK-LIFESTYLE2.gif"
+          }
+        }
+      },
+      "block_order": [
+        "db964836-931d-46f8-847a-85e26721b352",
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03",
+        "1b775b70-f16b-4f85-a218-760455abe4b0"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
+      "type": "product-showcase",
+      "blocks": {
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "trnk-large-hat-box"
+          }
+        },
+        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TRNK-LARGE-HAT-BOX-TRNK-ALMOND-LIFESTYLE1.jpg"
+          }
+        },
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
+          "type": "text",
+          "settings": {
+            "title": "Take the day",
+            "description": "<p>How this differs from “Solo Staycation” is that although you do stay local, you venture off to places around your city (or neighboring cities) that you’ve always wanted to visit. Whether it’s an outdoor swap meet, a restaurant pop-up, visiting a friend across town, or running all of your errands, you should feel refreshed after this weekend.<\/p><p>Take any size TRNK Hat Box with you so you can stash your snacks, extra outfits, cosmetics bag, and more with you throughout the weekend.<\/p>",
+            "button-text": "Shop now",
+            "button-link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f",
+        "999f1999-abe3-4175-b42f-0de5ff5d695e",
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "f12f31f8-7d8c-4beb-98ca-a14d9ea7b9f4": {
+      "type": "product-showcase",
+      "blocks": {
+        "fff55df3-64be-47cb-94ab-4fab31aa8670": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TRNK-LARGE-HAT-BOX-TRNK-ALMOND-LIFESTYLE1.jpg"
+          }
+        },
+        "420900eb-6746-4d68-8dfb-978552ed46f1": {
+          "type": "text",
+          "settings": {
+            "title": "Test",
+            "description": "<p>Test<\/p>",
+            "button-text": "Test",
+            "button-link": "shopify:\/\/policies\/shipping-policy"
+          }
+        },
+        "c2cd8f5f-f316-4859-8898-526fbf0f15c6": {
+          "type": "product",
+          "settings": {
+            "product": "ambeur-2-piece-luggage-set"
+          }
+        }
+      },
+      "block_order": [
+        "fff55df3-64be-47cb-94ab-4fab31aa8670",
+        "420900eb-6746-4d68-8dfb-978552ed46f1",
+        "c2cd8f5f-f316-4859-8898-526fbf0f15c6"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "settings": {
+            "title": "Travel Necessities",
+            "description": "A merch collection that brings that 5-star experience with you wherever you go.",
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "settings": {
+            "title": "Travel Necessities",
+            "description": "A merch collection that brings that 5-star experience with you wherever you go.",
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7",
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc",
+    "f12f31f8-7d8c-4beb-98ca-a14d9ea7b9f4",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
+  ]
+}

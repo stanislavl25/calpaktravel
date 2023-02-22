@@ -1,15 +1,13 @@
-.collection-filters {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: var(--gap);
-    border-radius: 0 0 9px 9px;
+.collection-filter__color {
+    align-self: flex-start;
+    min-width: 0;
+    padding: var(--gap) 0;
 }
 
-.collection-filters[data-active] {
-    display: block;
+.collection-filter__color-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: var(--gap);
 }
 
 .filter__reset {
@@ -22,57 +20,23 @@
     right: var(--gap);
     text-decoration: underline;
     line-height: 42px;
-    display: none;
-}
-
-.collection-filters[data-active="color"] > .filter__reset {
-    display: block;
-}
-
-.filter__buttons {
-    display: flex;
-    gap: 25px;
-    padding-top: 30px;
-    border-top: 1px dashed #AEAEAE;
-    padding-bottom: var(--gap);
-}
-
-.collection-filter {
-    display: none;
-}
-
-[data-active="color"] .collection-filter--color {
-    display: block;
-}
-
-[data-active="color"] .filter__activator--color::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    bottom: -1px;
-    border-top: 1px solid #000;
-}
-
-.slider--filt-col {
-    gap: var(--gap);
-    margin: var(--gap) 0;
-    min-height: 42px;
 }
 
 .filt-col-group {
+    --filt-order: 1;
     height: 42px;
     padding: 0 10px;
-    border: 1px solid #aeaeae;
+    border: 1px solid var(--gray);
     border-radius: 9px;
     min-width: 95px;
     flex-basis: fit-content;
-    color: #858585;
+    color: var(--gray);
     display: flex;
     align-items: center;
     gap: 6px;
     white-space: nowrap;
     text-transform: capitalize;
+    order: var(--filt-order);
 }
 
 .filt-col-group--active {
@@ -85,15 +49,6 @@
     border-color: #000;
 }
 
-.color-group {
-    background: #aeaeae;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    flex: 0 0 20px;
-    pointer-events: none;
-}
-
 .collection-filter--color .button {
     min-width: 210px;
 }
@@ -102,19 +57,8 @@
     position: relative;
 }
 
-.collection-filter--color .slider__control {
-    position: absolute;
-    top: 0;
-}
-
-.collection-filter--color .slider__control--prev {
-    left: calc(var(--gap) * -1);
-}
-
-.collection-filter--color .slider__control--next {
-    right: calc(var(--gap) * -1);
-}
-
-.collection-filter--color .slider__wrapper {
-    padding: 0 var(--gap);
+@media (max-width: 900px) {
+    .collection-filter__color {
+        padding: var(--gap);
+    }
 }

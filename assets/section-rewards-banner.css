@@ -1,0 +1,29 @@
+.rewards-banner {
+    margin: var(--section-gap) var(--gap);
+    background: #c5c5c5;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+}
+
+.rewards-banner__content {
+    padding: 70px 45px;
+    background: #000;
+    background: #e4dfd5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.rewards-banner__title {
+    font-size: 48px;
+    line-height: 1.2em;
+}
+
+.rewards-banner__content .button {
+    margin-top: 10px;
+}

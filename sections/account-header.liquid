@@ -1,0 +1,108 @@
+{{ 'section-account-header.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'section-customer.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="account-header">
+        {% unless template == 'customers/account' %}
+            {% comment %} <a class="account__go-back show-only-on-mobile" href="/account">Go back</a> {% endcomment %}
+        {% endunless %}
+        
+        <div class="account-header__text">
+            <div class="account-header__title">Hello, {{ customer.first_name }}!</div>
+            <a href="https://www.calpaktravel.com/pages/faq#page-faq-category-10">Need help?</a>
+            {% comment %} <a class="account-header__account_link" href="/account?view=info">My Account</a> {% endcomment %}
+            <a href="/account/logout" class="button button--secondary"><span>Sign Out</span></a>
+        </div>
+
+            {% comment %} {% if section.settings.banner-enable %}
+            <div class="vit-double__banner" style="background: {{ section.settings.background-color }}">
+                {% if section.settings.button-text != blank %}
+                <div class="vit-double__banner-button">
+                    <a href="{{ section.settings.button-link }}" class="button">{{ section.settings.button-text | escape }}</a>
+                </div>
+                {% endif %}
+                <div class="vit-double__banner-title">{{ section.settings.title | escape }}</div>
+                <div class="vit-double__banner-content">{{ section.settings.text }}</div>
+                {%- liquid
+                    if section.settings.image != blank
+                        if section.settings.image-mobile != blank
+                            render 'image-n' with section.settings.image, no_wrapper: true, lazy: true, sizes: '80vw', img_class: 'small--hide'
+                            render 'image-n' with section.settings.image-mobile, no_wrapper: true, lazy: true, sizes: '80vw', img_class: 'medium-up-hide'
+                        else
+                            render 'image-n' with section.settings.image, no_wrapper: true, lazy: true, sizes: '80vw'
+                        endif
+                    elsif section.settings.image-mobile != blank
+                        render 'image-n' with section.settings.image-mobile, lazy: true
+                    endif
+                -%}
+            </div>
+            {% endif %} {% endcomment %}
+
+        {% comment %} {% if template == 'customers/account.info' %}
+        <div class="account_confirm" style="display: none; text-align: center; font-weight: 600; max-width: 500px; margin: 0 auto; background: #fafafa; border: 1px solid #aaa; padding: 30px; font-size: 18px;">
+            <p>Please Confirm Your Account</p>
+
+            <p style="margin: 0;">Check your email in the next few minutes and click on link provided. Once you confirm your account, you will be able to join our rewards program and  exclusive early access to sales.</p>
+        </div>
+        <script>
+            if(location.href.indexOf('?new') > -1) document.querySelector('.account_confirm').style.display = 'block';
+        </script>
+        {% endif %} {% endcomment %}
+    </div>
+</section>
+
+    {% comment %} {
+        "type": "header",
+        "content": "Banner"
+    },
+    {
+        "type": "checkbox",
+        "id": "banner-enable",
+        "label": "Enable",
+        "default": false
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "image-mobile",
+        "label": "Background Image for mobile"
+    },
+    {
+        "type": "color",
+        "id": "background-color",
+        "label": "Background color",
+        "default": "#ffffff"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+    },
+    {
+        "type": "text",
+        "id": "button-text",
+        "label": "Button text"
+    },
+    {
+        "type": "url",
+        "id": "button-link",
+        "label": "Button link"
+    },
+    {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+    } {% endcomment %}
+
+{% schema %}
+    {
+        "name": "Account Header",
+        "class": "shopify-section--account-header",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

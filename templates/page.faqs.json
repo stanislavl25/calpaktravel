@@ -1,0 +1,1146 @@
+{
+  "sections": {
+    "faq-header": {
+      "type": "faq-header",
+      "settings": {
+        "title": "FAQ’s",
+        "content-on-desktop": "<p>Know what you’re looking for? Click on the topic regarding your question for a quicker read.<\/p>",
+        "content-on-mobile": "<p>If you have questions that are not answered on this page, please email <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a><\/p>"
+      }
+    },
+    "faq-sidebar": {
+      "type": "faq-sidebar",
+      "settings": {}
+    },
+    "16377711606c4809bf": {
+      "type": "faq-category",
+      "blocks": {
+        "43e90bc7-f67a-4aed-8660-a2a7f73e653d": {
+          "type": "faq",
+          "settings": {
+            "title": "Where does CALPAK ship to?",
+            "answer": "<p>Currently, we only ship in the continental US. For more information on any e-commerce retailers that we work with who might offer additional shipping options, please reach out to us at <a href=\"mailto:sales@calpaks.com\" target=\"_blank\">sales@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "7689d0c4-d544-46ce-84cc-53d925e2832d": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "What is your current shipping timeframe?",
+            "answer": "<p>Once you place your order, it takes 3-8 business days to process and ship. Depending on your location, standard shipping can take between 2-9 business days for your package to arrive.<\/p><p>We'll send an email with tracking information as soon as it ships. This will provide you with specifics on its arrival. Get excited, good things are headed your way.<\/p>",
+            "hide": false
+          }
+        },
+        "dcafaf36-9243-4b7d-9da2-bf710bc242d8": {
+          "type": "faq",
+          "settings": {
+            "title": "What is your current shipping timeframe?",
+            "answer": "<p>Orders may take longer to ship during the holidays. Due to higher order volumes, be sure to purchase early. Our current processing time is 5-10 business days. Once your order ships, you will receive a shipping confirmation.<br\/><br\/>The last day to place orders for delivery before December 25th is:<br\/><br\/>- December 13th (12 pm PST) - Last day for Standard Ground Shipping<br\/>- December 20th (12 pm PST) - Last day for 2-day Shipping<br\/><\/p>",
+            "hide": false
+          }
+        },
+        "7027b98c-6ba5-47a0-969b-aab10f2e0960": {
+          "type": "faq",
+          "settings": {
+            "title": "Where is my order?",
+            "answer": "<p>You can track your order <a href=\"https:\/\/www.calpaktravel.com\/apps\/wonderment\/tracking\" title=\"https:\/\/www.calpaktravel.com\/apps\/wonderment\/tracking\">here<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "843ea9d2-c97d-4b9d-8cc7-705debf92c79": {
+          "type": "faq",
+          "settings": {
+            "title": "I purchased an item on preorder. When will it ship?",
+            "answer": "<p>You can find the current pre-order processing estimation on the product page. To see when your specific item will ship, once ordered, you can find this information on your order confirmation.<\/p>",
+            "hide": false
+          }
+        },
+        "403d1ec6-c522-41bc-a01b-72665d883bb0": {
+          "type": "faq",
+          "settings": {
+            "title": "What forms of payment do you accept?",
+            "answer": "<p>We accept Visa, MasterCard, American Express, Discover, JCB, Diner's Club, PayPal, and Apple Pay.<br\/><br\/>Zip<br\/>- Select Zip as your payment method at checkout using a credit or debit card and you can split purchases into 4 simple, <strong>interest-free<\/strong> installments. The first 25% of your order total will be charged at the time of purchase. Pay the rest in 3 equal, interest-free installments that are billed automatically over 6 weeks.<br\/>- Feel empowered to buy now, pay over time and avoid interest.<br\/>- Maximum order value is $1,500 USD.<br\/>- For more information visit the Zip FAQs <a href=\"https:\/\/docs.us.zip.co\/docs\/faq\" target=\"_blank\" title=\"https:\/\/docs.us.zip.co\/docs\/faq\">here<\/a>.<\/p><p><\/p><p>Shop Pay<br\/>When checking out with Shop Pay, you now have the option to pay now or later. Paying in installments on Shop Pay allows you to split your purchase amount into 4 equal, biweekly installment payments—with 0% interest, no hidden or late fees, and no impact on your credit score.* In some instances, your first payment is due when you make your purchase; otherwise, your first payment is due 2 weeks after your purchase.<br\/>- The installments option on Shop Pay is available on debit and credit cards.<br\/>- There are no late fees if you miss a scheduled payment.<br\/>- Pay in full or in 4 interest-free installments for orders between $50 and $1000 with Shop Pay.<br\/>- For questions about installment payments on Shop Pay, visit <a href=\"https:\/\/shoppay.affirm.com\/help\/s\/\" target=\"_blank\" title=\"https:\/\/shoppay.affirm.com\/help\/s\/\">shop.affirm.com\/help<\/a>. For questions about Shop Pay or the Shop App, visit <a href=\"https:\/\/help.shop.app\/hc\/en-us\/categories\/360006187651-Shop-Pay\" target=\"_blank\" title=\"https:\/\/help.shop.app\/hc\/en-us\/categories\/360006187651-Shop-Pay\">help.shop.app<\/a>.<\/p><p><em>*Payment options are offered by Affirm and are subject to eligibility check and may not be available in all states. California residents: Affirm Loan Services, LLC is licensed by the Department of Business Oversight. Loans are made or arranged pursuant to California Financing Law license 60DBO-111681.<\/em><\/p>",
+            "hide": false
+          }
+        },
+        "c11c733f-2f29-4fab-b8ef-7a13393465f6": {
+          "type": "faq",
+          "settings": {
+            "title": "How much is shipping?",
+            "answer": "<p>We are glad offer free shipping for all orders over $75. All other orders ship for a flat rate of $7.95.<\/p>",
+            "hide": false
+          }
+        },
+        "0329680a-687a-4e9a-8e8a-49b33c6e379c": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "Can I get expedited shipping?",
+            "answer": "<p>Absolutely! We offer expedited shipping at checkout.<\/p><p>Orders placed with expedited shipping before 12 PM PST will ship the same business day. If placed after 12 PM PST, the order will ship the following business day. Our offices are closed Saturday and Sunday, so orders placed after 12 PM PST on Friday through the weekend will be processed the following business day. <\/p>",
+            "hide": false
+          }
+        },
+        "38ac9020-9f88-48ff-af8c-741c8cf5abbe": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I get expedited shipping?",
+            "answer": "<p>Yes! We have 2 day shipping available at checkout. If you choose this option, orders will be processed the same day for purchases made before 12pm noon PST. Any orders made after 12pm noon PST will be processed the next business day. Our offices are closed Saturday and Sunday, so orders made on Friday after 12 pm noon will be processed the following Monday.<\/p>",
+            "hide": false
+          }
+        },
+        "27fdaec1-9fda-4db5-8caa-a5ce5a98859d": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you ship to P.O. boxes?",
+            "answer": "<p>Unfortunately, we are unable to deliver to a P.O. Box address. If a P.O. box is entered at checkout, your order may be delayed or cancelled.<\/p>",
+            "hide": false
+          }
+        },
+        "e16695fa-d2f2-46d4-a6b1-c5f8a42c8a82": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I cancel or update my order once it's placed?",
+            "answer": "<p>As we work to get your package to you as soon as possible, our system automatically processes your order as soon as it's placed.  This means once an order is placed, we are unable to make any changes. This includes address changes, color change requests, and order cancellations. If you need to return or exchange an item in your order, please wait until your order arrives and create a return or exchange as soon as you receive it. If you have any additional questions, please feel free to reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a> for further assistance.<\/p>",
+            "hide": false
+          }
+        },
+        "ddebec36-47e2-466d-b86b-730a24417f7b": {
+          "type": "faq",
+          "settings": {
+            "title": "Why does expedited shipping cost so much?",
+            "answer": "<p>Our orders are shipped based on dimensional weight. Although our products may not weigh a lot, the bigger package takes up more space on a truck or plane.<\/p>",
+            "hide": false
+          }
+        },
+        "8fffe2bf-06b6-4238-bcd1-81406ab95d9a": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you offer gift wrapping?",
+            "answer": "<p>Unfortunately, we do not offer gift wrapping at this time.<\/p>",
+            "hide": false
+          }
+        },
+        "5cb1d05d-4fa6-41d8-9420-e5d0ee3f2cde": {
+          "type": "faq",
+          "settings": {
+            "title": "I’d love to give CALPAK as a gift! Do you offer gift receipts?",
+            "answer": "<p>We're so happy to hear that! We do not offer gift receipts at this time. Not to worry, each order is shipped out with a packing slip that doesn't include pricing.<\/p>",
+            "hide": false
+          }
+        },
+        "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "I missed the sale!  Do you price match?",
+            "answer": "<p>If an item you purchased from CALPAK is discounted within five (5) days of the date of purchase, we will honor a one-time price adjustment on full-price purchases.  <br\/><br\/>Items that are on sale on websites other than calpaktravel.com are ineligible for price adjustments.<br\/><br\/>The product must be in stock and identical in size, color, and quantity.<br\/><br\/>We are not able to apply any promo codes or rewards points to orders that have already been placed.  <\/p>",
+            "hide": false
+          }
+        },
+        "7b1579b5-4bf3-405c-bdba-7b97ae5faf40": {
+          "type": "faq",
+          "settings": {
+            "title": "I forgot to add a promo code. Can you apply it to my order?",
+            "answer": "<p>We are not able to apply any promo codes or rewards points to orders that have already been placed.<\/p>",
+            "hide": false
+          }
+        },
+        "c65bb8a8-b7c9-421e-9a50-3752d82dd873": {
+          "type": "faq",
+          "settings": {
+            "title": "I missed the sale! Do you price match?",
+            "answer": "<p>If an item you purchased from CALPAK is discounted within five (5) days of the date of purchase, we will honor a one-time price adjustment on full-price purchases.<br\/><br\/>Items that are on sale on websites other than calpaktravel.com are ineligible for price adjustments.<br\/><br\/>The product must be in stock and identical in size, color, and quantity.<\/p>",
+            "hide": false
+          }
+        },
+        "92a7b381-d524-4fcc-b81f-d154038a0b58": {
+          "type": "faq",
+          "settings": {
+            "title": "Having issues with Internet Explorer?",
+            "answer": "<p>Calpaktravel.com is not currently supported on Internet Explorer; please use a different browser (i.e. Google Chrome, Safari, Firefox) to browse and shop our website. If you have any questions or concerns, please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "855fab7b-a226-4c8c-8fbd-5301f660eab6": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I pay with a gift card?",
+            "answer": "<p>Simply input the code into the Gift Card field at checkout. We know you'll love your purchase!<\/p>",
+            "hide": false
+          }
+        },
+        "810ba513-b8aa-40e3-8937-95e81a250519": {
+          "type": "faq",
+          "settings": {
+            "title": "Why isn't my promo code working?",
+            "answer": "<p>We're so sorry you're experiencing issues with your promo code. Please double check that the code is written properly. Next, check to make sure none of the items in your cart are already discounted in any way. This includes bundled sets. Promo codes are only eligible on full priced items. If you are still having trouble, feel free to reach out to us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "5a4a6416-cf20-4e15-9aa1-92f8f9c57d2a": {
+          "type": "faq",
+          "settings": {
+            "title": "I tried to place an order but it didn't go through, but my credit card was charged.",
+            "answer": "<p>If you recently attempted to place an order, you'll see an authorization for a \"pending charge\" on your bank statement. This is a really common bank practice that ensures there are sufficient funds while authenticating your account.<\/p><p>If your order was declined, denied, or canceled, this authorization will clear on its own (depending on your bank, it'll take anywhere from 1-8 business days).<\/p>",
+            "hide": false
+          }
+        },
+        "db40a325-8884-44b0-b60b-7616fa80c02f": {
+          "type": "faq",
+          "settings": {
+            "title": "My order was marked as delivered but I haven't received it yet.",
+            "answer": "<p>We typically ask that our customers give the shipping carrier 2 business days for their order to arrive once it has been marked as delivered. We have noticed that there is sometimes a delay between the order being marked as delivered and when it is actually received.<\/p><p>If you still haven't received it after the 2 business days have passed, please reach out to <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for further assistance.<\/p><p><em>Please note, all damaged or lost items must be reported to CALPAK within 30 days of delivery.<\/em><\/p>",
+            "hide": false
+          }
+        },
+        "300f8311-748d-4a5b-b3af-349ae6621f66": {
+          "type": "faq",
+          "settings": {
+            "title": "I didn't receive my entire order. Some items are missing. When will the rest of my order arrive?",
+            "answer": "<p>Oh no! Please reach out to <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> to help resolve this issue.<\/p>",
+            "hide": false
+          }
+        },
+        "87a98544-5999-4760-88df-1d60aadb5f0d": {
+          "type": "faq",
+          "settings": {
+            "title": "My package was stolen. What do I do?",
+            "answer": "<p>We're so sorry to hear that. We are not able to file claims on packages that are stolen. We recommend reaching out to your local authorities. <\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "43e90bc7-f67a-4aed-8660-a2a7f73e653d",
+        "7689d0c4-d544-46ce-84cc-53d925e2832d",
+        "dcafaf36-9243-4b7d-9da2-bf710bc242d8",
+        "7027b98c-6ba5-47a0-969b-aab10f2e0960",
+        "843ea9d2-c97d-4b9d-8cc7-705debf92c79",
+        "403d1ec6-c522-41bc-a01b-72665d883bb0",
+        "c11c733f-2f29-4fab-b8ef-7a13393465f6",
+        "0329680a-687a-4e9a-8e8a-49b33c6e379c",
+        "38ac9020-9f88-48ff-af8c-741c8cf5abbe",
+        "27fdaec1-9fda-4db5-8caa-a5ce5a98859d",
+        "e16695fa-d2f2-46d4-a6b1-c5f8a42c8a82",
+        "ddebec36-47e2-466d-b86b-730a24417f7b",
+        "8fffe2bf-06b6-4238-bcd1-81406ab95d9a",
+        "5cb1d05d-4fa6-41d8-9420-e5d0ee3f2cde",
+        "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd",
+        "7b1579b5-4bf3-405c-bdba-7b97ae5faf40",
+        "c65bb8a8-b7c9-421e-9a50-3752d82dd873",
+        "92a7b381-d524-4fcc-b81f-d154038a0b58",
+        "855fab7b-a226-4c8c-8fbd-5301f660eab6",
+        "810ba513-b8aa-40e3-8937-95e81a250519",
+        "5a4a6416-cf20-4e15-9aa1-92f8f9c57d2a",
+        "db40a325-8884-44b0-b60b-7616fa80c02f",
+        "300f8311-748d-4a5b-b3af-349ae6621f66",
+        "87a98544-5999-4760-88df-1d60aadb5f0d"
+      ],
+      "settings": {
+        "title": "Ordering and Shipping",
+        "standalone": false
+      }
+    },
+    "1637771182451529bb": {
+      "type": "faq-category",
+      "blocks": {
+        "63051eb2-cf09-42f0-8d83-3dc46b0ee212": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I start the return process?",
+            "answer": "<p>Begin by visiting the <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\" target=\"_blank\" title=\"Returns and Exchanges\"><strong>CALPAK Returns<\/strong><\/a> page. From here you can choose if you want a different color or size, want a different product or just a refund. <br\/><br\/>For exchanges, you can try a new color \/ style \/ size for any item when selecting which items you’re sending back. This is based on available inventory. We’ll ship the new color \/ size right away!<br\/><br\/>If item is marked Final Sale, prices are as marked and all sales are final.<\/p><p>If you cannot find the email address of your order, please contact us at <a href=\"mailto:info@calpaks.com\" title=\"mailto:info@calpaks.com\">info@calpaks.com<\/a> for more help.<\/p>",
+            "hide": false
+          }
+        },
+        "d189c005-253e-4178-8469-c9b66e0e28ae": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "What is your return policy?",
+            "answer": "<p>We accept returns of unused products within 30 calendar days of order being placed. To start the process, visit our <a href=\"https:\/\/returns.calpaktravel.com\/\" title=\"https:\/\/returns.calpaktravel.com\/\">Returns Center<\/a>. <\/p><p><\/p><p>Returned items cannot show any signs of use, wear, tear, marks, scratches, alterations, or any kind of damage. Products must have their original packaging, shipping carton and any uncut hang tags. We reserve the right to reject any returned items with personal items left inside the product, as it indicates signs of use.<br\/><\/p><p>Non-returnable items (unless otherwise noted):<br\/>- Gift Cards<br\/>- Sale items marked as final sale<br\/>- Sample sale items<br\/>- Everyday Fresh Hand Sanitizer<br\/>- Freshen Up Linen & Room Spray<br\/>- Stay Fresh Kit<br\/>- Silk Neck Pillow & Eye Mask Set, as this is a personal use item<br\/>- Personalized items<\/p><p><\/p><p>If you're unsure whether your purchase is eligible for return, please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> with your order number for further assistance.<\/p>",
+            "hide": false
+          }
+        },
+        "2ad3a5b4-86c2-4223-ad8c-91d154029b3c": {
+          "type": "faq",
+          "settings": {
+            "title": "What is your return policy?",
+            "answer": "<p>Between November 14 to December 31st, we implement a holiday return policy. You’ll have until January 31st to process returns. To start the process, visit our <a href=\"https:\/\/returns.calpaktravel.com\/\" title=\"https:\/\/returns.calpaktravel.com\/\">Returns Center<\/a>.<br\/><br\/>Returned items cannot show any signs of use, wear, tear, marks, scratches, alterations, or any kind of damage. Products must have their original packaging, shipping carton and any uncut hang tags. We reserve the right to reject any returned items with personal items left inside the product, as it indicates signs of use.<br\/><br\/>Non-returnable items (unless otherwise noted):<br\/>- Gift Cards<br\/>- Sample or flash sale items<br\/>- Silk Travel Set<br\/>- Non-Medical Double Layered Face Masks<br\/>- Hand Sanitizers<br\/>- Linen and Room Sprays<br\/>- And any other items marked as final sale.<br\/><br\/>If you're unsure whether your purchase is eligible for return, please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> with your order number for further assistance. <\/p>",
+            "hide": false
+          }
+        },
+        "b2cff9d1-52fc-4393-8524-acb649517df7": {
+          "type": "faq",
+          "settings": {
+            "title": "Are returns free?",
+            "answer": "<p>Return shipping is not free, however, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items!<br\/><br\/>- Luggage: $14.95<br\/>- Bags & Accessories: $7.95<br\/>- Apparel: $4.95<\/p>",
+            "hide": false
+          }
+        },
+        "b0abc0d6-4eff-4efb-8c59-366cb3a3fd0d": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you issue refunds for returns?",
+            "answer": "<p>You have the option to receive a refund to your original form of payment, or an Instant Refund Voucher to use immediately on  <a href=\"https:\/\/www.calpaktravel.com\/\" title=\"https:\/\/www.calpaktravel.com\/\">calpaktravel.c<span style=\"text-decoration:underline\">om<\/span><\/a>. We issue refunds to your original form of payment as soon as we receive and approve your returned item. Once delivered, this process takes between 5-7 business days on our end.<\/p><p><\/p><p>If you received an item as a gift, refunds will be issued to the original purchase or if requested, store credit will be emailed to you. We are not able to offer refunds to anyone other than the original purchaser and their form of payment.<\/p>",
+            "hide": false
+          }
+        },
+        "cc4ac84b-6a4f-4aaa-9943-98b83b0d0208": {
+          "type": "faq",
+          "settings": {
+            "title": "I received the wrong product. What do I need to do to get the correct item?",
+            "answer": "<p>Please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> with your order number. We'll help resolve this right away!<\/p>",
+            "hide": false
+          }
+        },
+        "3ee4e5a7-19c0-4b58-a6e3-2c8d91f2135a": {
+          "type": "faq",
+          "settings": {
+            "title": "When will I receive my refund?",
+            "answer": "<p>You have the option to receive a refund to your original form of payment, or an Instant Refund Voucher to use immediately on calpaktravel.com. We issue refunds to your original form of payment as soon as we receive and approve your returned item.<\/p><p><\/p><p>For returns on gifts, refunds will be issued to the original purchase or if requested, store credit will be emailed to you. We are no able to offer refunds to anyone other than the original purchaser and their form of payment.<\/p>",
+            "hide": false
+          }
+        },
+        "e6d4fbd4-0410-414d-9a07-f920c563ba32": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I return a gift card?",
+            "answer": "<p>Unfortunately, e-Gift cards are not refundable and cannot be changed or cancelled. We suggest regifting loved ones so they can get what they truly want this year.<\/p>",
+            "hide": false
+          }
+        },
+        "b043ced1-ba1a-46c4-bea7-ef687450ba05": {
+          "type": "faq",
+          "settings": {
+            "title": "I received this as a gift, can I return it?",
+            "answer": "<p>Absolutely! We accept returns of unused items within 30 days of purchase. You will need your order number for reference. Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\" target=\"_blank\"><span style=\"text-decoration:underline\">here<\/span><\/a> to start your return.<\/p>",
+            "hide": false
+          }
+        },
+        "1e00cd68-f654-4f17-93a4-42bc0179ee2b": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I combine my returns using one shipping label?",
+            "answer": "<p>Sadly, we are unable to accommodate this request.<\/p>",
+            "hide": false
+          }
+        },
+        "22dcfb29-5f65-42d8-8e29-07ddf82554aa": {
+          "type": "faq",
+          "settings": {
+            "title": "My item arrived damaged. What should I do?",
+            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, or you can start a return through <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\" target=\"_blank\"><span style=\"text-decoration:underline\">our returns portal.<\/span><\/a><\/p>",
+            "hide": false
+          }
+        },
+        "f1386e4e-e0e5-4482-9cb9-6edfd65af7d8": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I return something that is marked as final sale?",
+            "answer": "<p>Items that are marked as final sale are not eligible for returns or exchanges.<\/p>",
+            "hide": false
+          }
+        },
+        "48143e7b-ea5c-48e1-afcc-765f77253166": {
+          "type": "faq",
+          "settings": {
+            "title": "I paid for shipping on my order. Will that be refunded when I return my order?",
+            "answer": "<p>Any shipping costs accrued at checkout are non-refundable.<\/p>",
+            "hide": false
+          }
+        },
+        "6df10641-a0f9-4444-9a5a-76dbc6c32abf": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I process an exchange?",
+            "answer": "<p>Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\" target=\"_blank\"><span style=\"text-decoration:underline\">here <\/span><\/a>to start your exchange.<\/p>",
+            "hide": false
+          }
+        },
+        "4de6cbb7-c6ad-4bbf-bfa3-343ea115b226": {
+          "type": "faq",
+          "settings": {
+            "title": "Apparel Returns",
+            "answer": "<p>If the item is not returned in resealable condition (deodorant, cigarette smoke, bodily fluids, etc.), then the item will be returned to you and considered final sale and nonreturnable.<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "63051eb2-cf09-42f0-8d83-3dc46b0ee212",
+        "d189c005-253e-4178-8469-c9b66e0e28ae",
+        "2ad3a5b4-86c2-4223-ad8c-91d154029b3c",
+        "b2cff9d1-52fc-4393-8524-acb649517df7",
+        "b0abc0d6-4eff-4efb-8c59-366cb3a3fd0d",
+        "cc4ac84b-6a4f-4aaa-9943-98b83b0d0208",
+        "3ee4e5a7-19c0-4b58-a6e3-2c8d91f2135a",
+        "e6d4fbd4-0410-414d-9a07-f920c563ba32",
+        "b043ced1-ba1a-46c4-bea7-ef687450ba05",
+        "1e00cd68-f654-4f17-93a4-42bc0179ee2b",
+        "22dcfb29-5f65-42d8-8e29-07ddf82554aa",
+        "f1386e4e-e0e5-4482-9cb9-6edfd65af7d8",
+        "48143e7b-ea5c-48e1-afcc-765f77253166",
+        "6df10641-a0f9-4444-9a5a-76dbc6c32abf",
+        "4de6cbb7-c6ad-4bbf-bfa3-343ea115b226"
+      ],
+      "settings": {
+        "title": "Returns and Exchanges",
+        "standalone": false
+      }
+    },
+    "1637771186cafa1053": {
+      "type": "faq-category",
+      "blocks": {
+        "cf51b26b-37bf-4f54-a0f9-47ac87f032fe": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I clean my luggage?",
+            "answer": "<p><strong>CLEANING WITH: MILD SOAP + WATER<\/strong><\/p><p><strong>[[https:\/\/vimeo.com\/403809937]]<\/strong><\/p><p><\/p><p><strong>CLEANING WITH: AN ADHESIVE REMOVER<\/strong><\/p><p><strong>[[https:\/\/vimeo.com\/403810298]]<\/strong><\/p><p><\/p><p><strong>CLEANING WITH: A MR. CLEAN MAGIC ERASER<\/strong><\/p><p>[[https:\/\/vimeo.com\/403810137]]<\/p>",
+            "hide": false
+          }
+        },
+        "acc7757d-61b0-42dc-94b5-d5f950835626": {
+          "type": "faq",
+          "settings": {
+            "title": "California Residents - Proposition 65 Warning",
+            "answer": "<p>Proposition 65 (Prop 65), the Safe Drinking Water and Toxic Enforcement Act of 1986, is a California law that requires the state to keep a list of chemicals that the State of California has identified may cause cancer or reproductive toxicity. There are now over 950 chemicals on the Prop 65 hazardous substances list. The full list can be found on the California Office of Environmental Health Hazard Assessment (OEHHA) website.<br\/><br\/><br\/>As part of Prop 65, businesses selling products to people in California must provide “clear and reasonable warnings” before knowingly exposing people to any chemical on the list, unless the expected level of exposure would pose no significant cancer risk. <br\/><br\/>The law defines “no significant risk” as a level of exposure that would cause no more than 1 extra case of cancer in 100,000 people over a 70-year lifetime. So a compound can be unlabeled if a person exposed to the substance at the expected level for 70 years is estimated to have a 1 in 100,000 chance or less of getting cancer due to that exposure. The law also has similar strict cutoff levels for birth defects and reproductive harm.<br\/><br\/>There are many commonly used items that fall under Prop 65's mandates. Additionally, real estate properties are subject to California’s Prop 65 mandates due to the possibility of hazardous chemicals being present in the nearby environment. Some of the product categories sold in the State of California, and California locations that require California Prop 65 warning labels include: products made with leather, vinyl, foam, synthetic and non-woven material, beauty products, glassware, ceramics, batteries, retail stores, etc. <br\/><br\/>All of CALPAK parts and fabrics are made from durable and safe materials, in full compliance with federal safety regulations. However, as there are many chemicals used throughout the manufacturing process, it is possible that our products may contain trace amounts of one or more of the 950+ chemicals on the California Proposition 65 warning list. <br\/><br\/>Prop 65 warning labels are primarily used in the sale of products to California residents. We attach one to our products no matter where they go to inform the consumer, even though by law we are not required to do so if the consumer lives outside of California.Proposition 65 is more of a “right to know” law than a pure product safety law. Voters who approved Proposition 65 in 1986 intended that Californians should have a right to know when they may be exposed to chemicals that cause cancer or reproductive harm.There are trace amounts of these chemicals in more products than you may know, but only in California it is a requirement to tell the consumer.We hope that the information above helps in answering your questions, below are some links with more information on Prop 65 Act.<br\/><br\/>References:<br\/><a href=\"https:\/\/oehha.ca.gov\/proposition-65\/proposition-65-faqs\" title=\"https:\/\/oehha.ca.gov\/proposition-65\/proposition-65-faqs\">https:\/\/oehha.ca.gov\/proposition-65\/proposition-65-faqs<\/a><br\/><a href=\"https:\/\/oehha.ca.gov\/proposition-65\/proposition-65-list\" title=\"https:\/\/oehha.ca.gov\/proposition-65\/proposition-65-list\">https:\/\/oehha.ca.gov\/proposition-65\/proposition-65-list<\/a><\/p><p>Still need help? Contact Us.<\/p>",
+            "hide": false
+          }
+        },
+        "45aa6542-a8ec-4ffa-be28-3b8e50162274": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I buy individual luggage pieces if they are only offered in a set?",
+            "answer": "<p>We're always working on adding new collections for individual sale. If it is not available on our website as a single item, it's not available for individual sale at this time.<\/p><p><\/p><p>For questions about specific collections, please contact us at <a href=\"mailto:info@calpaks.com\" title=\"mailto:info@calpaks.com\">info@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "e6cbfe9e-ceac-4060-900d-ba7c51aefbce": {
+          "type": "faq",
+          "settings": {
+            "title": "Is the Silk Travel Set Washable?",
+            "answer": "<p>Yes! We designed the Silk Travel Set to be washable, perfect for travel adventures near and far.<br\/><br\/>The Silk Neck Pillow has a removable cover. Unzip the cover, hand wash in cold water and let it air dry.<br\/><br\/>The Silk Eye Mask can also be hand washed in cold water and air dried.<\/p>",
+            "hide": false
+          }
+        },
+        "94087cb8-26bb-4ea9-ac61-d42a3d590fa2": {
+          "type": "faq",
+          "settings": {
+            "title": "What are the care instructions for your garments?",
+            "answer": "<p><strong>Apparel: <br\/><\/strong>Machine wash cold, tumble dry low. Do not bleach.<\/p><p><\/p><p><strong>Masks<br\/><\/strong>Machine wash cold, tumble dry low. Do not bleach.<br\/><em>*We recommend washing your mask before first use and after every wear.<\/em><\/p>",
+            "hide": false
+          }
+        },
+        "43972a4f-e1b7-44bd-9e5c-d17bfd137785": {
+          "type": "faq",
+          "settings": {
+            "title": "Should I expect any shrinkage for the apparel?",
+            "answer": "<p>The EVRY collection is pre-washed.  For the least shrinkage, we recommend washing in cold water and air drying or tumble drying on low heat.  <\/p>",
+            "hide": false
+          }
+        },
+        "5f0655cc-7260-4b87-8d8e-f3d2e79ecead": {
+          "type": "faq",
+          "settings": {
+            "title": "What kind of fabrics are used for the apparel?",
+            "answer": "<p>The EVRY collection is made of 100% cotton. <\/p>",
+            "hide": false
+          }
+        },
+        "262dde29-2977-4757-8232-672d9b2f1a96": {
+          "type": "faq",
+          "settings": {
+            "title": "How does your apparel sizing work?",
+            "answer": "<p>See size guides below. If you are between sizes, we recommend sizing down for tops and sizing up for bottoms.<\/p><p><\/p><p>((https:\/\/cdn.shopify.com\/s\/files\/1\/0941\/4996\/files\/Womens-Size-Guide2.jpg?v=1597693530))<\/p><p><\/p><p>((https:\/\/cdn.shopify.com\/s\/files\/1\/0941\/4996\/files\/Mens-Size-Guide.jpg?v=1594337463))<\/p>",
+            "hide": false
+          }
+        },
+        "8aa7b636-26c5-4660-9a50-41387230f5bb": {
+          "type": "faq",
+          "settings": {
+            "title": "Is your luggage waterproof?",
+            "answer": "<p>Most of CALPAK's luggage is water resistant. It is not water proof.<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "cf51b26b-37bf-4f54-a0f9-47ac87f032fe",
+        "acc7757d-61b0-42dc-94b5-d5f950835626",
+        "45aa6542-a8ec-4ffa-be28-3b8e50162274",
+        "e6cbfe9e-ceac-4060-900d-ba7c51aefbce",
+        "94087cb8-26bb-4ea9-ac61-d42a3d590fa2",
+        "43972a4f-e1b7-44bd-9e5c-d17bfd137785",
+        "5f0655cc-7260-4b87-8d8e-f3d2e79ecead",
+        "262dde29-2977-4757-8232-672d9b2f1a96",
+        "8aa7b636-26c5-4660-9a50-41387230f5bb"
+      ],
+      "settings": {
+        "title": "Products",
+        "standalone": false
+      }
+    },
+    "1637787188401c6dfe": {
+      "type": "faq-category",
+      "blocks": {
+        "e8f64f80-9835-4a3c-8898-ace8496edbf2": {
+          "type": "faq",
+          "settings": {
+            "title": "What if my bag arrives damaged at baggage claim?",
+            "answer": "<p>Our products are tested, tried and true. They are designed to withstand normal use, including regular handling by airlines. If the bag is damaged during transit, the airline is required to handle the damage claim. File one with them immediately. Each airline has different requirements - submitting a claim before you leave the premises, within a 24 hour window, etc. Be sure to make one right away.<\/p><p><\/p><p>Contact <a href=\"mailto:warranty@calpaks.com\" title=\"mailto:warranty@calpaks.com\">warranty@calpaks.com<\/a> for questions or assistance with your claim, we're happy to help.<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "e8f64f80-9835-4a3c-8898-ace8496edbf2"
+      ],
+      "settings": {
+        "title": "Airline Damage",
+        "standalone": false
+      }
+    },
+    "1637788912b118508f": {
+      "type": "faq-category",
+      "blocks": {
+        "e90c5d87-9166-4ffb-8645-129d72043260": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I set my TSA frame lock?",
+            "answer": "<p><strong>CALPAK TSA FRAME LOCK INSTRUCTIONS <\/strong><\/p><p>1. Set dials to 0-0-0 and gently press side buttons on lock to open luggage.<br\/>2. Locate the reset button on the interior of the lock.<br\/>3. Slide reset button on the interior of the lock from \"off\" to \"set\".  <br\/>4. Set your desired combination.  (Save your code in a safe place! Your lock cannot be opened or reset without your code.)<br\/>5. Slide the reset button on the interior of the lock from \"set\" to \"off\".<br\/>6. Close luggage and gently push down the lock.<br\/>7. Check lock by changing the dials. Side buttons should not push down.<br\/>8. Enter your secret combination.  Gently press side buttons to open luggage.<br\/>9. Repeat for other lock.  <\/p><p>[[https:\/\/vimeo.com\/403791387]]<\/p><p><em>Luggage collections with TSA frame locks: Jen Atkin<\/em><\/p><p><em>If you're unsure what lock your luggage has, please contact us with a photo of your lock at: <\/em><a href=\"mailto:mailto:help@calpaks.com\">help@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "9e64850c-e308-4380-8f08-dca33e8d24e1": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I set my TSA combination lock?",
+            "answer": "<p><strong>CALPAK TSA COMBINATION LOCK INSTRUCTIONS<\/strong>  <\/p><p>1. Set dials to 0-0-0<br\/>2. At the bottom of the lock, there is a small button.  Insert a pin or pen in the button.<br\/>3. Set your desired combination.  (Save your code in a safe place!  Your lock cannot be opened or reset without your code.)<br\/>4. Push the top button on the lock.  The bottom button will release.<br\/>5. Place the zipper pullers in the lock.<br\/>6. Check your lock by changing the dials.  Push the top button down.  Zipper pullers should not release.<br\/>7. Enter your secret code (that you set before).  Push the top button down.  Zipper pullers should release.<\/p><p>[[https:\/\/vimeo.com\/403791876]]<\/p><p><em>Luggage collections with TSA combination locks: Ambeur, Astyll, Cyprus, Wandr (except for carry-on with front pocket) <br\/><\/em><\/p><p><em>If you're unsure what lock your luggage has, please contact us with a photo of your lock at: <\/em><a href=\"mailto:mailto:help@calpaks.com\">help@calpaks.com<\/a>.<\/p><p><\/p><p><strong>CALPAK TSA COMBINATION LOCK (FLAT) INSTRUCTIONS <br\/><\/strong>1. Set dials to 0-0-0<br\/>2. At the top of the lock, there is a small button.  Insert a pin or pen in the button.<br\/>3. Set your desired combination.  (Save your code in a safe place!  Your lock cannot be opened or reset without your code.)<br\/>4. Push the slider upwards.  The top button will release.<br\/>5. Place the zipper pullers in the lock.<br\/>6. Check your lock by changing the dials.  Push the slider up.  Zipper pullers should not release.<br\/>7. Enter your secret code (that you set before).  Push the slider up.  Zipper pullers should release.<\/p><p>[[https:\/\/vimeo.com\/403791669]]<\/p><p><em>Luggage collections with TSA combination locks (flat): Gold Marble, Terrazzo, Medora, Oh Joy!<br\/><\/em><\/p><p><em>If you're unsure what lock your luggage has, please contact us with a photo of your lock at: <\/em><a href=\"mailto:mailto:help@calpaks.com\">help@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "3ef73d21-adca-40fb-bb7c-b85b77f1d623": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I reset my lock?",
+            "answer": "<p>Send a photo of your lock to <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>. We’ll get back to you within 2 business days. If it’s urgent, we recommend trying all the combinations between 0-0-0 and 9-9-9. We promise it takes less time than you would think (we happen to know from experience). <\/p>",
+            "hide": false
+          }
+        },
+        "4a613a9e-127b-4984-b823-5c1be0e4f528": {
+          "type": "faq",
+          "settings": {
+            "title": "I lost the key for my lock, what do I do?",
+            "answer": "<p>TSA- approved combination locks may have keyholes, but they are for TSA use-only and keys are only provided to their staff. However, if your product came with a set of keys, contact us at <a href=\"mailto:warranty@calpaks.com\" title=\"mailto:warranty@calpaks.com\">warranty@calpaks.com<\/a> with a photo of your lock.<\/p>",
+            "hide": false
+          }
+        },
+        "51987b1b-dbca-4234-ac69-955304b9880a": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I know if my lock is TSA-approved?",
+            "answer": "<p>Locks approved by the TSA (Transportation Security Administration) feature a red diamond logo. <br\/>((https:\/\/cdn.shopify.com\/s\/files\/1\/0941\/4996\/files\/file-PZyfkuErQz.png?v=1589852634))<br\/>In the US, the TSA may open checked luggage as part of their security screening process. With a TSA-approved lock, the staff can open it with a key and lock your luggage after screening. If your luggage has a lock that is not approved by the TSA, it may be broken in the process.<\/p>",
+            "hide": false
+          }
+        },
+        "d287bad9-80fe-4fae-a246-df43c83d3da1": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I set my TSA key lock?",
+            "answer": "<p><strong>CALPAK TSA KEY LOCK INSTRUCTIONS <\/strong><\/p><p>1. Insert zipper pullers into lock.<br\/>2. Insert the key and rotate counter-clockwise to lock.<br\/>3. Check your lock by sliding the key slide up. Zipper pullers should not release.  <br\/>4. Insert the key and rotate clockwise to unlock.<br\/>5. Slide the key slide upwards to unlock. Zipper pullers should release.<\/p><p>[[https:\/\/vimeo.com\/403790946]]<\/p><p><em>Luggage collections with TSA key locks: TRNK<br\/><\/em><\/p><p><em>If you're unsure what lock your luggage has, please contact us with a photo of your lock at: <\/em><a href=\"mailto:mailto:help@calpaks.com\">help@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "05c259e0-47d9-4c94-a7d7-58df4bea87be": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I set my double TSA key lock?",
+            "answer": "<p><strong>CALPAK DOUBLE TSA KEY LOCK INSTRUCTIONS<\/strong><\/p><p>1. Insert zipper pullers into lock from the bottom to the top.  Bottom zipper pullers are for the main compartment and the top zipper pullers are for the front pocket.<br\/>2. Insert the key and rotate clockwise to lock.<br\/>3. Check your lock by sliding the key slide up and down.  Zipper pullers should not release.  <br\/>4. Insert the key and rotate counter-clockwise to unlock.<br\/>5. Slide the key slide upwards and downwards to unlock.  Zipper pullers should release.<br\/>[[https:\/\/vimeo.com\/403791152]]<\/p><p><em>Luggage collections with double TSA key locks: Wandr carry-on with front pocket<br\/><\/em><\/p><p><em>If you're unsure what lock your luggage has, please contact us with a photo of your lock at: <\/em><a href=\"mailto:mailto:help@calpaks.com\">help@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "d0c56e78-190c-487c-99cf-6c892fa52a6f": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I reset my non-TSA lock?",
+            "answer": "<p>((https:\/\/cdn.shopify.com\/s\/files\/1\/0941\/4996\/files\/restting-non-tsa-lock.png?v=1589858804))<\/p><p><\/p><p><strong>Instruction Video:<\/strong><br\/>[[https:\/\/vimeo.com\/403779286]]<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "e90c5d87-9166-4ffb-8645-129d72043260",
+        "9e64850c-e308-4380-8f08-dca33e8d24e1",
+        "3ef73d21-adca-40fb-bb7c-b85b77f1d623",
+        "4a613a9e-127b-4984-b823-5c1be0e4f528",
+        "51987b1b-dbca-4234-ac69-955304b9880a",
+        "d287bad9-80fe-4fae-a246-df43c83d3da1",
+        "05c259e0-47d9-4c94-a7d7-58df4bea87be",
+        "d0c56e78-190c-487c-99cf-6c892fa52a6f"
+      ],
+      "settings": {
+        "title": "Locks",
+        "standalone": false
+      }
+    },
+    "1637842042a7d31208": {
+      "type": "faq-category",
+      "blocks": {
+        "95ddffd6-ecee-452f-8b85-3c99c69b6c29": {
+          "type": "faq",
+          "settings": {
+            "title": "What’s a VIT?",
+            "answer": "<p>A VIT is a Very Important Traveler. When you join the VIT Club, we reward you for traveling and spreading the word about CALPAK. Get ready for a special birthday gift, exclusive events, first access to sales, referral credits, and more.<\/p>",
+            "hide": false
+          }
+        },
+        "7a4e8cb7-7ed2-4dc3-81cc-1c278808d330": {
+          "type": "faq",
+          "settings": {
+            "title": "What are the perks of joining CALPAK VIT?",
+            "answer": "<p>First of all, you get $5 just for signing up—need we say more?<br\/><br\/>But that’s not the only VIT perk. Here are more :<br\/>• You’ll also be the first to know about all of our sales<br\/>• Get a special birthday gift<br\/>• Earn points (points = $) by following us on our social channels<br\/>• Get 5% back in points every time you purchase something from us and apply points toward future purchases.<br\/>• Receive $25 every time you successfully refer a friend.<br\/><br\/>It’s basically the easiest money you’ve ever made.<\/p>",
+            "hide": false
+          }
+        },
+        "ebc2b598-56aa-481f-a676-096b84bbcb3e": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I join CALPAK VIT?",
+            "answer": "<p>Easy! Simply create an account (<a href=\"https:\/\/www.calpaktravel.com\/account\/login\" target=\"_blank\" title=\"https:\/\/www.calpaktravel.com\/account\/login\">here<\/a>) and start earning points. Your $5 credit will be available to use immediately!<\/p>",
+            "hide": false
+          }
+        },
+        "2c702dea-e365-413d-b997-7ad4a3046674": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I combine my rewards points with different offers?",
+            "answer": "<p>Unfortunately, you can’t use a promo code and your reward points at the same time. But, good news! You <em>can<\/em> combine all of your reward points and use them at once.<\/p>",
+            "hide": false
+          }
+        },
+        "8a53336a-a512-4942-8083-2c2dcd82529f": {
+          "type": "faq",
+          "settings": {
+            "title": "Do points expire?",
+            "answer": "<p>Your points expire after 2 years after once they're earned leaving you ample time to use your points!<\/p>",
+            "hide": false
+          }
+        },
+        "49e7451a-5aff-49fd-b193-24b9ac47d178": {
+          "type": "faq",
+          "settings": {
+            "title": "Where do I check how many points I have?",
+            "answer": "<p>It’s easy—just log into your account and go to the rewards tab. You have to be signed in if you want to redeem your points.<\/p>",
+            "hide": false
+          }
+        },
+        "3e790342-1ce3-4cc6-b147-88f2165f878e": {
+          "type": "faq",
+          "settings": {
+            "title": "How many points can I use on my order?",
+            "answer": "<p>You can use as many points as you like on your order. Please note, that if you redeem your VIT points and your order total goes below the minimum threshold for free shipping, you will need to pay the cost of shipping. VIT points cannot be applied to shipping costs.<\/p>",
+            "hide": false
+          }
+        },
+        "594c516c-d436-4fb9-ac37-27485717623f": {
+          "type": "faq",
+          "settings": {
+            "title": "What makes a successful referral?",
+            "answer": "<p>When whoever you refer to CALPAK makes a purchase of $150 or more, you’ll get a $25 credit. Please note that it may take some time to show up in your rewards account. If it’s been over 24 hours, then contact us. There’s no limit to how many people you refer, so keep spreading the word and earning credit!<\/p>",
+            "hide": false
+          }
+        },
+        "3590200b-695c-4820-a88b-2b6f084bf85f": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I use my VIT points when checking out on my phone?",
+            "answer": "<p>Absolutely! Be sure to log into your VIT account before checking out. At any point during the checkout process, you can click the “show order summary” dropdown at the top of the page. From there, you will see the sliding scale for you to add your VIT points to your order. For further assistance, please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a>. <\/p>",
+            "hide": false
+          }
+        },
+        "8e94c41b-560e-4b72-b0ee-d7aa99ae4f14": {
+          "type": "faq",
+          "settings": {
+            "title": "Why aren’t my points showing up?",
+            "answer": "<p>It takes up to 24 hours for your points to show up. Didn’t get a confirmation email from us? Try checking your spam.<\/p><p><\/p><p>*Please note birthdays must be shared 30 days prior to the date.  If your birthday falls within the next 30 days, please reach out to our customer service team at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, and we're happy to help you add your birthday to our system!<\/p>",
+            "hide": false
+          }
+        },
+        "197cb980-8a4c-48f8-8218-f4196e8521a7": {
+          "type": "faq",
+          "settings": {
+            "title": "What if I forgot my password?",
+            "answer": "<p>Oh no! We can help with that. Head over to <a href=\"https:\/\/www.calpaktravel.com\/account\/login\" title=\"https:\/\/www.calpaktravel.com\/account\/login\">the account page<\/a> and hit 'forgot password.” Enter your email and you’ll receive an email shortly after to update your password.<\/p>",
+            "hide": false
+          }
+        },
+        "4b375046-8d93-4e0d-aace-9c3af29e42bf": {
+          "type": "faq",
+          "settings": {
+            "title": "I lost my referral link. How can I access it?",
+            "answer": "<p>If you log into your VIT account, on the left hand side, click on rewards.  From there, there should be a refer a friend section where you can obtain your referral link or send it out to your friends and family!<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "95ddffd6-ecee-452f-8b85-3c99c69b6c29",
+        "7a4e8cb7-7ed2-4dc3-81cc-1c278808d330",
+        "ebc2b598-56aa-481f-a676-096b84bbcb3e",
+        "2c702dea-e365-413d-b997-7ad4a3046674",
+        "8a53336a-a512-4942-8083-2c2dcd82529f",
+        "49e7451a-5aff-49fd-b193-24b9ac47d178",
+        "3e790342-1ce3-4cc6-b147-88f2165f878e",
+        "594c516c-d436-4fb9-ac37-27485717623f",
+        "3590200b-695c-4820-a88b-2b6f084bf85f",
+        "8e94c41b-560e-4b72-b0ee-d7aa99ae4f14",
+        "197cb980-8a4c-48f8-8218-f4196e8521a7",
+        "4b375046-8d93-4e0d-aace-9c3af29e42bf"
+      ],
+      "settings": {
+        "title": "VIT Rewards Program",
+        "standalone": false
+      }
+    },
+    "163784206218635dba": {
+      "type": "faq-category",
+      "blocks": {
+        "534ffa99-7529-4d0e-adde-96a4df51c747": {
+          "type": "faq",
+          "settings": {
+            "title": "Does my purchase come with a warranty?",
+            "answer": "<p>Yes, most of our products come with either 1 or 2-year limited warranty. Please see the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\" target=\"_blank\"><span style=\"text-decoration:underline\">Product Guarantee page<\/span><\/a> for more info. Purchases made from sample sales are sold as-is and are excluded from any warranties.<\/p><p>Please note, if the exact make and model of your luggage is no longer available, CALPAK will replace your luggage with something comparable.<\/p><p>Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" target=\"_blank\"><span style=\"text-decoration:underline\">here<\/span><\/a> to start a warranty claim. In partnership with Extend, we also have extended warranty plans available for post-purchase.<\/p>",
+            "hide": false
+          }
+        },
+        "4f9bd0b9-b741-4813-a98e-42a44ff5e40d": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I purchase an Extend Warranty?",
+            "answer": "<p>We can send you a unique link to purchase Extend within 30 days. Please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a> for more information.<\/p>",
+            "hide": false
+          }
+        },
+        "27e4ea8c-0040-4be2-b912-d8a34330c7cf": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "Does my purchase come with a warranty?",
+            "answer": "<p>Yes, most of our products come with either 1 or 2-year limited warranty. Please see the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\" target=\"_blank\"><span style=\"text-decoration:underline\">Product Guarantee page<\/span><\/a> for more info. Purchases made from sample sales are sold as-is and are excluded from any warranties.<\/p><p>Please note, if the exact make and model of your luggage is no longer available, CALPAK will replace your luggage with something comparable.<\/p><p>Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" target=\"_blank\"><span style=\"text-decoration:underline\">here<\/span><\/a> to start a warranty claim.<\/p>",
+            "hide": false
+          }
+        },
+        "a81a80dc-f897-41b9-8b68-c01b66b7282e": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you offer replacement parts?",
+            "answer": "<p>We only replace items with manufacturing defects, which do not include damage caused by normal wear and tear, misuse, improper care, negligence, accidents, or transport damage including those from the airline.<\/p><p>We send spare parts for easy repair issues. Here's more on that:<br\/>1. Most luggage can be easily repaired with a screwdriver and spare part. It's easy and usually takes less than 5 minutes.<br\/>2. Save time instead of waiting for your luggage to be returned to us. We can send you a spare part right away, which saves you weeks of waiting on repairs.<br\/>3. Repairing your luggage creates less waste! Instead of going into the trash, you can continue using your item.<\/p><p>Please note, if the exact spare part is no longer available, CALPAK will do its best to provide you with a part that will maintain the functionality of the product. However, it may not be an exact match.<\/p><p>For warranty issues or to request a spare part, email us at <a href=\"mailto:warranty@calpaks.com\" title=\"mailto:warranty@calpaks.com\">warranty@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "ca3f7175-61fe-41a9-a258-185715d97b60": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I file a warranty claim?",
+            "answer": "<p>Warranty claims must be filed via email. We are not able to start the warranty process through text message or direct messages via CALPAK's social media accounts.<br\/><\/p><p>Start the process of your warranty claim <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" title=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\"><span style=\"text-decoration:underline\">here<\/span><\/a>. If you need to file an extended warranty claim, please reach out to Extend <a href=\"https:\/\/customers.extend.com\/claims\" title=\"https:\/\/customers.extend.com\/claims\">here<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "07ad2be4-2dae-4521-a5c8-6099c65ce3c9": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "How do I file a warranty claim?",
+            "answer": "<p>Start the process of your warranty claim <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" title=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\"><span style=\"text-decoration:underline\">here<\/span><\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "98aa9247-c9ef-41e3-9a24-786fd18c7dab": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I need to register for the warranty?",
+            "answer": "<p>We made it easy for you, so no warranty registration is required. Please include your receipt or proof of purchase for any warranty claims.<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "534ffa99-7529-4d0e-adde-96a4df51c747",
+        "4f9bd0b9-b741-4813-a98e-42a44ff5e40d",
+        "27e4ea8c-0040-4be2-b912-d8a34330c7cf",
+        "a81a80dc-f897-41b9-8b68-c01b66b7282e",
+        "ca3f7175-61fe-41a9-a258-185715d97b60",
+        "07ad2be4-2dae-4521-a5c8-6099c65ce3c9",
+        "98aa9247-c9ef-41e3-9a24-786fd18c7dab"
+      ],
+      "settings": {
+        "title": "Warranty",
+        "standalone": false
+      }
+    },
+    "1ed6c889-2fec-4418-b3df-6da34590377a": {
+      "type": "faq-category",
+      "blocks": {
+        "9df1bec9-66c0-422d-8bfe-ecea927d77cb": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I need to register for the warranty?",
+            "answer": "<p>We made it easy for you, so no warranty registration is required, even with Extend. Extend will reach out to you directly via email with information regarding your contract, including the contract ID, coverage dates, contact information, and a link to the full terms and conditions.<\/p>",
+            "hide": false
+          }
+        },
+        "431f274e-741b-4c15-84dc-619006d03362": {
+          "type": "faq",
+          "settings": {
+            "title": "What does the Extend Protection Plan with Accident Coverage cover?",
+            "answer": "<p>Accidents happen… but don’t worry! Your bag is protected in case of accidental rips, tears and snags; broken zippers; broken wheels and handles; delamination; and seam separation for the term of your Extend protection plan. And if your Extend plan’s term is longer than the manufacturer’s warranty, this plan also covers defects in workmanship and\/or materials, including normal wear and tear. This plan does not cover theft or damage caused by abuse or misuse, so be nice to your stuff. :-) You can find more details in the Protection Plan Terms below.<\/p>",
+            "hide": false
+          }
+        },
+        "497d8093-e718-4f7a-b7ae-6dc998666147": {
+          "type": "faq",
+          "settings": {
+            "title": "When does the Extend Protection Plan go into effect?",
+            "answer": "<p>Accident protection plans work a little differently than standard extended warranties. Your accident protection through Extend begins as soon as your purchase Extend and lasts for the full term of the plan you selected. The coverage from defects in workmanship and\/or materials, including normal wear and tear, starts after the manufacturer’s warranty expires. An example might make it a little clearer… Let's say that on January 1, 2021 you purchased a product with a one-year manufacturer's warranty along with a two-year accident protection plan from Extend. Extend would cover you for accidental damage from day one through January 1, 2023 (two total years). Your manufacturer's warranty would cover your product for manufacturing defects through January 1, 2022 (the first year), and then your Extend protection plan would protect you from defects in workmanship and\/or materials after your manufacturer warranty expires through January 1, 2023 (the second year). Make sense?<\/p>",
+            "hide": false
+          }
+        },
+        "75662d23-3bb0-4246-87eb-954f8af4741e": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I file a claim with Extend?",
+            "answer": "<p>We're always happy to help! Just reach out to us through our online claims portal for immediate service: <a href=\"https:\/\/customers.extend.com\/claims\" target=\"_blank\">https:\/\/customers.extend.com\/claims<\/a>. You can also get in touch by calling Extend at 1-877-248-7707.<\/p>",
+            "hide": false
+          }
+        },
+        "f361c6f3-2354-4d81-9a00-ae2cbd39bc2e": {
+          "type": "faq",
+          "settings": {
+            "title": "What is the difference between CALPAK's Limited Warranty and the Extend Protection Plan with Accident Coverage?",
+            "answer": "<p>The CALPAK 1 or 2-year Limited Warranty protects your product against defects in materials and workmanship.  Extend Protection Plan with Accident Coverage plan provides additional coverage for everyday accidents that may occur. Extend also provides coverage for product defects, once the Limited Warranty expires.<\/p>",
+            "hide": false
+          }
+        },
+        "456ed955-53d5-4be1-9c1f-fad32f271c74": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "Can I purchase Extend after I've placed my order?",
+            "answer": "<p>Yes! We can send you a unique link to purchase Extend within 30 days. Please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a> for more information.<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "9df1bec9-66c0-422d-8bfe-ecea927d77cb",
+        "431f274e-741b-4c15-84dc-619006d03362",
+        "497d8093-e718-4f7a-b7ae-6dc998666147",
+        "75662d23-3bb0-4246-87eb-954f8af4741e",
+        "f361c6f3-2354-4d81-9a00-ae2cbd39bc2e",
+        "456ed955-53d5-4be1-9c1f-fad32f271c74"
+      ],
+      "settings": {
+        "title": "Extend Warranty",
+        "standalone": false
+      }
+    },
+    "1637842202e54e6f9e": {
+      "type": "faq-category",
+      "blocks": {
+        "b5cb04b4-5e39-4f68-817a-a63506e9e238": {
+          "type": "faq",
+          "settings": {
+            "title": "I am an influencer who wants to shoot content in exchange for product. Who can I speak with?",
+            "answer": "<p>We're glad to hear you want to work with us! Please email <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a> for more info.<\/p>",
+            "hide": false
+          }
+        },
+        "cb018c62-f365-4535-a9d2-a14d6c467b1a": {
+          "type": "faq",
+          "settings": {
+            "title": "I would love to review a CALPAK product for my blog\/vlog\/etc. Who do I go to?",
+            "answer": "<p>Thanks for your interest, we'd be happy to chat more with you! Please email <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a> for more info.<\/p>",
+            "hide": false
+          }
+        },
+        "16ec8723-e4e3-49c9-a2dd-c17282509271": {
+          "type": "faq",
+          "settings": {
+            "title": "I'm a brand who wants to do a social media collab or giveaway. Who can I get in touch with?",
+            "answer": "<p>We'd love to hear from you! Please email <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a> for more info.<\/p>",
+            "hide": false
+          }
+        },
+        "3e251e0e-2f8d-46ff-af11-451b318a849a": {
+          "type": "faq",
+          "settings": {
+            "title": "I would like to use CALPAK products in TV\/film\/print\/digital for content. Who can I speak with?",
+            "answer": "<p>We're happy to hear you'd like to work with us! Please email <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a> for more info.<\/p>",
+            "hide": false
+          }
+        },
+        "b8824d18-351c-4b73-8433-e13ee7b15e02": {
+          "type": "faq",
+          "settings": {
+            "title": "Who do I contact for press opportunities?",
+            "answer": "<p>Get it touch with us at <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a>!<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "b5cb04b4-5e39-4f68-817a-a63506e9e238",
+        "cb018c62-f365-4535-a9d2-a14d6c467b1a",
+        "16ec8723-e4e3-49c9-a2dd-c17282509271",
+        "3e251e0e-2f8d-46ff-af11-451b318a849a",
+        "b8824d18-351c-4b73-8433-e13ee7b15e02"
+      ],
+      "settings": {
+        "title": "Partnerships",
+        "standalone": false
+      }
+    },
+    "357579df-919d-4f90-8765-4db6b9245c42": {
+      "type": "faq-category",
+      "blocks": {
+        "855e7094-f632-4bc1-afbb-2cd1c02cffcf": {
+          "type": "faq",
+          "settings": {
+            "title": "Does it cost anything to join the CALPAK affiliate program?",
+            "answer": "<p>No, joining our affiliate program is completely free! If your reader or follower visits CALPAK and makes a purchase within 30 days of clicking through your affiliate link, you will earn a commission on their entire sale.<\/p>",
+            "hide": false
+          }
+        },
+        "03fe1dcb-f356-4e36-ab76-4ad1d4af7eb0": {
+          "type": "faq",
+          "settings": {
+            "title": "How should I apply to the CALPAK affiliate program? ",
+            "answer": "<p>Simply click the <a href=\"https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106\" title=\"https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106\">affiliate signup link<\/a> and enroll in our program. If you're approved, you'll receive a follow up email from our team and can begin earning commission right away. <\/p>",
+            "hide": false
+          }
+        },
+        "3491e583-b6df-41c9-ac1d-f225c56fcdf4": {
+          "type": "faq",
+          "settings": {
+            "title": "What are the qualifications for being approved as an affiliate?",
+            "answer": "<p>We're looking for partners who can show us that they believe in our mission, want to go the mile with us, and would be a great representative of our brand. We’re looking for fresh voices to review our products, and are always open to providing CALPAK products to test for review, so we can get your experience in front of new audiences. <\/p>",
+            "hide": false
+          }
+        },
+        "6e712686-2d7e-475a-97d5-0e8a25860430": {
+          "type": "faq",
+          "settings": {
+            "title": "How will I know if someone made a purchase through my sharing link?",
+            "answer": "<p>CALPAK partners with Pepperjam, an affiliate network, to handle our program tracking, reporting, and payments. Once you’re approved to join our affiliate program, you’ll be able to login into your Pepperjam Account and check your real-time performance and earnings there. You’ll also be able to access our promos, text links, banners, and other helpful resources. CALPAK is available via Pepperjam, Skimlinks, LTK\/RewardStyle and MagicLinks! <\/p>",
+            "hide": false
+          }
+        },
+        "9e0c00ca-2e73-4e5a-9d86-558887a6011b": {
+          "type": "faq",
+          "settings": {
+            "title": "How is my commission calculated and paid to me?",
+            "answer": "<p>If your follower visits CALPAK and makes a purchase within 30 days of clicking through your affiliate link, you will earn a commission on their entire sale. Our affiliate provider automatically calculates your commissions and arranges payment to you on a monthly basis. You can check the commissions you’ve earned anytime in your Pepperjam account.<\/p>",
+            "hide": false
+          }
+        },
+        "029812c5-8a87-4257-8d9a-b2ee59be34a2": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I have to be located in the U.S. to become an affiliate? ",
+            "answer": "<p>Currently we only ship within the United States, so for now we're focusing on partners who have audiences based in the U.S. If this is you, then we’d love for you to apply!<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "855e7094-f632-4bc1-afbb-2cd1c02cffcf",
+        "03fe1dcb-f356-4e36-ab76-4ad1d4af7eb0",
+        "3491e583-b6df-41c9-ac1d-f225c56fcdf4",
+        "6e712686-2d7e-475a-97d5-0e8a25860430",
+        "9e0c00ca-2e73-4e5a-9d86-558887a6011b",
+        "029812c5-8a87-4257-8d9a-b2ee59be34a2"
+      ],
+      "settings": {
+        "title": "Affiliate Program",
+        "standalone": false
+      }
+    },
+    "16436522162fc874c3": {
+      "type": "faq-category",
+      "blocks": {
+        "1f974b82-b4f6-4f26-a5fa-9ad66f1cc9f8": {
+          "type": "faq",
+          "settings": {
+            "title": "What is your holiday return policy?",
+            "answer": "<p>For orders purchased between November 14 to December 31st, we implement a holiday return policy. You’ll have until January 31st to process returns. To start the process, visit our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\" target=\"_blank\" title=\"Returns and Exchanges\"><strong>Returns Center<\/strong><\/a>.<br\/><br\/>Returned items cannot show any signs of use, wear, tear, marks, scratches, alterations, or any kind of damage. Products must have their original packaging, shipping carton and any uncut hang tags. We reserve the right to reject any returned items with personal items left inside the product, as it indicates signs of use.<br\/><br\/>Learn more about returns <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq--returns-and-exchanges\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq--returns-and-exchanges\">here<\/a>.<br\/><br\/>Non-returnable items (unless otherwise noted):<br\/>- Gift Cards<br\/>- Sample or flash sale items<br\/>- Silk Travel Set<br\/>- Non-Medical Double Layered Face Masks<br\/>- Hand Sanitizers<br\/>- Linen and Room Sprays<br\/>- And any other items marked as final sale.<br\/><br\/>If you're unsure whether your purchase is eligible for return, please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> with your order number for further assistance.<\/p>",
+            "hide": false
+          }
+        },
+        "167d0533-ff5d-4b5f-8311-46f4bd36ec67": {
+          "type": "faq",
+          "settings": {
+            "title": "When is the last day I can place an order to receive in time for Christmas?",
+            "answer": "<p>The last day to place orders to receive by December 25th is:<br\/>- December 13 (12 pm PST) - Last day for Standard Ground Shipping<br\/>- December 20 (12 pm PST) - Last day for 2-day Shipping<\/p>",
+            "hide": false
+          }
+        },
+        "2bd66551-4c8c-427d-8a00-9a8a99636ce6": {
+          "type": "faq",
+          "settings": {
+            "title": "What items are final sale?",
+            "answer": "<p>Final sale items include:<br\/>- Silk Travel Set<br\/>- Non-Medical Double Layered Face Masks<br\/>- Hand Sanitizer<br\/>- Linen and Room Spray<br\/>- And any other items marked as final sale.<\/p>",
+            "hide": false
+          }
+        },
+        "5db9f25c-2d68-45bd-a773-dba75eacb7b7": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I return a gift?",
+            "answer": "<p>Visit the <a href=\"https:\/\/returns.calpaktravel.com\/\" target=\"_blank\" title=\"CALPAK Returns Center\">CALPAK Returns Center<\/a> and click the “Returning A Gift” link. Follow the instructions to initiate your return.<\/p>",
+            "hide": false
+          }
+        },
+        "d69846a3-04b0-4721-8e49-b814b38909c7": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I exchange a gift?",
+            "answer": "<p>Yes! You can do so through our returns platform. Start a gift exchange <a href=\"https:\/\/returns.calpaktravel.com\/gifts\" target=\"_blank\"><span style=\"text-decoration:underline\">here.<\/span><\/a><\/p>",
+            "hide": false
+          }
+        },
+        "9c1e3c0b-8284-43d7-b73b-79514b8a647f": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you offer expedited shipping?",
+            "answer": "<p>Yes! We have 2 day shipping available at checkout. If you choose this option, orders will be processed the same day for purchases made before 12pm noon PST. Any orders made after 12pm noon PST will be processed the next business day. Our offices are closed Saturday and Sunday, so orders made on Friday after 12 pm noon will be processed the following Monday.<\/p>",
+            "hide": false
+          }
+        },
+        "fdae85f4-5fb2-4fdf-89e6-25bdbbafa857": {
+          "type": "faq",
+          "settings": {
+            "title": "How long will it take for my order to ship?",
+            "answer": "<p>Orders may take longer to ship during the holidays. Due to higher order volumes, be sure to purchase early. You will receive shipping confirmation as soon as your order has shipped.<br\/><br\/>The last day to place orders for delivery before December 25th is:<\/p><p>- December 13 (12 pm PST) - Last day for Standard Ground Shipping<br\/>- December 20 (12 pm PST) - Last day for 2-day Shipping<\/p>",
+            "hide": false
+          }
+        },
+        "68db5738-33d7-4f96-9609-bfe7c78cb4ad": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you offer replacements?",
+            "answer": "<p>We only replace items with manufacturing defects, which do not include damage caused by normal wear and tear, misuse, improper care, negligence, accidents, or transport damage including those from the airline.<br\/><br\/>We send spare parts for easy repair issues. Here's more on that:<br\/>1. Most luggage can be easily repaired with a screwdriver and a spare part. It's easy and usually takes less than 5 minutes.<br\/>2. Save time instead of waiting for your luggage to be returned to us. We can send you a spare part right away, which saves you weeks of waiting on repairs.<br\/>3. Repairing your luggage creates less waste! Instead of going into the trash, you can continue using your item.<br\/><br\/>For warranty issues, email us at <a href=\"mailto:warranty@calpaks.com\" title=\"mailto:warranty@calpaks.com\">warranty@calpaks.com<\/a>.<\/p>",
+            "hide": false
+          }
+        },
+        "239ea9e9-c338-4649-9255-e44c4e996a87": {
+          "type": "faq",
+          "settings": {
+            "title": "Am I able to make any changes to my order once it is placed?",
+            "answer": "<p>We are unable to edit the order once it is placed, this includes cancellations, address changes, color changes, or changes in shipping speed.<br\/><br\/>You are welcome to return\/exchange your item, once it has been delivered. To do so, please visit our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">returns portal.<\/a><\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "1f974b82-b4f6-4f26-a5fa-9ad66f1cc9f8",
+        "167d0533-ff5d-4b5f-8311-46f4bd36ec67",
+        "2bd66551-4c8c-427d-8a00-9a8a99636ce6",
+        "5db9f25c-2d68-45bd-a773-dba75eacb7b7",
+        "d69846a3-04b0-4721-8e49-b814b38909c7",
+        "9c1e3c0b-8284-43d7-b73b-79514b8a647f",
+        "fdae85f4-5fb2-4fdf-89e6-25bdbbafa857",
+        "68db5738-33d7-4f96-9609-bfe7c78cb4ad",
+        "239ea9e9-c338-4649-9255-e44c4e996a87"
+      ],
+      "settings": {
+        "title": "Holiday",
+        "standalone": false
+      }
+    },
+    "1637842369c81abd36": {
+      "type": "faq-category",
+      "blocks": {
+        "b9650497-5a00-400d-bf9c-67c20cb02a73": {
+          "type": "faq",
+          "settings": {
+            "title": "I'm interested in selling CALPAK products in my store(s). How do I learn more?",
+            "answer": "<p>We're happy to hear you're interested in working with us! Please email <a href=\"mailto:sales@calpaks.com\" title=\"mailto:sales@calpaks.com\">sales@calpaks.com<\/a> for all wholesale and stocking inquiries.<\/p>",
+            "hide": false
+          }
+        },
+        "2cf72de5-0ec8-4c49-aec8-d2d4ae1d44ed": {
+          "type": "faq",
+          "settings": {
+            "title": "I would like to purchase a bulk order of CALPAK products. How do I find out more?",
+            "answer": "<p>That's great to hear! Please email us at <a href=\"mailto:sales@calpaks.com\" title=\"mailto:sales@calpaks.com\">sales@calpaks.com<\/a> for bulk order inquiries.<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "b9650497-5a00-400d-bf9c-67c20cb02a73",
+        "2cf72de5-0ec8-4c49-aec8-d2d4ae1d44ed"
+      ],
+      "settings": {
+        "title": "Wholesale",
+        "standalone": false
+      }
+    },
+    "1661913504fd35e8fe": {
+      "type": "faq-category",
+      "blocks": {
+        "936126ae-4ecc-427c-8ccb-7866fb12abf6": {
+          "type": "faq",
+          "settings": {
+            "title": "The product I want is out of stock. How often do you restock?",
+            "answer": "<p>We restock as soon as we receive the inventory. Please sign up for the waitlist on the product page to  be notified of any restocks!<\/p>",
+            "hide": false
+          }
+        },
+        "9697fbbc-6b06-47e9-9ab5-282a1a1ad669": {
+          "type": "faq",
+          "settings": {
+            "title": "Do you offer personalization or embossing on any of your products?",
+            "answer": "<p>At this time, we do not offer embossing or personalization on any of our products.<\/p>",
+            "hide": false
+          }
+        },
+        "2b45f485-2548-4421-9584-b984f12a0154": {
+          "type": "faq",
+          "settings": {
+            "title": "I’d love to see CALPAK in person before I place my order. Do you have any store locations?",
+            "answer": "<p>Sadly, we do not have Brick & Mortar locations. It's a dream for us, but not the right time yet :)<\/p><p>But, you may be able to find select CALPAK products in person at some of our retail partners!<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "936126ae-4ecc-427c-8ccb-7866fb12abf6",
+        "9697fbbc-6b06-47e9-9ab5-282a1a1ad669",
+        "2b45f485-2548-4421-9584-b984f12a0154"
+      ],
+      "settings": {
+        "title": "Other",
+        "standalone": false
+      }
+    }
+  },
+  "order": [
+    "faq-header",
+    "faq-sidebar",
+    "16377711606c4809bf",
+    "1637771182451529bb",
+    "1637771186cafa1053",
+    "1637787188401c6dfe",
+    "1637788912b118508f",
+    "1637842042a7d31208",
+    "163784206218635dba",
+    "1ed6c889-2fec-4418-b3df-6da34590377a",
+    "1637842202e54e6f9e",
+    "357579df-919d-4f90-8765-4db6b9245c42",
+    "16436522162fc874c3",
+    "1637842369c81abd36",
+    "1661913504fd35e8fe"
+  ]
+}

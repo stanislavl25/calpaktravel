@@ -1,5 +1,12 @@
 "use strict";
-console.log("search.js loaded");
+if(window.debug) console.log("search.js loaded");
+
+const headerSearchPlaceholders = document.querySelector('.site-header__menu-item .search-placeholders__inner');
+if(headerSearchPlaceholders) {
+    let searchPlaceholders = document.querySelector('.search-input__container .search-placeholders');
+    searchPlaceholders.setAttribute('data-num', headerSearchPlaceholders.parentNode.getAttribute('data-num'));
+    searchPlaceholders.querySelector('.search-placeholders__inner').innerHTML = headerSearchPlaceholders.innerHTML;
+}
 
 const seachSynonymsTerms = [
     'purple',
@@ -47,6 +54,8 @@ let searchThrottle = false;
 let lastSearch = false;
 let all_products_cache = false;
 let ga_send_timeout = false;
+
+fetch(`/collections/${settings.bestSellers}/products.json?limit=250`).then(response => response.json()).then(data => all_products_cache = data);
 
 function similarity(s1, s2) {
     var longer = s1;
@@ -115,26 +124,6 @@ function editDistance(s1, s2) {
     }
 
     return costs[s2.length];
-}
-
-function updateSearchItemVariant(variant, handle, item, backup_image) {
-    let option1 = handleize(variant.option1);
-
-    let item_links = item.querySelectorAll('a');
-    for(let j = 0; j < item_links.length; j++) {
-        let href = item_links[j].getAttribute('href').split('?');
-        if(href.length == 1) href[1] = '_pos='+ (j + 1) + '&_psq=&_ss=e';
-        item_links[j].setAttribute('href', '/products/' + handle + '/' + option1 + '?' + href[1]);
-    }
-
-    let sizes = '(max-width: 900px) 50vw, (max-width: 1080px) 150px, (max-width: 1300px) calc((90vw - 310px) / 4), calc((90vw - 310px) / 5)';
-
-    if(variant.featured_image) item.querySelector('.simple-prod-cell__image').innerHTML = get_image(variant.featured_image.src, sizes, true);
-    else item.querySelector('.simple-prod-cell__image').innerHTML = get_image(backup_image, sizes, true);
-    
-    // let price = formatPrice(variant.price);
-    // if(variant.compare_at_price > variant.price) price = '<s>' + formatPrice(variant.compare_at_price) + '</s> ' + price;
-    // item.querySelector('.simple-prod-cell__price').innerHTML = price;
 }
 
 function getOneVariant(variants, sale) {
@@ -247,7 +236,7 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
                 let variant = available_variants[i];
                 let option1 = handleize(variant.option1);
 
-                let sim = similarity2(search_word, option1) - j * 0.02;
+                const sim = similarity2(search_word, option1) - j * 0.02;
                 if( (!sale || (variant.compare_at_price * 1) > (variant.price * 1)) && sim > 0.9 && (color_match.length == 0 || color_match[0] < sim) ) {
 
                     // console.log(product.title, search_word, option1, sim);
@@ -265,7 +254,7 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
                 let option1 = handleize(variant.option1);
                 
                 for( var key in color_groups ) {
-                    sim = similarity2(search_word, key.replace('-', ' ')) - j * 0.02;
+                    const sim = similarity2(search_word, key.replace('-', ' ')) - j * 0.02;
                     if((!sale || (variant.compare_at_price * 1) > (variant.price * 1)) && sim > 0.9 && (color_match.length == 0 || color_match[0] < sim) ) {
                         for( let k = 0; k < color_groups[key].length; k++ ) {
                             if(color_groups[key][k] == option1) {
@@ -293,144 +282,84 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
     return best_match;
 }
 
-function getMoreSearchInfo(handle, item) {
-    $.ajax({
-        'url': '/products/' + handle,
-        'method': 'get',
-        'data': {view: 'search', cb: Date.now() }
-    }).done(function(data){
-        data = JSON.parse(data);
-        let stars = parseFloat(data.reviews) * 0.2;
-
-        item.querySelector('.search-form__item-stars').style.maxWidth = (64 * stars) + 'px';
-    });
-}
-
-function createSearchItem(product, available, matchedVariant, products_target, products_found, variantIsPreorder) {
+function createSearchItem(product, available, matchedVariant, products_target) {
     let newItem = document.createElement('div');
-    newItem.classList.add('simple-prod-cell');
+    newItem.classList.add('search-result__product');
+    let variant = '';
+    if(matchedVariant[1]) variant = handleize(matchedVariant[1].option1);
+
     products_target.appendChild(newItem);
 
-    let order = 500;
+    fetch(`/products/${product.handle}/${variant}?view=unit`).then(response => response.text()).then(data => {
+        newItem.innerHTML = data;
+        const productUnit = newItem.querySelector('.product-unit');
+        if(productUnitsObserver && productUnit) productUnitsObserver.observe(productUnit);
 
+        const qv = productUnit.querySelector('.quick-view__link');
+        if(qv) qv.addEventListener('click', quickViewClick);
+    });
+
+    let order = 500;
     if(typeof matchedVariant[2] != 'undefined') order -= Math.round(matchedVariant[2] * matchedVariant[0] * 200);
     if(typeof matchedVariant[3] != 'undefined') order += matchedVariant[3] * 50;
     if(!available) order += 100;
     if(product.title.indexOf('Luggage Cover') > -1) order = 200;
-    // console.log(matchedVariant, order);
     newItem.style.order = order;
-
-    if(variantIsPreorder) newItem.classList.add('simple-prod-cell--preorder');
-
-    let html = '';
-    let url = '';
-    if(typeof product.url != 'undefined') url = product.url;
-    else url = '/products/' + product.handle;
-
-    url += '?_pos=' + products_found + '&_psq=' + encodeURIComponent(lastSearch) + '&_ss=e&_v=1.0';
-
-    html += '<a class="search-result--product simple-prod-cell__link" href="'+ url +'"><div class="simple-prod-cell__image simple-prod-cell__image--loading"></div></a>';
-    html += '<div class="simple-prod-cell__info">';
-        html += '<div class="simple-prod-cell__title"><a class="search-result--product simple-prod-cell__link" href="' + url + '">' + product.title.replace(' - Jade', '').replace(' - Final', '').replace(' - FW', '') + '</a></div>';
-
-        let price_min = false, price_max = false, price_compare_min = false, price_compare_max = false;
-        for(let i = 0; i < product.variants.length; i++) {
-            let variant = product.variants[i];
-            if(variant.price && !isNaN(variant.price) && variant.price > 0) {
-                if(price_min === false || price_min > Number(variant.price)) price_min = Number(variant.price);
-                if(price_max === false || price_max < Number(variant.price)) price_max = Number(variant.price);
-            }
-            if(variant.compare_at_price && !isNaN(variant.compare_at_price)) {
-                if(price_compare_min === false || price_compare_min > Number(variant.compare_at_price)) price_compare_min = Number(variant.compare_at_price);
-                if(price_compare_max === false || price_compare_max < Number(variant.compare_at_price)) price_compare_max = Number(variant.compare_at_price);
-            }
-        }
-
-        html += '<div class="simple-prod-cell__price">';
-            if(price_compare_min !== false && price_compare_min > 0 && (price_compare_min > price_min || price_compare_max > price_max)) {
-                html += '<s>';
-                    html += formatPrice(Math.round(price_compare_min * 100));
-                    if(price_compare_max > price_compare_min) html += ' - ' + formatPrice(Math.round(price_compare_max * 100));
-                html += '</s> ';
-            }
-            html += formatPrice(Math.round(price_min * 100));
-            if(price_max > price_min) html += ' - ' + formatPrice(Math.round(price_max * 100));
-            if(!available) {
-                if(product.product_type.toLowerCase().indexOf('wear') > -1 || product.vendor.indexOf('Taco Bell') > -1)
-                    html += '<a class="variant-sold-out-message" href="' + url + '">Sold Out</a>';
-                else html += '<a class="variant-sold-out-message" href="' + url + '">Join Waitlist</a>';
-            }
-        html += '</div>';
-
-        html += '<div class="search-form__item-stars"></div>';
-    html += '</div>';
-
-    newItem.innerHTML = html;
-
-    let img = '';
-    if(product.images && product.images.length > 0) img = product.images[0].src;
-    updateSearchItemVariant(matchedVariant[1], product.handle, newItem, img);
-
-    if(product.handle != 'gift-card') getMoreSearchInfo(product.handle, newItem);
 }
 
 function searchProductsForMatches(products, search, color_search, ambiguity, or, sale, products_target) {
     let found = 0;
     for(let i = 0; i < products.length; i++) {
         let product = products[i];
-        let hide = [];
-        if(product.price == 0 || product.tags.indexOf('do not display') > -1) continue;
 
-        let tags = product.tags;
+        if(product.price == 0 || product.tags.indexOf('do not display') > -1) continue;
+        
+        let hide = [];
         let preorder = false;
-        for(let i = 0; i < tags.length; i++) {
-            if(tags[i].substring(0, 5) == 'hide:') hide.push(handleize(tags[i].substring(5)));
-            else if(tags[i].substring(0, 13) == 'early-access:') hide.push(handleize(tags[i].substring(13)));
-            else if(tags[i] == 'preorder' || tags[i].substring(0, 9) == 'preorder:') {
-                let explode = tags[i].split(':');
+        product.tags.forEach(tag => {
+            if(tag.substring(0, 5) == 'hide:') hide.push(...tag.substring(5).toLowerCase().split(';'));
+            else if(tag.substring(0, 13) == 'early-access:') hide.push(...tag.substring(5).toLowerCase().split(';'));
+            else if(tag == 'preorder' || tag.substring(0, 9) == 'preorder:') {
+                let explode = tag.split(':');
                 if(explode.length < 3) preorder = true;
                 else preorder = explode[2].split(';');
             }
-        }
+        });
 
         let visible_variants = [];
         let count_available = 0;
         // Getting all variants
-        for(let i = 0; i < product.variants.length; i++) {
-            let variant = product.variants[i];
+        product.variants.forEach(variant => {
             let option1 = handleize(variant.option1);
-    
+
             if(hide.indexOf(option1) === -1) {
                 visible_variants.push(variant);
                 if(variant.available) count_available++;
             }
-        }
+        });
+
 
         let matchedVariant = getMatchedVariants(product, search, color_search, visible_variants, ambiguity, or, sale);
-        if(!matchedVariant && similarity2('Compakt shoe bag', product.title) > 0.9 && similarity2(search.join(' '), 'packing cubes') > 0.8) {
-            matchedVariant = getMatchedVariants(product, [], color_search, visible_variants, true, false, sale);
-        }
+        
+        // if(!matchedVariant && similarity2('Compakt shoe bag', product.title) > 0.9 && similarity2(search.join(' '), 'packing cubes') > 0.8) {
+        //     matchedVariant = getMatchedVariants(product, [], color_search, visible_variants, true, false, sale);
+        // }
         
         if(!matchedVariant) continue;
         
         found++;
-        let variantIsPreorder = false;
-        if(preorder !== false && (preorder === true || preorder.indexOf(handleize(matchedVariant.option1)) > -1)) variantIsPreorder = true;
-        createSearchItem(product, count_available > 0, matchedVariant, products_target, found, variantIsPreorder);
+
+        createSearchItem(product, count_available > 0, matchedVariant, products_target);
     }
 
     return found;
 }
 
-function fillSearchProducts(results, form, search, color_search, ambiguity, or, sale) {
-    let expanded_sections = document.querySelectorAll('.search-form__result-section--expanded');
-    if(expanded_sections.length) for(let i = 0; i < expanded_sections.length; i++) expanded_sections[i].classList.remove('search-form__result-section--expanded');
-    let products_target = form.querySelector('.search-form__result--products .search-results__contents');
-    products_target.closest('.search-form__result').classList.remove('search-form__result--loading');
+function fillSearchProducts(results, container, search, color_search, ambiguity, or, sale) {
+    const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
 
     if(products_target && typeof results.products != 'undefined') {
-        let products = results.products;
-
+        const products = results.products;
         products_target.innerHTML = '';
 
         let products_found = 0;
@@ -446,146 +375,53 @@ function fillSearchProducts(results, form, search, color_search, ambiguity, or, 
             if(products_found == 0) products_found = searchProductsForMatches(products, [], color_search, ambiguity, or, sale, products_target);
         }
 
-        form.querySelector('.search-form__result--products').setAttribute('data-found', products_found);
-
-        if(products_found <= 4) {
-            let section = products_target.closest('.search-form__result-section');
-            if(section) section.classList.add('search-form__result-section--expanded');
+        if(products_found == 0) container.setAttribute('data-status', 'empty');
+        else {
+            const searchNums = container.querySelectorAll('.search-num');
+            searchNums.forEach(searchNum => searchNum.innerHTML = products_found);
+            container.setAttribute('data-status', 'results');
         }
-
-        if(products_found == 0) products_target.closest('.search-form__result').classList.remove('search-form__result--active');
-        else products_target.closest('.search-form__result').classList.add('search-form__result--active');
     }
-
-    form.setAttribute('data-status', 'success');
 }
 
-function fillSearchResults(results, form) {
-    let articles_target = form.querySelector('.search-form__result--articles .search-results__contents');
-    if(articles_target && typeof results.articles != 'undefined') {
-        let articles = results.articles;
+function fillSearchResults(results, container) {
+    const collectionsTarget = container.querySelector('.content-section--collections');
+    let collectionsFound = 0;
+    if(collectionsTarget && typeof results.collections != 'undefined') {
+        const collections = results.collections;
+        const collectionsTargetGrid = collectionsTarget.querySelector('.search__cards');
 
-        articles_target.innerHTML = '';
+        collectionsTargetGrid.innerHTML = '';
 
-        if(articles.length == 0) articles_target.parentNode.classList.remove('search-form__result--active');
-        else {
-            articles_target.parentNode.classList.add('search-form__result--active');
-
-            let articles_found = 0;
-            let sizes = '(max-width: 900px) 65vw, (max-width: 1080px) 200px, calc((90vw - 310px) / 3)';
-            for(let i = 0; i < articles.length && i < 6; i++) {
-                let article = articles[i];
-                
-                let newItem = document.createElement('div');
-                newItem.classList.add('search-article-cell');
-
-                articles_found++;
-
-                let html = '';
-
-                html += '<a href="' + article.url + '" class="search-result--blog search-article__image"><div class="image-ratio-container" style="padding-top: 75%">' + get_image(article.image, sizes, true) + '</div></a>';
-                html += '<div class="search-article__info">';
-                    let tag = false;
-                    for(let i = 0; i < article.tags.length; i++) {
-                        let _tg = article.tags[i].toLowerCase();
-                        if( _tg.indexOf('subcategory:') === -1 && _tg.indexOf('tag:') === -1 ) {
-                            tag = article.tags[i].replaceAll('-', ' ');
-                        }
-                    }
-
-                    if(tag !== false) {
-                        html += '<div class="search-article__category">' + tag + '</div>';
-                    }
-
-                    html += '<div class="search-article__title"><a class="search-result--blog" href="' + article.url + '">' + article.title + '</a></div>';
-                    html += '<a href="' + article.url + '" class="search-result--blog search-article__more">Read more</div>';
-                html += '</div>';
-
-                newItem.innerHTML = html;
-
-                articles_target.closest('.search-form__result--articles').classList.remove('search-form__result--scroll', 'search-form__result--mob-scroll');
-                if(articles_found > 3) articles_target.closest('.search-form__result--articles').classList.add('search-form__result--scroll');
-                else if(articles_found > 1) articles_target.closest('.search-form__result--articles').classList.add('search-form__result--mob-scroll');
-
-                articles_target.appendChild(newItem);
-            }
-        }
-    }
-
-    let pages_target = form.querySelector('.search-form__result--pages .search-results__contents');
-    if(pages_target && typeof results.pages != 'undefined') {
-        let pages = results.pages;
-
-        pages_target.innerHTML = '';
-        let pages_found = 0;
-        
-        for(let i = 0; i < pages.length; i++) {
-            let page = pages[i];
-            if(typeof page.body != 'undefined' && (page.body.indexOf('<!-- hide in search -->') > -1 || page.body.indexOf('<!--hide in search-->') > -1)) continue;
-                            
-            let newItem = document.createElement('div');
-            newItem.classList.add('search-res-cell');
-            newItem.innerHTML = '<a class="search-result--page" href="' + page.url + '">' + page.title + '</a>';
-            pages_target.appendChild(newItem);
-            pages_found++;
-            if(pages_found >= 5) break;
-        }
-
-        if(pages_found == 0) pages_target.parentNode.classList.remove('search-form__result--active');
-        else pages_target.parentNode.classList.add('search-form__result--active');
-    }
-
-    let collections_target = form.querySelector('.search-form__result--collections .search-results__contents');
-    let collection_cells = form.querySelector('.search-form__result--collection-cells .search-results__contents');
-    if(collections_target && typeof results.collections != 'undefined') {
-        let collections = results.collections;
-
-        collections_target.innerHTML = '';
-        collection_cells.innerHTML = '';
-
-        let collections_found = 0;
-        for(let i = 0; i < collections.length && i < 5; i++) {
+        for(let i = 0; i < collections.length; i++) {
             let collection = collections[i];
-
             if(collection.body.indexOf('hide in search') > -1 || collection.title.toLowerCase().indexOf('early access') > -1) continue;
 
-            collections_found++;
+            collectionsFound++;
 
-            let newItem = document.createElement('div');
-            newItem.classList.add('search-res-cell');
-            newItem.innerHTML = '<a class="search-result--collection" href="' + collection.url + '">' + collection.title + '</a>';
-            
-            collections_target.appendChild(newItem);
+            let newItem = document.createElement('a');
+            newItem.classList.add('search__card');
+            newItem.setAttribute('href', collection.url);
 
-            let newColCell = document.createElement('div');
-            newColCell.classList.add('simple-prod-cell');
-            newColCell.innerHTML = '<a href="' + collection.url + '" class="search-result--collection-cell"><div class="simple-prod-cell__image"></div></a>';
-            newColCell.innerHTML += '<div class="simple-prod-cell__info"><div class="simple-prod-cell__title"><a class="search-result--collection-cell" href="' + collection.url + '">' + collection.title + '</a></div></div>';
+            let img = '';
+            if(collection.featured_image != null && typeof collection.featured_image != 'undefined' && collection.featured_image.url != null) {
+                img = getImage(collection.featured_image.url, '300px', collection.title);
+            }
 
-            setSearchCollectionImage(collection, newColCell);
+            newItem.innerHTML = `<div class="search__card-image">${img}</div>
+            <div class="search__card-title">${collection.title}</div>`;
 
-            collection_cells.appendChild(newColCell);
+            collectionsTargetGrid.appendChild(newItem);
         }
 
-        if(collections_found > 0) {
-            collection_cells.parentNode.classList.add('search-form__result--active');
-            collections_target.parentNode.classList.add('search-form__result--active');
-        } else {
-            collection_cells.parentNode.classList.remove('search-form__result--active');
-            collections_target.parentNode.classList.remove('search-form__result--active');
-        }
+        const searchNums = container.querySelectorAll('.search-col-num');
+        searchNums.forEach(searchNum => searchNum.innerHTML = collectionsFound);
     }
 
-    form.setAttribute('data-status', 'success');
-}
-
-function setSearchCollectionImage(collection, newColCell) {
-    jQuery.getJSON(
-        '/collections/' + collection.handle + '/collection.json'
-    ).done(function(response) {
-        let sizes = '(max-width: 900px) 50vw, (max-width: 1080px) 150px, (max-width: 1300px) calc((90vw - 310px) / 4), calc((90vw - 310px) / 5)';
-        newColCell.querySelector('.simple-prod-cell__image').innerHTML = get_image(response.collection.image.src, sizes, false);
-    });
+    const side = container.querySelector('[data-id="results"] .menu-side');
+    if(collectionsFound == 0) {
+        side.style.display = 'none';
+    } else side.style.display = 'block';
 }
 
 function colorMatch(word) {
@@ -616,29 +452,8 @@ function colorMatch(word) {
     return results;
 }
 
-function performSearch(el) {
-    let s = el.value.trim();
-    let form = el.closest('.search-form');
-
-    if(lastSearch === s) return;
-    lastSearch = s;
-
-    sessionStorage.setItem('search', lastSearch);
-
-    if(s.length == 0) {
-        // form.setAttribute('data-status', 'init');
-        document.querySelector('.menu-popup--search').setAttribute('data-status', 'init');
-        return;
-    }
-
-    let search = [];
-    let color_search = [];
-    let generated_words = 0;
-    let ambiguity = false;
+function searchProcessQuery(split) {
     let or = false;
-
-    let split = s.toLowerCase().replace("'s", 's').match(/\b(\w+)\b/g);
-    if(!split) return;
 
     if(split.indexOf('print') > -1) {
         if(split.indexOf('animal') > -1) split.splice(split.indexOf('print'), 1);
@@ -699,10 +514,63 @@ function performSearch(el) {
         or = true;
     }
 
+    return [split, or];
+}
+
+function getAllProducts() {
+    return fetch(`/collections/${settings.bestSellers}/products.json?limit=250`).then(response => response.json());
+}
+
+function fillCollectionSearch(handle, container) {
+    fetch(`/collections/${handle}/products.json`).then(response => response.json()).then(data => {
+        if(data.products != null && typeof data.products != 'undefined') {
+            if(data.products.length > 0) {
+                const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
+                products_target.innerHTML = '';
+                container.setAttribute('data-status', 'results');
+                for(let i = 0; i < data.products.length; i++) {
+                    createSearchItem(data.products[i], data.products[i].available, [0, false], products_target);
+                }
+            }
+        }
+    });
+}
+
+async function performSearch(el) {
+    const s = el.value.trim();
+    const form = el.closest('.search-form');
+    const container = form.closest('.menu-popup--search');
+
+    if(lastSearch === s) return;
+    lastSearch = s;
+
+    sessionStorage.setItem('search', lastSearch);
+
+    if(s.length == 0) return container.setAttribute('data-status', 'init');
+
+    let search = [];
+    let color_search = [];
+    let generated_words = 0;
+    let ambiguity = false;
+
+    const searchTextLC = s.toLowerCase().replace("'s", 's');
+
+    if(searchTextLC.indexOf(':')) {
+        const searchExpl = searchTextLC.split(':');
+        if(searchExpl[0] == 'collection') {
+            fillCollectionSearch(searchExpl[1], container);
+            return;
+        }
+    }
+
+    let splitInit = searchTextLC.match(/\b(\w+)\b/g);
+    if(!splitInit) return;
+    
+    const [split, or] = searchProcessQuery(splitInit);
 
     // Generating word combinations
     if(split.length == 2) {
-        split.unshift(unsplited);
+        split.unshift(searchTextLC);
         generated_words = 1;
     } else if(split.length > 2) {
         let _split = Array.from(split);
@@ -808,120 +676,82 @@ function performSearch(el) {
         if(search.indexOf('duffle') > -1 || search.indexOf('duffel') > -1) search.splice(search.indexOf('bag'), 1);
     }
 
-    // if(ga_send_timeout) clearTimeout(ga_send_timeout);
-    // ga_send_timeout = setTimeout(function() {
-    //     if(lastSearch.length) {
-    //         // console.log('ga send', lastSearch);
-    //         ga('send', 'pageview', 'https://www.calpaktravel.com/pages/search-results-page?q=' + encodeURIComponent(lastSearch));
+    if(ga_send_timeout) clearTimeout(ga_send_timeout);
+    ga_send_timeout = setTimeout(function() {
+        if(lastSearch.length && ga) {
+            // console.log('ga send', lastSearch);
+            ga('send', 'pageview', 'https://www.calpaktravel.com/pages/search-results-page?q=' + encodeURIComponent(lastSearch));
 
-    //         gtag('event', 'page_view', {
-    //             page_title: 'Search',
-    //             page_location: window.location.href,
-    //             page_path: 'https://www.calpaktravel.com/pages/search-results-page?q=' + encodeURIComponent(lastSearch)
-    //         });
-    //     }
-    // }, 2000);
+            gtag('event', 'page_view', {
+                page_title: 'Search',
+                page_location: window.location.href,
+                page_path: 'https://www.calpaktravel.com/pages/search-results-page?q=' + encodeURIComponent(lastSearch)
+            });
+        }
+    }, 2000);
 
     if(color_search.indexOf('wavy') > -1) {
         search.push('wavy');
         ambiguity = true;
     }
 
-    if(search.length == 1 && search[0] == 'no')
-        document.querySelector('.menu-popup--search').setAttribute('data-status', 'empty');
-    else if(search.length == 0 && color_search.length == 0) {
-        document.querySelector('.menu-popup--search').setAttribute('data-status', 'init');
-    } else document.querySelector('.menu-popup--search').setAttribute('data-status', 'results');
+    if(search.length == 0 && color_search.length == 0 && sale == false) {
+        container.setAttribute('data-status', 'init');
+        return;
+    }
 
     console.log(search, color_search, ambiguity, or, sale);
 
-    // form.classList.add('search-form--loading');
+    let terms = container.querySelectorAll('.search-term');
+    terms.forEach(term => term.innerHTML = stripHTML(s));
+        
+    if(all_products_cache === false) {
+        form.classList.add('search-form--loading');
+        all_products_cache = await getAllProducts();
+        form.classList.remove('search-form--loading');
+    }
 
-    // let products_target = form.querySelector('.search-form__result--products .search-results__contents');
-    // if(products_target) products_target.closest('.search-form__result').classList.add('search-form__result--loading');
-    // if(all_products_cache !== false) {
-    //     form.classList.remove('search-form--loading');
-    //     fillSearchProducts(all_products_cache, form, search, color_search, ambiguity, or, sale);
-    // } else jQuery.getJSON(
-    //     '/collections/best-sellers/products.json?limit=250'
-    // ).done(function(response) {
-    //     form.classList.remove('search-form--loading');
-    //     all_products_cache = response;
+    fillSearchProducts(all_products_cache, container, search, color_search, ambiguity, or, sale);
 
-    //     fillSearchProducts(all_products_cache, form, search, color_search, ambiguity, or, sale);
-    // });
-    return;
-
+    //// COLLECTIONS AND ARTICLES ////    
     let alt_search = [];
     if(search.length == 0 && color_search.length > 0) alt_search = Array.from(color_search);
     else if(search.length > 0) alt_search = Array.from(search);
 
-    // console.log(alt_search);
     if(alt_search.length > 0) {
         let joined_search = alt_search.join(' ');
-        // if(joined_search.indexOf('carry on') > -1) joined_search = joined_search.replace('carry on', 'trip');
 
-        jQuery.getJSON(
-            '/search/suggest.json?q=' + encodeURIComponent(joined_search) + '&resources[options][unavailable_products]=last&resources[type]=article,page,collection&resources[limit]=10'
-        ).done(function(response) {
-            form.classList.remove('search-form--loading');
-            
-            if(alt_search.indexOf('warra') > -1 || alt_search.indexOf('warran') > -1 || alt_search.indexOf('warrant') > -1 || alt_search.indexOf('warranty') > -1) {
-                if(typeof response.resources.results.pages == 'undefined' ) response.resources.results.pages = [];
-                response.resources.results.pages.push({
-                    url: 'https://www.calpaktravel.com/pages/faq#page-faq-category-8',
-                    title: 'Warranty'
-                });
-            }
-
-            fillSearchResults(response.resources.results, form);
-        });
+        fetch(`/search/suggest.json?q=${encodeURIComponent(joined_search)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container));
     }
 }
 
-function openHeaderSearch() {
-    document.body.classList.add('search-active');
-    document.querySelector('.header-container .search-form').classList.add('search-form--displayed');
-    setTimeout(function() {
-        document.querySelector('.header-container .search-form').classList.add('search-form--active');
-    }, 0);
+// function openHeaderSearch() {
+//     document.body.classList.add('search-active');
+//     document.querySelector('.header-container .search-form').classList.add('search-form--displayed');
+//     setTimeout(function() {
+//         document.querySelector('.header-container .search-form').classList.add('search-form--active');
+//     }, 0);
 
-    let input = document.querySelector('.header-container .search-form .search-form__input');
-    if(sessionStorage.getItem('search') !== null && typeof sessionStorage.getItem('search') != 'undefined' && sessionStorage.getItem('search').length && input.value.length == 0) {
-        input.value = sessionStorage.getItem('search');
-        document.querySelector('.header-container .search-form__result--products').classList.add('search-form__result--loading');
-        let form = document.querySelector('.header-container .search-form');
-        form.setAttribute('data-status', 'loading');
-        performSearch(input);
-    } else if(all_products_cache === false) jQuery.getJSON('/collections/best-sellers/products.json?limit=250').done((response) => all_products_cache = response);
+//     let input = document.querySelector('.header-container .search-form .search-form__input');
+//     if(sessionStorage.getItem('search') !== null && typeof sessionStorage.getItem('search') != 'undefined' && sessionStorage.getItem('search').length && input.value.length == 0) {
+//         input.value = sessionStorage.getItem('search');
+//         document.querySelector('.header-container .search-form__result--products').classList.add('search-form__result--loading');
+//         let form = document.querySelector('.header-container .search-form');
 
-    input.focus();
-}
+//         performSearch(input);
+//     } else if(all_products_cache === false) jQuery.getJSON('/collections/best-sellers/products.json?limit=250').done((response) => all_products_cache = response);
+
+//     input.focus();
+// }
 
 // if(sessionStorage.getItem('search') !== null && typeof sessionStorage.getItem('search') != 'undefined' && sessionStorage.getItem('search').length && all_products_cache === false) jQuery.getJSON('/collections/best-sellers/products.json?limit=250').done((response) => all_products_cache = response);
 
 function closeHeaderSearch() {
-    document.querySelector('.search-popup__content .menu-close').click();
-    return;
-    let form = document.querySelector('.header-container .search-form');
-    document.body.classList.remove('search-active');
-    form.classList.remove('search-form--active');
     lastSearch = false;
-    
-    setTimeout(function() {
-        // form.setAttribute('data-status', 'init');
-        form.classList.remove('search-form--displayed');
-    }, 500);
+    document.querySelector('.search-popup__content .menu-close').click();
 }
 
 if(searchInput.length) {
-    // let searchViewAll = document.querySelectorAll('.search-view-all');
-    // if(searchViewAll.length > 0) for(let i = 0; i < searchViewAll.length; i++) searchViewAll[i].addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //     let section = this.closest('.search-form__result-section');
-    //     if(section) section.classList.add('search-form__result-section--expanded');
-    // });
-
     if(searchOverlay) searchOverlay.addEventListener('click', closeHeaderSearch);
 
     for(let i = 0; i < searchInput.length; i++) {
@@ -941,23 +771,18 @@ if(searchInput.length) {
     }
 }
 
-let searchActivate = document.querySelectorAll('.header-controls-icon--search');
-if(searchActivate.length) for(let i = 0; i < searchActivate.length; i++) searchActivate[i].addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    openHeaderSearch();
-});
-
-let searchDeactivate = document.querySelector('.search-form__hide');
-if(searchDeactivate) searchDeactivate.addEventListener('click', function(e) {
-    e.preventDefault();
-    closeHeaderSearch();
-});
-
-let searchFooterIcon = document.querySelector('.search__footer-icon');
-if(searchFooterIcon) searchFooterIcon.addEventListener('click', function(e) {
+const searchCategoriesButtons = document.querySelectorAll('.search__collections-buttons .button');
+searchCategoriesButtons.forEach(searchCategoriesButton => searchCategoriesButton.addEventListener('click', function(e) {
     e.preventDefault();
 
-    if(document.body.classList.contains('search-active')) closeHeaderSearch();
-    else openHeaderSearch();
-});
+    const container = this.closest('.search-popup__content');
+    if(!container) return;
+    
+    const input = container.querySelector('.search-input');
+    if(!input) return;
+
+    const handle = searchCategoriesButton.getAttribute('data-handle');
+    input.value = `collection:${handle}`;
+
+    performSearch(input);
+}));

@@ -1,0 +1,7 @@
+.shopify-section--html {
+    position: relative;
+}
+
+.html__section--padded {
+    padding: 0 var(--gap);
+}

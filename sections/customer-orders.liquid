@@ -1,0 +1,64 @@
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag }}
+
+<section class="customer__main">
+    {% render 'account-nav', current: 'orders' %}
+
+    <div class="account-info orders-container">
+        <div class="account-info__title">Review Your Order History</div>
+        
+        <div class="orders">
+
+        {% paginate customer.orders by 20 %}
+            {% if customer.orders.size != 0 %}
+                <div class="order-summary-container">
+                    {% for order in customer.orders %}
+                    <div class="order-summary">
+                        <div>
+                            <div class="order-id">
+                                Order No. {{ order.order_number }}
+                                <span class="order-price-mobile">{{ order.total_price | money_without_trailing_zeros }}</span>
+                            </div>
+                            <div class="order-status">
+                                <div>{{ order.line_items.size }} {{ order.line_items.size | pluralize: 'item', 'items' }} purchased on {{ order.created_at | date: '%m/%d/%y' }}</div>
+                                <div class="order-total-line">Order total = {{ order.total_price | money }}</div>
+                                <div class="order-status-check">
+                                    {%- assign order_key =  order.customer_url | split: '/orders/' | last -%}
+                                    {% comment %} <a href="https://checkout.shopify.com/9414996/orders/{{ order_key }}">Check Status</a> {% endcomment %}
+                                    <a href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-details-cont">
+                            <div class="order-details-link">
+                                <a class="button" href="{{ order.customer_url }}">See Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+                <div class="no-orders">
+                    <div>You haven't placed any orders yet.</div>
+                    <a class="button" href="/collections/best-sellers"><span>Start Shopping</span></a>
+                </div>
+            {% endif %}
+
+            {% if paginate.pages > 1 %}
+                <footer class="collection-footer">
+                    {% include 'pagination' %}
+                </footer>
+            {% endif %}
+        {% endpaginate %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Customer Orders",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

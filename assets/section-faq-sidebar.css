@@ -1,0 +1,35 @@
+.shopify-section--faq-sidebar {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+body .shopify-section--faq-category {
+    grid-column: 1;
+}
+
+.faq-category-sidebar {
+    position: sticky;
+    top: 140px;
+    background-color: #f7f7f7;
+    padding: 30px 35px 35px;
+    margin-right: var(--gap);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.faq-category-sidebar__title {
+    font-size: 36px;
+    line-height: 1.2em;
+    letter-spacing: -0.02em;
+}
+
+.faq-category-sidebar p {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .shopify-section--faq-sidebar {
+        display: none;
+    }
+}

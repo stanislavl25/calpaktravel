@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Returns and Exchanges",
+        "text": "<p>We accept returns of unused products within 30 calendar days of order being placed.<\/p>"
+      }
+    },
+    "returns": {
+      "type": "returns",
+      "blocks": {
+        "8f077be7-ef08-4982-af6c-b530ba955ffb": {
+          "type": "info",
+          "settings": {
+            "title": "I want a different color",
+            "image": "shopify:\/\/shop_images\/LUKA-DUFFEL-BAG-MERLOT-FRONT.jpg",
+            "desc-title": "Next Steps",
+            "description": "<p>1. Select the item you’re sending back. <br\/>2. You’ll be prompted to select a new size or color - do just that!<br\/>3. Print your return label and mail back the original item.<br\/>4. We’ll ship the new item to you right away.<\/p>",
+            "button-text": "Start a return",
+            "button-link": "https:\/\/returns.calpaktravel.com"
+          }
+        },
+        "c170393e-6233-4bbc-aaa8-c1d8690d8f3c": {
+          "type": "info",
+          "settings": {
+            "title": "I want a different product",
+            "image": "shopify:\/\/shop_images\/PC1601_Packing-Cubes_PINKSAND_1.jpg",
+            "desc-title": "Next Steps",
+            "description": "<p>1. Select the item you’re sending back. <br\/>2. You’ll be prompted to select a new size or color - do just that!<br\/>3. Print your return label and mail back the original item.<br\/>4. We’ll ship the new item to you right away.<\/p>",
+            "button-text": "Start a return",
+            "button-link": "https:\/\/returns.calpaktravel.com"
+          }
+        },
+        "99d3855c-b23b-46ba-89c1-0b1037d91f7f": {
+          "type": "info",
+          "settings": {
+            "title": "I want a refund",
+            "image": "shopify:\/\/shop_images\/kaya-laptop-backpack-caramel_a0da0de1-73fb-45c7-9ab2-ee22799dd9ee.jpg",
+            "desc-title": "Next Steps",
+            "description": "<p>1. Select the item you’re sending back. <br\/>2. You’ll be prompted to select a new size or color - do just that!<br\/>3. Print your return label and mail back the original item.<br\/>4. We’ll ship the new item to you right away.<\/p>",
+            "button-text": "Start a refund",
+            "button-link": "https:\/\/returns.calpaktravel.com"
+          }
+        }
+      },
+      "block_order": [
+        "8f077be7-ef08-4982-af6c-b530ba955ffb",
+        "c170393e-6233-4bbc-aaa8-c1d8690d8f3c",
+        "99d3855c-b23b-46ba-89c1-0b1037d91f7f"
+      ],
+      "settings": {
+        "title": "How would you like to proceed?"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "returns"
+  ]
+}

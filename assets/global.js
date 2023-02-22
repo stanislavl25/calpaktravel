@@ -3,20 +3,62 @@
 const color_groups = {
     'beige': ['beige', 'nude', 'linen', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
     'black': ['black', 'trnk-black', 'matte-black', 'ambeur-black', 'luka-black', 'brushed-black', 'wavy', 'eclipse', 'cheetah', 'plaid', 'obsidian', 'onyx', 'midnight-marble'],
-    'blue': ['astrology', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'sky', 'things-between', 'deep-sea', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
+    'blue': ['astrology', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
     'brown': ['papaya', 'sand-tide', 'pumpkin', 'gingham', 'espresso', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee'],
-    'green': ['pale-green', 'honeydew', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive'],
+    'green': ['pale-green', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive'],
     'grey': ['grey', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
     'lavender': ['lavender', 'orchid', 'things-between', 'groovy-blue', 'bloom'],
     'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold'],
     'orange': ['orange', 'papaya', 'retro-sunset', 'pumpkin', 'canyon'],
-    'pink': ['pink', 'dragonfruit', 'pink-sand', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink'],
+    'pink': ['pink', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink'],
     'print': ['astrology', 'trnk-almond', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity'],
-    'red': ['red', 'brick', 'terracotta', 'merlot', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon'],
+    'red': ['red', 'brick', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon'],
     'rose-gold': ['rose-gold', 'rosewood-tie-dye', 'jen-pink'],
     'white': ['white', 'linen', 'dove-grey', 'bloom', 'sky-tie-dye', 'sky-tie-dye-wash', 'white-bandana', 'confetti', 'cream', 'gold-marble', 'milk-marble', 'terrazzo', 'stone'],
     'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow']
 };
+
+const colors_img = ["trnk-grey", "trnk-black", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue"];
+
+function getColorGroup(color) {
+    for(let grp in color_groups) {
+        for(let i = 0; i < color_groups[grp].length; i++) {
+            if(color_groups[grp][i] == color) return {
+                group: grp,
+                colors: color_groups[grp]
+            };
+        }
+    }
+
+    return {
+        group: 'black',
+        colors: []
+    }
+}
+
+function getIndex(el) {
+    let i = 0;
+    while((el = el.previousElementSibling) != null) ++i;
+    return i;
+}
+
+function getIndexWithSelector(el, selector) {
+    let index = 0,
+        matches = el.parentNode.querySelectorAll(selector);
+    
+    if(matches.length == 0) return false;
+    
+    for(let i = 0; i < matches.length; i++) {
+        if(matches[i] == el) break;
+        index++;
+    }
+    return index;
+}
+
+const stripHTML = (text) =>{
+    return (new DOMParser()?.parseFromString(text,"text/html"))
+    ?.body?.textContent
+}
 
 function handleize(str) {
     if(!str) return '';
@@ -28,170 +70,35 @@ function unhandleize(str) {
     return str.replace('-', ' ');
 }
 
+function capitalize(str) {
+    str = str.toLowerCase();
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function formatPrice(x) {
-    x = Math.floor(x);// / 100;
+    x = Number(x);// / 100;
+    if(isNaN(x)) return x;
     return '$' + (x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace('.00', ''));
 }
 
-let searchPlaceholders = document.querySelectorAll('.search-placeholders');
-if(searchPlaceholders.length > 0) {
-    setInterval(() => {
-        for(let i = 0; i < searchPlaceholders.length; i++) {
-            const num = parseInt(searchPlaceholders[i].getAttribute('data-num'));
-            let page = searchPlaceholders[i].style.getPropertyValue('--page');
-            page++;
-            searchPlaceholders[i].style.setProperty('--page', page);
-
-            if(page >= num) {
-                setTimeout(() => {
-                    setTimeout(() => {
-                        searchPlaceholders[i].classList.add('search-placeholders--no-anim');
-                    }, 20);
-    
-                    setTimeout(() => {
-                        page = 0;
-                        searchPlaceholders[i].style.setProperty('--page', page);
-                    }, 70);
-                    
-                    setTimeout(() => {
-                        searchPlaceholders[i].classList.remove('search-placeholders--no-anim');
-                    }, 120);
-                }, 500);
-            }
-        }
-    }, 3000);
+function getImage(src, sizes = "", alt = "") {
+    return `<img src="${src}" srcset="${lazyloadImageSrcset(src)}" alt="${alt}" sizes="${sizes}">`
 }
 
-let searchActivator = document.querySelector('.header__search-link');
-searchActivator.addEventListener('click', async function(e) {
-    e.preventDefault();
-    
-    const actives = document.querySelectorAll('.menu-popup--visible');
-    for(let i = 0; i < actives.length; i++) actives[i].classList.remove('menu-popup--visible');
+function lazyloadImageSrcset(src) {
+    if(!src) return;
+    let widths = [100, 180, 300, 360, 450, 650, 800, 1000, 1200, 1600, 2000];
 
-    const header = document.querySelector('.site-header__nav');
-    setTimeout(() => header.removeAttribute('data-menu'), 500);
-    
-    document.querySelector('.menu-popup--search').classList.add('menu-popup--visible');
-    document.body.classList.add('modal-open');
+    src = src.split('?');
+    src = src[0].replace(/\.(jpg|png|jpeg|gif)/, '_{width}x.$1');
 
-    document.querySelector('.menu-popup--search .search-input').focus();
-
-    try {
-        if(typeof performSearch == 'undefined') {
-            let src = document.querySelector('.menu-popup--search').getAttribute('data-src');
-            await loadScript(src);
-        }
-        
-    } catch (e) {
-        console.log(e);
-    }
-});
-
-let quickViewLinks = document.querySelectorAll('.quick-view__link');
-if(quickViewLinks.length > 0) quickViewLinks.forEach(quickViewLink => quickViewLink.addEventListener('click', async function(e) {
-    e.preventDefault();
-
-    try {
-        if(typeof getQuickView == 'undefined') {
-            await loadScript(scripts.quickview);
-        }
-    } catch (e) {
-        console.log(e);
-    }
-    
-    getQuickView();
-}));
-
-let menuActivators = document.querySelectorAll('.menu-popup__activator');
-for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = this.getAttribute('data-target');
-    const header = document.querySelector('.site-header__nav');
-    const menu = document.querySelector('.menu-popup[data-id="' + target + '"]');
-
-    if(!menu) return;
-
-    if(menu.classList.contains('menu-popup--visible')) {
-        menu.classList.remove('menu-popup--visible');
-        setTimeout(() => header.removeAttribute('data-menu'), 500);
-        document.body.classList.remove('modal-open');
-        return;
+    let _image_srcset = [];
+    for(let i = 0; i < widths.length; i++) {
+        _image_srcset.push(src.replace('_{width}x.', '_'+widths[i]+'x.')+' '+widths[i]+'w');
     }
 
-    
-    const actives = document.querySelectorAll('.menu-popup--visible');
-    for(let i = 0; i < actives.length; i++) {
-        actives[i].classList.remove('menu-popup--visible');
-    }
-    
-    if(actives.length > 0) {
-        setTimeout(() => {
-            header.setAttribute('data-menu', target);
-            setTimeout(() => {
-                menu.classList.add('menu-popup--visible');
-            }, 5);
-        }, 300);
-    } else {
-        header.setAttribute('data-menu', target);
-        document.body.classList.add('modal-open');
-        setTimeout(() => {
-            menu.classList.add('menu-popup--visible');
-        }, 5);
-    }
-
-
-
-    const func = menu.getAttribute('data-func');
-    if(func && typeof window[func] === 'undefined') {
-        let src = menu.getAttribute('data-src');
-        loadScript(src);
-    }
-});
-
-let menuDeactivators = document.querySelectorAll('.menu-close');
-for(let i = 0; i < menuDeactivators.length; i++) menuDeactivators[i].addEventListener('click', function() {
-    let menuPopup = this.closest('.menu-popup');
-    if(menuPopup) {
-        menuPopup.classList.remove('menu-popup--visible');
-
-        const header = document.querySelector('.site-header__nav');
-        setTimeout(() => header.removeAttribute('data-menu'), 500);
-    }
-    document.body.classList.remove('modal-open');
-});
-
-let subnavActivators = document.querySelectorAll('.subnav__activator');
-for(let i = 0; i < subnavActivators.length; i++) subnavActivators[i].addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.closest('.subnav__container').classList.toggle('site-header__dropdown--active');
-});
-
-let notifiactionsActivator = document.querySelector('.header__notifications-link');
-let notifiactionPopup = document.querySelector('.notifications-popup');
-if(notifiactionsActivator && notifiactionPopup) {
-    
-    notifiactionsActivator.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        notifiactionPopup.classList.add('notifications-popup--active');
-
-        setTimeout(() => {
-            sessionStorage.setItem('notificationsSeen', true);
-            notifiactionsActivator.classList.remove('notifications-icon--active');
-        }, 500);
-    });
-
-    notifiactionPopup.querySelector('.menu-close').addEventListener('click', function(e) {
-        e.preventDefault();
-        notifiactionPopup.classList.remove('notifications-popup--active');
-    });
+    return _image_srcset;
 }
-
-let notificationsPopup = document.querySelector('.notifications-popup');
-if(notificationsPopup) notificationsPopup.addEventListener('click', (e) => e.stopPropagation());
-
 
 function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -205,251 +112,19 @@ function loadScript(src) {
     });
 }
 
-/////////////////////// SLIDERS //////////////////////////
+function loadStyle(src) {
+    return new Promise((resolve, reject) => {
+        const s = document.createElement('link');
 
-let sliderControls = document.querySelectorAll('.slider__control');
-for(let i = 0; i < sliderControls.length; i++) sliderControls[i].addEventListener('click', function(e) {
-    e.preventDefault();
-    let wrapper = this.closest('.slider__wrapper');
-    let gap = 0;
-    let slideNum = 1;
-    if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
-    if(wrapper.hasAttribute('data-slide')) slideNum = Number(wrapper.getAttribute('data-slide'));
-    if(window.innerWidth <= 900 && wrapper.hasAttribute('data-slide-mob')) slideNum = Number(wrapper.getAttribute('data-slide-mob'));
-    let slider = wrapper.querySelector('.slider');
-    let firstSlide = slider.querySelector('.slide');
-
-    if(!firstSlide) firstSlide = slider.querySelector('*');
-
-    let slideWidth = firstSlide.offsetWidth;
-    let currentScroll = slider.scrollLeft;
-    let maxScroll = slider.scrollWidth - slider.clientWidth;
-
-    let maxPage = Math.round(maxScroll / slideWidth);
-    let currentPage = Math.round(currentScroll / slideWidth);
-
-    if(this.classList.contains('slider__control--next')) {
-        if(currentPage < maxPage) {
-            currentPage += slideNum;
-            currentScroll = currentPage * slideWidth + gap;
-            slider.scrollLeft = currentScroll;
-        } else if(currentPage > maxPage) {
-            currentPage = maxPage;
-            currentScroll = maxScroll;
-            slider.scrollLeft = maxScroll;
-        } else {
-            currentScroll = maxScroll;
-            slider.scrollLeft = maxScroll;
-        }
-
-    } else if(this.classList.contains('slider__control--prev')) {
-        if(currentScroll > 0) currentPage -= slideNum;
-        if(currentPage < 0) currentPage = 0;
-
-        currentScroll = currentPage * slideWidth - gap;
-        slider.scrollLeft = currentScroll;
-    }
-
-    if(maxScroll - currentScroll < 20) {
-        wrapper.classList.add('slider__wrapper--end');
-        wrapper.classList.remove('slider__wrapper--start');
-    } else {
-        wrapper.classList.remove('slider__wrapper--end');
-    }
+        s.setAttribute('href', src);
+        s.setAttribute('rel', 'stylesheet');
+        s.setAttribute('type', 'text/css');
+        s.addEventListener('load', resolve);
+        s.addEventListener('error', reject);
     
-    if(currentPage == 0) {
-        wrapper.classList.add('slider__wrapper--start');
-        wrapper.classList.remove('slider__wrapper--end');
-    } else wrapper.classList.remove('slider__wrapper--start');
-});
-
-function moveToSlide(slider, currentPage = 0) {
-    // if(currentPage > 0) currentPage--;
-    let wrapper = slider.closest('.slider__wrapper');
-    let gap = 0;
-    if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
-    let firstSlide = slider.querySelector('.slide');
-    let vertical = slider.classList.contains('slider--vertical');
-
-    let maxScroll = 0;
-    
-    if(vertical) maxScroll = slider.scrollHeight - slider.clientHeight;
-    else maxScroll = slider.scrollWidth - slider.clientWidth;
-
-    if(maxScroll == 0) return;
-
-    if(!firstSlide) firstSlide = slider.querySelector('*');
-
-    let slideWidth = 0;
-
-    if(vertical) {
-        slideWidth = firstSlide.offsetHeight;
-    } else {
-        slideWidth = firstSlide.offsetWidth;
-    }
-
-    let currentScroll = (slideWidth + gap) * currentPage;
-
-    if(vertical) {
-        slider.scrollTop = currentScroll;
-    } else {
-        slider.scrollLeft = currentScroll;
-    }
-
-    if(maxScroll - currentScroll < 20) {
-        wrapper.classList.add('slider__wrapper--end');
-        wrapper.classList.remove('slider__wrapper--start');
-    } else {
-        wrapper.classList.remove('slider__wrapper--end');
-    }
-
-    if(currentPage == 0) {
-        wrapper.classList.add('slider__wrapper--start');
-        wrapper.classList.remove('slider__wrapper--end');
-    } else wrapper.classList.remove('slider__wrapper--start');
+        document.body.appendChild(s);
+    });
 }
-
-function checkSlider(slider) {
-    let wrapper = slider.closest('.slider__wrapper');
-    if(!wrapper) return;
-    let firstSlide = slider.querySelector('.slide');
-    if(!firstSlide) firstSlide = slider.querySelector('*');
-    if(!firstSlide) return;
-    let slideWidth = 0;
-    let vertical = slider.classList.contains('slider--vertical');
-
-    wrapper.classList.add('slider__wrapper--loaded');
-
-    let currentScroll = 0;
-    let maxScroll = 0;
-
-    if(vertical) {
-        currentScroll = Math.ceil(slider.scrollTop);
-        maxScroll = slider.scrollHeight - slider.clientHeight;
-        slideWidth = firstSlide.offsetHeight;
-    } else {
-        currentScroll = Math.ceil(slider.scrollLeft);
-        maxScroll = slider.scrollWidth - slider.clientWidth;
-        slideWidth = firstSlide.offsetWidth;
-    }
-
-    let maxPage = Math.round(maxScroll / slideWidth);
-    let currentPage = Math.round(currentScroll / slideWidth);
-
-    if(maxScroll == 0) {
-        wrapper.classList.add('slider__wrapper--end');
-        wrapper.classList.add('slider__wrapper--start');
-        return;
-    }
-
-    if(maxScroll - currentScroll < 20) wrapper.classList.add('slider__wrapper--end');
-    else wrapper.classList.remove('slider__wrapper--end');
-
-    if(currentPage == 0) wrapper.classList.add('slider__wrapper--start');
-    else wrapper.classList.remove('slider__wrapper--start');
-}
-
-let sliderThrottle = false;
-window.addEventListener("load", () => {
-    const sliders = document.querySelectorAll(".slider");
-    
-    let observer = new IntersectionObserver(function(entries){
-        entries.forEach(entry => {
-            if (entry.intersectionRatio > 0) {
-                observer.unobserve(entry.target);
-                let slider = entry.target;
-                let vertical = slider.classList.contains('slider--vertical');
-                slider.classList.add('scrolling-back');
-                if(vertical) slider.scrollTop = 0;
-                else slider.scrollLeft = 0;
-                setTimeout(() => slider.classList.remove('scrolling-back'), 10);
-
-                checkSlider(slider);
-
-                slider.addEventListener('scroll', function() {
-                    if(sliderThrottle !== false) clearTimeout(sliderThrottle);
-                    sliderThrottle = setTimeout(() => checkSlider(this), 305);
-                }, {passive: true});
-            
-                if(slider.hasAttribute('data-autoslide')) {
-                    let autoslide = Number(slider.getAttribute('data-autoslide'));
-                    if(!isNaN(autoslide)) runSlider(slider, autoslide);
-                }
-            }
-        });
-    }, {threshold: 0, rootMargin: '0px'});
-
-    sliders.forEach( slider => observer.observe(slider) );
-});
-
-function runSlider(slider, autoslide) {
-    setInterval(function() {
-        let wrapper = slider.closest('.slider__wrapper');
-        if(wrapper.matches(':hover')) return;
-
-        let vertical = slider.classList.contains('slider--vertical');
-        let slideWidth = 0;
-        let currentScroll = slider.scrollLeft;
-        if(vertical) currentScroll = slider.scrollTop;
-
-        let maxScroll = 0;
-        
-        if(vertical) {
-            maxScroll = slider.scrollHeight - slider.clientHeight;
-            slideWidth = slider.offsetHeight;
-        } else {
-            maxScroll = slider.scrollWidth - slider.clientWidth;
-            slideWidth = slider.offsetWidth;
-        }
-
-        let gap = 0;
-        if(wrapper && wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
-        
-        let maxPage = Math.round(maxScroll / slideWidth);
-        let currentPage = Math.round(currentScroll / slideWidth);
-    
-        currentPage++;
-    
-        if(vertical) slider.scrollTop = currentPage * slideWidth + gap;
-        else slider.scrollLeft = currentPage * slideWidth + gap;
-
-        if(currentPage >= maxPage) {
-            currentPage = 0;
-            setTimeout(function() {
-                slider.classList.add('scrolling-back');
-                if(vertical) setTimeout(() => slider.scrollTop = 0, 50);
-                else setTimeout(() => slider.scrollLeft = 0, 50);
-                setTimeout(() => slider.classList.remove('scrolling-back'), 50);
-            }, 1000);
-        }
-
-        let dots = wrapper.querySelectorAll('.slider__dot');
-        if(dots.length) {
-            for(let i = 0; i < dots.length; i++) dots[i].classList.remove('slider__dot--active');
-            dots[currentPage].classList.add('slider__dot--active');
-        }
-
-    }, autoslide * 1000);
-}
-
-const sliderDots = document.querySelectorAll('.slider__dot');
-if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', e => {
-    let index = 0;
-    let dots = e.target.parentNode.querySelectorAll('.slider__dot');
-    let wrapper = e.target.closest('.slider__wrapper');
-    if(!wrapper) return;
-
-    for(let i = 0; i < dots.length; i++) {
-        if(dots[i] == e.target) {
-            index = i;
-            dots[i].classList.add('slider__dot--active');
-        } else dots[i].classList.remove('slider__dot--active');
-    }
-
-    moveToSlide(wrapper.querySelector('.slider'), index);
-}));
-
-//////////////////// END SLIDERS /////////////////////////
 
 ///////////////////////// TABS ///////////////////////////
 
@@ -478,30 +153,48 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
 const stickyClose = document.querySelectorAll('.sticky-promo__close');
 stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.closest('.sticky-promo').style.display = "none"));
 
-
 /////////////////////// PRODUCT UNITS /////////////////////////
 
-function setProductUnitData(data, target) {
-    const product = data.product;
+function setProductData(product, meta, target, current_variant_id = false) {
+    const isProductUnit = target.classList.contains('product-unit');
+
     const handle = product.handle;
-    const tags = product.tags.split(', ');
+    let tags = product.tags;
+    if(typeof tags == 'string') tags = tags.split(', ');
     let colorIndex = false;
-    let hide = false;
+    let groups = [], hide = [];
+    let finalSale = [];
 
     tags.forEach(tag => {
-        if(tag.indexOf('hide:') === 0) {
+        let tg = handleize(tag);
+        if(tag.indexOf('group1:') > -1) {
+            groups[0] = tag.replace('group1:', '').split(':');
+            if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
+        } else if(tag.indexOf('group2:') > -1) {
+            groups[1] = tag.replace('group2:', '').split(':');
+            if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
+        } else if(tag.indexOf('hide:') === 0) {
             let _hide = tag.replace('hide:', '').split(';');
-            if(hide !== false) hide.push(..._hide);
-            else hide = _hide;
+            hide.push(..._hide);
         } else if(tag.indexOf('early-access:') === 0) {
             let _hide = tag.replace('early-access:', '').split(';');
-            if(hide !== false) hide.push(..._hide);
-            else hide = _hide;
+            hide.push(..._hide);
+        } else if(finalSale !== true && tg.indexOf('final-sale') === 0) {
+            if(tg == 'final-sale') finalSale = true;
+            else {
+                let finalSaleSplit = tag.split(':');
+                if(finalSaleSplit.length > 1) {
+                    let values = finalSaleSplit[1].split(';');
+                    if(values.length > 0) values.forEach(value => finalSale.push(handleize(value)));
+                }
+            }
         }
     });
 
     for(let i = 0; i < product.options.length; i++) {
-        if( product.options[i].name.toLowerCase().trim() == 'color' ) colorIndex = i;
+        let optionName = product.options[i];
+        if(product.options[i].name !== undefined) optionName = optionName.name;
+        if( optionName.toLowerCase().trim() == 'color' ) colorIndex = i;
     }
 
     let colors = {
@@ -509,11 +202,15 @@ function setProductUnitData(data, target) {
     };
 
     let options = '';
+    let maxPrice = false,
+        minPrice = false,
+        current_variant = false;
 
     product.variants.forEach(variant => {
         const opt1 = handleize(variant.option1);
         let opt2 = false;
         if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
+        
         let colorOption = false;
         if(colorIndex === 0) colorOption = opt1;
         else if(colorIndex === 1 && opt2 != false) colorOption = opt2;
@@ -527,8 +224,13 @@ function setProductUnitData(data, target) {
         }
 
         let selected = false;
+        if(current_variant_id === false || variant.id == current_variant_id) current_variant = variant;
+        if(current_variant.id == variant.id) {
+            selected = true;
+            current_variant_id = variant.id;
+        }
+
         if(colorOption !== false) {
-            if(colors._count == 0) selected = true;
 
             if(colorOption in colors) {
                 if(colors[colorOption].available === false && available === true) colors[colorOption].available = true;
@@ -544,24 +246,51 @@ function setProductUnitData(data, target) {
             }
         }
 
-        let img = '';
-        for(let i = 0; i < product.images.length; i++) {
-            const image = product.images[i];
-            if(image.variant_ids.indexOf(variant.id) > -1) {
-                img = image.src;
-                break;
-            }
+        let variantPrice = variant.price;
+        let variantComparePrice = false;
+        if(variant.compare_at_price && variant.compare_at_price > variant.price) variantComparePrice = variant.compare_at_price;
+
+        if(isProductUnit) {
+            if(maxPrice === false || variantPrice > maxPrice) maxPrice = variantPrice;
+            if(minPrice === false || variantPrice < minPrice) minPrice = variantPrice;
+        }
+
+        let preorder = false;
+        let hover = false;
+        if(meta) {
+            if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
+            else if(meta.preorder) preorder = meta.preorder;
+
+            if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
+        }
+
+        if(isProductUnit && selected && hover) {
+            let hoverImg = document.createElement('img');
+            hoverImg.setAttribute('src', hover);
+            hoverImg.setAttribute('srcset', lazyloadImageSrcset(hover));
+            hoverImg.classList.add('img-hover');
+            target.querySelector('.product-unit__image').appendChild(hoverImg);
+        }
+
+        let img = false;
+        if(isProductUnit) {
+            if(variant.featured_image) img = variant.featured_image.src;
         }
 
         options += `<option
                 ${selected?'selected="selected"':''}
-                data-image="${img}"
+                ${img?`data-image="${img}"`:''}
                 data-option1="${opt1}"
                 data-option2="${opt2}"
+                data-sku="${handleize(variant.sku)}"
+                ${hover?`data-hover="${hover}"`:''}
+                ${preorder?`data-preorder="${preorder}"`:''}
+                ${(finalSale === true || finalSale.indexOf(opt1) > -1)?'data-final-sale':''}
+                data-qty="${(variant.inventory_policy == 'deny' && variant.inventory_quantity <= 10)?variant.inventory_quantity:''}"
                 data-available="${available}"
                 value="${variant.id}"
-                data-price="${formatPrice(variant.price)}"
-                ${(variant.compare_at_price && variant.compare_at_price > variant.price)?`data-cprice="${formatPrice(variant.compare_at_price)}"`:''}
+                data-price="${variantPrice}"
+                ${variantComparePrice?`data-cprice="${variantComparePrice}"`:''}
                 >
                     ${variant.title}
             </option>`;
@@ -569,38 +298,111 @@ function setProductUnitData(data, target) {
 
     let select = document.createElement('select');
     select.classList.add('variant-select');
+    select.classList.add('hide');
     select.setAttribute('name', 'id');
     select.innerHTML = options;
     target.appendChild(select);
+
+    
+    if(!isProductUnit) {
+        let swatchesCheck = [], swatchesElements = [];
+        product.variants.forEach(variant => {
+            if(swatchesCheck.indexOf(variant.option1) === -1) {
+                swatchesCheck.push(variant.option1);
+                const varHandle = handleize(variant.option1);
+    
+                if(hide.indexOf(varHandle) === -1) {
+                    let pushGroupIndex = 0;
+                    if(
+                        groups.length > 0 && groups[0].length > 1 && 
+                        (groups[0][1].length === 0 || groups[0][1].indexOf(varHandle) === -1) && 
+                        (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1)
+                    ) {
+                        pushGroupIndex = 1;
+                    }
+    
+                    if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = [];
+
+                    let img = '';
+                    if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
+
+                    swatchesElements[pushGroupIndex] += `<a
+                        href="${shopUrl}/products/${product.handle}/${varHandle}"
+                        data-value="${varHandle}"
+                        title="${capitalize(variant.option1)}"
+                        class="color-swatch color-${varHandle}${colors[varHandle].available?'':' product-option--na'}">
+                            ` + img + `
+                        </a>`;
+                }
+            }
+        });
+
+        const swatchesGroupsEl = target.querySelector('.pdp__swatches-groups');
+        if(!swatchesGroupsEl) return;
+    
+        for(let i = 0; i < swatchesElements.length; i++) {
+            swatchesGroupsEl.innerHTML += `<div class="pdp__swatches-group">
+                ${groups.length > 0?`<label>${groups[i][0]}</label>`:''}
+                <div class="pdp__swatches">${swatchesElements[i]}</div>
+            </div>`;
+        }
+
+        const activeSwatch = swatchesGroupsEl.querySelector(`.color-swatch[data-value="${handleize(current_variant.option1)}"]`);
+        if(activeSwatch) activeSwatch.classList.add('color-swatch--active');
+        return;
+    } else {
+        select.setAttribute('data-min-price', minPrice);
+        select.setAttribute('data-max-price', maxPrice);
+        let date = new Date(product.created_at);
+        select.setAttribute('data-created', Math.floor(date.getTime() / 1000));
+    }
 
     if(colors._count === 0) return;
     target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
     target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
 
     const swatches = target.querySelector('.product-unit__swatches');
+    const colorsContainer = swatches.closest('.product-unit__colors');
+    const allColors = colorsContainer.classList.contains('product-unit__colors--all');
 
     for (const color in colors) {
         if(color == '_count') continue;
         let el = document.createElement('a');
         el.setAttribute('href', colors[color].url);
         el.classList.add('color-swatch');
+        if(allColors) el.classList.add('slide');
         el.classList.add('color-' + color);
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
-        if(colors[color].available === false) el.classList.add('color-swatch--na');
+        if(colors[color].available === false) el.classList.add('product-option--na');
         if(colors[color].selected === true) el.classList.add('color-swatch--active');
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
+
+        if(colors_img.indexOf(color) > -1) {
+            el.innerHTML = `<img src='${filesUrl.replace('file.svg', `${color}.png`)}'>`;
+        }
 
         swatches.appendChild(el);
     }
 
-    if( colors._count > 3 ) {
+    if(allColors) {
+        swatches.classList.add('slider');
+        const sliderWrapper = swatches.parentNode;
+        sliderWrapper.setAttribute('data-slide', 5);
+        sliderWrapper.setAttribute('data-gap', 9);
+        sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
+        sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+
+        checkSlider(sliderWrapper.querySelector('.slider'));
+    }
+
+    if( !allColors && colors._count > settings.swatchesLimit ) {
         const swatchesContainer = target.querySelector('.product-unit__swatches-container');
 
         let extra_colors = document.createElement('a');
         extra_colors.classList.add('extra-colors');
         extra_colors.setAttribute('href', `${shopUrl}/products/${handle}`);
-        extra_colors.innerHTML = '+' + (colors._count - 3);
+        extra_colors.innerHTML = '+' + (colors._count - settings.swatchesLimit);
 
         swatchesContainer.appendChild(extra_colors);
     }
@@ -608,49 +410,266 @@ function setProductUnitData(data, target) {
 
 function activateProductUnit(target) {
     if(target.classList.contains('product-unit--loaded')) return;
-    
     const handle = target.getAttribute('data-handle');
-
-    target.classList.add('product-unit--loaded');
-
+    
+    if(window.debug) console.log('Init product', handle);
+    
     return new Promise((resolve, reject) => {
-        fetch('/products/' + handle + '/product.json')
+        fetch('/products/' + handle + '?view=json')
         .then(response => response.json())
         .then(data => {
-            setProductUnitData(data, target);
+            setProductData(data.product, data.metafields, target);
+            target.classList.add('product-unit--loaded');
+            if(window.debug) console.log('Done product', handle);
             resolve(true);
         });
     })
 }
 
+function closeAllDropdowns() {
+    const openDropdowns = document.querySelectorAll('.site-header__dropdown--active');
+    if(openDropdowns.length > 0) openDropdowns.forEach(openDropdown => openDropdown.classList.remove('site-header__dropdown--active'));
+}
+
 window.addEventListener("click", async (e) => {
     if(e.target.classList.contains('color-swatch')) {
         e.preventDefault();
-
-        if(typeof swatchClickedCallback == 'undefined') {
+        if(typeof variantUpdateProcess == 'undefined') {
             await loadScript(scripts.variants);
         }
 
-        swatchClickedCallback(e.target);
+        const actives = e.target.closest('.swatches-container').querySelectorAll('.color-swatch--active');
+        actives.forEach( active => active.classList.remove('color-swatch--active') );
+        e.target.classList.add('color-swatch--active');
+
+        variantUpdateProcess(e.target);
+    } else if(e.target.classList.contains('product-option')) {
+        e.preventDefault();
+        if(typeof variantUpdateProcess == 'undefined') {
+            await loadScript(scripts.variants);
+        }
+
+        const actives = e.target.closest('.pdp__variant-buttons').querySelectorAll('.product-option--selected');
+        actives.forEach( active => active.classList.remove('product-option--selected') );
+        e.target.classList.add('product-option--selected');
+
+        variantUpdateProcess(e.target);
+    } else if(e.target.classList.contains('button--add-to-cart')) {
+        e.preventDefault();
+        let variant_id = false;
+        let mod = {
+            final: false,
+            preorder: false
+        };
+
+        let prnt = e.target.closest('.product-unit');
+        if(prnt) {
+            prnt.classList.add('adding-to-cart');
+            const select = prnt.querySelector('.variant-select');
+            variant_id = select.value;
+            mod.final = select.options[select.selectedIndex].hasAttribute('data-final-sale');
+            mod.preorder = select.options[select.selectedIndex].getAttribute('data-preorder');
+        } else {
+            variant_id = e.target.getAttribute('data-id');
+            mod.final = e.target.hasAttribute('data-final');
+            mod.preorder = e.target.getAttribute('data-preorder');
+        }
+
+        if(!variant_id) return;
+
+        if(typeof openCart == 'undefined') await activateCart();
+
+        addToCart(variant_id, 1, (data) => {
+            updateCart(data);
+            openCart();
+
+            if(prnt && prnt.classList.contains('adding-to-cart')) {
+                prnt.classList.add('added-to-cart');
+
+                setTimeout(() => {
+                    prnt.classList.remove('added-to-cart');
+                }, 3000);
+            }
+        }, () => {
+            if(prnt) prnt.classList.remove('adding-to-cart');
+        }, mod.final, mod.preorder);
     }
-    const openDropdowns = document.querySelectorAll('.site-header__dropdown--active');
-    if(openDropdowns.length > 0) openDropdowns.forEach(openDropdown => openDropdown.classList.remove('site-header__dropdown--active'));
+
+    closeAllDropdowns();
 
     const openNotifications = document.querySelector('.notifications-popup--active');
     if(openNotifications) openNotifications.classList.remove('notifications-popup--active');
-})
+});
 
-window.addEventListener("load", () => {
-    const productUnits = document.querySelectorAll(".product-unit");
+function activateVideoContainer(video) {
+    const url = video.getAttribute('data-video');
+
+    if(!video.classList.contains('video-iframe-container--loaded')) {
+
+        if(!video.classList.contains('video-iframe-container--contain')) {
+            const vimeoId = video.getAttribute('data-vimeo-id');
     
-    let observer = new IntersectionObserver(function(entries){
+            fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(`https://vimeo.com/${vimeoId}`)}`, {
+                method: 'GET',
+                cache: 'no-cache', 
+                mode: 'cors'
+            })
+            .then(response => response.json())
+            .then(response => {
+                video.style.setProperty('--ratio', `${response.width} / ${response.height}`)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        video.innerHTML = `<iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="${url}"></iframe>`;
+        video.classList.add('video-iframe-container--loaded');
+    }
+}
+
+async function quickViewClick(e) {
+    e.preventDefault();
+
+    try {
+        if(typeof getQuickView == 'undefined') {
+            await loadScript(scripts.quickview);
+            await loadStyle(styles.quickview);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+
+    let variant = false;
+    const productUnit = this.closest('.product-unit');
+    if(productUnit) {
+        let variantSelect = productUnit.querySelector('.variant-select');
+        if(variantSelect) variant = variantSelect.value;
+    }
+
+    getQuickView(this.getAttribute('href'), variant);
+}
+
+let productUnitsObserver = false;
+let videoObserver = false;
+window.addEventListener("load", () => {
+    productUnitsObserver = new IntersectionObserver(function(entries){
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
                 activateProductUnit(entry.target);
-                observer.unobserve(entry.target);
+                productUnitsObserver.unobserve(entry.target);
             }
         });
     }, {threshold: 0, rootMargin: '0px'});
 
-    productUnits.forEach( productUnit => observer.observe(productUnit) );
+    videoObserver = new IntersectionObserver(function(entries){
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                activateVideoContainer(entry.target);
+                videoObserver.unobserve(entry.target);
+            }
+        });
+    }, {threshold: 0, rootMargin: '0px'});
+
+    
+    const productUnits = document.querySelectorAll(".product-unit");
+    productUnits.forEach( productUnit => productUnitsObserver.observe(productUnit) );
+    
+    const videos = document.querySelectorAll(".video-iframe-container");
+    videos.forEach( video => videoObserver.observe(video) );
+
+    document.querySelectorAll('.quick-view__link').forEach(quickViewLink => quickViewLink.addEventListener('click', quickViewClick));
 });
+
+
+///////////////////////// CART ///////////////////////////
+
+const bagLink = document.querySelector('.open-cart-link');
+if(bagLink) bagLink.addEventListener('click', async function(e){
+    e.preventDefault();
+    if(typeof openCart == 'undefined') await activateCart();
+    
+    openCart();
+});
+
+function activateCart() {
+    let promises = [];
+    promises.push(loadScript(scripts.cart));
+    promises.push(loadStyle(styles.cart));
+
+    return Promise.all(promises);
+}
+
+///////////////////////// TIMERS ///////////////////////////
+function updateTimeouts(countdown_ticks) {
+    for(let i = 0; i < countdown_ticks.length; i++) {
+        let time_left = countdown_ticks[i].getAttribute('data-time');
+
+        time_left--;
+        countdown_ticks[i].setAttribute('data-time', time_left);
+
+        if(time_left < 0) {
+            return;
+        }
+
+        let d = 0;//Math.floor(time_left / 86400);
+        let h = Math.floor(time_left / 3600);
+        let m = Math.floor((time_left - h * 3600) / 60);
+        let s = time_left % 3600 % 60;
+
+        if(m < 10) m = '0' + m;
+        if(s < 10) s = '0' + s;
+
+        let timeLeftHtml = '';
+        if(d > 0) {
+            h -= 24 * d;
+            if(h < 10) h = '0' + h;
+            timeLeftHtml = '<span>' + d + 'D</span> : <span>' + h + 'H</span> : <span>' + m + 'M</span>';
+        } else {
+            if(h < 10) h = '0' + h;
+            timeLeftHtml = '<span>' + h + '</span> : <span>' + m + '</span> : <span>' + s + '</span>';
+        }
+
+        countdown_ticks[i].innerHTML = timeLeftHtml;
+    }
+}
+
+window.addEventListener("load", () => {
+    let countdown_ticks = document.querySelectorAll('.countdown-timer');
+
+    if(countdown_ticks.length) {
+        updateTimeouts(countdown_ticks);
+        setInterval(() => updateTimeouts(countdown_ticks), 1000);
+    }
+});
+
+function getProductOptionsList(productContainer, location = 'pdp') {
+    let options = [];
+    for(let i = 1; i <= 3 ; i++) {
+        const optCont = productContainer.querySelector(`.pdp__variants [data-position="${i}"], .product-unit__colors[data-position="${i}"]`);
+        
+        if(optCont) {
+            let value = false;
+            if(optCont.classList.contains('product-unit__colors')) {
+                let selectedOption = optCont.querySelector('.color-swatch--active');
+                if(selectedOption) value = selectedOption.getAttribute('data-value');
+            } else if(optCont.classList.contains('pdp__variant-buttons')) {
+                let selectedOption = optCont.querySelector('.product-option--selected');
+                if(selectedOption) value = selectedOption.getAttribute('data-value');
+            } else if(optCont.classList.contains('pdp__variant-color')) {
+                let selectedOption = optCont.querySelector('.color-swatch--active');
+                if(selectedOption) value = selectedOption.getAttribute('data-value');
+
+                if(location == 'pdp') {
+                    const selVar = optCont.querySelector('.pdp__selected-variant');
+                    if(selVar) selVar.innerHTML = selectedOption.getAttribute('title');
+                }
+            }
+
+            if(value === false) continue;
+            options.push(value);
+        }
+    }
+
+    return options;
+}

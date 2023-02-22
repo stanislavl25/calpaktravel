@@ -1,0 +1,17 @@
+{{ 'section-faq-sidebar.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="faq-category-sidebar">
+    <div class="faq-category-sidebar__title">Have questions?<br>We’re here to help.</div>
+    <p>Monday through Friday from <strong>10am - 5pm PST</strong></p>
+    <p>If you have questions that are not answered on this page, please email <a href="mailto:help@calpaks.com"><strong>help@calpaks.com</strong></a></p>
+</div>
+
+{% schema %}
+    {
+        "name": "FAQ Sidebar",
+        "class": "shopify-section--faq-sidebar",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

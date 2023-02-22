@@ -1,12 +1,46 @@
-{{ 'component-upsell.css' | asset_url | stylesheet_tag }}
+{%- liquid
+    assign upsell_items = false
+    assign set = false
+    if product.metafields.custom.pairs_well_with != blank
+        assign upsell_items = product.metafields.custom.pairs_well_with.value
+    else
+        for tag in product.tags
+            assign tg = tag | downcase
+            if tg contains "set:"
+                assign set = tg | replace: 'set:' | split: ';'
+                break
+            endif
+        endfor
+    endif
+-%}
+{%- if set != false or upsell_items != false -%}
+<section class="pdp__upsell slider__wrapper slider__wrapper--buttons-side">
+    {{ 'component-upsell.css' | asset_url | stylesheet_tag }}
+    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
 
-<section class="pdp__upsell slider__wrapper">
     {%- if title != blank -%}
-    <div class="pdp__upsell-title">{{- title | escape -}}</div>
+        <div class="pdp__upsell-title">{{- title | escape -}}</div>
     {%- endif -%}
+    
     <div class="slider slider--scrollbar">
-        {%- for product in collections['best-sellers'].products limit: 4 -%}
-        {%- render 'product-unit' with product, class: "slide", quick_view: true -%}
-        {%- endfor -%}
+        {%- liquid
+            if upsell_items != false
+                for upsell_item in upsell_items
+                    if upsell_item.handle != blank and upsell_item != blank
+                        render 'product-unit' with upsell_item, wishlist: true, class: "slide", quick_view: true
+                    endif
+                endfor
+            else
+                for set_product in set
+                    assign set_product = set_product | split: ':' | first
+                    assign prod = all_products[set_product]
+                    if prod.handle != blank and prod != blank
+                        render 'product-unit' with prod, wishlist: true, class: "slide", quick_view: true
+                    endif
+                endfor
+            endif
+        -%}
     </div>
 </section>
+{%- endif -%}

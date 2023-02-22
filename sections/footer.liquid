@@ -57,6 +57,9 @@
     </section>
 
     <div class="site-footer__bottom">
+        <div class="site-footer__copyright">
+            &copy; {{ 'now' | date: '%Y' }}, California Pak, LLC.
+        </div>
         {% if section.settings.bottom-menu != blank %}
         <ul class="site-footer__line-menu list-unstyled list-row">
             {%- for link in section.settings.bottom-menu.links -%}
@@ -68,9 +71,6 @@
             {%- endfor -%}
         </ul>
         {% endif %}
-        <div class="site-footer__copyright">
-            &copy; {{ 'now' | date: '%Y' }}, California Pak, LLC.
-        </div>
     </div>
 </footer>
 

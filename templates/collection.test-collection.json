@@ -1,0 +1,138 @@
+{
+  "sections": {
+    "collection-filter": {
+      "type": "collection-filter",
+      "settings": {
+        "menu": "collection-menu"
+      }
+    },
+    "d9c9aa22-d858-4d68-b0f6-c9c71a495406": {
+      "type": "collection-categories",
+      "blocks": {
+        "50edae48-a8d3-4720-9dcf-6758abba6070": {
+          "type": "filter",
+          "settings": {
+            "title": "Mini Carry-On",
+            "image": "shopify:\/\/shop_images\/Mini.png",
+            "description": "Height 16\""
+          }
+        },
+        "c9609b31-05c7-483e-b5cc-3555480dda4f": {
+          "type": "filter",
+          "settings": {
+            "title": "Carry-On",
+            "image": "shopify:\/\/shop_images\/Carry-On.png",
+            "description": "Height 20\"-22\""
+          }
+        },
+        "9476f7ad-44c9-4240-b0e4-559712454ce7": {
+          "type": "filter",
+          "settings": {
+            "title": "Medium",
+            "image": "shopify:\/\/shop_images\/Medium_1.png",
+            "description": "Height 24\"-26.5\""
+          }
+        },
+        "5cfa89e3-fb76-4b33-9618-a9424e96908b": {
+          "type": "filter",
+          "settings": {
+            "title": "Large",
+            "image": "shopify:\/\/shop_images\/Large.png",
+            "description": "Height 28.5\"-30\""
+          }
+        },
+        "64784c75-a92c-40e6-aee5-21f8561e38b5": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "title": "Trunk",
+            "description": "Height 30.8\"-31.8\""
+          }
+        },
+        "1f5a5a66-c9d6-40ad-a364-6a62925da29a": {
+          "type": "filter",
+          "settings": {
+            "title": "Sets",
+            "image": "shopify:\/\/shop_images\/2_Piece.png",
+            "description": "2 Piece"
+          }
+        },
+        "8509b6f6-86df-4eb2-9268-01e7fc3b720f": {
+          "type": "filter",
+          "settings": {
+            "title": "Sets",
+            "image": "shopify:\/\/shop_images\/3_Piece.png",
+            "description": "3 Piece"
+          }
+        },
+        "d9c27f3b-3ee5-4822-b2c5-ac68e6a10107": {
+          "type": "filter",
+          "settings": {
+            "title": "Hat Boxes",
+            "image": "shopify:\/\/shop_images\/Hat_Box.png",
+            "description": "Compact design"
+          }
+        },
+        "add39b26-df01-46bc-b66f-cf4dc7996040": {
+          "type": "filter",
+          "settings": {
+            "title": "Covers",
+            "image": "shopify:\/\/shop_images\/Luggage_Cover.png",
+            "description": "Keep your luggage safe"
+          }
+        },
+        "dbd6114b-64e0-41b1-abed-f584bc1e8458": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "title": "Accessories",
+            "description": "Lorem ipsum"
+          }
+        }
+      },
+      "block_order": [
+        "50edae48-a8d3-4720-9dcf-6758abba6070",
+        "c9609b31-05c7-483e-b5cc-3555480dda4f",
+        "9476f7ad-44c9-4240-b0e4-559712454ce7",
+        "5cfa89e3-fb76-4b33-9618-a9424e96908b",
+        "64784c75-a92c-40e6-aee5-21f8561e38b5",
+        "1f5a5a66-c9d6-40ad-a364-6a62925da29a",
+        "8509b6f6-86df-4eb2-9268-01e7fc3b720f",
+        "d9c27f3b-3ee5-4822-b2c5-ac68e6a10107",
+        "add39b26-df01-46bc-b66f-cf4dc7996040",
+        "dbd6114b-64e0-41b1-abed-f584bc1e8458"
+      ],
+      "settings": {}
+    },
+    "product-grid": {
+      "type": "product-grid",
+      "blocks": {
+        "b401a37d-55aa-49b7-b987-45893897281b": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/PORTABLE-CHARGER-EMERALD-LIFESTYLE.jpg",
+            "banner-mobile": "shopify:\/\/shop_images\/11.22-Calpak-Test-Shoot-_-Alister0253.jpg",
+            "link": "shopify:\/\/products\/ambeur-2-piece-luggage-set",
+            "title": "Title text",
+            "text": "<p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet<br\/><br\/><a href=\"\/products\/power-luggage-tag\" title=\"Portable Charger\">SHOP NOW<\/a><\/p>",
+            "show-for-collections": [],
+            "starts-on": "",
+            "ends-on": "",
+            "row": 2,
+            "column": 1,
+            "row-mob": 1
+          }
+        }
+      },
+      "block_order": [
+        "b401a37d-55aa-49b7-b987-45893897281b"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-filter",
+    "d9c9aa22-d858-4d68-b0f6-c9c71a495406",
+    "product-grid"
+  ]
+}

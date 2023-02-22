@@ -1,0 +1,26 @@
+.shopify-section--account-header {
+    padding: 0 var(--gap);
+    margin: var(--gap) 0;
+}
+
+.account-header {
+    border-bottom: 1px dashed #aeaeae;
+}
+
+.account-header__title {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.2em;
+    margin-right: auto;
+}
+
+.account-header__text {
+    padding: 45px 0;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.account-header__text a:not(.button) {
+    color: var(--gray);
+}

@@ -1,0 +1,36 @@
+{{ 'section-press.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- render 'press-block' for section.blocks -%}
+
+{% schema %}
+    {
+        "name": "Press",
+        "class": "shopify-section--press",
+        "settings": [
+
+        ],
+        "blocks": [
+            {
+                "type": "press",
+                "name": "Press",
+                "settings": [
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Featured Product"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Logo"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

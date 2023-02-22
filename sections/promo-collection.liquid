@@ -7,33 +7,71 @@
     {%- if section.settings.title != blank -%}
     <div class="promo-collection__title">{{- section.settings.title | escape -}}</div>
     {%- endif -%}
+    {%- if section.settings.description != blank -%}
+    <div class="promo-collection__description">{{- section.settings.description -}}</div>
+    {%- endif -%}
+
     <div class="promo-collection__products">
         {%- liquid
-            for block in section.blocks
-                if block.settings.product == blank
-                    continue
+            if section.settings.product_list != blank
+                render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels
+            elsif section.settings.featured-collection != blank
+                if section.settings.collection-limit == 0
+                    render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels
+                else
+                    for product in section.settings.featured-collection.products limit: section.settings.collection-limit
+                        render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels
+                    endfor
                 endif
-
-                render 'product-unit' for block.settings.product, quick_view: true
-            endfor
+            endif
         -%}
+        {%- if section.settings.product_list == blank and section.settings.featured-collection != blank and section.settings.show-view-all  -%}
+        <div class="promo-collection__products-all">
+            <a aria-label="Go to collection page" href="{{- section.settings.featured-collection.url -}}" class="promo-collection__products-all-inner">
+                <span>View All</span>
+            </a>
+        </div>
+        {%- endif -%}
     </div>
     <div class="promo-collection__media">
-        {% render 'image' with section.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true %}
+        {%- if section.settings.media-link != blank -%}<a href="{{- section.settings.media-link -}}">{%- endif -%}
 
+        {%- liquid
+            assign desktopClass = false
+            if section.settings.image-mobile != blank
+                assign desktopClass = 'hide-small'
+                render 'image' with section.settings.image-mobile, class: 'hide-large', sizes: '100vw', lazy: true
+            endif
+
+            if section.settings.video != blank
+                render 'video' with section.settings.video, poster: section.settings.image, class: desktopClass, autoplay: true, loop: true, controls: false
+            else
+                render 'image' with section.settings.image, class: desktopClass, sizes: '50vw', lazy: true
+            endif
+        -%}
+
+        {%- if section.settings.media-link != blank -%}</a>{%- endif -%}
+
+        {%- liquid
+            assign product = false
+            if section.settings.pictured-product != blank
+                assign product = all_products[section.settings.pictured-product]
+            endif
+        -%}
         <div class="floating-link floating-link--{{ section.settings.pictured-product-display }}">
             {%- if section.settings.button-text != blank -%}
-            <a href="{{ block.settings.button-link }}" class="button button--secondary">
+            <a
+                {% if product != false and section.settings.button-quick-view %}
+                href="{{ product.url }}"
+                class="button button--secondary quick-view__link"
+                {% else %}
+                href="{{ section.settings.button-link }}"
+                class="button button--secondary"
+                {% endif %}
+                >
                 <span>{{- section.settings.button-text | escpe -}}</span>
             </a>
             {%- endif -%}
-
-            {%- liquid
-                assign product = false
-                if section.settings.pictured-product != blank
-                    assign product = all_products[section.settings.pictured-product]
-                endif
-            -%}
 
             {% if product %}
             <div class="floating-link__pictured">
@@ -53,13 +91,13 @@
 {% style %}
     .promo-collection--{{ section.id }} {
         background: {{- section.settings.background -}};
+        color: {{ section.settings.text-color }};
     }
 
     .promo-collection--{{ section.id }} .promo-collection__products {
         grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
     }
 
-    .promo-collection--{{ section.id }} .product-unit__na-link a,
     .promo-collection--{{ section.id }} .product-unit__price s {
         color: {{ section.settings.text-color }};
     }
@@ -67,10 +105,6 @@
     .promo-collection--{{ section.id }} .product-unit {
         color: {{ section.settings.text-color }};
         --sale-price-color: {{ section.settings.accent-color }};
-    }
-
-    .promo-collection--{{ section.id }} .product-unit__label--final-sale {
-        color: {{ section.settings.accent-color }};
     }
 
     .promo-collection--{{ section.id }} .icon-heart {
@@ -90,6 +124,27 @@
                 "label": "Title"
             },
             {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description"
+            },
+            {
+                "type": "header",
+                "content": "Products settings"
+            },
+            {
+                "type": "checkbox",
+                "id": "quick-view",
+                "label": "Enable quick view buttons",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "product-labels",
+                "label": "Show floating labels",
+                "default": false
+            },
+            {
                 "type": "header",
                 "content": "Media"
             },
@@ -106,8 +161,18 @@
                 "info": "Overrides the image"
             },
             {
+                "type": "image_picker",
+                "id": "image-mobile",
+                "label": "Image for mobile"
+            },
+            {
                 "type": "header",
                 "content": "Links"
+            },
+            {
+                "type": "url",
+                "id": "media-link",
+                "label": "Background link"
             },
             {
                 "type": "product",
@@ -125,9 +190,16 @@
                 "label": "Button Text"
             },
             {
+                "type": "checkbox",
+                "id": "button-quick-view",
+                "label": "Quick view the product",
+                "default": false
+            },
+            {
                 "type": "url",
                 "id": "button-link",
-                "label": "Button Link"
+                "label": "Button Link",
+                "info": "If quick view is disabled"
             },
             {
                 "type": "header",
@@ -168,6 +240,38 @@
                 "default": "top"
             },
             {
+                "type": "header",
+                "content": "Featured Products"
+            },
+            {
+                "type": "collection",
+                "id": "featured-collection",
+                "label": "Collection"
+            },
+            {
+                "type": "range",
+                "id": "collection-limit",
+                "min": 0,
+                "max": 15,
+                "step": 1,
+                "label": "Limit product number",
+                "default": 0,
+                "info": "0 to show all products"
+            },
+            {
+                "type": "checkbox",
+                "id": "show-view-all",
+                "label": "Show View All button",
+                "default": true,
+                "info": "For collection only"
+            },
+            {
+                "type": "product_list",
+                "id": "product_list",
+                "label": "Product list",
+                "info": "Overrides collection"
+            },
+            {
                 "type": "select",
                 "id": "columns",
                 "label": "Product Columns",
@@ -182,19 +286,6 @@
                     }
                 ],
                 "default": "3"
-            }
-        ],
-        "blocks": [
-            {
-                "type": "product",
-                "name": "Product",
-                "settings": [
-                    {
-                        "type": "product",
-                        "id": "product",
-                        "label": "Product"
-                    }
-                ]
             }
         ],
         "presets": [

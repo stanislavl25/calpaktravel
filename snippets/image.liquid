@@ -9,7 +9,7 @@
         assign ratio = max_ratio
     endif
 -%}
-<div class="ratio-container" style="padding-top: {{ ratio }}%">
+<div class="ratio-container{% if class != blank %} {{ class }}{% endif %}" style="padding-top: {{ ratio }}%">
 {% endunless %}
 
 {%- liquid
@@ -31,10 +31,24 @@
         assign loading = 'eager'
     endif
 
+    if alt == blank
+        assign alt = image.alt
+    endif
+
+    if class != blank and no_wrapper == true
+        assign img_class = class
+    else
+        assign img_class = ''
+    endif
+
     if asset == true
         echo image | asset_img_url: 'master' | img_tag
     elsif image != blank
-        echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '300, 450, 650, 950, 1200, 1600, 2000', preload: preload, alt: '', loading: loading
+        if zoom == true
+            echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: alt, class: 'img-zoom'
+        endif
+
+        echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '300, 450, 650, 800, 1000, 1200, 1600, 2000', preload: preload, alt: alt, loading: loading, class: img_class
     endif
 %}
 

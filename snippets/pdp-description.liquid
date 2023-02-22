@@ -1,23 +1,79 @@
-<link rel="stylesheet" href="{{ 'component-accordion.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'component-accordion.css' | asset_url | stylesheet_tag }}</noscript>
+<section class="pdp__description">
+    <link rel="stylesheet" href="{{ 'component-accordion.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>{{ 'component-accordion.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="accordion">
-    <div class="accordion__title">Description</div>
-    <div class="accordion__content">
-        {{ product.description }}
-    </div>
-</div>
+    <script src="{{ 'accordion.js' | asset_url }}" defer="defer"></script>
+    
+    <div class="accordion">
+        <div class="accordion__title">Description</div>
+        <div class="accordion__content">
+            {%- liquid
+                assign description = product.description
+                if description contains '<!--hide-->'
+                    assign split_description = description | split: '<p><!--hide-->'
+                    if split_description.size == 1
+                        assign split_description = description | split: '<!--hide-->'
+                    endif
+                    assign description = split_description | first
+                endif
 
-<div class="accordion">
-    <div class="accordion__title">Specificattions</div>
-    <div class="accordion__content">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis voluptas quasi necessitatibus dignissimos, aut non dolore vitae dolorum consectetur repudiandae. Non repellendus iusto corrupti quo fugiat provident eaque dolor illum.
+                echo description
+            -%}
+        </div>
     </div>
-</div>
 
-<div class="accordion">
-    <div class="accordion__title">Warranty and Return Policy</div>
-    <div class="accordion__content">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis voluptas quasi necessitatibus dignissimos, aut non dolore vitae dolorum consectetur repudiandae. Non repellendus iusto corrupti quo fugiat provident eaque dolor illum.
+    {%- if section.settings.specifications != blank or product.metafields.custom.line_drawing != blank -%}
+    <div class="accordion">
+        <div class="accordion__title">Specifications</div>
+        <div class="accordion__content">
+            {%- if section.settings.specifications != blank -%}
+                {{- section.settings.specifications | newline_to_br -}}
+            {%- endif -%}
+
+            {%- if product.metafields.custom.line_drawing != blank -%}
+                {%- render 'image' with product.metafields.custom.line_drawing, lazy: true, sizes: '(min-width: 901px) 40vw, 100vw', no_wrapper: true -%}
+            {%- endif -%}
+        </div>
     </div>
-</div>
+    {%- endif -%}
+
+    {%- assign warranty_tab = '' -%}
+    {%- for variant in product.variants -%}
+        {%- if variant.metafields.custom.warranty_text != blank -%}
+            {% capture text %}
+                <div{% if current_variant.id == variant.id %} data-current{% endif %} data-variant="{{ variant.id }}">
+                    {{- variant.metafields.custom.warranty_text.value -}}
+                </div>
+            {% endcapture %}
+            {%- assign warranty_tab = warranty_tab | append: text -%}
+        {%- elsif variant.metafields.custom.warranty_textarea != blank -%}
+            {% capture text %}
+                <div{% if current_variant.id == variant.id %} data-current{% endif %} data-variant="{{ variant.id }}">
+                    {{- variant.metafields.custom.warranty_textarea | newline_to_br -}}
+                </div>
+            {% endcapture %}
+            {%- assign warranty_tab = warranty_tab | append: text -%}
+        {%- endif -%}
+    {%- endfor -%}
+
+    {%- if section.settings.warranty-product-level != blank -%}
+        {% capture text %}
+            <div data-variant="all">{{- section.settings.warranty-product-level -}}</div>
+        {% endcapture %}
+        {%- assign warranty_tab = warranty_tab | append: text -%}
+    {%- elsif section.settings.warranty-and-return != blank -%}
+        {% capture text %}
+            <div data-variant="all">{{- section.settings.warranty-and-return -}}</div>
+        {% endcapture %}
+        {%- assign warranty_tab = warranty_tab | append: text -%}
+    {%- endif -%}
+
+    {%- if warranty_tab != '' -%}
+    <div class="accordion">
+        <div class="accordion__title">Warranty and Return Policy</div>
+        <div class="accordion__content">
+            {{- warranty_tab -}}
+        </div>
+    </div>
+    {%- endif -%}
+</section>

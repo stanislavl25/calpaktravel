@@ -1,0 +1,95 @@
+{%- assign menu = slide-menu -%}
+<div class="slide-menu__outer">
+    <div class="slide-menu__container">
+        <ul class="slide-menu" data-level="0">
+
+            {%- liquid
+                for block in section.blocks
+                    if block.settings.submenu-number == 0 and block.settings.menu == type and block.type == 'media-block'
+                        render 'mobile-menu-promo' with block
+                    endif
+                endfor            
+            -%}
+
+            {% for link in linklists[menu].links %}
+            <li class="slide-menu-item{% if link.links.size > 0 %} slide-menu-item--has-sub{% endif %}">
+                <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                {% if link.links.size > 0 %}
+                <button aria-label="Show submenu" class="slide-menu__sub-button"></button>
+                <ul class="slide-menu" data-level="1">
+                    <li class="slide-menu-item slide-menu-item--back">
+                        {{ link.title | escape }}
+                    </li>
+                    {% for sublink in link.links %}
+                    <li class="slide-menu-item{% if sublink.links.size > 0 %} slide-menu-item--has-sub{% endif %}">
+                        <a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
+                        {% if sublink.links.size > 0 %}
+                        <button aria-label="Show submenu" class="slide-menu__sub-button"></button>
+                        <ul class="slide-menu" data-level="1">
+                            <li class="slide-menu-item slide-menu-item--back">
+                                {{ sublink.title | escape }}
+                            </li>
+                            {% for subsublink in sublink.links %}
+                            <li class="slide-menu-item">
+                                <a href="{{ subsublink.url }}">{{ subsublink.title | escape }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+
+                    {%- liquid
+                        assign menuNum = forloop.index
+                        for block in section.blocks
+                            case block.type
+                                when 'media-block'
+                                    if menuNum == block.settings.submenu-number and block.settings.menu == type
+                                        render 'mobile-menu-media' with block
+                                    endif
+                                when 'featured-collection'
+                                    if menuNum == block.settings.submenu-number and block.settings.menu == type
+                                        render 'mobile-menu-collection' with block
+                                    endif
+                            endcase
+                        endfor
+                    -%}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+
+            {%- if type == "shop" -%}
+            <li class="slide-menu-item slide-menu-item--push-bottom">
+                <a href="/page/rewards" class="slide-menu__icon-link">
+                    <img width="22" height="22" src="{{ 'icon-star-outline.svg' | asset_url }}" alt="Star" loading="lazy"> My Rewards
+                </a>
+            </li>
+            <li class="slide-menu-item">
+                <a href="/account">
+                    Log in / Register
+                </a>
+            </li>
+            <li class="slide-menu-item">
+                <a href="#" class="header__notifications-link notifications-icon">
+                    {% render 'icon-notifications' %} Notifications
+                </a>
+            </li>
+            {%- elsif type == 'discover' -%}
+                <li class="slide-menu-item slide-menu-item--edits">
+                    {%- if section.settings.edits-title != blank -%}
+                        <div class="slide-menu__edits-heading">{{- section.settings.edits-title | escape -}}</div>
+                    {%- endif -%}
+
+                    {%- liquid
+                        for block in section.blocks
+                            if block.type == 'edit'
+                                render 'mobile-menu-edit' with block
+                            endif
+                        endfor
+                    -%}
+                </li>
+            {%- endif -%}
+        </ul>
+    </div>
+</div>

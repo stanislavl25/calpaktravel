@@ -1,0 +1,19 @@
+{
+    "sections": {
+        "page-header": {
+            "type": "page-header",
+            "settings": {
+                "title": "Refer a Friend",
+                "text": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!<\/p>"
+            }
+        },
+        "page-refer": {
+            "type": "page-refer",
+            "settings": {}
+        }
+    },
+    "order": [
+        "page-header",
+        "page-refer"
+    ]
+}

@@ -6,7 +6,7 @@
 <noscript>{{ 'component-sticky-promo.css' | asset_url | stylesheet_tag }}</noscript>
 
 <div class="sticky-promo{% unless section.settings.sticky-promo-floating %} sticky-promo--only-hero{% endunless %}">
-    <button class="close-button close-button--{{ section.settings.close-color-scheme }} sticky-promo__close" title="Close"></button>
+    <button aria-label="Close promo" class="close-button close-button--{{ section.settings.close-color-scheme }} sticky-promo__close" title="Close"></button>
     <a href="{{ section.settings.promo-link }}">
     {% render 'image' with section.settings.promo-image, sizes: '220px', lazy: true %}
     </a>
@@ -18,24 +18,44 @@
 </div>
 {% endif %}
 
-<section class="hero hero-{{ section.id }} hero--{{ section.blocks.size }}">
+{%- assign num = 0 -%}
+{%- capture content -%}
     {% for block in section.blocks %}
         {%- if block.type == 'text-block' -%}
+            {%- liquid
+                if customer == blank and block.settings.show-condition == 'logged-in'
+                    continue
+                endif
+
+                if customer != blank and block.settings.show-condition == 'logged-out'
+                    continue
+                endif
+            -%}
             <div class="hero__block hero__block--color-{{ block.settings.text-color-scheme }} hero__block--align-{{ block.settings.text-alignment }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
+                {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
+                    <a href="{{ block.settings.main-link }}">
+                {%- endif -%}
+
                 {%- if block.settings.title != blank -%}
-                <div class="hero__block-title">{{- block.settings.title | escape -}}</div>
+                <div class="hero__block-title">{{- block.settings.title | replace: '[name]', customer.first_name | escape -}}</div>
                 {%- endif -%}
                 
                 {%- if block.settings.description != blank -%}
                 <div class="hero__block-description">
-                    {{- block.settings.description -}}
+                    {{- block.settings.description | replace: '[name]', customer.first_name -}}
                 </div>
                 {%- endif -%}
                 
                 {%- if block.settings.button-text != blank -%}
-                    <a href="{{ block.settings.button-url }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
+                    {%- if block.settings.add-link-to-button-only -%}
+                    <a href="{{ block.settings.main-link }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
                         <span>{{- block.settings.button-text | escape -}}</span>
                     </a>
+                    {%- else -%}
+                    <span class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
+                        <span>{{- block.settings.button-text | escape -}}</span>
+                    </span>
+                    {%- endif -%}
                 {%- endif -%}
                 
                 {%- style -%}
@@ -43,6 +63,10 @@
                         background: {{ block.settings.background }};
                     }
                 {%- endstyle -%}
+
+                {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
+                    </a>
+                {%- endif -%}
             </div>
         {%- elsif block.type == 'media-block' -%}
             <div class="hero__block hero__block--{{ block.type }} hero__block--{{ block.id }}">
@@ -50,8 +74,6 @@
                     <a href="{{ block.settings.main-link }}">
                 {%- endif -%}
 
-
-                
 
                 {%- if block.settings.title != blank or block.settings.description != blank or block.settings.button-text != blank -%}
                 <div class="hero__block-content hero__block-content--{{ block.settings.text-color-scheme }} hero__block-content--{{ block.settings.text-alignment }}">
@@ -81,14 +103,17 @@
                 </div>
                 {%- endif -%}
 
-                {%- if block.settings.image != blank -%}
-                    {%- render 'image' with block.settings.image, preload: true, sizes: '(min-width: 901px) 50vw, 100vw' -%}
-                {%- elsif block.settings.video != blank -%}
-                    {%- if block.settings.video.type == 'youtube' -%}
-                    <iframe src="https://www.youtube.com/embed/{{ block.settings.video.id }}?enablejsapi=1" class="js-youtube" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}" ></iframe>
-                    {%- else -%}
-                    <iframe src="https://player.vimeo.com/video/{{ block.settings.video.id }}" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}"></iframe>
-                    {%- endif -%}
+                {%- if block.settings.video != blank -%}
+                    <iframe src="https://player.vimeo.com/video/{{ block.settings.video.id }}?playsinline=1&title=0&byline=0&color=ffffff&portrait=0&muted=1&controls=0&sidedock=0&autoplay=1&loop=1&api=1" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}"></iframe>
+                {%- elsif block.settings.image != blank -%}
+                    {%- liquid
+                        if block.settings.image-mobile != blank
+                            render 'image' with block.settings.image-mobile, preload: true, class: 'hide-large', sizes: '100vw'
+                            render 'image' with block.settings.image, preload: true, class: 'hide-small', sizes: '50vw'
+                        else
+                            render 'image' with block.settings.image, preload: true, sizes: '(min-width: 901px) 50vw, 100vw'
+                        endif
+                    -%}
                 {%- endif -%}
 
                 {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
@@ -96,14 +121,19 @@
                 {%- endif -%}
             </div>
         {%- endif -%}
+        {%- assign num = num | plus: 1 -%}
     {% endfor %}
+{%- endcapture -%}
+
+<section class="hero hero-{{ section.id }} hero--{{ num }}">
+    {{ content }}
 </section>
 
 {%- if section.settings.hero-height == 'limited' -%}
 {% style %}
     @media (min-width: 901px) {
         .hero-{{ section.id }} {
-            max-height: {{ section.settings.height-limit }}vh;
+            height: {{ section.settings.height-limit }}vh;
         }
     }
 {% endstyle %}
@@ -123,7 +153,7 @@
             {
                 "type": "select",
                 "id": "hero-height",
-                "label": "Maximum hero height",
+                "label": "Hero height",
                 "options": [
                     {
                         "value": "auto",
@@ -131,7 +161,7 @@
                     },
                     {
                         "value": "limited",
-                        "label": "Limited"
+                        "label": "Custom"
                     }
                 ],
                 "default": "auto"
@@ -143,7 +173,7 @@
                 "max": 120,
                 "step": 5,
                 "unit": "%",
-                "label": "Height limit",
+                "label": "Custom Height",
                 "info": "Percent of screen height",
                 "default": 80
             },
@@ -203,12 +233,19 @@
                     {
                         "type": "text",
                         "id": "title",
-                        "label": "Title"
+                        "label": "Title",
+                        "info": "Use [name] to show customer name, when available"
                     },
                     {
                         "type": "richtext",
                         "id": "description",
-                        "label": "Description"
+                        "label": "Description",
+                        "info": "Use [name] to show customer name, when available"
+                    },
+                    {
+                        "type": "url",
+                        "id": "main-link",
+                        "label": "Link"
                     },
                     {
                         "type": "text",
@@ -216,13 +253,34 @@
                         "label": "Button Text"
                     },
                     {
-                        "type": "url",
-                        "id": "button-url",
-                        "label": "Button Link"
+                        "type": "checkbox",
+                        "id": "add-link-to-button-only",
+                        "label": "Link for button only",
+                        "default": true
                     },
                     {
                         "type": "header",
                         "content": "Display"
+                    },
+                    {
+                        "type": "select",
+                        "id": "show-condition",
+                        "label": "When to display",
+                        "options": [
+                            {
+                                "value": "always",
+                                "label": "Always"
+                            },
+                            {
+                                "value": "logged-in",
+                                "label": "When logged in"
+                            },
+                            {
+                                "value": "logged-out",
+                                "label": "When not logged in"
+                            }
+                        ],
+                        "default": "always"
                     },
                     {
                         "type": "select",
@@ -282,10 +340,15 @@
                         "id": "image"
                     },
                     {
+                        "type": "image_picker",
+                        "id": "image-mobile",
+                        "label": "Image for mobile"
+                    },
+                    {
                         "type": "video_url",
                         "id": "video",
                         "label": "Video",
-                        "accept": ["youtube", "vimeo"]
+                        "accept": ["vimeo"]
                     },
                     {
                         "type": "url",
@@ -315,7 +378,7 @@
                     {
                         "type": "checkbox",
                         "id": "add-link-to-button-only",
-                        "label": "Main link for button only",
+                        "label": "Link for button only",
                         "default": true
                     },
                     {

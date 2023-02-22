@@ -1,0 +1,30 @@
+{{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
+
+{% if product.metafields.custom.featured_collection != blank %}
+{%- assign featured_collection = collections[product.metafields.custom.featured_collection] -%}
+<div class="pdp-featured-collection-title">Explore the {{ featured_collection.title | escape }}</div>
+<div data-slide="5" class="slider__wrapper slider__wrapper--buttons-side featured-col__lists">
+    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+    <div class="slider slider--scrollbar">
+        {%- for product in featured_collection.products limit: 20 -%}
+            {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quick-view -%}
+        {%- endfor -%}
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Featured Collection",
+        "class": "shopify-section--pdp-featured",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "quick-view",
+                "label": "Enable quick view",
+                "default": false
+            }
+        ]
+    }
+{% endschema %}

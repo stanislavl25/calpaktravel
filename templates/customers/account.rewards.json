@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "account-header": {
+            "type": "account-header",
+            "settings": {}
+        },
+        "customer-rewards": {
+            "type": "customer-rewards",
+            "settings": {}
+        }
+    },
+    "order": [
+        "account-header",
+        "customer-rewards"
+    ]
+}

@@ -1,10 +1,11 @@
 <section class="menu-popup menu-popup--shop" data-src="{{ 'menu.js' | asset_url }}" data-func="openMenu" data-id="shop">
     <div class="menu-popup__background"></div>
-    <button class="menu-close" title="Close"></button>
+    <button aria-label="Close the Shop menu" class="menu-close" title="Close"></button>
     <div class="menu-popup__content">
         <section class="menu-popup__main">
+            {% if section.settings.shop-menu != blank %}
             <ul class="menu">
-                {% for link in linklists['shop'].links %}
+                {% for link in linklists[section.settings.shop-menu].links %}
                 <li data-id="{{ forloop.index }}" class="menu-item{% if forloop.first %} menu-item--active{% endif %}">
                     <a href="{{ link.url }}">{{ link.title | escape }}</a>
                     {% if link.links.size > 0 %}
@@ -19,71 +20,97 @@
                 </li>
                 {% endfor %}
             </ul>
+            {% endif %}
         </section>
         <aside class="menu-side">
-            <section data-num="1" class="media-grid">
-                <div data-id="1" class="media-cell menu__dynamic-element menu__dynamic-element--active">
-                    <div class="media-cell__title">Lorem Ipsum Dolor</div>
-                    <div class="media-cell__description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="2" class="media-cell media-cell--shorter menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 2</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="3" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 3</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="3" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 4</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="4" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 5</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="4" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 6</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="4" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 7</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="5" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 8</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="5" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 9</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="5" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 10</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-                <div data-id="5" class="media-cell menu__dynamic-element">
-                    <div class="media-cell__title">Lorem Ipsum Dolor 11</div>
-                    <a href="#" class="button button--secondary"><span>Shop now</span></a>
-                </div>
-            </section>
-            <div data-id="1" data-slide="3" class="product-slider menu__dynamic-element menu__dynamic-element--active slider__wrapper slider__wrapper--start">
-                <div class="product-slider__header">
-                    <div class="product-slider__title">Bestsellers</div>
-                    <nav class="slider__nav">
-                        <button class="slider__control tri-left slider__control--prev" title="Previous"></button>
-                        <button class="slider__control tri-right slider__control--next" title="Next"></button>
-                    </nav>
-                </div>
-                <div class="slider">
+            {%- assign media_num = 0 -%}
+            {%- capture media_cells -%}
+                {%- for block in section.blocks -%}
                     {%- liquid
-                        for product in collections.best-sellers.products limit: 6
-                            render 'product-unit' with product, class: 'slide'
-                        endfor
+                        unless block.type == 'shop-block'
+                            continue
+                        endunless
+
+                        if block.settings.submenu-number == 1
+                            assign media_num = media_num | plus: 1
+                        endif
+
+                        if block.settings.link-for-button or block.settings.button-url == blank
+                            assign outsideLink = false
+                        else
+                            assign outsideLink = true
+                        endif
                     -%}
+
+                    {% if outsideLink %}<a href="{{- block.settings.button-url -}}"{% else %}<div{% endif %}
+                        data-id="{{ block.settings.submenu-number }}"
+                        class="media-cell media-cell--color-{{ block.settings.text-color-scheme }} menu__dynamic-element{% if block.settings.submenu-number == 1 %} menu__dynamic-element--active{% endif %}">
+                        {%- liquid
+                            if block.settings.image != blank
+                                render 'image' with block.settings.image, sizes: '50vw', lazy: true, no_wrapper: true
+                            endif
+
+                            if block.settings.video != blank
+                                assign ratio = false
+
+                                if block.settings.video-ratio-w != blank and block.settings.video-ratio-h != blank
+                                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                                endif
+
+                                render 'video' with block.settings.video, no_wrapper: true, lazy: true, video_ratio: ratio, autoplay: true, loop: true, controls: false
+                            endif
+                        -%}
+
+                        {%- if block.settings.block-title != blank -%}
+                        <div class="media-cell__title">{{- block.settings.block-title | escape -}}</div>
+                        {%- endif -%}
+                        
+                        {%- if block.settings.description != blank -%}
+                        <div class="media-cell__description">{{- block.settings.description -}}</div>
+                        {%- endif -%}
+
+                        {%- if block.settings.button-text != blank -%}
+                            {% if outsideLink %}<span{% else %}<a href="{{- block.settings.button-url -}}"{% endif %}
+                                class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %}">
+                                
+                                <span>{{- block.settings.button-text -}}</span>
+
+                            {%- if outsideLink -%}</span>{%- else -%}</a>{%- endif -%}
+                        {%- endif -%}
+
+                    {% if outsideLink %}</a>{% else %}</div>{% endif %}
+                {%- endfor -%}
+
+            {%- endcapture -%}
+            <section data-num="{{- media_num -}}" class="media-grid">
+                {{- media_cells -}}
+            </section>
+
+            {%- for block in section.blocks -%}
+                {%- unless block.type == 'featured-collection' and block.settings.collection != blank -%}
+                    {%- continue -%}
+                {%- endunless -%}
+
+                <div data-id="{{ block.settings.submenu-number }}" data-slide="3" class="product-slider menu__dynamic-element{% if block.settings.submenu-number == 1 %} menu__dynamic-element--active{% endif %} slider__wrapper slider__wrapper--start">
+                    <div class="product-slider__header">
+                        {%- if block.settings.block-title != blank -%}
+                        <div class="product-slider__title">{{- block.settings.block-title | escape -}}</div>
+                        {%- endif -%}
+
+                        <nav class="slider__nav">
+                            <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                            <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+                        </nav>
+                    </div>
+                    <div class="slider">
+                        {%- liquid
+                            for product in block.settings.collection.products limit: 6
+                                render 'product-unit' with product, wishlist: true, class: 'slide'
+                            endfor
+                        -%}
+                    </div>
                 </div>
-            </div>
+            {%- endfor -%}
         </aside>
     </div>
 </section>

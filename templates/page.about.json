@@ -1,0 +1,336 @@
+{
+  "sections": {
+    "004e8da5-fa18-482b-9e48-1809383edbea": {
+      "type": "nav-hero",
+      "blocks": {
+        "672e3a78-7df4-4389-ab0b-be2caf77adc4": {
+          "type": "nav-item",
+          "settings": {
+            "title": "Our Mission",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER1.jpg",
+            "section-scroll": 2
+          }
+        },
+        "b27f5bf3-7751-466a-aa68-14cfc4ce87c0": {
+          "type": "nav-item",
+          "settings": {
+            "title": "History",
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_bubblegum_0825-BANNER1.jpg",
+            "section-scroll": 5
+          }
+        },
+        "2cddfbd1-220b-42a6-bd11-4f52f1c92983": {
+          "type": "nav-item",
+          "settings": {
+            "title": "Community",
+            "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg",
+            "section-scroll": 7
+          }
+        }
+      },
+      "block_order": [
+        "672e3a78-7df4-4389-ab0b-be2caf77adc4",
+        "b27f5bf3-7751-466a-aa68-14cfc4ce87c0",
+        "2cddfbd1-220b-42a6-bd11-4f52f1c92983"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/LUKA_COLLECTION_BUBBLEGUM_BANNER.jpg",
+        "video": "https:\/\/vimeo.com\/799934138",
+        "autoplay": true,
+        "controls": true,
+        "loop": false,
+        "video-ratio-w": "256",
+        "video-ratio-h": "135",
+        "image_mobile": "shopify:\/\/shop_images\/Calpak_8th_st0018A-19.jpg"
+      }
+    },
+    "09d0df49-64b7-45c2-9ef4-3220eed6bb3e": {
+      "type": "banner",
+      "settings": {
+        "title": "CALPAK is a bag company for every day and far away. ",
+        "text": "<p>We bring utility and a playful spirit to our unique designs, to help you discover the joy of getting there. <\/p>",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "content",
+        "height-percent": 50,
+        "text-alignment": "center",
+        "text-color-scheme": "black",
+        "background": "#ffffff"
+      }
+    },
+    "a64e8714-8090-4b0a-a8d1-f520a82bb4c1": {
+      "type": "featured-content-blocks",
+      "blocks": {
+        "b095a6b7-2bda-425e-aa3f-4a8043e75633": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Travel",
+            "description": "<p>To us, travel isn't just about buying a ticket and jumping on a flight. There's fun to be had every step of the way. CALPAK bags are designed to become your most beloved travel companions, helping you pack with efficiency and keeping your things safe from departure to arrival. <\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/WEB_IMAGE_ABOUT-US_TRAVEL.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "92b34ae7-e635-4299-95f0-8f2cad3d8e1e": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Design",
+            "description": "<p>We’re inspired by <em>you<\/em> and the places you visit<em>, <\/em>and our products reflect that. Our designs are made for the long-haul—never compromising on quality or style—and are intended for everyone, no matter where you’re headed. <\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/WEB_IMAGE_ABOUT-US_DESIGN.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "abfec0d1-3069-4103-a24c-9ab9ee8a7ecc": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Evolution",
+            "description": "<p>Since 1989, we've been creating products that take you places, while pushing boundaries. As we write the next chapter of our story, we want to invite you into a world where you discover a love for packing, and a passion for getting there.<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/WEB_IMAGE_ABOUT-US_EVOLUTION.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        }
+      },
+      "block_order": [
+        "b095a6b7-2bda-425e-aa3f-4a8043e75633",
+        "92b34ae7-e635-4299-95f0-8f2cad3d8e1e",
+        "abfec0d1-3069-4103-a24c-9ab9ee8a7ecc"
+      ],
+      "settings": {
+        "gap": false,
+        "general-layout": "media-text",
+        "content-position": "top",
+        "mobile-layout": "stacked"
+      }
+    },
+    "58ff044b-14b2-4dbf-99b2-9f436ba0ae34": {
+      "type": "separator",
+      "settings": {}
+    },
+    "a6a19d1c-0257-4196-b688-c8fb8af5911e": {
+      "type": "banner",
+      "settings": {
+        "title": "Going places since 1989, CALPAK exists for those who welcome the unknown, who seek the new, and find joy in the journey.",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "content",
+        "height-percent": 50,
+        "text-alignment": "center",
+        "text-color-scheme": "black",
+        "background": "#ffffff"
+      }
+    },
+    "07ba8d1b-d32a-444a-a37a-03484ec31f2d": {
+      "type": "content-slider",
+      "blocks": {
+        "c385d0db-2422-4569-9f7d-3e4fd0e24e77": {
+          "type": "slide",
+          "settings": {
+            "title": "1989",
+            "text": "<p>Born in LA, California Pak was brought to life by Edward and Judy Kwon. It started out as a modest collection of handbags and wallets.<\/p>",
+            "image1": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER2.jpg",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "64216624-259e-4c43-829d-9efa29166d19": {
+          "type": "slide",
+          "settings": {
+            "title": "1997",
+            "text": "<p>Edward and Judy began to evolve the line, focusing on more travel goods like duffels and soft luggage.<\/p>",
+            "image1": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_bubblegum_0825-BANNER1.jpg",
+            "image2": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER1.jpg",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "2005ae55-4a98-4574-a5c3-3bc6e1fa473a": {
+          "type": "slide",
+          "settings": {
+            "title": "2008",
+            "text": "<p>The brand grew once more, introducing long-awaited hard-sided luggage to the collection.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "141ff495-0da8-4687-944a-9ed6b2032db5": {
+          "type": "slide",
+          "settings": {
+            "title": "2013",
+            "text": "<p>California Pak transitioned into CALPAK, when Jennifer and Roy, Edward and Judy's children, joined the family business. With a refreshed logo, and all-new products—the brand was reborn to reflect a whole new generation of travelers.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "0070ae7d-0f10-4736-b7d8-10c30ec808fc": {
+          "type": "slide",
+          "settings": {
+            "title": "2018",
+            "text": "<p>CALPAK collaborated with some of their favorite brands and tastemakers, including collections with Oh Joy!, Jen Atkin, The Home Edit, and Taco Bell.<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        },
+        "b098b0c8-e22f-4d96-922f-12e7dfe2ebfe": {
+          "type": "slide",
+          "settings": {
+            "title": "2023",
+            "text": "<p>Today, the CALPAK brand has evolved once again with a whole new look. We believe that if you have the right tools (or bags), there’s so much more joy to be found in the journey. We can’t wait to join you for the ride!<\/p>",
+            "video1": "",
+            "video2": ""
+          }
+        }
+      },
+      "block_order": [
+        "c385d0db-2422-4569-9f7d-3e4fd0e24e77",
+        "64216624-259e-4c43-829d-9efa29166d19",
+        "2005ae55-4a98-4574-a5c3-3bc6e1fa473a",
+        "141ff495-0da8-4687-944a-9ed6b2032db5",
+        "0070ae7d-0f10-4736-b7d8-10c30ec808fc",
+        "b098b0c8-e22f-4d96-922f-12e7dfe2ebfe"
+      ],
+      "settings": {
+        "background-color": "#f7f177"
+      }
+    },
+    "45dd7428-972b-4560-9708-7d098ee87feb": {
+      "type": "text-slider",
+      "blocks": {
+        "d55a8b83-fcc6-4467-8c39-f52da0643762": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "381373bd-0593-4710-91a3-9ab76a8c3ac2": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "9d136df4-f1d0-4bfd-9334-29fb5a803897": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "b8810ee7-14d7-490f-9a44-27ca62034c65": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "d55a8b83-fcc6-4467-8c39-f52da0643762",
+        "381373bd-0593-4710-91a3-9ab76a8c3ac2",
+        "9d136df4-f1d0-4bfd-9334-29fb5a803897",
+        "b8810ee7-14d7-490f-9a44-27ca62034c65"
+      ],
+      "settings": {
+        "background": "#ffffff",
+        "add-border": true
+      }
+    },
+    "c44223a0-7165-4348-9696-6cf9be8dace5": {
+      "type": "collections-showcase",
+      "blocks": {
+        "f3bcd3bd-cb6a-49ba-a821-437f96d4b433": {
+          "type": "showcase",
+          "settings": {
+            "dropdown-title": "The Everyday Wanderluster",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st00404a-31.jpg",
+            "button-text": "Shop All",
+            "main-link": "shopify:\/\/collections\/backpacks",
+            "pictured_product": "shopify:\/\/products\/large-clear-cosmetic-case",
+            "product_title": "Product Name",
+            "product_list": [
+              "compression-packing-cubes",
+              "travel-wallet-croc",
+              "compakt-tote-bag",
+              "large-clear-cosmetic-case"
+            ]
+          }
+        },
+        "aeb2aa8f-5896-4bca-8bf5-651a0c759476": {
+          "type": "showcase",
+          "settings": {
+            "dropdown-title": "The Weekend Explorer",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0023A-9.jpg",
+            "button-text": "",
+            "main-link": "",
+            "pictured_product": "",
+            "product_title": "",
+            "product_list": [
+              "ambeur-carry-on-luggage",
+              "ambeur-vanity-case",
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage"
+            ]
+          }
+        },
+        "aa8a18e2-2125-4f83-82da-95b91040797c": {
+          "type": "showcase",
+          "settings": {
+            "dropdown-title": "The Long Distance Planner",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0055A-34.jpg",
+            "button-text": "Shop Now",
+            "main-link": "shopify:\/\/collections\/2022-essentials",
+            "pictured_product": "",
+            "product_title": "",
+            "product_list": [
+              "ambeur-2-piece-luggage-set",
+              "ambeur-3-piece-luggage-set",
+              "ambeur-carry-on-luggage",
+              "ambeur-large-luggage",
+              "ambeur-medium-luggage",
+              "ambeur-vanity-case",
+              "astyll-2-piece-luggage-set"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "f3bcd3bd-cb6a-49ba-a821-437f96d4b433",
+        "aeb2aa8f-5896-4bca-8bf5-651a0c759476",
+        "aa8a18e2-2125-4f83-82da-95b91040797c"
+      ],
+      "settings": {
+        "text": "Designed for:"
+      }
+    }
+  },
+  "order": [
+    "004e8da5-fa18-482b-9e48-1809383edbea",
+    "09d0df49-64b7-45c2-9ef4-3220eed6bb3e",
+    "a64e8714-8090-4b0a-a8d1-f520a82bb4c1",
+    "58ff044b-14b2-4dbf-99b2-9f436ba0ae34",
+    "a6a19d1c-0257-4196-b688-c8fb8af5911e",
+    "07ba8d1b-d32a-444a-a37a-03484ec31f2d",
+    "45dd7428-972b-4560-9708-7d098ee87feb",
+    "c44223a0-7165-4348-9696-6cf9be8dace5"
+  ]
+}

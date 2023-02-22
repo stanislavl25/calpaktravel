@@ -1,0 +1,130 @@
+{
+  "sections": {
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/5X3A0421-7OVERLAY.jpg",
+        "image-mobile": "shopify:\/\/shop_images\/5X3A0421-8-BANNER-MOBILE.jpg",
+        "title": "Corporate Gifting",
+        "text": "<p>Our corporate gifting program gets you the CALPAK you want.<\/p>",
+        "button-text": "Start your order",
+        "link": "#",
+        "link-for-button": true,
+        "height": "custom",
+        "height-percent": 30,
+        "text-alignment": "center",
+        "text-color-scheme": "white",
+        "background": "#c5c5c5"
+      }
+    },
+    "97b30d91-3961-4d72-b042-5ad1770f1810": {
+      "type": "text-and-logos",
+      "blocks": {
+        "9faa2312-b9ad-419d-a505-92b5d6c6356a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "de317cec-146a-4675-9114-0ac72f8788fc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "8b38d6d5-7675-4888-b5bc-aead76091c72": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "85927d4b-0dfe-4b75-a021-ec11fea67bba": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "e45d4444-9b89-40e9-bdf1-f7238b7bb899": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "65649ad0-aea8-4f70-a7ad-ca7474cd021d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "9faa2312-b9ad-419d-a505-92b5d6c6356a",
+        "de317cec-146a-4675-9114-0ac72f8788fc",
+        "8b38d6d5-7675-4888-b5bc-aead76091c72",
+        "85927d4b-0dfe-4b75-a021-ec11fea67bba",
+        "e45d4444-9b89-40e9-bdf1-f7238b7bb899",
+        "65649ad0-aea8-4f70-a7ad-ca7474cd021d"
+      ],
+      "settings": {
+        "title": "These companies are loving gifting with CALPAK",
+        "text": "<p>Perfect for: gifting your employees to say \"we appreciate you,\" holiday surprises for your clients, celebrating when your team hits goals - or just because!<\/p>"
+      }
+    },
+    "4f188b9c-2cc0-45e1-ad4c-350008a4182e": {
+      "type": "html",
+      "settings": {
+        "html": "<script type=\"text\/javascript\" src=\"https:\/\/form.jotform.com\/jsform\/82195961660161\"><\/script>",
+        "add-padding": false
+      }
+    },
+    "995efc16-e9e0-4400-b853-02093c308bef": {
+      "type": "text-slider",
+      "blocks": {
+        "cb96be9f-eab4-4516-b756-259af2d75e6b": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "6e7305b7-94eb-48fb-9233-20ed0360c340": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "30bf3e08-2462-42ec-88bc-bcd6c1f68733": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        },
+        "4a51c939-3d5e-456c-8607-8ae01b2521c0": {
+          "type": "slide",
+          "settings": {
+            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "cb96be9f-eab4-4516-b756-259af2d75e6b",
+        "6e7305b7-94eb-48fb-9233-20ed0360c340",
+        "30bf3e08-2462-42ec-88bc-bcd6c1f68733",
+        "4a51c939-3d5e-456c-8607-8ae01b2521c0"
+      ],
+      "settings": {
+        "background": "#e4dfd5",
+        "add-border": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "97b30d91-3961-4d72-b042-5ad1770f1810",
+    "4f188b9c-2cc0-45e1-ad4c-350008a4182e",
+    "995efc16-e9e0-4400-b853-02093c308bef"
+  ]
+}

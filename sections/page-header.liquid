@@ -1,0 +1,75 @@
+<div class="page__header{% if section.settings.title == blank and section.settings.text == blank %} page__header--no-margin{% endif %}">
+    {%- if section.settings.title != blank -%}
+    <h1 class="page__title page__title--{{ section.settings.title-size }}">{{- section.settings.title | escape -}}</h1>
+    {%- else -%}
+        {%- if template contains 'collection' -%}
+            <h1 class="visually-hidden">{{- collection.title | escape -}}</h1>
+        {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+    <div class="page__description">{{- section.settings.text -}}</div>
+    {%- endif -%}
+
+    {%- if section.settings.button-text != blank -%}
+    <div class="page__header-button">
+        <a class="button" href="{{- section.settings.button-link -}}">
+            <span>{{- section.settings.button-text | strip_html | escape -}}</span>
+        </a>
+    </div>
+    {%- endif -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Page Header",
+        "class": "shopify-section--page-header",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "select",
+                "id": "title-size",
+                "label": "Title size",
+                "options": [
+                    {
+                        "value": "small",
+                        "label": "Small"
+                    },
+                    {
+                        "value": "medium",
+                        "label": "Medium"
+                    },
+                    {
+                        "value": "large",
+                        "label": "Large"
+                    }
+                ],
+                "default": "small"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "text",
+                "id": "button-text",
+                "label": "Button text"
+            },
+            {
+                "type": "url",
+                "id": "button-link",
+                "label": "Button link"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Page Header"
+            }
+        ]
+    }
+{% endschema %}

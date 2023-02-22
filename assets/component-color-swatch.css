@@ -1,7 +1,7 @@
 .product-unit__swatches {
     display: flex;
     gap: 9px;
-    max-width: 78px;
+    max-width: calc(20px * var(--product-unit-sw-limit) + (var(--product-unit-sw-limit) - 1) * 9px);
     overflow: hidden;
 }
 
@@ -12,6 +12,8 @@
     gap: 9px;
 }
 
+.product-unit:focus .product-unit__swatches-container,
+.product-unit:focus-within .product-unit__swatches-container,
 .product-unit:hover .product-unit__swatches-container {
     opacity: 1
 }
@@ -23,9 +25,21 @@
     border-radius: 50%;
     background: #aaa;
     position: relative;
+    overflow: hidden;
 }
 
-.color-swatch--na::after {
+.color-swatch * {
+    pointer-events: none;
+}
+
+.color-swatch img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.color-swatch.product-option--na::after {
     width: 100%;
     left: 0;
     top: 50%;
@@ -42,7 +56,7 @@
     line-height: 20px;
 }
 
-.color-swatch--active {
+a.color-swatch--active {
     border: 1px solid #000;
 }
 
@@ -55,6 +69,18 @@
     left: 0;
     border: 2px solid #fff;
     border-radius: 50%;
+}
+
+.color-swatch--active.color-stone::before,
+.color-swatch--active.color-white-bandana::before,
+.color-swatch--active.color-white::before {
+    box-shadow: inset 0 0 0 1px #aeaeae;
+}
+
+.color-stone.product-option--na::after,
+.color-white-bandana.product-option--na::after,
+.color-white.product-option--na::after {
+    border-color: #000;
 }
 
 .color-wavy {
@@ -178,8 +204,44 @@
     background: #a84a31;
 }
 
+.color-rose {
+    background: #DB8496
+}
+
+.color-marine {
+    background: #5D8AAC
+}
+
+.color-pistachio {
+    background: #92A17D
+}
+
+.color-winter-sky {
+    background: #9EC1E5;
+}
+
 .color-sage {
-    background: #a1a095;
+    background: #89B3A1;
+}
+
+.color-hydrangea {
+    background: #BFD3E8;
+}
+
+.color-rosewood {
+    background: #AC6879;
+}
+
+.color-bubblegum {
+    background: #FFB3E7;
+}
+
+.color-deep-sea {
+    background: #206091;
+}
+
+.color-sky {
+    background: #ABC1D8;
 }
 
 .color-bermuda {
@@ -469,11 +531,15 @@
 .color-white-bandana,
 .color-white {
     background: #fff;
-    border: 1px solid #aeaeae;
 }
 
 .color-stone {
     background: #f4f1eb;
+}
+
+.color-stone,
+.color-white-bandana,
+.color-white {
     border: 1px solid #aeaeae;
 }
 
@@ -632,7 +698,34 @@
 
 
 
+.color-group {
+    background: #aeaeae;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex: 0 0 20px;
+    pointer-events: none;
+    position: relative;
+}
 
+.filt-col-group--active .color-group {
+    border: 1px solid #000;
+}
+
+.filt-col-group--active .color-group::before {
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.filt-col-group--active .color-group.color-group-white::before {
+    box-shadow: inset 0 0 0 1px #aeaeae;
+}
 
 .color-group-beige {
     background: #efe1d6;

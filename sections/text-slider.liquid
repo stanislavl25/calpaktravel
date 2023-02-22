@@ -1,0 +1,78 @@
+{{ 'section-text-slider.css' | asset_url | stylesheet_tag }}
+
+<div class="text-slider__wrapper slider__wrapper text-slider__wrapper--{{ section.id }}">
+    <div class="slider">
+        {%- for block in section.blocks -%}
+        <div class="slide text-slider__slide">
+            <div class="text-slider__slide-text">
+                {{- block.settings.text -}}
+            </div>
+            <div class="text-slider__slide-image">
+                {% render 'image' with block.settings.nav-icon, lazy: true, sizes: '120px' %}
+            </div>
+        </div>
+        {%- endfor -%}
+    </div>
+
+    <div class="slider__dots">
+        {%- for block in section.blocks -%}
+            <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}">
+                {% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px' %}
+            </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+{% style %}
+.text-slider__wrapper--{{ section.id }} {
+    background: {{ section.settings.background }};
+
+    {% if section.settings.add-border %}
+    border: 1px dashed #aeaeae;
+    {%- endif -%}
+}
+{% endstyle %}
+
+{% schema %}
+    {
+        "name": "Text Slider",
+        "class": "shopify-section--text--slider",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background Color",
+                "default": "#fff"
+            },
+            {
+                "type": "checkbox",
+                "id": "add-border",
+                "label": "Add Border",
+                "default": false
+            }
+        ],
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Slide",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "nav-icon",
+                        "label": "Nav icon"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Text Slider"
+            }
+        ]
+    }
+{% endschema %}

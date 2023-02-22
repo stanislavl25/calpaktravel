@@ -15,7 +15,7 @@
                 <div class="featured-products__container">
                     <div class="featured-products scrolling-target row__grid">
                         {% for product in collections['best-sellers'].products limit: 20 %}
-                            {% render 'product-unit' with product, swatches: true %}
+                            {% render 'product-unit' with product, wishlist: true, swatches: true %}
                         {% endfor %}
                     </div>
                 </div>

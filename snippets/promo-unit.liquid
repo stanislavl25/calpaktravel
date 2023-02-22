@@ -1,17 +1,62 @@
-<link rel="stylesheet" href="{{ 'component-promo-unit.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'component-promo-unit.css' | asset_url | stylesheet_tag }}</noscript>
+{%- liquid
+    assign block = promo-unit
+    assign show = true
+    assign starts = false
+    assign ends = false
+    assign now = "now" | date: '%s' | times: 1
 
-{%- assign block = promo-unit -%}
+    if block.settings.starts-on != blank
+        assign starts = block.settings.starts-on
+    endif
 
+    if block.settings.ends-on != blank
+        assign ends = block.settings.ends-on
+    endif
+
+    if starts != false
+        assign starts = starts | date: '%s' | times: 1
+        if now < starts
+            assign show = false
+        endif
+    endif
+
+    if ends != false and show == true
+        assign ends = ends | date: '%s' | times: 1
+        if now > ends
+            assign show = false
+        endif
+    endif
+-%}
+{%- if show -%}
 <div class="promo-unit" style="--row: {{ block.settings.row }}; --column: {{ block.settings.column }};">
     <div class="promo-unit__inner">
         <div class="promo-unit__image">
-            {%- render 'image' with block.settings.banner, height: 133.333, sizes: '20vw', lazy: true -%}
+            {%- if block.settings.link != blank -%}
+            <a href="{{- block.settings.link -}}">
+            {%- endif -%}
+
+                {%- liquid
+                    assign desktopClass = false
+                    if block.settings.banner-mobile != blank
+                        assign desktopClass = 'hide-small'
+                        render 'image' with block.settings.banner-mobile, class: 'hide-large', sizes: '50vw', lazy: true
+                    endif
+
+                    if block.settings.video != blank
+                        render 'video' with block.settings.video, height: 133.333, poster: block.settings.banner, class: desktopClass, autoplay: true, loop: true, controls: false
+                    else
+                        render 'image' with block.settings.banner, height: 133.333, class: desktopClass, sizes: '20vw', lazy: true
+                    endif
+                -%}
+
+            {%- if block.settings.link != blank -%}
+            </a>
+            {%- endif -%}
         </div>
         {%- if block.settings.title != blank or block.settings.text != blank -%}
-        <div class="promo-unit__text">
+        <div class="promo-unit__text" style="background: {{ block.settings.background }}; color: {{ block.settings.text-color }};">
             {%- if block.settings.title != blank -%}
-            <div class="promo-unit__title">{{- block.settings.title | escape -}}</div>
+            <h2 class="promo-unit__title">{{- block.settings.title | escape -}}</h2>
             {%- endif -%}
 
             {%- if block.settings.text != blank -%}
@@ -21,3 +66,4 @@
         {%- endif -%}
     </div>
 </div>
+{%- endif -%}

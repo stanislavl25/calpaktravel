@@ -1,0 +1,290 @@
+{{ 'section-sign-up.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% if section.blocks.size > 0 %}
+<section class="sign-up__section sign-up__section--mob-{{ section.settings.mobile-layout }} section-{{ section.id }}">
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'video' %}
+                <div class="sign-up__video sign-up__video--{{ block.settings.video-orientation }}{% if block.settings.keep-proportions %} sign-up__video--keep-proportions{% endif %}">
+                    <div class="sign-up__video-container sign-up__video-container--{{ block.settings.align }}">
+                        {% if block.settings.video-file != blank %}
+                            <video
+                                width="100%"
+                                height="100%"
+                                {% if block.settings.autoplay %}autoplay muted{% endif %}
+                                {% unless block.settings.hide-controls %}controls{% endunless %}
+                                loop
+                                playsinline>
+                                <source src="{{ block.settings.video-file }}" type="video/mp4" />
+                            </video>
+                        {% elsif block.settings.video != blank %}
+                            <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" src="https://player.vimeo.com/video/{{ block.settings.video.id }}?byline=0&amp;controls={% if block.settings.hide-controls %}0{% else %}1{% endif %}&amp;playsinline=1&amp;title=0&amp;sidedock=0{% if block.settings.autoplay %}&amp;autoplay=1&amp;muted=1{% else %}&amp;autoplay=0{% endif %}&amp;loop=1&amp;api=1" frameborder="0"></iframe>
+                        {% endif %}
+                    </div>
+
+                    {% if block.settings.title != blank or block.settings.text != blank %}
+                        <div class="sign-up__message" style="color: {{ block.settings.text-color }}">
+                            {% if block.settings.title != blank %}
+                            <div class="sign-up__message-title">{{ block.settings.title | escape }}</div>
+                            {% endif %}
+                            {% if block.settings.text != blank %}
+                            <div class="sign-up__message-text">{{ block.settings.text }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% when 'image' %}
+                <div class="sign-up__image sign-up__image--{{ block.settings.align }}{% if block.settings.keep-proportions %} sign-up__image--keep-proportions{% endif %}">
+                    {% render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw' %}
+
+                    {% if block.settings.title != blank or block.settings.text != blank %}
+                        <div class="sign-up__message" style="color: {{ block.settings.text-color }}">
+                            {% if block.settings.title != blank %}
+                            <div class="sign-up__message-title">{{ block.settings.title | escape }}</div>
+                            {% endif %}
+                            {% if block.settings.text != blank %}
+                            <div class="sign-up__message-text">{{ block.settings.text }}</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% when 'form' %}
+                <div class="sign-up__form">
+                    {% if block.settings.iframe-url != blank %}
+                    <iframe src="{{ block.settings.iframe-url }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    {% endif %}
+
+                    <style>
+                        {% if block.settings.height != blank %}
+                        .section-{{ section.id }} .sign-up__form {
+                            min-height: {{ block.settings.height | plus: 0 }}px;
+                        }
+                        {% endif %}
+
+                        {% if block.settings.height-mobile != blank %}
+                        @media (max-width: 900px) {
+                            .section-{{ section.id }} .sign-up__form {
+                                min-height: {{ block.settings.height-mobile | plus: 0 }}px;
+                            }
+                        }
+                        {% endif %}
+                    </style>
+                </div>
+        {% endcase %}
+    {% endfor %}
+</section>
+{% if section.settings.background != blank %}
+<style>
+    .section-{{ section.id }} {
+        background: {{ section.settings.background }};
+    }
+</style>
+{% endif %}
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Sign up form",
+        "class": "section__sign-up-form",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background color"
+            },
+            {
+                "type": "select",
+                "id": "mobile-layout",
+                "label": "Mobile layout",
+                "options": [
+                    {
+                        "value": "stack",
+                        "label": "Stack"
+                    },
+                    {
+                        "value": "stack-reverse",
+                        "label": "Stack in reverse order"
+                    }
+                ],
+                "default": "stack"
+            }
+        ],
+        "max_blocks": 2,
+        "blocks": [
+            {
+                "type": "video",
+                "name": "Video",
+                "settings": [
+                    {
+                        "type": "checkbox",
+                        "id": "autoplay",
+                        "label": "Autoplay",
+                        "default": false
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "hide-controls",
+                        "label": "Hide controls",
+                        "default": false
+                    },
+                    {
+                        "type": "video_url",
+                        "id": "video",
+                        "label": "Video URL",
+                        "accept": ["vimeo"]
+                    },
+                    {
+                        "type": "url",
+                        "id": "video-file",
+                        "label": "or uploaded video URL"
+                    },
+                    {
+                        "type": "select",
+                        "id": "video-orientation",
+                        "label": "Video orientation",
+                        "options": [
+                            {
+                                "value": "landscape",
+                                "label": "Landscape"
+                            },
+                            {
+                                "value": "square",
+                                "label": "Square"
+                            }
+                        ],
+                        "default": "landscape"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "keep-proportions",
+                        "label": "Keep video proportions",
+                        "default": false
+                    },
+                    {
+                        "type": "select",
+                        "id": "align",
+                        "label": "Alignment when cropped",
+                        "options": [
+                            {
+                                "value": "left",
+                                "label": "Left"
+                            },
+                            {
+                                "value": "center",
+                                "label": "Center"
+                            },
+                            {
+                                "value": "right",
+                                "label": "Right"
+                            }
+                        ],
+                        "default": "center"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Message"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "color",
+                        "id": "text-color",
+                        "label": "Text color",
+                        "default": "#fff"
+                    }
+                ]
+            },
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "keep-proportions",
+                        "label": "Keep proportions",
+                        "default": false
+                    },
+                    {
+                        "type": "select",
+                        "id": "align",
+                        "label": "Alignment when cropped",
+                        "options": [
+                            {
+                                "value": "left",
+                                "label": "Left"
+                            },
+                            {
+                                "value": "center",
+                                "label": "Center"
+                            },
+                            {
+                                "value": "right",
+                                "label": "Right"
+                            }
+                        ],
+                        "default": "center"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Message"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "color",
+                        "id": "text-color",
+                        "label": "Text color",
+                        "default": "#fff"
+                    }
+                ]
+            },
+            {
+                "type": "form",
+                "name": "Form",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "iframe-url",
+                        "label": "iframe URL"
+                    },
+                    {
+                        "type": "text",
+                        "id": "height",
+                        "label": "Height in pixels"
+                    },
+                    {
+                        "type": "text",
+                        "id": "height-mobile",
+                        "label": "Height in pixels for mobile"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Sign up form"
+            }
+        ]
+    }
+{% endschema %}

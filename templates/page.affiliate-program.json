@@ -1,0 +1,158 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Join our affiliate program",
+        "title-size": "medium",
+        "text": "<p>Do you love CALPAK products? Do you enjoy sharing your favorite finds and product features with your audience? Let’s partner!<\/p>"
+      }
+    },
+    "affiliate-list": {
+        "type": "affiliate-list",
+        "settings": {
+
+        }
+    },
+    "58c50c7e-0829-425e-a33c-025deb78b22d": {
+      "type": "featured-content-blocks",
+      "blocks": {
+        "3baae1db-0208-4064-a0d8-c85473f06175": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Sign Up",
+            "description": "<p>Sign up for an affiliate account<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/ambeur-vanity-case-packable-interior.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "e3a57858-7826-4077-96ce-8e280abc5e42": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "CALPAK Review",
+            "description": "<p>We will promptly review your profile<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/vanity-case_deep-base.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "a53ca5b8-08ae-4c11-871a-2a72a90f4277": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Share",
+            "description": "<p>Share your affiliate link and earn commissions<\/p>",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/vanity-case_adjustable-strap.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        }
+      },
+      "block_order": [
+        "3baae1db-0208-4064-a0d8-c85473f06175",
+        "e3a57858-7826-4077-96ce-8e280abc5e42",
+        "a53ca5b8-08ae-4c11-871a-2a72a90f4277"
+      ],
+      "settings": {
+        "heading": "How to join",
+        "gap": false,
+        "general-layout": "media-text",
+        "content-position": "stretch",
+        "mobile-layout": "scrollable",
+        "button-text": "Apply Here",
+        "button-link": "\/account"
+      }
+    },
+    "b47858eb-c5db-4597-b34f-ac08e00ef83a": {
+      "type": "faq-category",
+      "blocks": {
+        "8086ada7-52cf-401f-a569-dfe62d649901": {
+          "type": "faq",
+          "settings": {
+            "title": "Does it cost anything to join the CALPAK affiliate program?",
+            "answer": "<p>No, joining our affiliate program is completely free! If your reader or follower visits CALPAK and makes a purchase within 30 days of clicking through your affiliate link, you will earn a commission on their entire sale.<\/p>",
+            "hide": false
+          }
+        },
+        "a74c8005-995f-4dd5-8d4a-afa8ec651a1e": {
+          "type": "faq",
+          "settings": {
+            "title": "How should I apply to the CALPAK affiliate program?",
+            "answer": "<p>You simply click the <a href=\"https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106\" title=\"https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106\">affiliate signup link<\/a>, and enroll in our program. If you're approved, you'll receive a follow up email from our team and can begin earning commission right away.<\/p>",
+            "hide": false
+          }
+        },
+        "0c7af6ae-c106-48ae-97e6-dbcf743b6bb0": {
+          "type": "faq",
+          "settings": {
+            "title": "What are the qualifications for being approved as an affiliate?",
+            "answer": "<p>We're looking for partners who can show us that they believe in our mission, want to go the mile with us, and would be a great representative of our brand. We’re looking for fresh voices to review our products, and are always open to providing CALPAK products to test for review, so we can get your experience in front of new audiences.<\/p>",
+            "hide": false
+          }
+        },
+        "c443c72e-2b0b-4e20-b338-59332d878553": {
+          "type": "faq",
+          "settings": {
+            "title": "How will I know if someone made a purchase through my sharing link?",
+            "answer": "<p>CALPAK partners with Pepperjam, an affiliate network, to handle our program tracking, reporting, and payments. Once you’re approved to join our affiliate program, you’ll be able to login into your Pepperjam Account and check your real-time performance and earnings there. You’ll also be able to  access our promos, text links, banners, and other helpful resources. CALPAK is available via Pepperjam, Skimlinks, LTK\/RewardStyle and MagicLinks! <\/p>",
+            "hide": false
+          }
+        },
+        "e23f0f0c-0407-413c-86f3-84d1e38622a8": {
+          "type": "faq",
+          "settings": {
+            "title": "How is my commission calculated and paid to me?",
+            "answer": "<p>If your follower visits CALPAK and makes a purchase within 30 days of clicking through your affiliate link, you will earn a commission on their entire sale. Our affiliate provider automatically calculates your commissions and arranges payment to you on a monthly basis. You can check the commissions you’ve earned anytime in your Pepperjam account.<\/p>",
+            "hide": false
+          }
+        },
+        "f571248b-8722-4f2d-bb8a-e808fd065677": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I have to be located in the U.S. to become an affiliate?",
+            "answer": "<p>Currently we only ship within the United States, so for now we're focusing on partners who have audiences based in the U.S. If this is you, then we’d love for you to apply!<\/p>",
+            "hide": false
+          }
+        }
+      },
+      "block_order": [
+        "8086ada7-52cf-401f-a569-dfe62d649901",
+        "a74c8005-995f-4dd5-8d4a-afa8ec651a1e",
+        "0c7af6ae-c106-48ae-97e6-dbcf743b6bb0",
+        "c443c72e-2b0b-4e20-b338-59332d878553",
+        "e23f0f0c-0407-413c-86f3-84d1e38622a8",
+        "f571248b-8722-4f2d-bb8a-e808fd065677"
+      ],
+      "settings": {
+        "title": "FAQs",
+        "standalone": true,
+        "show-sidebar": true,
+        "sidebar-title": "Have questions?\nWe’re here to help.",
+        "sidebar-text": "<p>Please reach out to <a href=\"mailto:calpak@powerdigitalmarketinginc.com\" title=\"mailto:calpak@powerdigitalmarketinginc.com\">calpak@powerdigitalmarketinginc.com<\/a> with any questions and for support. We are so excited to create with you!<\/p>",
+        "sidebar-button-text": "Apply Here",
+        "sidebar-button-link": "\/account"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "affiliate-list",
+    "58c50c7e-0829-425e-a33c-025deb78b22d",
+    "b47858eb-c5db-4597-b34f-ac08e00ef83a"
+  ]
+}

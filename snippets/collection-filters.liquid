@@ -1,0 +1,43 @@
+<div class="collection-filters" aria-expanded="false" id="collection-filters">
+    {% comment %} <button class="filter__reset">Clear All</button> {% endcomment %}
+    <nav class="active-filters-nav">
+        <button aria-controls="collection-filters" aria-label="Activate color filter" class="filter__activator filter__activator--color">
+            Color <i></i>
+        </button>
+
+        <button aria-controls="collection-filters" aria-label="Activate product sort" class="filter__activator filter__activator--sort">
+            Sort by <i></i>
+        </button>
+    </nav>
+    <div class="collection-filters__inner">
+        <div class="collection-filter__color">
+            <div class="collection-filter__title">Color <i></i></div>
+            <div class="collection-filter__color-list"></div>
+        </div>
+
+        <fieldset class="collection-filter__sort">
+            <legend class="collection-filter__title">Sort by <i></i></legend>
+            <ul class="list-unstyled">
+                <li>
+                    <label><input data-title="Featured" value="featured" checked="checked" type="radio" name="sort"> Featured</labe>
+                </li>
+                <li>
+                    <label><input data-title="Newest" value="new" type="radio" name="sort"> Newest</labe>
+                </li>
+                <li>
+                    <label><input data-title="Best Selling" value="best" type="radio" name="sort"> Best Selling</labe>
+                </li>
+                <li>
+                    <label><input data-title="Price high - low" value="price-desc" type="radio" name="sort"> Price high - low</labe>
+                </li>
+                <li>
+                    <label><input data-title="Price low - high" value="price-asc" type="radio" name="sort"> Price low - high</labe>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+    <div class="filter__buttons">
+        <button aria-label="Apply filters" class="button filters__close"><span>Apply</span></button>
+        <button aria-label="Close filters popup" class="button button--secondary filters__close"><span>Close</span></button>
+    </div>
+</div>

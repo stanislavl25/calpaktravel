@@ -1,0 +1,19 @@
+{%- assign block = mobile-menu-edit -%}
+
+<div class="slide-menu__edit">
+    {%- if block.settings.link != blank -%}
+        <a href="{{- block.settings.link -}}">
+    {%- endif -%}
+    
+    <div class="slide-menu__edit-image">
+        {% render 'image' with block.settings.image, lazy: true, sizes: '100vw' %}
+    </div>
+    
+    <div class="slide-menu__edit-title">{{- block.settings.edit-title | escape -}}</div>
+
+    {%- if block.settings.link != blank -%}
+        </a>
+    {%- endif -%}
+    
+    {{- block.settings.description -}}
+</div>

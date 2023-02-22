@@ -368,7 +368,8 @@
   },
   "shopify": {
     "errors": {
-      "reset_password_html": "An account with this email already exists. If this email is yours, <a href=\"\/account\/login\">sign in<\/a> or <a href=\"\/account\/login#recover\">reset your password<\/a>."
+      "reset_password_html": "An account with this email already exists. If this email is yours, <a href=\"\/account\/login\">sign in<\/a> or <a href=\"\/account\/login#recover\">reset your password<\/a>.",
+      "verify_email": "Please contact our support team at help@calpaks.com to complete your registration."
     },
     "checkout": {
       "customer_account": {

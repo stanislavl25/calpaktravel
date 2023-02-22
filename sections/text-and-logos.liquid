@@ -1,0 +1,63 @@
+{{ 'section-text-and-logos.css' | asset_url | stylesheet_tag }}
+
+<div class="text-and-logos__text">
+    <div class="text-and-logos__inner-text">
+        {%- if section.settings.title != blank -%}
+        <div class="text-and-logos__title">
+            {{- section.settings.title | escape -}}
+        </div>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+        <div class="text-and-logos__desc">
+            {{- section.settings.text -}}
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+<div class="text-and-logos__logos">
+    <div class="text-and-logos__inner-logos">
+        {%- for block in section.blocks -%}
+        <div class="logo-block">
+            {%- render 'image' with block.settings.image, height: 30, lazy: true, sizes: '20vw' -%}
+        </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Text and Logos",
+        "class": "shopify-section--text-logos",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Text and Logos"
+            }
+        ]
+    }
+{% endschema %}

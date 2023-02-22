@@ -1,0 +1,221 @@
+<link rel="stylesheet" href="{{ 'section-mobile-menu.css' | asset_url }}" media="print" onload="this.media='screen and (max-width: 900px)'">
+
+<noscript>{{ 'section-mobile-menu.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="mobile-menu">
+    <button aria-label="Close mobile menu" class="menu-close" title="Close"></button>
+    <div class="mobile-menu__inner">
+        <div class="mobile-menu__nav">
+            {% if section.settings.shop-menu != blank %}
+                {% render 'slide-menu' with section.settings.shop-menu, type: "shop" %}
+            {% endif %}
+        </div>
+        <div class="mobile-menu__nav">
+            {% if section.settings.discover-menu != blank %}
+                {% render 'slide-menu' with section.settings.discover-menu, type: "discover" %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Mobile Menu",
+        "class": "shopify-section--mobile-menu",
+        "settings": [
+            {
+                "type": "link_list",
+                "id": "shop-menu",
+                "label": "Shop Menu"
+            },
+            {
+                "type": "link_list",
+                "id": "discover-menu",
+                "label": "Discover Menu"
+            },
+            {
+                "type": "text",
+                "id": "edits-title",
+                "label": "Stories title"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "featured-collection",
+                "name": "Featured Collection",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Label",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
+                        "type": "header",
+                        "content": "Position"
+                    },
+                    {
+                        "type": "select",
+                        "id": "menu",
+                        "label": "Menu",
+                        "options": [
+                            {
+                                "value": "shop",
+                                "label": "Shop"
+                            },
+                            {
+                                "value": "discover",
+                                "label": "Discover"
+                            }
+                        ],
+                        "default": "shop"
+                    },
+                    {
+                        "type": "range",
+                        "id": "submenu-number",
+                        "min": 1,
+                        "max": 10,
+                        "step": 1,
+                        "label": "Submenu number",
+                        "default": 1
+                    },
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "text",
+                        "id": "override-title",
+                        "label": "Title"
+                    }
+                ]
+            },
+            {
+                "type": "media-block",
+                "name": "Media Block",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Label",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
+                        "type": "header",
+                        "content": "Position"
+                    },
+                    {
+                        "type": "select",
+                        "id": "menu",
+                        "label": "Menu",
+                        "options": [
+                            {
+                                "value": "shop",
+                                "label": "Shop"
+                            },
+                            {
+                                "value": "discover",
+                                "label": "Discover"
+                            }
+                        ],
+                        "default": "shop"
+                    },
+                    {
+                        "type": "range",
+                        "id": "submenu-number",
+                        "min": 0,
+                        "max": 10,
+                        "step": 1,
+                        "label": "Submenu number",
+                        "default": 1,
+                        "info": "0 to display in the parent menu"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Content"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "media-title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "link-for-button",
+                        "label": "Link for button only",
+                        "default": false
+                    },
+                    {
+                        "type": "select",
+                        "id": "text-color-scheme",
+                        "label": "Text Color Scheme",
+                        "options": [
+                            {
+                                "value": "white",
+                                "label": "White"
+                            },
+                            {
+                                "value": "black",
+                                "label": "Black"
+                            }
+                        ],
+                        "default": "white"
+                    }
+                ]
+            },
+            {
+                "type": "edit",
+                "name": "Edit",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Label",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "edit-title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Link"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

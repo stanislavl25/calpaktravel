@@ -1,5 +1,7 @@
 <div class="reviews__slide-img">
+    {%- if block.settings.image-link != blank -%}<a href="{{- block.settings.image-link -}}">{%- endif -%}
     {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', no_wrapper: no_wrapper, lazy: true -%}
+    {%- if block.settings.image-link != blank -%}</a>{%- endif -%}
 </div>
 <div class="reviews__slide-content">
     <div class="review-slide__header">
@@ -22,7 +24,9 @@
         </div>
         {%- endif -%}
 
-        {% render 'star-rating' with block.settings.stars %}
+        <div class="review-slide__reviews">
+        {% render 'star-rating' with block.settings.stars, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+        </div>
     </div>
     
     <div class="review-slide__main">

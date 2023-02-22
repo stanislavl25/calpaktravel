@@ -1,0 +1,35 @@
+{{ 'section-refer.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-form.css' | asset_url | stylesheet_tag }}
+{{ 'swell-rewards.scss.css' | asset_url | stylesheet_tag }}
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" defer="defer"></script>
+<script src="{{ 'swell-rewards.js' | asset_url }}" defer="defer"></script>
+
+<div class="refer__form">
+    <div class="swell-referral-main-content">
+        <div class="swell-referral">
+            <div class="swell-referral-loader">
+                <img src='{{ "swell-loader.svg" | asset_url }}'>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="refer__content">
+    {%- if section.settings.image != blank -%}
+        {%- render 'image' with section.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', preload: true -%}
+    {%- endif -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Page Refer",
+        "class": "shopify-section--refer",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,49 @@
+<div class="collection-categories__wrapper slider__wrapper">
+    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+    {%- liquid
+        assign selected = 0
+        for block in section.blocks
+            if block.settings.selected and block.type == 'category'
+                assign selected = forloop.index
+                break
+            endif
+        endfor
+    -%}
+    <section class="filter__collections{% if selected != 0 %} filter__collections--active{% endif %} slider slider--scrollbar">
+        {%- assign num = 0 -%}
+        {%- for block in section.blocks -%}
+            {%- if block.type == 'category' -%}
+                {%- assign num = num | plus: 1 -%}
+                {%- continue -%}
+            {%- endif -%}
+        <div data-group="{{ num }}"
+            class="filter__collection{% if selected == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}"
+            {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
+                {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
+            {%- endfor -%}"
+            {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
+        >
+            <div class="filter__collection-image">
+                {%- liquid
+                    assign lazy = true
+                    assign preload = false
+                    if selected == num
+                        assign lazy = false
+                        assign preload = true
+                    endif
+                -%}
+                {%- if block.settings.image != blank -%}
+                    {%- render 'image' with block.settings.image, sizes: '25vw', preload: preload, lazy: lazy, no_wrapper: true -%}
+                {%- elsif block.settings.collection.image != blank and block.settings.collection != blank -%}
+                    {%- render 'image' with block.settings.collection.image, sizes: '25vw', preload: preload, lazy: lazy, no_wrapper: true -%}
+                {%- endif -%}
+            </div>
+            <h2 class="filter__collection-title">{{- block.settings.title | escape -}}</h2>
+            {%- if block.settings.description != blank -%}
+            <div class="filter__collection-desc">{{- block.settings.description -}}</div>
+            {%- endif -%}
+        </div>
+        {%- endfor -%}
+    </section>
+</div>

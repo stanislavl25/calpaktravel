@@ -1,0 +1,276 @@
+"use strict";
+
+window.addEventListener("click", (e) => {
+    if(e.target.classList.contains('slider__control')) {
+        e.preventDefault();
+        let wrapper = e.target.closest('.slider__wrapper');
+        let gap = 0;
+        let slideNum = 1;
+        if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
+        if(wrapper.hasAttribute('data-slide')) slideNum = Number(wrapper.getAttribute('data-slide'));
+        if(window.innerWidth <= 900 && wrapper.hasAttribute('data-slide-mob')) slideNum = Number(wrapper.getAttribute('data-slide-mob'));
+        let slider = wrapper.querySelector('.slider');
+        let firstSlide = slider.querySelector('.slide');
+
+        if(!firstSlide) firstSlide = slider.querySelector('*');
+    
+        let slideWidth = firstSlide.offsetWidth;
+        let currentScroll = slider.scrollLeft;
+        let maxScroll = slider.scrollWidth - slider.clientWidth;
+    
+        let maxPage = Math.round(maxScroll / slideWidth);
+        let currentPage = Math.round(currentScroll / slideWidth);
+    
+        if(e.target.classList.contains('slider__control--next')) {
+            if(currentPage < maxPage) {
+                currentPage += slideNum;
+                currentScroll = currentPage * slideWidth + gap;
+                slider.scrollLeft = currentScroll;
+            } else if(currentPage > maxPage) {
+                currentPage = maxPage;
+                currentScroll = maxScroll;
+                slider.scrollLeft = maxScroll;
+            } else {
+                currentScroll = maxScroll;
+                slider.scrollLeft = maxScroll;
+            }
+    
+        } else if(e.target.classList.contains('slider__control--prev')) {
+            if(currentScroll > 0) currentPage -= slideNum;
+            if(currentPage < 0) currentPage = 0;
+    
+            currentScroll = currentPage * slideWidth - gap;
+            slider.scrollLeft = currentScroll;
+        }
+    
+        if(maxScroll - currentScroll < 20) {
+            wrapper.classList.add('slider__wrapper--end');
+            wrapper.classList.remove('slider__wrapper--start');
+        } else {
+            wrapper.classList.remove('slider__wrapper--end');
+        }
+        
+        if(currentPage == 0) {
+            wrapper.classList.add('slider__wrapper--start');
+            wrapper.classList.remove('slider__wrapper--end');
+        } else wrapper.classList.remove('slider__wrapper--start');
+    }
+});
+
+function moveToSlide(slider, currentPage = 0) {
+    // if(currentPage > 0) currentPage--;
+    let wrapper = slider.closest('.slider__wrapper');
+    let gap = 0;
+    if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
+    let firstSlide = slider.querySelector('.slide');
+    let vertical = slider.classList.contains('slider--vertical');
+
+    let maxScroll = 0;
+    
+    if(vertical) maxScroll = slider.scrollHeight - slider.clientHeight;
+    else maxScroll = slider.scrollWidth - slider.clientWidth;
+
+    if(maxScroll == 0) return;
+
+    if(!firstSlide) firstSlide = slider.querySelector('*');
+
+    let slideWidth = 0;
+
+    if(vertical) {
+        slideWidth = firstSlide.offsetHeight;
+    } else {
+        slideWidth = firstSlide.offsetWidth;
+    }
+
+    let currentScroll = (slideWidth + gap) * currentPage;
+
+    if(vertical) {
+        slider.scrollTop = currentScroll;
+    } else {
+        slider.scrollLeft = currentScroll;
+    }
+
+    if(maxScroll - currentScroll < 20) {
+        wrapper.classList.add('slider__wrapper--end');
+        wrapper.classList.remove('slider__wrapper--start');
+    } else {
+        wrapper.classList.remove('slider__wrapper--end');
+    }
+
+    if(currentPage == 0) {
+        wrapper.classList.add('slider__wrapper--start');
+        wrapper.classList.remove('slider__wrapper--end');
+    } else wrapper.classList.remove('slider__wrapper--start');
+}
+
+function sliderThumbClick(thumb) {
+    const slider = thumb.closest('.slider');
+    const actives = slider.querySelectorAll('.slide--selected');
+    if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
+    
+    thumb.classList.add('slide--selected');
+
+    const index = getIndexWithSelector(thumb, '.slide');
+
+    moveToSlide(document.querySelector('.pdp__gallery, .qv__gallery-inner'), index);
+}
+
+function checkSlider(slider) {
+    let wrapper = slider.closest('.slider__wrapper');
+    if(!wrapper) return;
+    let firstSlide = slider.querySelector('.slide');
+    if(!firstSlide) firstSlide = slider.querySelector('*');
+    if(!firstSlide) return;
+    let slideWidth = 0;
+    let vertical = slider.classList.contains('slider--vertical');
+
+    if(!wrapper.classList.contains('slider__wrapper--loaded')) {
+        slider.addEventListener('scroll', function() {
+            if(sliderThrottle !== false) clearTimeout(sliderThrottle);
+            sliderThrottle = setTimeout(() => checkSlider(this), 305);
+        }, {passive: true});
+
+        if(slider.classList.contains("slider-nav")) {
+            slider.addEventListener('click', (e) => {
+                if(e.target.classList.contains('slide')) sliderThumbClick(e.target);
+            });
+        }
+
+        if(slider.hasAttribute('data-autoslide')) {
+            let autoslide = Number(slider.getAttribute('data-autoslide'));
+            if(!isNaN(autoslide)) runSlider(slider, autoslide);
+        }
+
+        wrapper.classList.add('slider__wrapper--loaded');
+    }
+
+    let currentScroll = 0;
+    let maxScroll = 0;
+
+    if(vertical) {
+        currentScroll = Math.ceil(slider.scrollTop);
+        maxScroll = slider.scrollHeight - slider.clientHeight;
+        slideWidth = firstSlide.offsetHeight;
+    } else {
+        currentScroll = Math.ceil(slider.scrollLeft);
+        maxScroll = slider.scrollWidth - slider.clientWidth;
+        slideWidth = firstSlide.offsetWidth;
+    }
+
+    let maxPage = Math.round(maxScroll / slideWidth);
+    let currentPage = Math.round(currentScroll / slideWidth);
+    if(isNaN(currentPage)) currentPage = 0;
+
+    if(slider.hasAttribute('data-nav')) {
+        let nav = document.querySelector(`.${slider.getAttribute('data-nav')}`);
+        if(nav) {
+            checkSlider(nav);
+            let actives = nav.querySelectorAll('.slide--selected');
+            if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
+            let activate = nav.querySelectorAll('.pdp__media-thumb.slide');
+            activate[currentPage].classList.add('slide--selected');
+        }
+    }
+
+    if(maxScroll == 0) {
+        wrapper.classList.add('slider__wrapper--end');
+        wrapper.classList.add('slider__wrapper--start');
+        return;
+    }
+
+    if(maxScroll - currentScroll < 20) wrapper.classList.add('slider__wrapper--end');
+    else wrapper.classList.remove('slider__wrapper--end');
+
+    if(currentPage == 0) wrapper.classList.add('slider__wrapper--start');
+    else wrapper.classList.remove('slider__wrapper--start');
+}
+
+let sliderThrottle = false;
+window.addEventListener("load", () => {
+    const sliders = document.querySelectorAll(".slider");
+    
+    let observer = new IntersectionObserver(function(entries){
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                observer.unobserve(entry.target);
+                let slider = entry.target;
+                let vertical = slider.classList.contains('slider--vertical');
+                slider.classList.add('scrolling-back');
+                if(vertical) slider.scrollTop = 0;
+                else slider.scrollLeft = 0;
+                setTimeout(() => slider.classList.remove('scrolling-back'), 10);
+
+                checkSlider(slider);
+            }
+        });
+    }, {threshold: 0, rootMargin: '0px'});
+
+    sliders.forEach( slider => observer.observe(slider) );
+});
+
+function runSlider(slider, autoslide) {
+    setInterval(function() {
+        let wrapper = slider.closest('.slider__wrapper');
+        if(wrapper.matches(':hover')) return;
+
+        let vertical = slider.classList.contains('slider--vertical');
+        let slideWidth = 0;
+        let currentScroll = slider.scrollLeft;
+        if(vertical) currentScroll = slider.scrollTop;
+
+        let maxScroll = 0;
+        
+        if(vertical) {
+            maxScroll = slider.scrollHeight - slider.clientHeight;
+            slideWidth = slider.offsetHeight;
+        } else {
+            maxScroll = slider.scrollWidth - slider.clientWidth;
+            slideWidth = slider.offsetWidth;
+        }
+
+        let gap = 0;
+        if(wrapper && wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
+        
+        let maxPage = Math.round(maxScroll / slideWidth);
+        let currentPage = Math.round(currentScroll / slideWidth);
+    
+        currentPage++;
+    
+        if(vertical) slider.scrollTop = currentPage * slideWidth + gap;
+        else slider.scrollLeft = currentPage * slideWidth + gap;
+
+        if(currentPage >= maxPage) {
+            currentPage = 0;
+            setTimeout(function() {
+                slider.classList.add('scrolling-back');
+                if(vertical) setTimeout(() => slider.scrollTop = 0, 50);
+                else setTimeout(() => slider.scrollLeft = 0, 50);
+                setTimeout(() => slider.classList.remove('scrolling-back'), 50);
+            }, 1000);
+        }
+
+        let dots = wrapper.querySelectorAll('.slider__dot');
+        if(dots.length) {
+            for(let i = 0; i < dots.length; i++) dots[i].classList.remove('slider__dot--active');
+            dots[currentPage].classList.add('slider__dot--active');
+        }
+
+    }, autoslide * 1000);
+}
+
+const sliderDots = document.querySelectorAll('.slider__dot');
+if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', e => {
+    let index = 0;
+    let dots = e.target.parentNode.querySelectorAll('.slider__dot');
+    let wrapper = e.target.closest('.slider__wrapper');
+    if(!wrapper) return;
+
+    for(let i = 0; i < dots.length; i++) {
+        if(dots[i] == e.target) {
+            index = i;
+            dots[i].classList.add('slider__dot--active');
+        } else dots[i].classList.remove('slider__dot--active');
+    }
+
+    moveToSlide(wrapper.querySelector('.slider'), index);
+}));

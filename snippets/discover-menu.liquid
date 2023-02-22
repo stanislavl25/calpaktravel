@@ -1,49 +1,97 @@
 <section class="menu-popup menu-popup--discover" data-id="discover">
     <div class="menu-popup__background"></div>
-    <button class="menu-close" title="Close"></button>
+    <button aria-label="Close the Discover menu" class="menu-close" title="Close"></button>
     <div class="menu-popup__content">
         <section class="menu-popup__main">
+            {% if section.settings.discover-menu != blank %}
             <ul class="menu">
-                <li class="menu-item menu-item--active">
-                    <a href="#">The Stories</a>
+                {% for link in linklists[section.settings.discover-menu].links %}
+                <li data-id="{{ forloop.index }}" class="menu-item">
+                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
                 </li>
-                <li class="menu-item">
-                    <a href="#">Community Gallery</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">About us</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#">Press</a>
-                </li>
+                {% endfor %}
             </ul>
+            {% endif %}
 
             <div class="articles__list">
                 <div class="articles__list-title">
-                    Latest Stories
+                    {{- section.settings.edits-title | escape -}}
                 </div>
                 <div class="article__cards">
-                    {% for article in blogs["destination"].articles limit: 2 %}
-                    <div class="article__card">
-                        <div class="article__card-image">
-                            {% render 'image' with article.image, sizes: '20vw', height: '53.937' %}
+                    {%- for block in section.blocks -%}
+                        {%- unless block.type == 'edit' -%}{%- continue -%}{%- endunless -%}
+
+                        <div class="article__card">
+                            <div class="article__card-image">
+                                {% render 'image' with block.settings.image, sizes: '20vw', height: '53.937' %}
+                            </div>
+                            <div class="article__card-title">{{- block.settings.edit-title | escape -}}</div>
+                            <div class="article__card-description">{{- block.settings.description -}}</div>
                         </div>
-                        <div class="article__card-title">{{ article.title | escape }}</div>
-                        <div class="article__card-description">{{ article.excerpt }}</div>
-                    </div>
-                    {% endfor %}
+
+                    {%- endfor -%}
                 </div>
             </div>
         </section>
         <aside class="menu-side">
-            <section class="media-grid">
-                <div class="media-cell">
-                    <div class="media-cell__title">Story name here</div>
-                    <div class="media-cell__description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></div>
-                    <a href="#" class="button button--secondary">
-                        <span>Shop now</span>
-                    </a>
-                </div>
+
+            {%- assign media_num = 0 -%}
+            {%- capture media_cells -%}
+                {%- for block in section.blocks -%}
+                    {%- liquid
+                        unless block.type == 'discover-block'
+                            continue
+                        endunless
+
+                        assign media_num = media_num | plus: 1
+
+                        if block.settings.link-for-button or block.settings.button-url == blank
+                            assign outsideLink = false
+                        else
+                            assign outsideLink = true
+                        endif
+                    -%}
+
+
+                    {% if outsideLink %}<a href="{{- block.settings.button-url -}}"{% else %}<div{% endif %}
+                        class="media-cell media-cell--color-{{ block.settings.text-color-scheme }} menu__dynamic-element menu__dynamic-element--active">
+                        {%- liquid
+                            if block.settings.image != blank
+                                render 'image' with block.settings.image, sizes: '50vw', lazy: true, no_wrapper: true
+                            endif
+
+                            if block.settings.video != blank
+                                assign ratio = false
+
+                                if block.settings.video-ratio-w != blank and block.settings.video-ratio-h != blank
+                                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                                endif
+
+                                render 'video' with block.settings.video, no_wrapper: true, lazy: true, video_ratio: ratio, autoplay: true, loop: true, controls: false
+                            endif
+                        -%}
+
+                        {%- if block.settings.block-title != blank -%}
+                        <div class="media-cell__title">{{- block.settings.block-title | escape -}}</div>
+                        {%- endif -%}
+                        
+                        {%- if block.settings.description != blank -%}
+                        <div class="media-cell__description">{{- block.settings.description -}}</div>
+                        {%- endif -%}
+
+                        {%- if block.settings.button-text != blank -%}
+                            {% if outsideLink %}<span{% else %}<a href="{{- block.settings.button-url -}}"{% endif %}
+                                class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %}">
+                                <span>{{- block.settings.button-text -}}</span>
+                            {%- if outsideLink -%}</span>{%- else -%}</a>{%- endif -%}
+                        {%- endif -%}
+
+                    {%- if outsideLink -%}</a>{%- else -%}</div>{%- endif -%}
+                {%- endfor -%}
+            {%- endcapture -%}
+
+            <section data-num="{{- media_num -}}" class="media-grid">
+                {{- media_cells -}}
             </section>
         </aside> 
     </div>

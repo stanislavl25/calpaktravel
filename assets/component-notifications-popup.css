@@ -2,8 +2,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 10;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    z-index: 50;
 }
 
 .notifications-popup--active {
@@ -11,10 +10,8 @@
 }
 
 .notifications-content {
-    background: #fff;
     display: flex;
     flex-direction: column-reverse;
-    border-radius: 0 0 9px 9px;
     width: 370px;
 }
 
@@ -25,13 +22,20 @@
     gap: var(--gap);
     align-items: center;
     padding-left: var(--gap);
+    background: #fff;
+    position: relative;
+    z-index: 2;
 }
 
 .notifications-list {
+    background: #fff;
     display: flex;
     flex-direction: column;
     padding: var(--gap);
     gap: var(--gap);
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 9px 9px;
+    overflow: hidden;
 }
 
 .notification {
