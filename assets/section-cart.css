@@ -154,7 +154,7 @@
     max-height: 24px;
 }
 
-.cart__free-shipping[data-status="success"] ~ * .cart__total-row--shipping {
+[data-status="success"] ~ * .cart__total-row--shipping {
     max-height: 0;
 }
 
@@ -169,6 +169,12 @@
 .cart__4-payments .shop-pay-logo {
     width: 60px;
     height: auto;
+    margin-bottom: -2px;
+}
+
+.cart__4-payments--limit .spc__msg-amnt,
+.cart__4-payments:not(.cart__4-payments--limit) .spc__msg-limit {
+    display: none;
 }
 
 .cart__4-payments .shop-pay-logo path {

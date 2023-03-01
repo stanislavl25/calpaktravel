@@ -11,6 +11,8 @@
             "main-link": "shopify:\/\/collections\/terra-collection",
             "button-text": "Shop Now",
             "add-link-to-button-only": false,
+            "show-screens": "all",
+            "show-condition": "always",
             "text-alignment": "center",
             "text-color-scheme": "black",
             "background": "#e4dfd5"
@@ -22,11 +24,12 @@
             "image": "shopify:\/\/shop_images\/CalPak7030a.jpg",
             "image-mobile": "shopify:\/\/shop_images\/CalPak7030a.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/terra-collection",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": false,
+            "show-screens": "desktop",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
@@ -36,18 +39,18 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/CalPak7180a-BANNER2X1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/terra-collection",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": true,
+            "show-screens": "all",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
         },
         "2d973b40-5bb7-4766-96a5-e54015769ff0": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
             "video": "",
@@ -56,6 +59,7 @@
             "description": "",
             "button-text": "Apparel Link",
             "add-link-to-button-only": false,
+            "show-screens": "mobile",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
@@ -70,11 +74,80 @@
       "settings": {
         "hero-height": "limited",
         "height-limit": 110,
-        "enable-sticky-promo": true,
+        "enable-sticky-promo": false,
         "sticky-promo-floating": true,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
+        "close-color-scheme": "white"
+      }
+    },
+    "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
+      "type": "hero",
+      "disabled": true,
+      "blocks": {
+        "6b6690fe-fe86-46f9-be16-304c72f808d2": {
+          "type": "text-block",
+          "disabled": true,
+          "settings": {
+            "title": "LIMITED TIME ONLY: Get 45% off the Starter Bundle",
+            "description": "<p>Our 8-piece starter set for $545 $299!<\/p>",
+            "main-link": "shopify:\/\/products\/starter-bundle",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "show-condition": "always",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        },
+        "43bc22b6-f802-47c3-87c2-6f437780d388": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_1.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_1.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/products\/starter-bundle",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "dfe207be-4840-46d8-ad62-ad355866c677": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-BANNER_d9e1b4f7-416e-4dbb-9646-6b83fc5af13b.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/products\/starter-bundle",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "6b6690fe-fe86-46f9-be16-304c72f808d2",
+        "43bc22b6-f802-47c3-87c2-6f437780d388",
+        "dfe207be-4840-46d8-ad62-ad355866c677"
+      ],
+      "settings": {
+        "hero-height": "limited",
+        "height-limit": 100,
+        "enable-sticky-promo": false,
+        "sticky-promo-floating": false,
+        "promo-text": "",
+        "promo-link": "",
         "close-color-scheme": "white"
       }
     },
@@ -119,8 +192,8 @@
             "title": "Organizers",
             "description": "",
             "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/collections\/tech-organizers",
-            "product_title": "Tech Organizers",
+            "pictured_product": "shopify:\/\/collections\/packing-cubes",
+            "product_title": "Packing Cubes",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -135,10 +208,13 @@
         "700226a3-3f37-4ff5-8158-d8903d803420"
       ],
       "settings": {
+        "heading": "",
         "gap": false,
         "general-layout": "text-media",
         "content-position": "stretch",
-        "mobile-layout": "scrollable"
+        "mobile-layout": "scrollable",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75": {
@@ -173,38 +249,6 @@
       ],
       "settings": {
         "quick-view": true
-      }
-    },
-    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
-      "type": "promo-collection",
-      "settings": {
-        "title": "Explore Our Bestselling Terra Collection",
-        "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste voluptates accusantium.<\/p>",
-        "quick-view": true,
-        "product-labels": true,
-        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1305_de157396-b3a1-4d4d-a64b-2df3fd32e39c.jpg",
-        "video": "",
-        "image-mobile": "shopify:\/\/shop_images\/trnk-vanity-case.png",
-        "media-link": "shopify:\/\/collections\/best-sellers",
-        "pictured-product": "terra-sling-bag",
-        "pictured-product-title": "Terra Sling Bag",
-        "button-text": "Shop Now",
-        "button-quick-view": true,
-        "button-link": "https:\/\/www.calpaktravel.com\/products\/terra-sling-bag\/amethyst",
-        "background": "#ff6b0e",
-        "text-color": "#000000",
-        "accent-color": "#000000",
-        "pictured-product-display": "top",
-        "featured-collection": "backpacks",
-        "collection-limit": 5,
-        "show-view-all": true,
-        "product_list": [
-          "terra-26l-backpack-duffel",
-          "terra-carry-on-luggage",
-          "terra-sling-bag",
-          "terra-hanging-toiletry-bag"
-        ],
-        "columns": "2"
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {
@@ -298,19 +342,85 @@
         "autoslide": 3
       }
     },
+    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
+      "type": "promo-collection",
+      "settings": {
+        "title": "Ambeur Collection",
+        "description": "",
+        "quick-view": true,
+        "product-labels": false,
+        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1372_6c72ff0e-c237-424c-afdf-a9528ed74b74.jpg",
+        "video": "",
+        "media-link": "",
+        "pictured-product": "ambeur-front-pocket-carry-on-luggage",
+        "pictured-product-title": "",
+        "button-text": "Shop Now",
+        "button-quick-view": false,
+        "button-link": "",
+        "background": "#ff6b0e",
+        "text-color": "{{ shop.brand.colors.primary[1].background }}",
+        "accent-color": "#ffffff",
+        "pictured-product-display": "top",
+        "featured-collection": "",
+        "collection-limit": 0,
+        "show-view-all": true,
+        "product_list": [
+          "ambeur-vanity-case",
+          "ambeur-mini-carry-on-luggage",
+          "ambeur-front-pocket-carry-on-luggage",
+          "ambeur-carry-on-luggage",
+          "ambeur-medium-luggage",
+          "ambeur-large-luggage"
+        ],
+        "columns": "3"
+      }
+    },
+    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
+      "type": "promo-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Explore Our Bestselling Terra Collection",
+        "description": "",
+        "quick-view": true,
+        "product-labels": true,
+        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1305_de157396-b3a1-4d4d-a64b-2df3fd32e39c.jpg",
+        "video": "",
+        "image-mobile": "shopify:\/\/shop_images\/TERRA-SLING-BAG_AMETHYST-LIFESTYLE1.jpg",
+        "media-link": "shopify:\/\/collections\/best-sellers",
+        "pictured-product": "terra-sling-bag",
+        "pictured-product-title": "Terra Sling Bag",
+        "button-text": "Shop Now",
+        "button-quick-view": true,
+        "button-link": "https:\/\/www.calpaktravel.com\/products\/terra-sling-bag\/amethyst",
+        "background": "#ff6b0e",
+        "text-color": "#000000",
+        "accent-color": "#000000",
+        "pictured-product-display": "top",
+        "featured-collection": "backpacks",
+        "collection-limit": 5,
+        "show-view-all": true,
+        "product_list": [
+          "terra-26l-backpack-duffel",
+          "terra-carry-on-luggage",
+          "terra-sling-bag",
+          "terra-hanging-toiletry-bag"
+        ],
+        "columns": "2"
+      }
+    },
     "b12b4161-2d41-4027-a740-a9f3f7ced561": {
       "type": "featured-content-blocks",
       "blocks": {
         "ac73ae99-5b85-4dca-b2ef-7a4700451a47": {
           "type": "block",
           "settings": {
-            "target_link": "shopify:\/\/blogs\/destination\/trend-watch-utility",
-            "title": "Trend Watch: Utility",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "target_link": "shopify:\/\/pages\/which-toiletry-bag-is-right-for-you",
+            "title": "Leave no beauty staple behind.",
+            "description": "<p>Discover which cosmetics bag you should pack for your next adventure.<\/p>",
             "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/small-hat-box",
-            "product_title": "Baye Hat Box",
-            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "pictured_product": "shopify:\/\/products\/large-clear-cosmetic-case",
+            "product_title": "Large Clear Cosmetics Case",
+            "image": "shopify:\/\/shop_images\/Toiletry_Bags-2.jpg",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9"
@@ -319,13 +429,13 @@
         "f98ea68c-3c90-41b8-bc5a-a7a80de6bf2b": {
           "type": "block",
           "settings": {
-            "target_link": "shopify:\/\/blogs\/destination\/meet-the-luka-collection",
-            "title": "Luka Collection",
-            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "target_link": "shopify:\/\/pages\/packing-cubes-your-favorite-organizing-tool",
+            "title": "Packing Cubes Forever!",
+            "description": "<p>Packing cubes come in all shapes and sizes—let's find the right ones for you.<\/p>",
             "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
-            "product_title": "Ambeur Vanity Case",
-            "image": "shopify:\/\/shop_images\/NewArrivalsMobile.jpg",
+            "pictured_product": "shopify:\/\/products\/compression-packing-cubes",
+            "product_title": "Compression Packing Cubes",
+            "image": "shopify:\/\/shop_images\/Packing_Cubes.jpg",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9"
@@ -337,10 +447,13 @@
         "f98ea68c-3c90-41b8-bc5a-a7a80de6bf2b"
       ],
       "settings": {
+        "heading": "",
         "gap": true,
         "general-layout": "text-media",
         "content-position": "stretch",
-        "mobile-layout": "stacked"
+        "mobile-layout": "stacked",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "5a6f5490-2467-4517-8d4e-1b098c285ad9": {
@@ -361,10 +474,12 @@
   },
   "order": [
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
+    "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
     "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
-    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "951d1a57-9c08-4431-a932-aafbc04369f5",
+    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
+    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
     "5a6f5490-2467-4517-8d4e-1b098c285ad9"
   ]

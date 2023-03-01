@@ -10,168 +10,135 @@
         assign checkout = false
     endif
 -%}
-{%- if checkout == true -%}
 
-{%- else -%}
+{%- if checkout == true -%}
     {%- if customer != blank -%}
-        <script> location.href = '/checkout'; </script>
+        <script> setTimeout(() => location.href = '/checkout', 300); </script>
+        <div class="customer__page customer__page--form">
+            <h1 class="customer__page-title">Already logged in</h1>
+            <div class="customer__page-cta">
+                <p>Redirecting to checkout...</p>
+            </div>
+        </div>
+    {%- else-%}
+    <section class="checkout-login">
+        <div class="checkout-login__login">
+            <div class="checkout-login__inner">
+                <h1 class="customer__page-title">Log in</h1>
+                <div class="customer__page-cta">
+                    <p>Get rewarded. Sign in to earn <strong>5% credit on all orders</strong>. <br>Use your account for faster checkout and easy order tracking.</p>
+                </div>
+
+                {%- render 'customer-login-form', checkout: checkout -%}
+            </div>
+        </div>
+        <div class="checkout-login__guest">
+            <div class="checkout-login__inner">
+                <h2 class="customer__page-title">Checkout</h2>
+                <div class="customer__page-cta">
+                    <p>You can complete your purchase as a guest, but you will need to fill out your personal information to place your order.</p>
+                </div>
+
+                <div class="form__submit">
+                    <a href="/checkout" class="button--guest-checkout button button--secondary">
+                        <span>Checkout as guest</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     {%- endif -%}
-{%- endif -%}
-
-<div class="customer__page customer__page--form">
-    <div class="customer__page-title">Log In</div>
-    <div class="customer__page-cta">
-        <p>Get rewarded. Sign in to earn <strong>5% credit on all orders</strong>.<br> Use your account for faster checkout and easy order tracking.</p>
-    </div>
-    {%- render 'customer-login-form', checkout: checkout -%}
-</div>
-
-{%- if checkout == true -%}
-<div class="checkout-login__guest">
-    <div class="auth-title">Checkout</div>
-    <div class="reg-cta checkout-login__content-block">
-        <p>You can complete your purchase as a guest, but you will need to fill out your personal information to place your order.</p>
-    </div>
-    <div class="submit-line">
-        <a href="/checkout" class="button--guest-checkout button button--secondary">Checkout as guest</a>
-    </div>
-</div>
-{%- endif -%}
-
-
-<div class="wrapper">
-    {% if true %}
-        {% if customer != blank %}
-            <div class="already-logged-in">
-                <div class="auth-title">Logged In</div>
-                <p class="reg-cta">Redirecting to checkout...</p>
-                <div>
-                    <a class="button button--dark" href="/checkout">Go to checkout</a>
-                </div>
-                <script>
-                    setTimeout(function() {
-                        location.href = '/checkout';
-                    }, 1000);
-                </script>
+    <script>
+    let guest = document.querySelector('.button--guest-checkout');
+    if(guest) guest.addEventListener('click', function() {
+        window.localStorage.setItem('guest_checkout', true);
+    });
+    </script>
+{%- else -%}
+    <div class="customer__page customer__page--form">
+        <div class="customer__forgot-pass">
+            <h2 class="customer__page-title">Reset my password</h2>
+            <div class="customer__page-cta">
+                <p>Enter the email associated with your account</p>
             </div>
-        {% else %}
 
-        {% endif %}
-    {% else %}
-        <div class="page-header page-header--account-auth">
-            <div class="login-title">
-                <h1 class="auth-title">{{ 'customer.login.title' | t }}</h1>
-                <div class="reg-cta">
-                    Not a member? {{ 'layout.customer.create_account' | t | customer_register_link }}
-                </div>
-            </div>
-            <div class="recover-title" style="display: none;">
-                <h1 class="auth-title">Reset Your Password</h1>
-                <div class="reg-cta">
-                {{ 'customer.recover_password.subtext' | t }}
-                </div>
-            </div>
-        </div>
+            {%- form 'recover_customer_password' -%}
+                {% assign recover_success = form.posted_successfully? %}
 
-        <div class="content-container narrow form">
-            <div id="CustomerLoginForm">
-                {% form 'customer_login' %}
-                    <div class="selection-wrapper selection-wrapper--main-login">
-                        {% comment %}
-                        If a user has successfully requested a new password, the form.posted_successfully? variable
-                        is set to true within the 'recover_customer_password' form only. Within that form you'll see
-                        the variable 'resetPassword' set to true, which is used to initialize StyleHatch.resetPasswordSuccess().
-                        {% endcomment %}
-                        <div class="note form-success" id="ResetSuccess" style="display:none;">
-                        <p>{{ 'customer.recover_password.success' | t }}</p>
-                        </div>
-
-                        {{ form.errors | default_errors }}
-
-                        <input type="hidden" name="return_to" value="/account">
-
-                        <div class="input-row">
-                        <label for="CustomerEmail" class="hidden-label">{{ 'customer.login.email' | t }}</label>
-                        <input placeholder="{{ 'customer.login.email' | t }}" type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
-                        </div>
-
-                        {% if form.password_needed %}
-                        <div class="input-row">
-                        <label for="CustomerPassword" class="hidden-label">{{ 'customer.login.password' | t }}</label>
-                        <input placeholder="{{ 'customer.login.password' | t }}" type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
-                        </div>
+                <section class="field__list">
+                    <div class="field">
+                        <label for="RecoverEmail">
+                            Email
+                        </label>  
+                        <input type="email"
+                        value=""
+                        class="field__input"
+                        name="email"
+                        id="RecoverEmail"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        autocomplete="email"
+                        {% if form.errors %}
+                            aria-invalid="true"
+                            aria-describedby="RecoverEmail-email-error"
+                            autofocus
                         {% endif %}
-
-                        <div class="submit">
-                        <div>
-                            <input type="submit" class="button button--dark" value="{{ 'customer.login.sign_in' | t }}">
-                        </div>
-                        <div>
-                            <a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
-                        </div>
-                        </div>
-
+                        >
                     </div>
-                {% endform %}
-            </div>
+                    
 
-
-            <div id="RecoverPasswordForm" style="display: none;">
-                {% form 'recover_customer_password' %}
-                    <div class="selection-wrapper">
-
+                    {%- if form.errors -%}
                         {{ form.errors | default_errors }}
-                        {% comment %}
-                        Assign variable to be used after StyleHatch.init() is run in theme.liquid
-                        {% endcomment %}
-                        {% if form.posted_successfully? %}
-                            {% assign resetPassword = true %}
+                    {%- endif -%}
 
-                            {% if form.errors == blank %}
-                            <p>We have sent you an e-mail containing your password reset link and instructions. Follow the link to reset your password.</p>
-                            {% endif %}
-                        {% endif %}
-
-                        <div class="input-row">
-                            <label for="RecoverEmail" class="hidden-label">{{ 'customer.recover_password.email' | t }}</label>
-                            <input placeholder="Enter your email" type="email" value="" name="email" id="RecoverEmail" autocorrect="off" autocapitalize="off">
-                        </div>
-
-                        <div class="submit">
-                            <div>
-                                <input type="submit" class="button button--dark" value="{{ 'customer.recover_password.submit' | t }}">
-                            </div>
-                            <div>
-                                <a id="HideRecoverPasswordLink" href="#login" class="cancel">Log in</a>
-                            </div>
-                        </div>
-
+                    <div class="field field--submit">
+                        <button aria-label="Log into user account" type="submit" class="button">
+                            <span>Submit</span>
+                        </button>
                     </div>
-                {% endform %}
+
+                    <div class="field field--forgot-cancel">
+                        <a href="{{ routes.account_login_url }}" class="forgot-pass__cancel">Cancel</a>
+                    </div>
+                </section>
+            {%- endform -%}
+        </div>
+        <div class="customer__login">
+            <div class="customer__page-title-tabs">
+                <h1 class="tabs__button--active transparent-button">Log in</h1>
+                <a href="{{ routes.account_register_url }}" class="transparent-button">Register</a>
             </div>
 
-            {% comment %}
-            {% if shop.checkout.guest_login %}
-                <div class="account-or-guest">or</div>
-                <div class="continue-as-a-guest__title">{{ 'customer.login.guest_title' | t }}</div>
+            {%- if recover_success == true -%}
+                <div class="customer__page-cta customer__page-cta--success">
+                    We have sent you an e-mail containing your password reset link and instructions. Follow the link to reset your password.
+                </div>
+            {%- endif -%}
 
-                {% form 'guest_login' %}
-                    <input type="submit" class="button" value="{{ 'customer.login.guest_continue' | t }}">
-                {% endform %}
-            {% endif %}
-            {% endcomment %}
+            {%- render 'customer-login-form', checkout: checkout -%}
         </div>
+    </div>
+    <script>
+    const formPage = document.querySelector('.customer__page--form');
+    const forgotLink = document.querySelector('.forgot-pass');
+    if(forgotLink && formPage) forgotLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        location.hash = '#recover';
+        formPage.classList.add('customer__page--recover');
+    });
 
-        {% if resetPassword %}<script>setTimeout(function(){document.getElementById('RecoverPassword').click()}, 200);</script>{% endif %}
-    {% endif %}
-</div>
+    const forgotLinkCancel = document.querySelector('.forgot-pass__cancel');
+    if(forgotLinkCancel && formPage) forgotLinkCancel.addEventListener('click', function(e) {
+        e.preventDefault();
+        location.hash = '';
+        formPage.classList.remove('customer__page--recover');
+    });
 
-<script>
-let guest = document.querySelector('.button--guest-checkout');
-if(guest) guest.addEventListener('click', function() {
-    window.localStorage.setItem('guest_checkout', true);
-});
-</script>
+    if(location.hash == '#recover' && formPage) {
+        formPage.classList.add('customer__page--recover');
+    }
+    </script>
+{%- endif -%}
 
 {% schema %}
     {

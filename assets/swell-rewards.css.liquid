@@ -9,11 +9,16 @@
   font-style: normal;
 }
 
+.swell-referral-message {
+    display: none !important;
+}
+
 .swell-referral-form-body {
     display: flex;
     flex-direction: column;
     gap: var(--gap);
 }
+
 
 .swell-referral-form-body .field label {
     color: #000;
@@ -67,7 +72,7 @@
 .swell-rewards-calpak {
   /*page.rewards*/
 }
-.swell-rewards-calpak .swell-referral-loader {
+.swell-referral-loader {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,11 +183,16 @@
   margin-bottom: 20px;
 }
 
+.swell-referral-main-content {
+    max-width: 540px;
+    width: 100%;
+}
+
 .swell-rewards-calpak .swell-referral-main .swell-redeem-section .swell-redeem-area .redeem-holder .swell-referral-heading h2 {
   line-height: 1.2;
   font-size: 18px;
   margin-bottom: 24px;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   text-transform: none;
 }
 
@@ -239,7 +249,7 @@
   border-bottom: 1px solid #e1d8d1;
 }
 .swell-rewards-calpak .swell-referral-main .swell-redeem-section .swell-redeem-area .redeem-holder .table-classes .swell-referral-table thead tr th {
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   padding-bottom: 5px;
 }
 .swell-rewards-calpak .swell-referral-main .swell-redeem-section .swell-redeem-area .redeem-holder .table-classes .swell-referral-table tbody tr {
@@ -274,7 +284,7 @@
   font-size: 20px;
   margin-bottom: 16px;
   text-transform: unset;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
 }
 .swell-rewards-calpak .swell-referral-main .swell-redeem-section .swell-redeem-area .redeem-holder .heading-area .heading-holder h2 .text-break {
   display: block;
@@ -357,7 +367,7 @@
   }
 }
 .swell-rewards-calpak .swell-banner-section .banner-area .banner-text-holder .banner-heading {
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   font-size: 44px;
   color: #000;
   margin-bottom: 5px;
@@ -379,7 +389,7 @@
 }
 .swell-rewards-calpak .swell-banner-section .banner-area .banner-text-holder .sign-up-holder .sign-up-btn {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   color: #000;
   background-color: transparent;
   text-decoration: none;
@@ -426,7 +436,7 @@
 }
 .swell-rewards-calpak .swell-banner-section .banner-area .banner-text-holder .login-holder .login-link {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   color: #000;
   text-decoration: none;
   border-bottom: 1px solid #000;
@@ -475,7 +485,7 @@
   text-transform: uppercase;
   text-align: center;
   color: #000;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
 }
 @media (max-width: 768px) {
   .swell-rewards-calpak .swell-title-section .page-title {
@@ -534,7 +544,7 @@
   font-size: 30px;
   margin: 0;
   text-transform: none;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
 }
 .swell-rewards-calpak .user-area .user-text-holder .user-heading .user-name {
   font-size: 36px;
@@ -607,7 +617,7 @@
   text-transform: uppercase;
   text-align: center;
   color: #000;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   letter-spacing: 2px;
 }
 @media (max-width: 768px) {
@@ -686,7 +696,7 @@
   display: inline-block;
   font-size: 18px;
   color: #000;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
 }
 .swell-rewards-calpak .rewards-section .rewards-holder .how-it-works-area .how-it-works-list .step .step-content-holder .text-holder {
   flex-basis: 85%;
@@ -697,7 +707,7 @@
   letter-spacing: 0.5px;
   text-align: left;
   color: #000;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   text-transform: none;
 }
 .swell-rewards-calpak .rewards-section .rewards-holder .how-it-works-area .how-it-works-list .step .step-content-holder .text-holder .step-details {
@@ -794,7 +804,7 @@
 }
 .swell-rewards-calpak .rewards-section .rewards-holder .campaigns-area .swell-campaign-list .swell-campaign .swell-campaign-content .swell-campaign-value {
   color: #000;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
 }
 .swell-rewards-calpak .rewards-section .rewards-holder .campaigns-area .swell-campaign-list .swell-campaign .swell-campaign-content .swell-campaign-value span {
   display: block;
@@ -918,7 +928,7 @@
 .swell-referral-copy .swell-referral-copy-content .swell-referral-copy-main .swell-referral-copy-link {
   font-size: 16px;
   margin-bottom: 20px;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   color: #221f20;
   text-transform: uppercase;
 }
@@ -959,6 +969,11 @@
   line-height: 1.2;
   color: #000;
   margin: 0;
+}
+
+p.swell-referral-details {
+    text-align: center;
+    margin-top: 20px;
 }
 @media (max-width: 768px) {
   .swell-referral-copy .swell-referral-copy-content .swell-referral-copy-main .swell-referral-details {
@@ -1045,6 +1060,7 @@
   text-align: center;
   color: #f00;
   font-size: 14px;
+  padding: 10px 0 0;
 }
 
 .rewards-section-container .rewards-hero .swell_banner_section .banner_section_title{
@@ -1062,7 +1078,7 @@
 
 .rewards-section-container .rewards-hero .swell_banner_section .banner_section_detail{
   font-size: 34px;
-  font-weight: bold;
+  font-weight: var(--font-body-weight-black);
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -1252,17 +1268,23 @@
     padding: 80px 27px;
     background: transparent;
 
-    @media (max-width: 900px) {
+}
+
+@media (max-width: 900px) {
+    .swell-referral-content-main {
         padding: 15px 17px;
     }
 }
 
 .swell-refer-a-friend {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: var(--font-body-weight-black);
     text-transform: none;
 
-    @media (max-width: 900px) {
+}
+@media (max-width: 900px) {
+    .swell-refer-a-friend {
+
         font-size: 13px;
     }
 }
@@ -1278,8 +1300,10 @@ h2.swell-referral-heading {
     font-size: 36px;
     letter-spacing: -0.02em;
     text-align: center;
+}
 
-    @media (max-width: 900px) {
+@media (max-width: 900px) {
+    h2.swell-referral-heading {
         font-size: 22px;
     }
 }
@@ -1289,7 +1313,7 @@ h2.swell-referral-heading {
 }
 
 .swell-referral-form-header {
-    font-weight: bold;
+    font-weight: var(--font-body-weight-black);
 }
 
 .swell-referral-form-list-field {
@@ -1299,10 +1323,11 @@ h2.swell-referral-heading {
 .swell-referral-form-list-field-input {
     width: 100%;
 
-    &::placeholder {
-        color: #bbb;
-        font-size: 14px;
-    }
+}
+
+.swell-referral-form-list-field-input::placeholder {
+    color: #bbb;
+    font-size: 14px;
 }
 
 .swell-referral-media-list {
@@ -1314,18 +1339,22 @@ h2.swell-referral-heading {
     display: flex;
     gap: var(--gap);
 
-    @media (max-width: 900px) {
+
+}
+
+@media (max-width: 900px) {
+    .swell-referral-media-list {
         flex-wrap: wrap;
         justify-content: center;
     }
+}
 
-    & > * {
-        margin-right: 15px;
-        white-space: nowrap;
+.swell-referral-media-list > * {
+    margin-right: 15px;
+    white-space: nowrap;
 
-        @media (max-width: 900px) {
-            margin: 8px;
-        }
+    @media (max-width: 900px) {
+        margin: 8px;
     }
 }
 
@@ -1333,8 +1362,13 @@ h2.swell-referral-heading {
     display: flex;
     cursor: pointer;
     align-items: center;
+}
 
-    i {
-        margin-right: 3px;
-    }
+.swell-referral-medium-content i {
+    margin-right: 3px;
+}
+
+.swell-referral-form-list-submit {
+    margin-top: var(--gap);
+    width: 100%;
 }

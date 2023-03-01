@@ -1,0 +1,234 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Packing Cubes: Your Favorite Organizing Tool",
+        "title-size": "medium",
+        "text": "<p>Packing cubes are the #1 tool for travel organization— Not only do they make the packing experience more satisfying, they make your journeys more enjoyable. Meet your new traveling chest of drawers!<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_3308.png",
+        "image-mobile": "shopify:\/\/shop_images\/Rectangle_3425_14bf29e1-573b-4560-89db-f9acb170797c.png",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "8ad0699e-193a-48c2-b861-364a7ffded35": {
+      "type": "page-header",
+      "settings": {
+        "title": "If you're new to packing cubes, try these:",
+        "title-size": "medium",
+        "text": "",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
+      "type": "product-showcase",
+      "blocks": {
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "Packing Cubes 5-Piece Set",
+            "description": "<p>Whether you're going international or traveling state-side, our 5-Piece Packing Cube Set is the perfect starter kit to travel organization. With 4 different sizes and a label holder, these cubes will be as transformative as you.<\/p><p><\/p><p><strong>The 5 different sizes:<\/strong><\/p><p>1. The Small #1 (12\" x 8.8\" x 3\") is great for tops, pajamas, and shorts.<br\/>2. The Small #2 (12\" x 8.8\" x 3\") is great for dresses, undergarments, and skirts.<br\/>3. The Medium (15\" x 11\" x 3\") is great for chunkier items like jeans and pants, even a couple pairs of shoes!<br\/>4. The Large (17\" x 12\" x 3\") is great for heavy sweaters and jackets.<br\/>5. The Envelope (13\" x 10\" x 1.5\") is great for bathing suits and cosmetics.<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/packing-cubes-5-piece-set"
+          }
+        },
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
+          "type": "product",
+          "settings": {
+            "product": "packing-cubes-5-piece-set"
+          }
+        },
+        "1b775b70-f16b-4f85-a218-760455abe4b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_165_1a408fe3-d947-4b31-a7a5-64ed11abd8e5.png"
+          }
+        }
+      },
+      "block_order": [
+        "db964836-931d-46f8-847a-85e26721b352",
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03",
+        "1b775b70-f16b-4f85-a218-760455abe4b0"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "6a3ce05d-df22-4882-82d5-e6e786fe5a0c": {
+      "type": "page-header",
+      "settings": {
+        "title": "If you're trying to fit everything into a carry-on, try the:",
+        "title-size": "medium",
+        "text": "",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
+      "type": "product-showcase",
+      "blocks": {
+        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_175_88f3209a-6620-4c86-b36c-ae3bc6c28b28.png"
+          }
+        },
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "compression-packing-cubes"
+          }
+        },
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
+          "type": "text",
+          "settings": {
+            "title": "Compression Packing Cube Set",
+            "description": "<p>Each cube in this 2-Piece Set has an expandable component— taking a 4.5\" cube full of all your favorite t-shirts, dresses, and shorts, down to a compressed, 2\" cube. With a top handle and a back zippered compartment for extra storage, these cubes will be the ultimate space saving solution.<\/p><p><\/p><p><strong>The expandable system<\/strong><\/p><p>Each cube in this 2-Piece Set has a 2.5\" expandable component— taking a 4.5\" cube full of all your favorite t-shirts, dresses, and shorts, down to a compressed, 2\" cube. With a top handle for holding, and a back zippered compartment for extra storage, these cubes will be your next space saving solution.<br\/><br\/>One Size Expanded (9\" x 13\" x 4.5\")<br\/>One Size Compressed (9\" x 13\" x 2\")<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/compression-packing-cubes"
+          }
+        }
+      },
+      "block_order": [
+        "999f1999-abe3-4175-b42f-0de5ff5d695e",
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f",
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "ad0bc37d-7dea-4b0a-bcd7-f31c8756a9d9": {
+      "type": "page-header",
+      "settings": {
+        "title": "If you're looking for an upgrade, try the:",
+        "title-size": "medium",
+        "text": "",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "4cf35075-f223-4569-ab9b-1b174321d18f": {
+      "type": "product-showcase",
+      "blocks": {
+        "8916621f-d4a0-4a74-8214-e6cdebf20b60": {
+          "type": "text",
+          "settings": {
+            "title": "Compakt Shoe Bag",
+            "description": "<p>Like most people, we don't love when the sand from our hiking boots gets sprinkled into our underwear. This money-saving set will keep your shoes zipped up tight, and helps you put your best foot forward.<\/p><p><\/p><p><strong>The features <\/strong><\/p><ul><li>Comes in a set of 2, making it easier than ever to organize your shoes, without the usual bulk. <\/li><li>Water-resistant ripstop nylon you can wipe and wash—so it doesn’t matter how dirty your shoes get, you can clean these cubes again and again. <\/li><li>Easy handle for carrying—so you can pack and go. <\/li><li>Top flap zipper with interior mesh pocket, to store any extra laces or accessories. <\/li><\/ul>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/compakt-shoe-bag-set"
+          }
+        },
+        "79780fc5-d217-444f-b73d-95a7c2ff1a30": {
+          "type": "product",
+          "settings": {
+            "product": "compakt-shoe-bag-set"
+          }
+        },
+        "67c159bc-ab05-4718-b5c3-81bb3f1c12cf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_167.png"
+          }
+        }
+      },
+      "block_order": [
+        "8916621f-d4a0-4a74-8214-e6cdebf20b60",
+        "79780fc5-d217-444f-b73d-95a7c2ff1a30",
+        "67c159bc-ab05-4718-b5c3-81bb3f1c12cf"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "8593a62e-3226-4f81-9f1a-f000bafad6e6": {
+      "type": "text-and-media",
+      "blocks": {
+        "1c962607-332e-4425-8443-88d18ce28774": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "<p>Take your packing to the next level with our interior organizers.<\/p>",
+            "button-text": "Shop Organizers",
+            "button-url": "shopify:\/\/collections\/organizers",
+            "hide-on-mobile": false
+          }
+        },
+        "cf1e4c2a-c53c-4997-ada1-42e0a6614e29": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3096.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "1c962607-332e-4425-8443-88d18ce28774",
+        "cf1e4c2a-c53c-4997-ada1-42e0a6614e29"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "settings": {
+            "title": "Travel in Style",
+            "description": "Discover the bags made for every occasion and destination.",
+            "link": "shopify:\/\/pages\/travel-in-style-which-bag-should-you-bring-to-your-next-destination",
+            "image": "shopify:\/\/shop_images\/Rectangle_3425-1.png"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "settings": {
+            "title": "Duffel Bags",
+            "description": "Get to know the best duffels for travel.",
+            "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308_5bd7dfd3-28d6-455b-b0d3-966a72ddd779.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7",
+    "8ad0699e-193a-48c2-b861-364a7ffded35",
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "6a3ce05d-df22-4882-82d5-e6e786fe5a0c",
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc",
+    "ad0bc37d-7dea-4b0a-bcd7-f31c8756a9d9",
+    "4cf35075-f223-4569-ab9b-1b174321d18f",
+    "8593a62e-3226-4f81-9f1a-f000bafad6e6",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
+  ]
+}

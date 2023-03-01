@@ -1,29 +1,31 @@
-{%- liquid
-    assign opt1 = current_variant.option1 | handleize
-    
-    assign finalSale = false
-    for tag in product.tags
-        assign tagSpl = tag | split: ':'
-        assign handle = tagSpl[0] | handleize
-        if 'final-sale' == handle
-            if tagSpl.size == 1
-                assign finalSale = true
-            else
-                assign finalSale = tagSpl[1] | downcase | split: ';'
+{%- if collection.metafields.custom.hide_final_sale == false or collection.metafields.custom.hide_final_sale == blank or collection == blank or location == 'pdp' -%}
+    {%- liquid
+        assign opt1 = current_variant.option1 | handleize
+        
+        assign finalSale = false
+        for tag in product.tags
+            assign tagSpl = tag | split: ':'
+            assign handle = tagSpl[0] | handleize
+            if 'final-sale' == handle
+                if tagSpl.size == 1
+                    assign finalSale = true
+                else
+                    assign finalSale = tagSpl[1] | downcase | split: ';'
+                endif
             endif
-        endif
-    endfor
--%}
-{%- if finalSale != false -%}
-<div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
-    {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
-    {%- if unit == true -%}
-    <strong>This item is Final Sale</strong>
-    {%- else -%}
-    <strong>This item is Final Sale</strong>
-    <span>Not eligible for additional discount</span>
+        endfor
+    -%}
+    {%- if finalSale != false -%}
+    <div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
+        {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
+        {%- if unit == true -%}
+        <strong>This item is Final Sale</strong>
+        {%- else -%}
+        <strong>This item is Final Sale</strong>
+        <span>Not eligible for additional discount</span>
+        {%- endif -%}
+    </div>
     {%- endif -%}
-</div>
 {%- endif -%}
 
 {%- if settings.sale-msg-enabled and location == 'pdp' or settings.sale-msg-pdp-only == false -%}

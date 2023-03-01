@@ -54,3 +54,21 @@
     line-height: 1.2em;
     margin-bottom: var(--gap);
 }
+
+@media (min-width: 901px) {
+    .collection-showcase__media .ratio-container {
+        padding-top: 0 !important;
+        position: static;
+    }
+}
+
+@media (max-width: 900px) {
+    .collection-showcase {
+        flex-direction: column;
+    }
+
+    .collection-showcase__switch-cont {
+        font-size: 20px;
+        white-space: nowrap;
+    }
+}

@@ -1,12 +1,11 @@
 .account-nav__sub-section {
-    padding: 7px 0 var(--gap) var(--gap);
-    display: none;
+    padding: 7px 0 var(--gap) 35px;
 }
 
 .account-nav__sub-section .account-nav__link--active {
     background: var(--yellow);
     border-radius: 6px;
-    padding: 0 3px;
+    padding: 0 6px;
 }
 
 .account-nav__link--active + .account-nav__sub-section {
@@ -24,10 +23,119 @@
 
 .account-nav__section > .account-nav__link--active {
     font-weight: var(--font-body-weight-bold);
+    text-decoration: none;
+}
+
+.account-nav__section > .account-nav__link {
+    padding-left: 35px;
+    position: relative;
+}
+
+.account-nav__section > .account-nav__link::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.account-nav__section > .account-nav__link--active::before {
+    background: #000;
 }
 
 .account-nav__link--wishlist {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    line-height: 1.5em;
+}
+
+.account-nav__link--wishlist svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 900px) {
+    .account-nav__link--wishlist svg {
+        display: none;
+    }
+
+    .account-nav__section > .account-nav__link {
+        padding-left: 18px;
+        height: 42px;
+        line-height: 42px;
+    }
+
+    .account-nav__link--active + .account-nav__sub-section {
+        display: flex;
+        gap: 10px;
+    }
+
+    .account-nav__section > .account-nav__link.account-nav__link--active {
+        line-height: 38px;
+    }
+
+    .account-nav__link {
+        white-space: nowrap;
+    }
+
+    .account-nav__section {
+        display: contents;
+    }
+
+    .account-nav__section > .account-nav__link::before {
+        width: 12px;
+        height: 12px;
+    }
+
+    .account-nav__sub-section {
+        flex: 0 0 100%;
+        order: 5;
+        padding: 0;
+    }
+
+    .account-nav__sub-section br {
+        display: none;
+    }
+
+    .account-nav {
+        position: relative;
+    }
+
+    .account-nav::after {
+        position: absolute;
+        content: '';
+        top: 42px;
+        left: 0;
+        width: 100%;
+        border-top: 1px dashed #aeaeae;
+    }
+
+    .account-nav__sub-section .account-nav__link {
+        height: 24px;
+        line-height: 24px;
+    }
+
+    .address-list .address:not(:first-child) {
+        margin-top: 30px;
+        padding-top: 25px
+    }
+}
+
+@media (max-width: 395px) {
+    .account-nav__section > .account-nav__link {
+        padding-left: 16px;
+    }
+
+    .account-nav__section > .account-nav__link {
+        font-size: 15px;
+    }
+
+    .account-nav {
+        gap: 7px;
+    }
 }

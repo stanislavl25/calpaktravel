@@ -16,7 +16,7 @@
         assign params = params | append: '&loop=0'
     endif
 
-    if controls == true
+    if controls == true or autoplay != true
         assign params = params | append: '&controls=1'
     else
         assign params = params | append: '&controls=0'

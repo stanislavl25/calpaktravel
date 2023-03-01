@@ -1,18 +1,18 @@
 <nav class="account-nav">
     <div class="account-nav__section">
-        <a class="account-nav__link{% if current == 'info' or current == 'addresses' %} account-nav__link--active{% endif %}" href="/account?view=info">My Account</a>
+        <a class="account-nav__link{% if current == 'info' or current == 'addresses' %} account-nav__link--active{% endif %}" href="{{ routes.account_url }}?view=info">My Account</a>
         <div class="account-nav__sub-section">
-            <a class="account-nav__link{% if current == 'info' %} account-nav__link--active{% endif %}" href="/account?view=info">Account Details</a><br>
-            <a class="account-nav__link{% if current == 'addresses' %} account-nav__link--active{% endif %}" href="/account/addresses">Addresses</a>
+            <a class="account-nav__link{% if current == 'info' %} account-nav__link--active{% endif %}" href="{{ routes.account_url }}?view=info">Account Details</a><br>
+            <a class="account-nav__link{% if current == 'addresses' %} account-nav__link--active{% endif %}" href="{{ routes.account_addresses_url }}">Addresses</a>
         </div>
     </div>
     <div class="account-nav__section">
-        <a class="account-nav__link{% if current == 'orders' %} account-nav__link--active{% endif %}" href="/account">Orders</a>
+        <a class="account-nav__link{% if current == 'orders' %} account-nav__link--active{% endif %}" href="{{ routes.account_url }}">Orders</a>
     </div>
     <div class="account-nav__section">
-        <a class="account-nav__link{% if current == 'rewards' %} account-nav__link--active{% endif %}" href="/account?view=rewards">Rewards</a>
+        <a class="account-nav__link{% if current == 'rewards' %} account-nav__link--active{% endif %}" href="{{ routes.account_url }}?view=rewards">Rewards</a>
     </div>
     <div class="account-nav__section account-nav__section--hmob">
-        <a class="account-nav__link account-nav__link--wishlist{% if current == 'wishlist' %} account-nav__link--active{% endif %}" href="/account?view=wishlist">My Wishlist {% render 'icon-heart' %}</a>
+        <a class="account-nav__link account-nav__link--wishlist{% if current == 'wishlist' %} account-nav__link--active{% endif %}" href="{{ routes.account_url }}?view=wishlist">My Wishlist {% render 'icon-heart' %}</a>
     </div>
 </nav>

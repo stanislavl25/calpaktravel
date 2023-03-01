@@ -1,0 +1,67 @@
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-customer-wishlist.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-wishlist.css' | asset_url | stylesheet_tag: preoad: true }}
+
+<script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+
+<section class="customer__main">
+    {% render 'account-nav', current: 'wishlist' %}
+        
+    <div class="account-info wishlist-container">
+        {% render 'wishlist' %}
+
+        {% comment %} <div style="display: flex; gap: 10px; align-items:center;">
+        <input type="email" style="width: 250px;" placeholder="Email address" id="email-share"> <a href="#" class="wishlist__share button">Share</a>
+        </div>
+        <script>
+            document.querySelector('.wishlist__share').addEventListener('click', function(e) {
+                e.preventDefault();
+
+                window._swat.sendEmailWishList(
+                    function(r) {
+                        document.querySelector('.wishlist__share').innerHTML = 'Email sent!';
+                    },
+                    document.querySelector('#email-share').value,
+                    "Admin",
+                    "Hey, check out these products!"
+                );
+            });
+        </script> {% endcomment %}
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Customer Wishlist",
+        "settings": [
+            {
+                "type": "text",
+                "id": "nothing-to-show",
+                "label": "Nothing to show message",
+                "default": "Looks like you haven't saved anything yet"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Featured collection"
+            },
+            {
+                "type": "text",
+                "id": "override-title",
+                "label": "Title override"
+            },
+            {
+                "type": "checkbox",
+                "id": "wishlist",
+                "label": "Enable wishlist",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "quick_view",
+                "label": "Enable quickview",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}

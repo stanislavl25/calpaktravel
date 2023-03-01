@@ -1,0 +1,59 @@
+{% form 'customer_address', customer.new_address %}
+    <input type="hidden" name="address[country]" value="USA">
+
+    <div class="field field--required">
+        <label for="address_fname">First Name</label>
+        <input id="address_fname" class="field__input" autocomplete="given-name" value="{{ form.first_name }}" required="required" type="text" name="address[first_name]">
+    </div>
+
+    <div class="field field--required">
+        <label for="address_lname">Last Name</label>
+        <input id="address_lname" class="field__input" autocomplete="family-name" value="{{ form.last_name }}" required="required" type="text" name="address[last_name]">
+    </div>
+
+    <div class="field field--optionally-activated">
+        <button class="field-activator">+ Company (optional)</button>
+        <label for="address_company">Company</label>
+        <input id="address_company" class="field__input" type="text" autocomplete="organization" value="{{ form.company }}" name="address[company]">
+    </div>
+
+    <div class="field field--required">
+        <label for="address_addr1">Address Line 1</label>
+        <input id="address_addr1" class="field__input" required="required" value="{{ form.address1 }}" autocomplete="address-line1" type="text" name="address[address1]">
+    </div>
+
+    <div class="field">
+        <label for="address_addr2">Address Line 2</label>
+        <input id="address_addr2" class="field__input" type="text" value="{{ form.address2 }}" autocomplete="address-line2" name="address[address2]">
+    </div>
+
+    <div class="field field--required">
+        <label for="address_city">City</label>
+        <input id="address_city" class="field__input" value="{{ form.city }}" autocomplete="address-level2" required="required" type="text" name="address[city]">
+    </div>
+
+    <div class="field field--required">
+        <label for="address_state">State/Province</label>
+        <input id="address_state" class="field__input" required="required" type="text" name="address[province]">
+    </div>
+
+    <div class="field field--required">
+        <label for="address_zip">Postal Zip Code</label>
+        <input id="address_zip" class="field__input" value="{{ form.zip }}" autocapitalize="characters" autocomplete="postal-code" required="required" type="text" name="address[zip]">
+    </div>
+
+    <div class="field">
+        <label for="address_phone">Phone</label>
+        <input id="address_phone" class="field__input" value="{{ form.phone }}" autocomplete="tel" type="text" name="address[phone]">
+    </div>
+
+    {{ form.errors | default_errors }}
+
+    <div class="field field--wide">
+        <label class="checkbox-label"> {{ form.set_as_default_checkbox }} Make this my default address</label>
+    </div>
+
+    <div class="field field--wide">
+        <button type="submit" class="button"><span>Save</span></button>
+    </div>
+{% endform %}

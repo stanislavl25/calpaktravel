@@ -3,6 +3,7 @@
     gap: 9px;
     max-width: calc(20px * var(--product-unit-sw-limit) + (var(--product-unit-sw-limit) - 1) * 9px);
     overflow: hidden;
+    z-index: 2;
 }
 
 .product-unit__swatches-container {
@@ -10,6 +11,24 @@
     top: 0;
     left: 0;
     gap: 9px;
+}
+
+.product-unit__swatches-container::before {
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    bottom: -3px;
+    right: -3px;
+    border-radius: 20px;
+    background: #f7f7f7;
+    content: '';
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-unit:hover .product-unit__swatches-container::before {
+    opacity: 1;
 }
 
 .product-unit:focus .product-unit__swatches-container,
@@ -54,6 +73,7 @@
     text-decoration: underline;
     font-size: 14px;
     line-height: 20px;
+    margin-right: 5px;
 }
 
 a.color-swatch--active {
@@ -666,6 +686,10 @@ a.color-swatch--active {
 
 .color-guava {
     background: #F5B3D6;
+}
+
+.color-amethyst {
+    background: #D6B5DE;
 }
 
 .color-honeydew {

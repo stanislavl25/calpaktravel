@@ -17,33 +17,47 @@
 
 {%- liquid
     assign request_arg = request.path | split: "/"
-    assign color_arg = false
-    assign current_variant = product.selected_or_first_available_variant
+    assign option1_arg = false
+    assign option2_arg = false
+    assign current_variant = product.variants | first
     
     if request_arg.size == 4
-        assign request_arg = request_arg[3] | handleize
-        if request_arg == 'early-access'
+        assign request_args = request_arg[3] | split: ','
+        if request_arg[3] == 'early-access'
             if product.tags contains 'early-access'
                 assign early_access = true
             endif
-        elsif request_arg contains 'early-access-'
+        elsif request_arg[3] contains 'early-access-'
             if product.tags contains 'early-access'
                 assign early_access = true
-                assign color_arg = request_arg | replace: 'early-access-', ''
+                assign option1_arg = request_arg[3] | replace: 'early-access-', ''
             endif
         else
-            assign color_arg = request_arg
+            assign option1_arg = request_args[0]
+            if request_args.size > 1
+                assign option2_arg = request_args[1]
+            endif
         endif
     endif
 
-    if color_arg != false
-        for variant in product.variants
-            assign var_option = variant.option1 | handleize
-            if color_arg == var_option
-                assign current_variant = variant
-                break
-            endif
-        endfor
+    if option1_arg != false
+        if option1_arg == 'reviews'
+            echo "<script>window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.querySelector('.okeReviews-widget-holder').scrollIntoView()), 50)</script>"
+        else
+            for variant in product.variants
+                assign var_option1 = variant.option1 | handleize
+                if option2_arg != false
+                    assign var_option2 = variant.option2 | handleize
+                    if option1_arg == var_option1 and option2_arg == var_option2
+                        assign current_variant = variant
+                        break
+                    endif
+                elsif option1_arg == var_option1
+                    assign current_variant = variant
+                    break
+                endif
+            endfor
+        endif
     endif
 
     assign featured_collection = false
@@ -55,7 +69,7 @@
     assign product_type = product.type | downcase
 
     if featured_collection != false and product_type contains 'luggage'
-        assign types = 'Mini Carry-On,Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Medium Luggage,Large,Trunk,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
+        assign types = 'Mini Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Carry-On,Medium Luggage,Large Luggage,Trunk Luggage,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
 
         for type in types
             if product.title contains type
@@ -72,10 +86,23 @@
     else
         assign preorder = false
     endif
--%}
 
-<section class="pdp__grid"
-    data-status="{% if current_variant.available == false %}sold-out{% elsif preorder != false %}preorder{% else %}default{% endif %}">
+    assign soldout = false
+    for tag in product.tags
+        assign tagSpl = tag | split: ':'
+        if 'soldout' == tagSpl[0]
+            if tagSpl.size == 1
+                assign soldout = true
+            else
+                assign soldout = tagSpl[1] | downcase | split: ';'
+            endif
+        endif
+    endfor
+-%}
+<section class="pdp__grid{% if soldout == true %} pdp__grid--soldout{% endif %}"
+    data-status="{% if current_variant.available == false %}sold-out{% elsif preorder != false %}preorder{% else %}default{% endif %}"
+    {% if soldout != false and soldout != true %}data-soldout="{{ soldout | join: ' ' }}"{% endif %}
+    >
     
     <div class="pdp__breadcrumbs">
         {% render 'pdp-breadcrumbs', current_product_group_type: current_product_group_type, featured_collection: featured_collection %}
@@ -90,7 +117,7 @@
     <main
         class="pdp__info"
         >
-        {% form 'product', product %}
+        {% form 'product', product, data-handle: product.handle, data-id: product.id %}
             <script type="text/json" class="pdp-json" data-current-variant="{{ current_variant.id }}">{{ product | json }}</script>
             <script type="text/json" class="pdp-meta-json">
                 {
@@ -124,6 +151,10 @@
                         <section class="pdp__form-labels">
                         {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
                         </section>
+                    {%- when 'live-button' -%}
+                        <section class="bambuser__live-activator">
+                            {{ block.settings.html }}
+                        </section>
                     {%- when 'shipping-calculator' -%}
                         {% comment %} {% render 'shipping-calculator' %} {% endcomment %}
                     {%- when 'submit' -%}
@@ -137,7 +168,7 @@
             {%- endfor -%}
         {% endform %}
 
-        {% render 'pdp-upsell', title: "Pairs well with" %}
+        {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
     </main>
 
 </section>
@@ -198,6 +229,11 @@
                 "type": "richtext",
                 "id": "warranty-and-return",
                 "label": "Default warranty and return policy"
+            },
+            {
+                "type": "richtext",
+                "id": "prop65",
+                "label": "Prop 65 text"
             }
         ],
         "blocks": [
@@ -233,6 +269,18 @@
                 "type": "shipping-calculator",
                 "name": "Shipping Calculator",
                 "limit": 1
+            },
+            {
+                "type": "live-button",
+                "name": "Live show button",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "html",
+                        "id": "html",
+                        "label": "Code"
+                    }
+                ]
             },
             {
                 "type": "description",

@@ -13,7 +13,12 @@
                 assign height = false
             endif
 
-            render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls
+            if section.settings.image_mobile != blank
+                render 'image' with section.settings.image_mobile, preload: true, class: 'hide-large'
+                render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, class: 'hide-small'
+            else
+                render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls
+            endif
         else
             if section.settings.image_mobile != blank and section.settings.image != blank
                 render 'image' with section.settings.image, preload: true, class: 'hide-small'

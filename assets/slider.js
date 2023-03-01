@@ -112,10 +112,11 @@ function sliderThumbClick(thumb) {
 
     const index = getIndexWithSelector(thumb, '.slide');
 
-    moveToSlide(document.querySelector('.pdp__gallery, .qv__gallery-inner'), index);
+    moveToSlide(document.querySelector(slider.getAttribute('data-nav-for')), index);
 }
 
 function checkSlider(slider) {
+    if(!slider) return;
     let wrapper = slider.closest('.slider__wrapper');
     if(!wrapper) return;
     let firstSlide = slider.querySelector('.slide');
@@ -162,12 +163,12 @@ function checkSlider(slider) {
     if(isNaN(currentPage)) currentPage = 0;
 
     if(slider.hasAttribute('data-nav')) {
-        let nav = document.querySelector(`.${slider.getAttribute('data-nav')}`);
+        let nav = document.querySelector(slider.getAttribute('data-nav'));
         if(nav) {
             checkSlider(nav);
             let actives = nav.querySelectorAll('.slide--selected');
             if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
-            let activate = nav.querySelectorAll('.pdp__media-thumb.slide');
+            let activate = nav.querySelectorAll('.slide');
             activate[currentPage].classList.add('slide--selected');
         }
     }

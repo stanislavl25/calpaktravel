@@ -28,7 +28,7 @@
     endif
 -%}
 {%- if show -%}
-<div class="promo-unit" style="--row: {{ block.settings.row }}; --column: {{ block.settings.column }};">
+<div class="promo-unit" style="--row: {{ block.settings.row }}; --row-mob: {{ block.settings.row-mob }}; --column: {{ block.settings.column }};">
     <div class="promo-unit__inner">
         <div class="promo-unit__image">
             {%- if block.settings.link != blank -%}
@@ -45,7 +45,7 @@
                     if block.settings.video != blank
                         render 'video' with block.settings.video, height: 133.333, poster: block.settings.banner, class: desktopClass, autoplay: true, loop: true, controls: false
                     else
-                        render 'image' with block.settings.banner, height: 133.333, class: desktopClass, sizes: '20vw', lazy: true
+                        render 'image' with block.settings.banner, height: 133.333, class: desktopClass, sizes: '(min-width: 901px) 20vw, 50vw', lazy: true
                     endif
                 -%}
 

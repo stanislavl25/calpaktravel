@@ -1,5 +1,20 @@
 {
   "sections": {
+    "e2590150-c984-4231-93dc-f0baf3390bd4": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "video": "https:\/\/vimeo.com\/799934138",
+        "lazy": true,
+        "autoplay": true,
+        "controls": true,
+        "loop": false,
+        "video-ratio-w": "256",
+        "video-ratio-h": "135",
+        "image": "shopify:\/\/shop_images\/WEB_IMAGE_REFER-A-FRIEND_MOBILE.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/WEB_IMAGE_REFER-A-FRIEND_MOBILE.jpg"
+      }
+    },
     "004e8da5-fa18-482b-9e48-1809383edbea": {
       "type": "nav-hero",
       "blocks": {
@@ -8,7 +23,7 @@
           "settings": {
             "title": "Our Mission",
             "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER1.jpg",
-            "section-scroll": 2
+            "section-scroll": 3
           }
         },
         "b27f5bf3-7751-466a-aa68-14cfc4ce87c0": {
@@ -16,7 +31,7 @@
           "settings": {
             "title": "History",
             "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_bubblegum_0825-BANNER1.jpg",
-            "section-scroll": 5
+            "section-scroll": 7
           }
         },
         "2cddfbd1-220b-42a6-bd11-4f52f1c92983": {
@@ -24,7 +39,7 @@
           "settings": {
             "title": "Community",
             "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg",
-            "section-scroll": 7
+            "section-scroll": 14
           }
         }
       },
@@ -114,10 +129,13 @@
         "abfec0d1-3069-4103-a24c-9ab9ee8a7ecc"
       ],
       "settings": {
+        "heading": "",
         "gap": false,
         "general-layout": "media-text",
         "content-position": "top",
-        "mobile-layout": "stacked"
+        "mobile-layout": "stacked",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "58ff044b-14b2-4dbf-99b2-9f436ba0ae34": {
@@ -147,7 +165,7 @@
           "settings": {
             "title": "1989",
             "text": "<p>Born in LA, California Pak was brought to life by Edward and Judy Kwon. It started out as a modest collection of handbags and wallets.<\/p>",
-            "image1": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Ambur_1009-BANNER2.jpg",
+            "image1": "shopify:\/\/shop_images\/1_720x_0def18c5-1ece-4bed-9a8c-edb1bf0da405.webp",
             "video1": "",
             "video2": ""
           }
@@ -168,6 +186,7 @@
           "settings": {
             "title": "2008",
             "text": "<p>The brand grew once more, introducing long-awaited hard-sided luggage to the collection.<\/p>",
+            "image1": "shopify:\/\/shop_images\/3_720x_30d3b270-048e-4814-aab4-4d1709f440e7.webp",
             "video1": "",
             "video2": ""
           }
@@ -324,6 +343,7 @@
     }
   },
   "order": [
+    "e2590150-c984-4231-93dc-f0baf3390bd4",
     "004e8da5-fa18-482b-9e48-1809383edbea",
     "09d0df49-64b7-45c2-9ef4-3220eed6bb3e",
     "a64e8714-8090-4b0a-a8d1-f520a82bb4c1",

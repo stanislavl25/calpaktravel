@@ -1,175 +1,168 @@
-<script>
-    (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:946287,hjsv:6};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+{%- unless settings.disable_extra_scripts -%}
+    <script>
+        (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:946287,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
 
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
-<script src="https://cdn.attn.tv/calpak/dtag.js"></script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js" charset="utf-8"></script>
+    <script src="https://cdn.attn.tv/calpak/dtag.js"></script>
 
-<!-- google dynamic remarketing tag for theme.liquid -->
-{% if template contains 'product' and template != 'page.products-promo' %}
-<script type="text/javascript">
-  var json_product = {{ product | json }};
-</script>
-<script>
-  var ecomm_prodid=[];
-  for(var i=0;i<json_product.variants.length;i++)
-    ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
-</script>
-<script type="text/javascript">
-  var google_tag_params = {
-    ecomm_prodid: ecomm_prodid,
-    ecomm_pagetype: 'product',
-    ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
-  };
-</script>
-{% elsif template contains 'collection' %}
-<script type="text/javascript">
-  var google_tag_params = {
-    ecomm_pagetype: 'category'
-  };
-</script>
-{% elsif template contains 'cart' %}
-<script type="text/javascript">
-  var id = new Array();
-  {% for item in cart.items %}
-  id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
-   {% endfor %}
+    <!-- google dynamic remarketing tag for theme.liquid -->
+    {% if template contains 'product' and template != 'page.products-promo' %}
+    <script type="text/javascript">
+    var json_product = {{ product | json }};
+    </script>
+    <script>
+    var ecomm_prodid=[];
+    for(var i=0;i<json_product.variants.length;i++)
+        ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+    </script>
+    <script type="text/javascript">
+    var google_tag_params = {
+        ecomm_prodid: ecomm_prodid,
+        ecomm_pagetype: 'product',
+        ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+    };
+    </script>
+    {% elsif template contains 'collection' %}
+    <script type="text/javascript">
+    var google_tag_params = {
+        ecomm_pagetype: 'category'
+    };
+    </script>
+    {% elsif template contains 'cart' %}
+    <script type="text/javascript">
+    var id = new Array();
+    {% for item in cart.items %}
+    id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+    {% endfor %}
 
-   var google_tag_params = {
-     ecomm_prodid: id,
-     ecomm_pagetype: 'cart',
-     ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
-   };
-</script>
-{% elsif template contains 'search' %}
-<script type="text/javascript">
-  var google_tag_params = {
-    ecomm_pagetype: 'searchresults'
-  };
-</script>
-{% elsif template contains 'index' %}
-<script type="text/javascript">
-  var google_tag_params = {
-    ecomm_pagetype: 'home'
-  };
-</script>
-{% else %}
-<script type="text/javascript">
-  var google_tag_params = {
-    ecomm_pagetype: 'other'
-  };
-</script>
-{% endif %}
-<script>
-  gtag('event', 'page_view', {'send_to': 'AW-837246369',
-                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
-                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
-                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
-                             });
-</script>
-
-
-
-<!-- Snap Pixel Code -->
-<script type='text/javascript'>
-(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
-{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-r.src=n;var u=t.getElementsByTagName(s)[0];
-u.parentNode.insertBefore(r,u);})(window,document,
-'https://sc-static.net/scevent.min.js');
-snaptr('init', '4b9a3e5a-d360-427d-8a74-f2b2faf37f4d');
-
-window.addEventListener('DOMContentLoaded', function(){
-  var pxAcBtn = document.querySelector('button[name="add"]');
-  if(pxAcBtn) {
-    pxAcBtn.addEventListener('click',fnAddCart);
-  }
-});
-
-function fnAddCart() {
-  snaptr('track','ADD_CART',{
-    'item_category':ShopifyAnalytics.meta.product.id.toString(),
-    'item_ids':ShopifyAnalytics.meta.selectedVariantId.split()
-  })
-}
-</script>
-<!-- End Snap Pixel Code -->
-
-{% comment %} {% include 'swymSnippet' %} {% endcomment %}
-
-<!--Gorgias Chat Widget Start--><script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=4232"></script><!--Gorgias Chat Widget End-->
-
-<script>
-
-const brandName = 'CALPAK'
-
-const privacyPolicyLink = 'https://www.calpaktravel.com/policies/privacy-policy'
-
-const introMessage = `By using this chat feature, you consent to the recording and use of information about you and this chat session by ${brandName} or any authorized service provider acting solely on ${brandName}’s behalf. ${brandName} may use or disclose this information in accordance with its <a href="${privacyPolicyLink}" target="_blank">Privacy Policy<a>. If you do not consent to these terms, please do not use this chat feature and reach out to us via email or by phone. Your continued interaction with, or submission of information to, this chat feature will be deemed to be your acceptance of ${brandName}’s`
-
-GorgiasChat.init().then((GorgiasChat) => {
-
-  GorgiasChat.updateTexts({
-
-    "requireEmailCaptureIntro": "Hey there! " + introMessage,
-
-    "contactFormIntro": "Hey there! " + introMessage,
-
-    "contactFormSSPUnsuccessfulAskAdditionalMessage": "Hey there! " + introMessage,
-
-    "waitTimeLongNoEmail": "Thank you for your patience. " + introMessage,
-
-    "waitTimeMediumNoEmail": "Thanks for reaching out! Leave us your email and an agent will get back to you in about {waitTime} minutes. " + introMessage,
-
-    "waitTimeShortNoEmail": "Thanks for reaching out! " + introMessage
-
-  })
+    var google_tag_params = {
+        ecomm_prodid: id,
+        ecomm_pagetype: 'cart',
+        ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+    };
+    </script>
+    {% elsif template contains 'search' %}
+    <script type="text/javascript">
+    var google_tag_params = {
+        ecomm_pagetype: 'searchresults'
+    };
+    </script>
+    {% elsif template contains 'index' %}
+    <script type="text/javascript">
+    var google_tag_params = {
+        ecomm_pagetype: 'home'
+    };
+    </script>
+    {% else %}
+    <script type="text/javascript">
+    var google_tag_params = {
+        ecomm_pagetype: 'other'
+    };
+    </script>
+    {% endif %}
+    <script>
+    gtag('event', 'page_view', {'send_to': 'AW-837246369',
+                                'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                                'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                                'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                                });
+    </script>
 
 
-  GorgiasChat.updateSSPTexts({
 
-    "sorryToHearThatEmailRequired": introMessage
+    <!-- Snap Pixel Code -->
+    <script type='text/javascript'>
+    (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+    {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+    a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+    r.src=n;var u=t.getElementsByTagName(s)[0];
+    u.parentNode.insertBefore(r,u);})(window,document,
+    'https://sc-static.net/scevent.min.js');
+    snaptr('init', '4b9a3e5a-d360-427d-8a74-f2b2faf37f4d');
 
-  })
+    window.addEventListener('DOMContentLoaded', function(){
+    var pxAcBtn = document.querySelector('button[name="add"]');
+    if(pxAcBtn) {
+        pxAcBtn.addEventListener('click',fnAddCart);
+    }
+    });
 
-})
+    function fnAddCart() {
+    snaptr('track','ADD_CART',{
+        'item_category':ShopifyAnalytics.meta.product.id.toString(),
+        'item_ids':ShopifyAnalytics.meta.selectedVariantId.split()
+    })
+    }
+    </script>
+    <!-- End Snap Pixel Code -->
 
-</script>
+    {% comment %} {% include 'swymSnippet' %} {% endcomment %}
+
+    <!--Gorgias Chat Widget Start--><script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=4232"></script><!--Gorgias Chat Widget End-->
+
+    <script>
+
+    const brandName = 'CALPAK'
+
+    const privacyPolicyLink = 'https://www.calpaktravel.com/policies/privacy-policy'
+
+    const introMessage = `By using this chat feature, you consent to the recording and use of information about you and this chat session by ${brandName} or any authorized service provider acting solely on ${brandName}’s behalf. ${brandName} may use or disclose this information in accordance with its <a href="${privacyPolicyLink}" target="_blank">Privacy Policy<a>. If you do not consent to these terms, please do not use this chat feature and reach out to us via email or by phone. Your continued interaction with, or submission of information to, this chat feature will be deemed to be your acceptance of ${brandName}’s`
+
+    GorgiasChat.init().then((GorgiasChat) => {
+
+    GorgiasChat.updateTexts({
+
+        "requireEmailCaptureIntro": "Hey there! " + introMessage,
+
+        "contactFormIntro": "Hey there! " + introMessage,
+
+        "contactFormSSPUnsuccessfulAskAdditionalMessage": "Hey there! " + introMessage,
+
+        "waitTimeLongNoEmail": "Thank you for your patience. " + introMessage,
+
+        "waitTimeMediumNoEmail": "Thanks for reaching out! Leave us your email and an agent will get back to you in about {waitTime} minutes. " + introMessage,
+
+        "waitTimeShortNoEmail": "Thanks for reaching out! " + introMessage
+
+    })
+
+
+    GorgiasChat.updateSSPTexts({
+
+        "sorryToHearThatEmailRequired": introMessage
+
+    })
+
+    })
+
+    </script>
+
+
+
+    <!-- Upsellit -->
+    <script type="text/javascript">usi_installed = 0; USI_installCode = function() { if (usi_installed == 0) { usi_installed = 1; var USI_headID = document.getElementsByTagName("head")[0]; var USI_installID = document.createElement('script'); USI_installID.type = 'text/javascript'; USI_installID.src = 'https://www.upsellit.com/active/calpak.jsp'; USI_headID.appendChild(USI_installID); } }; if (typeof(document.readyState) != "undefined" && document.readyState === "complete") { USI_installCode(); } else if (window.addEventListener){ window.addEventListener('load', USI_installCode, true); } else if (window.attachEvent) { window.attachEvent('onload', USI_installCode); } else { USI_installCode(); } setTimeout("USI_installCode()", 10000);</script>
+    <!-- End Upsellit -->
+
+{%- endunless -%}
 
 {% render 'bambuser-cart-integration'%}
 
-<script>
-(function(d, t, i, w) {
-    window.__bfwId = w;
-    window.__bfwOffsX = [25, 25];
-    window.__bfwOffsY = [100, 100];
-    if (d.getElementById(i) && window.__bfwInit) return window.__bfwInit();
-    if (d.getElementById(i)) return;
-    var s, ss = d.getElementsByTagName(t)[0];
-    s = d.createElement(t); s.id = i;
-    s.src = 'https://lcx-widgets.bambuser.com/embed.js';
-    ss.parentNode.insertBefore(s, ss);
-  })(document, 'script', 'bambuser-liveshopping-widget', '0wh0SSpg6kCTMGj5gQGF');
-</script>
+{% comment %} OKENDO REVIEWS {% endcomment %}
+{% if template contains 'product' %}
+    {{ shop.metafields.okendo.ReviewsWidgetStyleTag }}
+    {{ shop.metafields.okendo.StyleCustomizations }}
+    {% render 'okendo-reviews-json-ld' %}
+    {{ 'okendo-reviews.js' | asset_url | script_tag }}
+{% endif %}
 
-<script>
-  (function(d, t, i) {
-    if (d.getElementById(i)) return;
-    var s, ss = d.getElementsByTagName(t)[0];
-    s = d.createElement(t); s.id = i;
-    s.src = 'https://lcx-widgets.bambuser.com/embed.js';
-    ss.parentNode.insertBefore(s, ss);
-  })(document, 'script', "bambuser-liveshopping-widget");
-</script>
-
-<!-- Upsellit -->
-<script type="text/javascript">usi_installed = 0; USI_installCode = function() { if (usi_installed == 0) { usi_installed = 1; var USI_headID = document.getElementsByTagName("head")[0]; var USI_installID = document.createElement('script'); USI_installID.type = 'text/javascript'; USI_installID.src = 'https://www.upsellit.com/active/calpak.jsp'; USI_headID.appendChild(USI_installID); } }; if (typeof(document.readyState) != "undefined" && document.readyState === "complete") { USI_installCode(); } else if (window.addEventListener){ window.addEventListener('load', USI_installCode, true); } else if (window.attachEvent) { window.attachEvent('onload', USI_installCode); } else { USI_installCode(); } setTimeout("USI_installCode()", 10000);</script>
-<!-- End Upsellit -->
+{% comment %} SWYM WISHLIST {% endcomment %}
+{% render 'swymSnippet' %}
+<script src="{{ 'wishlist-basic.js' | asset_url }}" defer="defer"></script>

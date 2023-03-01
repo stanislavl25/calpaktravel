@@ -21,7 +21,11 @@
             endif
         -%}
 
-        <div class="cart__header">
+        <div class="cart__header" data-status="{%- if free_shipping_progress == 100 -%}
+                    success
+                {%- else -%}
+                    progress
+                {%- endif -%}">
             {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
             {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
@@ -46,7 +50,9 @@
 
 
                 <div class="cart__body-bottom">
-                    <div class="cart__rewards"><a href="#">Sign in</a> to see your rewards</div>
+                    {%- if customer == blank -%}
+                    <div class="cart__rewards"><a href="{{ routes.account_url }}">Sign in</a> to see your rewards</div>
+                    {%- endif -%}
                     <dl class="cart__total-row cart__total-row--subtotal">
                         <dt class="cart__total-name">Subtotal</dt>
                         <dd class="cart__total-value">{{- cart.items_subtotal_price | money_without_trailing_zeros -}}</dd>
@@ -79,12 +85,17 @@
                         {{- totalPrice | money_without_trailing_zeros -}}
                     </dd>
                 </dl>
-                <div class="cart__4-payments">
-                    <span>4 easy payments of <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span> with </span>
+                <div class="cart__4-payments{% if totalPrice <= 5000 %} cart__4-payments--limit{% endif %}">
+                    <span>4 easy payments
+                        <span class="spc__msg-amnt">
+                            of <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span> with
+                        </span>
+                        <span class="spc__msg-limit">on orders over $50 with</span>
+                    </span>
                     {% render 'icon-shop-pay' %}
                 </div>
             </div>
-            <a href="{% if customer == blank %}/account/login/checkout{% else %}/checkout{% endif %}" class="button button--checkout"><span>Checkout</span></a>
+            <a href="{% if customer == blank %}{{ routes.account_login_url }}/checkout{% else %}/checkout{% endif %}" class="button button--checkout"><span>Checkout</span></a>
             <div class="cart__extra-checkout">
                 {% comment %} Extra buttons {% endcomment %}
             </div>

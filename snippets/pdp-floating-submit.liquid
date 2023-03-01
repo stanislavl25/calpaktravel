@@ -1,9 +1,14 @@
 <section class="pdp__floating-submit">
     <div class="pdp__floating-submit-inner">
-        <div class="pdp__floating-title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</div>
-        <div class="pdp__floating-labels">
-            {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
+        <div class="pdp__floating-add-to-cart">
+            <div class="pdp__floating-title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</div>
+            <div class="pdp__floating-labels">
+                {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
+            </div>
+            {% render 'pdp-submit-row', current_variant: current_variant %}
         </div>
-        {% render 'pdp-submit-row', current_variant: current_variant %}
+    
+        {% render 'pdp-waitlist' %}
+    
     </div>
 </section>

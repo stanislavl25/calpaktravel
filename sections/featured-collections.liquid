@@ -31,7 +31,7 @@
             <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
             <div class="slider slider--scrollbar">
                 {%- for product in collection.products limit: 20 -%}
-                    {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quick-view -%}
+                    {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, 50vw' -%}
                 {%- endfor -%}
             </div>
         </div>

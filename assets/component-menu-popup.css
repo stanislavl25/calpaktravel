@@ -117,6 +117,7 @@
 .menu-popup--shop .menu-popup__content {
     position: relative;
     z-index: 2;
+    max-width: 100%;
 }
 
 .menu-popup__content {
@@ -234,8 +235,7 @@
 }
 
 .menu-popup__main .menu > li:not(:first-child) li:last-child {
-    font-weight: var(--font-body-weight-bold);
-    font-weight: bold;
+    font-weight: var(--font-body-weight-black);
 }
 
 .menu-popup__main::-webkit-scrollbar {

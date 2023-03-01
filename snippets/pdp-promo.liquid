@@ -81,7 +81,7 @@
                             {%- if block.settings.title-override != blank -%}
                                 {{- block.settings.title-override | escape -}}
                             {%- else -%}
-                                {{- set_product.title | escape -}}
+                                {{- set_product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
                             {%- endif -%}
                         </a>
                     </span>

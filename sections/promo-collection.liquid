@@ -13,14 +13,16 @@
 
     <div class="promo-collection__products">
         {%- liquid
+            assign desktopWidth = 50 | divided_by: section.settings.columns
+            assign sizes = '(min-width: 901px) ' | append: desktopWidth | append: 'vw, 50vw'
             if section.settings.product_list != blank
-                render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels
+                render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, sizes: sizes
             elsif section.settings.featured-collection != blank
                 if section.settings.collection-limit == 0
-                    render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels
+                    render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes
                 else
                     for product in section.settings.featured-collection.products limit: section.settings.collection-limit
-                        render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels
+                        render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes
                     endfor
                 endif
             endif
@@ -75,11 +77,11 @@
 
             {% if product %}
             <div class="floating-link__pictured">
-                Pictured: <a href="{{ product.url }}">
+                Pictured: <a href="{{ product.url }}"{% if product != false and section.settings.button-quick-view %} class="quick-view__link"{% endif %}>
                     {%- if section.settings.pictured-product-title != blank -%}
                         {{- section.settings.pictured-product-title | escape -}}
                     {%- else -%}
-                        {{- product.title | escape -}}
+                        {{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
                     {%- endif -%}
                 </a>
             </div>

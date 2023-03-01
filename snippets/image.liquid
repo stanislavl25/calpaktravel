@@ -45,10 +45,10 @@
         echo image | asset_img_url: 'master' | img_tag
     elsif image != blank
         if zoom == true
-            echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: alt, class: 'img-zoom'
+            echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: alt, class: 'img-zoom'
         endif
 
-        echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '300, 450, 650, 800, 1000, 1200, 1600, 2000', preload: preload, alt: alt, loading: loading, class: img_class
+        echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', preload: preload, alt: alt, loading: loading, class: img_class
     endif
 %}
 

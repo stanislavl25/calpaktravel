@@ -1,0 +1,72 @@
+{%- assign order = order-summary -%}
+<div class="order-summary">
+    <div class="order-summary__header">
+        <div class="order-summary__number">Order No. {{ order.order_number }}</div>
+        <div class="order-summary__price hide-large">{{ order.total_price | money }}</div>
+    </div>
+    
+    <div class="order-summary__meta">
+        <div>{{ order.line_items.size }} {{ order.line_items.size | pluralize: 'item', 'items' }} purchased on {{ order.created_at | date: '%m/%d/%y' }}</div>
+        <div class="order-total-line">Order total <span class="bull-sep">&bull;</span> {{ order.total_price | money }}</div>
+    </div>
+
+    <div class="order-summary__products">
+        {%- liquid
+            assign limit = 5
+            if order.line_items.size > 5
+                assign limit = 4
+            endif
+        -%}
+        {% for item in order.line_items limit: limit %}
+            {%- liquid
+                assign url = false
+                unless item.product.tags contains "do not display"
+                    assign option1 = item.variant.option1 | handleize
+                    assign url = '/products/' | append: item.product.handle | append: '/' | append: option1
+                    if item.variant.option2 != blank
+                        assign option2 = item.variant.option2 | handleize
+                        assign url = url | append: ',' | append: option2
+                    endif
+                endunless
+
+                assign hideOnMobile = false
+                if forloop.index > 3 and order.line_items.size > 3
+                    assign hideOnMobile = true
+                endif
+            -%}
+
+            {%- if url != false -%}
+            <a href="{{ url }}" class="order-summary__product-card{% if hideOnMobile %} hide-small{% endif %}">
+            {%- else -%}
+            <div class="order-summary__product-card{% if hideOnMobile %} hide-small{% endif %}">
+            {%- endif -%}
+                <div class="order-summary__product-image" title="{{ item.title | strip_html | escape }}">
+                    {%- render 'image' with item.image, lazy: true, sizes: '(min-width: 901px) 200px, 33vw', no_wrapper: true -%}
+                </div>
+            {%- if url != false -%}</a>{%- else -%}</div>{%- endif -%}
+        {% endfor %}
+
+        {%- if order.line_items.size > 3 -%}
+            <a href="{{ order.customer_url }}" title="See details" class="hide-large order-summary__product-card order-summary__product-card--more">
+                + {{ order.line_items.size | minus: 2 }} more
+            </a>
+        {%- endif -%}
+
+        {%- if order.line_items.size > 5 -%}
+            <a href="{{ order.customer_url }}" title="See details" class="hide-small order-summary__product-card order-summary__product-card--more">
+                + {{ order.line_items.size | minus: 4 }} more
+            </a>
+        {%- endif -%}
+    </div>
+
+    <div class="order-summary__links">
+        <a href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a>
+        <a class="button button--secondary" href="{{ order.customer_url }}">
+            <span>See details</span>
+        </a>
+    </div>
+</div>
+{% comment %}
+{%- assign order_key =  order.customer_url | split: '/orders/' | last -%}
+<a href="https://checkout.shopify.com/9414996/orders/{{ order_key }}">Check Status</a>
+{% endcomment %}

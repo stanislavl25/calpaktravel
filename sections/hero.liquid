@@ -31,7 +31,7 @@
                     continue
                 endif
             -%}
-            <div class="hero__block hero__block--color-{{ block.settings.text-color-scheme }} hero__block--align-{{ block.settings.text-alignment }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
+            <div class="hero__block{% if block.settings.show-screens == 'desktop' %} hide-small{% elsif block.settings.show-screens == 'mobile' %} hide-large{% endif %} hero__block--color-{{ block.settings.text-color-scheme }} hero__block--align-{{ block.settings.text-alignment }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
                 {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
                     <a href="{{ block.settings.main-link }}">
                 {%- endif -%}
@@ -69,7 +69,7 @@
                 {%- endif -%}
             </div>
         {%- elsif block.type == 'media-block' -%}
-            <div class="hero__block hero__block--{{ block.type }} hero__block--{{ block.id }}">
+            <div class="hero__block{% if block.settings.show-screens == 'desktop' %} hide-small{% elsif block.settings.show-screens == 'mobile' %} hide-large{% endif %} hero__block--{{ block.type }} hero__block--{{ block.id }}">
                 {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
                     <a href="{{ block.settings.main-link }}">
                 {%- endif -%}
@@ -121,7 +121,10 @@
                 {%- endif -%}
             </div>
         {%- endif -%}
-        {%- assign num = num | plus: 1 -%}
+
+        {%- if block.settings.show-screens != 'mobile' -%}
+            {%- assign num = num | plus: 1 -%}
+        {%- endif -%}
     {% endfor %}
 {%- endcapture -%}
 
@@ -264,8 +267,28 @@
                     },
                     {
                         "type": "select",
+                        "id": "show-screens",
+                        "label": "Display for screens",
+                        "options": [
+                            {
+                                "value": "all",
+                                "label": "All screen sizes"
+                            },
+                            {
+                                "value": "desktop",
+                                "label": "Desktop"
+                            },
+                            {
+                                "value": "mobile",
+                                "label": "Mobile"
+                            }
+                        ],
+                        "default": "all"
+                    },
+                    {
+                        "type": "select",
                         "id": "show-condition",
-                        "label": "When to display",
+                        "label": "Show when:",
                         "options": [
                             {
                                 "value": "always",
@@ -384,6 +407,26 @@
                     {
                         "type": "header",
                         "content": "Display"
+                    },
+                    {
+                        "type": "select",
+                        "id": "show-screens",
+                        "label": "Display for screens",
+                        "options": [
+                            {
+                                "value": "all",
+                                "label": "All screen sizes"
+                            },
+                            {
+                                "value": "desktop",
+                                "label": "Desktop"
+                            },
+                            {
+                                "value": "mobile",
+                                "label": "Mobile"
+                            }
+                        ],
+                        "default": "all"
                     },
                     {
                         "type": "select",

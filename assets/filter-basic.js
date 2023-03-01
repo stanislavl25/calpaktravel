@@ -1,14 +1,26 @@
 //////////////////////// View more/less products per line ///////////////////////
+let productImagesSizes;
 let colViewButtons = document.querySelectorAll('.col-view__button');
+const filteredContainer = document.querySelector('.shopify-section--product-grid');
+
 if(colViewButtons.length > 0) colViewButtons.forEach(colViewButton => colViewButton.addEventListener('click', (e) => {
     const prnt = e.target.closest('.collection-view');
-    let buttons = prnt.querySelectorAll('.col-view__button');
-    let target = e.target.closest('.col-view__button');
+    const buttons = prnt.querySelectorAll('.col-view__button');
+    const target = e.target.closest('.col-view__button');
     for(let i = 0; i < buttons.length; i++) {
         if(buttons[i] == target) buttons[i].setAttribute('aria-current', true);
         else buttons[i].setAttribute('aria-current', false);
     }
-    e.target.closest('.shopify-section--col-filter').classList.toggle('col-filter--larger-active');
+    const filterEl = e.target.closest('.shopify-section--col-filter');
+
+    const allProductsImages = filteredContainer.querySelectorAll('.product-unit .product-unit__image img');
+    if(filterEl.classList.contains('col-filter--larger-active')) {
+        filterEl.classList.remove('col-filter--larger-active');
+        allProductsImages.forEach(allProductsImage => allProductsImage.setAttribute('sizes', productImagesSizes));
+    } else {
+        filterEl.classList.add('col-filter--larger-active');
+        allProductsImages.forEach(allProductsImage => allProductsImage.setAttribute('sizes', '(min-width: 901px) 33.33vw, (min-width: 651px) 50vw, 100vw'));
+    }
 }));
 
 /////////////////////// Filter popup activators ///////////////////////
@@ -58,6 +70,8 @@ window.addEventListener("load", () => {
         allProducts.querySelector('i').innerHTML = document.querySelectorAll('.product-grid .product-unit').length;
     }
     
+    productImagesSizes = filteredContainer.querySelector('.shopify-section--product-grid .product-unit .product-unit__image img');
+    if(productImagesSizes) productImagesSizes = productImagesSizes.getAttribute('sizes');
 });
 
 const filterCollections = document.querySelectorAll('.filter__collection');

@@ -5,12 +5,30 @@
       "settings": {
         "title": "Featured Press",
         "title-size": "small",
-        "text": "<p>Press Inquiries — <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a><\/p>"
+        "text": "<p>Press Inquiries — <a href=\"mailto:press@calpaks.com\" title=\"mailto:press@calpaks.com\">press@calpaks.com<\/a><\/p>",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "press": {
       "type": "page-press",
       "blocks": {
+        "35c9714b-3c27-4045-945c-36d434e1f58f": {
+          "type": "press",
+          "settings": {
+            "product": "luka-belt-bag",
+            "description": "<p>\"The CALPAK Luka Belt Bag is ideal for keeping all of your important stuff right where you need it. From necessary travel documents to your earbuds and favorite hand lotion or lip balm, this belt bag keeps it organized and all in one place.\"<br\/><\/p>",
+            "image": "shopify:\/\/shop_images\/travel-leisure-logo-1517518364008.png"
+          }
+        },
+        "0535a20c-84a0-42f2-8e09-c323fc607ecc": {
+          "type": "press",
+          "settings": {
+            "product": "luka-duffel",
+            "description": "<p>\"Cue the CALPAK Luka duffel: the best weekender bag I've ever traveled with.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/conde-nast-logo_1_33bfc7e2-2f9c-414f-87e0-d375a2716f0a.png"
+          }
+        },
         "b739062f-6e16-4069-b755-2f06f1f2d6b1": {
           "type": "press",
           "settings": {
@@ -27,6 +45,14 @@
             "image": "shopify:\/\/shop_images\/esquire_60fd5a2d-c23f-44ce-a88d-a9a915e465d7.png"
           }
         },
+        "f5d53c4d-e044-4278-868f-6260a57b7710": {
+          "type": "press",
+          "settings": {
+            "product": "large-clear-cosmetic-case",
+            "description": "<p>\"I was able to fit 26 products (varying between full- and travel-sized, but all under 3.3 ounces) in the small but mighty cosmetics case.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/SHAPE-magazine-logo.png"
+          }
+        },
         "b4391abb-45d4-4a79-8f8b-bf3b7d090780": {
           "type": "press",
           "settings": {
@@ -35,16 +61,9 @@
             "image": "shopify:\/\/shop_images\/coveteur_1_5055ca8e-7b44-42eb-b288-bab5e658a8d6.png"
           }
         },
-        "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7": {
-          "type": "press",
-          "settings": {
-            "product": "travel-wallet-croc",
-            "description": "<p>\"When traveling, the last thing you want is a bulky bag weighing you down. Meet the Calpak Travel Wallet. This wallet\/purse hybrid was made for keeping you organized... switch up how you style it depending on your mood.\"<\/p>",
-            "image": "shopify:\/\/shop_images\/forbes_e6a977d4-b2b2-4b22-885a-c61a2459041b.png"
-          }
-        },
         "40827c3d-e165-4953-8c92-b4043f1b932a": {
           "type": "press",
+          "disabled": true,
           "settings": {
             "product": "power-luggage-tag",
             "description": "<p>\"Meet your new favorite travel companion! This luggage tag attaches to your carry-on, charges your phone at the airport, goes on all your adventures, and never complains about jet jag.\"<\/p>",
@@ -56,17 +75,91 @@
           "settings": {
             "product": "trnk-vanity-case",
             "description": "<p>\"A miniature version of the cult-favorite suitcase, this durable hard-shell cosmetics case is big enough to carry your styling tools as well as your makeup and toiletries. It's also super lightweight and you can easily throw it over your shoulder.\"<\/p>",
-            "image": "shopify:\/\/shop_images\/harpersbazzar_5bf417c1-79a8-4182-970a-7833b506388b.png"
+            "image": "shopify:\/\/shop_images\/harpersbazzar_9706a788-29c3-4499-8c98-cd96be7feebc.png"
+          }
+        },
+        "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7": {
+          "type": "press",
+          "settings": {
+            "product": "travel-wallet-croc",
+            "description": "<p>\"When traveling, the last thing you want is a bulky bag weighing you down. Meet the Calpak Travel Wallet. This wallet\/purse hybrid was made for keeping you organized... switch up how you style it depending on your mood.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/forbes_e6a977d4-b2b2-4b22-885a-c61a2459041b.png"
+          }
+        },
+        "48b7317e-94af-48f2-b717-352fde1897ee": {
+          "type": "press",
+          "settings": {
+            "product": "packing-cubes-5-piece-set",
+            "description": "<p>\"If your mom loves to travel, throw her a helping hand by keeping her wardrobe organized while she traipses around the planet with packing cubes. It's the next best thing to a full-time assistant.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/tc-logo_1.png"
+          }
+        },
+        "59a23db4-cdb7-4f2a-a844-2d39171d2ee4": {
+          "type": "press",
+          "settings": {
+            "product": "hue-mini-carry-on-luggage",
+            "description": "<p>\"We’re fans of the sleek and functional Calpak Hue Mini Carry-on bag. It’s spacious enough to fit several days’ worth of clothing items and it fits under an airplane seat with ease.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/travel-leisure-logo-1517518364008.png"
+          }
+        },
+        "9e16bf66-4096-403c-95ec-bad6f51ea62d": {
+          "type": "press",
+          "settings": {
+            "product": "ambeur-carry-on-luggage",
+            "description": "<p>\"Aesthetic prints, unique colorways, and sleek designs aside, Calpak luggage delivers both function and durability.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/Refinery29_logo.svg_1.png"
+          }
+        },
+        "08dc3dd1-6841-42e3-9ade-9fcc08a1d540": {
+          "type": "press",
+          "settings": {
+            "product": "stevyn-duffel",
+            "description": "<p>\"A bag fit for serial weekend-trip travelers, the roomy style also works for commuters and gym-goers.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/Refinery29_logo_svg.png"
+          }
+        },
+        "943597d7-6322-4fb2-b5e1-db77274c98f7": {
+          "type": "press",
+          "settings": {
+            "product": "water-bottle-holder",
+            "description": "<p>\"For the person in your life who prefers palming their keys, wallet, water bottle, and headphones in one hand instead of buying a handbag, introduce them to this baby step: the water bottle holder.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/Refinery29_logo.svg_1.png"
+          }
+        },
+        "afd7c74f-c6b6-4268-8246-a5673b60aa15": {
+          "type": "press",
+          "settings": {
+            "product": "water-bottle-holder",
+            "description": "<p>\"This TikTok sensation is amazing for hikers, college students and other hydration enthusiasts.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/cnet-logo-b.png"
+          }
+        },
+        "36dbac8e-744d-4ab0-a88f-5ed33845eeae": {
+          "type": "press",
+          "settings": {
+            "product": "haven-laptop-tote-bag",
+            "description": "<p>\"If you need something to carry your laptop on the plane or to and from meetings, the Haven Tote is an excellent choice.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/82849_yahoo_4096x4096_823d9f6a-fec2-4236-a567-cb2ae14e83db.png"
           }
         }
       },
       "block_order": [
+        "35c9714b-3c27-4045-945c-36d434e1f58f",
+        "0535a20c-84a0-42f2-8e09-c323fc607ecc",
         "b739062f-6e16-4069-b755-2f06f1f2d6b1",
         "16ee6b60-84e8-44fe-b73b-cc533dd9e79e",
+        "f5d53c4d-e044-4278-868f-6260a57b7710",
         "b4391abb-45d4-4a79-8f8b-bf3b7d090780",
-        "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7",
         "40827c3d-e165-4953-8c92-b4043f1b932a",
-        "178c08bf-e865-4dde-8e2d-dabc2d7a57e6"
+        "178c08bf-e865-4dde-8e2d-dabc2d7a57e6",
+        "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7",
+        "48b7317e-94af-48f2-b717-352fde1897ee",
+        "59a23db4-cdb7-4f2a-a844-2d39171d2ee4",
+        "9e16bf66-4096-403c-95ec-bad6f51ea62d",
+        "08dc3dd1-6841-42e3-9ade-9fcc08a1d540",
+        "943597d7-6322-4fb2-b5e1-db77274c98f7",
+        "afd7c74f-c6b6-4268-8246-a5673b60aa15",
+        "36dbac8e-744d-4ab0-a88f-5ed33845eeae"
       ],
       "settings": {}
     }

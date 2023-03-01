@@ -1,7 +1,8 @@
 {{ 'section-404.css' | asset_url | stylesheet_tag: preload: true }}
+<script src="{{ 'search.js' | asset_url }}" defer="defer"></script>
 
 <div class="search-404">
-    <input type="text" placeholder="Search">
+    <input type="text" class="search-input search-input__404" placeholder="Search">
     <button aria-label="Perform Search" class="search-button"><img loading="lazy" src="{{ 'icon-search.svg' | asset_url }}"></button>
 </div>
 

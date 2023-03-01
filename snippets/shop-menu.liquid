@@ -1,6 +1,6 @@
 <section class="menu-popup menu-popup--shop" data-src="{{ 'menu.js' | asset_url }}" data-func="openMenu" data-id="shop">
     <div class="menu-popup__background"></div>
-    <button aria-label="Close the Shop menu" class="menu-close" title="Close"></button>
+    <button aria-label="Close the Shop menu" class="menu-close menu-close--shop" title="Close"></button>
     <div class="menu-popup__content">
         <section class="menu-popup__main">
             {% if section.settings.shop-menu != blank %}
@@ -104,8 +104,8 @@
                     </div>
                     <div class="slider">
                         {%- liquid
-                            for product in block.settings.collection.products limit: 6
-                                render 'product-unit' with product, wishlist: true, class: 'slide'
+                            for product in block.settings.collection.products limit: 10
+                                render 'product-unit' with product, wishlist: true, class: 'slide', floatingLabels: true
                             endfor
                         -%}
                     </div>

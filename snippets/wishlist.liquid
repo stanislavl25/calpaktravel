@@ -1,0 +1,51 @@
+<div class="wishlist__container">
+    <h1 class="wishlist__title">Your wishlist <span class="wishlist-count"></span></h1>
+
+    {%- if section.settings.collection != blank -%}
+    <div class="wishlist__empty">
+        {%- if section.settings.nothing-to-show != blank -%}
+        <div class="customer__no-result-msg">{{- section.settings.nothing-to-show | strip_html | escape -}}</div>
+        {%- endif -%}
+
+        {%- if section.settings.title != blank -%}
+        <h2 class="wishlist__empty-title">{{- section.settings.title | strip_html | escape -}}</h2>
+        {%- endif -%}
+
+        <div data-slide="3" class="slider__wrapper slider__wrapper--start">
+            <div class="product-slider__header">
+                <div class="product-slider__title">
+                    {%- if section.settings.override-title != blank -%}
+                        {{- section.settings.override-title | escape -}}
+                    {%- else -%}
+                        {{- collection.title | escape -}}
+                    {%- endif -%}
+                </div>
+
+                <nav class="slider__nav">
+                    <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                    <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+                </nav>
+            </div>
+            <div class="slider">
+                {%- liquid
+                    for product in collection.products limit: 20
+                        render 'product-unit' with product, wishlist: section.settings.wishlist, class: 'slide', quick_view: section.settings.quick_view, sizes: '300px'
+                    endfor
+                -%}
+            </div>
+        </div>
+
+        <div data-slide="3" class="slider__wrapper slider__wrapper--buttons-side wishlist__empty-collection">
+            <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+            <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+            <div class="slider slider--scrollbar">
+                {%- for product in section.settings.collection.products limit: 20 -%}
+                    {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quickview, sizes: '(min-width: 901px) 20vw, 50vw' -%}
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+    {%- endif -%}
+
+    <div class="wishlist__items"></div>
+</div>

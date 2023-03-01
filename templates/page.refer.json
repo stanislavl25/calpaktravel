@@ -1,19 +1,24 @@
 {
-    "sections": {
-        "page-header": {
-            "type": "page-header",
-            "settings": {
-                "title": "Refer a Friend",
-                "text": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!<\/p>"
-            }
-        },
-        "page-refer": {
-            "type": "page-refer",
-            "settings": {}
-        }
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Refer a Friend",
+        "title-size": "small",
+        "text": "<p>Show your friends some love and send them $25 towards their next CALPAK order ($150+)—you'll get $25 back when they make their first purchase!<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
     },
-    "order": [
-        "page-header",
-        "page-refer"
-    ]
+    "page-refer": {
+      "type": "page-refer",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/WEB_IMAGE_REFER-A-FRIEND_MOBILE.jpg"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "page-refer"
+  ]
 }

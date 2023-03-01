@@ -1,0 +1,139 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Full Transparency",
+        "title-size": "medium",
+        "text": "<p>Raise your hand if you’ve ever picked up your luggage from baggage claim, and found it all beat up. Yup. We know. We’ve been there, too. That’s why when you asked for luggage covers, we just couldn’t say no. New Clear Luggage Covers have arrived! Here are three reasons why you need them ASAP.<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_3308_be919497-eef3-4ee6-a4ee-6ddd19d1b4af.png",
+        "image-mobile": "shopify:\/\/shop_images\/Rectangle_3308_be919497-eef3-4ee6-a4ee-6ddd19d1b4af.png",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
+      "type": "product-showcase",
+      "blocks": {
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "They Protect Your Luggage",
+            "description": "<p>Traveling is already stressful enough. These covers are designed to protect your luggage, and keep them scratch-free. So go ahead and take that nap, order a glass of wine, and just relax on the way to your destination.<\/p>",
+            "button-text": "Shop now",
+            "button-link": "#"
+          }
+        },
+        "1b775b70-f16b-4f85-a218-760455abe4b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3426.png"
+          }
+        },
+        "473d4bb4-0b29-4362-8dd2-482e1ee0ed44": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3424.png"
+          }
+        }
+      },
+      "block_order": [
+        "db964836-931d-46f8-847a-85e26721b352",
+        "1b775b70-f16b-4f85-a218-760455abe4b0",
+        "473d4bb4-0b29-4362-8dd2-482e1ee0ed44"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
+      "type": "product-showcase",
+      "blocks": {
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
+          "type": "text",
+          "settings": {
+            "title": "Clear Luggage Covers",
+            "description": "<p>Carry-on - 20\" <\/p><p>Medium - 24\"<\/p>",
+            "button-text": "Shop now",
+            "button-link": "shopify:\/\/products\/clear-luggage-cover"
+          }
+        },
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "clear-luggage-cover"
+          }
+        },
+        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TRNK-LARGE-HAT-BOX-TRNK-ALMOND-LIFESTYLE1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6",
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f",
+        "999f1999-abe3-4175-b42f-0de5ff5d695e"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "disabled": true,
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "title": "Travel Necessities",
+            "description": "A merch collection that brings that 5-star experience with you wherever you go.",
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "title": "Travel Necessities",
+            "description": "A merch collection that brings that 5-star experience with you wherever you go.",
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7",
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
+  ]
+}

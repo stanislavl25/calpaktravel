@@ -1,16 +1,24 @@
 {
-    "sections": {
-        "account-header": {
-            "type": "account-header",
-            "settings": {}
-        },
-        "customer-orders": {
-            "type": "customer-orders",
-            "settings": {}
-        }
+  "sections": {
+    "account-header": {
+      "type": "account-header",
+      "settings": {
+        "help-link": "https:\/\/www.calpaktravel.com\/pages\/faq#faq--vit-rewards-program"
+      }
     },
-    "order": [
-        "account-header",
-        "customer-orders"
-    ]
+    "customer-orders": {
+      "type": "customer-orders",
+      "settings": {
+        "no-orders": "You haven't placed any orders yet",
+        "collection": "best-sellers",
+        "override-title": "Bestsellers",
+        "wishlist": false,
+        "quick_view": true
+      }
+    }
+  },
+  "order": [
+    "account-header",
+    "customer-orders"
+  ]
 }

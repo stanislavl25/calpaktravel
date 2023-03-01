@@ -38,6 +38,18 @@
 
 .slider--scrollbar {
     padding-bottom: 10px;
+    scrollbar-color: #000 transparent;
+}
+
+@-moz-document url-prefix() {
+    .slider--scrollbar::after {
+        content: '';
+        position: absolute;
+        bottom: 3px;
+        left: var(--gap);
+        right: var(--gap);
+        border-top: 1px dashed #AEAEAE;
+    }
 }
 
 .slider--scrollbar::-webkit-scrollbar {
@@ -152,6 +164,7 @@
     scroll-snap-align: start start;
 }
 
+.slide--last,
 .slide:last-child {
     scroll-snap-align: end end;
 }
@@ -186,6 +199,7 @@
     left: 0;
     z-index: 3;
     transition: transform 0.3s;
+    display: block;
 }
 
 .slider__wrapper--buttons-side .button-tri-right {

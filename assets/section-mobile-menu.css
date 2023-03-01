@@ -54,6 +54,12 @@
         z-index: 2;
     }
 
+    [data-menu="discover"] [data-target="discover"],
+    [data-menu="shop"] [data-target="shop"] {
+        font-weight: var(--font-body-weight-bold);
+        line-height: 39px;
+    }
+
     [data-menu="discover"] ~ .shopify-section--mobile-menu .mobile-menu__inner {
         transform: translateX(-100%);
     }
@@ -328,7 +334,7 @@
 }
 
 .slide-menu__edit-title {
-    font-size: 32px;
+    font-size: 24px;
     letter-spacing: -0.02em;
     line-height: 1.25em;
     margin-bottom: 5px;

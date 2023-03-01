@@ -10,6 +10,10 @@
     gap: 5px;
 }
 
+.floating-labels .product-label--hidden {
+    display: none;
+}
+
 .product-label a {
     text-decoration: none;
 }
@@ -97,6 +101,7 @@
 .product-unit__title {
     margin-bottom: 3px;
     font-weight: var(--font-body-weight-bold);
+    line-height: 1.25em;
 }
 
 .product-unit__title--wishlist {
@@ -161,4 +166,8 @@
 .product-label--preorder {
     background: var(--preorder-hgt);
     color: var(--preorder-hgt-t);
+}
+
+.color-swatch--first {
+    order: -1;
 }

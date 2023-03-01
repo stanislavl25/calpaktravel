@@ -1,27 +1,35 @@
 {{ 'section-content-slider.css' | asset_url | stylesheet_tag }}
 
 <section class="content-slider content-slider--{{ section.id }}">
-    <div class="slider__wrapper">
-        <div class="slider__dots content-slider__nav">
+    <div class="slider__wrapper slider__wrapper--nav">
+        <div class="slider slider-nav content-slider__nav" data-nav-for=".content-slider--{{ section.id }} .content-slider__main">
             {%- for block in section.blocks -%}
-            <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %} content-slider__nav-slide">{{- block.settings.title | escape -}}</div>
+            <div class="{% if forloop.first %} slide--selected{% endif %} content-slider__nav-slide slide">{{- block.settings.title | escape -}}</div>
             {%- endfor -%}
         </div>
-        <div class="slider">
+    </div>
+    <div class="slider__wrapper">
+        <div class="slider content-slider__main" data-nav=".content-slider--{{ section.id }} .content-slider__nav">
             {%- for block in section.blocks -%}
             <div class="content-slider__main-slide slide">
-
+                {%- liquid
+                    if block.settings.image1 != blank and block.settings.image2 != blank
+                        assign size = '(min-width: 901px) 25vw, 50vw'
+                    else
+                        assign size = '(min-width: 901px) 50vw, 100vw'
+                    endif
+                -%}
                 {%- if block.settings.image1 != blank or block.settings.image2 != blank -%}
                 <div class="content-slider__main-media">
                     {%- if block.settings.image1 != blank -%}
                     <div class="content-slider__media">
-                        {% render 'image' with block.settings.image1, sizes: '25vw', lazy: true %}
+                        {% render 'image' with block.settings.image1, sizes: size, lazy: true %}
                     </div>
                     {%- endif -%}
 
                     {%- if block.settings.image2 != blank -%}
                     <div class="content-slider__media">
-                        {% render 'image' with block.settings.image2, sizes: '25vw', lazy: true %}
+                        {% render 'image' with block.settings.image2, sizes: size, lazy: true %}
                     </div>
                     {%- endif -%}
                 </div>

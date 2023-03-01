@@ -1,0 +1,36 @@
+.wishlist-empty {
+    max-width: 900px;
+}
+
+.wishlist-container .product-unit {
+    flex: 0 0 33.33%;
+}
+
+.account-info .wishlist__title {
+    font-size: 16px;
+    justify-content: flex-start;
+    margin-bottom: var(--gap);
+    gap: 5px;
+}
+
+.account-info .wishlist__items {
+    max-width: 1000px
+}
+
+.account-info .wishlist__title .wishlist-count:empty {
+    width: 16px;
+    height: 16px;
+}
+
+.account-info .wishlist__title .wishlist-count:empty::before {
+    width: 16px;
+    height: 16px;
+    border-width: 1px;
+    margin: -8px 0 0 -8px;
+}
+
+@media (max-width: 900px) {
+    .wishlist-container .product-unit {
+        flex: 0 0 50%;
+    }
+}

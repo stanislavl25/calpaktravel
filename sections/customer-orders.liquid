@@ -1,55 +1,56 @@
-{{ 'component-customer-nav.css' | asset_url | stylesheet_tag }}
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-orders.css' | asset_url | stylesheet_tag: preload: true }}
 
 <section class="customer__main">
     {% render 'account-nav', current: 'orders' %}
 
     <div class="account-info orders-container">
-        <div class="account-info__title">Review Your Order History</div>
-        
         <div class="orders">
+            {% if customer.orders.size > 0 %}
+                <h1 class="orders__title">Review your order history</h1>
 
-        {% paginate customer.orders by 20 %}
-            {% if customer.orders.size != 0 %}
-                <div class="order-summary-container">
-                    {% for order in customer.orders %}
-                    <div class="order-summary">
-                        <div>
-                            <div class="order-id">
-                                Order No. {{ order.order_number }}
-                                <span class="order-price-mobile">{{ order.total_price | money_without_trailing_zeros }}</span>
-                            </div>
-                            <div class="order-status">
-                                <div>{{ order.line_items.size }} {{ order.line_items.size | pluralize: 'item', 'items' }} purchased on {{ order.created_at | date: '%m/%d/%y' }}</div>
-                                <div class="order-total-line">Order total = {{ order.total_price | money }}</div>
-                                <div class="order-status-check">
-                                    {%- assign order_key =  order.customer_url | split: '/orders/' | last -%}
-                                    {% comment %} <a href="https://checkout.shopify.com/9414996/orders/{{ order_key }}">Check Status</a> {% endcomment %}
-                                    <a href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-details-cont">
-                            <div class="order-details-link">
-                                <a class="button" href="{{ order.customer_url }}">See Details</a>
-                            </div>
-                        </div>
+                {% paginate customer.orders by 20 %}
+                    <div class="order-summary-container">
+                        {% for order in customer.orders %}
+                            {%- render 'order-summary' with order -%}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+
+                    {% if paginate.pages > 1 %}
+                        {% include 'pagination', paginate: paginate %}
+                    {% endif %}
+                {% endpaginate %}
 
             {% else %}
-                <div class="no-orders">
-                    <div>You haven't placed any orders yet.</div>
-                    <a class="button" href="/collections/best-sellers"><span>Start Shopping</span></a>
-                </div>
-            {% endif %}
+                <div class="customer__no-result-msg">{{- section.settings.no-orders | strip_html | escape -}}</div>
 
-            {% if paginate.pages > 1 %}
-                <footer class="collection-footer">
-                    {% include 'pagination' %}
-                </footer>
+                {%- if section.settings.collection != blank -%}
+                    {%- assign collection = section.settings.collection -%}
+                    <div data-slide="3" class="slider__wrapper slider__wrapper--start">
+                        <div class="product-slider__header">
+                            <div class="product-slider__title">
+                                {%- if section.settings.override-title != blank -%}
+                                    {{- section.settings.override-title | escape -}}
+                                {%- else -%}
+                                    {{- collection.title | escape -}}
+                                {%- endif -%}
+                            </div>
+
+                            <nav class="slider__nav">
+                                <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                                <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+                            </nav>
+                        </div>
+                        <div class="slider">
+                            {%- liquid
+                                for product in collection.products limit: 10
+                                    render 'product-unit' with product, wishlist: section.settings.wishlist, class: 'slide', quick_view: section.settings.quick_view, sizes: '300px'
+                                endfor
+                            -%}
+                        </div>
+                    </div>
+                {%- endif -%}
             {% endif %}
-        {% endpaginate %}
         </div>
     </div>
 </section>
@@ -58,7 +59,34 @@
     {
         "name": "Customer Orders",
         "settings": [
-        
+            {
+                "type": "text",
+                "id": "no-orders",
+                "label": "No orders message",
+                "default": "You haven't placed any orders yet"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Featured collection"
+            },
+            {
+                "type": "text",
+                "id": "override-title",
+                "label": "Title override"
+            },
+            {
+                "type": "checkbox",
+                "id": "wishlist",
+                "label": "Enable wishlist",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "quick_view",
+                "label": "Enable quickview",
+                "default": true
+            }
         ]
     }
 {% endschema %}

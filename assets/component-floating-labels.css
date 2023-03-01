@@ -11,7 +11,6 @@
 }
 
 .floating-labels .product-label {
-    display: flex;
     align-items: center;
     justify-content: center;
     height: 22px;
@@ -74,6 +73,12 @@ body .floating-labels .product-label--sale {
     color: var(--promo-msg-hgt-t);
     background: var(--promo-msg-hgt);
     border: 0;
+}
+
+@media (max-width: 1180px) {
+    .floating-labels {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 900px) {

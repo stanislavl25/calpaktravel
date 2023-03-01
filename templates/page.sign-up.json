@@ -6,12 +6,12 @@
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/new-arrivals-luka.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_Woods.webp",
             "keep-proportions": true,
             "align": "center",
             "title": "Featured Products",
             "text": "<p><a href=\"\/products\/haven-laptop-tote-bag\" title=\"Haven Laptop Tote Bag\">Haven Laptop Tote<\/a> in<em> <\/em><a href=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/forest\" title=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/forest\"><em>Forest<\/em><\/a><em> <\/em>and <a href=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/espresso\" title=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/espresso\"><em>Espresso<\/em><\/a><\/p>",
-            "text-color": "#fff"
+            "text-color": "#ffffff"
           }
         },
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
@@ -38,21 +38,13 @@
         "94643254-b42b-41a1-beab-db1490c76688": {
           "type": "collection",
           "settings": {
-            "collection": "luggage",
-            "title": ""
-          }
-        },
-        "cf6f4173-0fca-4105-9340-a4d095b7aae1": {
-          "type": "collection",
-          "settings": {
-            "collection": "backpacks",
+            "collection": "best-sellers",
             "title": ""
           }
         }
       },
       "block_order": [
-        "94643254-b42b-41a1-beab-db1490c76688",
-        "cf6f4173-0fca-4105-9340-a4d095b7aae1"
+        "94643254-b42b-41a1-beab-db1490c76688"
       ],
       "settings": {
         "quick-view": true

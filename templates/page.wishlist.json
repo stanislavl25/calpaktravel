@@ -1,11 +1,15 @@
 {
-    "sections": {
-      "wishlist": {
-        "type": "wishlist",
-        "settings": {}
+  "sections": {
+    "wishlist": {
+      "type": "wishlist",
+      "settings": {
+        "collection": "best-sellers",
+        "title": "Explore Bestsellers",
+        "quickview": true
       }
-    },
-    "order": [
-      "wishlist"
-    ]
+    }
+  },
+  "order": [
+    "wishlist"
+  ]
 }

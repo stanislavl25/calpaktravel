@@ -1,14 +1,18 @@
-{{ 'component-customer-nav.css' | asset_url | stylesheet_tag }}
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-customer-rewards.css' | asset_url | stylesheet_tag: preload: true }}
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" defer="defer"></script>
+<script src="{{ 'swell-rewards.js' | asset_url }}" defer="defer"></script>
 
 <section class="customer__main">
     {% render 'account-nav', current: 'rewards' %}
         
-    <div class="account-info">
-        <div class="account-info__title">Your Rewards Balance</div>
+    <div class="account-rewards">
+        <h1 class="account-info__title">Your Rewards Balance</h1>
 
         {% include 'swell-my-rewards' %}
 
-        <script>
+        <script>    
             const referralDetails = "{{ section.settings.swell-referral-details | replace: '<p>', '' | replace: '</p>', '<br>' }}";
         </script>
     </div>

@@ -30,9 +30,9 @@
         >
             <div class="filter__collection-image">
                 {%- if block.settings.image != blank -%}
-                    {%- render 'image' with block.settings.image, sizes: '25vw', no_wrapper: true -%}
+                    {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 25vw, 200px', no_wrapper: true -%}
                 {%- elsif block.settings.collection.image != blank and block.settings.collection != blank -%}
-                    {%- render 'image' with block.settings.collection.image, sizes: '25vw', no_wrapper: true -%}
+                    {%- render 'image' with block.settings.collection.image, sizes: '(min-width: 901px) 25vw, 200px', no_wrapper: true -%}
                 {%- endif -%}
             </div>
             <h2 class="filter__collection-title">{{- block.settings.title | escape -}}</h2>

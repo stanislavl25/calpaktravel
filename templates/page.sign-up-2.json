@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "sign-up-form": {
+      "type": "sign-up-form",
+      "blocks": {
+        "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_Woods.webp",
+            "keep-proportions": true,
+            "align": "center",
+            "title": "Featured Products",
+            "text": "<p><a href=\"\/products\/haven-laptop-tote-bag\" title=\"Haven Laptop Tote Bag\">Haven Laptop Tote<\/a> in<em> <\/em><a href=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/forest\" title=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/forest\"><em>Forest<\/em><\/a><em> <\/em>and <a href=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/espresso\" title=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/espresso\"><em>Espresso<\/em><\/a><\/p>",
+            "text-color": "#ffffff"
+          }
+        },
+        "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
+          "type": "form",
+          "settings": {
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/P1C\/landing-page",
+            "height": "800",
+            "height-mobile": "600"
+          }
+        }
+      },
+      "block_order": [
+        "9844c605-e2c1-43fe-98a7-10eac41c76c4",
+        "0bc689b6-de7a-43f7-93f6-3ac6950da0c7"
+      ],
+      "settings": {
+        "background": "#676f69",
+        "mobile-layout": "stack-reverse"
+      }
+    },
+    "99dce181-b2d3-405c-acef-6459b6b92aee": {
+      "type": "featured-collections",
+      "blocks": {
+        "94643254-b42b-41a1-beab-db1490c76688": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "94643254-b42b-41a1-beab-db1490c76688"
+      ],
+      "settings": {
+        "quick-view": true
+      }
+    }
+  },
+  "order": [
+    "sign-up-form",
+    "99dce181-b2d3-405c-acef-6459b6b92aee"
+  ]
+}

@@ -34,7 +34,7 @@ h1 {
 
 h2 {
     font-weight: var(--font-body-weight);
-    font-size: 38px;
+    font-size: 36px;
     letter-spacing: -0.02em;
     line-height: 1em;
     margin: 0;
@@ -87,6 +87,7 @@ form label {
     cursor: pointer;
 }
 
+.field .checkbox-label,
 .checkbox-label {
     display: inline-flex;
     gap: 10px;
@@ -144,6 +145,10 @@ p:last-child {
 
 body > div:empty {
     display: none;
+}
+
+.loading-animation {
+    min-height: 46px;
 }
 
 .loading-animation::after {
@@ -273,13 +278,13 @@ body > div:empty {
 .button-tri-right {
     width: 42px;
     height: 42px;
-    display: block;
     border: 1px solid #000;
     border-radius: 9px;
     background: transparent;
     cursor: pointer;
     position: relative;
     background: #fff;
+    display: none;
 }
 
 .button-tri-left::before,
@@ -301,6 +306,7 @@ body > div:empty {
     margin: -6px 0 0 -3px;
 }
 
+.btn,
 .button {
     --button-bg: #000;
     --button-brd: #000;
@@ -339,12 +345,17 @@ body > div:empty {
   margin-right: 4px;
 }
 
-.button > span {
+.button > span,
+.button > div {
     transition: transform 0.3s;
     transform: translateY(-0.125em);
+}
+
+.button > span {
     display: block;
 }
 
+.button:hover > div,
 .button:hover > span {
     transform: translateY(-5px);
 }
@@ -359,10 +370,11 @@ body > div:empty {
     letter-spacing: -0.02em;
     border: 1px solid transparent;
     border-radius: 9px;
-    padding: 0 5px;
+    padding: 0 8px;
     height: 42px;
     background: transparent;
     cursor: pointer;
+    text-decoration: none;
     line-height: 1em;
 }
 
@@ -554,6 +566,14 @@ body > div:empty {
     left: 0;
 }
 
+.g-recaptcha {
+    margin-bottom: var(--gap);
+}
+
+.shopify-challenge__container {
+    padding: 100px var(--gap);
+}
+
 @media (max-width: 900px) {
     h1 {
         font-size: 32px;
@@ -574,5 +594,14 @@ body > div:empty {
 
     .page__title--large {
         font-size: 32px;
+    }
+
+    .transparent-button {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    h3 {
+        font-size: 18px;
     }
 }

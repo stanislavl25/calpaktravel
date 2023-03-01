@@ -1,0 +1,376 @@
+{
+  "sections": {
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_3308_b019ecf2-6b60-4422-ad60-5093e1e5651d.png",
+        "image-mobile": "shopify:\/\/shop_images\/Rectangle_3425_5065d73e-7c66-4bb1-ab19-734e93de8bb4.png",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "Travel in style: which bag should you bring to your next destination?",
+        "title-size": "medium",
+        "text": "<p>Discover the bags made for every occasion and destination.<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
+      "type": "product-showcase",
+      "blocks": {
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "For solo travels",
+            "description": "<p>No matter if you're traveling by car, train, or plane, these carry-on bags will keep your essentials safe, organized, and ready for adventure. Which personal carry-on bag will you pick?<\/p>",
+            "button-text": "",
+            "button-link": "#"
+          }
+        },
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
+          "type": "product",
+          "settings": {
+            "product": "stevyn-duffel"
+          }
+        },
+        "93c1340c-ee23-46ea-aef8-3dec79dee2d7": {
+          "type": "product",
+          "settings": {
+            "product": "terra-carry-on-luggage"
+          }
+        }
+      },
+      "block_order": [
+        "db964836-931d-46f8-847a-85e26721b352",
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03",
+        "93c1340c-ee23-46ea-aef8-3dec79dee2d7"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "34dfcce9-4393-4ca7-8d0e-6dd62343d1a3": {
+      "type": "text-and-media",
+      "blocks": {
+        "9897254d-595e-4133-a73d-d8d80252ed1b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097.png",
+            "hide-on-mobile": false
+          }
+        },
+        "63a937e6-1ba5-4995-9091-281b26e4fa99": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "9897254d-595e-4133-a73d-d8d80252ed1b",
+        "63a937e6-1ba5-4995-9091-281b26e4fa99"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
+      "type": "product-showcase",
+      "blocks": {
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "hue-mini-carry-on-luggage"
+          }
+        },
+        "7b787e0a-6813-4bec-9b41-3aa0986b329c": {
+          "type": "product",
+          "settings": {
+            "product": "luka-duffel"
+          }
+        },
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
+          "type": "text",
+          "settings": {
+            "title": "For a weekend at home",
+            "description": "<p>Heading home to see family, but don't know what to pack for a weekend trip? For starters, don't weigh yourself down with heavy weekender luggage. We use these small carry-on weekender bags to store our most important everyday items right next to our travel essentials.<\/p>",
+            "button-text": "",
+            "button-link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f",
+        "7b787e0a-6813-4bec-9b41-3aa0986b329c",
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "b91b18d3-c005-4e14-97b3-0043bf780621": {
+      "type": "text-and-media",
+      "blocks": {
+        "49a9cf1f-e062-405c-8bc9-505d3102e49f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097-1.png",
+            "hide-on-mobile": false
+          }
+        },
+        "edc83e50-04e4-489c-9a06-7be5bd0d9a0d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309-1.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "49a9cf1f-e062-405c-8bc9-505d3102e49f",
+        "edc83e50-04e4-489c-9a06-7be5bd0d9a0d"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "b443610d-7978-469c-bdb1-52ea5ee28cfc": {
+      "type": "product-showcase",
+      "blocks": {
+        "6a621c94-3059-4eab-9a72-d1fa085687e7": {
+          "type": "text",
+          "settings": {
+            "title": "For a long-haul holiday ",
+            "description": "<p>Whether you're off on a multi-destination trip, or heading away with the family, we have 2 and 3 piece luggage sets, and family luggage sets designed for you. Not only are you getting the most value for your money, you're getting the perfect amount of packing space in luggage for a week long trip, or even longer.<br\/><\/p>",
+            "button-text": "",
+            "button-link": ""
+          }
+        },
+        "27f96897-afdb-4ff6-b7d2-e4c217b64c9f": {
+          "type": "product",
+          "settings": {
+            "product": "ambeur-3-piece-luggage-set"
+          }
+        },
+        "617fdc55-a29e-4221-91eb-bedb4c36b940": {
+          "type": "product",
+          "settings": {
+            "product": "starter-bundle"
+          }
+        }
+      },
+      "block_order": [
+        "6a621c94-3059-4eab-9a72-d1fa085687e7",
+        "27f96897-afdb-4ff6-b7d2-e4c217b64c9f",
+        "617fdc55-a29e-4221-91eb-bedb4c36b940"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "1d28a531-a956-4c1a-a1d1-e7c7c2e4c152": {
+      "type": "text-and-media",
+      "blocks": {
+        "7923ecb1-27d3-453f-88ee-2b568ad90be3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097-2.png",
+            "hide-on-mobile": false
+          }
+        },
+        "6cad55a9-6a57-4e3e-9ce9-9217919f0770": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309-2.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "7923ecb1-27d3-453f-88ee-2b568ad90be3",
+        "6cad55a9-6a57-4e3e-9ce9-9217919f0770"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "efe4373d-215a-46a3-9b9d-9d8bf221b591": {
+      "type": "product-showcase",
+      "blocks": {
+        "ff343622-465e-45a4-9c7c-30e50cad837c": {
+          "type": "product",
+          "settings": {
+            "product": "hue-duffel"
+          }
+        },
+        "8ed2aa0e-2eea-4964-9bdd-3247ecd83b74": {
+          "type": "product",
+          "settings": {
+            "product": "hue-carry-on-luggage-with-pocket"
+          }
+        },
+        "d07b6a85-2cab-4e7b-953e-9a769bba8f0f": {
+          "type": "text",
+          "settings": {
+            "title": "For a couple's retreat",
+            "description": "<p>No matter the destination for the happy couple, a duffel bag and carry-on are the perfect size for a weekend, or as an equivalent to luggage for a week-long trip. We're making the phrase, \"What's mine is yours,\" look better than ever.<\/p>",
+            "button-text": "",
+            "button-link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ff343622-465e-45a4-9c7c-30e50cad837c",
+        "8ed2aa0e-2eea-4964-9bdd-3247ecd83b74",
+        "d07b6a85-2cab-4e7b-953e-9a769bba8f0f"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "a83ebad3-b3ce-492e-adfd-750a0f821790": {
+      "type": "text-and-media",
+      "blocks": {
+        "295900eb-400b-4df5-a53a-6d1dbf89ca8a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097-3.png",
+            "hide-on-mobile": false
+          }
+        },
+        "f096f472-95ee-4c61-bdf5-edf5f221851f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309-3.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "295900eb-400b-4df5-a53a-6d1dbf89ca8a",
+        "f096f472-95ee-4c61-bdf5-edf5f221851f"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "3d7a8cd8-930a-4906-910b-1638e6954b04": {
+      "type": "product-showcase",
+      "blocks": {
+        "cff933a5-249b-45c6-a6f4-ceac19ec2c1e": {
+          "type": "text",
+          "settings": {
+            "title": "For your mini-me",
+            "description": "<p>Start your little one early with these kid-friendly sized travel bags, including mini carry on luggage, and mini backpack. These pieces are small enough to lighten the load, and stylish enough even for adults.<\/p>",
+            "button-text": "",
+            "button-link": ""
+          }
+        },
+        "61fd5aff-79b3-4b82-af7b-3240c7f12e68": {
+          "type": "product",
+          "settings": {
+            "product": "hue-mini-carry-on-luggage"
+          }
+        },
+        "2971945b-9e2a-4d09-9e94-10f7a98714ee": {
+          "type": "product",
+          "settings": {
+            "product": "luka-mini-backpack"
+          }
+        }
+      },
+      "block_order": [
+        "cff933a5-249b-45c6-a6f4-ceac19ec2c1e",
+        "61fd5aff-79b3-4b82-af7b-3240c7f12e68",
+        "2971945b-9e2a-4d09-9e94-10f7a98714ee"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "9ee4e621-e988-4c2f-bff9-cc5bde1716a6": {
+      "type": "text-and-media",
+      "blocks": {
+        "bb6c9452-0e47-4b53-9704-1eef6ee0b590": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097-4.png",
+            "hide-on-mobile": false
+          }
+        },
+        "409b71a7-23e0-48e1-8dff-831333564597": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309-4.png",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "bb6c9452-0e47-4b53-9704-1eef6ee0b590",
+        "409b71a7-23e0-48e1-8dff-831333564597"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "settings": {
+            "title": "Toiletry Bags",
+            "description": "Bring your glow on-the-go and find the best toiletry bag for traveling.",
+            "link": "shopify:\/\/pages\/which-toiletry-bag-is-right-for-you",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308-1.png"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "settings": {
+            "title": "Packing Cubes",
+            "description": "Packing cubes are the #1 tool for travel organization—  they make your journeys more enjoyable.",
+            "link": "shopify:\/\/pages\/packing-cubes-your-favorite-organizing-tool",
+            "image": "shopify:\/\/shop_images\/Rectangle_3425_c698bf0f-ac6d-4ae3-b373-d7813a2106ce.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
+    }
+  },
+  "order": [
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7",
+    "page-header",
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "34dfcce9-4393-4ca7-8d0e-6dd62343d1a3",
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc",
+    "b91b18d3-c005-4e14-97b3-0043bf780621",
+    "b443610d-7978-469c-bdb1-52ea5ee28cfc",
+    "1d28a531-a956-4c1a-a1d1-e7c7c2e4c152",
+    "efe4373d-215a-46a3-9b9d-9d8bf221b591",
+    "a83ebad3-b3ce-492e-adfd-750a0f821790",
+    "3d7a8cd8-930a-4906-910b-1638e6954b04",
+    "9ee4e621-e988-4c2f-bff9-cc5bde1716a6",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
+  ]
+}

@@ -48,7 +48,7 @@ const seachSynonymsValues = [
 ];
 
 let searchInput = document.querySelectorAll('.search-input');
-let searchForm = document.querySelectorAll('.search-form');
+let searchForms = document.querySelectorAll('.search-form');
 let searchOverlay = document.querySelector('.search-popup__overlay');
 let searchThrottle = false;
 let lastSearch = false;
@@ -56,6 +56,10 @@ let all_products_cache = false;
 let ga_send_timeout = false;
 
 fetch(`/collections/${settings.bestSellers}/products.json?limit=250`).then(response => response.json()).then(data => all_products_cache = data);
+
+searchForms.forEach(searchForm => searchForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+}));
 
 function similarity(s1, s2) {
     var longer = s1;
@@ -415,13 +419,10 @@ function fillSearchResults(results, container) {
         }
 
         const searchNums = container.querySelectorAll('.search-col-num');
-        searchNums.forEach(searchNum => searchNum.innerHTML = collectionsFound);
+        if(collectionsFound > 0) searchNums.forEach(searchNum => searchNum.innerHTML = collectionsFound);
     }
 
-    const side = container.querySelector('[data-id="results"] .menu-side');
-    if(collectionsFound == 0) {
-        side.style.display = 'none';
-    } else side.style.display = 'block';
+    if(collectionsFound == 0) container.classList.add('menu-popup--no-side');
 }
 
 function colorMatch(word) {
@@ -537,7 +538,7 @@ function fillCollectionSearch(handle, container) {
 }
 
 async function performSearch(el) {
-    const s = el.value.trim();
+    let s = el.value.trim();
     const form = el.closest('.search-form');
     const container = form.closest('.menu-popup--search');
 
@@ -548,18 +549,22 @@ async function performSearch(el) {
 
     if(s.length == 0) return container.setAttribute('data-status', 'init');
 
+    container.querySelector('.menu-popup__mobile-nav').setAttribute('data-page', 0);
+
     let search = [];
     let color_search = [];
     let generated_words = 0;
     let ambiguity = false;
+    let searchType = 'normal';
 
-    const searchTextLC = s.toLowerCase().replace("'s", 's');
+    let searchTextLC = s.toLowerCase().replace("'s", 's');
 
     if(searchTextLC.indexOf(':')) {
         const searchExpl = searchTextLC.split(':');
         if(searchExpl[0] == 'collection') {
+            searchType = 'collection';
+            s = searchExpl[1];
             fillCollectionSearch(searchExpl[1], container);
-            return;
         }
     }
 
@@ -711,18 +716,11 @@ async function performSearch(el) {
         form.classList.remove('search-form--loading');
     }
 
-    fillSearchProducts(all_products_cache, container, search, color_search, ambiguity, or, sale);
+    if(searchType == 'normal') fillSearchProducts(all_products_cache, container, search, color_search, ambiguity, or, sale);
 
     //// COLLECTIONS AND ARTICLES ////    
-    let alt_search = [];
-    if(search.length == 0 && color_search.length > 0) alt_search = Array.from(color_search);
-    else if(search.length > 0) alt_search = Array.from(search);
-
-    if(alt_search.length > 0) {
-        let joined_search = alt_search.join(' ');
-
-        fetch(`/search/suggest.json?q=${encodeURIComponent(joined_search)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container));
-    }
+    container.classList.remove('menu-popup--no-side');
+    fetch(`/search/suggest.json?q=${encodeURIComponent(s)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container));
 }
 
 // function openHeaderSearch() {
@@ -765,6 +763,17 @@ if(searchInput.length) {
 
             let el = this;
             searchThrottle = setTimeout(function() {
+
+                if(el.classList.contains('search-input__404')) {
+                    document.querySelector('.menu-popup--search').classList.add('menu-popup--visible');
+                    document.body.classList.add('modal-open');
+                    let mainSearchInput = document.querySelector('.menu-popup--search .search-input');
+                    mainSearchInput.value = el.value;
+                    el.value = "";
+                    document.querySelector('.menu-popup--search .search-input').focus();
+                    el = mainSearchInput;
+                }
+
                 performSearch(el);
             }, 300);
         });
@@ -785,4 +794,10 @@ searchCategoriesButtons.forEach(searchCategoriesButton => searchCategoriesButton
     input.value = `collection:${handle}`;
 
     performSearch(input);
+}));
+
+const mobileNavButtons = document.querySelectorAll('.menu-popup__mobile-nav button');
+mobileNavButtons.forEach(mobileNavButton => mobileNavButton.addEventListener('click', function(e) {
+    const target = this.getAttribute('data-target');
+    this.closest('.menu-popup__mobile-nav').setAttribute('data-page', target);
 }));

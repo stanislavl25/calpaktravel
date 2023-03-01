@@ -11,6 +11,15 @@
             endif
         endfor
     endif
+
+    if section.settings.collection_list_ex != blank and show == true
+        for col in section.settings.collection_list_ex
+            if col.id == collection.id
+                assign show = false
+                break
+            endif
+        endfor
+    endif
 -%}
 
 {%- if show -%}
@@ -45,6 +54,11 @@
                 "type": "collection_list",
                 "id": "collection_list",
                 "label": "Show for these collections only"
+            },
+            {
+                "type": "collection_list",
+                "id": "collection_list_ex",
+                "label": "Exclude from these collections"
             }
         ],
         "blocks": [

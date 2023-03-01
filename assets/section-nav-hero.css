@@ -67,3 +67,17 @@
     text-align: center;
     line-height: 1.25em;
 }
+
+@media (max-width: 900px) {
+    .nav-hero__nav {
+        flex-direction: row;
+        transform: none;
+        bottom: 0;
+        left: 0;
+        top: auto;
+    }
+
+    .nav-hero__item {
+        flex: 1;
+    }
+}

@@ -67,7 +67,7 @@
 }
 
 .pdp__variant-buttons:not(.pdp__variant-buttons--grouped):not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) .pdp__variant-list {
-    grid-template-columns: repeat(auto-fit, minmax(20px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(60px,1fr));
 }
 
 .pdp__variant-buttons:not(.pdp__variant-buttons--grouped)[data-count="2"] .pdp__variant-list {
@@ -88,7 +88,7 @@
     border-radius: 9px;
     font-weight: var(--font-body-weight-bold);
     white-space: nowrap;
-    padding: 0 var(--gap);
+    padding: 0 5px;
 }
 
 .product-option.product-option--na {
@@ -96,7 +96,7 @@
 }
 
 .product-option.product-option--selected.product-option--na {
-    background: linear-gradient(to bottom right,var(--yellow) calc(50% - 1px),#000,var(--yellow) calc(50% + 1px));
+    background: linear-gradient(to bottom right, #eee calc(50% - 1px),#000, #eee calc(50% + 1px));
 }
 
 .product-option * {
@@ -187,9 +187,12 @@
     left: 57%;
     transform: translateX(calc(-100% - 20px));
     display: flex;
-    gap: var(--gap);
+    gap: 0 var(--gap);
     font-size: 14px;
     z-index: 6;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .pdp__breadcrumbs span,
@@ -277,6 +280,7 @@
     display: flex;
     gap: 5px;
     align-items: center;
+    text-decoration: inherit;
 }
 
 .pdp__submit-container {
@@ -306,7 +310,7 @@
     pointer-events: none;
 }
 
-[data-status="sold-out"] .pdp__submit-container:not(.pdp__submit-container--soldout) .pdp__submit {
+[data-status="sold-out"]:not(.pdp__grid--soldout) .pdp__submit {
     display: none;
 }
 
@@ -359,6 +363,15 @@
     pointer-events: none;
 }
 
+.pdp__submit--added .pdp__submit-price,
+.pdp__submit--added .pdp__submit-label .submit-label-add {
+    display: none;
+}
+
+.pdp__submit--added .pdp__submit-label .submit-label-added {
+    display: block;
+}
+
 .button--pdp__submit:hover .pdp__submit-label,
 .button--pdp__submit:hover .pdp__submit-price {
     transform: translateY(-5px);
@@ -366,6 +379,11 @@
 
 .button--pdp__wishlist {
     height: auto;
+}
+
+.button--pdp__wishlist svg {
+    width: 18px;
+    height: 18px;
 }
 
 .button--pdp__wishlist > span {
@@ -405,6 +423,14 @@
     margin-top: 8px;
 }
 
+[data-status="sold-out"] .pdp__submit-bottom {
+    display: none;
+}
+
+[data-status="sold-out"] .button--pdp__wishlist {
+    display: none;
+}
+
 .pdp__stock {
     display: none;
     position: relative;
@@ -432,6 +458,11 @@
     z-index: 1;
     display: flex;
     align-items: center;
+}
+
+.pdp__payments:not(.pdp__payments--limit) .sp__msg-limit,
+.pdp__payments--limit .sp__msg-amnt {
+    display: none;
 }
 
 .pdp__payments .shop-pay-logo {
@@ -517,6 +548,7 @@
     font-weight: var(--font-body-weight-bold);
     font-size: 16px;
     font-family: var(--font-body-family);
+    color: #000;
 }
 
 .select__wrapper--pdp-type {
@@ -558,12 +590,54 @@
     display: none;
 }
 
-[data-status="sold-out"] .pdp__submit-container:not(.pdp__submit-container--soldout) .pdp__waitlist {
+[data-status="sold-out"]:not(.pdp__grid--soldout) .pdp__submit-container .pdp__waitlist {
     display: flex;
+    width: 100%;
+}
+
+.bambuser__live-activator button {
+    height: 42px;
+    padding: 0 var(--gap);
+    line-height: 42px;
+    border: 1px solid #000;
+    border-radius: 9px;
+}
+
+.okeReviews-widget-holder {
+    margin: -75px auto 0;
+    max-width: 1000px;
+    padding: 75px var(--gap) 0;
+}
+
+.prop65__disclaimer {
+    margin-top: var(--gap);
+}
+
+.pdp__floating-add-to-cart {
+    display: contents;
+}
+
+@media (max-width: 1180px) {
+    .pdp__grid {
+        gap: 35px;
+    }
+
+    .pdp__info {
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 900px) {
     .img-zoom {
+        display: none;
+    }
+
+    [data-status="sold-out"]:not(.pdp__grid--soldout) .pdp__waitlist {
+        display: flex;
+        width: 100%;
+    }
+
+    [data-status="sold-out"]:not(.pdp__grid--soldout) .pdp__floating-add-to-cart {
         display: none;
     }
 
@@ -573,6 +647,10 @@
 
     .button--pdp__wishlist .button-text {
         display: none;
+    }
+
+    .button--pdp__wishlist svg {
+        margin: 0;
     }
 
     .product-label--flash {
@@ -593,7 +671,12 @@
         transform: none;
         left: auto;
         top: auto;
-        gap: 19px;
+        gap: 0 19px;
+        justify-content: flex-start;
+    }
+
+    .pdp__breadcrumbs span {
+        display: none;
     }
 
     .pdp__grid {

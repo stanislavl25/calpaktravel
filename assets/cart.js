@@ -107,8 +107,8 @@ function setFreeShippingProgress(cart) {
         container.querySelector('.shipping-value').innerHTML = formatPrice((freeShippingStarts - cart.items_subtotal_price) / 100);
     }
 
-    if(freeShippingPercent == 100) container.setAttribute('data-status', 'success');
-    else container.setAttribute('data-status', 'progress');
+    if(freeShippingPercent == 100) container.closest('.cart__header').setAttribute('data-status', 'success');
+    else container.closest('.cart__header').setAttribute('data-status', 'progress');
     
     freeShippingIndicator.style.setProperty('--shipping-progress', `${freeShippingPercent}%`);
 
@@ -143,6 +143,10 @@ function updateCart(data) {
     if(cart.item_count > 0) cartContainer.querySelector('.cart__count').innerHTML = cart.item_count;
     cartContainer.querySelector('.cart__total-row--subtotal .cart__total-value').innerHTML = formatPrice(cart.items_subtotal_price / 100);
     cartContainer.querySelector('.cart__payments-amnt').innerHTML = formatPrice(totalPrice / 4 / 100);
+
+    if(totalPrice * 1 <= 5000) cartContainer.querySelector('.cart__4-payments').classList.add('cart__4-payments--limit');
+    else cartContainer.querySelector('.cart__4-payments').classList.remove('cart__4-payments--limit');
+
     cartContainer.querySelector('.cart__total-row--total .cart__total-value').innerHTML = formatPrice(totalPrice / 100);
 }
 
@@ -172,7 +176,7 @@ if(closeCartLinks.length > 0) closeCartLinks.forEach(closeCartLink => closeCartL
     closeCart();
 }));
 
-window.addEventListener("click", (e) => {
+window.addEventListener("click", async (e) => {
     if(e.target.classList.contains('cart__item-remove')) {
         e.preventDefault();
 
@@ -215,5 +219,8 @@ window.addEventListener("click", (e) => {
         });
 
         valueInput.value = qty;
+    } else if(e.target.classList.contains('cart__item-wishlist')) {
+        e.preventDefault();
+
     }
 });

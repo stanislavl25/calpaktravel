@@ -1,4 +1,4 @@
-{{ 'component-customer-nav.css' | asset_url | stylesheet_tag }}
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag: preload: true }}
 
 <section class="customer__main">
     {% render 'account-nav', current: 'info' %}
@@ -13,8 +13,7 @@
         </div>
 
         <div class="account-control-buttons">
-            <a href="/account/login#recover" class="button button--secondary"><span>Reset Password</span></a>
-            {% comment %} <a href="/account?view=wishlist" class="button medium-up-hide">Wishlist</a> {% endcomment %}
+            <a href="{{ routes.account_login_url }}#recover" class="button button--secondary"><span>Reset My Password</span></a>
         </div>
     </div>
 </section>

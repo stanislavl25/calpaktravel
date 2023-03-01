@@ -30,7 +30,7 @@
     {%- for block in section.blocks -%}
     <div class="collection-showcase{% if forloop.first %} collection-showcase--active{% endif %}">
         <div class="collection-showcase__media">
-            {%- render 'image' with block.settings.image, sizes: '50vw', no_wrapper: true, lazy: true -%}
+            {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true -%}
 
             {%- if block.settings.button-text != blank -%}
             <div class="floating-link">
@@ -49,7 +49,7 @@
         <div class="collection-showcase__products slider__wrapper">
             <div class="slider slider--scrollbar">
                 {%- for product in block.settings.product_list -%}
-                    {%- render 'product-unit' with product, class: "slide", quick_view: true -%}
+                    {%- render 'product-unit' with product, class: "slide", quick_view: true, sizes: '(min-width: 901px) 25vw, 50vw' -%}
                 {%- endfor -%}
             </div>
         </div>

@@ -11,20 +11,33 @@
 <noscript>{{ 'component-promo-unit.css' | asset_url | stylesheet_tag }}</noscript>
 {%- endif -%}
 
-<section class="product-grid">
-    {%- liquid
-        assign show_short_info = false
-        assign show_luggage_size = false
-        if template contains 'collection'
-            if collection.metafields.custom.show_luggage_size
-                assign show_luggage_size = true
-            endif
-
-            if collection.metafields.custom.show_short_info
-                assign show_short_info = true
-            endif
+{%- liquid
+    assign show_short_info = false
+    assign show_luggage_size = false
+    assign early_access = false
+    if template contains 'collection'
+        if collection.metafields.custom.show_luggage_size
+            assign show_luggage_size = true
         endif
 
+        if collection.metafields.custom.show_short_info
+            assign show_short_info = true
+        endif
+
+        if collection.metafields.custom.early_access != blank
+            if collection.metafields.custom.early_access == "Don't hide early access variants"
+                assign early_access = 'all'
+            elsif collection.metafields.custom.early_access == "Display only early access variants"
+                assign early_access = 'only'
+            endif
+        endif
+    endif
+
+    assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
+-%}
+
+<section class="product-grid">
+    {%- liquid
         paginate collection.products by 200
             for product in collection.products
                 if product.tags contains "do not display"
@@ -32,9 +45,9 @@
                 endif
                 
                 if forloop.index <= 5
-                    render 'product-unit' with product, wishlist: true, quick_view: true, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true
+                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access
                 else
-                    render 'product-unit' with product, wishlist: true, quick_view: true, show_luggage_size: show_luggage_size, show_short_info: show_short_info
+                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access
                 endif
             endfor
         endpaginate
@@ -53,7 +66,18 @@
         "name": "Product Grid",
         "class": "shopify-section--product-grid",
         "settings": [
-        
+            {
+                "type": "checkbox",
+                "id": "wishlist",
+                "label": "Show wishlist buttons",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "quickview",
+                "label": "Enable quickview",
+                "default": true
+            }
         ],
         "blocks": [
             {

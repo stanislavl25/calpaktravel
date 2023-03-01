@@ -1,8 +1,4 @@
-<div class="cart__free-shipping" data-status="{%- if free_shipping_progress == 100 -%}
-            success
-        {%- else -%}
-            progress
-        {%- endif -%}">
+<div class="cart__free-shipping">
     <div class="cart__free-shipping-msg">
         <div class="cart__free-ship-progress">You're only <span class="shipping-value">{{ free_shipping | minus: cart.total_price | money_without_trailing_zeros }}</span> away from free shipping!</div>
         <div class="cart__free-ship-success">Congrats, you get free shipping!</div>

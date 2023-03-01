@@ -120,11 +120,13 @@
                 if current_variant.compare_at_price > current_variant.price
                     assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
                     assign discount = '<span class="dscnt">' | append: discount | append: '%' | append: '</span>'
+                    assign discounted = true
                 else
                     assign discount = '<span class="dscnt"></span>'
+                    assign discounted = false
                 endif
             -%}
-        <div class="product-label product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+        <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
             {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
             {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
         </div>

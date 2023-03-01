@@ -2,11 +2,21 @@
     font-size: 36px;
     line-height: 1.2em;
     letter-spacing: -0.02em;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.customer__page-title-tabs {
+    margin-bottom: var(--gap);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .customer__page-cta {
     margin-bottom: var(--gap);
+    text-align: center;
+    line-height: 1.5em;
 }
 
 .customer__page {
@@ -20,12 +30,22 @@
     min-height: 500px;
 }
 
+.account-nav__sub-section {
+    display: none;
+}
+
 .account-nav {
-    flex: 0 0 300px;
-    line-height: 1.5em;
+    max-width: 300px;
+    flex: 1;
+    line-height: 1.75em;
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.customer__main .account-nav + div {
+    flex: 3;
+    min-width: 0;
 }
 
 .account-info {
@@ -35,6 +55,8 @@
 .account-info__title {
     font-weight: var(--font-body-weight-bold);
     margin-bottom: 30px;
+    font-size: 1em;
+    line-height: 1.25em;
 }
 
 .account-user-info {
@@ -47,4 +69,150 @@
 
 .no-orders .button {
     margin-top: 30px;
+}
+
+.customer__no-result-msg {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+    margin-bottom: 30px;
+}
+
+.form__success-message {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    margin-top: 100px;
+}
+
+.customer__forgot-pass {
+    display: none;
+}
+
+.customer__page--recover .customer__forgot-pass {
+    display: block;
+}
+
+.customer__page--recover .customer__login {
+    display: none;
+}
+
+.field--submit {
+    margin-top: 40px;
+}
+
+.field--submit .button {
+    min-width: 120px;
+}
+
+.customer__page-cta--success {
+    margin: 30px 0;
+    background: var(--yellow);
+    padding: var(--gap);
+    border-radius: 9px;
+    border: 1px solid #000;
+}
+
+.cta-success__title {
+    margin-bottom: var(--gap);
+}
+
+#create_customer .customer__page-cta--success ~ .field__list,
+#create_customer .customer__page-cta--success ~ .form__submit,
+#create_customer .customer__page-cta--success ~ .form-disclaimer {
+    display: none;
+}
+
+.checkout-login {
+    display: flex;
+    margin: 90px 0;
+}
+
+.checkout-login .form__links {
+    text-align: left;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkout-login__login,
+.checkout-login__guest {
+    flex: 0 0 50%;
+    min-width: 0;
+    padding: var(--gap);
+}
+
+.checkout-login__inner {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.checkout-login__guest {
+    border-left: 1px dashed #aeaeae;
+}
+
+.checkout-login__inner .customer__page-title,
+.checkout-login__inner .customer__page-cta {
+    text-align: left;
+}
+
+@media (max-width: 900px) {
+    .customer__page-title-tabs {
+        gap: 10px;
+    }
+
+    .checkout-login {
+        flex-direction: column-reverse;
+        margin: 40px 0;
+    }
+
+    .checkout-login__guest {
+        border-left: 0;
+    }
+
+    .checkout-login__guest .checkout-login__inner {
+        margin-bottom: 10px;
+        padding-bottom: 40px;
+        border-bottom: 1px dashed #aeaeae;
+    }
+
+    .customer__page-cta {
+        margin-bottom: 30px;
+    }
+
+    .field .button {
+        width: 100%;
+    }
+
+    .field--forgot-cancel {
+        text-align: center;
+    }
+
+    .customer__page-title {
+        font-size: 24px;
+    }
+
+    .customer__main {
+        display: block;
+    }
+
+    .account-nav {
+        flex-direction: row;
+        gap: var(--gap);
+        justify-content: space-between;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        white-space: nowrap;
+        max-width: none;
+    }
+
+    .customer__no-result-msg {
+        font-size: 24px;
+    }
+
+    .account-info__title {
+        margin-bottom: 20px;
+    }
 }

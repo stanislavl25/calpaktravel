@@ -12,6 +12,8 @@
             endif
         endfor
     endif
+
+    assign opt1 = current_variant.option1 | handleize
 -%}
 {%- if set != false or upsell_items != false -%}
 <section class="pdp__upsell slider__wrapper slider__wrapper--buttons-side">
@@ -28,7 +30,7 @@
             if upsell_items != false
                 for upsell_item in upsell_items
                     if upsell_item.handle != blank and upsell_item != blank
-                        render 'product-unit' with upsell_item, wishlist: true, class: "slide", quick_view: true
+                        render 'product-unit' with upsell_item, wishlist: true, class: "slide", quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
                     endif
                 endfor
             else
@@ -36,7 +38,7 @@
                     assign set_product = set_product | split: ':' | first
                     assign prod = all_products[set_product]
                     if prod.handle != blank and prod != blank
-                        render 'product-unit' with prod, wishlist: true, class: "slide", quick_view: true
+                        render 'product-unit' with prod, wishlist: true, class: "slide", quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
                     endif
                 endfor
             endif

@@ -4,7 +4,10 @@
       "type": "page-header",
       "settings": {
         "title": "Returns and Exchanges",
-        "text": "<p>We accept returns of unused products within 30 calendar days of order being placed.<\/p>"
+        "title-size": "small",
+        "text": "<p>We accept returns of unused products within 30 calendar days of order being placed.<\/p>",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "returns": {
@@ -38,7 +41,7 @@
             "title": "I want a refund",
             "image": "shopify:\/\/shop_images\/kaya-laptop-backpack-caramel_a0da0de1-73fb-45c7-9ab2-ee22799dd9ee.jpg",
             "desc-title": "Next Steps",
-            "description": "<p>1. Select the item you’re sending back. <br\/>2. You’ll be prompted to select a new size or color - do just that!<br\/>3. Print your return label and mail back the original item.<br\/>4. We’ll ship the new item to you right away.<\/p>",
+            "description": "<p>1. Select the item you’re sending back and request a refund.<\/p><p>2. You’ll get an Instant Voucher but you don’t have to use it.<\/p><p>3. Print your return label and mail back the original item.<\/p><p>4. Once received, we'll refund back to your original $$$.<\/p>",
             "button-text": "Start a refund",
             "button-link": "https:\/\/returns.calpaktravel.com"
           }

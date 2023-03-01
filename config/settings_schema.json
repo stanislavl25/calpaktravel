@@ -95,16 +95,36 @@
             "label": "Eligible products tag"
         },
         {
-            "type": "text",
-            "id": "sale-text",
-            "label": "Sale text",
-            "info": "Use %% to show actual discount"  
+            "type": "header",
+            "content": "PDP messaging"
         },
         {
             "type": "text",
             "id": "sale-text-pdp",
             "label": "Sale text for PDP",
             "info": "Use %% to show actual discount"  
+        },
+        {
+            "type": "text",
+            "id": "sale-text-pdp-mixed",
+            "label": "Sale text for PDP with mixed prices",
+            "info": "Use %% to show max discount"  
+        },
+        {
+            "type": "header",
+            "content": "Product card messaging"
+        },
+        {
+            "type": "text",
+            "id": "sale-text",
+            "label": "Sale text for product cards",
+            "info": "Use %% to show actual discount"  
+        },
+        {
+            "type": "text",
+            "id": "sale-text-col-mixed",
+            "label": "Sale text for cards with mixed prices",
+            "info": "Use %% to show max discount"  
         },
         {
             "type": "header",
@@ -326,6 +346,12 @@
         "id": "type_body_font_bolder",
         "default": "assistant_n4",
         "label": "Bolder font"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font_bold",
+        "default": "assistant_n4",
+        "label": "Bold font"
       }
     ]
   },

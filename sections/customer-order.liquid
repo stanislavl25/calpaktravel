@@ -1,0 +1,99 @@
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-order.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="customer__main">
+    {% render 'account-nav', current: 'orders' %}
+        
+    <div class="account-info order-details">
+        <h1 class="order-details__title"><a href="{{ routes.account_url }}" title="Go back" aria-label="Return to Orders list"><span class="tri-left"></span></a> Order No. {{ order.order_number }}</h1>
+        <div class="order-details__meta">Order placed {{ order.created_at | date: '%m/%d/%y' }} <a href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a></div>
+        <div class="order-details__info">
+            <div class="order-details__shipping">
+                <h2>Shipping Address</h2>
+                {{ order.shipping_address.name }}<br>
+                {{ order.shipping_address.address1 }}<br>
+                {% if order.shipping_address.address2 != blank %}
+                {{ order.shipping_address.address2 }}<br>
+                {% endif %}
+                {{ order.shipping_address.city }}, {{ order.shipping_address.province }} {{ order.shipping_address.zip }}<br>
+                {{ order.shipping_address.country }}<br>
+                {{ order.shipping_address.phone }}
+            </div>
+            <div class="order-details__billing">
+                <h2>Billing Address</h2>
+                {{ order.billing_address.name }}<br>
+                {{ order.billing_address.address1 }}<br>
+                {% if order.billing_address.address2 != blank %}
+                {{ order.billing_address.address2 }}<br>
+                {% endif %}
+                {{ order.billing_address.city }}, {{ order.billing_address.province }} {{ order.billing_address.zip }}<br>
+                {{ order.billing_address.country }}<br>
+                {{ order.billing_address.phone }}
+            </div>
+            <div class="order-details__money">
+                <h2>Order Total {{ order.total_price | money_without_trailing_zeros }}</h2>
+                <div class="order-details__money-cell"><span>Savings</span> <span>{{ order.total_discounts | money_without_trailing_zeros }}</span></div>
+                <div  class="order-details__money-cell"><span>Shipping</span> <span>{% if order.shipping_price == 0 %}Free{% else %}{{ order.shipping_price | money_without_trailing_zeros }}{% endif %}</span></div>
+                <div  class="order-details__money-cell"><span>Taxes</span> <span>{{ order.tax_price | money_without_trailing_zeros }}</span></div>
+            </div>
+        </div>
+
+        <div class="order-details__items">
+            <h2 class="order-details__items-title">Order Summary</h2>
+            <ul class="order-details__items-list">
+                {%- for item in order.line_items -%}
+                    {%- liquid
+                        assign url = false
+                        unless item.product.tags contains "do not display"
+                            assign option1 = item.variant.option1 | handleize
+                            assign url = '/products/' | append: item.product.handle | append: '/' | append: option1
+                            if item.variant.option2 != blank
+                                assign option2 = item.variant.option2 | handleize
+                                assign url = url | append: ',' | append: option2
+                            endif
+                        endunless
+                    -%}
+                    <li class="order-details__item">
+                        <div class="order-details__item-image">
+                            {%- if url != false -%}
+                                <a href="{{ url }}">{% render 'image' with item.image, height: 133.33, sizes: '130px' %}</a>
+                            {%- else -%}
+                                {% render 'image' with item.image, height: 133.33, sizes: '130px' %}
+                            {%- endif -%}
+                        </div>
+                        <div class="order-details__item-info">
+                            <div class="order-details__item-title">
+                                {%- if url != false -%}
+                                    <a href="{{ url }}">{{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' }}</a>
+                                {%- else -%}
+                                    {{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' }}
+                                {%- endif -%}
+                            </div>
+                            <div class="order-details__item-option">{{- item.variant.option1 -}}</div>
+                            {%- if item.variant.option2 != blank -%}
+                            <div class="order-details__item-option">{{- item.variant.option2 -}}</div>
+                            {%- endif -%}
+                            {% if item.properties['_final-sale'] != blank %}
+                                {% if item.properties['_final-sale'] == true or item.properties['_final-sale'] == "true" %}
+                                    <div class="order-details__item-option">Final Sale</div>
+                                {% endif %}
+                            {% endif %}
+                            {% if item.properties['_preorder'] != blank %}
+                                {% if item.properties['_preorder'] != false or item.properties['_preorder'] != "false" %}
+                                    <div class="order-details__item-option">Est. ship date: <strong>{{ item.properties['_preorder'] }}</strong></div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="order-details__item-money">
+                            <div class="order-details__item-price">{% if item.original_price > item.final_line_price %}<s>{{ item.original_price | money_without_trailing_zeros }}</s> {% endif %}{{ item.final_line_price | money_without_trailing_zeros }}</div>
+                            <div class="order-details__item-qty">Quantity: {{ item.quantity }}</div>
+                        </div>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        <a href="{{ routes.account_url }}" class="button button--go-to-orders button--secondary hide-large" title="Go back" aria-label="Return to Orders list">
+            <span>Exit order details</span>
+        </a>
+    </div>
+</section>

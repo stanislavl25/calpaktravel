@@ -108,16 +108,20 @@
                 assign alt = media.alt | strip
             endif
 
-            assign tmp = ''
-            assign alt = alt | split: ','
-            for _alt in alt
-                assign val = _alt | strip | handleize
-                unless forloop.first
-                    assign tmp = tmp | append: ','
-                endunless
-                assign tmp = tmp | append: val
-            endfor
-            assign alt = tmp | split: ','
+            if alt == product.title
+                assign alt = ''
+            else
+                assign tmp = ''
+                assign alt = alt | split: ','
+                for _alt in alt
+                    assign val = _alt | strip | handleize
+                    unless forloop.first
+                        assign tmp = tmp | append: ','
+                    endunless
+                    assign tmp = tmp | append: val
+                endfor
+                assign alt = tmp | split: ','
+            endif
 
             assign preload = false
             if alt contains opt1 or alt contains sku or alt == product.title or alt == ''

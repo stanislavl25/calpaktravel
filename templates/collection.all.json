@@ -1,0 +1,410 @@
+{
+  "sections": {
+    "collection-filter": {
+      "type": "collection-filter",
+      "blocks": {
+        "597a3a7d-e342-4ec9-8cca-f98e586237d1": {
+          "type": "category",
+          "settings": {
+            "heading": "ALL PRODUCTS",
+            "title": "All Products",
+            "collection": "",
+            "product_list": [],
+            "selected": true
+          }
+        },
+        "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "heading": ". . . New",
+            "title": "New",
+            "collection": "new-arrivals",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "70b2154d-2620-4583-ab2f-871333b645be": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "heading": ". . . Bestsellers",
+            "title": "Bestsellers",
+            "collection": "best-sellers",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "645f5714-be29-44a4-9a15-aab469ecb101": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "heading": ". . . In stock and ready to ship",
+            "title": "In stock and ready to ship",
+            "collection": "in-stock-ready-to-deliver",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "f74e2394-2c9a-4763-bb95-cc1d08e77a61": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "heading": ". . . On SALE",
+            "title": "On SALE",
+            "collection": "sale",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "3d12fcf3-c4b5-4790-bd7e-08e03283bc72": {
+          "type": "category",
+          "settings": {
+            "heading": "LUGGAGE",
+            "title": "Luggage",
+            "collection": "luggage",
+            "product_list": [],
+            "selected": false
+          }
+        },
+        "89deb812-a550-411c-9384-b37b331322bd": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Mini Carry-On",
+            "title": "Mini Carry-On",
+            "collection": "underseat-luggage",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/Mini_00b1d03d-dbda-4239-b1d0-4e528e84a23b.png",
+            "description": "Height 16\"",
+            "filter-in-parent": false
+          }
+        },
+        "0023d471-10e4-42db-b4d0-6a75f670f841": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Carry-On",
+            "title": "Carry-On",
+            "collection": "carry-on-luggage",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/Carry-On_018130fc-9bf4-46b0-a630-75669564a8a9.png",
+            "description": "Height 20\"- 22\"",
+            "filter-in-parent": false
+          }
+        },
+        "7d605b28-5e30-4046-806f-e71ef9a3f8fa": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Medium",
+            "title": "Check-In: Medium",
+            "collection": "medium-luggage",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/Medium.png",
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "5e94c555-8861-45eb-9593-163f9828511f": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Large",
+            "title": "Check-In: Large",
+            "collection": "large-luggage",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/Large_5bc337d5-59db-4378-94a8-e5bcb2b31e0f.png",
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "bf11af16-d9d7-42ae-a831-92ad493000c1": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> 2 Piece Set",
+            "title": "2-Piece Set",
+            "collection": "2-piece-sets",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/2_Piece_384b2397-cb20-43e0-a3a1-d86e02d2d6fc.png",
+            "description": "Carry-On + Large",
+            "filter-in-parent": false
+          }
+        },
+        "1c40da47-dd29-4bd4-99cd-19edd1c40017": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> 3-Piece Sets",
+            "title": "3-Piece Sets",
+            "collection": "3-piece-luggage-sets",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/3_Piece_2c255d43-7b5d-400e-8697-6e217366aa6f.png",
+            "description": "Carry-On + Medium + Large",
+            "filter-in-parent": false
+          }
+        },
+        "a846b0cd-0dc4-4bf7-a32f-77dfeed84d6a": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Hat Boxes",
+            "title": "Hat Boxes",
+            "collection": "hat-boxes",
+            "product_list": [],
+            "image": "shopify:\/\/shop_images\/Hat_Box_2694d1c2-f8c3-4afd-b688-ccacd2134e1a.png",
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "0c75d020-409d-4603-90cf-614003549181": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Clear Lugagge Covers",
+            "title": "Clear Lugagge Covers",
+            "collection": "",
+            "product_list": [
+              "clear-luggage-cover"
+            ],
+            "image": "shopify:\/\/shop_images\/Luggage_Cover_2e6d2f3f-ebfe-47bc-b9da-dcab4a197501.png",
+            "description": "Keep your luggage safe",
+            "filter-in-parent": false
+          }
+        },
+        "59847690-2b5c-49f1-a80a-a3ee02b4aac5": {
+          "type": "category",
+          "settings": {
+            "heading": "BAGS",
+            "title": "Bags",
+            "collection": "bags",
+            "product_list": [],
+            "selected": false
+          }
+        },
+        "63f701fc-233e-4f58-bca7-ae021b33c362": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Backpacks",
+            "title": "Backpacks",
+            "collection": "backpacks",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": true
+          }
+        },
+        "3dbc9086-52ee-4580-a549-b931d00dcb17": {
+          "type": "filter",
+          "settings": {
+            "heading": "->  Duffels",
+            "title": "Duffels",
+            "collection": "duffel",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "e130ace1-e26a-4cf6-a323-4bf194e40597": {
+          "type": "filter",
+          "settings": {
+            "heading": "->  Totes",
+            "title": "Totes",
+            "collection": "tote-bags",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "f9f5f178-2d27-41a8-92ae-872226b58a51": {
+          "type": "filter",
+          "settings": {
+            "heading": "->  Crossbody",
+            "title": "Crossbody",
+            "collection": "crossbody-bags",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "58301471-afcc-43f5-9e44-4d1128abe623": {
+          "type": "filter",
+          "settings": {
+            "heading": "->  Garment Bags",
+            "title": "Garment Bags",
+            "collection": "garment-bags",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "5a0065d2-de24-436e-ab5f-62e7df8cf864": {
+          "type": "category",
+          "settings": {
+            "heading": "ORGANIZERS",
+            "title": "Organizers",
+            "collection": "organizers",
+            "product_list": [],
+            "selected": false
+          }
+        },
+        "6184febf-73bd-4d85-a6e0-455507f15d4e": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Travel Organizers",
+            "title": "Travel Organizers",
+            "collection": "travel-organizers",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "3bf258e4-1e16-4127-b143-f64d2ccaf8d0": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Tech Organizers",
+            "title": "Tech Organizers",
+            "collection": "tech-organizers",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "78f7fdfc-cabd-4081-9ed5-612710c5bb79": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Toiletry & Makeup Bags",
+            "title": "Toiletry & Makeup Bags",
+            "collection": "makeup-bags",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "72cccac1-90ad-4a4d-acbe-2048e9dd97ae": {
+          "type": "category",
+          "settings": {
+            "heading": "ACCESSORIES",
+            "title": "Accessories",
+            "collection": "accessories",
+            "product_list": [],
+            "selected": false
+          }
+        },
+        "28434334-9c5a-48f8-b177-3f51889eb761": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Apparel",
+            "title": "Apparel",
+            "collection": "apparel",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
+        "9259d563-108f-4e2c-8ab1-05c5107d2ad6": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Merch",
+            "title": "Merch",
+            "collection": "calpak-souvenirs",
+            "product_list": [],
+            "description": "",
+            "filter-in-parent": false
+          }
+        }
+      },
+      "block_order": [
+        "597a3a7d-e342-4ec9-8cca-f98e586237d1",
+        "c8f3773f-80e6-466d-9317-43d1bb1e948e",
+        "70b2154d-2620-4583-ab2f-871333b645be",
+        "645f5714-be29-44a4-9a15-aab469ecb101",
+        "f74e2394-2c9a-4763-bb95-cc1d08e77a61",
+        "3d12fcf3-c4b5-4790-bd7e-08e03283bc72",
+        "89deb812-a550-411c-9384-b37b331322bd",
+        "0023d471-10e4-42db-b4d0-6a75f670f841",
+        "7d605b28-5e30-4046-806f-e71ef9a3f8fa",
+        "5e94c555-8861-45eb-9593-163f9828511f",
+        "bf11af16-d9d7-42ae-a831-92ad493000c1",
+        "1c40da47-dd29-4bd4-99cd-19edd1c40017",
+        "a846b0cd-0dc4-4bf7-a32f-77dfeed84d6a",
+        "0c75d020-409d-4603-90cf-614003549181",
+        "59847690-2b5c-49f1-a80a-a3ee02b4aac5",
+        "63f701fc-233e-4f58-bca7-ae021b33c362",
+        "3dbc9086-52ee-4580-a549-b931d00dcb17",
+        "e130ace1-e26a-4cf6-a323-4bf194e40597",
+        "f9f5f178-2d27-41a8-92ae-872226b58a51",
+        "58301471-afcc-43f5-9e44-4d1128abe623",
+        "5a0065d2-de24-436e-ab5f-62e7df8cf864",
+        "6184febf-73bd-4d85-a6e0-455507f15d4e",
+        "3bf258e4-1e16-4127-b143-f64d2ccaf8d0",
+        "78f7fdfc-cabd-4081-9ed5-612710c5bb79",
+        "72cccac1-90ad-4a4d-acbe-2048e9dd97ae",
+        "28434334-9c5a-48f8-b177-3f51889eb761",
+        "9259d563-108f-4e2c-8ab1-05c5107d2ad6"
+      ],
+      "settings": {
+        "collection_list": [
+          "2-piece-sets",
+          "2-piece-luggage-sets",
+          "2022-essentials",
+          "bags"
+        ],
+        "collection_list_ex": []
+      }
+    },
+    "30abf871-7ca5-49dc-b65e-778656d00be9": {
+      "type": "page-header",
+      "settings": {
+        "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "title-size": "medium",
+        "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "product-grid": {
+      "type": "product-grid",
+      "blocks": {
+        "b401a37d-55aa-49b7-b987-45893897281b": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Rectangle_3870.png",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/Rectangle_3870.png",
+            "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM",
+            "title": "Get 45% OFF 8-Piece Travel Set",
+            "text": "<p>Join us for 1 hour live shopping event March 2, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM&shareLiveShopping=ab9e95c4-3a38-47a8-aaf2-3d1443b0095e#liveshopping-OjOmNxWeJvVRIj5NF1fM\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM&shareLiveShopping=ab9e95c4-3a38-47a8-aaf2-3d1443b0095e#liveshopping-OjOmNxWeJvVRIj5NF1fM\">ADD TO CALENDAR<\/a><\/p>",
+            "show-for-collections": [
+              "best-sellers",
+              "new-arrivals",
+              "luggage",
+              "carry-on-luggage",
+              "checked-in-luggage",
+              "luggage-sets",
+              "accessories",
+              "bags",
+              "makeup-bags",
+              "organizers"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 2,
+            "column": 1,
+            "row-mob": 2
+          }
+        }
+      },
+      "block_order": [
+        "b401a37d-55aa-49b7-b987-45893897281b"
+      ],
+      "settings": {
+        "wishlist": true,
+        "quickview": true
+      }
+    }
+  },
+  "order": [
+    "collection-filter",
+    "30abf871-7ca5-49dc-b65e-778656d00be9",
+    "product-grid"
+  ]
+}

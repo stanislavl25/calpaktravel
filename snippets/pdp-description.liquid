@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    {%- if section.settings.specifications != blank or product.metafields.custom.line_drawing != blank -%}
+    {%- if section.settings.specifications != blank or product.metafields.custom.line_drawing != blank or product.metafields.custom.prop65 -%}
     <div class="accordion">
         <div class="accordion__title">Specifications</div>
         <div class="accordion__content">
@@ -32,6 +32,12 @@
 
             {%- if product.metafields.custom.line_drawing != blank -%}
                 {%- render 'image' with product.metafields.custom.line_drawing, lazy: true, sizes: '(min-width: 901px) 40vw, 100vw', no_wrapper: true -%}
+            {%- endif -%}
+
+            {%- if product.metafields.custom.prop65 -%}
+            <div class="prop65__disclaimer">
+                {{- section.settings.prop65 -}}
+            </div>
             {%- endif -%}
         </div>
     </div>

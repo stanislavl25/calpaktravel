@@ -1,11 +1,30 @@
-{{ 'section-product-grid.css' | asset_url | stylesheet_tag }}
+{{ 'component-wishlist.css' | asset_url | stylesheet_tag: preoad: true }}
 
-<div style="font-size: 36px; letter-spacing: -0.02em; text-align: center; margin-bottom: 40px; margin-top: 40px;">Your wishlist</div>
-<div style="font-size: 24px; text-align: center; letter-spacing: -0.02em;">No wishlist items selected</div>
-<section class="product-grid">
-    {%- liquid
-        for product in collections['best-sellers'].products limit: 5
-            render 'product-unit' with product, wishlist: true, quick_view: true
-        endfor
-    -%}
-</section>
+<script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+
+{% render 'wishlist' %}
+
+{% schema %}
+    {
+        "name": "Wishlist",
+        "class": "shopify-section--wishlist",
+        "settings": [
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Featured collection"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Collection heading"
+            },
+            {
+                "type": "checkbox",
+                "id": "quickview",
+                "label": "Enable quick view for featured collection",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}

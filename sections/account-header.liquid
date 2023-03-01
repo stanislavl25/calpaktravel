@@ -8,9 +8,13 @@
         
         <div class="account-header__text">
             <div class="account-header__title">Hello, {{ customer.first_name }}!</div>
-            <a href="https://www.calpaktravel.com/pages/faq#page-faq-category-10">Need help?</a>
+            {%- if section.settings.help-link != blank -%}
+                <a href="{{- section.settings.help-link -}}">Need help?</a>
+            {%- endif -%}
             {% comment %} <a class="account-header__account_link" href="/account?view=info">My Account</a> {% endcomment %}
-            <a href="/account/logout" class="button button--secondary"><span>Sign Out</span></a>
+            <div class="account-header__button-cont">
+                <a href="{{ routes.account_logout_url }}" class="button button--secondary"><span>Sign Out</span></a>
+            </div>
         </div>
 
             {% comment %} {% if section.settings.banner-enable %}
@@ -102,7 +106,11 @@
         "name": "Account Header",
         "class": "shopify-section--account-header",
         "settings": [
-        
+            {
+                "type": "url",
+                "id": "help-link",
+                "label": "Help link"
+            }
         ]
     }
 {% endschema %}

@@ -22,14 +22,50 @@ if(pdpJSON) {
     }
 }
 
+function getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable = true) {
+    let match = false, backupMatch = false;
+
+    const productUnitOptions = productUnit.querySelectorAll('.variant-select option');
+    for(let i = 0; i < productUnitOptions.length; i++) {
+        let singleOption = productUnitOptions[i];
+        const available = singleOption.getAttribute('data-available');
+        const optionColor = singleOption.getAttribute('data-option1');
+
+        if(color === optionColor) {
+            if(!onlyAvailable || available == 'true') {
+                match = singleOption;
+                break;
+            } else {
+                backupMatch = singleOption;
+            }
+        } else if(match === false && available == 'true' && colorGroup.colors.indexOf(optionColor) > -1) match = singleOption;
+    }
+
+    if(match === false && backupMatch !== false) match = backupMatch;
+
+    return match;
+}
+
+function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
+    const color = option.getAttribute('data-option1');
+    const colorGroup = getColorGroup(color);
+    
+    productUnits.forEach(productUnit => {
+        const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
+
+        if(match) productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`).click();
+    });
+}
+
 function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
     const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
-    const productTypes = ['Mini Carry-On', 'Carry-On', 'Carry-On Luggage with Hardshell Pocket', 'Carry-On Luggage with Pocket', 'Medium Luggage', 'Large', 'Trunk', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
+    const productTypes = ['Mini Carry-On', 'Carry-On Luggage with Hardshell Pocket', 'Carry-On Luggage with Pocket', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
     let foundTypes = [];
     fetch(`/collections/${pdpFeaturedCollection}/products.json`)
     .then(response => response.json())
     .then(data => {
         let selectedAssigned = false;
+        let added = [];
         for(let j = 0; j < productTypes.length; j++) {
             let selected = false;
             if(selectedAssigned === false && product.title.indexOf(productTypes[j]) > -1) {
@@ -39,13 +75,14 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
 
             for(let i = 0; i < data.products.length; i++) {
                 let prod = data.products[i];
-                if(prod.title.indexOf(productTypes[j]) > -1) {
+                if(prod.title.indexOf(productTypes[j]) > -1 && added.indexOf(prod.handle) === -1) {
                     foundTypes.push([
                         productTypes[j],
                         prod.handle,
                         prod.variants[0].price,
-                        selected
+                        prod.id == product.id
                     ]);
+                    added.push(prod.handle);
                     break;
                 }
             }
@@ -68,7 +105,7 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
     });
 }
 
-async function pdpFormSubmit(productForm) {
+async function pdpFormSubmit(productForm, showCart = true) {
     const container = productForm.closest('.pdp__grid, .qv__body');
 
     if(container.getAttribute('data-status') == 'sold-out') return;
@@ -81,7 +118,12 @@ async function pdpFormSubmit(productForm) {
 
     addToCart(variant_id, 1, (data) => {
             updateCart(data);
-            openCart();
+            if(showCart) {
+                openCart();
+            } else {
+                productForm.querySelector('.pdp__submit').classList.add('pdp__submit--added');
+                setTimeout(() => productForm.querySelector('.pdp__submit').classList.remove('pdp__submit--added'), 2000);
+            }
         }, () => {
             productForm.classList.remove('shopify-product-form--loading');
         },
@@ -90,7 +132,7 @@ async function pdpFormSubmit(productForm) {
     );
 }
 
-function updateOptionsAvailability(options, select) {
+function updateOptionsAvailability(options, select, container) {
     for(let i = 0; i < options.length; i++) {
         const siblingOptions = select.querySelectorAll(`option[data-option${i + 1}="${options[i]}"]`);
         for(let j = 0; j < siblingOptions.length; j++) {
@@ -100,7 +142,7 @@ function updateOptionsAvailability(options, select) {
                 
                 const value = option.getAttribute(`data-option${optNum + 1}`);
                 const available = option.getAttribute('data-available');
-                const target = document.querySelector(`.pdp__variants [data-position="${optNum + 1}"] [data-value="${value}"]`);
+                const target = container.querySelector(`.pdp__variants [data-position="${optNum + 1}"] [data-value="${value}"]`);
 
                 if(target) {
                     if(available === false || available == 'false') target.classList.add('product-option--na');
@@ -130,6 +172,18 @@ async function triggerWaitlist(waitlistCont) {
 window.addEventListener("load", () => {
     const pdpGrid = document.querySelector('.pdp__grid');
 
+    const bambuserButton = document.querySelector('.bambuser__live-activator button');
+    if(bambuserButton) bambuserButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    const reviewsLink = document.querySelector('.pdp__grid .pdp__reviews');
+    if(reviewsLink) reviewsLink.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector('.okeReviews-widget-holder').scrollIntoView({behavior: 'smooth'});
+    });
+
     if(pdpGrid) {
         let variantTypeEl = document.querySelector('.pdp__variant-type');
         if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
@@ -151,7 +205,7 @@ window.addEventListener("load", () => {
         const select = pdpGrid.querySelector('.variant-select');
         pdpGalleryUpdate(pdpGrid, select.options[select.selectedIndex], false);
 
-        updateOptionsAvailability(getProductOptionsList(pdpGrid), select);
+        updateOptionsAvailability(getProductOptionsList(pdpGrid), select, pdpGrid);
 
         let galleryMoreBtn = document.querySelector('.pdp-gallery__more-btn');
         if(galleryMoreBtn) galleryMoreBtn.addEventListener('click', function(e) {
@@ -189,14 +243,14 @@ window.addEventListener("load", () => {
             pdpFormSubmit(productForm);
         });
 
-        const waitlistSubmitBtn = document.querySelector('.pdp__waitlist-submit');
-        if(waitlistSubmitBtn) waitlistSubmitBtn.addEventListener('click', async function() {
+        const waitlistSubmitBtns = document.querySelectorAll('.pdp__waitlist-submit');
+        waitlistSubmitBtns.forEach(waitlistSubmitBtn => waitlistSubmitBtn.addEventListener('click', async function() {
             const waitlistCont = this.closest('.pdp__waitlist');
             triggerWaitlist(waitlistCont);
-        });
+        }));
 
-        const waitlistInput = document.querySelector('.pdp__waitlist input[type="email"]');
-        if(waitlistInput) waitlistInput.addEventListener('keyup', function(event) {
+        const waitlistInputs = document.querySelectorAll('.pdp__waitlist input[type="email"]');
+        waitlistInputs.forEach(waitlistInput => waitlistInput.addEventListener('keyup', function(event) {
             if (event.defaultPrevented) return;
 
             if((typeof event.key != 'undefined' && event.key === "Enter") || event.keyCode === 13) {
@@ -205,7 +259,7 @@ window.addEventListener("load", () => {
                 const waitlistCont = this.closest('.pdp__waitlist');
                 triggerWaitlist(waitlistCont);
             }
-        });
+        }));
     }
 });
 
@@ -369,6 +423,8 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         //         else if(i >= mediaLimit) activeMedia[i].classList.add('pdp__media--extra');
         //     }
         // }
+
+        checkSlider(pdpThumbs.querySelector('.slider'));
     }
 }
 
@@ -430,4 +486,67 @@ function initKlaviyo() {
             });
         }
     }
+}
+
+function pdpHandleUpsell(option) {
+    const productUnits = document.querySelectorAll('.pdp__upsell .product-unit');
+
+    let promises = [];
+    productUnits.forEach(product => {
+        if(!product.classList.contains('product-unit--loaded')) promises.push(activateProductUnit(product))
+    });
+
+    if(promises.length == 0) return matchProductUnitsToOption(productUnits, option);
+
+    Promise.all(promises).then(() => matchProductUnitsToOption(productUnits, option));
+}
+
+function pdpHandleFeaturedCollection(option) {
+    const productUnits = document.querySelectorAll('.shopify-section--pdp-featured .product-unit');
+
+    let promises = [];
+    productUnits.forEach(product => {
+        if(!product.classList.contains('product-unit--loaded')) promises.push(activateProductUnit(product))
+    });
+
+    if(promises.length == 0) return matchProductUnitsToOption(productUnits, option, false);
+
+    Promise.all(promises).then(() => matchProductUnitsToOption(productUnits, option, false));
+}
+
+function pdpUpdateURL(product, options) {
+    let url_vars = ''; 
+    if(document.location.href.indexOf('?') > -1) {
+        url_vars = document.location.href.split('?');
+        url_vars = '?' + url_vars[1];
+    }
+
+    let attr = options.join(',');
+    // if(options.length > 1) {
+    //     let option1Only = true,
+    //         tmp = false;
+    //     for(let i = 0; i < product.variants.length; i++) {
+    //         if(tmp === false) tmp = product.variants[i].option2;
+    //         else if(tmp != product.variants[i].option2) {
+    //             option1Only = false;
+    //             break;
+    //         }
+    //     }
+
+    //     if(option1Only) attr = options[0];
+    //     else 
+    // } else attr = options[0];
+
+    // if(selector.variantIdField.options[selector.variantIdField.selectedIndex].classList.contains('early-access-option')) attr = 'early-access-' + attr;
+
+    let not_ea_url = document.location.href.indexOf('/early-access') === -1 || document.location.href.indexOf('/early-access-') > -1;
+    if(document.location.href.indexOf('?preview_key=') === -1 && not_ea_url) window.history.replaceState({}, '', '/products/' + product.handle + '/' + attr + url_vars);
+}
+
+function pdpHandleDescriptions(pdpInfo, option) {
+    const actives = pdpInfo.querySelectorAll('[data-variant][data-current]');
+    actives.forEach(active => active.removeAttribute('data-current'));
+
+    const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
+    toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }

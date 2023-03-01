@@ -71,7 +71,7 @@
                 <a href="/pages/rewards">Rewards</a>
             </li>
             <li class="site-header__dropdown subnav__container site-header__menu-item hide-small">
-                <a href="/account" class="subnav__activator">
+                <a href="{{ routes.account_url }}" class="subnav__activator">
                     {%- if customer -%}
                         Hi, {{ customer.first_name | escape }}
                     {%- else -%}
@@ -82,7 +82,7 @@
                 <ul class="site-header__subnav list-unstyled">
                     {%- if customer -%}
                     <li>
-                        <a href="/account">My Account</a>
+                        <a href="{{ routes.account_url }}">My Account</a>
                     </li>
                     <li>
                         {{ 'Logout' | customer_logout_link }}

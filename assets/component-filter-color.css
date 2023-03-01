@@ -43,6 +43,7 @@
     color: #000;
     border-color: #000;
     font-weight: var(--font-body-weight-bold);
+    border-width: 2px;
 }
 
 .filt-col-group:hover {

@@ -72,6 +72,8 @@
         border-width: 1px 0 0;
         transform: translateY(100%);
         flex-direction: column;
+        padding: var(--gap);
+        margin: 0;
     }
 
     .pdp__floating-submit .pdp__submit-row {

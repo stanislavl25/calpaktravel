@@ -1,0 +1,58 @@
+{{ 'section-customer.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-form.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-customer-form.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="customer__page customer__page--form">
+    <h1 class="customer__page-title">Reset my password</h1>
+
+    {% form 'reset_customer_password' %}
+
+        <section class="field__list">
+            <div class="field">
+                <label for="ResetPassword">
+                    New Password
+                </label>   
+                <input
+                    type="password"
+                    class="field__input"
+                    name="customer[password]"
+                    id="ResetPassword"
+                    {% if form.errors contains 'password' %}
+                        aria-invalid="true"
+                    {% endif %}>
+
+            </div>
+
+            <div class="field">
+                <label for="PasswordConfirmation">Confirm Password</label>
+                <input
+                    type="password"
+                    class="field__input"
+                    name="customer[password_confirmation]"
+                    id="PasswordConfirmation"
+                    {% if form.errors contains 'password_confirmation' %}
+                        aria-invalid="true"
+                    {% endif %}>
+            </div>
+        </section>
+
+        {%- if form.errors -%}
+            {{ form.errors | default_errors }}
+        {%- endif -%}
+
+        <div class="form__submit">
+            <button aria-label="Log into user account" type="submit" class="button">
+                <span>Reset password</span>
+            </button>
+        </div>
+    {% endform %}
+</div>
+
+{% schema %}
+    {
+        "name": "Customer Reset",
+        "settings": [
+        
+        ]
+    }
+{% endschema %}

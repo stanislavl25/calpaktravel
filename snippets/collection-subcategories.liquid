@@ -3,14 +3,21 @@
     <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
     {%- liquid
         assign selected = 0
+        assign showSub = false
         for block in section.blocks
             if block.settings.selected and block.type == 'category'
                 assign selected = forloop.index
+                continue
+            endif
+            if selected > 0
+                if block.type != 'category'
+                    assign showSub = true
+                endif
                 break
             endif
         endfor
     -%}
-    <section class="filter__collections{% if selected != 0 %} filter__collections--active{% endif %} slider slider--scrollbar">
+    <section class="filter__collections{% if showSub %} filter__collections--active{% endif %} slider slider--scrollbar">
         {%- assign num = 0 -%}
         {%- for block in section.blocks -%}
             {%- if block.type == 'category' -%}
@@ -34,9 +41,9 @@
                     endif
                 -%}
                 {%- if block.settings.image != blank -%}
-                    {%- render 'image' with block.settings.image, sizes: '25vw', preload: preload, lazy: lazy, no_wrapper: true -%}
+                    {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 25vw, 200px', preload: preload, lazy: lazy, no_wrapper: true -%}
                 {%- elsif block.settings.collection.image != blank and block.settings.collection != blank -%}
-                    {%- render 'image' with block.settings.collection.image, sizes: '25vw', preload: preload, lazy: lazy, no_wrapper: true -%}
+                    {%- render 'image' with block.settings.collection.image, sizes: '(min-width: 901px) 25vw, 200px', preload: preload, lazy: lazy, no_wrapper: true -%}
                 {%- endif -%}
             </div>
             <h2 class="filter__collection-title">{{- block.settings.title | escape -}}</h2>

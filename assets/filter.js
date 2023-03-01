@@ -1,7 +1,6 @@
 "use strict";
 
 const filterGroupList = document.querySelector('.collection-filter__color-list');
-const filteredContainer = document.querySelector('.shopify-section--product-grid');
 const currentFilters = document.querySelector('.current-filters-list');
 
 function renderColorGroups(productVariantSelects) {
@@ -68,8 +67,8 @@ function filterSetDateOrder(unitVariants) {
     let unitVariantsOrdered = unitVariants.sort( (a, b) => {
         let aCreated = a.getAttribute('data-created') * 1,
             bCreated = b.getAttribute('data-created') * 1;
-        if(aCreated > bCreated) return 1;
-        if (aCreated < bCreated) return -1;
+        if(aCreated < bCreated) return 1;
+        if (aCreated > bCreated) return -1;
         return 0;
     });
 
@@ -209,14 +208,19 @@ async function getProductsFilteredByCategory(activeParentCollection) {
             activeParentCollection.querySelector('i').innerHTML = '';
             
             allSubcollections.forEach(allSubcollection => {
-                allSubcollection.classList.remove('filter__collection--active', 'slide');
+                allSubcollection.classList.remove('filter__collection--active', 'slide', 'slide--last');
                 if(allSubcollection.getAttribute('data-group') != index) allSubcollection.classList.remove('filter__collection--selected');
             });
 
             const filterSubCollections = document.querySelectorAll(`.filter__collections .filter__collection[data-group="${index}"]`);
             if(filterSubCollections.length > 0) {
                 document.querySelector('.filter__collections').classList.add('filter__collections--active');
-                filterSubCollections.forEach(filterSubCollection => filterSubCollection.classList.add('filter__collection--active', 'slide'));
+                for(let i = 0; i < filterSubCollections.length; i++) {
+                    if(i == filterSubCollections.length - 1)
+                        filterSubCollections[i].classList.add('filter__collection--active', 'slide', 'slide--last');
+                    else
+                        filterSubCollections[i].classList.add('filter__collection--active', 'slide');
+                }
             } else document.querySelector('.filter__collections').classList.remove('filter__collections--active');
             
             if(activeParentCollection.hasAttribute('data-products')) {

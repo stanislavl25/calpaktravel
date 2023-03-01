@@ -5,14 +5,46 @@
       "settings": {
         "title": "Join our affiliate program",
         "title-size": "medium",
-        "text": "<p>Do you love CALPAK products? Do you enjoy sharing your favorite finds and product features with your audience? Let’s partner!<\/p>"
+        "text": "<p>Do you love CALPAK products? Share your favorite finds and product features with your audience. Let’s partner!<\/p>",
+        "button-text": "Apply Here",
+        "button-link": "https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106"
       }
     },
     "affiliate-list": {
-        "type": "affiliate-list",
-        "settings": {
-
+      "type": "affiliate-list",
+      "blocks": {
+        "ac795c76-f7e3-4448-ba39-0c9f464742a3": {
+          "type": "block",
+          "settings": {
+            "title": "It's free to join!",
+            "text": "<p>Like all the best things in life, it costs nothing to become an affiliate.<\/p>"
+          }
+        },
+        "2e0ff183-5fa7-47d3-a99f-ff1ce951a19e": {
+          "type": "block",
+          "settings": {
+            "title": "Earn competitive commission",
+            "text": "<p>Receive commission on every order you refer<\/p>"
+          }
+        },
+        "e4a0508a-658a-4e91-a999-f7600ace66c5": {
+          "type": "block",
+          "settings": {
+            "title": "Get early access & exclusive offers",
+            "text": "<p>Be the first to get new products and exclusive discount codes for promos, product launches and events.<\/p>"
+          }
         }
+      },
+      "block_order": [
+        "ac795c76-f7e3-4448-ba39-0c9f464742a3",
+        "2e0ff183-5fa7-47d3-a99f-ff1ce951a19e",
+        "e4a0508a-658a-4e91-a999-f7600ace66c5"
+      ],
+      "settings": {
+        "title": "Benefits you'll enjoy",
+        "image": "shopify:\/\/shop_images\/hue-duffel_iphone-pocket.jpg",
+        "image-mobile": "shopify:\/\/shop_images\/new-arrivals-luka.jpg"
+      }
     },
     "58c50c7e-0829-425e-a33c-025deb78b22d": {
       "type": "featured-content-blocks",
@@ -21,12 +53,12 @@
           "type": "block",
           "settings": {
             "target_link": "",
-            "title": "Sign Up",
+            "title": "Apply",
             "description": "<p>Sign up for an affiliate account<\/p>",
             "button-text": "",
             "pictured_product": "",
             "product_title": "",
-            "image": "shopify:\/\/shop_images\/ambeur-vanity-case-packable-interior.jpg",
+            "image": "shopify:\/\/shop_images\/vanity-case_adjustable-strap.jpg",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9"
@@ -36,8 +68,8 @@
           "type": "block",
           "settings": {
             "target_link": "",
-            "title": "CALPAK Review",
-            "description": "<p>We will promptly review your profile<\/p>",
+            "title": "Stay Tuned",
+            "description": "<p>We will promptly review your profile for approval<\/p>",
             "button-text": "",
             "pictured_product": "",
             "product_title": "",
@@ -51,12 +83,12 @@
           "type": "block",
           "settings": {
             "target_link": "",
-            "title": "Share",
-            "description": "<p>Share your affiliate link and earn commissions<\/p>",
+            "title": "Get Sharing",
+            "description": "<p>Share your affiliate link with your audience and start earning<\/p>",
             "button-text": "",
             "pictured_product": "",
             "product_title": "",
-            "image": "shopify:\/\/shop_images\/vanity-case_adjustable-strap.jpg",
+            "image": "shopify:\/\/shop_images\/hatbox_medium-strap.jpg",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9"
@@ -72,10 +104,10 @@
         "heading": "How to join",
         "gap": false,
         "general-layout": "media-text",
-        "content-position": "stretch",
+        "content-position": "top",
         "mobile-layout": "scrollable",
         "button-text": "Apply Here",
-        "button-link": "\/account"
+        "button-link": "https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106"
       }
     },
     "b47858eb-c5db-4597-b34f-ac08e00ef83a": {
@@ -143,9 +175,9 @@
         "standalone": true,
         "show-sidebar": true,
         "sidebar-title": "Have questions?\nWe’re here to help.",
-        "sidebar-text": "<p>Please reach out to <a href=\"mailto:calpak@powerdigitalmarketinginc.com\" title=\"mailto:calpak@powerdigitalmarketinginc.com\">calpak@powerdigitalmarketinginc.com<\/a> with any questions and for support. We are so excited to create with you!<\/p>",
+        "sidebar-text": "<p>Please reach out to <a href=\"mailto:calpak@powerdigitalmarketinginc.com\" title=\"mailto:calpak@powerdigitalmarketinginc.com\">calpak@powerdigitalmarketinginc.com<\/a> with any questions and for support. <\/p><p>If you’ve already applied, please hold tight while we review your profile—if we believe you’re a great fit we’ll be in touch soon!<\/p><p>We are so excited to go places with you.<\/p>",
         "sidebar-button-text": "Apply Here",
-        "sidebar-button-link": "\/account"
+        "sidebar-button-link": "https:\/\/www.ascendpartner.com\/affiliate\/registration?refid=196106"
       }
     }
   },

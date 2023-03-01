@@ -1,14 +1,9 @@
 {% form 'customer_login', novalidate: 'novalidate' %}
-    {%- if form.errors -%}
-        <div class="errors__title">Please correct the following errors:</div>
-        {{ form.errors | default_errors }}
-    {%- endif -%}
-
     {%- if checkout -%}
         <input type="hidden" name="return_to" value="/checkout">
         <input type="hidden" name="checkout_url" value="/checkout">
     {%- else -%}
-        <input type="hidden" name="return_to" value="/account">
+        <input type="hidden" name="return_to" value="{{ routes.account_url }}">
     {%- endif -%}
 
     <section class="field__list">
@@ -49,12 +44,16 @@
         {%- endif -%}
     </section>
 
-    {%- if form.password_needed -%}
+    {%- if form.password_needed and checkout != true -%}
     <div class="form__links">
-        <a href="#recover">
+        <a class="forgot-pass" href="#recover">
             Forgot your password?
         </a>
     </div>
+    {%- endif -%}
+
+    {%- if form.errors -%}
+        {{ form.errors | default_errors }}
     {%- endif -%}
 
     <div class="form__submit">
@@ -62,4 +61,15 @@
             <span>Log in</span>
         </button>
     </div>
+
+    {%- if form.password_needed and checkout == true -%}
+    <div class="form__links">
+        <a href="{{ routes.account_login_url }}#recover">
+            Forgot your password?
+        </a>
+        <div>
+            Don’t have an account yet? <a href="{{ routes.account_register_url }}">Create an account.</a>
+        </div>
+    </div>
+    {%- endif -%}
 {% endform %}

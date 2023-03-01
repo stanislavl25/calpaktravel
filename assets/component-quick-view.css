@@ -111,6 +111,26 @@
     border-top: 1px dashed #aeaeae;
     padding-left: 0;
     min-width: 0;
+    position: relative;
+}
+
+.slider__control {
+    position: absolute;
+    top: 50%;
+    margin-top: -21px;
+    z-index: 5;
+}
+
+.slider__control--prev {
+    left: calc(-1 * var(--gap));
+}
+
+.slider__control--next {
+    right: 0;
+}
+
+.qv__gallery-thumbs.slider__wrapper--start > .slider__control--prev, .qv__gallery-thumbs.slider__wrapper--end > .slider__control--next {
+    opacity: 0;
 }
 
 .qv__gallery-thumbs-inner {
@@ -209,6 +229,12 @@
 .qv__body .product-label--badge {
     right: calc(2 * var(--gap));
     top: calc(2 * var(--gap));
+}
+
+@media (max-width: 1024px) {
+    .qv__product {
+        padding: var(--gap) 0 var(--gap) var(--gap)
+    }
 }
 
 @media (max-width: 900px) {

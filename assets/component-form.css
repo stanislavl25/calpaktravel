@@ -73,9 +73,33 @@
 
 .field label {
     display: block;
-    color: var(--gray);
     font-size: 14px;
     margin-bottom: 4px;
+}
+
+.field--required label {
+    position: relative;
+    display: inline-block;
+}
+
+.field--checkbox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.field--checkbox label {
+    margin: 0;
+}
+
+.field--required label::after {
+    position: absolute;
+    top: 1px;
+    right: -10px;
+    line-height: 1em;
+    content: '*';
+    color: #f00;
+    font-size: 12px;
 }
 
 .form__links {
@@ -89,6 +113,61 @@
 
 .form__submit .button {
     width: 100%;
+}
+
+.errors ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.errors ul li {
+    padding: 8px var(--gap) 8px 45px;
+    border-radius: 9px;
+    position: relative;
+    border: 1px dashed #f00;
+}
+
+.errors ul li::before {
+    content: '!';
+    width: 24px;
+    height: 24px;
+    left: 10px;
+    top: 50%;
+    margin-top: -12px;
+    border-radius: 6px;
+    background: #f00;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    line-height: 24px;
+}
+
+.errors ul li::after {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    content: '';
+    background: #fff;
+    border-style: dashed;
+    border-color: #f00;
+    border-width: 1px 1px 0 0;
+    transform: translateY(-50%) rotate(-45deg);
+    left: 14px;
+    top: -1px;
+}
+
+.errors + .form__submit {
+    margin-top: 12px;
+}
+
+.form-disclaimer {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 10px;
 }
 
 @media (max-width: 768px) {

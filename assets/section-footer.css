@@ -139,6 +139,19 @@
     display: none;
   }
 
+  .footer__widget-title--active {
+    text-decoration: underline;
+  }
+
+  .footer__widget-title--active::before {
+      transform: translateY(-50%) rotate(180deg);
+  }
+
+  .footer__widget-title--active + .list-menu {
+    display: flex;
+    padding: 15px 0 25px
+  }
+
   .site-footer__bottom {
     font-size: 14px;
     flex-wrap: wrap;

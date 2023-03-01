@@ -1,0 +1,111 @@
+.shopify-section--wishlist {
+    margin: var(--section-gap) var(--gap);
+}
+
+.wishlist__title {
+    color: var(--gray);
+    font-size: 36px;
+    margin: 0 0 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.wishlist__container:not([data-count="0"]) .wishlist__title {
+    color: #000;
+}
+
+.wishlist__empty {
+    display: none;
+}
+
+[data-count="0"] .wishlist__empty {
+    display: block;
+}
+
+.wishlist__items .product-unit__button {
+    margin-top: var(--gap);
+}
+
+.wishlist__items {
+    display: none;
+}
+
+.wishlist__container:not([data-count="0"]) .wishlist__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: var(--gap);
+}
+
+.wishlist__container:not([data-count="0"]) .wishlist__items .product-unit__image {
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.wishlist__prod:empty::before {
+    content: '';
+    display: block;
+    padding-top: 133.33%;
+    background: #f7f7f7;
+    margin-bottom: 52px;
+    border-radius: 9px;
+}
+
+.wishlist__empty-title {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.wishlist__empty-collection .product-unit {
+    flex: 0 0 20%;
+}
+
+.wishlist__title .wishlist-count:empty {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    position: relative;
+}
+
+.wishlist__title .wishlist-count:empty::before {
+    content: '';
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -13px 0 0 -16px;
+    border: 2px dashed var(--gray);
+    animation: rotate 1.6s infinite linear;
+    border-radius: 50%;
+}
+
+.wishlist__title .wishlist-count:not(:empty)::after {
+    content: ")";
+}
+
+.wishlist__title .wishlist-count:not(:empty)::before {
+    content: "(";
+}
+
+
+
+@media (max-width: 900px) {
+    .wishlist__title {
+        font-size: 24px;
+    }
+
+    .wishlist__empty-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .wishlist__empty-collection .product-unit {
+        flex: 0 0 50%;
+    }
+
+    .wishlist__container--active .wishlist__items {
+        grid-template-columns: 1fr 1fr;
+    }
+}

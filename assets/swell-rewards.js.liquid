@@ -83,23 +83,39 @@
         referralCopyDetails: "Copy link and share with your friends."
       },
       templates: {
-        referralRegister: '<div class="swell-referral-register"> <div class="swell-heading-border"></div> <h2 class="swell-referral-heading"><%= localization.referralRegisterHeading %></h2> <p class="swell-referral-details"><%= localization.referralRegisterDetails %></p> <div class="swell-referral-form-wrapper"> <form name="swell-referral-register-form" id="swell-referral-register-form" method="POST" action="."> <div class="swell-referral-form-header"> <p class="swell-referral-form-header-details"><%= localization.referralRegisterFormDetails %></p> </div> <div class="swell-referral-form-body"> <ul class="swell-referral-form-list"> <li class="swell-referral-form-list-field"> <input class="swell-referral-form-list-field-input" type="email" name="swell-referral-register-email" id="swell-referral-register-email" required="required" placeholder="<%= localization.referralRegisterFormEmail %>"> <button class="swell-referral-form-list-submit" type="submit" name="swell-referral-register-submit" id="swell-referral-register-submit"><%= localization.referralRegisterFormSubmit %></button> </li> </ul> </div> </form> </div> </div>',
+        referralRegister: `<div class="swell-referral-register">
+            <div class="swell-heading-border"></div>
+            <h2 class="swell-referral-heading"><%= localization.referralRegisterHeading %></h2>
+            <div class="swell-referral-form-wrapper">
+                <form name="swell-referral-register-form" id="swell-referral-register-form" method="POST" action=".">
+                    <div class="swell-referral-form-body">
+                        <div class="field">
+                            <label>Enter your email below to get started</label>
+                            <input class="field__input swell-referral-form-list-field-input" type="email" name="swell-referral-register-email" id="swell-referral-register-email" required="required" placeholder="<%= localization.referralRegisterFormEmail %>">
+                            <button class="button swell-referral-form-list-submit" type="submit" name="swell-referral-register-submit" id="swell-referral-register-submit">
+                                <span>Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>`,
         referralRefer: `<div class="swell-referral-refer">
             <div class="swell-heading-border"></div>
             <h2 class="swell-referral-heading"><%= localization.referralReferHeading %></h2>
+            <div class="swell-referral-message"><%= localization.referralRegisterDetails %></div>
             
             <div class="swell-referral-form-wrapper">
                 <form class="swell-referral-form" name="swell-referral-refer-form" id="swell-referral-refer-form" method="POST" action="."> 
-                    <div class="swell-referral-form-header"> </div>
                     <div class="swell-referral-form-body">
                         <div class="field">
                             <label>Enter your friends' emails below</label>
-                            <input class="field__input swell-referral-form-list-field-input" type="text" name="swell-referral-refer-emails" id="swell-referral-refer-emails" required="required">
+                            <input class="field__input swell-referral-form-list-field-input" type="text" name="swell-referral-refer-emails" id="swell-referral-refer-emails" placeholder="Emails (separated by commas)" required="required">
+                            <button class="button swell-referral-form-list-submit" type="submit" name="swell-referral-refer-submit" id="swell-referral-refer-submit">
+                                <span>Share $25 Off</span>
+                            </button>
                         </div>
                         
-                        <button class="button swell-referral-form-list-submit" type="submit" name="swell-referral-refer-submit" id="swell-referral-refer-submit">
-                            <span>Next</span>
-                        </button>
                     </div> 
                 </form>
             </div>

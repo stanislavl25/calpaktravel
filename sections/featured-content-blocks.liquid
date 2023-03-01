@@ -8,7 +8,16 @@
 {% endif %}
 
 <div class="content-blocks content-blocks--{{ section.settings.content-position }} content-blocks--{{ section.settings.general-layout }} content-blocks--mobile-{{ section.settings.mobile-layout }}{% if section.settings.gap %} content-blocks--gap{% endif %}">
-{%- assign size = 100 | divided_by: section.blocks.size | round: 4 | append: 'vw' -%}
+{%- liquid
+    assign size_d = 100 | divided_by: section.blocks.size | round: 4 | append: 'vw'
+    if section.settings.mobile-layout == 'stacked'
+        assign size_m = '100vw'
+    else
+        assign size_m = '80vw'
+    endif
+    
+    assign size = '(min-width: 901px) ' | append: size_d | append: ', ' | append: size_m
+-%}
 {% for block in section.blocks %}
     <div class="content-block">
         {%- if block.settings.description != blank or block.settings.title != blank -%}
@@ -31,7 +40,7 @@
         </div>
         {%- endif -%}
 
-        <div class="content-block__image">
+        <div class="content-block__media">
             {%- liquid
                 if block.settings.target_link != blank
                     echo '<a href="' | append: block.settings.target_link | append: '">'

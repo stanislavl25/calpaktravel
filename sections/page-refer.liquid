@@ -1,6 +1,6 @@
 {{ 'section-refer.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-form.css' | asset_url | stylesheet_tag }}
-{{ 'swell-rewards.scss.css' | asset_url | stylesheet_tag }}
+{{ 'swell-rewards.css' | asset_url | stylesheet_tag }}
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" defer="defer"></script>
 <script src="{{ 'swell-rewards.js' | asset_url }}" defer="defer"></script>
@@ -8,9 +8,7 @@
 <div class="refer__form">
     <div class="swell-referral-main-content">
         <div class="swell-referral">
-            <div class="swell-referral-loader">
-                <img src='{{ "swell-loader.svg" | asset_url }}'>
-            </div>
+            <div class="swell-referral-loader loading-animation loading-animation--alt"></div>
         </div>
     </div>
 </div>

@@ -1,0 +1,248 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "The Car Organizer: It Gets You There Without The Mess",
+        "title-size": "medium",
+        "text": "",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_3308_1.png",
+        "image-mobile": "shopify:\/\/shop_images\/Rectangle_3308_1.png",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "e8eb84f6-aaa3-4c79-adef-e240f15cb5ab": {
+      "type": "page-header",
+      "settings": {
+        "title": "",
+        "title-size": "small",
+        "text": "<p>According to a study conducted by the Harvard Health Watch, Americans spend roughly 101 minutes in their car every day, which adds up to about 615 hours every year. With a busy schedule and a lot of movement, it can be really hard to keep your car and your personal items in a neat and organized condition.<br\/><br\/>The tangled jumper cables you know you shouldn't remove, the toolbox your dad gave you, and the beach towel you always have \"just in case,\" have a place to live now: in the Car Organizer. The Car Organizer is your back seat, front seat, middle seat, and trunk companion, making road trips, every day trips, and commutes feel like a breeze.<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
+      "type": "product-showcase",
+      "blocks": {
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "Grocery buddy",
+            "description": "<p>Reusable bags have been our best friend this year, but the Car Organizer brought us home. If you've ever made a sharp turn and heard the tell-tale sign of fruits and vegetables rolling around, then look no further. Your back seats will thank you later.<\/p>",
+            "button-text": "Shop now",
+            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/dune"
+          }
+        },
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
+          "type": "product",
+          "settings": {
+            "product": "car-organizer"
+          }
+        },
+        "1b775b70-f16b-4f85-a218-760455abe4b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_165_cc32b4ca-b48f-4217-9367-751ac2bd9acc.png"
+          }
+        }
+      },
+      "block_order": [
+        "db964836-931d-46f8-847a-85e26721b352",
+        "a87d873e-9354-43ee-b0e6-1e4e71d48e03",
+        "1b775b70-f16b-4f85-a218-760455abe4b0"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
+      "type": "product-showcase",
+      "blocks": {
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "car-organizer"
+          }
+        },
+        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_175_8d7cd146-f53b-4414-ac1c-88f6395c10b1.png"
+          }
+        },
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
+          "type": "text",
+          "settings": {
+            "title": "Dog days are here",
+            "description": "<p>A day at the beach, a day at the park, or a day on the road is so much better with the Car Organizer. With a wipeable, water-resistant interior, you can take this baby on all your outdoor adventures and still keep your car interior nice and neat.<\/p>",
+            "button-text": "Shop now",
+            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/slate"
+          }
+        }
+      },
+      "block_order": [
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f",
+        "999f1999-abe3-4175-b42f-0de5ff5d695e",
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "5e78cd6e-1e2d-444e-8994-4b44c6a3f3e8": {
+      "type": "product-showcase",
+      "blocks": {
+        "6e22a7d3-a481-435e-a067-24dc462354e1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_167_a476da69-e5d8-402a-88ec-69dcf7f24e81.png"
+          }
+        },
+        "a287b1a0-8211-4968-8c6e-cf978c7ca164": {
+          "type": "product",
+          "settings": {
+            "product": "car-organizer"
+          }
+        },
+        "7660996b-e6c8-47ca-975e-231768f160cd": {
+          "type": "text",
+          "settings": {
+            "title": "Mom on the move",
+            "description": "<p>Instead of having three to four different bags holding all of your on-the-go essentials, we give you one: the Car Organizer. With each compartment having two mesh pockets on either side, you can stay organized and prepared. Nothing needs to be left behind.<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/maroon"
+          }
+        }
+      },
+      "block_order": [
+        "6e22a7d3-a481-435e-a067-24dc462354e1",
+        "a287b1a0-8211-4968-8c6e-cf978c7ca164",
+        "7660996b-e6c8-47ca-975e-231768f160cd"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "5372914e-497a-472d-afe7-6eff29c2227b": {
+      "type": "featured-content-blocks",
+      "settings": {
+        "heading": "",
+        "gap": false,
+        "general-layout": "text-media",
+        "content-position": "stretch",
+        "mobile-layout": "stacked",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "527e243a-89fe-4b09-a1c3-6f94af8ccc86": {
+      "type": "text-and-media",
+      "blocks": {
+        "371d7afa-4bc3-40ee-902f-81ab2d923d5e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_167_a476da69-e5d8-402a-88ec-69dcf7f24e81.png",
+            "hide-on-mobile": false
+          }
+        },
+        "297760ff-3d63-4bc8-a471-b71112e5ef70": {
+          "type": "text",
+          "settings": {
+            "title": "Three compartments. One compact design.",
+            "text": "",
+            "button-text": "Shop Now",
+            "button-url": "shopify:\/\/products\/car-organizer",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "371d7afa-4bc3-40ee-902f-81ab2d923d5e",
+        "297760ff-3d63-4bc8-a471-b71112e5ef70"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "settings": {
+            "title": "Leave no beauty staple behind.",
+            "description": "Discover which cosmetics bag you should pack for your next adventure.",
+            "link": "shopify:\/\/pages\/which-toiletry-bag-is-right-for-you",
+            "image": "shopify:\/\/shop_images\/Toiletry_Bags-2.jpg"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "settings": {
+            "title": "Packing Cubes Forever!",
+            "description": "Packing cubes come in all shapes and sizes—let's find the right ones for you.",
+            "link": "shopify:\/\/pages\/packing-cubes-your-favorite-organizing-tool",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
+    },
+    "02c6670f-9b20-4c50-900b-68043f886691": {
+      "type": "content-slider",
+      "disabled": true,
+      "blocks": {
+        "8afa7b7a-5b3a-4510-b60b-ba2192469cca": {
+          "type": "slide",
+          "settings": {
+            "title": "",
+            "text": "",
+            "image1": "shopify:\/\/shop_images\/image_175_8d7cd146-f53b-4414-ac1c-88f6395c10b1.png",
+            "video1": "",
+            "video2": ""
+          }
+        }
+      },
+      "block_order": [
+        "8afa7b7a-5b3a-4510-b60b-ba2192469cca"
+      ],
+      "settings": {
+        "background-color": "#f7f177"
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "6a74f1ef-126b-4aad-85ce-71cc958593d7",
+    "e8eb84f6-aaa3-4c79-adef-e240f15cb5ab",
+    "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "8231e1a7-3793-4b6a-b32c-072bf39321bc",
+    "5e78cd6e-1e2d-444e-8994-4b44c6a3f3e8",
+    "5372914e-497a-472d-afe7-6eff29c2227b",
+    "527e243a-89fe-4b09-a1c3-6f94af8ccc86",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865",
+    "02c6670f-9b20-4c50-900b-68043f886691"
+  ]
+}

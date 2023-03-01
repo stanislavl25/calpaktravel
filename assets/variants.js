@@ -1,94 +1,6 @@
 "use strict";
 
-function getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable = true) {
-    let match = false, backupMatch = false;
-
-    const productUnitOptions = productUnit.querySelectorAll('.variant-select option');
-    for(let i = 0; i < productUnitOptions.length; i++) {
-        let singleOption = productUnitOptions[i];
-        const available = singleOption.getAttribute('data-available');
-        const optionColor = singleOption.getAttribute('data-option1');
-
-        if(color === optionColor) {
-            if(!onlyAvailable || available == 'true') {
-                match = singleOption;
-                break;
-            } else {
-                backupMatch = singleOption;
-            }
-        } else if(match === false && available == 'true' && colorGroup.colors.indexOf(optionColor) > -1) match = singleOption;
-    }
-
-    if(match === false && backupMatch !== false) match = backupMatch;
-
-    return match;
-}
-
-function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
-    const color = option.getAttribute('data-option1');
-    const colorGroup = getColorGroup(color);
-    
-    productUnits.forEach(productUnit => {
-        const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
-
-        if(match) productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`).click();
-    });
-}
-
-function pdpHandleUpsell(option) {
-    const productUnits = document.querySelectorAll('.pdp__upsell .product-unit');
-
-    let promises = [];
-    productUnits.forEach(product => {
-        if(!product.classList.contains('product-unit--loaded')) promises.push(activateProductUnit(product))
-    });
-
-    if(promises.length == 0) return matchProductUnitsToOption(productUnits, option);
-
-    Promise.all(promises).then(() => matchProductUnitsToOption(productUnits, option));
-}
-
-function pdpHandleFeaturedCollection(option) {
-    const productUnits = document.querySelectorAll('.shopify-section--pdp-featured .product-unit');
-
-    let promises = [];
-    productUnits.forEach(product => {
-        if(!product.classList.contains('product-unit--loaded')) promises.push(activateProductUnit(product))
-    });
-
-    if(promises.length == 0) return matchProductUnitsToOption(productUnits, option, false);
-
-    Promise.all(promises).then(() => matchProductUnitsToOption(productUnits, option, false));
-}
-
-function pdpUpdateURL(product, opt1) {
-    let url_vars = ''; 
-    if(document.location.href.indexOf('?') > -1) {
-        url_vars = document.location.href.split('?');
-        url_vars = '?' + url_vars[1];
-    }
-
-    let attr = '';
-        // if(size_template) attr = handleize(variant.option2);
-        // else 
-    // attr = handleize(variant.option1);
-    attr = opt1;
-
-    // if(selector.variantIdField.options[selector.variantIdField.selectedIndex].classList.contains('early-access-option')) attr = 'early-access-' + attr;
-
-    let not_ea_url = document.location.href.indexOf('/early-access') === -1 || document.location.href.indexOf('/early-access-') > -1;
-    if(document.location.href.indexOf('?preview_key=') === -1 && not_ea_url) window.history.replaceState({}, '', '/products/' + product.handle + '/' + attr + url_vars);
-}
-
-function pdpHandleDescriptions(pdpInfo, option) {
-    const actives = pdpInfo.querySelectorAll('[data-variant][data-current]');
-    actives.forEach(active => active.removeAttribute('data-current'));
-
-    const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
-    toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
-}
-
-function productUnitUpdateHover(option, productImageContainer) {
+function productUnitUpdateHover(option, productImageContainer, sizes) {
     let hoverImg = productImageContainer.querySelector('.img-hover');
     if(option.hasAttribute('data-hover')) {
         const hover = option.getAttribute('data-hover');
@@ -98,12 +10,21 @@ function productUnitUpdateHover(option, productImageContainer) {
             else {
                 hoverImg = document.createElement('img');
                 hoverImg.setAttribute('src', hover);
+                hoverImg.setAttribute('sizes', sizes);
                 hoverImg.setAttribute('srcset', lazyloadImageSrcset(hover));
                 hoverImg.classList.add('img-hover');
                 productImageContainer.appendChild(hoverImg);
             }
         } else if(hoverImg) hoverImg.remove();
     } else if(hoverImg) hoverImg.remove();
+}
+
+function updateProductURLs(productContainer, options) {
+    const handle = productContainer.getAttribute('data-handle');
+    const productLinks = productContainer.querySelectorAll('.product-link');
+    productLinks.forEach(productLink => {
+        productLink.setAttribute('href', `/products/${handle}/${options.join(',')}`);
+    });
 }
 
 function variantUpdateProcess(target) {
@@ -121,12 +42,16 @@ function variantUpdateProcess(target) {
     
     let selector = `option`;
     for(let i = 0; i < options.length; i++) selector += `[data-option${i + 1}="${options[i]}"]`;
-
     const option = select.querySelector(selector);
     if(!option) return;
     select.value = option.value;
 
-    if(location == 'pdp') updateOptionsAvailability(options, select);
+    updateProductURLs(productContainer, options);
+    
+    const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
+    if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));
+
+    if(location == 'pdp') updateOptionsAvailability(options, select, productContainer);
 
     let price = option.getAttribute('data-price');
     let cprice = false;
@@ -149,18 +74,26 @@ function variantUpdateProcess(target) {
         productContainer.querySelector('.product-unit__price').innerHTML = formatedPrice;
         
         const pdpDscnts = productContainer.querySelectorAll('.dscnt');
-        let discount = '';
-        if(cprice) discount = Math.round((cprice - price) * 100 / cprice);
-        pdpDscnts.forEach(pdpDscnt => pdpDscnt.innerHTML = `${discount}%`);
-
+        if(cprice) {
+            let discount = Math.floor((cprice - price) * 100 / cprice);
+            pdpDscnts.forEach(pdpDscnt => {
+                pdpDscnt.parentNode.classList.remove('product-label--hidden');
+                pdpDscnt.innerHTML = `${discount}%`;
+            });
+        } else pdpDscnts.forEach(pdpDscnt => pdpDscnt.parentNode.classList.add('product-label--hidden'));
+        
         if(productContainer.classList.contains('adding-to-cart')) productContainer.classList.remove('adding-to-cart');
         if(productContainer.classList.contains('added-to-cart')) productContainer.classList.remove('added-to-cart');
 
         const productImageContainer = productContainer.querySelector('.product-unit__image');
         
-        if(img) productImageContainer.querySelector('img').setAttribute('srcset', lazyloadImageSrcset(img));
+        let sizes = '50vw';
+        if(img) {
+            productImageContainer.querySelector('img').setAttribute('srcset', lazyloadImageSrcset(img));
+            sizes = productImageContainer.querySelector('img').getAttribute('sizes');
+        }
 
-        productUnitUpdateHover(option, productImageContainer);
+        productUnitUpdateHover(option, productImageContainer, sizes);
 
     } else if(location == 'pdp') {
         const pdpInfo = productContainer.closest('.pdp__info, .qv__product');
@@ -176,10 +109,9 @@ function variantUpdateProcess(target) {
             const waitlist = pdpGrid.querySelector('.pdp__waitlist--success');
             if(waitlist) waitlist.classList.remove('pdp__waitlist--success');
 
-            const submitCont = pdpGrid.querySelector('.pdp__submit-container');
-            if(submitCont.hasAttribute('data-soldout')) {
-                if(submitCont.matches(`[data-soldout~=${options[0]}]`)) submitCont.classList.add('pdp__submit-container--soldout');
-                else submitCont.classList.remove('pdp__submit-container--soldout');
+            if(pdpGrid.hasAttribute('data-soldout')) {
+                if(pdpGrid.matches(`[data-soldout~=${options[0]}]`)) pdpGrid.classList.add('pdp__grid--soldout');
+                else pdpGrid.classList.remove('pdp__grid--soldout');
             }
         } else {
             let preorder = false;
@@ -204,15 +136,24 @@ function variantUpdateProcess(target) {
             stock.classList.add('pdp__stock--active');
         } else stock.classList.remove('pdp__stock--active');
 
+        if(price * 1 <= 5000) pdpInfo.querySelector('.pdp__payments').classList.add('pdp__payments--limit');
+        else pdpInfo.querySelector('.pdp__payments').classList.remove('pdp__payments--limit');
         pdpInfo.querySelector('.pdp__payments-amnt').innerHTML = formatPrice(price / 4 / 100);
 
         const pdpPrices = pdpInfo.querySelectorAll('.pdp__price-inner, .pdp__submit-price');
         pdpPrices.forEach(pdpPrice => pdpPrice.innerHTML = formatedPrice);
 
+
         const pdpDscnts = pdpGrid.querySelectorAll('.dscnt');
-        let discount = '';
-        if(cprice) discount = Math.round((cprice - price) * 100 / cprice);
-        pdpDscnts.forEach(pdpDscnt => pdpDscnt.innerHTML = `${discount}%`);
+        if(cprice) {
+            let discount = Math.floor((cprice - price) * 100 / cprice);
+            pdpDscnts.forEach(pdpDscnt => {
+                pdpDscnt.parentNode.classList.remove('product-label--hidden');
+                pdpDscnt.innerHTML = `${discount}%`
+            });
+        } else pdpDscnts.forEach(pdpDscnt => {
+            pdpDscnt.parentNode.classList.add('product-label--hidden');
+        });
 
         pdpGalleryUpdate(pdpGrid, option, isQuickView);
 
@@ -220,7 +161,7 @@ function variantUpdateProcess(target) {
             pdpHandleUpsell(option);
             pdpHandleDescriptions(pdpInfo, option);
             pdpHandleFeaturedCollection(option);
-            pdpUpdateURL(product, options[0]);
+            pdpUpdateURL(product, options);
         }
     }
 }

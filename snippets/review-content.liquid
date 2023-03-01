@@ -12,7 +12,7 @@
                 {%- if block.settings.pictured-product-title != blank -%}
                     {{- block.settings.pictured-product-title | escape -}}
                 {%- else -%}
-                    {{- product.title | escape -}}
+                    {{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
                 {%- endif -%}
             </a>
             <span class="review-slide__pictured-price">
@@ -24,9 +24,9 @@
         </div>
         {%- endif -%}
 
-        <div class="review-slide__reviews">
+        <a href="{{ product.url }}/reviews" class="review-slide__reviews">
         {% render 'star-rating' with block.settings.stars, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-        </div>
+        </a>
     </div>
     
     <div class="review-slide__main">

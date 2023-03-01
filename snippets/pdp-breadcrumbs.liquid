@@ -1,4 +1,4 @@
-<a href="{{ shop.url }}/collections/all">Shop All</a>
+<a href="{{ shop.url }}/collections/all">All</a>
 
 {%- if product.metafields.custom.parent_collections != blank -%}
     {%- for col in product.metafields.custom.parent_collections.value -%}
@@ -17,5 +17,5 @@
 {% if current_product_group_type != blank %}
     <span>{{ current_product_group_type }}</span>
 {% else %}
-    <span>{{- product.title | escape -}}</span>
+    <span>{{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}</span>
 {% endif %}

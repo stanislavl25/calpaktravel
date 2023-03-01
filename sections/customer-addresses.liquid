@@ -1,0 +1,91 @@
+{{ 'component-customer-nav.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-customer-addresses.css' | asset_url | stylesheet_tag: preload: true }}
+
+<script src="{{ 'customer-addresses.js' | asset_url }}" defer="defer"></script>
+
+<section class="customer__main">
+    {% render 'account-nav', current: 'addresses' %}
+        
+    <div class="account-addresses">
+        {% if customer.addresses.size > 0 and customer.addresses != blank %}
+            <div class="address-list">
+                {% paginate customer.addresses by 50 %}
+                    {% for address in customer.addresses reversed %}
+                        <div class="address{% if address == customer.default_address %} address--default{% endif %} address-{{ address.id }}">
+                            <div class="address-info">
+                                {% if address == customer.default_address %}
+                                <div class="address__default-msg">
+                                    Default address
+                                </div>
+                                {% endif %}
+                                <div class="address-name">
+                                    {{ address.first_name | capitalize }} {{ address.last_name | capitalize }}
+                                </div>
+                                <div class="address-info">
+                                    {% if address.company != '' %}
+                                        {{ address.company }}<br>
+                                    {% endif %}
+                                    {{ address.street }}<br>
+                                    {{ address.city }},
+                                    {% if address.province_code %}
+                                    {{ address.province_code | upcase }}
+                                    {% endif %}
+                                    {{ address.zip | upcase }}<br>
+                                    {{ address.country }}<br>
+                                    {{ address.phone }}
+                                </div>
+
+                                <a href="#" class="address__edit-link" title="Edit address" aria-label="Edit address">Edit</a>
+
+                                <form class="address__delete-form" method="post" action="/account/addresses/{{ address.id }}">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button type="submit">
+                                        <img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17">
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div class="address__edit">
+                                <h2 class="address__edit-title">Edit your address</h2>
+                                {% render 'edit-address-form', address: address %}
+                                <a href="#" class="address__cancel">Cancel</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% if paginate.pages > 1 %}
+                        {%- render 'pagination', paginate: paginate -%}
+                    {% endif %}
+
+                {% endpaginate %}
+            </div>
+        {% else %}
+            <div class="customer__no-result-msg">{{- section.settings.no-addresses | strip_html | escape -}}</div>
+        {% endif %}
+
+        <div class="address__new">
+            <h2 class="address__new-title">Add a new address</h2>
+            {% render 'add-address-form' %}
+            <a href="#" class="address__cancel">Cancel</a>
+        </div>
+        <button class="button button--add-address button--secondary">
+            <span>Add new</span>
+        </button>
+    </div>
+</section>
+
+{% comment %} {% render 'address-validator-account' %} {% endcomment %}
+
+{% schema %}
+    {
+        "name": "Addresses",
+        "settings": [
+            {
+                "type": "text",
+                "id": "no-addresses",
+                "label": "No addresses message",
+                "default": "Looks like you haven't saved an address yet"
+            }
+        ]
+    }
+{% endschema %}

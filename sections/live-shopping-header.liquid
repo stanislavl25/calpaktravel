@@ -1,5 +1,29 @@
 {{ 'section-live-shopping-header.css' | asset_url | stylesheet_tag: preload: true }}
 
+<script>
+(function(d, t, i, w) {
+    window.__bfwId = w;
+    window.__bfwOffsX = [25, 25];
+    window.__bfwOffsY = [100, 100];
+    if (d.getElementById(i) && window.__bfwInit) return window.__bfwInit();
+    if (d.getElementById(i)) return;
+    var s, ss = d.getElementsByTagName(t)[0];
+    s = d.createElement(t); s.id = i;
+    s.src = 'https://lcx-widgets.bambuser.com/embed.js';
+    ss.parentNode.insertBefore(s, ss);
+  })(document, 'script', 'bambuser-liveshopping-widget', '0wh0SSpg6kCTMGj5gQGF');
+</script>
+
+<script>
+  (function(d, t, i) {
+    if (d.getElementById(i)) return;
+    var s, ss = d.getElementsByTagName(t)[0];
+    s = d.createElement(t); s.id = i;
+    s.src = 'https://lcx-widgets.bambuser.com/embed.js';
+    ss.parentNode.insertBefore(s, ss);
+  })(document, 'script', "bambuser-liveshopping-widget");
+</script>
+
 {%- if section.settings.buttons -%}
     <script src="{{ 'live-shopping.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
@@ -16,6 +40,14 @@
         <a href="#" data-index="1" class="button"><span>1-to-1 Live Shopping</span></a>
     </div>
 {% endif %}
+
+<style>
+    [data-bambuser-liveshopping-widget] {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 
 {% schema %}
     {

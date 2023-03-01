@@ -1,0 +1,103 @@
+{{ 'section-customer.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-form.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-customer-form.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="customer__page customer__page--form">
+    <div class="customer__page-title-tabs">
+        <a href="{{ routes.account_login_url }}" class="transparent-button">Log in</a>
+        <h1 class="tabs__button--active transparent-button">Register</h1>
+    </div>
+
+    {%- render 'customer-registration-form' -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Registration Form",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "registration-text",
+                "label": "Text above the registration form"
+            },
+            {
+                "type": "header",
+                "content": "Banner"
+            },
+            {
+                "type": "checkbox",
+                "id": "enable-banner",
+                "label": "Enable",
+                "default": false
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Header"
+            },
+            {
+                "type": "richtext",
+                "id": "sub-header",
+                "label": "Subheader"
+            },
+            {
+                "type": "richtext",
+                "id": "banner-text",
+                "label": "Text"
+            },
+            {
+                "type": "color",
+                "id": "accent-color",
+                "label": "Accent color",
+                "default": "#F16539"
+            },
+            {
+                "type": "color",
+                "id": "background-color",
+                "label": "Background color",
+                "default": "#ffffff"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Background Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image-mobile",
+                "label": "Background Image (mobile)"
+            },
+            {
+                "type": "header",
+                "content": "After Registration"
+            },
+            {
+                "type": "text",
+                "id": "after-reg-title",
+                "label": "Title",
+                "default": "Congratulations!"
+            },
+            {
+                "type": "richtext",
+                "id": "after-reg-text",
+                "label": "Text",
+                "default": "<p>Your Very Important Traveler account has been successfully created and you joined the rewards program.<\/p>"
+            },
+            {
+                "type": "text",
+                "id": "after-reg-button",
+                "label": "Button text"
+            },
+            {
+                "type": "url",
+                "id": "after-reg-button-url",
+                "label": "Button link"
+            },
+            {
+                "type": "richtext",
+                "id": "after-reg-after-button",
+                "label": "Below button"
+            }
+        ]
+    }
+{% endschema %}

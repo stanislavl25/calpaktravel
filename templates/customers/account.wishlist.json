@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "account-header": {
+      "type": "account-header",
+      "settings": {}
+    },
+    "customer-wishlist": {
+      "type": "customer-wishlist",
+      "settings": {
+        "nothing-to-show": "Looks like you haven’t saved anything yet",
+        "collection": "best-sellers",
+        "override-title": "Bestsellers",
+        "wishlist": false,
+        "quick_view": true
+      }
+    }
+  },
+  "order": [
+    "account-header",
+    "customer-wishlist"
+  ]
+}

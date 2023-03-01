@@ -6,13 +6,15 @@
         "2c965d8f-2457-454a-a651-b4d589db05a8": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-BANNER2.jpg",
+            "image": "shopify:\/\/shop_images\/Hollyridge-calpak0911A.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/WEB_IMAGE_VIT-HEADER_MOBILE.jpg",
             "video": "",
             "main-link": "",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": true,
+            "show-screens": "all",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
@@ -21,10 +23,11 @@
           "type": "text-block",
           "settings": {
             "title": "Welcome to the club, [name]!",
-            "description": "<p>As a member you’ll earn points & Exclusive rewards every time you shop.<\/p>",
+            "description": "<p>You'll love getting there even more when you earn points & collect members-only rewards every time you shop.<\/p>",
             "main-link": "",
             "button-text": "",
             "add-link-to-button-only": true,
+            "show-screens": "all",
             "show-condition": "logged-in",
             "text-alignment": "center",
             "text-color-scheme": "black",
@@ -34,11 +37,12 @@
         "d413d89b-94af-4456-8fd1-1f9c05a566d3": {
           "type": "text-block",
           "settings": {
-            "title": "Are you a member yet?",
-            "description": "<p>Join our rewards program, and get insider perks, exclusive early access to sales, and stackable credit.<\/p><p>You literally get a $5 credit just for signing up.<\/p>",
-            "main-link": "\/account",
-            "button-text": "Join now \/ Login",
+            "title": "Join the club!",
+            "description": "<p>As a valued member, you'll instantly get $5 just for signing up, plus you'll earn points & get exclusive rewards every time you shop.<\/p>",
+            "main-link": "https:\/\/www.calpaktravel.com\/account\/register",
+            "button-text": "Join Now",
             "add-link-to-button-only": true,
+            "show-screens": "all",
             "show-condition": "logged-out",
             "text-alignment": "center",
             "text-color-scheme": "black",
@@ -85,7 +89,7 @@
           "type": "faq",
           "settings": {
             "title": "What do I get for joining?",
-            "answer": "",
+            "answer": "<p>First of all, you get $5 just for signing up—need we say more? But that’s not the only VIT perk. Here are more:<\/p><ul><li>You’ll also be the first to know about all of our sales<\/li><li>Get a special birthday gift<\/li><li>Earn points (points = $) just for following us on our social channels<\/li><li>Leave a review and we’ll give you $<\/li><li>Earn 1 point for every $1 you spend<\/li><li>Receive $25 every time you successfully refer a friend.<\/li><\/ul><p>It’s basically the easiest money you’ve ever made.<\/p>",
             "hide": false
           }
         },
@@ -93,18 +97,104 @@
           "type": "faq",
           "settings": {
             "title": "Can I combine my offers?",
-            "answer": "",
+            "answer": "<p>Unfortunately, you can’t use a promo code and your reward points at the same time. But, good news! You <em>can<\/em> combine all of your reward points and use them at once.<\/p>",
+            "hide": false
+          }
+        },
+        "97940945-5e88-4c83-b0e0-1124296292c0": {
+          "type": "faq",
+          "settings": {
+            "title": "What’s a VIT?",
+            "answer": "<p>A VIT is a Very Important Traveler. When you join the VIT Club, we reward you for traveling and spreading the word about CALPAK. Get ready for a special birthday gift, exclusive events, first access to sales, referral credits, and more.<\/p>",
+            "hide": false
+          }
+        },
+        "4b71f991-7214-4e29-8783-0d2486ac13dd": {
+          "type": "faq",
+          "settings": {
+            "title": "Do points expire?",
+            "answer": "<p>Your points expire after 2 years after once they're earned leaving you ample time to use your points!<\/p>",
+            "hide": false
+          }
+        },
+        "9e6fdf8a-1ce3-4e07-a3ab-7b345446527c": {
+          "type": "faq",
+          "settings": {
+            "title": "Where do I check how many points I have?",
+            "answer": "<p>It’s easy—just log into your account and go to the rewards tab. You have to be signed in if you want to redeem your points.<\/p>",
+            "hide": false
+          }
+        },
+        "3e5a057d-c631-4113-b7c2-feb328c884f8": {
+          "type": "faq",
+          "settings": {
+            "title": "How many points can I use on my order?",
+            "answer": "<p>You can use as many points as you'd like! Please note, VIT points cannot be used to redeem shipping costs. If your order total goes below our threshold for free standard shipping, you will be charged our shipping fee.<\/p>",
+            "hide": false
+          }
+        },
+        "886acaba-78e8-416e-9b32-55edd7677151": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I use my VIT points when checking out on my phone?",
+            "answer": "<p>Absolutely! Be sure to log into your VIT account before checking out. At any point during the checkout process, you can click the “show order summary” dropdown at the top of the page. From there, you will see the sliding scale for you to add your VIT points to your order. For further assistance, please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a>. <\/p>",
+            "hide": false
+          }
+        },
+        "1ec7e69b-1d9d-4ecd-a953-6163058823b9": {
+          "type": "faq",
+          "settings": {
+            "title": "Why aren’t my points showing up?",
+            "answer": "<p>It takes up to 24 hours for your points to show up. Didn’t get a confirmation email from us? Try checking your spam.<\/p><p><\/p><p>*Please note birthdays must be shared 30 days prior to the date.  If your birthday falls within the next 30 days, please reach out to our customer service team at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, and we're happy to help you add your birthday to our system!<\/p>",
+            "hide": false
+          }
+        },
+        "fe7b0c2d-29a1-470c-989b-52ae5335beb6": {
+          "type": "faq",
+          "settings": {
+            "title": "What makes a successful referral?",
+            "answer": "<p>When whoever you refer to CALPAK makes a purchase of $150 or more, you’ll get a $25 credit. Please note that it may take some time to show up in your rewards account. If it’s been over 24 hours, then contact us. There’s no limit to how many people you refer, so keep spreading the word and earning credit!<\/p>",
+            "hide": false
+          }
+        },
+        "22f7e918-1edf-4afa-bcf5-8f74b94ac517": {
+          "type": "faq",
+          "settings": {
+            "title": "What if I forgot my password?",
+            "answer": "<p>Oh no! We can help with that. Head over to the account page and hit 'forgot password.” Enter your email and you’ll receive an email shortly after to update your password.<\/p>",
+            "hide": false
+          }
+        },
+        "21dd2e0e-4b1a-43a8-8ca9-560c03ba2766": {
+          "type": "faq",
+          "settings": {
+            "title": "I don’t live in the US but I want to be a VIT. What should I do?",
+            "answer": "<p>We’d love for everyone to be a VIT! Unfortunately, we aren’t shipping out of the continental US at this time. Hopefully this will change soon.<\/p>",
             "hide": false
           }
         }
       },
       "block_order": [
         "21cf3361-61c5-4894-9700-4b22031646f6",
-        "7fa674fa-915f-419c-b704-fd35047bba33"
+        "7fa674fa-915f-419c-b704-fd35047bba33",
+        "97940945-5e88-4c83-b0e0-1124296292c0",
+        "4b71f991-7214-4e29-8783-0d2486ac13dd",
+        "9e6fdf8a-1ce3-4e07-a3ab-7b345446527c",
+        "3e5a057d-c631-4113-b7c2-feb328c884f8",
+        "886acaba-78e8-416e-9b32-55edd7677151",
+        "1ec7e69b-1d9d-4ecd-a953-6163058823b9",
+        "fe7b0c2d-29a1-470c-989b-52ae5335beb6",
+        "22f7e918-1edf-4afa-bcf5-8f74b94ac517",
+        "21dd2e0e-4b1a-43a8-8ca9-560c03ba2766"
       ],
       "settings": {
         "title": "FAQ’s",
-        "standalone": true
+        "standalone": true,
+        "show-sidebar": false,
+        "sidebar-title": "",
+        "sidebar-text": "",
+        "sidebar-button-text": "",
+        "sidebar-button-link": ""
       }
     }
   },

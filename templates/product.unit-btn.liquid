@@ -1,0 +1,43 @@
+{%- layout none -%}
+{%- liquid
+    assign request_arg = request.path | split: "/"
+    assign option1_arg = false
+    assign option2_arg = false
+    assign current_variant = product.variants | first
+    
+    if request_arg.size == 4
+        assign request_args = request_arg[3] | split: ','
+        if request_arg[3] == 'early-access'
+            if product.tags contains 'early-access'
+                assign early_access = true
+            endif
+        elsif request_arg[3] contains 'early-access-'
+            if product.tags contains 'early-access'
+                assign early_access = true
+                assign option1_arg = request_arg[3] | replace: 'early-access-', ''
+            endif
+        else
+            assign option1_arg = request_args[0]
+            if request_args.size > 1
+                assign option2_arg = request_args[1]
+            endif
+        endif
+    endif
+
+    if option1_arg != false
+        for variant in product.variants
+            assign var_option1 = variant.option1 | handleize
+            if option2_arg != false
+                assign var_option2 = variant.option2 | handleize
+                if option1_arg == var_option1 and option2_arg == var_option2
+                    assign current_variant = variant
+                    break
+                endif
+            elsif option1_arg == var_option1
+                assign current_variant = variant
+                break
+            endif
+        endfor
+    endif
+-%}
+{%- render 'product-unit' with product, current_variant: current_variant, wishlist: true, quick_view: true, add_to_cart: true -%}

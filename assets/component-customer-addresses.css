@@ -1,0 +1,145 @@
+.address-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+}
+
+.address-list .address:not(:first-child) {
+    margin-top: 50px;
+    padding-top: 45px;
+    border-top: 1px dashed #aeaeae;
+}
+
+.address {
+    position: relative;
+    line-height: 1.5em;
+}
+
+.address__edit-link {
+    position: absolute;
+    top: 45px;
+    right: 0;
+}
+
+.address:first-child .address__edit-link {
+    top: 0;
+}
+
+.address__delete-form {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.button--add-address {
+    margin-top: 50px;
+}
+
+.address__default-msg {
+    font-weight: var(--font-body-weight-bold);
+    margin-bottom: 10px;
+}
+
+.address__new {
+    max-width: 1000px;
+    display: none;
+}
+
+.address__edit {
+    display: none;
+}
+
+.address__edit form,
+.address__new form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+}
+
+.field--wide,
+.field--optionally-activated {
+    grid-column: span 2;
+}
+
+.field-activator {
+    font-size: 14px;
+}
+
+.field--optionally-activated.field--active .field-activator,
+.field--optionally-activated:not(.field--active) label,
+.field--optionally-activated:not(.field--active) input {
+    display: none;
+}
+
+.address__edit-title,
+.address__new-title {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    margin: 0 0 40px;
+    text-align: center;
+}
+
+.account-addresses--editing .button--add-address,
+.account-addresses--editing .address:not(.address--edited) {
+    display: none;
+}
+
+.account-addresses .button {
+    min-width: 120px;
+}
+
+.address-list .address--edited:not(:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.address--edited .address__edit {
+    display: block;
+}
+
+.address--edited .address-info {
+    display: none;
+}
+
+.account-addresses--adding .button--add-address,
+.account-addresses--adding .address__no-addr-msg,
+.account-addresses--adding .address-list {
+    display: none;
+}
+
+.account-addresses--adding .address__new {
+    display: block;
+}
+
+.address__cancel {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.address--default {
+    order: -1;
+}
+
+@media (max-width: 900px) {
+    .address__edit-title,
+    .address__new-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .checkbox-label {
+        margin: 10px 0;
+    }
+
+    .field-activator {
+        margin: 8px 0;
+    }
+}

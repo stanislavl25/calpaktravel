@@ -61,13 +61,17 @@
 
             {%- if type == "shop" -%}
             <li class="slide-menu-item slide-menu-item--push-bottom">
-                <a href="/page/rewards" class="slide-menu__icon-link">
+                <a href="/pages/rewards" class="slide-menu__icon-link">
                     <img width="22" height="22" src="{{ 'icon-star-outline.svg' | asset_url }}" alt="Star" loading="lazy"> My Rewards
                 </a>
             </li>
             <li class="slide-menu-item">
-                <a href="/account">
+                <a href="{{ routes.account_url }}">
+                    {%- if customer != blank -%}
+                    My Account
+                    {%- else -%}
                     Log in / Register
+                    {%- endif -%}
                 </a>
             </li>
             <li class="slide-menu-item">

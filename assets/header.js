@@ -97,8 +97,8 @@ for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListene
     }
 });
 
-let menuDeactivators = document.querySelectorAll('.menu-close');
-for(let i = 0; i < menuDeactivators.length; i++) menuDeactivators[i].addEventListener('click', function() {
+let menuDeactivators = document.querySelectorAll('.menu-close--shop, .menu-close--mobile-menu, .menu-close--discover, .menu-close--search');
+menuDeactivators.forEach(menuDeactivator => menuDeactivator.addEventListener('click', function() {
     let menuPopup = this.closest('.menu-popup');
 
     if(menuPopup) menuPopup.classList.remove('menu-popup--visible');
@@ -106,7 +106,7 @@ for(let i = 0; i < menuDeactivators.length; i++) menuDeactivators[i].addEventLis
     const header = document.querySelector('.shopify-section--header');
     setTimeout(() => header.removeAttribute('data-menu'), 500);
     document.body.classList.remove('modal-open');
-});
+}));
 
 let subnavActivators = document.querySelectorAll('.subnav__activator');
 for(let i = 0; i < subnavActivators.length; i++) subnavActivators[i].addEventListener('click', function(e) {
@@ -115,9 +115,9 @@ for(let i = 0; i < subnavActivators.length; i++) subnavActivators[i].addEventLis
     this.closest('.subnav__container').classList.toggle('site-header__dropdown--active');
 });
 
-let notifiactionsActivator = document.querySelector('.header__notifications-link');
+let notifiactionsActivators = document.querySelectorAll('.header__notifications-link');
 let notifiactionPopup = document.querySelector('.notifications-popup');
-if(notifiactionsActivator && notifiactionPopup) {
+if(notifiactionsActivators.length > 0 && notifiactionPopup) {
     let seenNotifications = localStorage.getItem('notificationsSeen');
     if(seenNotifications === null) seenNotifications = [];
     else seenNotifications = JSON.parse(seenNotifications);
@@ -133,7 +133,7 @@ if(notifiactionsActivator && notifiactionPopup) {
 
     if(unseenNotifications > 0) document.body.classList.add('notifications-unread');
 
-    notifiactionsActivator.addEventListener('click', function(e) {
+    notifiactionsActivators.forEach(notifiactionsActivator => notifiactionsActivator.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         closeAllDropdowns();
@@ -143,9 +143,9 @@ if(notifiactionsActivator && notifiactionPopup) {
             localStorage.setItem('notificationsSeen', JSON.stringify(activeNotifications));
             document.body.classList.remove('notifications-unread');
         }, 500);
-    });
+    }));
 
-    notifiactionPopup.querySelector('.menu-close').addEventListener('click', function(e) {
+    notifiactionPopup.querySelector('.menu-close--notifications').addEventListener('click', function(e) {
         e.preventDefault();
         notifiactionPopup.classList.remove('notifications-popup--active');
     });
@@ -156,6 +156,7 @@ if(notificationsPopup) notificationsPopup.addEventListener('click', (e) => e.sto
 
 const mobileMenuActivator = document.querySelector('.mobile-menu__activator');
 if(mobileMenuActivator) mobileMenuActivator.addEventListener('click', async function(e) {
+    e.preventDefault();
     if(typeof openMenu == 'undefined') await loadScript(scripts.menu);
 
     openMenu('shop');

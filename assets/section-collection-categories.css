@@ -30,6 +30,10 @@
     display: grid;
 }
 
+.filter__collections.slider--scrollbar::after {
+    display: none;
+}
+
 .filter__collections.slider--scrollbar::-webkit-scrollbar {
     border: 0;
 }
@@ -92,13 +96,13 @@
 .collection-categories__wrapper .button-tri-right {
     position: absolute;
     top: 50%;
-    margin-top: -50px;
-    left: 0;
+    margin-top: -43px;
+    left: var(--gap);
     z-index: 3;
     transition: transform 0.3s;
 }
 
 .collection-categories__wrapper .button-tri-right {
-    right: 0;
+    right: var(--gap);
     left: auto;
 }

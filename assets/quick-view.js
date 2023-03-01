@@ -20,12 +20,12 @@ function setQuickViewContent(data, variant, qvParent) {
         meta = JSON.parse(qvMetaJSON.innerHTML);
     } catch( e ) { console.log('No QV meta!')}
 
-    setProductData(product, meta, target, variant, true);
+    setProductData(product, meta, target, variant);
 
     const productForm = qvParent.querySelector('.shopify-product-form');
     if(productForm) productForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        pdpFormSubmit(productForm);
+        pdpFormSubmit(productForm, false);
     });
 
     const videos = qvParent.querySelectorAll(".video-iframe-container");

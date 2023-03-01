@@ -1,0 +1,92 @@
+{{ 'section-video.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- liquid
+    if section.settings.video != blank
+        assign ratio = section.settings.video-ratio-w | append: '/' | append: section.settings.video-ratio-h
+
+        if section.settings.video-ratio-w != blank and section.settings.video-ratio-h != blank
+            assign height = section.settings.video-ratio-h | times: 100 | divided_by: section.settings.video-ratio-w
+        else
+            assign height = false
+        endif
+
+        render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, lazy: section.settings.lazy
+    else
+        if section.settings.image_mobile != blank and section.settings.image != blank
+            render 'image' with section.settings.image, preload: true, class: 'hide-small', lazy: section.settings.lazy
+            render 'image' with section.settings.image_mobile, preload: true, class: 'hide-large', lazy: section.settings.lazy
+        elsif section.settings.image != blank
+            render 'image' with section.settings.image, preload: true, lazy: section.settings.lazy
+        elsif section.settings.image_mobile != blank
+            render 'image' with section.settings.image_mobile, preload: true, lazy: section.settings.lazy
+        endif
+    endif
+-%}
+
+{% schema %}
+    {
+        "name": "Video",
+        "class": "shopify-section--video",
+        "settings": [
+            {
+                "type": "video_url",
+                "id": "video",
+                "label": "Video",
+                "accept": ["vimeo"]
+            },
+            {
+                "type": "checkbox",
+                "id": "lazy",
+                "label": "Lazyload",
+                "default": false,
+                "info": "Select this if not showing video above the fold"
+            },
+            {
+                "type": "checkbox",
+                "id": "autoplay",
+                "label": "Autoplay",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "controls",
+                "label": "Controls",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "loop",
+                "label": "Loop",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "video-ratio-w",
+                "label": "Video aspect ratio width",
+                "default": "16",
+                "info": "16/9 - standard widescreen, 9/16 - portrait, 1/1 square, etc."
+            },
+            {
+                "type": "text",
+                "id": "video-ratio-h",
+                "label": "Video aspect ratio height",
+                "default": "9"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Background image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_mobile",
+                "label": "Image backup for mobile"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Video"
+            }
+        ]
+    }
+{% endschema %}
