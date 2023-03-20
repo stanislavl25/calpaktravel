@@ -1,0 +1,193 @@
+{%- if section.settings.enable-gwp -%}
+<script>
+    let gwpConfig = {
+        products: [
+            {%- assign first = true -%}
+            {% for block in section.blocks %}
+                {%- if block.settings.product == blank -%}{%- continue -%}{%- endif -%}
+                {% unless first %},{% endunless %}
+                {%- assign first = false -%}
+                {
+                    {% if checkout == blank %}
+                        id: {{ block.settings.product.selected_or_first_available_variant.id }},
+                        pid: {{ block.settings.product.id }},
+                        url: "{{ block.settings.product.url }}",
+                        ids: {% if block.settings.gwp-any-ex-gift %}
+                                'all'
+                            {% elsif block.settings.gwp-products != blank %} [{%- liquid
+                                    for prod in block.settings.gwp-products
+                                        unless forloop.first
+                                            echo ','
+                                        endunless
+                                        
+                                        echo prod.id
+                                    endfor
+                                -%}
+                                ]
+                            {% elsif block.settings.gwp-collection != blank %} [{%- liquid
+                                    for prod in block.settings.gwp-collection.products
+                                        unless forloop.first
+                                            echo ','
+                                        endunless
+                                        
+                                        echo prod.id
+                                    endfor                
+                                -%}
+                                ]
+                            {% else %}
+                                []
+                            {% endif %},
+                    {% endif %}
+                    handle: "{{ block.settings.product }}",
+                    title: "{% if block.settings.title != blank %}{{ block.settings.title | escape }}{% else %}{{ block.settings.product.title | escape }}{% endif %}",
+                    image: "{% if block.settings.image != blank %}{{ block.settings.image | img_url: 'master' }}{% else %}{{ block.settings.product.featured_image | img_url: 'master' }}{% endif %}",
+                    text: "{{ block.settings.description }}",
+                    threshold: {{ block.settings.threshold | times: 100 }},
+                    {% if block.settings.gwp-any-ex-gift or block.settings.gwp-products != blank %}
+                    collection: false,
+                    {% else %}
+                    collection: "{{ block.settings.gwp-collection.handle }}",
+                    {% endif %}
+                    type: {{ block.settings.gwp-number }}
+                }
+            {% endfor %}
+        ],
+        type: {{ section.settings.gwp-max-number }}
+    };
+
+    function fillGWPProducts(i) {
+        fetch('/collections/' + gwpConfig.products[i].collection + '/products.json?limit=250')
+        .then(response => response.json())
+        .then(data => {
+            let arr = [];
+            for(let k = 0; k < data.products.length; k++) {
+                arr.push(data.products[k].id);
+            }
+            gwpConfig.products[i].ids = arr;
+        });
+    }
+
+    {% if checkout == blank %}
+        {% comment %} let delayInterval = 0;
+        for(let i = 0; i < gwpConfig.products.length; i++) {
+            if(gwpConfig.products[i].ids.length == 50) {
+                delayInterval = 2000;
+                fillGWPProducts(i);
+            }
+        } {% endcomment %}
+    {% endif %}
+</script>
+{%- endif -%}
+
+{% schema %}
+    {
+        "name": "GWP",
+        "class": "shopify-section--gwp",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable-gwp",
+                "label": "Enable GWP",
+                "default": false
+            },
+            {
+                "type": "select",
+                "id": "gwp-max-number",
+                "label": "Number of GWPs",
+                "options": [
+                    {
+                        "value": "1",
+                        "label": "Allow only 1 type of GWP in cart"
+                    },
+                    {
+                        "value": "2",
+                        "label": "Allow multiple GWPs in cart"
+                    }
+                ],
+                "default": "1"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "gwp-product",
+                "name": "GWP",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Gift"
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Override Image",
+                        "info": "Will use product image if left blank"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Override Title",
+                        "info": "Will use product name if left blank"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "description",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Conditions"
+                    },
+                    {
+                        "type": "collection",
+                        "id": "gwp-collection",
+                        "label": "With purchase from this collection"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "gwp-products",
+                        "label": "Or any of these products",
+                        "info": "Overrides eligible collection setting above"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "gwp-any-ex-gift",
+                        "label": "Or with any product except gift card",
+                        "default": false,
+                        "info": "Overrides previous conditions"
+                    },
+                    {
+                        "type": "range",
+                        "id": "threshold",
+                        "min": 0,
+                        "max": 500,
+                        "step": 5,
+                        "unit": "$",
+                        "label": "Price Threshold",
+                        "default": 0
+                    },
+                    {
+                        "type": "select",
+                        "id": "gwp-number",
+                        "label": "Max number in cart",
+                        "options": [
+                            {
+                                "value": "1",
+                                "label": "1 per cart"
+                            },
+                            {
+                                "value": "2",
+                                "label": "1 per eligible product"
+                            }
+                        ],
+                        "default": "1"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

@@ -1,0 +1,263 @@
+{
+  "sections": {
+    "1678109643d5af4351": {
+      "type": "apps",
+      "blocks": {
+        "a8423ff2-0c56-4c37-9b0c-44abd997cd52": {
+          "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "a8423ff2-0c56-4c37-9b0c-44abd997cd52"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "wonderment-faq",
+      "disabled": true,
+      "blocks": {
+        "faq-getting-started": {
+          "type": "section_heading",
+          "settings": {
+            "title": "Getting started"
+          }
+        },
+        "product-where-made-question": {
+          "type": "question",
+          "settings": {
+            "title": "Where are your products manufactured?",
+            "text": "<p>We are a local company and all merchandise is made with love here in Toronto, Canada.<\/p>"
+          }
+        },
+        "sizes-question": {
+          "type": "question",
+          "settings": {
+            "title": "How do your sizes work?",
+            "text": "<p>Please take a look at our size chart for more information and how to take accurate measurements.<\/p>"
+          }
+        },
+        "shipping-heading": {
+          "type": "section_heading",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        "when-shipping-question": {
+          "type": "question",
+          "settings": {
+            "title": "When will my order ship?",
+            "text": "<p>Usually in 1-2 business days<\/p>"
+          }
+        },
+        "when-arriving-question": {
+          "type": "question",
+          "settings": {
+            "title": "When will my order arrive?",
+            "text": "<p>Usually in 3-10 business days<\/p>"
+          }
+        },
+        "ship-international-question": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship internationally?",
+            "text": "<p>Currently we are only shipping to USA and Canada.<\/p>"
+          }
+        },
+        "shipping-cost-question": {
+          "type": "question",
+          "settings": {
+            "title": "How much is shipping?",
+            "text": "<p>If you spend over $100, shipping is always free. For any other purchases, shipping will be calculated at checkout.<\/p>"
+          }
+        },
+        "return-policy-question": {
+          "type": "question",
+          "settings": {
+            "title": "What is your return policy?",
+            "text": "<p>Merchandise that is unworn and in the original packaging can be returned within 30 days with the packing slip included with the product.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-getting-started",
+        "product-where-made-question",
+        "sizes-question",
+        "shipping-heading",
+        "when-shipping-question",
+        "when-arriving-question",
+        "ship-international-question",
+        "shipping-cost-question",
+        "return-policy-question"
+      ],
+      "settings": {
+        "show_answers": false,
+        "text_size": 100,
+        "alignment": "center",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(184deg, rgba(255, 255, 255, 1) 7%, rgbargba(255, 255, 255, 1) 94%)",
+        "border_color": "#121212",
+        "base_width": 80,
+        "max_width": "",
+        "inner_padding": 100,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "products": {
+      "type": "wonderment-featured-collection",
+      "disabled": true,
+      "blocks": {
+        "41e4dea9-bebf-4b14-9c48-e35f1cea3f19": {
+          "type": "collection",
+          "settings": {
+            "collection": "2-piece-luggage-sets",
+            "title": "",
+            "visible_products": 8,
+            "button_label": "View all products",
+            "button_label_color": "#4b4949",
+            "button_background_color": "rgba(0,0,0,0)",
+            "button_radius": 0
+          }
+        }
+      },
+      "block_order": [
+        "41e4dea9-bebf-4b14-9c48-e35f1cea3f19"
+      ],
+      "settings": {
+        "per_row": 3,
+        "show_arrows": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_product_label": true,
+        "text_size": 100,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(360deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "rebuy": {
+      "type": "wonderment-rebuy",
+      "disabled": true,
+      "settings": {
+        "rebuy-widget-id": ""
+      }
+    },
+    "fairing": {
+      "type": "wonderment-fairing",
+      "disabled": true,
+      "settings": {
+        "fairing-key": "",
+        "fairing-padding": 25
+      }
+    },
+    "f3f4e5ae-2891-45a7-b420-03d796dce663": {
+      "type": "featured-collections",
+      "disabled": true,
+      "blocks": {
+        "5c2da729-5932-4472-bfdf-7910edc68794": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers-for-the-homepage",
+            "title": "You May Also LIke"
+          }
+        }
+      },
+      "block_order": [
+        "5c2da729-5932-4472-bfdf-7910edc68794"
+      ],
+      "settings": {
+        "quick-view": false
+      }
+    },
+    "4391c69e-487c-4b92-87ea-ec7adeef2d2c": {
+      "type": "content-slider",
+      "disabled": true,
+      "blocks": {
+        "351b58ba-0299-4f1b-b313-792b1d6e902a": {
+          "type": "slide",
+          "settings": {
+            "title": "Travel looks good on you.",
+            "text": "<p>Tag your adventure @calpak #calpaktravel<\/p>",
+            "image1": "shopify:\/\/shop_images\/Rectangle_3308_ab57c928-1288-49dc-9c81-084b512cca9d.png",
+            "image2": "shopify:\/\/shop_images\/TRNK-LARGE-HATBOX-_ESPRESSO-LIFESTYLE1.jpg",
+            "video1": "",
+            "video2": ""
+          }
+        }
+      },
+      "block_order": [
+        "351b58ba-0299-4f1b-b313-792b1d6e902a"
+      ],
+      "settings": {
+        "background-color": "#f7f177"
+      }
+    },
+    "c42e716c-2167-4137-99f9-b1659668d08f": {
+      "type": "featured-collections",
+      "blocks": {
+        "256f3569-7db9-41eb-8258-efe86f966b4f": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "luggage-sets",
+            "title": "Luggage"
+          }
+        },
+        "402374fa-d84c-4a1e-a483-4e94e7b612dd": {
+          "type": "collection",
+          "settings": {
+            "collection": "organizers",
+            "title": "Organizers"
+          }
+        },
+        "0b074500-02ca-43f5-90b4-4356eeddc8ae": {
+          "type": "collection",
+          "settings": {
+            "collection": "bags",
+            "title": "Bags"
+          }
+        },
+        "d78a452e-222d-401d-823d-71638a9c5052": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": "Accessories"
+          }
+        }
+      },
+      "block_order": [
+        "256f3569-7db9-41eb-8258-efe86f966b4f",
+        "402374fa-d84c-4a1e-a483-4e94e7b612dd",
+        "0b074500-02ca-43f5-90b4-4356eeddc8ae",
+        "d78a452e-222d-401d-823d-71638a9c5052"
+      ],
+      "settings": {
+        "quick-view": false
+      }
+    }
+  },
+  "order": [
+    "1678109643d5af4351",
+    "faq",
+    "products",
+    "rebuy",
+    "fairing",
+    "f3f4e5ae-2891-45a7-b420-03d796dce663",
+    "4391c69e-487c-4b92-87ea-ec7adeef2d2c",
+    "c42e716c-2167-4137-99f9-b1659668d08f"
+  ]
+}

@@ -1,0 +1,39 @@
+<script>
+    let promos = [];
+    {% if section.settings.promo-code != blank and section.settings.product != blank %}
+    promos.push(["{{ section.settings.promo-code | downcase | base64_encode }}", "{{ section.settings.product }}", {{ section.settings.min }}, {% if section.settings.collection != blank %}"{{ section.settings.collection }}"{% else %}false{% endif %}]);
+    {% endif %}
+</script>
+
+{% schema %}
+    {
+        "name": "Checkout Promo",
+        "settings": [
+            {
+                "type": "text",
+                "id": "promo-code",
+                "label": "Promo Code"
+            },
+            {
+                "type": "product",
+                "id": "product",
+                "label": "GWP"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "With purchase of an item from collection"
+            },
+            {
+                "type": "range",
+                "id": "min",
+                "min": 0,
+                "max": 300,
+                "step": 5,
+                "unit": "$",
+                "label": "Minimum purchase",
+                "default": 150
+            }
+        ]
+    }
+{% endschema %}

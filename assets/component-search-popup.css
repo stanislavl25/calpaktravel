@@ -88,7 +88,7 @@
 
 .menu-popup--search .menu-popup__main {
     padding-bottom: 30px;
-    height: 100%;
+    max-height: 100%;
 }
 
 .search__collections-buttons {

@@ -59,7 +59,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -4px 0 0 -5px;
+    margin: -6px 0 0 -7px;
     animation: rotate 1.6s infinite linear;
     z-index: 2;
     pointer-events: none;
@@ -146,8 +146,10 @@
     margin-right: -9px;
 }
 
-.collection-view * {
-    visibility: hidden;
+@media (min-width: 1181px) {
+    .collection-view * {
+        visibility: hidden;
+    }
 }
 
 .col-view__text {
@@ -249,7 +251,7 @@
 
 .collection-filters__inner {
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 400px 1fr;
 }
 
 .filter__buttons {
@@ -257,6 +259,7 @@
     gap: 25px;
     border-top: 1px dashed #AEAEAE;
     padding: var(--gap) 0;
+    border-bottom: 1px dashed #aeaeae;
 }
 
 .filter__buttons .button {
@@ -299,6 +302,10 @@
     order: 999;
 }
 
+.filter__collection {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .active-filters-nav {
         display: flex;
@@ -331,14 +338,14 @@
         position: relative;
     }
 
-    .collections-menu::after {
+    /* .collections-menu::after {
         position: absolute;
         bottom: 0;
         left: var(--gap);
         right: var(--gap);
         content: '';
         border-top: 1px dashed #aeaeae;
-    }
+    } */
 
     .collections-menu::-webkit-scrollbar {
         display: none;
@@ -348,7 +355,10 @@
         grid-template-columns: 1fr auto;
         padding: var(--gap) 0 0;
         column-gap: 0;
-        border-bottom: 0;
+    }
+
+    .current-filters-list {
+        margin-bottom: var(--gap);
     }
 
     .collection-filter__activators {
@@ -359,8 +369,10 @@
     }
 
     .current-filters {
-        padding: 0;
-        display: none;
+        /* padding: 0; */
+        /* display: none; */
+        align-items: flex-start;
+        order: 5;
     }
 
     .collection-view {
@@ -371,6 +383,7 @@
 
     .filter__buttons {
         padding: var(--gap);
+        border-bottom: 0;
     }
 
     .filter__buttons .button--secondary {
@@ -392,7 +405,7 @@
         transition: transform 0.3s;
     }
 
-    .collection-filters[data-tab="sort"] .collection-filters__inner {
+    .collection-filters[data-tab="color"] .collection-filters__inner {
         transform: translateX(-100%);
     }
 

@@ -99,6 +99,9 @@
         endif
     endfor
 -%}
+{%- if product.handle == 'gift-card' -%}
+<style>.okeReviews-widget-holder {display: none !important;}</style>
+{%- endif -%}
 <section class="pdp__grid{% if soldout == true %} pdp__grid--soldout{% endif %}"
     data-status="{% if current_variant.available == false %}sold-out{% elsif preorder != false %}preorder{% else %}default{% endif %}"
     {% if soldout != false and soldout != true %}data-soldout="{{ soldout | join: ' ' }}"{% endif %}
@@ -119,19 +122,7 @@
         >
         {% form 'product', product, data-handle: product.handle, data-id: product.id %}
             <script type="text/json" class="pdp-json" data-current-variant="{{ current_variant.id }}">{{ product | json }}</script>
-            <script type="text/json" class="pdp-meta-json">
-                {
-                    "preorder": {{ product.metafields.custom.preorder | json }},
-                    "variants": {
-                        {%- for variant in product.variants -%}
-                        {%- unless forloop.first -%},{%- endunless -%}
-                        "{{ variant.id }}": {
-                            "preorder": {{ variant.metafields.custom.preorder | json }}
-                        }
-                        {%- endfor -%}
-                    }
-                }
-            </script>
+            <script type="text/json" class="pdp-meta-json">{% render 'product-meta-json' with product %}</script>
 
             {%- for block in section.blocks -%}
                 {%- case block.type -%}
@@ -151,19 +142,15 @@
                         <section class="pdp__form-labels">
                         {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
                         </section>
-                    {%- when 'live-button' -%}
-                        <section class="bambuser__live-activator">
-                            {{ block.settings.html }}
-                        </section>
                     {%- when 'shipping-calculator' -%}
-                        {% comment %} {% render 'shipping-calculator' %} {% endcomment %}
+                        {% render 'shipping-calculator' %}
                     {%- when 'submit' -%}
-                        {% render 'pdp-floating-submit', current_variant: current_variant %}
-                        {% render 'pdp-submit', current_variant: current_variant %}
+                        {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
+                        {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
                     {%- when 'description' -%}
                         {% render 'pdp-description', current_variant: current_variant %}
                     {%- else -%}
-                        {% render 'pdp-promo' with block %}
+                        {% render 'pdp-promo' with block, current_variant: current_variant %}
                 {%- endcase -%}
             {%- endfor -%}
         {% endform %}
@@ -208,7 +195,7 @@
             {
                 "type": "checkbox",
                 "id": "gallery-limit-reapply",
-                "label": "Limit after variant change",
+                "label": "Re-apply limit after variant change",
                 "default": true
             },
             {
@@ -229,6 +216,12 @@
                 "type": "richtext",
                 "id": "warranty-and-return",
                 "label": "Default warranty and return policy"
+            },
+            {
+                "type": "text",
+                "id": "prop65-title",
+                "label": "Prop 65 title",
+                "default": "Prop 65 Disclaimer"
             },
             {
                 "type": "richtext",
@@ -263,6 +256,14 @@
             {
                 "type": "submit",
                 "name": "Submit",
+                "settings": [
+                    {
+                        "type": "checkbox",
+                        "id": "wishlist",
+                        "label": "Enable wishlist button",
+                        "default": true
+                    }
+                ],
                 "limit": 1
             },
             {
@@ -271,21 +272,43 @@
                 "limit": 1
             },
             {
-                "type": "live-button",
-                "name": "Live show button",
-                "limit": 1,
-                "settings": [
-                    {
-                        "type": "html",
-                        "id": "html",
-                        "label": "Code"
-                    }
-                ]
-            },
-            {
                 "type": "description",
                 "name": "Description",
                 "limit": 1
+            },
+            {
+                "type": "points",
+                "name": "Points earned",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text",
+                        "info": "Use [points] to show the number of points"
+                    }
+                ]
             },
             {
                 "type": "upsell-banner",
@@ -419,6 +442,12 @@
                         "type": "url",
                         "id": "button-url",
                         "label": "Button Link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "live-show-id",
+                        "label": "Live show ID",
+                        "info": "If set, the button will launch a Bambuser live show"
                     }
                 ]
             },

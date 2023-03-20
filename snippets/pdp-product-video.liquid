@@ -8,4 +8,16 @@
             render 'video' with video, contain: true, poster: null, alt: alt, sizes: sizes, height: '133.333', lazy: true
         endif
     -%}
+
+    {%- unless thumbnails -%}
+    <div class="pdp__video-info">
+        {% if current_variant.metafields.video.height != blank %}
+            {{- current_variant.metafields.video.height | escape -}}
+        {% elsif product.metafields.model.model_height != blank %}
+            Model Height: {{ product.metafields.model.model_height }}
+        {% elsif product.metafields.video.height != blank %}
+            {{ product.metafields.video.height }}
+        {% endif %}
+    </div>
+    {%- endunless -%}
 </div>

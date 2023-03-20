@@ -1,4 +1,5 @@
 {{ 'section-cart.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-cart-page.css' | asset_url | stylesheet_tag: preload: true }}
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
 <section class="cart-page{% if cart.item_count == 0 %} cart__container--empty{% endif %}">
@@ -20,10 +21,16 @@
         endif
     -%}
 
+    {% render 'cart-empty', location: 'cart-page' %}
 
-    <div class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</div>
+    <div class="cart__header" data-status="{%- if free_shipping_progress == 100 -%}
+                    success
+                {%- else -%}
+                    progress
+                {%- endif -%}"></div>
     <div class="cart-page__table">
-        <main class="cart__body-top">
+        <main class="cart-page__body">
+            <h1 class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</h1>
             <div class="cart__items-container">
                 <div class="cart__items">
                     {%- render 'cart-item' for cart.items, cart_page: true -%}
@@ -43,7 +50,10 @@
                 </dl>
                 <dl class="cart__total-row cart__total-row--shipping">
                     <dt class="cart__total-name">Shipping</dt>
-                    <dd class="cart__total-value">$7.95</dd>
+                    <dd class="cart__total-value">
+                        <span class="cart__shipping-price">$7.95</span>
+                        <span class="cart__shipping-free">FREE</span>
+                    </dd>
                 </dl>
             </div>
             <div class="cart__footer-total">
@@ -67,9 +77,55 @@
             {% if additional_checkout_buttons %}
             <div class="cart__extra-checkout">
                 {{ content_for_additional_checkout_buttons }}
-                <script> var delayed_checkout_buttons = '{{ content_for_additional_checkout_buttons }}'; </script>
             </div>
             {% endif %}
         </aside>
     </div>
+
+    <div class="cart-page__upsell">
+        <h2 class="cart-page__upsell-title">{{- section.settings.product-list-title | escape -}}</h2>
+
+        <div class="slider__wrapper slider__wrapper--buttons-side" data-slide="5" data-slide-mob="2">
+            <nav class="slider__nav">
+                <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+            </nav>
+            <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+            <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+            <div class="cart__upsell-items slider slider--scrollbar slider--scrollbar">
+                {% comment %} {%- for i in (1..5) -%}
+                    {%- render 'product-unit-placeholder', class: "slide", add_to_cart: true -%}
+                {%- endfor -%} {% endcomment %}
+                {%- for product in collections['best-sellers'].products limit: 20 -%}
+                    {%- render 'product-unit' with product, class: "slide", sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', location: 'cart', wishlsit: section.settings.wishlsit, add_to_cart: true, quick_view: section.settings.quick-view -%}
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
 </section>
+
+{% schema %}
+    {
+        "name": "Cart Page",
+        "settings": [
+            {
+                "type": "text",
+                "id": "product-list-title",
+                "label": "Product list title",
+                "default": "More for you"
+            },
+            {
+                "type": "checkbox",
+                "id": "wishlsit",
+                "label": "Wishlsit",
+                "default": false
+            },
+            {
+                "type": "checkbox",
+                "id": "quick-view",
+                "label": "Quick view",
+                "default": false
+            }
+        ]
+    }
+{% endschema %}

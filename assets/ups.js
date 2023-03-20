@@ -27,79 +27,75 @@ ups.transitTime = {
     //console.log(yyyy.toString() + mm.toString() + dd.toString());
     const currentDate = yyyy.toString() + mm.toString() + dd.toString();
     
-    var values={ 
-      shop:'saadbinnaeemch', //Leave this vairable 
-      shipperStateProvinceCode:'CA', 
-      shipperCountryCode:'US', 
-      shipperPostalCode:'90220',
+    // var values={ 
+    //     shop:'saadbinnaeemch', //Leave this vairable 
+    //     shipperStateProvinceCode:'CA', 
+    //     shipperCountryCode:'US', 
+    //     shipperPostalCode:'90220',
 
-      recieverPostalCode:ele.zip, 
-      recieverCountryCode: ele.country = 'United States' ? 'US' : ele.country, 
-      recieverStateProvinceCode: ele.prov,
+    //     recieverPostalCode:ele.zip, 
+    //     recieverCountryCode: ele.country = 'United States' ? 'US' : ele.country, 
+    //     recieverStateProvinceCode: ele.prov,
 
-      //pickupDate:'20181224', 
-      pickupDate: currentDate,
-      shipmentWeight:'10' 
-    }; 
-    var code = 'GND' 
+    //     //pickupDate:'20181224', 
+    //     pickupDate: currentDate,
+    //     shipmentWeight:'10' 
+    // }; 
+    const code = 'GND';
 
-    $.ajax({
-      url: "https://ups-eta.herokuapp.com/getEta",
-      type: "post",
-      contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
-      crossDomain: true,
-      data: values,
-      success: function (response) { 
- 
-        var dataJSON =JSON.parse(response);  
+    // const formData = new FormData();
+    // formData.append("shop", "saadbinnaeemch");
+    // formData.append("shipperStateProvinceCode", "CA");
+    // formData.append("shipperCountryCode", "US");
+    // formData.append("shipperPostalCode", "90220");
+    // formData.append("recieverPostalCode", ele.zip);
+    // formData.append("recieverCountryCode", ele.country = 'United States' ? 'US' : ele.country);
+    // formData.append("recieverStateProvinceCode", ele.prov);
+    // formData.append("pickupDate", currentDate);
+    // formData.append("shipmentWeight", "10");
+
+    fetch('https://ups-eta.herokuapp.com/getEta', {
+        method: 'POST',
+        crossorigin: true,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: `shop=saadbinnaeemch&shipmentWeight=10&pickupDate=${currentDate}&recieverStateProvinceCode=${ele.prov}&recieverPostalCode=${ele.zip}&shipperPostalCode=90220&recieverCountryCode=${(ele.country = 'United States' ? 'US' : ele.country)}&shipperCountryCode=US&shipperStateProvinceCode=CA`
+        // body: `shop=saadbinnaeemch&shipmentWeight=10&pickupDate=${currentDate}&recieverStateProvinceCode=${ele.prov}&recieverCountryCode=${(ele.country = 'United States' ? 'US' : ele.country)}&recieverPostalCode=${ele.zip}&shipperPostalCode=90220&shipperCountryCode=US&shipperStateProvinceCode=CA`
+    })
+    .then(response => response.json())
+    .then(dataJSON => {
         var completeAddress = dataJSON.TimeInTransitResponse ? true : false;
-		
+
         if(completeAddress && dataJSON.TimeInTransitResponse.TransitResponse){
-          var serviceItems = dataJSON.TimeInTransitResponse.TransitResponse.ServiceSummary;
+            var serviceItems = dataJSON.TimeInTransitResponse.TransitResponse.ServiceSummary;
 
-          $.each(serviceItems,function(i,item){
-            var timeInTransit = item.EstimatedArrival.BusinessDaysInTransit ;
-            var upsService = item.Service.Description; 
-            var upsCode =  item.Service.Code; 
-            if(upsCode == code){ 
-              calcTime(timeInTransit,upsService) 
-            }
-          }) 
-        }
-        else {
-          var errorMessage = '';
-          if(dataJSON.Fault) var errorCode = dataJSON.Fault.detail.Errors.ErrorDetail.PrimaryErrorCode.Code;
-          else var errorCode = 0;
-          if(errorCode == 270005) {
-            errorMessage = 'Zipcode invalid, please re-enter.';
-          } else {
-            errorMessage = 'Please re-enter a valid zipcode.';
-          }
-          
-          setTimeout(function(){
-            if(ele.post == 'after'){ 
-              $(ele.element).after('<span class="result result--error">'+errorMessage+'</span>');
-            }
-            else if(ele.post == 'prepend'){ 
-              $(ele.element).prepend('<span class="result result--error">'+errorMessage+'</span>');
-            }
-            else if(ele.post == 'append'){ 
-              $(ele.element).append('<span class="result result--error">'+errorMessage+'</span>');
-            }
-            else { 
-              $(ele.element).html('<span class="result result--error">'+errorMessage+'</span>');
-            } 
+            serviceItems.forEach(item => {
+                var timeInTransit = item.EstimatedArrival.BusinessDaysInTransit ;
+                var upsService = item.Service.Description; 
+                var upsCode =  item.Service.Code; 
+                if(upsCode == code){ 
+                    calcTime(timeInTransit,upsService) 
+                }
+            });
+        } else {
+            var errorMessage = '';
+            if(dataJSON.Fault) var errorCode = dataJSON.Fault.detail.Errors.ErrorDetail.PrimaryErrorCode.Code;
+            else var errorCode = 0;
 
-            callback();
-          }, 300);
+            if(errorCode == 270005) {
+                errorMessage = 'Zipcode invalid, please re-enter.';
+            } else {
+                errorMessage = 'Please re-enter a valid zipcode.';
+            }
+            
+            setTimeout(function(){
+                document.querySelector(ele.element).innerHTML = `<span class="result result--error">${errorMessage}</span>`;
+
+                callback();
+            }, 300);
         }
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        console.log(textStatus, errorThrown);
-      }
- 
-    });
- 
+    }).then(callback); 
 
     function daysInMonth (month, year) { 
       var days = new Date(year, month, 0).getDate();
@@ -232,26 +228,14 @@ ups.transitTime = {
       var wday = new Date(currentYear, monthNames.indexOf(minMonth), estimatedDayMin).getDay();
       
       var addMonogram = '';
-      if($('.shipping-calculator-container').hasClass('product-personalization-disclaimer')) {
-        addMonogram = '*Delivery estimate does not apply to Monogram items!<br>';
-      }
+
       if(estimatedDayMax !== false)
       var message = 'Get it by <strong>'+minMonth + ' '+ estimatedDayMin +' - '+ maxMonth + ' '+estimatedDayMax+'</strong> with Ground Shipping!<div class="disclaimer">'+addMonogram+'<strong>Please note:</strong> Delivery date is approximate.</div>';
       else var message = 'Get it by <strong>'+daysOfWeek[wday]+', '+minMonth + ' '+ estimatedDayMin +'</strong> with Ground Shipping!<div class="disclaimer">'+addMonogram+'<strong>Please note:</strong> Delivery date is approximate.</div>';
         
       setTimeout(function(){
-        if(ele.post == 'after'){ 
-          $(ele.element).after('<span class="result">'+message+'</span>');
-        }
-        else if(ele.post == 'prepend'){ 
-          $(ele.element).prepend('<span class="result">'+message+'</span>');
-        }
-        else if(ele.post == 'append'){ 
-          $(ele.element).append('<span class="result">'+message+'</span>');
-        }
-        else { 
-          $(ele.element).html('<span class="result">'+message+'</span>');
-        } 
+
+          document.querySelector(ele.element).innerHTML = `<span class="result">${message}</span>`;
         
         callback();
       }, 300);

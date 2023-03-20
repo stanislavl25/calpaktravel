@@ -11,13 +11,14 @@
         <h2 class="wishlist__empty-title">{{- section.settings.title | strip_html | escape -}}</h2>
         {%- endif -%}
 
-        <div data-slide="3" class="slider__wrapper slider__wrapper--start">
+        {%- if location == 'customer' -%}
+        <div data-slide="3" data-slide-mob="2" class="slider__wrapper slider__wrapper--start">
             <div class="product-slider__header">
                 <div class="product-slider__title">
                     {%- if section.settings.override-title != blank -%}
                         {{- section.settings.override-title | escape -}}
                     {%- else -%}
-                        {{- collection.title | escape -}}
+                        {{- section.settings.collection.title | escape -}}
                     {%- endif -%}
                 </div>
 
@@ -28,13 +29,15 @@
             </div>
             <div class="slider">
                 {%- liquid
-                    for product in collection.products limit: 20
+                    for product in section.settings.collection.products limit: 20
                         render 'product-unit' with product, wishlist: section.settings.wishlist, class: 'slide', quick_view: section.settings.quick_view, sizes: '300px'
                     endfor
                 -%}
             </div>
         </div>
 
+        {%- else -%}
+        
         <div data-slide="3" class="slider__wrapper slider__wrapper--buttons-side wishlist__empty-collection">
             <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
             <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
@@ -44,6 +47,8 @@
                 {%- endfor -%}
             </div>
         </div>
+
+        {%- endif -%}
     </div>
     {%- endif -%}
 

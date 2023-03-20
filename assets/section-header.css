@@ -51,7 +51,7 @@ body.modal-open {
 }
 
 .site-header__nav > ul {
-    position: relative;
+    position: static;
     z-index: 2;
     gap: var(--gap);
     display: flex;
@@ -225,10 +225,6 @@ body.modal-open {
     display: none;
 }
 
-.articles__list {
-    margin-top: 40px;
-}
-
 .articles__list-title {
     margin-bottom: 10px;
 }
@@ -283,6 +279,8 @@ body.modal-open {
     padding: 0;
     margin-right: -7px;
     background: transparent;
+    text-indent: -200px;
+    overflow: hidden;
 }
 
 .menu-close::before,
@@ -305,6 +303,10 @@ body.modal-open {
     display: block;
     line-height: 42px;
     position: relative;
+}
+
+.wishlist__popup {
+    display: none;
 }
 
 @media (max-width: 1080px) {
@@ -330,6 +332,10 @@ body.modal-open {
     .site-header__nav:first-child,
     .site-header__nav {
         padding: 0 var(--gap);
+    }
+
+    .site-header__nav {
+        position: static;
     }
 
     .site-header__nav:first-child {

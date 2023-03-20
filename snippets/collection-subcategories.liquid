@@ -2,35 +2,59 @@
     <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
     <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
     {%- liquid
-        assign selected = 0
+        assign filter = false
+        assign selectedParent = 0
+        assign selectedInside = 0
+        assign parentCategoryNum = 0
+        assign subcategoryNum = 0
+        assign subcategoryCount = 0
         assign showSub = false
         for block in section.blocks
-            if block.settings.selected and block.type == 'category'
-                assign selected = forloop.index
-                continue
-            endif
-            if selected > 0
-                if block.type != 'category'
-                    assign showSub = true
+            if block.type == 'category'
+                assign parentCategoryNum = parentCategoryNum | plus: 1
+                assign subcategoryNum = 0
+                if block.settings.selected and filter
+                    assign selectedParent = parentCategoryNum
+                    continue
+                elsif filter == false and block.settings.collection.handle == collection.handle
+                    assign selectedParent = parentCategoryNum
+                    continue
                 endif
-                break
+            else
+                assign subcategoryNum = subcategoryNum | plus: 1
+                if block.settings.collection.handle == collection.handle and filter == false
+                    assign selectedParent = parentCategoryNum
+                    assign selectedInside = subcategoryNum
+                endif
+                if selectedParent == parentCategoryNum
+                    assign subcategoryCount = subcategoryCount | plus: 1
+                endif
             endif
         endfor
+
+        if subcategoryCount > 0 and filter == false 
+            assign showSub = true
+        endif
     -%}
-    <section class="filter__collections{% if showSub %} filter__collections--active{% endif %} slider slider--scrollbar">
+    <section class="filter__collections{% if section.settings.text-only %} filter__collections--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %} slider slider--scrollbar">
         {%- assign num = 0 -%}
+        {%- assign numInside = 0 -%}
         {%- for block in section.blocks -%}
             {%- if block.type == 'category' -%}
                 {%- assign num = num | plus: 1 -%}
+                {%- assign numInside = 0 -%}
                 {%- continue -%}
+            {%- else -%}
+                {%- assign numInside = numInside | plus: 1 -%}
             {%- endif -%}
-        <div data-group="{{ num }}"
-            class="filter__collection{% if selected == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}"
+        <a href="{% if block.settings.collection != blank %}{{ block.settings.collection.url }}{% else %}{{ collection.url }}{% endif %}" data-group="{{ num }}"
+            class="filter__collection{% if section.settings.text-only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected{% endif %}"
             {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
                 {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
             {%- endfor -%}"
             {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
         >
+            {%- unless section.settings.text-only -%}
             <div class="filter__collection-image">
                 {%- liquid
                     assign lazy = true
@@ -46,11 +70,16 @@
                     {%- render 'image' with block.settings.collection.image, sizes: '(min-width: 901px) 25vw, 200px', preload: preload, lazy: lazy, no_wrapper: true -%}
                 {%- endif -%}
             </div>
-            <h2 class="filter__collection-title">{{- block.settings.title | escape -}}</h2>
-            {%- if block.settings.description != blank -%}
+            {% endunless %}
+
+            <h2 class="filter__collection-title">
+                {{- block.settings.title | escape -}}
+            </h2>
+
+            {%- if block.settings.description != blank and section.settings.text-only == false -%}
             <div class="filter__collection-desc">{{- block.settings.description -}}</div>
             {%- endif -%}
-        </div>
+        </a>
         {%- endfor -%}
     </section>
 </div>

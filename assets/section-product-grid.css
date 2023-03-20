@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     padding: 30px 0;
+    margin-bottom: 100px;
 }
 
 .section-filtered--empty .product-grid__empty-text {
@@ -46,6 +47,10 @@
     
     .col-filter--larger-active ~ .shopify-section--product-grid .promo-unit {
         grid-column: span 2;
+    }
+
+    .product-grid {
+        margin-bottom: 10px;
     }
 }
 

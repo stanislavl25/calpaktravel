@@ -14,10 +14,12 @@
             <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
         </div>
     </button>
+    {%- if wishlist != false -%}
     <button aria-label="Add to wishlist" title="Add to wishlist" class="button button--secondary wishlist__button button--pdp__wishlist">
         <span>
             {% render 'icon-heart' %}
             <span class="button-text">Wishlist</span>
         </span>
     </button>
+    {%- endif -%}
 </div>

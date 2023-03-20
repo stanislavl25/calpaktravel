@@ -1,16 +1,20 @@
 {
-    "sections": {
-        "account-header": {
-            "type": "account-header",
-            "settings": {}
-        },
-        "customer-addresses": {
-            "type": "customer-addresses",
-            "settings": {}
-        }
+  "sections": {
+    "account-header": {
+      "type": "account-header",
+      "settings": {
+        "help-link": "https:\/\/www.calpaktravel.com\/pages\/faq#faq--vit-rewards-program"
+      }
     },
-    "order": [
-        "account-header",
-        "customer-addresses"
-    ]
+    "customer-addresses": {
+      "type": "customer-addresses",
+      "settings": {
+        "no-addresses": "Looks like you haven't saved an address yet"
+      }
+    }
+  },
+  "order": [
+    "account-header",
+    "customer-addresses"
+  ]
 }

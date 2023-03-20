@@ -1,0 +1,17 @@
+{%- if section.settings.enable -%}
+<script src="{{ 'checkout.dates.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+    {
+        "name": "Checkout Dates",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "enable",
+                "label": "Show dates",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}

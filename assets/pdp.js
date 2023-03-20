@@ -53,13 +53,21 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
     productUnits.forEach(productUnit => {
         const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
 
-        if(match) productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`).click();
+        if(match) {
+            const newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
+            
+            const activeFirst = productUnit.querySelector('.color-swatch--first');
+            if(activeFirst) activeFirst.classList.remove('color-swatch--first');
+            
+            newSwatch.classList.add('color-swatch--first');
+            newSwatch.click();
+        }
     });
 }
 
 function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
     const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
-    const productTypes = ['Mini Carry-On', 'Carry-On Luggage with Hardshell Pocket', 'Carry-On Luggage with Pocket', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
+    const productTypes = ['Mini Carry-On', 'Front Pocket Carry-On', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
     let foundTypes = [];
     fetch(`/collections/${pdpFeaturedCollection}/products.json`)
     .then(response => response.json())
@@ -98,9 +106,15 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
         select.classList.add('select__wrapper--pdp-active');
 
         select.addEventListener('change', (e) => {
-            const url = `/products/${e.target.value}`;
-            if(quickView === false) location.href = url;
-            else getQuickView(url);
+            const productForm = variantTypeEl.closest('.shopify-product-form');
+            const options = getProductOptionsList(productForm, 'pdp');
+            let url = `/products/${e.target.value}`;
+            
+            if(quickView === false) {
+                location.href = url + '/' + options[0];
+            } else {
+                getQuickView(url, options[0]);
+            }
         });
     });
 }
@@ -154,23 +168,105 @@ function updateOptionsAvailability(options, select, container) {
 }
 
 async function triggerWaitlist(waitlistCont) {
-    const trigger = waitlistCont.querySelector('.klaviyo-bis-trigger');
-    waitlistCont.classList.add('pdp__waitlist--loading');
-    if(klaviyoLoaded == false) {
-        await loadScript(scripts.klaviyo);
-        waitlistCont.classList.remove('pdp__waitlist--loading');
-        waitlistCont.classList.add('pdp__waitlist--success');
-        // initKlaviyo();
-    }
+    const emailField = waitlistCont.querySelector('.mailing-list-email');
+    const email = emailField.value.trim();
+    const productForm = waitlistCont.closest('.shopify-product-form');
+    const productId = productForm.getAttribute('data-id');
 
-    setTimeout(() => {
-        trigger.click();
-    }, 2000);
-    // console.log(document.querySelector('#klaviyo-bis-iframe').contentDocument.querySelector('input[type="email"]'));
+    if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        const variantId = productForm.querySelector('.variant-select').value;
+
+        waitlistCont.classList.remove('pdp__waitlist--error');
+        waitlistCont.classList.add('pdp__waitlist--loading');
+        
+        if(klaviyoLoaded == false) {
+            await loadScript(scripts.klaviyo);
+            klaviyoLoaded = true;
+        }
+
+        const formData = new FormData();
+        formData.append("a", "M38Kem");
+        formData.append("email", email);
+        formData.append("variant", variantId);
+        formData.append("product", productId);
+        formData.append("platform", "shopify");
+        formData.append("subscribe_for_newsletter", true);
+        formData.append("g", "JuPuvw");
+
+        fetch('https://a.klaviyo.com/onsite/components/back-in-stock/subscribe', {
+            method: 'POST',
+            body: formData
+        })
+        .then((response) => {
+            if(!response.ok) {
+                waitlistCont.classList.add('pdp__waitlist--error');
+                emailField.setAttribute("aria-invalid", "true");
+                emailField.setAttribute("aria-describedby", `waitlist-error--${productId}`);
+            } else {
+                waitlistCont.classList.add('pdp__waitlist--success');
+                emailField.setAttribute("aria-invalid", "false");
+                emailField.setAttribute("aria-describedby", `waitlist-success--${productId}`);
+            }
+        })
+        .catch(() => {
+            waitlistCont.classList.add('pdp__waitlist--error');
+            emailField.setAttribute("aria-invalid", "true");
+            emailField.setAttribute("aria-describedby", `waitlist-error--${productId}`);
+        })
+        .then(() => waitlistCont.classList.remove('pdp__waitlist--loading'));
+    } else {
+        waitlistCont.classList.add('pdp__waitlist--error');
+        emailField.setAttribute("aria-invalid", "true");
+        emailField.setAttribute("aria-describedby", `waitlist-error--${productId}`);
+    }
 }
+
+function bindWaitlist(container) {
+    const waitlistCheckboxes = container.querySelectorAll('.mailing-list-checkbox');
+
+    waitlistCheckboxes.forEach(waitlistCheckbox => waitlistCheckbox.addEventListener('click', function() {
+        if(this.checked) {
+            this.closest('.pdp__waitlist').classList.remove('pdp__waitlist--inactive');
+        } else this.closest('.pdp__waitlist').classList.add('pdp__waitlist--inactive');
+    }));
+
+    const waitlistSubmitBtns = container.querySelectorAll('.pdp__waitlist-submit');
+    waitlistSubmitBtns.forEach(waitlistSubmitBtn => waitlistSubmitBtn.addEventListener('click', async function() {
+        const waitlistCont = this.closest('.pdp__waitlist');
+        triggerWaitlist(waitlistCont);
+    }));
+
+    const waitlistInputs = container.querySelectorAll('.pdp__waitlist input[type="email"]');
+    waitlistInputs.forEach(waitlistInput => waitlistInput.addEventListener('keyup', function(event) {
+        if (event.defaultPrevented) return;
+
+        if((typeof event.key != 'undefined' && event.key === "Enter") || event.keyCode === 13) {
+            event.preventDefault();
+            event.stopPropagation();
+            const waitlistCont = this.closest('.pdp__waitlist');
+            triggerWaitlist(waitlistCont);
+        }
+    }));
+}
+
+
 
 window.addEventListener("load", () => {
     const pdpGrid = document.querySelector('.pdp__grid');
+
+    let pdpSwatchesCheckThrottle = false;
+    const pdpSwatches = document.querySelectorAll('.pdp__swatches');
+    window.addEventListener("resize", checkPDPSwatches);
+    function checkPDPSwatches() {
+        if(pdpSwatchesCheckThrottle !== false) clearTimeout(pdpSwatchesCheckThrottle);
+    
+        pdpSwatchesCheckThrottle = setTimeout(() => {
+            pdpSwatches.forEach(pdpSwatch => {
+                pdpSwatch.style.setProperty('--max-fit', Math.floor(pdpSwatch.offsetWidth / 28));
+            });
+        }, 20);
+    }
+    checkPDPSwatches();
 
     const bambuserButton = document.querySelector('.bambuser__live-activator button');
     if(bambuserButton) bambuserButton.addEventListener('click', function(e) {
@@ -204,6 +300,9 @@ window.addEventListener("load", () => {
 
         const select = pdpGrid.querySelector('.variant-select');
         pdpGalleryUpdate(pdpGrid, select.options[select.selectedIndex], false);
+
+        const featuredCollectionProducts = document.querySelectorAll('.shopify-section--pdp-featured .product-unit');
+        featuredCollectionProducts.forEach(featuredCollectionProduct => featuredCollectionProduct.setAttribute('data-init-1', select.options[select.selectedIndex].getAttribute('data-option1')));
 
         updateOptionsAvailability(getProductOptionsList(pdpGrid), select, pdpGrid);
 
@@ -243,23 +342,7 @@ window.addEventListener("load", () => {
             pdpFormSubmit(productForm);
         });
 
-        const waitlistSubmitBtns = document.querySelectorAll('.pdp__waitlist-submit');
-        waitlistSubmitBtns.forEach(waitlistSubmitBtn => waitlistSubmitBtn.addEventListener('click', async function() {
-            const waitlistCont = this.closest('.pdp__waitlist');
-            triggerWaitlist(waitlistCont);
-        }));
-
-        const waitlistInputs = document.querySelectorAll('.pdp__waitlist input[type="email"]');
-        waitlistInputs.forEach(waitlistInput => waitlistInput.addEventListener('keyup', function(event) {
-            if (event.defaultPrevented) return;
-
-            if((typeof event.key != 'undefined' && event.key === "Enter") || event.keyCode === 13) {
-                event.preventDefault();
-                event.stopPropagation();
-                const waitlistCont = this.closest('.pdp__waitlist');
-                triggerWaitlist(waitlistCont);
-            }
-        }));
+        bindWaitlist(pdpGrid);
     }
 });
 
@@ -288,6 +371,7 @@ function setupGalleryMediaLimit(newMedia) {
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
     const pdpThumbs = pdpGrid.querySelector('.pdp__gallery-thumbs, .qv__gallery-thumbs');
+    const pdpGalleryInfo = pdpGrid.querySelector('.pdp__video-info');
 
     let pdpSlides = pdpGallery;
     let pdpThumbSlides = pdpThumbs;
@@ -316,6 +400,14 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
     } else {
         newMedia = pdpGallery.querySelectorAll(`.pdp__media[data-id=""],.pdp__media[data-id="${option.value}"]`);
         newMediaThumbs = pdpThumbs.querySelectorAll(`.pdp__media-thumb[data-id=""],.pdp__media-thumb[data-id="${option.value}"]`);
+    }
+
+    if(pdpGalleryInfo) {
+        if(option.hasAttribute('data-video-info')) {
+            const videoInfo = option.getAttribute('data-video-info');
+            if(videoInfo) pdpGalleryInfo.innerHTML = videoInfo;
+            else pdpGalleryInfo.innerHTML = '';
+        } else pdpGalleryInfo.innerHTML = '';
     }
 
     if(newMedia.length > 0) {
@@ -359,15 +451,15 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         }
         
+        pdpGallery.scrollLeft = 0;
         
         let activeMedia = pdpGallery.querySelectorAll('.pdp__media--active');
-        if(isQuickView) {
-            activeMedia[0].classList.add('pdp__media--wide');
-        } else {
+        activeMedia[0].classList.add('pdp__media--wide');
+        if(!isQuickView) {
             let mediaLimit = setupGalleryMediaLimit(newMedia);
-            if(mediaLimit && mediaLimit > 0 && mediaLimit % 2 === 0) {
+            if(mediaLimit && mediaLimit > 0) {
                 for(let i = 0; i < activeMedia.length; i++) {
-                    if(i == mediaLimit - 1 || i == 0) activeMedia[i].classList.add('pdp__media--wide');
+                    if(mediaLimit % 2 === 0 && i == mediaLimit - 1) activeMedia[i].classList.add('pdp__media--wide');
                     else if(i >= mediaLimit) activeMedia[i].classList.add('pdp__media--extra');
                 }
             }
@@ -378,6 +470,9 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         let mediaVarVideo = false;
         let mediaProdVideo = false;
         let pdpVideoCurrentOrder = 0;
+
+        const selected = pdpThumbs.querySelector('.slide--selected');
+        if(selected) selected.classList.remove('slide--selected');
 
         for(let i = 0; i < newMediaThumbs.length; i++) {
             let newMed = newMediaThumbs[i];
@@ -395,6 +490,10 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
             newMed.classList.add('pdp__media--active', 'slide');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         }
+
+        pdpThumbs.scrollLeft = 0;
+        const firstActive = pdpThumbs.querySelector('.pdp__media--active');
+        if(firstActive) firstActive.classList.add('slide--selected');
 
         if(mediaVarVideo !== false) {
             mediaVarVideo.classList.add('pdp__media--active', 'slide');
@@ -425,66 +524,6 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         // }
 
         checkSlider(pdpThumbs.querySelector('.slider'));
-    }
-}
-
-function initKlaviyo() {
-    let klaviyo = window.klaviyo || false;
-    if(klaviyo !== false) {
-        klaviyoLoaded = true;
-        klaviyo.logging(false);
-        
-        if(document.querySelector('.pdp__grid')) {
-            klaviyo.init({
-                account: "M38Kem",
-                list: 'JuPuvw',
-                logging: false,
-                platform: "shopify"
-            });
-    
-            klaviyo.enable("backinstock");
-        }
-        else {
-            klaviyo.init({
-                account: "M38Kem",
-                platform: "shopify",
-                list: 'JuPuvw',
-                logging: false,
-                collection_urls: ["/", "/collections/"]
-            });
-    
-            klaviyo.enable("backinstock", {
-                trigger: {
-                    collection_page_class: 'button',    
-                    collection_page_text_align: 'center',    
-                    collection_page_width: '200px',    
-                    collection_page_text: 'Notify Me When Available',    
-                    collection_page_padding: 'inherit'
-                    // replace_anchor: false,
-                    // replace_sold_out: true
-                },
-                modal: {
-                    newsletter_subscribe_label: "Add me to the mailing list!",
-                    headline: "Join the waitlist",
-                    body_content: "",
-                    email_field_label: "Your Email Address",
-                    button_label: "SUBMIT",
-                    subscription_success_label: "You've been added!",
-                    footer_content: '',
-                    additional_styles: "@import url(https://use.typekit.net/hxi1sdz.css);body.fadein{background:rgba(0, 0, 0, 0.4)}.modal-title{color:#000;margin-bottom:3px}.klv__product-info{display:flex;gap:18px;align-items:center;}.klv__image{padding-top:135%;position:relative}.klv__image-wrapper{flex:0 0 100px}.klv__image img{width:100%;height:100%;position:absolute;top:0;left:0;object-fit:cover}.klv__info{flex:1}.klv__title{font-size:16px;margin-bottom:4px;font-weight:bold}.klv__product{font-size:13px;margin-bottom:7px}.klv__variant{font-size:13px;font-style:italic;color:#636363}#email{border:1px solid #000}#variants{display:none}.submit-container{margin-top:10px}#container{margin:0;border-radius:0px;padding:20px 30px}p:empty{display:none}#klaviyo-bis-modal{max-width:90vw;position:absolute;width:400px;top:50%;left:50%;transform:translate(-50%,-50%);width:}#completed_message{font-size:14px;padding:0;margin:0}",
-                    drop_background_color: "#000",
-                    background_color: "#ffffff",
-                    text_color: "#000",
-                    button_text_color: "#fff",
-                    button_background_color: "#000",
-                    close_button_color: "#000",
-                    error_background_color: "#ffffff",
-                    error_text_color: "#C72E2F",
-                    success_background_color: "#ffffff",
-                    success_text_color: "#1B9500"
-                }
-            });
-        }
     }
 }
 

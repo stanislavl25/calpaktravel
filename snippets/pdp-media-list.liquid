@@ -64,12 +64,16 @@
             -%}
             <div data-id="{{ variant.id }}" class="pdp__media{% if thumbnails == true %}-thumb{% endif %}{% if isVideo %} pdp__media--var-video{% endif %}{% if forloop.first %} pdp__media--wide{% endif %}{% if variant.id == current_variant.id %} pdp__media--active slide{% endif %}">
                 {{ mediaContent }}
+
+                {%- if product.metafields.model.model_height != blank and isVideo -%}
+                    <div class="pdp__video-info">Model Height: {{- product.metafields.model.model_height -}}</div>
+                {%- endif -%}
             </div>
         {% endfor %}
     {% endfor %}
 
     {%- if product.metafields.product.video != blank -%}
-        {% render 'pdp-product-video', thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
+        {% render 'pdp-product-video', thumbnails: thumbnails, current_variant: current_variant, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
     {%- endif -%}
 
 {% else %}
@@ -98,9 +102,10 @@
                 else
                     assign firstChar = media.alt | slice: 0, 1
                     if firstChar == ';'
-                        assign mediaAlt = alt | first | strip
-                        assign alt = alt | last | strip
+                        assign mediaAlt = ''
+                        assign alt = media.alt | replace: ';', '' | strip
                     else
+                        assign mediaAlt = alt | first | strip
                         assign alt = ''
                     endif
                 endif
@@ -110,7 +115,7 @@
 
             if alt == product.title
                 assign alt = ''
-            else
+            elsif alt != ''
                 assign tmp = ''
                 assign alt = alt | split: ','
                 for _alt in alt
@@ -135,7 +140,9 @@
                 assign lazy = true
             endif
 
-            assign alt = alt | join: ' '
+            if alt != ''
+                assign alt = alt | join: ' '
+            endif
 
             assign isVideo = false
             capture mediaContent
@@ -158,7 +165,7 @@
             if product.metafields.product.video != blank and product.metafields.custom.product_video_position == activeCount and product.metafields.custom.product_video_position != blank
                 assign videoShown = true
                 assign activeCount = activeCount | plus: 1
-                render 'pdp-product-video', thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes
+                render 'pdp-product-video', current_variant: current_variant, thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes
             endif
 
             assign classList = 'pdp__media'
@@ -199,6 +206,6 @@
     {% endfor %}
 
     {%- if product.metafields.product.video != blank and videoShown == false -%}
-        {% render 'pdp-product-video', thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
+        {% render 'pdp-product-video', current_variant: current_variant, thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
     {%- endif -%}
 {% endif %}

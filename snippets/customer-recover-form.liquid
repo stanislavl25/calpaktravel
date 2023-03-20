@@ -1,0 +1,38 @@
+{%- form 'recover_customer_password' -%}
+    {% assign recover_success = form.posted_successfully? %}
+
+    <section class="field__list">
+        <div class="field">
+            <label for="RecoverEmail">
+                Email
+            </label>  
+            <input type="email"
+            value=""
+            class="field__input"
+            name="email"
+            id="RecoverEmail"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="RecoverEmail-email-error"
+                autofocus
+            {% endif %}
+            >
+            {%- if form.errors contains 'form' -%}
+            <div class="field__error-message">ERROR: This email doesn't exist in our database. <a href="{{ routes.account_register_url }}">Create an account</a></div>
+            {%- endif -%}
+        </div>
+
+        <div class="field field--submit">
+            <button aria-label="Log into user account" type="submit" class="button">
+                <span>Submit</span>
+            </button>
+        </div>
+
+        <div class="field field--forgot-cancel">
+            <a href="{{ routes.account_login_url }}" class="forgot-pass__cancel">Cancel</a>
+        </div>
+    </section>
+{%- endform -%}

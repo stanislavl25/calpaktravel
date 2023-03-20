@@ -5,8 +5,11 @@
     {% render 'account-nav', current: 'orders' %}
         
     <div class="account-info order-details">
-        <h1 class="order-details__title"><a href="{{ routes.account_url }}" title="Go back" aria-label="Return to Orders list"><span class="tri-left"></span></a> Order No. {{ order.order_number }}</h1>
-        <div class="order-details__meta">Order placed {{ order.created_at | date: '%m/%d/%y' }} <a href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a></div>
+        <h1 class="order-details__title">
+            <a href="{{ routes.account_url }}" title="Go back" aria-label="Return to Orders list"><span class="tri-left"></span></a> Order No. {{ order.order_number }}
+            <span class="hide-large">{{ order.total_price | money_without_trailing_zeros }}</span>
+        </h1>
+        <div class="order-details__meta">Order placed {{ order.created_at | date: '%m/%d/%y' }} <a href="https://www.calpaktravel.com/pages/tracking?search={{ order.order_number }}">Check Status</a></div>
         <div class="order-details__info">
             <div class="order-details__shipping">
                 <h2>Shipping Address</h2>
@@ -31,7 +34,7 @@
                 {{ order.billing_address.phone }}
             </div>
             <div class="order-details__money">
-                <h2>Order Total {{ order.total_price | money_without_trailing_zeros }}</h2>
+                <h2>Order Total <span>{{ order.total_price | money_without_trailing_zeros }}</span></h2>
                 <div class="order-details__money-cell"><span>Savings</span> <span>{{ order.total_discounts | money_without_trailing_zeros }}</span></div>
                 <div  class="order-details__money-cell"><span>Shipping</span> <span>{% if order.shipping_price == 0 %}Free{% else %}{{ order.shipping_price | money_without_trailing_zeros }}{% endif %}</span></div>
                 <div  class="order-details__money-cell"><span>Taxes</span> <span>{{ order.tax_price | money_without_trailing_zeros }}</span></div>

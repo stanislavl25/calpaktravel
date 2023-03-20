@@ -17,3 +17,12 @@
 .site-header__dropdown--active .subnav__activator::after {
     transform: translateY(-9px) rotate(180deg);
 }
+
+.site-header__subnav a {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.site-header__subnav a:hover {
+    transform: translateY(-3px);
+}

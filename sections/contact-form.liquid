@@ -3,7 +3,9 @@
 <link rel="stylesheet" href="{{ 'component-form.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-form.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="section__contact-form">
+<script type="text/javascript" src="{{ 'contact-form.js' | asset_url  }}" defer="defer"></script>
+
+<div class="section__contact-form" data-id="{{ section.id }}">
     <aside class="contact-form__text">
         <div class="contact-form__title">{{ section.settings.title | escape }}</div>
         {% if section.settings.description != blank %}
@@ -11,8 +13,11 @@
         {% endif %}
     </aside>
 
-    {% form 'customer', class: 'newsletter-form' %}
+    {% form 'customer', class: 'newsletter-form klaviyo_subscription_form', action: '//manage.kmail-lists.com/subscriptions/subscribe', method: 'POST' %}
+        <input type="hidden" name="g" value="{{ section.settings.klaviyo-list }}">
         <input type="hidden" name="contact[tags]" value="newsletter">
+        
+        <div class="success_message"></div>
         
         {% if section.settings.text-above != blank %}
         <div class="form__label-line">
@@ -20,10 +25,12 @@
         </div>
         {% endif %}
 
+
         <div class="form__field-line">
             <input
                 type="email"
-                name="contact[email]"
+                name="email"
+                required="required"
                 placeholder="Email"
                 class="field__input"
                 value="{{ form.email }}"
@@ -37,14 +44,13 @@
                     aria-describedby="Newsletter-error--{{ section.id }}"
                 {% elsif form.posted_successfully? %}
                     aria-describedby="Newsletter-success--{{ section.id }}"
-                {% endif %}
-                required>
+                {% endif %}>
             
             {%- if section.settings.show-phone -%}
                 <input
                     type="tel"
                     placeholder="Phone (optional)"
-                    name="contact[phone]"
+                    name="phone"
                     class="field__input"
                     value="{{ form.phone }}"
                     aria-required="false"
@@ -61,7 +67,7 @@
             {%- endif -%}
 
 
-            <button aria-label="Submit form" type="submit" class="button" name="commit">
+            <button aria-label="Submit form" type="submit" class="button klaviyo_submit_button" name="commit">
                 <span>{{- section.settings.button-text | escape -}}</span>
             </button>
         </div>
@@ -72,10 +78,6 @@
 
         {%- if form.errors -%}
             <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
-        {%- endif -%}
-
-        {%- if form.posted_successfully? -%}
-            <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--{{ section.id }}" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
         {%- endif -%}
     {% endform %}
 </div>
@@ -104,6 +106,11 @@
                 "type": "richtext",
                 "id": "disclaimer",
                 "label": "Disclaimer"
+            },
+            {
+                "type": "text",
+                "id": "klaviyo-list",
+                "label": "Klaviyo List ID"
             },
             {
                 "type": "checkbox",

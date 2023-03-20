@@ -1,0 +1,83 @@
+{%- if section.settings.preload -%}
+    {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag: preload: true }}
+{%- else -%}
+    {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+<section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
+    {%- if section.settings.title-above != blank -%}
+        <h2 class="promotion-banner__title">{{- section.settings.title-above | escape -}}</h2>
+    {%- endif -%}
+    <div class="promotion-banner__content">
+        {{- section.settings.main-text -}}
+    </div>
+</section>
+
+<style>
+    .promotion-banner__section[data-id="{{ section.id }}"] {
+        --background: {{ section.settings.background }};
+        --color: {{ section.settings.text-color }};
+        --bold-bg: {{ section.settings.bold-text-background }};
+    }
+</style>
+
+{% schema %}
+    {
+        "name": "Promotional Banner",
+        "class": "shopify-section--promotion-banner",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "preload",
+                "label": "Preload section styles",
+                "default": true,
+                "info": "Enable when the section is visible on page load (above the fold) for better performance"
+            },
+            {
+                "type": "color",
+                "id": "background",
+                "label": "Background color",
+                "default": "#f7f177"
+            },
+            {
+                "type": "color",
+                "id": "text-color",
+                "label": "Text color",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "bold-text-background",
+                "label": "Bold text background",
+                "default": "#fff"
+            },
+            {
+                "type": "text",
+                "id": "title-above",
+                "label": "Upper title"
+            },
+            {
+                "type": "richtext",
+                "id": "main-text",
+                "label": "Main text"
+            },
+            {
+                "type": "checkbox",
+                "id": "hide",
+                "label": "Hide by default",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "section-id",
+                "label": "Section ID",
+                "info": "Used to target this section with Google Optimize. Use a unique identifier"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Promotional Banner"
+            }
+        ]
+    }
+{% endschema %}

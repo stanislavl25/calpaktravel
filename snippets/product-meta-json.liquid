@@ -1,0 +1,19 @@
+{%- assign product = product-meta-json -%}
+{
+    "preorder": {{ product.metafields.custom.preorder | json }},
+    "videoInfo": {% if product.metafields.model.model_height != blank %}{{ "Model Height:" | append: product.metafields.model.model_height | json }}{% else %}{{ product.metafields.video.height | json }}{% endif %},
+    "variants": {
+        {%- for variant in product.variants -%}
+        {%- unless forloop.first -%},{%- endunless -%}
+        "{{ variant.id }}": {
+            "preorder": {{ variant.metafields.custom.preorder | json }},
+            "videoInfo": {{ variant.metafields.video.height | json }},
+            "hover": {%- if variant.metafields.custom.hover_image != blank -%}
+                {{ variant.metafields.custom.hover_image | image_url: width: nil | json }}
+                {%- else -%}
+                false
+                {%- endif -%}
+        }
+        {%- endfor -%}
+    }
+}

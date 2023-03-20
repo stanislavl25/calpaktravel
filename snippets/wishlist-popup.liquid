@@ -1,0 +1,28 @@
+<div class="wishlist__popup">
+    <div class="wishlist__popup-title">
+        {% render 'icon-heart' %}
+        Wishlist <span>(<span class="wishlist-count"></span>)</span>
+    </div>
+    <div class="wishlist__popup-content">
+        <div class="wishlist__popup-image loading-animation loading-animation--alt">
+            <div class="wishlist__popup-image-cont"></div>
+        </div>
+        <div class="wishlist__popup-info">
+            <div class="wishlist__popup-saved">
+                Item saved!
+            </div>
+            <div class="wishlist__popup-removed">
+                Removed
+            </div>
+            {%- if customer != blank -%}
+            <div class="wishlist__popup-cta-log">
+                <a href="{{ routes.account_url }}?view=wishlist">View your wishlist</a>
+            </div>
+            {%- else -%}
+            <div class="wishlist__popup-cta-nlog">
+                <em><a href="{{ routes.account_login_url }}">Sign in</a> or <a href="{{ routes.account_register_url }}">register</a></em> to save your wishlist items.
+            </div>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

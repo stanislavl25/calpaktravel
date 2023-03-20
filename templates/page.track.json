@@ -1,0 +1,196 @@
+{
+  "sections": {
+    "1678915348fb1b258c": {
+      "type": "apps",
+      "blocks": {
+        "87e06f3e-6771-4bd6-b068-d22989c0b666": {
+          "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "87e06f3e-6771-4bd6-b068-d22989c0b666"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "wonderment-faq",
+      "disabled": true,
+      "blocks": {
+        "faq-getting-started": {
+          "type": "section_heading",
+          "settings": {
+            "title": "Getting started"
+          }
+        },
+        "product-where-made-question": {
+          "type": "question",
+          "settings": {
+            "title": "Where are your products manufactured?",
+            "text": "<p>We are a local company and all merchandise is made with love here in Toronto, Canada.<\/p>"
+          }
+        },
+        "sizes-question": {
+          "type": "question",
+          "settings": {
+            "title": "How do your sizes work?",
+            "text": "<p>Please take a look at our size chart for more information and how to take accurate measurements.<\/p>"
+          }
+        },
+        "shipping-heading": {
+          "type": "section_heading",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        "when-shipping-question": {
+          "type": "question",
+          "settings": {
+            "title": "When will my order ship?",
+            "text": "<p>Usually in 1-2 business days<\/p>"
+          }
+        },
+        "when-arriving-question": {
+          "type": "question",
+          "settings": {
+            "title": "When will my order arrive?",
+            "text": "<p>Usually in 3-10 business days<\/p>"
+          }
+        },
+        "ship-international-question": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship internationally?",
+            "text": "<p>Currently we are only shipping to USA and Canada.<\/p>"
+          }
+        },
+        "shipping-cost-question": {
+          "type": "question",
+          "settings": {
+            "title": "How much is shipping?",
+            "text": "<p>If you spend over $100, shipping is always free. For any other purchases, shipping will be calculated at checkout.<\/p>"
+          }
+        },
+        "return-policy-question": {
+          "type": "question",
+          "settings": {
+            "title": "What is your return policy?",
+            "text": "<p>Merchandise that is unworn and in the original packaging can be returned within 30 days with the packing slip included with the product.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-getting-started",
+        "product-where-made-question",
+        "sizes-question",
+        "shipping-heading",
+        "when-shipping-question",
+        "when-arriving-question",
+        "ship-international-question",
+        "shipping-cost-question",
+        "return-policy-question"
+      ],
+      "settings": {
+        "show_answers": false,
+        "text_size": 100,
+        "alignment": "center",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(184deg, rgba(255, 255, 255, 1) 7%, rgbargba(255, 255, 255, 1) 94%)",
+        "border_color": "#121212",
+        "base_width": 80,
+        "max_width": "",
+        "inner_padding": 100,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "products": {
+      "type": "wonderment-featured-collection",
+      "disabled": true,
+      "settings": {
+        "per_row": 3,
+        "show_arrows": true,
+        "show_product_title": true,
+        "show_product_price": true,
+        "show_product_label": true,
+        "text_size": 100,
+        "heading_color": "#121212",
+        "text_color": "#121212",
+        "background_color": "linear-gradient(360deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 100%)",
+        "base_width": 95,
+        "max_width": "",
+        "inner_padding": 40,
+        "outer_margin": 0,
+        "custom_css": "",
+        "mobile_custom_css": "",
+        "override_theme_font": false,
+        "heading_font": "serif",
+        "main_font": "sans-serif"
+      }
+    },
+    "rebuy": {
+      "type": "wonderment-rebuy",
+      "disabled": true,
+      "settings": {
+        "rebuy-widget-id": ""
+      }
+    },
+    "fairing": {
+      "type": "wonderment-fairing",
+      "disabled": true,
+      "settings": {
+        "fairing-key": "",
+        "fairing-padding": 25
+      }
+    },
+    "e1a88b84-9af4-4c4e-b72b-41478cc6a177": {
+      "type": "featured-collections",
+      "blocks": {
+        "5d2f1ae5-040f-4c2a-ae72-b49c5d85ec74": {
+          "type": "collection",
+          "settings": {
+            "collection": "organizers",
+            "title": "",
+            "hide-form-labels": false
+          }
+        },
+        "6e15438e-5336-41ed-8d78-d70250f7834d": {
+          "type": "collection",
+          "settings": {
+            "collection": "bags",
+            "title": "",
+            "hide-form-labels": false
+          }
+        },
+        "5055a2b7-9ea9-406b-bf57-a473e8604d1e": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": "",
+            "hide-form-labels": false
+          }
+        }
+      },
+      "block_order": [
+        "5d2f1ae5-040f-4c2a-ae72-b49c5d85ec74",
+        "6e15438e-5336-41ed-8d78-d70250f7834d",
+        "5055a2b7-9ea9-406b-bf57-a473e8604d1e"
+      ],
+      "settings": {
+        "quick-view": false
+      }
+    }
+  },
+  "order": [
+    "1678915348fb1b258c",
+    "faq",
+    "products",
+    "rebuy",
+    "fairing",
+    "e1a88b84-9af4-4c4e-b72b-41478cc6a177"
+  ]
+}

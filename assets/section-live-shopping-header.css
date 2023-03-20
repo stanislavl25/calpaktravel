@@ -28,3 +28,23 @@
     display: flex;
     gap: var(--gap);
 }
+
+.html__section [data-bambuser-liveshopping-widget]:empty {
+    min-height: 300px;
+    position: relative;
+}
+
+.html__section [data-bambuser-liveshopping-widget]:empty::after {
+    content: '';
+    width: 46px;
+    height: 46px;
+    border: 3px dashed var(--gray);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -23px 0 0 -23px;
+    animation: rotate 1.6s infinite linear;
+    z-index: 2;
+    pointer-events: none;
+}

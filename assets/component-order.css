@@ -11,6 +11,10 @@
     gap: 10px;
 }
 
+.order-details__title span {
+    margin-left: auto;
+}
+
 .order-details__title a {
     height: 30px;
     display: flex;
@@ -41,6 +45,11 @@
     color: var(--gray);
     padding: var(--gap);
     line-height: 1.7em;
+}
+
+.order-details__money h2 {
+    display: flex;
+    justify-content: space-between;
 }
 
 .order-details__money h2,
@@ -178,6 +187,8 @@
     .order-details__shipping, .order-details__billing, .order-details__money {
         line-height: 1.4em;
         padding: 15px 0;
+        min-width: 0;
+        word-wrap: break-word;
     }
 
     .order-details__items-list {

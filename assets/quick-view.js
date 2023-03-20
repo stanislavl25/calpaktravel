@@ -1,3 +1,7 @@
+"use strict";
+
+if(window.debug) console.log('quick-view.js loaded');
+
 function getQuickViewProduct(link, variant) {
     return new Promise((resolve) => {
         fetch(link + '?view=quick-view')
@@ -22,6 +26,14 @@ function setQuickViewContent(data, variant, qvParent) {
 
     setProductData(product, meta, target, variant);
 
+    if(isset(fbq)) fbq('track', 'ViewContent', {
+        content_name: product.title,
+        content_ids: [product.id],
+        content_type: 'product',
+        value: product.price / 100,
+        currency: 'USD'
+    });
+
     const productForm = qvParent.querySelector('.shopify-product-form');
     if(productForm) productForm.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -39,9 +51,21 @@ function setQuickViewContent(data, variant, qvParent) {
 
     variantUpdateProcess(target);
 
+    bindWaitlist(qvParent);
+
     setTimeout(() => {
-        checkSlider(gallerySlider);
-        checkSlider(galleryThumbsSldier);
+        checkSlider(galleryThumbsSldier, 1);
+        checkSlider(gallerySlider, 1, index => {
+            if(index == 0) return 0;
+            return index - 1;
+        });
+
+        galleryThumbsSldier.addEventListener('click', (e) => {
+            if(e.target.classList.contains('slide')) sliderThumbClick(e.target, index => {
+                if(index == 0) return 0;
+                return index + 1;
+            }, 1);
+        });
     }, 1);
 }
 

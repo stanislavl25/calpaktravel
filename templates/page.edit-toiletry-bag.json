@@ -83,7 +83,7 @@
         "999f1999-abe3-4175-b42f-0de5ff5d695e": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/medium-cosmetics-case.png"
+            "image": "shopify:\/\/shop_images\/image_174.png"
           }
         },
         "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
@@ -218,7 +218,7 @@
         "57a739d0-8ea3-448d-84c1-c3a10b726b11": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "medium-clear-cosmetics-case"
           }
         },
         "a99ac4bc-a910-4e90-8795-42a5ed9a9f73": {
@@ -360,6 +360,7 @@
     },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
+      "disabled": true,
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",

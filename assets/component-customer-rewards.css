@@ -66,6 +66,10 @@
     height: 100%;
 }
 
+.swell-referral-form-body .field label {
+    font-size: 18px;
+}
+
 .swell-referral:empty {
     position: relative;
     height: 200px;
@@ -97,6 +101,7 @@
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .swell-referral-media-list li > div {
@@ -148,7 +153,7 @@
 
 .swell__info h3 {
     font-size: 1em;
-    font-weight: var(--font-body-weight-bold);
+    font-weight: var(--font-body-weight-black);
     margin: 0;
     letter-spacing: 0;
     line-height: 1.5em;
@@ -218,6 +223,11 @@
   }
 
 @media (max-width: 900px) {
+
+    .swell-referral-form-body .field label {
+        font-size: 16px;
+    }
+
     .swell__title {
         font-size: 24px;
         margin-bottom: 20px;

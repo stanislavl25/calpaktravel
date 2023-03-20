@@ -4,8 +4,9 @@
 }
 
 .pdp-features {
-    display: flex;
     gap: var(--gap);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .pdp-features__info {
@@ -13,7 +14,6 @@
     border-radius: 9px;
     overflow: hidden;
     padding: 30px;
-    flex: 1;
 }
 
 .pdp-features__title {
@@ -21,28 +21,6 @@
     line-height: 1.2em;
     letter-spacing: -0.02em;
     margin-bottom: 30px;
-}
-
-.pdp-features__media {
-    border-radius: 9px;
-    overflow: hidden;
-    flex: 1;
-    background: #f7f7f7;
-    position: relative;
-}
-
-.pdp-features__media::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -23px 0 0 -23px;
-    width: 46px;
-    height: 46px;
-    border: 3px dashed var(--gray);
-    border-radius: 50%;
-    z-index: 1;
-    animation: rotate 1.6s infinite linear;
 }
 
 .pdp-features__list {
@@ -72,6 +50,7 @@
     letter-spacing: -0.02em;
     background: transparent;
     padding: 5px 8px;
+    text-align: left;
 }
 
 .pdp-feature__title:hover {
@@ -90,6 +69,23 @@
     position: relative;
     z-index: 2;
     color: transparent;
+    border-radius: 9px;
+    overflow: hidden;
+    background: #f7f7f7;
+}
+
+.pdp-feature__media::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -23px 0 0 -23px;
+    width: 46px;
+    height: 46px;
+    border: 3px dashed var(--gray);
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotate 1.6s infinite linear;
 }
 
 .pdp-feature__media .ratio-container {
@@ -114,6 +110,7 @@
 @media (max-width: 900px) {
     .pdp-features {
         flex-direction: column;
+        display: flex;
     }
 
     .pdp-features__title {
@@ -122,10 +119,51 @@
     }
 
     .pdp-feature__title {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .pdp-features__list {
+        display: contents;
     }
 
     .pdp-features__info {
         padding: 14px;
+        display: contents;
+    }
+
+    .pdp-features__media {
+        display: contents;
+    }
+
+    .pdp-features {
+        background: #e4dfd5;
+        padding: var(--gap);
+        border-radius: 9px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .shopify-section--product-features {
+        margin: var(--section-gap) 0;
+    }
+
+    .pdp-feature__media:nth-child(1) {
+        order: 1
+    }
+
+    .pdp-feature__media:nth-child(2) {
+        order: 2
+    }
+
+    .pdp-feature__media:nth-child(3) {
+        order: 3
+    }
+
+    .pdp-feature__media:nth-child(4) {
+        order: 4
+    }
+
+    .pdp-feature__media:nth-child(5) {
+        order: 5
     }
 }

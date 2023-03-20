@@ -2,7 +2,11 @@
     padding: 0 21px;
     margin: 50px -21px 0;
 }
-  
+
+.pdp__upsell .product-unit:not(.product-unit--loaded) .product-unit__image img {
+    display: none;
+}
+
 .pdp__upsell-title {
     margin-bottom: 5px;
 }
@@ -11,7 +15,7 @@
     flex: 0 0 50%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
     .pdp__upsell {
         padding: 0;
         margin: 40px 0 0;

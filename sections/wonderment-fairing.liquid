@@ -1,0 +1,101 @@
+
+<script type="text/javascript">
+  function waitForElm(selector) {
+  return new Promise((resolve) => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+    const observer = new MutationObserver((mutations) => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector));
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}
+waitForElm(".fairing__action--submit").then(() => {
+  document
+    .getElementsByClassName("fairing__action--submit")[0]
+    .classList.add("button");
+});
+  document.addEventListener('wonderment:shipments_loaded', function(event) {
+  let target = document.getElementsByClassName('wndr-fairing-container')
+  if(!target) return
+  let container = document.createElement('div');
+  container.className = 'os-order-number';
+  container.innerHTML = `Order ${event.shipments[0].order.name}`;
+    container.style = 'opacity: 0; height:0;'
+  target?.[0]?.appendChild(container);
+  let orderNameContainer = document.createElement('div');
+  orderNameContainer.dataset.postPurchaseSurvey = ''
+  target?.[0]?.appendChild?.(orderNameContainer);
+  
+  var tag = document.createElement("script");
+  tag.src = "https://app.fairing.co/shopify/survey-script.js?k={{section.settings.fairing-key}}";
+  document.getElementsByTagName("head")[0].appendChild(tag);
+  })
+</script>
+<div class="wndr-fairing-container" ></div>
+<style>
+  
+.content-box {
+      max-width: fit-content;
+      margin: 0px auto;
+      padding: {{section.settings.fairing-padding}}px 0px;
+    }
+</style>
+<script src="https://app.fairing.co/shopify/survey-script.js?k={{section.settings.fairing-key}}"></script>
+<div class="wndr-fairing-container"></div>
+{% schema %}
+{
+  "name": "📦 Wondersection Fairing",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Fairing Question Stream"
+    },
+    {
+      "type": "paragraph",
+      "content": "Get more actionable insights in a week than most survey tools produce in a year."
+    },
+    {
+      "type": "paragraph",
+      "content": "Use our zero-party data platform to make decisions 10x faster, and build your own competitive advantage."
+    },
+    {
+      "type": "paragraph",
+      "content": "[Learn more about Fairing](https://www.fairing.co)."
+    },
+    {
+      "type": "text",
+      "id": "fairing-key",
+      "label": "Fairing API Key",
+      "info": "Add your Publishable Key under API Credentials found in your [Fairing account](https://app.fairing.co/shopify/account)."
+    },
+	{
+      "type": "range",
+      "id": "fairing-padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Top and Bottom Padding",
+      "default": 25
+	}
+  ],
+"presets": [
+    {
+      "name": "📦 Wondersection Fairing"
+    }
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+{% javascript %}
+{% endjavascript %}

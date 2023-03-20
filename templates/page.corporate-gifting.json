@@ -23,47 +23,47 @@
         "9faa2312-b9ad-419d-a505-92b5d6c6356a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "image": "shopify:\/\/shop_images\/elf-cosmetics-logo.png"
           }
         },
         "de317cec-146a-4675-9114-0ac72f8788fc": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
-          }
-        },
-        "8b38d6d5-7675-4888-b5bc-aead76091c72": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
-          }
-        },
-        "85927d4b-0dfe-4b75-a021-ec11fea67bba": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
-          }
-        },
-        "e45d4444-9b89-40e9-bdf1-f7238b7bb899": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "image": "shopify:\/\/shop_images\/Kroger-logo.png"
           }
         },
         "65649ad0-aea8-4f70-a7ad-ca7474cd021d": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "image": "shopify:\/\/shop_images\/urban-decay-logo.png"
+          }
+        },
+        "e45d4444-9b89-40e9-bdf1-f7238b7bb899": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/University_College_Vert_black.png"
+          }
+        },
+        "85927d4b-0dfe-4b75-a021-ec11fea67bba": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/wander-beauty-logo_d127ca04-a5e1-4604-a49b-f141b0e6a9be.png"
+          }
+        },
+        "8b38d6d5-7675-4888-b5bc-aead76091c72": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/spanx-logo_12daffc1-f456-4473-89dc-ddf44f05ef6d.png"
           }
         }
       },
       "block_order": [
         "9faa2312-b9ad-419d-a505-92b5d6c6356a",
         "de317cec-146a-4675-9114-0ac72f8788fc",
-        "8b38d6d5-7675-4888-b5bc-aead76091c72",
-        "85927d4b-0dfe-4b75-a021-ec11fea67bba",
+        "65649ad0-aea8-4f70-a7ad-ca7474cd021d",
         "e45d4444-9b89-40e9-bdf1-f7238b7bb899",
-        "65649ad0-aea8-4f70-a7ad-ca7474cd021d"
+        "85927d4b-0dfe-4b75-a021-ec11fea67bba",
+        "8b38d6d5-7675-4888-b5bc-aead76091c72"
       ],
       "settings": {
         "title": "These companies are loving gifting with CALPAK",
@@ -84,28 +84,28 @@
           "type": "slide",
           "settings": {
             "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
-            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "nav-icon": "shopify:\/\/shop_images\/esquire_6795f7e5-3a54-4a77-9b3e-634d8032817c.png"
           }
         },
         "6e7305b7-94eb-48fb-9233-20ed0360c340": {
           "type": "slide",
           "settings": {
-            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
-            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "text": "<p>\"Aesthetic prints, unique colorways, and sleek designs aside, Calpak luggage delivers both function and durability.\"<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/9ad1e66b-2290-4fec-8b2c-4c7dfb32af16_31fcab29-bfb7-4e70-b4e0-ca1c34ff052e.png"
           }
         },
         "30bf3e08-2462-42ec-88bc-bcd6c1f68733": {
           "type": "slide",
           "settings": {
-            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
-            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "text": "<p>\"We’re fans of the sleek and functional Calpak Hue Mini Carry-on bag. It’s spacious enough to fit several days’ worth of clothing items and it fits under an airplane seat with ease.\"<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/travel-leisure-logo-1517518364008_b87134bd-1dce-4411-acf7-39e93755210f.png"
           }
         },
         "4a51c939-3d5e-456c-8607-8ae01b2521c0": {
           "type": "slide",
           "settings": {
-            "text": "<p>\"Calpak does an easy-rolling carry-on particularly well. There's minimal detailing, so it looks clean. It might be a hardshell, but this case is surprisingly lightweight…”<\/p>",
-            "nav-icon": "shopify:\/\/shop_images\/squarespace-logo-horizontal-white.jpg"
+            "text": "<p>\"Cue the CALPAK Luka duffel: the best weekender bag I've ever traveled with.\"<\/p>",
+            "nav-icon": "shopify:\/\/shop_images\/entrepreneur_f40f1875-0ad1-4ab3-b9d1-19021a5d0802.png"
           }
         }
       },

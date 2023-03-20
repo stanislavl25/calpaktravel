@@ -11,7 +11,7 @@
     assign product_type = product.type | downcase
 
     if featured_collection != false and product_type contains 'luggage'
-        assign types = 'Mini Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Carry-On,Medium Luggage,Large Luggage,Trunk Luggage,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
+        assign types = 'Mini Carry-On,Front Pocket Carry-On,Carry-On,Medium Luggage,Large Luggage,Trunk Luggage,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
 
         for type in types
             if product.title contains type
@@ -22,7 +22,7 @@
     endif
 -%}
 {%- capture html -%}
-    <div data-video-order="" class="qv__gallery{% if current_variant.metafields.custom.featured_images == blank %} pdp__gallery--old{% endif %} slider__wrapper slider__wrapper--buttons-side">
+    <div data-video-order="{{ product.metafields.custom.product_video_position }}" class="qv__gallery{% if current_variant.metafields.custom.featured_images == blank %} pdp__gallery--old{% endif %} slider__wrapper slider__wrapper--buttons-side">
         {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
 
         <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
@@ -34,25 +34,13 @@
     <div class="qv__gallery-thumbs slider__wrapper" data-slide="3" data-gap="18">
         <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
         <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
-        <div data-nav-for=".qv__gallery-inner" class="qv__gallery-thumbs-inner slider slider-nav">
+        <div data-nav-for=".qv__gallery-inner" class="qv__gallery-thumbs-inner slider qv__slider-nav">
             {%- render 'pdp-media-list', current_variant: current_variant, item_class: 'slide', thumbnails: true -%}
         </div>
     </div>
 
     {% form 'product', product, class: "qv__product shopify-product-form", data-handle: product.handle, data-id: product.id %}
-        <script type="text/json" class="qv-meta-json">
-            {
-                "preorder": {{ product.metafields.custom.preorder | json }},
-                "variants": {
-                    {%- for variant in product.variants -%}
-                    {%- unless forloop.first -%},{%- endunless -%}
-                    "{{ variant.id }}": {
-                        "preorder": {{ variant.metafields.custom.preorder | json }}
-                    }
-                    {%- endfor -%}
-                }
-            }
-        </script>
+        <script type="text/json" class="qv-meta-json">{% render 'product-meta-json' with product %}</script>
         <section class="pdp__header">
             <h1 class="pdp__title"><a class="product-link" href="{{- product.url -}}">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a></h1>
 

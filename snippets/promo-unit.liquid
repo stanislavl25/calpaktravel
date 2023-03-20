@@ -26,6 +26,19 @@
             assign show = false
         endif
     endif
+
+    if block.settings.show-for-collections != blank and show == true
+        assign found = false
+        for col in block.settings.show-for-collections
+            if col == collection
+                assign found = true
+                break
+            endif
+        endfor
+        unless found
+            assign show = false
+        endunless
+    endif
 -%}
 {%- if show -%}
 <div class="promo-unit" style="--row: {{ block.settings.row }}; --row-mob: {{ block.settings.row-mob }}; --column: {{ block.settings.column }};">

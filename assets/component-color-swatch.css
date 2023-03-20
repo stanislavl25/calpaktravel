@@ -1,7 +1,6 @@
 .product-unit__swatches {
     display: flex;
-    gap: 9px;
-    max-width: calc(20px * var(--product-unit-sw-limit) + (var(--product-unit-sw-limit) - 1) * 9px);
+    max-width: calc(28px * var(--product-unit-sw-limit));
     overflow: hidden;
     z-index: 2;
 }
@@ -10,15 +9,15 @@
     position: absolute;
     top: 0;
     left: 0;
-    gap: 9px;
+    gap: 3px;
 }
 
 .product-unit__swatches-container::before {
     position: absolute;
-    left: -3px;
-    top: -3px;
-    bottom: -3px;
-    right: -3px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
     border-radius: 20px;
     background: #f7f7f7;
     content: '';
@@ -27,6 +26,18 @@
     transition: opacity 0.3s;
 }
 
+.product-unit__swatches-container::after {
+    left: calc(var(--gap) * -1);
+    bottom: calc(var(--gap) * -1);
+    top: calc(var(--gap) * -1);
+    right: calc(var(--gap) * -1);
+    z-index: -1;
+    content: '';
+    position: absolute;
+}
+
+.product-unit:focus .product-unit__swatches-container::before,
+.product-unit:focus-within .product-unit__swatches-container::before,
 .product-unit:hover .product-unit__swatches-container::before {
     opacity: 1;
 }
@@ -38,13 +49,43 @@
 }
 
 .color-swatch {
-    height: 20px;
-    width: 20px;
-    flex: 0 0 20px;
-    border-radius: 50%;
-    background: #aaa;
+    height: 28px;
+    width: 28px;
+    flex: 0 0 28px;
     position: relative;
-    overflow: hidden;
+}
+
+.color-swatch {
+    --background: #eee;
+}
+
+.color-swatch::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--background);
+}
+
+.color-stone::after,
+.color-white-bandana::after,
+.color-white::after {
+    border: 1px solid #aeaeae;
+}
+
+a.color-swatch--active::after {
+    box-shadow: 0 0 0 2px inset #fff, 0 0 0 1px #000;
+}
+
+.color-swatch--active.color-stone::after,
+.color-swatch--active.color-white-bandana::after,
+.color-swatch--active.color-white::after {
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 3px #aeaeae,0 0 0 1px #000;
+    border: 0;
 }
 
 .color-swatch * {
@@ -52,21 +93,38 @@
 }
 
 .color-swatch img {
-    width: 100%;
-    height: 100%;
+    width: 20px;
+    height: 20px;
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
     object-fit: cover;
+    z-index: 1;
 }
 
-.color-swatch.product-option--na::after {
-    width: 100%;
-    left: 0;
+.color-swatch--active img {
+    border: 2px solid #fff;
+}
+
+.color-swatch.product-option--na::before {
+    width: 20px;
+    left: 50%;
     top: 50%;
-    margin-top: -1px;
     border-top: 2px solid #f7f7f7;
     content: '';
     position: absolute;
-    transform: rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 3;
+}
+
+.color-stone.product-option--na::before,
+.color-white-bandana.product-option--na::before,
+.color-white.product-option--na::before {
+    border-color: #000;
 }
 
 .extra-colors {
@@ -76,35 +134,8 @@
     margin-right: 5px;
 }
 
-a.color-swatch--active {
-    border: 1px solid #000;
-}
-
-.color-swatch--active::before {
-    width: 100%;
-    height: 100%;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 2px solid #fff;
-    border-radius: 50%;
-}
-
-.color-swatch--active.color-stone::before,
-.color-swatch--active.color-white-bandana::before,
-.color-swatch--active.color-white::before {
-    box-shadow: inset 0 0 0 1px #aeaeae;
-}
-
-.color-stone.product-option--na::after,
-.color-white-bandana.product-option--na::after,
-.color-white.product-option--na::after {
-    border-color: #000;
-}
-
 .color-wavy {
-    background: #000;
+    --background: #000;
 }
 
 .color-onyx,
@@ -116,600 +147,558 @@ a.color-swatch--active {
 .color-gunmetal-black,
 .color-obsidian,
 .color-trnk-black {
-    background: #000;
+    --background: #000;
 }
 
 .color-moss {
-    background: #4d4f3a;
+    --background: #4d4f3a;
 }
 
 .color-dune {
-    background: #ddd0c8;
+    --background: #ddd0c8;
 }
 
 .color-canyon {
-    background: #FFCFA8;
+    --background: #FFCFA8;
 }
 
 .color-glacier {
-    background: #7C98D0;
+    --background: #7C98D0;
 }
 
 .color-juniper {
-    background: #A8AD95;
+    --background: #A8AD95;
 }
 
 .color-pear {
-    background: #e8d179;
+    --background: #e8d179;
 }
 
 .color-aurora-pink {
-    background: #D9B0B8;
+    --background: #D9B0B8;
 }
 
 .color-pink,
 .color-shimmer-pink {
-    background: #D9B0B8;
+    --background: #D9B0B8;
 }
 
 .color-pink-sand {
-    background: #EDD3CE;
+    --background: #EDD3CE;
 }
 
 .color-eclipse {
-    background: #d3ad80;
+    --background: #d3ad80;
 }
 
 .color-terracotta {
-    background: #DF9384;
+    --background: #DF9384;
 }
 
 .color-red {
-    background: #BB1E25;
+    --background: #BB1E25;
 }
 
 .color-linen {
-    background: #E3DCCC;
+    --background: #E3DCCC;
 }
 
 .color-brick {
-    background: #cc3b14;
+    --background: #cc3b14;
 }
 
 .color-oatmeal {
-    background: #e3dccd;
+    --background: #e3dccd;
 }
 
 .color-orange {
-    background: #FD5D00;
+    --background: #FD5D00;
 }
 
 .color-mist {
-    background: #cddfe9;
+    --background: #cddfe9;
 }
 
 .color-arctic {
-    background: #758f9c;
+    --background: #758f9c;
 }
 
 .color-cappuccino-tie-dye {
-    background: #cabaab;
+    --background: #cabaab;
 }
 
 .color-rosewood-tie-dye {
-    background: #ccb0af;
+    --background: #ccb0af;
 }
 
 .color-rust {
-    background: #a06c55;
+    --background: #a06c55;
 }
 
 .color-maroon {
-    background: #883935;
+    --background: #883935;
 }
 
 .color-espresso {
-    background: #765E56;
+    --background: #765E56;
 }
 
 .color-forest {
-    background: #455E49;
+    --background: #455E49;
 }
 
 .color-mauve {
-    background: #b7979f;
+    --background: #b7979f;
 }
 
 .color-sedona {
-    background: #a84a31;
+    --background: #a84a31;
 }
 
 .color-rose {
-    background: #DB8496
+    --background: #DB8496
 }
 
 .color-marine {
-    background: #5D8AAC
+    --background: #5D8AAC
 }
 
 .color-pistachio {
-    background: #92A17D
+    --background: #92A17D
 }
 
 .color-winter-sky {
-    background: #9EC1E5;
+    --background: #9EC1E5;
 }
 
 .color-sage {
-    background: #89B3A1;
+    --background: #89B3A1;
 }
 
 .color-hydrangea {
-    background: #BFD3E8;
+    --background: #BFD3E8;
 }
 
 .color-rosewood {
-    background: #AC6879;
+    --background: #AC6879;
 }
 
 .color-bubblegum {
-    background: #FFB3E7;
+    --background: #FFB3E7;
 }
 
 .color-deep-sea {
-    background: #206091;
+    --background: #206091;
 }
 
 .color-sky {
-    background: #ABC1D8;
+    --background: #ABC1D8;
 }
 
 .color-bermuda {
-    background: #0e4459;
+    --background: #0e4459;
 }
 
 .color-bluebell {
-    background: #95a8b5;
+    --background: #95a8b5;
 }
 
 .color-burgundy {
-    background: #4f3031;
+    --background: #4f3031;
 }
 
 .color-sand {
-    background: #DED3CE;
+    --background: #DED3CE;
 }
 
 .color-silver-stardust {
-    background: #D4D5D5;
+    --background: #D4D5D5;
 }
 
 .color-palm-leaf {
-    background: #465768;
+    --background: #465768;
 }
 
 .color-stars {
-    background: #7b7b99;
+    --background: #7b7b99;
 }
 
 .color-terrazzo {
-    background: #878183;
+    --background: #878183;
 }
 
 .color-terracota {
-    background: #DF9384;
+    --background: #DF9384;
 }
 
 .color-caramel {
-    background: #C49A84;
+    --background: #C49A84;
 }
 
 .color-charcoal-grey,
 .color-charcoal {
-    background: #6A6C6C;
+    --background: #6A6C6C;
 }
 
 .color-confetti,
 .color-cream {
-    background: #FFFAF0;
+    --background: #FFFAF0;
 }
 
 .color-sunset {
-    background: #fb4d4f;
+    --background: #fb4d4f;
 }
 
 .color-gingham {
-    background: #c7a885;
+    --background: #c7a885;
 }
 
 .color-cloud {
-    background: #b4d3ef;
+    --background: #b4d3ef;
 }
 
 .color-daisy {
-    background: #c6c9b1;
+    --background: #c6c9b1;
+}
+
+.color-walnut {
+    --background: #634031;
+}
+
+.color-trnk-espresso {
+    --background: #8c7168;
 }
 
 .color-sand-tide {
-    background: #a6957d;
-}
-
-.color-sand-tide,
-.color-gingham,
-.color-cloud,
-.color-daisy,
-.color-cheetah,
-.color-pink-gold,
-.color-cappuccino-tie-dye,
-.color-rosewood-tie-dye,
-.color-things-between,
-.color-sand-tie-dye-wash,
-.color-sky-tie-dye-wash,
-.color-shimmer-pink,
-.color-gold,
-.color-silver,
-.color-bronze,
-.color-sorbet,
-.color-white-bandana,
-.color-mustard-bandana,
-.color-tutti-fruity,
-.color-terrazzo,
-.color-leopard,
-.color-gold-marble,
-.color-groovy-blue,
-.color-retro-sunset,
-.color-astrology,
-.color-stars,
-.color-trnk-black,
-.color-trnk-grey,
-.color-rose-gold,
-.color-trnk-nude,
-.color-midnight-marble,
-.color-milk-marble,
-.color-palm-leaf,
-.color-pink-n-gold,
-.color-floral,
-.color-stripe,
-.color-confetti,
-.color-polka-dot,
-.color-trnk-almond,
-.color-sunset {
-    /* border: 0; */
-    /* border: 1px solid #aeaeae; */
+    --background: #a6957d;
 }
 
 .color-atlantic {
-    background: #667893;
+    --background: #667893;
 }
 
 .color-birch {
-    background: #D7D2C1;
+    --background: #D7D2C1;
 }
 
 .color-toffee {
-    background: #A26F4E;
+    --background: #A26F4E;
 }
 
 .color-sky {
-    background: #C0DAFF;
+    --background: #C0DAFF;
 }
 
 .color-honey {
-    background: #EFB94E;
+    --background: #EFB94E;
 }
 
 .color-cognac {
-    background: #8B5D39;
+    --background: #8B5D39;
 }
 
 .color-deep-sea {
-    background: #206091;
+    --background: #206091;
 }
 
 .color-denim {
-    background: #ABC6DE;
+    --background: #ABC6DE;
 }
 
 .color-emerald {
-    background: #004B37;
+    --background: #004B37;
 }
 
 .color-mint {
-    background: #BACFBC;
+    --background: #BACFBC;
 }
 
 .color-mustard-bandana {
-    background: #CCA837;
+    --background: #CCA837;
 }
 
 .color-things-between {
-    background: #ada9b6;
+    --background: #ada9b6;
 }
 
 .color-ash {
-    background: #cccbc7;
+    --background: #cccbc7;
 }
 
 .color-navy {
-    background: #273145;
+    --background: #273145;
 }
 
 .color-gold-marble {
-    background: #eae5e9;
+    --background: #eae5e9;
 }
 
 .color-blush {
-    background: #EDC7C8;
+    --background: #EDC7C8;
 }
 
 .color-shell-pink {
-    background: #e9d1cc;
+    --background: #e9d1cc;
 }
 
 .color-blush-pink {
-    background: #EDC7C8;
+    --background: #EDC7C8;
 }
 
 .color-sky-tie-dye-wash,
 .color-sky-tie-dye {
-    background: #8fa5a9;
+    --background: #8fa5a9;
 }
 
 .color-sand-tie-dye-wash,
 .color-sand-tie-dye {
-    background: #c5b7ac;
+    --background: #c5b7ac;
 }
 
 .color-bon-voyage,
 .color-bronze {
-    background: #E0BEAD;
+    --background: #E0BEAD;
 }
 
 .color-kaya-bronze {
-    background: #baa286;
+    --background: #baa286;
 }
 
 [data-product-handle="kaya-laptop-backpack"] .color-emerald,
 [data-product-handle="kaya-laptop-backpack-sale"] .color-emerald,
 #kaya-laptop-backpack-on-sale-calpak .color-emerald,
 #kaya-laptop-backpack-calpak .color-emerald {
-    background: #294f34;
+    --background: #294f34;
 }
 
 [data-product-handle="kaya-laptop-backpack"] .color-lavender,
 [data-product-handle="kaya-laptop-backpack-sale"] .color-lavender,
 #kaya-laptop-backpack-on-sale-calpak .color-lavender,
 #kaya-laptop-backpack-calpak .color-lavender {
-    background: #e2bce1;
+    --background: #e2bce1;
 }
 
 .color-mocha {
-    background: #604831;
+    --background: #604831;
 }
 
 .color-plaid {
-    background: #685856;
+    --background: #685856;
 }
 
 .color-polka-dot {
-    background: #EDE2DA;
+    --background: #EDE2DA;
 }
 
 .color-cheetah {
-    background: #B99475;
+    --background: #B99475;
 }
 
 .color-lavender {
-    background: #e2bce1;
+    --background: #e2bce1;
 }
 
 .color-petal {
-    background: #f1ced4;
+    --background: #f1ced4;
 }
 
 .color-olive {
-    background: #605b43;
+    --background: #605b43;
 }
 
 .color-gold {
-    background: #d0bdaf;
+    --background: #d0bdaf;
 }
 
 [data-product-handle*="kaya"] .color-gold {
-    background: #F0DCCF;
+    --background: #F0DCCF;
 }
 
 .color-periwinkle {
-    background: #83A4CC;
+    --background: #83A4CC;
 }
 
 .color-cool-grey {
-    background: #B2B2B6;
+    --background: #B2B2B6;
 }
 
 .color-rose-gold {
-    background: #c79e95;
+    --background: #c79e95;
 }
 
 .color-silver {
-    background: #d2d4d8;
+    --background: #d2d4d8;
 }
 
 .color-grey,
 .color-trnk-grey {
-    background: #D4D5D5;
+    --background: #D4D5D5;
 }
 
 .color-trnk-almond {
-    background: #ebbb94;
+    --background: #ebbb94;
 }
 
 .color-wild-free {
-    background: #C5D4E2;
+    --background: #C5D4E2;
 }
 
 .color-white-bandana,
 .color-white {
-    background: #fff;
+    --background: #fff;
 }
 
 .color-stone {
-    background: #f4f1eb;
-}
-
-.color-stone,
-.color-white-bandana,
-.color-white {
-    border: 1px solid #aeaeae;
+    --background: #f4f1eb;
 }
 
 .color-retro-sunset {
-    background: #F8A439;
+    --background: #F8A439;
 }
 
 .color-groovy-blue {
-    background: #95B8FF;
+    --background: #95B8FF;
 }
 
 .color-poppy {
-    background: #F94E3D;
+    --background: #F94E3D;
 }
 
 .color-cobalt {
-    background: #263BD3;
+    --background: #263BD3;
 }
 
 .color-beige {
-    background: #efe1d6;
+    --background: #efe1d6;
 }
 
 .color-blue {
-    background: #3C5F91;
+    --background: #3C5F91;
 }
 
 .color-brown {
-    background: #96634D;
+    --background: #96634D;
 }
 
 .color-matte-black {
-    background: #000;
+    --background: #000;
 }
 
 .color-rose-quartz {
-    background: #c6a99c;
+    --background: #c6a99c;
 }
 
 .color-green {
-    background: #667541;
+    --background: #667541;
 }
 
 .color-dove-grey {
-    background: #cfcbbf;
+    --background: #cfcbbf;
 }
 
 .color-iron {
-    background: #7e7e7d;
+    --background: #7e7e7d;
 }
 
 .color-chocolate {
-    background: #877769;
+    --background: #877769;
 }
 
 .color-yellow {
-    background: #FF9B00;
+    --background: #FF9B00;
 }
 
 .color-lemonade {
-    background: #FFEEB3;
+    --background: #FFEEB3;
 }
 
 .color-dijon {
-    background: #E6AF51;
+    --background: #E6AF51;
 }
 
 .color-jade {
-    background: #C1D2C7;
+    --background: #C1D2C7;
 }
 
 .color-nude,
 .color-trnk-nude {
-    background: #E5D7D1;
+    --background: #E5D7D1;
 }
 
 .color-bloom {
-  background: #e0cfe0;
+    --background: #e0cfe0;
 }
 
 .color-kaya-olive {
-    background: #757453;
+    --background: #757453;
 }
 
 .color-hue-olive {
-    background: #48573B;
+    --background: #48573B;
 }
 
 .color-midnight-marble {
-    background: #333;
+    --background: #333;
 }
 
 .color-merlot {
-    background: #902C4A;
+    --background: #902C4A;
 }
 
 .color-pumpkin {
-    background: #D78943;
+    --background: #D78943;
 }
 
 .color-hazel {
-    background: #8C5138;
+    --background: #8C5138;
 }
 
 .color-orchid {
-    background: #b78ae3;
+    --background: #b78ae3;
 }
 
 .color-celery {
-    background: #D4DD5A;
+    --background: #D4DD5A;
 }
 
 .color-kale {
-    background: #006B57;
+    --background: #006B57;
 }
 
 .color-dragonfruit {
-    background: #F6639C;
+    --background: #F6639C;
 }
 
 .color-papaya {
-    background: #F08247;
+    --background: #F08247;
 }
 
 .color-guava {
-    background: #F5B3D6;
+    --background: #F5B3D6;
 }
 
 .color-amethyst {
-    background: #D6B5DE;
+    --background: #D6B5DE;
 }
 
 .color-honeydew {
-    background: #A5C0A5;
+    --background: #A5C0A5;
 }
 
 .color-astrology {
-    background: #32576d;
+    --background: #32576d;
 }
 
 .color-sunset {
-    background: #f81562; 
+    --background: #f81562; 
 }
 
 .color-slate {
-    background: #5E6263; 
+    --background: #5E6263; 
 }
 
 .color-milk-marble {
-    background: #ccc;
+    --background: #ccc;
 }
 
 

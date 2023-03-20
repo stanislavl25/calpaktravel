@@ -85,7 +85,7 @@
           "type": "faq",
           "settings": {
             "title": "Can I get expedited shipping?",
-            "answer": "<p>Yes! We have two options for expedited shipping available at checkout: FedEx Standard Overnight and FedEx 2 Day. If you choose either of these options, your order will be processed the same day if your purchase is made before 12pm PST.<\/p><p>Any orders made after 12pm noon PST will be processed the next business day. Please note, our offices are closed Saturday and Sunday, so orders made on Friday after 12 pm noon PST will be processed the following Monday.<\/p>",
+            "answer": "<p>Yes! We have two options for expedited shipping available at checkout: FedEx Standard Overnight and FedEx 2 Day. If you choose either of these options, your order will be processed the same day if your purchase is made before 12pm PST.<\/p><p>Any orders made after 12pm noon PST will be processed the next business day. Our offices are closed Saturday and Sunday, so orders made on Friday after 12 pm noon PST will be processed the following Monday.<\/p><p>Please note, FedEx does not guarantee weekend delivery as not all regions in the US allow for weekend delivery. FedEx delivery dates are calculated using only business days.<\/p>",
             "hide": false
           }
         },

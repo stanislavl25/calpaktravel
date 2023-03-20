@@ -4,6 +4,9 @@
         <div class="order-summary__number">Order No. {{ order.order_number }}</div>
         <div class="order-summary__price hide-large">{{ order.total_price | money }}</div>
     </div>
+
+    {% comment %} {%- assign order_key =  order.customer_url | split: '/orders/' | last -%}
+<a href="https://checkout.shopify.com/9414996/orders/{{ order_key }}">Check Status</a> {% endcomment %}
     
     <div class="order-summary__meta">
         <div>{{ order.line_items.size }} {{ order.line_items.size | pluralize: 'item', 'items' }} purchased on {{ order.created_at | date: '%m/%d/%y' }}</div>
@@ -60,13 +63,9 @@
     </div>
 
     <div class="order-summary__links">
-        <a href="https://www.calpaktravel.com/apps/wonderment/tracking?search={{ order.order_number }}">Check Status</a>
+        <a href="https://www.calpaktravel.com/pages/tracking?search={{ order.order_number }}">Check Status</a>
         <a class="button button--secondary" href="{{ order.customer_url }}">
             <span>See details</span>
         </a>
     </div>
 </div>
-{% comment %}
-{%- assign order_key =  order.customer_url | split: '/orders/' | last -%}
-<a href="https://checkout.shopify.com/9414996/orders/{{ order_key }}">Check Status</a>
-{% endcomment %}

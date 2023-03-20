@@ -58,6 +58,7 @@
     endif
 -%}
 <div
+    data-suffix="{{ product.template_suffix }}"
     data-handle="{{ product.handle }}"
     data-id="{{ product.id }}"
     {%- if init_option1 != blank -%}
@@ -122,7 +123,7 @@
                 else
                     assign img = product.featured_image
                 endif
-                
+
                 render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: sizes
             -%}
         </a>
@@ -138,7 +139,7 @@
         <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
     </div>
 
-    {%- if product.metafields.product.short-info != blank and show_short_info == true -%}
+    {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
     <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
     {%- endif -%}
 
@@ -158,8 +159,8 @@
 
     {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
-            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
             render 'flash-sale-label', current_variant: current_variant, product: product
+            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
         endif
     -%}
 

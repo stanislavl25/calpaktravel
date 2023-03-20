@@ -1,5 +1,13 @@
 {{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
 
+<noscript>
+    <style>
+    body .shopify-section--pdp-featured .product-unit:not(.product-unit--loaded) .product-unit__image img {
+        display: block;
+    }
+    </style>
+</noscript>
+
 {% if product.metafields.custom.featured_collection != blank %}
 {%- assign featured_collection = collections[product.metafields.custom.featured_collection] -%}
 <div class="pdp-featured-collection-title">Explore the {{ featured_collection.title | escape }}</div>
@@ -7,8 +15,9 @@
     <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
     <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
     <div class="slider slider--scrollbar">
+        {%- assign opt = current_variant.option1 | handleize -%}
         {%- for product in featured_collection.products limit: 20 -%}
-            {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, 50vw' -%}
+            {%- render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333vw, 43vw', init_option1: opt1 -%}
         {%- endfor -%}
     </div>
 </div>

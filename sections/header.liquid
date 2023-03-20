@@ -12,6 +12,8 @@
 <noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 
+<script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
+
 <section class="site-header">
     <nav class="site-header__nav">
         <div class="site-header__overlay"></div>
@@ -103,7 +105,7 @@
                 </a>
             </li>
             <li class="site-header__menu-item">
-                <a href="/pages/wishlist" class="header__wishlist-link" title="Wishlist">
+                <a href="{% if customer == blank %}/pages/wishlist{% else %}{{ routes.account_logout_url }}?view=wishlist{% endif %}" class="header__wishlist-link" title="Wishlist">
                     {% render 'icon-heart' %}
                 </a>
             </li>

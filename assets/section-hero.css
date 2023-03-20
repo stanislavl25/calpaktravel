@@ -132,8 +132,10 @@
     margin-top: 35px;
 }
 
-.sticky-promo {
-    display: none;
+.template-page-vit-rewards .hero__block-description {
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.5em;
 }
 
 @media (max-width: 900px) {

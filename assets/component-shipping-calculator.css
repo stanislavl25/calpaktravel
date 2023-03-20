@@ -1,0 +1,39 @@
+.shipping-calculator__form {
+    display: flex;
+    opacity: 1;
+    overflow: visible;
+    transition: opacity 0.3s;
+}
+
+#shipping-rates-feedback {
+    margin-top: 5px;
+}
+
+.shipping-calculator__form--loading {
+    opacity: 0.5;
+}
+
+.shipping-calculator__form--loading .button {
+    pointer-events: none;
+}
+
+#shipping-calulator-zip {
+    border-radius: 9px;
+    flex: 1;
+    border: 0;
+    appearance: none;
+    padding: 0 var(--gap);
+    font-size: 16px;
+    background-color: transparent;
+    font-family: var(--font-body-family);
+    border-width: 1px 0 1px 1px;
+    border-color: #000;
+    border-style: solid;
+    margin-right: -20px;
+    padding-right: 20px;
+}
+
+#shipping-calulator-zip::placeholder {
+    color: #000;
+    opacity: 1;
+}

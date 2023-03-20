@@ -41,6 +41,15 @@
     })(window,document.documentElement,'async-hide','dataLayer',4000,
     {'GTM-5VKKRGV':true});</script>
 
+    <script>
+        window.routes = {
+            cart_add_url: '{{ routes.cart_add_url }}',
+            cart_change_url: '{{ routes.cart_change_url }}',
+            cart_update_url: '{{ routes.cart_update_url }}',
+            cart_url: '{{ routes.cart_url }}'
+        };
+    </script>
+
     <noscript>
         <style>
             .order-summary__section--product-list .product-table {
@@ -70,7 +79,11 @@
 <body class="{% if customer %}customer-logged-in {% endif %}{% if settings.sale-active %}holiday-sale-active{% endif %} {{ exped_class }}">
     {{ skip_to_content_link }}
 
-    {% section 'mini-cart-items' %}
+    {% comment %} {% section 'mini-cart-items' %} {% endcomment %}
+    {% section 'checkout-settings' %}
+
+    {% section 'gwp' %}
+
     {% section 'checkout-promos' %}
 
     <script>document.body.classList.add('step--' + Shopify.Checkout.step);</script>
@@ -114,7 +127,10 @@
             {{ alternative_payment_methods }}
           </div>
           <div class="main__content">
-            {{ content_for_layout }}
+            {% capture cl %}
+                {{ content_for_layout }}
+            {% endcapture %}
+            {{ cl | replace: '\n', '<br>' }}
 
             {% comment %} <div data-address-field="gift_note" data-autocomplete-field-container="false" class="gift-note-field-container {% if checkout.note != blank %}gift-note-field-container--active{% endif %} field--optional field--show-floating-label">
 
@@ -136,12 +152,12 @@
                 </div>
             </div> {% endcomment %}
 
-            {% comment %} <div data-address-field="gift_note" data-autocomplete-field-container="false" class="gift-note-field-container field--optional field--show-floating-label">
+             {% comment %} <div data-address-field="gift_note" data-autocomplete-field-container="false" class="gift-note-field-container field--optional field--show-floating-label">
                 <div class="field__input-wrapper">
                     <label class="field__label field__label--visible" for="checkout_gift_note">Gift note (optional)</label>
                     <input value="{{ checkout.note }}" placeholder="Gift note (optional)" autocomplete="off" data-trekkie-id="gift_note_field" data-backup="gift_note" class="field__input gift-note-input" size="30" type="text" value="" name="checkout[note]" id="checkout_gift_note">
                 </div>
-            </div> {% endcomment %}
+            </div>  {% endcomment %}
 
             {% if settings.checkout_message_enabled %}
             <div class="direct-relief">
@@ -153,26 +169,6 @@
               <div class="direct-relief-content">{{ settings.checkout_message_text }}</div>
             </div>
             {% endif %}
-            
-            {% comment %} {% if checkout.attributes.["Note"] != blank %}
-            <div role="row" class="review-block add-review-block">
-              <div class="review-block__inner">
-                <div role="gridcell" class="review-block__label">
-                  Note
-                </div>
-                <div role="gridcell" class="review-block__content">
-                  {{ checkout.note }}
-                </div>
-              </div>
-              <div role="gridcell" class="review-block__link">
-                <a class="link--small" data-trekkie-id="change_shipping_address_link" href="/checkout?step=contact_information">
-                  <span aria-hidden="true">Change</span>
-                  <span class="visually-hidden">Change note</span>
-                </a>
-              </div>
-            </div>
-            {% endif %} {% endcomment %}
-            
           </div>
           <div class="main__footer">
             {{ content_for_footer }}
@@ -213,17 +209,6 @@
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5VKKRGV');</script>
     <!-- End Google Tag Manager -->
 
-    {% comment %}
-    {%- if checkout_html_classes contains 'thank-you' -%}
-    <script>
-        let covidNode = document.createElement('section');
-        covidNode.classList.add('covid-notice');
-        covidNode.innerHTML = '<div class="covid-notice__title">COVID-19 Shipping Update</div><div class="covid-notice__text">We are doing everything within our power to make sure that your order is delivered accurately, completely, and on time.  However, due to the significant impact of COVID-19, we are experiencing some delays.  Our shipping carriers are facing extremely high holiday volume and delivery of your order can take longer due to cargo disruptions.  Your order may also take more than 48 hours for a carrier status update.  We thank you for your patience and understanding.</div>';
-        document.querySelector('.step__sections').insertBefore(covidNode, document.querySelectorAll('.step__sections .section')[1]);
-    </script>
-    {%- endif -%}
-    {% endcomment %}
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
     {% include 'address-validator' %}
     {% include 'swell-checkout-rangeslider' %}
@@ -236,17 +221,28 @@
         {%- endif -%}
     {%- endif -%}
 
-    {%- if checkout_html_classes contains 'thank-you' -%}
-        <script>
-            let cart_items = [];
-            {% for item in checkout.line_items %}
-            cart_items.push([{{ item.product_id }}, "{{ item.product.handle }}", ["{{ item.variant.option1 }}"{% if item.variant.option2 != blank %},"{{ item.variant.option2 }}"{% endif %}], "{{ item.product.type }}"]);
-            {% endfor %}
-        </script>
-        <div class="checkout-product-recommendations mini-cart__section--mc_recommended">
-            {% render 'feat-collection' with 'empty', title: "Best Paired With" %}
-        </div>
+    {%- if checkout_html_classes contains 'thank-you' and false -%}
+        {% if request.host != 'checkout.shopify.com' %}
+            <script>
+                let cart_items = [];
+                {% for item in checkout.line_items %}
+                cart_items.push([{{ item.product_id }}, "{{ item.product.handle }}", ["{{ item.variant.option1 }}"{% if item.variant.option2 != blank %},"{{ item.variant.option2 }}"{% endif %}], "{{ item.product.type }}"]);
+                {% endfor %}
+            </script>
+
+            <div class="checkout-product-recommendations mini-cart__section--mc_recommended">
+                {% render 'feat-collection' with 'empty', title: "Best Paired With" %}
+            </div>
+        {% endif %}
     {%- endif -%}
+
+    {% comment %} <section class="checkout-product-recommendations slider__wrapper" data-slide="3" data-slide-mob="2">
+        <div class="slider">
+        {% for product in settings.best-sellers.products %}
+            {% render 'product-unit' with product, class: "slide", wishlist: false, quick_view: false %}
+        {% endfor %}
+        </div>
+    </section> {% endcomment %}
 
     {%- if checkout_html_classes contains 'thank-you' -%}
         <script>
@@ -287,8 +283,16 @@
     </script>
     {% endif %}
 
+    <script>
+        const timezone = {{ "now" | date: '%z' | json }};
+    </script>
+
+
     <script src="{{ 'simplebar.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    {% comment %} <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+
+    {% section 'checkout-dates' %}
+
     <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'checkout.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'checkout-promo.js' | asset_url }}" defer="defer"></script>

@@ -5,35 +5,40 @@
 
 <section class="promo-collection promo-collection--{{ section.id }}">
     {%- if section.settings.title != blank -%}
-    <div class="promo-collection__title">{{- section.settings.title | escape -}}</div>
+        <div class="promo-collection__title">{{- section.settings.title | escape -}}</div>
     {%- endif -%}
     {%- if section.settings.description != blank -%}
-    <div class="promo-collection__description">{{- section.settings.description -}}</div>
+        <div class="promo-collection__description">{{- section.settings.description -}}</div>
     {%- endif -%}
 
-    <div class="promo-collection__products">
-        {%- liquid
-            assign desktopWidth = 50 | divided_by: section.settings.columns
-            assign sizes = '(min-width: 901px) ' | append: desktopWidth | append: 'vw, 50vw'
-            if section.settings.product_list != blank
-                render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, sizes: sizes
-            elsif section.settings.featured-collection != blank
-                if section.settings.collection-limit == 0
-                    render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes
-                else
-                    for product in section.settings.featured-collection.products limit: section.settings.collection-limit
-                        render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes
-                    endfor
+    <div class="promo-collection__products-wrapper slider__wrapper" data-gap="10">
+        <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+        <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+
+        <div class="promo-collection__products slider slider--scrollbar" data-slider-on="mobile">
+            {%- liquid
+                assign desktopWidth = 50 | divided_by: section.settings.columns
+                assign sizes = '(min-width: 901px) ' | append: desktopWidth | append: 'vw, (min-width: 651px) 33.33vw, 50vw'
+                if section.settings.product_list != blank
+                    render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, sizes: sizes, class: "slide"
+                elsif section.settings.featured-collection != blank
+                    if section.settings.collection-limit == 0
+                        render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes, class: "slide"
+                    else
+                        for product in section.settings.featured-collection.products limit: section.settings.collection-limit
+                            render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes, class: "slide"
+                        endfor
+                    endif
                 endif
-            endif
-        -%}
-        {%- if section.settings.product_list == blank and section.settings.featured-collection != blank and section.settings.show-view-all  -%}
-        <div class="promo-collection__products-all">
-            <a aria-label="Go to collection page" href="{{- section.settings.featured-collection.url -}}" class="promo-collection__products-all-inner">
-                <span>View All</span>
-            </a>
+            -%}
+            {%- if section.settings.product_list == blank and section.settings.featured-collection != blank and section.settings.show-view-all  -%}
+            <div class="promo-collection__products-all">
+                <a aria-label="Go to collection page" href="{{- section.settings.featured-collection.url -}}" class="promo-collection__products-all-inner">
+                    <span>View All</span>
+                </a>
+            </div>
+            {%- endif -%}
         </div>
-        {%- endif -%}
     </div>
     <div class="promo-collection__media">
         {%- if section.settings.media-link != blank -%}<a href="{{- section.settings.media-link -}}">{%- endif -%}
@@ -76,8 +81,15 @@
             {%- endif -%}
 
             {% if product %}
+
             <div class="floating-link__pictured">
-                Pictured: <a href="{{ product.url }}"{% if product != false and section.settings.button-quick-view %} class="quick-view__link"{% endif %}>
+                Pictured: <a
+                    {% if product != false and section.settings.pictured-product-quick-view %} 
+                        href="{{ product.url }}"
+                        class="quick-view__link"
+                    {% else %}
+                        href="{% if section.settings.pictured-product-override != blank %}{{ pictured-product-override }}{% else %}{{ product.url }}{% endif %}"
+                    {% endif %}>
                     {%- if section.settings.pictured-product-title != blank -%}
                         {{- section.settings.pictured-product-title | escape -}}
                     {%- else -%}
@@ -148,7 +160,7 @@
             },
             {
                 "type": "header",
-                "content": "Media"
+                "content": "Background media"
             },
             {
                 "type": "image_picker",
@@ -168,13 +180,13 @@
                 "label": "Image for mobile"
             },
             {
-                "type": "header",
-                "content": "Links"
-            },
-            {
                 "type": "url",
                 "id": "media-link",
                 "label": "Background link"
+            },
+            {
+                "type": "header",
+                "content": "Pictured product"
             },
             {
                 "type": "product",
@@ -182,9 +194,25 @@
                 "label": "Pictured Product"
             },
             {
+                "type": "checkbox",
+                "id": "pictured-product-quick-view",
+                "label": "Pictured product link quick view",
+                "default": false
+            },
+            {
+                "type": "url",
+                "id": "pictured-product-override",
+                "label": "Pictured product link override",
+                "info": "Only if quick view is disabled"
+            },
+            {
                 "type": "text",
                 "id": "pictured-product-title",
                 "label": "Pictured Product Title Override"
+            },
+            {
+                "type": "header",
+                "content": "Button"
             },
             {
                 "type": "text",

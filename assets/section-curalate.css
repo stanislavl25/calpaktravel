@@ -1,0 +1,25 @@
+body  {
+    overflow: visible !important;
+}
+
+#crl8-product-carousel-modal > div {
+    border: 2px solid #fff;
+}
+
+.curalate-gallery__header {
+    padding: var(--gap);
+}
+
+.curalate-gallery__title {
+    margin: 0 0 10px;
+}
+
+.shopify-section--curalate {
+    flex-direction: column;
+    margin: var(--section-gap) 0;
+    display: none;
+}
+
+.shopify-section--curalate:has(#crl8-product-carousel-carousel-heading) {
+    display: flex;
+}

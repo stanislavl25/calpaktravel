@@ -106,52 +106,15 @@
 
     {% comment %} {% include 'swymSnippet' %} {% endcomment %}
 
-    <!--Gorgias Chat Widget Start--><script id="gorgias-chat-widget-install-v2" src="https://config.gorgias.chat/gorgias-chat-bundle-loader.js?applicationId=4232"></script><!--Gorgias Chat Widget End-->
-
-    <script>
-
-    const brandName = 'CALPAK'
-
-    const privacyPolicyLink = 'https://www.calpaktravel.com/policies/privacy-policy'
-
-    const introMessage = `By using this chat feature, you consent to the recording and use of information about you and this chat session by ${brandName} or any authorized service provider acting solely on ${brandName}’s behalf. ${brandName} may use or disclose this information in accordance with its <a href="${privacyPolicyLink}" target="_blank">Privacy Policy<a>. If you do not consent to these terms, please do not use this chat feature and reach out to us via email or by phone. Your continued interaction with, or submission of information to, this chat feature will be deemed to be your acceptance of ${brandName}’s`
-
-    GorgiasChat.init().then((GorgiasChat) => {
-
-    GorgiasChat.updateTexts({
-
-        "requireEmailCaptureIntro": "Hey there! " + introMessage,
-
-        "contactFormIntro": "Hey there! " + introMessage,
-
-        "contactFormSSPUnsuccessfulAskAdditionalMessage": "Hey there! " + introMessage,
-
-        "waitTimeLongNoEmail": "Thank you for your patience. " + introMessage,
-
-        "waitTimeMediumNoEmail": "Thanks for reaching out! Leave us your email and an agent will get back to you in about {waitTime} minutes. " + introMessage,
-
-        "waitTimeShortNoEmail": "Thanks for reaching out! " + introMessage
-
-    })
-
-
-    GorgiasChat.updateSSPTexts({
-
-        "sorryToHearThatEmailRequired": introMessage
-
-    })
-
-    })
-
-    </script>
-
-
-
     <!-- Upsellit -->
     <script type="text/javascript">usi_installed = 0; USI_installCode = function() { if (usi_installed == 0) { usi_installed = 1; var USI_headID = document.getElementsByTagName("head")[0]; var USI_installID = document.createElement('script'); USI_installID.type = 'text/javascript'; USI_installID.src = 'https://www.upsellit.com/active/calpak.jsp'; USI_headID.appendChild(USI_installID); } }; if (typeof(document.readyState) != "undefined" && document.readyState === "complete") { USI_installCode(); } else if (window.addEventListener){ window.addEventListener('load', USI_installCode, true); } else if (window.attachEvent) { window.attachEvent('onload', USI_installCode); } else { USI_installCode(); } setTimeout("USI_installCode()", 10000);</script>
     <!-- End Upsellit -->
 
 {%- endunless -%}
+
+<!--Gorgias Chat Widget Start-->
+<script src="{{ 'gorgias-proxy.js' | asset_url }}" defer="defer"></script>
+<!--Gorgias Chat Widget End-->
 
 {% render 'bambuser-cart-integration'%}
 

@@ -17,8 +17,8 @@
     padding: var(--gap) 0;
     grid-template-rows: 1fr;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(200px, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-columns: minmax(200px, 400px);
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
     gap: var(--gap);
 }
 
@@ -28,6 +28,34 @@
 
 .slider.filter__collections--active {
     display: grid;
+}
+
+.slider.filter__collections--text-only.filter__collections--active {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.filter__collections--text-only .filter__collection--active {
+    display: inline-flex;
+    padding: 0 10px;
+    position: relative;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter__collections--text-only .filter__collection--active::before {
+    border: 1px solid #000;
+    width: 15px;
+    height: 15px;
+    content: '';
+    border-radius: 50%;
+    display: block;
+    transition: background 0.3s;
+}
+
+.filter__collections--text-only .filter__collection--selected::before {
+    background: #000;
 }
 
 .filter__collections.slider--scrollbar::after {
@@ -42,15 +70,18 @@
     transition: opacity 0.3s;
     cursor: pointer;
     display: none;
+    text-decoration: none;
 }
 
 .filter__collection--active {
     display: block;
 }
 
-.filter__collections:not(.filter__collections--focus):hover .filter__collection:not(:hover),
-.filter__collections--focus .filter__collection:not(.filter__collection--selected):not(:hover) {
-    opacity: 0.5;
+@media (min-width: 901px) {
+    .filter__collections:not(.filter__collections--focus):hover .filter__collection:not(:hover),
+    .filter__collections--focus .filter__collection:not(.filter__collection--selected):not(:hover) {
+        opacity: 0.5;
+    }
 }
 
 .filter__collection-image {
@@ -105,4 +136,16 @@
 .collection-categories__wrapper .button-tri-right {
     right: var(--gap);
     left: auto;
+}
+
+@media (max-width: 900px) {
+    .slider.filter__collections {
+        padding: var(--gap) 0 calc(var(--gap) - 10px);
+    }
+
+    @-moz-document url-prefix() {
+        .slider.filter__collections {
+            padding: var(--gap) 0;
+        }
+    }
 }

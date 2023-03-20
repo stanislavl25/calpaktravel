@@ -29,6 +29,8 @@
             endfor
         endif
     endif
+
+    assign liveShowShown = false
 -%}
 {%- if show -%}
 <section class="pdp__promo-section pdp__promo-section--{{ block.type }}">
@@ -64,7 +66,7 @@
             -%}
             <div class="pdp-promo__content">
                 <div class="pdp-promo__media">
-                    <a href="{{ set_product.url }}">
+                    <a tabindex="-1" href="{{ set_product.url }}">
                     {%- if block.settings.image-override != blank -%}
                         {%- render 'image' with block.settings.image-override, sizes: '86px', lazy: true -%}
                     {%- elsif current_variant.featured_image != blank -%}
@@ -139,9 +141,18 @@
                 >
                 <span>{{ block.settings.button-text | escape }}{% if block.settings.include-price %} {{ set_product.price | money_without_trailing_zeros }}{% endif %}</span>
             </a>
+        {%- when 'points' -%}
+            <div class="pdp-promo__media">
+                {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+            </div>
+            <div class="pdp-promo__text-block">
+                {%- assign points = current_variant.price | divided_by: 100 | floor -%}
+                {%- assign repl = '<span class="yt-points">' | append: points | append: '</span>' -%}
+                {{- block.settings.text | replace: '[points]', repl -}}
+            </div>
         {%- when 'image-banner' -%}
             <div class="pdp-promo__media">
-                {%- render 'image' with block.settings.image, sizes: '20vw', lazy: true -%}
+                {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
             </div>
             <div class="pdp-promo__text-block">
                 {%- if block.settings.title != blank -%}
@@ -155,7 +166,33 @@
                 </div>
                 {%- endif -%}
                 {%- if block.settings.button-text != blank -%}
-                <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+                    {%- if block.settings.live-show-id != blank -%}
+                        {%- if liveShowShown == false -%}
+                            <script>
+                            (function() {
+                                if (!window.initBambuserLiveShopping){
+                                    window.initBambuserLiveShopping = function(item) { window.initBambuserLiveShopping.queue.push(item) }; window.initBambuserLiveShopping.queue = [];
+                                    var scriptNode = document.createElement('script');
+                                    scriptNode['src'] = 'https://lcx-embed.bambuser.com/powered-by-bambuser-theme/embed.js';
+                                    document.body.appendChild(scriptNode);
+                                }
+                            })();
+                            </script> 
+                        {%- endif -%}
+                        {%- assign liveShowShown = true -%}
+                        <span class="button button--secondary" data-live="{{ block.settings.live-show-id }}"><span>{{- block.settings.button-text | escape -}}</span></span>
+                        <script>
+                            (function() {
+                                window.initBambuserLiveShopping({
+                                    showId: '{{ block.settings.live-show-id }}',
+                                    node: document.querySelector('.button[data-live="{{ block.settings.live-show-id }}"]'),
+                                    type: "overlay",
+                                });
+                            })();
+                        </script>
+                    {%- else -%}
+                        <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+                    {%- endif -%}
                 {%- endif -%}
             </div>
         {%- when 'text-banner' -%}

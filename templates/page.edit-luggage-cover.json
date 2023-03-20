@@ -30,15 +30,6 @@
     "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
       "type": "product-showcase",
       "blocks": {
-        "db964836-931d-46f8-847a-85e26721b352": {
-          "type": "text",
-          "settings": {
-            "title": "They Protect Your Luggage",
-            "description": "<p>Traveling is already stressful enough. These covers are designed to protect your luggage, and keep them scratch-free. So go ahead and take that nap, order a glass of wine, and just relax on the way to your destination.<\/p>",
-            "button-text": "Shop now",
-            "button-link": "#"
-          }
-        },
         "1b775b70-f16b-4f85-a218-760455abe4b0": {
           "type": "image",
           "settings": {
@@ -50,12 +41,21 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3424.png"
           }
+        },
+        "db964836-931d-46f8-847a-85e26721b352": {
+          "type": "text",
+          "settings": {
+            "title": "They Protect Your Luggage",
+            "description": "<p>Traveling is already stressful enough. These covers are designed to protect your luggage, and keep them scratch-free. So go ahead and take that nap, order a glass of wine, and just relax on the way to your destination.<\/p>",
+            "button-text": "Shop now",
+            "button-link": "shopify:\/\/products\/clear-luggage-cover"
+          }
         }
       },
       "block_order": [
-        "db964836-931d-46f8-847a-85e26721b352",
         "1b775b70-f16b-4f85-a218-760455abe4b0",
-        "473d4bb4-0b29-4362-8dd2-482e1ee0ed44"
+        "473d4bb4-0b29-4362-8dd2-482e1ee0ed44",
+        "db964836-931d-46f8-847a-85e26721b352"
       ],
       "settings": {
         "mobile-layout": "one-line"
@@ -68,7 +68,7 @@
           "type": "text",
           "settings": {
             "title": "Clear Luggage Covers",
-            "description": "<p>Carry-on - 20\" <\/p><p>Medium - 24\"<\/p>",
+            "description": "<p>Carry-on - 20\" <\/p><p>Medium - 24\"<\/p><p>Large - 28\"<\/p><p>Trunk - 30\"<\/p><p>Set of 2 - Carry-on and Large<\/p><p>Set of 3 - Carry-on, Medium, and Large<\/p>",
             "button-text": "Shop now",
             "button-link": "shopify:\/\/products\/clear-luggage-cover"
           }
@@ -82,7 +82,7 @@
         "999f1999-abe3-4175-b42f-0de5ff5d695e": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/TRNK-LARGE-HAT-BOX-TRNK-ALMOND-LIFESTYLE1.jpg"
+            "image": "shopify:\/\/shop_images\/Rectangle_3294.png"
           }
         }
       },
@@ -101,22 +101,20 @@
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",
-          "disabled": true,
           "settings": {
-            "title": "Travel Necessities",
-            "description": "A merch collection that brings that 5-star experience with you wherever you go.",
-            "link": "#",
-            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+            "title": "Travel in Style",
+            "description": "Discover the bags made for every occasion and destination.",
+            "link": "shopify:\/\/pages\/travel-in-style-which-bag-should-you-bring-to-your-next-destination",
+            "image": "shopify:\/\/shop_images\/Rectangle_3425-1_7b663b15-61c2-4ed9-a95d-400ec4b91392.png"
           }
         },
         "6baef4b6-c263-4d78-a19b-84732571f4bc": {
           "type": "link",
-          "disabled": true,
           "settings": {
-            "title": "Travel Necessities",
+            "title": "Duffel Bags",
             "description": "A merch collection that brings that 5-star experience with you wherever you go.",
-            "link": "#",
-            "image": "shopify:\/\/shop_images\/Rectangle_3308.png"
+            "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308_063da2eb-edfe-4406-8766-1962a16f25f9.png"
           }
         }
       },

@@ -1,7 +1,6 @@
 {%- liquid
     assign opt1 = current_variant.option1 | handleize
 -%}
-
 {%- if settings.sale-badge-enabled and location != 'cart' -%}
     {%- liquid
         if settings.sale-badge-tag == blank
@@ -187,41 +186,43 @@
         </div>
     {%- endif -%}
 
-    {%- liquid
-        assign new = false
-        assign best = false
-        for col in product.collections
-            if settings.new-arrivals == col and new == false
-                assign new = true
-                continue
-            endif
-        endfor
-
-        if new == true
-            for tag in product.tags
-                assign tagSpl = tag | split: ':'
-                if settings.new-arrivals.handle == tagSpl[0]
-                    if tagSpl.size > 1
-                        assign new = tagSpl[1] | downcase | split: ';'
-                    endif
+    {%- unless collection == settings.new-arrivals and location == 'list' -%}
+        {%- liquid
+            assign new = false
+            assign best = false
+            for col in product.collections
+                if settings.new-arrivals == col and new == false
+                    assign new = true
+                    continue
                 endif
             endfor
-        endif
 
-        for prod in settings.best-sellers.products limit: 20
-            if product.id == prod.id
-                assign best = true
-                break
+            if new == true
+                for tag in product.tags
+                    assign tagSpl = tag | split: ':'
+                    if settings.new-arrivals.handle == tagSpl[0]
+                        if tagSpl.size > 1
+                            assign new = tagSpl[1] | downcase | split: ';'
+                        endif
+                    endif
+                endfor
             endif
-        endfor
-    -%}
-    
-    {%- if new != false -%}
-    <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
-        {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
-        New
-    </div>
-    {%- endif -%}
+
+            for prod in settings.best-sellers.products limit: 20
+                if product.id == prod.id
+                    assign best = true
+                    break
+                endif
+            endfor
+        -%}
+        
+        {%- if new != false -%}
+        <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
+            {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
+            {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
+        </div>
+        {%- endif -%}
+    {%- endunless -%}
     
     {%- if best == true -%}
         <div class="product-label">Bestseller</div>

@@ -3,7 +3,7 @@
     assign request_arg = request.path | split: "/"
     assign option1_arg = false
     assign option2_arg = false
-    assign current_variant = product.variants | first
+    assign current_variant = false
     
     if request_arg.size == 4
         assign request_args = request_arg[3] | split: ','
@@ -25,6 +25,7 @@
     endif
 
     if option1_arg != false
+        assign lookedForAvailable = false
         for variant in product.variants
             assign var_option1 = variant.option1 | handleize
             if option2_arg != false
@@ -33,11 +34,33 @@
                     assign current_variant = variant
                     break
                 endif
-            elsif option1_arg == var_option1
-                assign current_variant = variant
-                break
+            else
+                if variant.option2 != blank
+                    assign lookedForAvailable = true
+                    if variant.available == true and option1_arg == var_option1
+                        assign current_variant = variant
+                        break
+                    endif
+                elsif option1_arg == var_option1
+                    assign current_variant = variant
+                    break
+                endif
             endif
         endfor
+
+        if current_variant == false and lookedForAvailable == true
+            for variant in product.variants
+                assign var_option1 = variant.option1 | handleize
+                if option1_arg == var_option1
+                    assign current_variant = variant
+                    break
+                endif
+            endfor
+        endif
+    endif
+
+    if current_variant == false
+        assign current_variant = product.variants | first
     endif
 -%}
 {%- render 'product-unit' with product, current_variant: current_variant, wishlist: true, quick_view: true -%}

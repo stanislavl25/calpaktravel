@@ -1,16 +1,18 @@
 {
-    "sections": {
-        "account-header": {
-            "type": "account-header",
-            "settings": {}
-        },
-        "customer-info": {
-            "type": "customer-info",
-            "settings": {}
-        }
+  "sections": {
+    "account-header": {
+      "type": "account-header",
+      "settings": {
+        "help-link": "https:\/\/www.calpaktravel.com\/pages\/faq#faq--vit-rewards-program"
+      }
     },
-    "order": [
-        "account-header",
-        "customer-info"
-    ]
+    "customer-info": {
+      "type": "customer-info",
+      "settings": {}
+    }
+  },
+  "order": [
+    "account-header",
+    "customer-info"
+  ]
 }

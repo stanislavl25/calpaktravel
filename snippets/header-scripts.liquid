@@ -2,10 +2,7 @@
   document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 </script>
 
-{% if template contains 'customers' %}
-    {% comment %} {{ "shopify_common.js" | shopify_asset_url | script_tag }} {% endcomment %}
-    {% comment %} {{ "customer_area.js"  | shopify_asset_url | script_tag }} {% endcomment %}
-{% endif %}
+{% render 'one-distrust' %}
 
 {% comment %} {% include '3wh-gtm' %} {% endcomment %}
 
@@ -30,18 +27,22 @@
     gtag('js', new Date());
     gtag('config', 'AW-837246369', {'send_page_view': false, 'allow_enhanced_conversions': true});
     </script>
+
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" defer="defer"></script>
 {%- endunless -%}
 
 <script>var CRL8_SITENAME = 'calpaks-bc3kle';!function(){var e=window.crl8=window.crl8||{},n=!1,i=[];e.ready=function(e){n?e():i.push(e)},e.pixel=e.pixel||function(){e.pixel.q.push(arguments)},e.pixel.q=e.pixel.q||[];var t=window.document,o=t.createElement("script"),c=e.debug||-1!==t.location.search.indexOf("crl8-debug=true")?"js":"min.js";o.async=!0,o.src=t.location.protocol+"//edge.curalate.com/sites/"+CRL8_SITENAME+"/site/latest/site."+c,o.onload=function(){n=!0,i.forEach(function(e){e()})};var r=t.getElementsByTagName("script")[0];r.parentNode.insertBefore(o,r.nextSibling)}();</script>
 
 
-{% comment %} {{ shop.metafields.okendo.ReviewsWidgetStyleTag }} {% endcomment %}
-{% comment %} {{ shop.metafields.okendo.StyleCustomizations }} {% endcomment %}
-{% comment %} {% render 'okendo-reviews-json-ld' %} {% endcomment %}
-
-{% comment %} {% if template contains 'product' or page.url contains 'pages/reviews' or page.url contains 'pages/press' %}{{ 'okendo-reviews.js' | asset_url | script_tag }}{% endif %} {% endcomment %}
-
-
 <!-- Extend -- Renders Extend SDK Configuration script -->
 {% comment %} {% render 'extend-configuration' %} {% endcomment %}
 <!-- Extend -- End Extend code -->
+
+<link rel='preconnect dns-prefetch' href='https://triplewhale-pixel.web.app/' crossorigin />
+<link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin />
+
+<script>
+/* >> TriplePixel :: start*/
+~function(W,H,A,L,E,_,B,N){function O(U,T,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,H.open("GET",U,!0),H.send(null),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes(".txt")?eval(R):N[B]=R):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1;try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push(location.href),A.setItem(H+"U",JSON.stringify(E))}catch(e){}A.getItem('"!nC`')||(A=N,A[H]||(L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)},E=A[H]=function(t,e){return W=L(),(E._q=E._q||[]).push([W,t,e]),W},E.ch=W,B="configSecurityConfModel",N[B]=1,O("//conf.config-security.com/model",0),O("//triplewhale-pixel.web.app/triplefw.txt?",5)))}}("","TriplePixel",localStorage);
+/* << TriplePixel :: end*/
+</script>

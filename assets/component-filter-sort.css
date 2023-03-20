@@ -1,7 +1,7 @@
 .collection-filter__sort {
-    border-left: 1px dashed #aeaeae;
-    margin-left: 20px;
-    padding: var(--gap) 0 var(--gap) 20px;
+    border-right: 1px dashed #aeaeae;
+    margin-right: 20px;
+    padding: var(--gap) 20px var(--gap) 0;
     position: relative;
 }
 

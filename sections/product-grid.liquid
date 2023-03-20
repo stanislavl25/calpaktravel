@@ -1,5 +1,4 @@
 {{ 'section-product-grid.css' | asset_url | stylesheet_tag }}
-
 <link rel="stylesheet" href="{{ 'component-star-rating.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-star-rating.css' | asset_url | stylesheet_tag }}</noscript>
 
@@ -38,8 +37,12 @@
 
 <section class="product-grid">
     {%- liquid
-        paginate collection.products by 200
-            for product in collection.products
+        assign limitProducts = 200
+        if collection.handle == 'best-sellers'
+            assign limitProducts = 20
+        endif
+        paginate collection.products by limitProducts
+            for product in collection.products limit: limitProducts
                 if product.tags contains "do not display"
                     continue
                 endif

@@ -1,7 +1,7 @@
 .sticky-promo {
     display: block;
     position: fixed;
-    bottom: var(--gap);
+    bottom: 100px;
     right: var(--gap);
     border-radius: 9px;
     overflow: hidden;
@@ -37,4 +37,10 @@
 
 .sticky-promo__info a {
     text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .sticky-promo  {
+        bottom: 85px;
+    }    
 }

@@ -40,9 +40,20 @@ function variantUpdateProcess(target) {
 
     let options = getProductOptionsList(productContainer, location);
     
-    let selector = `option`;
-    for(let i = 0; i < options.length; i++) selector += `[data-option${i + 1}="${options[i]}"]`;
-    const option = select.querySelector(selector);
+    let option = false,
+        selector = `option`;
+    if(location == 'unit' && options.length > 1) {
+        selector += `[data-option1="${options[0]}"]`;
+        option = select.querySelector(selector + '[data-available="true"]');
+        if(!option) option = select.querySelector(selector);
+        else {
+            options[1] = option.getAttribute('data-option2');
+        }
+    } else {
+        for(let i = 0; i < options.length; i++) selector += `[data-option${i + 1}="${options[i]}"]`;
+        option = select.querySelector(selector);
+    }
+
     if(!option) return;
     select.value = option.value;
 
@@ -99,6 +110,9 @@ function variantUpdateProcess(target) {
         const pdpInfo = productContainer.closest('.pdp__info, .qv__product');
         const pdpGrid = productContainer.closest('.pdp__grid, .qv__body');
         const isQuickView = pdpGrid.classList.contains('qv__body');
+
+        const ytPoints = pdpGrid.querySelectorAll('.yt-points');
+        ytPoints.forEach(ytPoint => ytPoint.innerHTML = Math.floor(price / 100));
 
         let preorderLabels = productContainer.querySelectorAll('.product-label--preorder');
         preorderLabels.forEach(preorderLabel => preorderLabel.classList.remove('product-label--active'));

@@ -39,7 +39,8 @@ function updateWishlist() {
         if(wishlistContainer) {
             if(typeof populateWishlist == 'undefined') await Promise.all([
                 loadScript(scripts.wishlist),
-                loadStyle(styles.wishlist)
+                loadStyle(styles.wishlist),
+                loadStyle(styles.wishlistPopup)
             ]);
 
             populateWishlist();
@@ -66,7 +67,8 @@ document.addEventListener('click', async e => {
 
         if(typeof processWishlistClick == 'undefined') await Promise.all([
             loadScript(scripts.wishlist),
-            loadStyle(styles.wishlist)
+            loadStyle(styles.wishlist),
+            loadStyle(styles.wishlistPopup)
         ]);
 
         if(window._swat != undefined) processWishlistClick(e.target);

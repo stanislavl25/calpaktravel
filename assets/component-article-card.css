@@ -29,6 +29,10 @@
     line-height: 1.25em;
 }
 
+.article__card-title a {
+    text-decoration: none;
+}
+
 .article__card-description {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

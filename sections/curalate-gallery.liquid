@@ -1,0 +1,27 @@
+{{ 'section-curalate.css' | asset_url | stylesheet_tag }}
+
+<header class="curalate-gallery__header">
+    <aside>
+        <h2 class="curalate-gallery__title">Travel looks good on you.</h2>
+        <div class="curalate-gallery__subtitle">Tag your adventures <a href="https://www.instagram.com/calpak" target="blank">@calpak</a> <a href="https://www.instagram.com/explore/tags/calpaktravel/" target="_blank">#calpaktravel</a>.</div>
+    </aside>
+    {% comment %} <aside>
+        <a class="curalate-gallery__cta" href="https://www.calpaktravel.com/pages/tag-your-adventures">Shop Gallery</a>
+    </aside> {% endcomment %}
+</header>
+<div class="curalate-gallery-container" crl8-container-id="product" crl8-filter="productId:'{{ product.selected_or_first_available_variant.sku }}'"></div>
+
+{% schema %}
+    {
+        "name": "Curalate Gallery",
+        "class": "shopify-section--curalate",
+        "settings": [
+        
+        ],
+        "presets": [
+            {
+                "name": "Curalate Gallery"
+            }
+        ]
+    }
+{% endschema %}

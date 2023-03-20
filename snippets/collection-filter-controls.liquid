@@ -1,28 +1,60 @@
 <div class="collection-filters__control">
     <div class="collection-filter__activators">
-        <button aria-controls="collection-filters" aria-label="Filter products by color" class="filter__activator filter__activator--color">
-            Color <i></i>
-        </button>
-
         <button aria-controls="collection-filters" aria-label="Sort product list" class="filter__activator filter__activator--sort">
             Sort by <i></i>
         </button>
+
+        <button aria-controls="collection-filters" aria-label="Filter products by color" class="filter__activator filter__activator--color">
+            Color <i></i>
+        </button>
     </div>
     <div class="collections-menu">
-        {%- assign num = 0 -%}
+        {%- liquid
+            assign num = 0
+            assign filter = false
+            assign active = 0
+
+            for block in section.blocks
+                if block.type == 'category'
+                    assign num = num | plus: 1
+                    continue
+                endif
+
+                if collection.handle == block.settings.collection.handle
+                    assign active = num
+                endif
+            endfor
+
+            assign num = 0
+        -%}
         {%- for block in section.blocks -%}
             {%- unless block.type == 'category' -%}{%- continue -%}{%- endunless -%}
             {%- assign num = num | plus: 1 -%}
-            <button
-                data-index="{{ num }}"
-                class="button button--secondary collections-category{% if block.settings.selected %} collections-category--all collections-category--active{% endif %}"
-                {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
-                    {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
-                {%- endfor -%}"
-                {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
-                >
-                <span>{{- block.settings.title | strip_html | escape -}} <i></i></span>
-            </button>
+            {%- liquid
+                if collection.handle == block.settings.collection.handle
+                    assign active = num
+                endif
+            -%}
+            {%- if filter -%}
+                <button
+                    data-index="{{ num }}"
+                    class="button button--secondary collections-category{% if block.settings.selected %} collections-category--all collections-category--active{% endif %}"
+                    {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
+                        {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
+                    {%- endfor -%}"
+                    {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
+                    >
+                    <span>{{- block.settings.title | strip_html | escape -}} <i></i></span>
+                </button>
+            {%- else -%}
+                <a data-index="{{ num }}"
+                    class="button button--secondary collections-category{% if active == num %} collections-category--active{% endif %}"
+                    {% if block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
+                    href="{{ block.settings.collection.url }}">
+                    {{- block.settings.title | strip_html | escape -}}
+                    <i>{% if block.settings.collection.handle != 'all' %}{{ block.settings.collection.products.size }}{% endif %}</i>
+                </a>
+            {%- endif -%}
         {%- endfor -%}
     </div>
     <div class="collection-view">

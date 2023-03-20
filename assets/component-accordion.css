@@ -19,6 +19,10 @@
     padding-bottom: var(--gap);
 }
 
+.accordion__content strong {
+    font-weight: var(--font-body-weight-black);
+}
+
 .accordion__content img {
     max-width: 100%;
     height: auto;

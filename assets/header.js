@@ -25,6 +25,12 @@ if(searchPlaceholders.length > 0) {
     }, searchPlaceholdersTimeout);
 }
 
+const headerOverlay = document.querySelector('.site-header__overlay');
+if(headerOverlay) headerOverlay.addEventListener('click', () => {
+    let closeLink = document.querySelector('.menu-popup--visible .menu-close');
+    if(closeLink) closeLink.click();
+});
+
 let searchActivators = document.querySelectorAll('.header__search-link');
 for(let i = 0; i < searchActivators.length; i++) searchActivators[i].addEventListener('click', async function(e) {
     e.preventDefault();

@@ -57,8 +57,15 @@
     display: none;
 }
 
+/*
+    Hide all labels after N/A label for N/A variants
+    Hide all labels after preorder label for preorder variants
+    For the rest hide labels after non-hidden and non-option-specific labels
+    Hide all labels after an activated option-specific label
+*/
 .product-unit--na .product-label--na ~ .product-label,
-.product-unit .product-label:not(.product-label--na):not([data-options]) ~ .product-label,
+.product-unit .product-label--preorder.product-label--active ~ .product-label,
+.product-unit .product-label:not(.product-label--na):not(.product-label--preorder):not(.product-label--hidden):not([data-options]) ~ .product-label,
 .product-unit .product-label.product-label--active ~ .product-label {
     display: none;
 }

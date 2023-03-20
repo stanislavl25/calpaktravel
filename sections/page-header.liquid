@@ -1,15 +1,17 @@
-<div class="page__header{% if section.settings.title == blank and section.settings.text == blank %} page__header--no-margin{% endif %}">
-    {%- if section.settings.title != blank -%}
-    <h1 class="page__title page__title--{{ section.settings.title-size }}">{{- section.settings.title | escape -}}</h1>
-    {%- else -%}
-        {%- if template contains 'collection' -%}
-            <h1 class="visually-hidden">{{- collection.title | escape -}}</h1>
+<div class="page__header">
+    <h1 class="page__title page__title--{{ section.settings.title-size }}">
+        {%- if section.settings.title != blank -%}
+            {{- section.settings.title | escape -}}
+        {%- else -%}
+            {%- if template contains 'collection' -%}
+                {{- collection.title | escape -}}
+            {%- elsif template contains 'page' -%}
+                {{- page.title | escape -}}
+            {%- endif -%}
         {%- endif -%}
-    {%- endif -%}
+    </h1>
 
-    {%- if section.settings.text != blank -%}
     <div class="page__description">{{- section.settings.text -}}</div>
-    {%- endif -%}
 
     {%- if section.settings.button-text != blank -%}
     <div class="page__header-button">

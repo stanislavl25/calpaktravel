@@ -13,7 +13,9 @@
 
     {%- if block.settings.image != blank -%}
     <div class="press-block__image">
-        {% render 'image' with block.settings.image, sizes: '300px', no_wrapper: true %}
+        <div class="press-block__image-inner">
+            {% render 'image' with block.settings.image, sizes: '300px', no_wrapper: true %}
+        </div>
     </div>
     {%- endif -%}
 </div>

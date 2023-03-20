@@ -54,6 +54,7 @@
 
 .product-unit__image-wrapper {
     margin-bottom: 9px;
+    overflow: hidden;
     position: relative;
 }
 
@@ -94,7 +95,7 @@
     transition: opacity 0.3s;
 }
 
-.product-unit:hover .img-hover {
+.product-unit__image-wrapper:hover .img-hover {
     opacity: 1;
 }
 
@@ -171,3 +172,9 @@
 .color-swatch--first {
     order: -1;
 }
+
+/* @media (max-width: 900px) {
+    .product-unit__image .img-hover {
+        display: none;
+    }
+} */

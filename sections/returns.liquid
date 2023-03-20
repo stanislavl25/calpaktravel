@@ -33,7 +33,7 @@
             {%- endif -%}
 
             {%- if block.settings.button-text != blank -%}
-                <a href="block.settings.button-link" class="button">{{- block.settings.button-text | escape -}}</a>
+                <a href="{{ block.settings.button-link }}" class="button">{{- block.settings.button-text | escape -}}</a>
             {%- endif -%}
         </div>
     </div>

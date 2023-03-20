@@ -35,14 +35,38 @@
     border-color: #000;
 }
 
-@media (max-width: 992px) {
+.success_message {
+    margin-bottom: 10px;
+}
+
+.success_message:not(:empty) + .form__label-line {
+    display: none;
+}
+
+@media (max-width: 900px) {
     .section__contact-form {
-        display: block;
+        padding: var(--gap);
+    }
+
+    .contact-form__text {
+        padding-right: 40px;
+    }
+    
+    .contact-form__title {
+        font-size: 24px;
+    }
+
+    .contact-form__description {
+        margin-bottom: 15px;
     }
 }
 
-@media (max-width: 768px) {
-    .contact-form__title {
-      font-size: 24px;
+@media (max-width: 650px) {
+    .section__contact-form {
+        display: block;
+    }
+
+    .contact-form__text {
+        padding-right: 0;
     }
 }

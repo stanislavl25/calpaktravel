@@ -25,7 +25,7 @@
 {%- if show -%}
     <section class="collection-filters__section">
         {{ 'section-collection-filter.css' | asset_url | stylesheet_tag: preload: true }}
-        {{ 'section-collection-categories.css' | asset_url | stylesheet_tag }}
+        {{ 'component-collection-categories.css' | asset_url | stylesheet_tag }}
 
         <link rel="stylesheet" href="{{ 'component-filter-color.css' | asset_url }}" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="{{ 'component-filter-sort.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -59,6 +59,12 @@
                 "type": "collection_list",
                 "id": "collection_list_ex",
                 "label": "Exclude from these collections"
+            },
+            {
+                "type": "checkbox",
+                "id": "text-only",
+                "label": "Text only filter",
+                "default": false
             }
         ],
         "blocks": [

@@ -10,7 +10,11 @@
 }
 
 .swell-referral-message {
-    display: none !important;
+    line-height: 1.4em;
+}
+
+.swell-referral-message strong {
+    font-weight: var(--font-body-weight-black);
 }
 
 .swell-referral-form-body {
@@ -1282,12 +1286,22 @@ p.swell-referral-details {
     text-transform: none;
 
 }
+
+.swell-referral-form-body .field label {
+    font-size: 18px;
+}
+
 @media (max-width: 900px) {
+    .swell-referral-form-body .field label {
+        font-size: 16px;
+    }
+    
     .swell-refer-a-friend {
 
         font-size: 13px;
     }
 }
+
 
 .swell-referral-heading {
     text-transform: none;
@@ -1300,11 +1314,13 @@ h2.swell-referral-heading {
     font-size: 36px;
     letter-spacing: -0.02em;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 @media (max-width: 900px) {
     h2.swell-referral-heading {
         font-size: 22px;
+        margin-bottom: 20px;
     }
 }
 

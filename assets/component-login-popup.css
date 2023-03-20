@@ -1,0 +1,104 @@
+.login-popup__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 120;
+    display: none;
+}
+
+.login-popup__container--active {
+    display: block;
+}
+
+.login-popup__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: #000;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.login-popup {
+    background: #fff;
+    width: 440px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 9px;
+    padding: 50px 40px 40px;
+    z-index: 2;
+    max-width: 90vw;
+}
+
+.login-popup .form__submit {
+    margin-top: var(--gap);
+}
+
+.login-popup__title {
+    margin: 0 0 var(--gap);
+}
+
+.login-popup .form__links {
+    display: none;
+}
+
+.login-popup__reg {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.login-popup__reg a {
+    text-decoration: underline;
+}
+
+.popup-close {
+    position: absolute;
+    cursor: pointer;
+    top: 12px;
+    right: var(--gap);
+    width: 30px;
+    height: 30px;
+    border: 0;
+    z-index: 5;
+    padding: 0;
+    margin-right: -7px;
+    background: transparent;
+    text-indent: -200px;
+    overflow: hidden;
+}
+
+.popup-close::before,
+.popup-close::after {
+    content: '';
+    width: 20px;
+    border-top: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.popup-close::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+@media (max-width: 900px) {
+    .login-popup__title {
+        font-size: 24px;
+    }
+
+    .login-popup {
+        padding: 30px 25px 25px;
+    }
+
+    .login-popup__reg {
+        margin-top: 20px;
+    }
+}

@@ -35,7 +35,7 @@ if ((typeof handle[1] !== 'string') && (handle[1].length > 0)){
 };
 
 storeApi.addToCart = itemId =>
-    fetch("/cart/add.js", {
+    fetch(`${routes.cart_add_url}.js`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ storeApi.addToCart = itemId =>
     }).then(resp => resp.json());
 
 storeApi.updateItemInCart = (itemId, quantity) =>
-    fetch("/cart/update.js", {
+    fetch(`${routes.cart_update_url}.js`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

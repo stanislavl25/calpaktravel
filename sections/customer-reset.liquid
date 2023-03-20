@@ -8,7 +8,8 @@
     {% form 'reset_customer_password' %}
 
         <section class="field__list">
-            <div class="field">
+            <div class="field field--password">
+                <button type="button" class="show-password" title="Shop password"><span class="show-password__cta">View</span> <span class="visually-hidden">password</span></button>
                 <label for="ResetPassword">
                     New Password
                 </label>   
@@ -23,7 +24,8 @@
 
             </div>
 
-            <div class="field">
+            <div class="field field--password">
+                <button type="button" class="show-password" title="Shop password"><span class="show-password__cta">View</span> <span class="visually-hidden">password</span></button>
                 <label for="PasswordConfirmation">Confirm Password</label>
                 <input
                     type="password"
@@ -35,6 +37,20 @@
                     {% endif %}>
             </div>
         </section>
+
+        <script>
+            const showPasses = document.querySelectorAll('.show-password');
+            showPasses.forEach(showPass => showPass.addEventListener('click', function() {
+                const inpt = this.parentNode.querySelector('input');
+                if(inpt.type === 'password') {
+                    inpt.type = 'text';
+                    this.querySelector('.show-password__cta').innerHTML = 'Hide';
+                } else {
+                    inpt.type = 'password';
+                    this.querySelector('.show-password__cta').innerHTML = 'View';
+                }
+            }));
+        </script>
 
         {%- if form.errors -%}
             {{ form.errors | default_errors }}

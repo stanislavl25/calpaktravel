@@ -26,14 +26,17 @@
     flex: 0 0 100%;
 }
 
-.promo-collection__products {
+.promo-collection__products-wrapper {
     flex: 1;
-    display: grid;
-    gap: var(--gap);
-    min-width: 10px;
     align-self: flex-start;
     position: sticky;
     top: calc(42px + var(--gap));
+}
+
+.promo-collection__products {
+    display: grid;
+    gap: var(--gap);
+    min-width: 10px;
 }
 
 .promo-collection__media {
@@ -78,20 +81,40 @@
     white-space: nowrap;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
+    .promo-collection__products-wrapper {
+        flex: 0 0 100%;
+        top: 0;
+        position: relative;
+        margin: 0 0 20px;
+        min-width: 0;
+    }
+
     .promo-collection__products {
-      display: flex;
-      overflow-x: auto;
-      overflow-y: hidden;
-      -ms-overflow-style: none;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scroll-snap-stop: always;
-      gap: 10px;
-      position: relative;
-      padding-bottom: 20px;
-      top: 0;
-      flex: 0 0 100%;
+        gap: 10px;
+    }
+
+    .promo-collection__products .slide {
+        flex: 0 0 calc(50% - 5px);
+    }
+
+    .promo-collection .button-tri-left,
+    .promo-collection .button-tri-right {
+        display: block;
+        top: 18vw;
+        position: absolute;
+        left: -6px;
+        z-index: 10;
+    }
+
+    .promo-collection .button-tri-right {
+        right: -6px;
+        left: auto;
+    }
+
+    .slider__wrapper--start .promo-collection .slider__control--prev,
+    .slider__wrapper--end .promo-collection .slider__control--next {
+        opacity: 0;
     }
 
     .promo-collection__products:not(:last-child) {
@@ -100,8 +123,7 @@
 
     .promo-collection__products-all,
     .promo-collection__products .product-unit {
-        width: 175px;
-        flex-shrink: 0;
+        flex: 0 0 calc(33.33% - (20px / 3));
     }
 
     .promo-collection__products-all-inner span {
@@ -109,13 +131,23 @@
     }
 }
 
-@media (max-width: 576px) {
-  .promo-collection {
-    padding: 45px var(--gap);
-  }
+@media (max-width: 650px) {
+    .promo-collection {
+        padding: 45px var(--gap);
+    }
+
+    .promo-collection .button-tri-left,
+    .promo-collection .button-tri-right {
+        top: 27vw;
+    }
+
+    .promo-collection__products-all,
+    .promo-collection__products .product-unit {
+        flex: 0 0 calc(50% - 5px);
+    }
   
-  .promo-collection__title {
-    font-size: 32px;
-    line-height: 35px;
-  }
+    .promo-collection__title {
+        font-size: 32px;
+        line-height: 35px;
+    }
 }

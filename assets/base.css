@@ -50,13 +50,13 @@ h3 {
 
 .visually-hidden {
     border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
 
 a {
@@ -147,6 +147,15 @@ body > div:empty {
     display: none;
 }
 
+.shopify-policy__title {
+    margin: 50px 0;
+}
+
+.shopify-policy__container {
+    max-width: 1000px;
+    padding: 0 var(--gap);
+}
+
 .loading-animation {
     min-height: 46px;
 }
@@ -170,6 +179,16 @@ body > div:empty {
     border-color: var(--gray);
 }
 
+#preview-bar-iframe {
+    z-index: 150 !important;
+}
+
+.accordion__content,
+div.swym-inject,
+.show-password {
+    display: none;
+}
+
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -180,6 +199,10 @@ body > div:empty {
 @media (max-width: 650px) {
     .tablet-only {
         display: none !important;
+    }
+
+    :root {
+        --section-gap: 30px;
     }
 }
 
@@ -450,12 +473,10 @@ body > div:empty {
 
 .round-icon {
     display: block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000;
+    width: 28px;
+    height: 28px;
     position: relative;
-    border-radius: 50%;
-    background: #fff;
+    background: #f7f7f7;
 }
 
 .round-icon::before {
@@ -464,34 +485,29 @@ body > div:empty {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 10px;
-    border-top: 1px solid #000;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.round-icon::after {
+    content: '';
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    background: url(icon-arrow.svg) no-repeat center / 12px auto;
 }
 
 .round-icon--prev::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -2px;
-    transform: translateY(-50%);
-    border-style: solid;
-    border-width: 3px 5px;
-    border-color: transparent #000 transparent transparent;
-}
-
-.round-icon--next::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -2px;
-    transform: translateY(-50%);
-    border-style: solid;
-    border-width: 3px 5px;
-    border-color: transparent transparent transparent #000;
+    transform: rotate(180deg);
 }
 
 .page__header {
-    margin: 60px 0 90px;
+    margin: 60px 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
@@ -529,6 +545,14 @@ body > div:empty {
     line-height: 1.5em;
 }
 
+.page__description strong {
+    font-weight: var(--font-body-weight-black);
+}
+
+.page__description:empty {
+    display: none;
+}
+
 .separator {
     margin: var(--gap);
     border-top: 1px dashed #aeaeae;
@@ -549,7 +573,7 @@ body > div:empty {
 }
 
 #klaviyo-bis-iframe {
-    /* display: none !important; */
+    display: none !important;
 }
 
 .star-reviews {
@@ -558,6 +582,14 @@ body > div:empty {
 
 .shopify-section {
     position: relative;
+}
+
+.content-for-layout .shopify-section:last-child {
+    margin-bottom: 0;
+}
+
+.slider {
+    display: flex;
 }
 
 .page-anchor {
@@ -572,6 +604,55 @@ body > div:empty {
 
 .shopify-challenge__container {
     padding: 100px var(--gap);
+}
+
+.shopify-challenge__button {
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: var(--font-body-family);
+}
+
+.sticky-promo {
+    display: none;
+}
+
+#swym-plugin {
+    display: none !important;
+}
+
+body.swym-modal-active:not(.modal-open) {
+    overflow-y: auto;
+}
+
+.shopify-section--page-content {
+    margin: var(--section-gap) auto;
+    padding: 0 var(--gap);
+    max-width: 1000px;
+    line-height: 1.75em;
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.pagination a {
+    text-decoration: none;
+    display: inline-block;
+    width: 25px;
+    text-align: center;
+}
+
+.pagination .active {
+    background: var(--yellow);
+    border-radius: 6px;
+}
+
+.pagination .disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 @media (max-width: 900px) {

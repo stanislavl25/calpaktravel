@@ -1,6 +1,12 @@
 {{ 'component-wishlist.css' | asset_url | stylesheet_tag: preoad: true }}
+<link rel="stylesheet" href="{{ 'component-login-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-login-popup.css' | asset_url | stylesheet_tag }}</noscript>
 
 <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+
+{%- if customer == blank -%}
+    {% render 'login-popup', title: "Sign in to save your list" %}
+{%- endif -%}
 
 {% render 'wishlist' %}
 

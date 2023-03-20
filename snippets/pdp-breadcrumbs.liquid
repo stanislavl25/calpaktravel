@@ -10,9 +10,9 @@
     {% endif %}
 {%- endif -%}
 
-{% if featured_collection != false %}
+{% comment %} {% if featured_collection != false %}
     <a href="{{ featured_collection.url }}">{{- featured_collection.title | escape -}}</a>
-{% endif %}
+{% endif %} {% endcomment %}
 
 {% if current_product_group_type != blank %}
     <span>{{ current_product_group_type }}</span>

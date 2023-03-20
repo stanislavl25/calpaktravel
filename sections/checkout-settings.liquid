@@ -1,0 +1,34 @@
+{%- if section.settings.show-shipping-message -%}
+<script>
+if(Shopify.Checkout.step == "shipping_method") {
+    window.addEventListener("load", () => {
+        const container = document.querySelector('.section--shipping-method .section__header');
+        if(container) {
+            container.innerHTML += `<div class="shipping-message">
+                {{ section.settings.shipping-message | replace: '`', "'" }}
+            </div>`;
+        }
+    });
+}
+</script>
+{%- endif -%}
+
+
+{% schema %}
+    {
+        "name": "Checkout Settings",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show-shipping-message",
+                "label": "Show shipping message",
+                "default": true
+            },
+            {
+                "type": "richtext",
+                "id": "shipping-message",
+                "label": "Shipping message"
+            }
+        ]
+    }
+{% endschema %}

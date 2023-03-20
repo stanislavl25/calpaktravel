@@ -66,7 +66,8 @@
                 </a>
             </li>
             <li class="slide-menu-item">
-                <a href="{{ routes.account_url }}">
+                <a class="slide-menu__icon-link" href="{{ routes.account_url }}">
+                    {% render 'icon-account' %}
                     {%- if customer != blank -%}
                     My Account
                     {%- else -%}

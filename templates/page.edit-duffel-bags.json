@@ -233,6 +233,7 @@
     },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
+      "disabled": true,
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",

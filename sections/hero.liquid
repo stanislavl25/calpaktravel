@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ 'component-sticky-promo.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-sticky-promo.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="sticky-promo{% unless section.settings.sticky-promo-floating %} sticky-promo--only-hero{% endunless %}">
+<div class="sticky-promo sticky-promo--only-hero">
     <button aria-label="Close promo" class="close-button close-button--{{ section.settings.close-color-scheme }} sticky-promo__close" title="Close"></button>
     <a href="{{ section.settings.promo-link }}">
     {% render 'image' with section.settings.promo-image, sizes: '220px', lazy: true %}
@@ -188,12 +188,6 @@
                 "type": "checkbox",
                 "id": "enable-sticky-promo",
                 "label": "Enable",
-                "default": false
-            },
-            {
-                "type": "checkbox",
-                "id": "sticky-promo-floating",
-                "label": "Floating",
                 "default": false
             },
             {

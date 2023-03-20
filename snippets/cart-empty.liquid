@@ -1,9 +1,14 @@
 <div class="cart__empty">
     <div class="cart__empty-top">
+
+        {% unless location == 'cart-page' %}
         <button aria-label="Go to shopping page" class="cart__empty-continue-button"><span class="round-icon round-icon--prev"></span>Continue Shopping</button>
+        {% endunless %}
+
         <div class="cart__empty-text">Woops, you haven't packed yet.</div>
         <a href="/collection/all" class="button"><span>Continue Shopping</span></a>
     </div>
+    {% unless location == 'cart-page' %}
     <div data-slide="3" class="product-slider slider__wrapper slider__wrapper--start">
         <div class="product-slider__header">
             <div class="product-slider__title">Bestsellers</div>
@@ -15,9 +20,10 @@
         <div class="slider">
             {%- liquid
                 for product in collections.best-sellers.products limit: 9
-                    render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: true
+                    render 'product-unit' with product, wishlist: true, class: 'slide', quick_view: true, sizes: '(min-width: 901px) 230px, (min-width: 651px) 180px, (min-width: 550px) 270px, 50vw'
                 endfor
             -%}
         </div>
     </div>
+    {% endunless %}
 </div>

@@ -1,5 +1,44 @@
 {
   "sections": {
+    "1eb2590d-5a13-41e5-806c-a78d7b88176d": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "",
+        "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
+        "hide": true,
+        "section-id": "pdp-promo-new"
+      }
+    },
+    "540d183a-8e53-44d1-b0af-7bf139d703fe": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "",
+        "main-text": "<p>Frequent flyer? Everything you need in one Starter Bundle, now <strong>15% off<\/strong> <br\/>for a very limited time with code <em>JETSET15<\/em><\/p>",
+        "hide": true,
+        "section-id": "pdp-promo-traveller"
+      }
+    },
+    "ecc3fbac-a921-4e45-ae26-eefa37d24b6f": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "Limited time!",
+        "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — luggage for family travels with code  <em>TOGETHER15<\/em><\/p>",
+        "hide": true,
+        "section-id": "pdp-promo-family"
+      }
+    },
     "product-template": {
       "type": "product-template",
       "blocks": {
@@ -13,7 +52,9 @@
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
           "type": "submit",
-          "settings": {}
+          "settings": {
+            "wishlist": true
+          }
         },
         "48138d37-8473-4c57-adc6-882525675315": {
           "type": "upsell-banner",
@@ -26,7 +67,7 @@
             "title-override": "",
             "button-text": "Add set to bag",
             "include-price": true,
-            "add-to-cart": true,
+            "button-behaviour": "follow-link",
             "button-url": ""
           }
         },
@@ -40,7 +81,8 @@
             "title": "Title goes here",
             "text": "<p>Lorem ipsum dolor sit amet, cons ectetur adipi.<\/p><p><a href=\"#\" title=\"#\">See details.<\/a><\/p>",
             "button-text": "",
-            "button-url": ""
+            "button-url": "",
+            "live-show-id": ""
           }
         },
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8": {
@@ -58,10 +100,6 @@
         "460a526f-69ed-4d68-89c4-1b9152dcadf7": {
           "type": "description",
           "settings": {}
-        },
-        "55301f07-d8ac-43aa-818d-84b0fe0c47bd": {
-          "type": "upsell",
-          "settings": {}
         }
       },
       "block_order": [
@@ -71,18 +109,28 @@
         "48138d37-8473-4c57-adc6-882525675315",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
-        "460a526f-69ed-4d68-89c4-1b9152dcadf7",
-        "55301f07-d8ac-43aa-818d-84b0fe0c47bd"
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7"
       ],
-      "settings": {}
+      "settings": {
+        "zoom": false,
+        "gallery-limit": 0,
+        "gallery-limit-reapply": true,
+        "specifications": "",
+        "warranty-product-level": "",
+        "warranty-and-return": "",
+        "prop65-title": "Prop 65 Disclaimer",
+        "prop65": ""
+      }
     },
     "pdp-product-features": {
-        "type": "pdp-product-features",
-        "settings": {}
+      "type": "pdp-product-features",
+      "settings": {}
     },
     "pdp-featured-collection": {
       "type": "pdp-featured-collection",
-      "settings": {}
+      "settings": {
+        "quick-view": false
+      }
     },
     "167267170152804e97": {
       "type": "apps",
@@ -102,6 +150,9 @@
     }
   },
   "order": [
+    "1eb2590d-5a13-41e5-806c-a78d7b88176d",
+    "540d183a-8e53-44d1-b0af-7bf139d703fe",
+    "ecc3fbac-a921-4e45-ae26-eefa37d24b6f",
     "product-template",
     "pdp-product-features",
     "pdp-featured-collection",

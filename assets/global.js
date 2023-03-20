@@ -4,21 +4,21 @@ const color_groups = {
     'beige': ['beige', 'nude', 'linen', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
     'black': ['black', 'trnk-black', 'matte-black', 'ambeur-black', 'luka-black', 'brushed-black', 'wavy', 'eclipse', 'cheetah', 'plaid', 'obsidian', 'onyx', 'midnight-marble'],
     'blue': ['astrology', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
-    'brown': ['papaya', 'sand-tide', 'pumpkin', 'gingham', 'espresso', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee'],
+    'brown': ['papaya', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee'],
     'green': ['pale-green', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive'],
     'grey': ['grey', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
     'lavender': ['lavender', 'orchid', 'amethyst', 'things-between', 'groovy-blue', 'bloom'],
     'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold'],
     'orange': ['orange', 'papaya', 'retro-sunset', 'pumpkin', 'canyon'],
     'pink': ['pink', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink'],
-    'print': ['astrology', 'trnk-almond', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity'],
+    'print': ['astrology', 'trnk-almond', 'trnk-espresso', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity'],
     'red': ['red', 'brick', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon'],
     'rose-gold': ['rose-gold', 'rosewood-tie-dye', 'jen-pink'],
     'white': ['white', 'linen', 'dove-grey', 'bloom', 'sky-tie-dye', 'sky-tie-dye-wash', 'white-bandana', 'confetti', 'cream', 'gold-marble', 'milk-marble', 'terrazzo', 'stone'],
     'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow']
 };
 
-const colors_img = ["trnk-grey", "trnk-black", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue"];
+const colors_img = ["trnk-grey", "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue"];
 
 function getColorGroup(color) {
     for(let grp in color_groups) {
@@ -34,6 +34,19 @@ function getColorGroup(color) {
         group: 'black',
         colors: []
     }
+}
+
+function isset(i) {
+    return i != null && i != undefined;
+}
+
+function quoteattr(s) {
+    return ('' + s)
+        .replace(/&/g, '&amp;')
+        .replace(/'/g, '&apos;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
 }
 
 function getIndex(el) {
@@ -218,8 +231,10 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     else variantAutoSelected = false;
 
     let availableVariants = [];
+    let hideUnavailable = target.classList.contains('product-unit--only-available');
 
     for(let i = 0; i < product.variants.length; i++) {
+        if(hideUnavailable && !product.variants[i].available) continue;
         const opt1 = handleize(product.variants[i].option1);
         if((collectionLimit !== false && collectionLimit.indexOf(opt1) === -1) || (hide !== false && hide.indexOf(opt1) > -1)) continue;
         
@@ -256,7 +271,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(current_variant_id === false) {
             current_variant = availableVariants[i];
             break;
-        } else if(current_variant_id == availableVariants[i].id) {
+        } else if(current_variant_id == availableVariants[i].id || current_variant_id == handleize(availableVariants[i].option1)) {
             current_variant = availableVariants[i];
             break;
         }
@@ -308,19 +323,25 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         let preorder = false;
         let hover = false;
+        let videoInfo = false;
         if(meta) {
             if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
             else if(meta.preorder) preorder = meta.preorder;
+
+            if(meta.variants[variant.id].videoInfo) videoInfo = meta.variants[variant.id].videoInfo;
+            else if(meta.videoInfo) videoInfo = meta.videoInfo;
 
             if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
         }
 
         let img = false;
-        if(isProductUnit) {
-            if(variant.featured_image) img = variant.featured_image.src;
+        let created = false;
+        if(variant.featured_image) {
+            img = variant.featured_image.src;
+            created = Math.floor(new Date(variant.featured_image.created_at).getTime() / 1000);
         }
 
-        if(isProductUnit && selected){
+        if(isProductUnit && selected && img){
             target.querySelector('.product-unit__image img').setAttribute('srcset', lazyloadImageSrcset(img));
 
             if(hover) {
@@ -338,9 +359,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 ${img?`data-image="${img}"`:''}
                 data-option1="${opt1}"
                 data-option2="${opt2}"
+                ${created?`data-created="${created}"`:''}
                 data-sku="${handleize(variant.sku)}"
                 ${hover?`data-hover="${hover}"`:''}
-                ${preorder?`data-preorder="${preorder}"`:''}
+                ${videoInfo?`data-video-info="${quoteattr(videoInfo)}"`:''}
+                ${preorder?`data-preorder="${quoteattr(preorder)}"`:''}
                 ${(finalSale === true || finalSale.indexOf(opt1) > -1)?'data-final-sale':''}
                 data-qty="${(variant.inventory_policy == 'deny' && variant.inventory_quantity <= 10)?variant.inventory_quantity:''}"
                 data-available="${available}"
@@ -362,6 +385,27 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     const wishlistButtons = target.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, current_variant.id));
     
+    if(isProductUnit) {
+        select.setAttribute('data-min-price', minPrice);
+        select.setAttribute('data-max-price', maxPrice);
+        let date = new Date(product.created_at);
+        select.setAttribute('data-created', Math.floor(date.getTime() / 1000));
+
+        for(let i = 0; i < product.options.length; i++) {
+            if(product.options[i].toLowerCase().trim() == 'color') continue;
+
+            let optionInput = document.createElement('input');
+            optionInput.setAttribute("type", "hidden");
+            optionInput.setAttribute("data-position", i + 1);
+            optionInput.classList.add('product-unit__option');
+            optionInput.value = handleize(current_variant[`option${i + 1}`]);
+    
+            target.appendChild(optionInput);
+        }
+    }
+
+    if(colors._count === 0) return;
+
     if(!isProductUnit) {
         let swatchesCheck = [], swatchesElements = [];
         product.variants.forEach(variant => {
@@ -408,26 +452,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         const activeSwatch = swatchesGroupsEl.querySelector(`.color-swatch[data-value="${handleize(current_variant.option1)}"]`);
         if(activeSwatch) activeSwatch.classList.add('color-swatch--active');
         return;
-    } else {
-        select.setAttribute('data-min-price', minPrice);
-        select.setAttribute('data-max-price', maxPrice);
-        let date = new Date(product.created_at);
-        select.setAttribute('data-created', Math.floor(date.getTime() / 1000));
-
-        for(let i = 0; i < product.options.length; i++) {
-            if(product.options[i].name !== undefined && product.options[i].name.toLowerCase().trim() == 'color') continue;
-
-            let optionInput = document.createElement('input');
-            optionInput.setAttribute("type", "hidden");
-            optionInput.setAttribute("data-position", i + 1);
-            optionInput.classList.add('product-unit__option');
-            optionInput.value = handleize(current_variant.option2);
-    
-            target.appendChild(optionInput);
-        }
     }
 
-    if(colors._count === 0) return;
+
     target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
     target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
 
@@ -475,23 +502,29 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if(allColors) {
         swatches.classList.add('slider');
         const sliderWrapper = swatches.parentNode;
-        sliderWrapper.setAttribute('data-slide', 5);
-        sliderWrapper.setAttribute('data-gap', 9);
+        sliderWrapper.setAttribute('data-slide', 4);
+        sliderWrapper.setAttribute('data-slide-mob', 3);
         sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
         sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
 
         checkSlider(sliderWrapper.querySelector('.slider'));
     }
 
-    if( !allColors && colors._count > settings.swatchesLimit ) {
-        const swatchesContainer = target.querySelector('.product-unit__swatches-container');
+    if( !allColors ) {
+        if(colors._count == settings.swatchesLimit + 1) {
+            const swatchesContainer = target.querySelector('.product-unit__swatches-container');
 
-        let extra_colors = document.createElement('a');
-        extra_colors.classList.add('extra-colors');
-        extra_colors.setAttribute('href', `${shopUrl}/products/${handle}`);
-        extra_colors.innerHTML = '+' + (colors._count - settings.swatchesLimit);
+            swatchesContainer.style.setProperty('--product-unit-sw-limit', settings.swatchesLimit + 1);
+        } else if ( colors._count > settings.swatchesLimit + 1 ) {
+            const swatchesContainer = target.querySelector('.product-unit__swatches-container');
 
-        swatchesContainer.appendChild(extra_colors);
+            let extra_colors = document.createElement('a');
+            extra_colors.classList.add('extra-colors');
+            extra_colors.setAttribute('href', `${shopUrl}/products/${handle}`);
+            extra_colors.innerHTML = '+' + (colors._count - settings.swatchesLimit);
+
+            swatchesContainer.appendChild(extra_colors);
+        }
     }
 }
 
@@ -502,7 +535,7 @@ function activateProductUnit(target) {
     if(window.debug) console.log('Init product', handle);
     
     return new Promise((resolve, reject) => {
-        fetch('/products/' + handle + '?view=json')
+        fetch('/products/' + handle + '?view=async')
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
@@ -647,7 +680,7 @@ window.addEventListener("load", () => {
                 productUnitsObserver.unobserve(entry.target);
             }
         });
-    }, {threshold: 0, rootMargin: '0px'});
+    }, {threshold: 0.01, rootMargin: '0px'});
 
     videoObserver = new IntersectionObserver(function(entries){
         entries.forEach(entry => {
@@ -758,7 +791,7 @@ function getProductOptionsList(productContainer, location = 'pdp') {
                 }
             }
 
-            if(value === false) continue;
+            if(value === false || value === 'false') continue;
             options.push(value);
         }
     }

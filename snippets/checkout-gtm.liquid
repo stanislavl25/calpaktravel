@@ -1,0 +1,212 @@
+<script>
+    let storage = window.sessionStorage;
+    let progress = storage.getItem('progress');
+    if(progress === null || typeof progress == 'undefined' || !progress) progress = [];
+    else progress = JSON.parse(progress);
+    
+    var form_submitted = false;
+    let forms = document.querySelectorAll('.edit_checkout');
+    for(let i = 0; i < forms.length; i++) forms[i].addEventListener('submit', function(e) {
+        if(this.querySelector('#checkout_reduction_code')) return;
+        let form = this;
+        window.dataLayer = window.dataLayer || [];
+
+        if(Shopify.Checkout.step == 'contact_information' && progress.indexOf('contact_information') < 0) {
+            progress.push(Shopify.Checkout.step);
+            storage.setItem('progress', JSON.stringify(progress));
+            e.preventDefault();
+            let pushObj = {
+                event: 'eec.checkout',
+                ecommerce: {
+                    checkout: {
+                        actionField: {
+                            step: 1
+                        },
+                        products: [
+                            {% for item in checkout.line_items %}
+                                {% unless forloop.first %},{% endunless %}
+                                {
+                                id: '{{ item.product_id }}',
+                                name: "{{ item.product.title | replace: '"', '\"' }}",
+                                category: "products/{{ item.product.handle }}",
+                                variant: "{{ item.variant.option1 | replace: '"', '\"' }}",
+                                brand: "{{ item.product.vendor | replace: '"', '\"' }}",
+                                dimension1: "{{ item.variant.option2 | replace: '"', '\"' }}",
+                                dimension2: "{{ product.metafields.product.featuredcollection }}",
+                                quantity: {{ item.quantity }}
+                                }
+                            {% endfor %}
+                        ]
+                    }
+                },
+                'eventCallback': function() {
+                    if(!form_submitted) {
+                        form_submitted = true;
+                        form.submit();
+                    }
+                }
+            };
+            console.log(pushObj);
+            window.dataLayer.push(pushObj);
+
+            setTimeout(function() {
+                if(!form_submitted) {
+                    form_submitted = true;
+                    form.submit();
+                }
+            }, 5000);
+        } else if(Shopify.Checkout.step ==  'shipping_method' && progress.indexOf('shipping_method') < 0) {
+            progress.push(Shopify.Checkout.step);
+            storage.setItem('progress', JSON.stringify(progress));
+            e.preventDefault();
+            let val = document.querySelector('[name="checkout[shipping_rate][id]"]:checked');
+            if(val) val = decodeURI(val.value);
+
+            let pushObj = {
+                event: 'eec.checkout',
+                ecommerce: {
+                    checkout: {
+                    actionField: {
+                        step: 2,
+                        option: val
+                    }
+                    }
+                },
+                'eventCallback': function() {
+                    if(!form_submitted) {
+                    form_submitted = true;
+                    form.submit();
+                    }
+                }
+            };
+            console.log(pushObj);
+            window.dataLayer.push(pushObj);
+
+            if(val) {
+                let pushObj = {
+                    event: 'eec.checkout_option',
+                    ecommerce: {
+                        checkout_option: {
+                            actionField: {
+                            step: 2,
+                            option: val
+                            }
+                        }
+                    },
+                    'eventCallback': function() {
+                        if(!form_submitted) {
+                            form_submitted = true;
+                            form.submit();
+                        }
+                    }
+                };
+                console.log(pushObj);
+                window.dataLayer.push(pushObj);
+            }
+
+            setTimeout(function() {
+                if(!form_submitted) {
+                    form_submitted = true;
+                    form.submit();
+                }
+            }, 5000);
+        } else if(Shopify.Checkout.step == 'payment_method' && progress.indexOf('payment_method') < 0) {
+            progress.push(Shopify.Checkout.step);
+            storage.setItem('progress', JSON.stringify(progress));
+            e.preventDefault();
+            console.log('eec payment_method');
+            let val = document.querySelector('[name="checkout[payment_gateway]"]:checked');
+            if(val) val = decodeURI(val.value);
+            if(val) val = document.querySelector('.radio-wrapper[data-select-gateway="'+val+'"]');
+            if(val) val = val.getAttribute('data-gateway-name');
+
+            let pushObj = {
+                event: 'eec.checkout',
+                ecommerce: {
+                    checkout: {
+                        actionField: {
+                            step: 3,
+                            option: val
+                        }
+                    }
+                },
+                'eventCallback': function() {
+                    if(!form_submitted) {
+                        form_submitted = true;
+                        form.submit();
+                    }
+                }
+            };
+            console.log(pushObj);
+            window.dataLayer.push(pushObj);
+
+            if(val) {
+                let pushObj = {
+                    event: 'eec.checkout_option',
+                    ecommerce: {
+                        checkout_option: {
+                            actionField: {
+                            step: 3,
+                            option: val
+                            }
+                        }
+                    },
+                    'eventCallback': function() {
+                        if(!form_submitted) {
+                            form_submitted = true;
+                            form.submit();
+                        }
+                    }
+                };
+                console.log(pushObj);
+                window.dataLayer.push(pushObj);
+            }
+
+            setTimeout(function() {
+                if(!form_submitted) {
+                    form_submitted = true;
+                    form.submit();
+                }
+            }, 5000);
+        }
+    });
+
+    if(Shopify.Checkout.page == 'thank_you') {
+        progress = [];
+        storage.setItem('progress', JSON.stringify(progress));
+        window.dataLayer = window.dataLayer || [];
+        let pushObj = {
+            event: 'eec.purchase',
+            ecommerce: {
+                currencyCode: 'USD',
+                purchase: {
+                    actionField: {
+                        id: "{{ checkout.order_id }}",
+                        affiliation: 'CALPAK Online Store',
+                        revenue: '{{ checkout.total_price | money_without_currency }}',
+                        tax: '{{ checkout.tax_price | money_without_currency }}',
+                        shipping: '{{ checkout.shipping_price | money_without_currency }}',
+                        coupon: '{% for discount_application in checkout.cart_level_discount_applications %}{% unless forloop.first %},{% endunless %}{{ discount_application.title }}{% endfor %}'
+                    },
+                    products: [
+                    {% for item in checkout.line_items %}
+                        {% unless forloop.first %},{% endunless %}
+                        {
+                        id: '{{ item.product_id }}',
+                        name: "{{ item.product.title | replace: '"', '\"' }}",
+                        category: "products/{{ item.product.handle }}",
+                        variant: "{{ item.variant.option1 | replace: '"', '\"' }}",
+                        brand: "{{ item.product.vendor | replace: '"', '\"' }}",
+                        dimension1: "{{ item.variant.option2 | replace: '"', '\"' }}",
+                        dimension2: "{{ product.metafields.product.featuredcollection }}",
+                        quantity: {{ item.quantity }}
+                        }
+                    {% endfor %}
+                    ]
+                }
+            }
+        };
+        console.log(pushObj);
+        window.dataLayer.push(pushObj);
+    }
+</script>

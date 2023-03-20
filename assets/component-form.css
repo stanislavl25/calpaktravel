@@ -28,7 +28,7 @@
 .field__input::placeholder {
     color: inherit;
     opacity: 1;
-    color: var(--gray);
+    color: #000;
 }
 
 .field__input:focus::placeholder {
@@ -46,7 +46,7 @@
 }
 
 .form__label-line {
-    color: var(--gray);
+    color: #000;
     margin-bottom: 5px;
     font-size: 14px;
 }
@@ -58,7 +58,7 @@
 .form__disclaimer {
     font-size: 14px;
     margin-top: 5px;
-    color: var(--gray);
+    color: #000;
 }
 
 .form__disclaimer a {
@@ -69,6 +69,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+}
+
+.field {
+    position: relative;
 }
 
 .field label {
@@ -98,7 +102,7 @@
     right: -10px;
     line-height: 1em;
     content: '*';
-    color: #f00;
+    color: #e00000;
     font-size: 12px;
 }
 
@@ -115,23 +119,22 @@
     width: 100%;
 }
 
-.errors ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 5px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.errors ul li {
+.field__error-message {
     padding: 8px var(--gap) 8px 45px;
     border-radius: 9px;
     position: relative;
-    border: 1px dashed #f00;
+    border: 1px dashed #e00000;
+    background: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    margin-top: 5px;
+    font-size: 14px;
+    left: 0;
+    z-index: 4;
 }
 
-.errors ul li::before {
+.field__error-message::before {
     content: '!';
     width: 24px;
     height: 24px;
@@ -139,21 +142,21 @@
     top: 50%;
     margin-top: -12px;
     border-radius: 6px;
-    background: #f00;
+    background: #e00000;
     color: #fff;
     position: absolute;
     text-align: center;
     line-height: 24px;
 }
 
-.errors ul li::after {
+.field__error-message::after {
     width: 10px;
     height: 10px;
     position: absolute;
     content: '';
     background: #fff;
     border-style: dashed;
-    border-color: #f00;
+    border-color: #e00000;
     border-width: 1px 1px 0 0;
     transform: translateY(-50%) rotate(-45deg);
     left: 14px;
@@ -170,10 +173,27 @@
     margin-top: 10px;
 }
 
+.field--password {
+    position: relative;
+}
+
+.show-password {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 60px;
+    height: 42px;
+}
+
 @media (max-width: 768px) {
     .form__field-line {
       flex-wrap: wrap;
       box-shadow: none;
+    }
+
+    .show-password {
+        font-size: 14px;
     }
 
     .form__field-line button {
@@ -187,9 +207,7 @@
     }
 
     .form__field-line .field__input:nth-child(1) {
-        border-top-left-radius: 9px;
-        border-bottom-left-radius: 9px;
-        border-right: none;
+        border-radius: 9px;
     }
 
     .form__field-line .field__input:nth-child(2) {

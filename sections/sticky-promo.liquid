@@ -1,0 +1,120 @@
+{%- liquid
+    assign show = true
+    if section.settings.product_list != blank and template contains 'product'
+        assign found = false
+        for prod in section.settings.product_list
+            if prod == product
+                assign found = true
+                break
+            endif
+        endfor
+
+        if found == false
+            assign show = false
+        endif
+    elsif section.settings.collection_list != blank and template contains 'collection'
+        assign found = false
+        for col in section.settings.collection_list
+            if col == collection
+                assign found = true
+                break
+            endif
+        endfor
+
+        if found == false
+            assign show = false
+        endif
+    endif
+-%}
+{%- if show -%}
+<link rel="stylesheet" href="{{ 'component-sticky-promo.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-sticky-promo.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="sticky-promo sticky-promo--{{ section.id }}">
+    <button aria-label="Close promo" class="close-button close-button--{{ section.settings.close-color-scheme }} sticky-promo__close" title="Close"></button>
+    <a href="{{ section.settings.promo-link }}">
+    {% render 'image' with section.settings.promo-image, sizes: '220px', lazy: true %}
+    </a>
+    {%- if section.settings.promo-text != blank -%}
+        <div class="sticky-promo__info">
+            <a href="{{ section.settings.promo-link }}">{{- section.settings.promo-text | escape -}}</a>
+        </div>
+    {%- endif -%}
+</div>
+
+<style>
+.sticky-promo--{{ section.id }} .sticky-promo__info {
+    background: {{ section.settings.background-color }};
+}
+</style>
+{%- endif -%}
+
+{% schema %}
+    {
+        "name": "Sticky promo",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Display"
+            },
+            {
+                "type": "product_list",
+                "id": "product_list",
+                "label": "Limit to these PDPs",
+                "info": "If section is added to a PDP template"
+            },
+            {
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Limit to these collections",
+                "info": "If section is added to a collection template"
+            },
+            {
+                "type": "header",
+                "content": "Content"
+            },
+            {
+                "type": "image_picker",
+                "id": "promo-image",
+                "label": "Promo Image"
+            },
+            {
+                "type": "text",
+                "id": "promo-text",
+                "label": "Promo Text"
+            },
+            {
+                "type": "color",
+                "id": "background-color",
+                "label": "Background color",
+                "default": "#ff6b0e"
+            },
+            {
+                "type": "url",
+                "id": "promo-link",
+                "label": "Promo Link"
+            },
+            {
+                "type": "select",
+                "id": "close-color-scheme",
+                "label": "Close Icon Color Scheme",
+                "options": [
+                    {
+                        "value": "white",
+                        "label": "White"
+                    },
+                    {
+                        "value": "black",
+                        "label": "Black"
+                    }
+                ],
+                "default": "white"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Sticky promo"
+            }
+        ]
+    }
+{% endschema %}

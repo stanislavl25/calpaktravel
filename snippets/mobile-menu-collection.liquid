@@ -20,8 +20,8 @@
     </div>
     <div class="slider">
         {%- liquid
-            for product in collection.products limit: 6
-                render 'product-unit' with product, wishlist: true, class: 'slide'
+            for product in collection.products limit: 12
+                render 'product-unit' with product, wishlist: true, class: 'slide', sizes: '50vw'
             endfor
         -%}
     </div>

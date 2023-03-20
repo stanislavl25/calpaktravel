@@ -59,6 +59,7 @@ fetch(`/collections/${settings.bestSellers}/products.json?limit=250`).then(respo
 
 searchForms.forEach(searchForm => searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    this.querySelector('.search-input').blur();
 }));
 
 function similarity(s1, s2) {
@@ -136,7 +137,7 @@ function getOneVariant(variants, sale) {
     return false;
 }
 
-function getMatchedVariants(product, search, colors, available_variants, ambiguity, or, sale) {
+function getMatchedVariants(product, search, colors, visible_variants, ambiguity, or, sale) {
     let best_match = [];
 
     // The amount Sim affects the order
@@ -144,7 +145,7 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
 
     // If the search is empty
     if(search.length == 0 && colors.length == 0) {
-        let one_variant = getOneVariant(available_variants, sale);
+        let one_variant = getOneVariant(visible_variants, sale);
         if(!one_variant) return false;
         return [
             0.66,
@@ -201,7 +202,7 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
 
                 if(best_match.length == 0 || best_match[0] < max_val) best_match = [
                     max_val,
-                    getOneVariant(available_variants, sale),
+                    getOneVariant(visible_variants, sale),
                     orderAffectedBySim * 1.5,
                     i
                 ];
@@ -212,14 +213,14 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
             if (check_body_laptop) {
                 for(let i = 0; i < search.length; i++) {
                     if(product.body_html.indexOf('laptop') > -1) {
-                        best_match = [0.67, getOneVariant(available_variants, sale), orderAffectedBySim* 1.5, i];
+                        best_match = [0.67, getOneVariant(visible_variants, sale), orderAffectedBySim* 1.5, i];
                         break;
                     }
                 }
             } else if (check_body_fanny) {
                 for(let i = 0; i < search.length; i++) {
                     if(product.body_html.indexOf('fanny') > -1) {
-                        best_match = [0.67, getOneVariant(available_variants, sale), orderAffectedBySim* 1.5, i];
+                        best_match = [0.67, getOneVariant(visible_variants, sale), orderAffectedBySim* 1.5, i];
                         break;
                     }
                 }
@@ -236,8 +237,8 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
             let search_word = colors[j];
 
             // Main color search
-            for(let i = 0; i < available_variants.length; i++) {
-                let variant = available_variants[i];
+            for(let i = 0; i < visible_variants.length; i++) {
+                let variant = visible_variants[i];
                 let option1 = handleize(variant.option1);
 
                 const sim = similarity2(search_word, option1) - j * 0.02;
@@ -253,8 +254,8 @@ function getMatchedVariants(product, search, colors, available_variants, ambigui
             }
 
             // Backup related color search
-            if(color_match.length == 0) for(let i = 0; i < available_variants.length; i++) {
-                let variant = available_variants[i];
+            if(color_match.length == 0) for(let i = 0; i < visible_variants.length; i++) {
+                let variant = visible_variants[i];
                 let option1 = handleize(variant.option1);
                 
                 for( var key in color_groups ) {

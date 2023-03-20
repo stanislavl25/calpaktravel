@@ -16,7 +16,6 @@
     display: flex;
     box-shadow: 0 0 0 1px #000;
     border-radius: 9px;
-    overflow: hidden;
 }
 
 .pdp__waitlist-line .field__input {
@@ -25,8 +24,12 @@
     border-radius: 0;
 }
 
-.pdp__waitlist-line .field__input:not(:first-child) {
+/* .pdp__waitlist-line .field__input:not(:first-child) {
     border-left: 1px solid #000;
+} */
+
+.pdp__waitlist:not(.pdp__waitlist--error) .field__error-message {
+    display: none;
 }
 
 .pdp__waitlist-success-msg {
@@ -51,4 +54,13 @@
 
 .pdp__waitlist-submit {
     z-index: 5;
+}
+
+.pdp__waitlist--inactive .pdp__waitlist-line {
+    pointer-events: none;
+}
+
+.pdp__waitlist--loading .pdp__waitlist-submit,
+.pdp__waitlist--inactive .pdp__waitlist-submit {
+    opacity: 0.5;
 }

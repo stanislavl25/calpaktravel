@@ -5,6 +5,8 @@ const editLinks = document.querySelectorAll('.address__edit-link');
 editLinks.forEach(editLink => editLink.addEventListener('click', e => {
     e.preventDefault();
 
+    document.querySelector('.shopify-section--account-header').scrollIntoView();
+
     addressesCont.classList.add('account-addresses--editing');
     e.target.closest('.address').classList.add('address--edited');
 }));
@@ -21,6 +23,7 @@ const newAddressButton = document.querySelector('.button--add-address');
 if(newAddressButton) newAddressButton.addEventListener('click', e => {
     e.preventDefault();
 
+    document.querySelector('.shopify-section--account-header').scrollIntoView();
     addressesCont.classList.add('account-addresses--adding');
 });
 

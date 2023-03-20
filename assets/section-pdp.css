@@ -479,7 +479,7 @@
 .pdp__swatches {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    margin: -4px;
 }
 
 .pdp__form-labels {
@@ -544,7 +544,7 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    padding: 0 var(--gap);
+    padding: 0 35px 0 var(--gap);
     font-weight: var(--font-body-weight-bold);
     font-size: 16px;
     font-family: var(--font-body-family);
@@ -609,12 +609,25 @@
     padding: 75px var(--gap) 0;
 }
 
-.prop65__disclaimer {
-    margin-top: var(--gap);
-}
-
 .pdp__floating-add-to-cart {
     display: contents;
+}
+
+.shipping-calculator {
+    background: #f7f7f7;
+    border-radius: 9px;
+    padding: var(--gap);
+}
+
+.shipping-calculator label {
+    font-size: 14px;
+}
+
+.shipping-calculator__form {
+    height: 42px;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 5px;
 }
 
 @media (max-width: 1180px) {
@@ -673,10 +686,8 @@
         top: auto;
         gap: 0 19px;
         justify-content: flex-start;
-    }
-
-    .pdp__breadcrumbs span {
-        display: none;
+        height: 22px;
+        overflow: hidden;
     }
 
     .pdp__grid {
@@ -716,5 +727,11 @@
 
     .pdp__variant-buttons:not(.pdp__variant-buttons--grouped):not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) .pdp__variant-list {
         grid-template-columns: repeat(auto-fit,minmax(80px,1fr))
+    }
+}
+
+@media (max-width: 650px) {
+    .pdp__variants-selected {
+        position: relative;
     }
 }

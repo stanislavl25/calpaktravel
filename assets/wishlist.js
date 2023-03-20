@@ -1,6 +1,7 @@
 "use strict";
 
-// const wishlistPopup = document.querySelector('.wishlist__popup');
+const wishlistPopup = document.querySelector('.wishlist__popup');
+let popupTimeout = false;
 
 function createWishlistItem(item, itemsList) {
     let newItem = document.createElement('div');
@@ -10,11 +11,16 @@ function createWishlistItem(item, itemsList) {
         newItem.innerHTML = data;
         const productUnit = newItem.querySelector('.product-unit');
         productUnit.classList.add('product-unit--single');
+        
         const wishlistButton = productUnit.querySelector('.wishlist__button');
         wishlistButton.setAttribute('title', 'Remove from Wishlist');
         wishlistButton.classList.add('wishlist__button--added');
+        
         const productLinks = productUnit.querySelectorAll('.product-link');
         productLinks.forEach(productLink => productLink.setAttribute('href', item.du));
+
+        const allProductsImages = productUnit.querySelectorAll('.product-unit__image img');
+            allProductsImages.forEach(allProductsImage => allProductsImage.setAttribute('sizes', '(min-width: 1180px) 20vw, (min-width: 901px) 25vw, (min-width: 651px) 33.33vw, 50vw'));
 
         if(productUnitsObserver && productUnit) productUnitsObserver.observe(productUnit);
 
@@ -32,22 +38,26 @@ function populateWishlist() {
     itemsList.innerHTML = '';
     wishlist.forEach(item => createWishlistItem(item, itemsList));
 
+    setTimeout(showLoginForm, 3000);
+
     wishlistContainer.setAttribute('data-count', wishlist.length);
 }
 
 function showWishlistPopup(item, status) {
     if(!wishlistPopup) return;
 
+    const img = wishlistPopup.querySelector('.wishlist__popup-image-cont');
+    if(img) img.innerHTML = getImage(item.iu, '110px', "Product image");
+
     wishlistPopup.setAttribute('data-status', status);
     
-    wishlistPopup.classList.add('wishlist__popup--active');
-
-    setTimeout(function() {
-        wishlistPopup.classList.remove('wishlist__popup--active');
-    }, 3000);
+    if(popupTimeout !== false) clearTimeout(popupTimeout);
+    popupTimeout = setTimeout(function() {
+        wishlistPopup.removeAttribute('data-status');
+    }, settings.wishlistTimeout * 1000 );
 }
 
-function processWishlistClick(target) {
+function processWishlistClick(target, data = false) {
     const btn = target;
 
     let container = target.closest('.shopify-product-form, .product-unit');
@@ -57,11 +67,6 @@ function processWishlistClick(target) {
 
     let option = select.options[select.selectedIndex];
     let vid = select.value * 1;
-
-    // if(btn.classList.contains('add-to-wishlist__btn--variant')) {
-    //     vid = btn.getAttribute('data-vid') * 1;
-    //     option = select.querySelector('option[value="' + vid + '"]');
-    // }
 
     const pid = container.getAttribute('data-id') * 1;
 
@@ -97,78 +102,46 @@ function processWishlistClick(target) {
         vi: optionName
     };
 
-    // const img = wishlistPopup.querySelector('.wishlist__item-image .image-ratio-container');
-    // if(!wishlistPopup.classList.contains('wishlist__popup--active')) img.innerHTML = get_image(obj.iu, '94px', false);
-
     if(btn.classList.contains('wishlist__button--added')) {
-        _swat.removeFromWishList( obj, function() {
+        removeFromWishlist(obj, () => {
             btn.setAttribute('title', 'Add to Wishlist');
             btn.classList.remove('wishlist__button--added');
-
-            // img.innerHTML = get_image(obj.iu, '94px', false);
-            // showWishlistPopup(obj, 'removed');
-            btn.classList.remove('wishlist__button--loading');
-
-            updateWishlist();
-        } );
+            btn.classList.remove('wishlist__button--loading')
+        });
     } else {
-        _swat.addToWishList( obj, function() {
+        addToWishlist(obj, () => {
             btn.setAttribute('title', 'Remove from Wishlist');
             btn.classList.add('wishlist__button--added');
-
-            // img.innerHTML = get_image(obj.iu, '94px', false);
-            // showWishlistPopup(obj, 'added');
             btn.classList.remove('wishlist__button--loading');
-
-            updateWishlist();
-        } );
+        });
     }
 }
 
-document.addEventListener('click', function(e) {
-    if(e.target) {
-        if(e.target.classList.contains('whishlist__prod-remove')) {
-            e.preventDefault();
-            let cont = e.target.closest('.wishlist__prod');
-            if(cont) {
-                let json = JSON.parse(cont.querySelector('.wishlist__prod-json').innerHTML);
-                cont.classList.add('wishlist__prod--loading');
+function removeFromWishlist(obj, callback = false) {
+    _swat.removeFromWishList( obj, function() {
+        showWishlistPopup(obj, 'removed');
+        updateWishlist();
+        if(callback !== false) callback();
+    } );
+}
 
-                const img = wishlistPopup.querySelector('.wishlist__item-image .image-ratio-container');
-                img.innerHTML = get_image(json.iu, '94px', false);
+function addToWishlist(obj, callback = false, showPopup = true) {
+    _swat.addToWishList( obj, function() {
+        if(showPopup) showWishlistPopup(obj, 'added');
+        updateWishlist();
+        if(callback !== false) callback();
+    } );
+}
 
-                _swat.removeFromWishList( json, function() {
-                    showWishlistPopup(json, 'removed');
-                    updateWishlist();
-                } );
-            }
-        }
-    }
-});
+const closeLoginFormEls = document.querySelectorAll('.login-popup .popup-close, .login-popup__overlay');
+if(closeLoginFormEls.length > 0) closeLoginFormEls.forEach(closeLoginFormEl => closeLoginFormEl.addEventListener('click', closeLoginForm));
 
-document.addEventListener('variantChange', function(e) {
-    let variant = e.detail.variant;
-    let selector = e.detail.selector;
-    let found = false;
-    for(let i = 0; i < wishlist.length; i++) {
-        if(wishlist[i].epi == variant.id) {
-            found = true;
-            break;
-        }
-    }
+function showLoginForm() {
+    const cont = document.querySelector('.login-popup__container');
+    if(cont) cont.classList.add('login-popup__container--active');
+}
 
-    let container = selector.variantIdField.closest('.product-template-form, .product-unit, .product-list-item');
-    if(!container) return;
-    let btn = container.querySelector('.add-to-wishlist__btn');
-
-    if(!btn) return;
-    btn.setAttribute('data-vid', variant.id);
-
-    if(found) {
-        btn.setAttribute('title', 'Remove from Wishlist');
-        btn.classList.add('add-to-wishlist__btn--added');
-    } else {
-        btn.setAttribute('title', 'Add to Wishlist');
-        btn.classList.remove('add-to-wishlist__btn--added');
-    }
-});
+function closeLoginForm() {
+    const cont = document.querySelector('.login-popup__container');
+    if(cont) cont.classList.remove('login-popup__container--active');
+}

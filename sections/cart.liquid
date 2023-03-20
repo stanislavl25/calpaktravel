@@ -31,14 +31,24 @@
             {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
 
             {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
-        </div>
 
-        <div class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</div>
+            {%- if settings.enable-save-for-later -%}
+            <div class="cart__wishlist-notification">
+                {%- if settings.save-for-later-img -%}
+                <div class="cart__wishlist-item-image"></div>
+                {%- endif -%}
+                <div class="cart__wishlist-item-title"></div>
+                <button type="button" class="cart__undo-wishlist" title="Move the item back to cart">Undo</button>
+            </div>
+            {%- endif -%}
+        </div>
 
         <div class="cart__body-mobile-main">
             <div class="cart__body-main">
 
                 <div class="cart__body-top">
+                    <div class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</div>
+
                     <div class="cart__items-container">
                         <div class="cart__items">
                             {%- render 'cart-item' for cart.items -%}
@@ -59,20 +69,35 @@
                     </dl>
                     <dl class="cart__total-row cart__total-row--shipping">
                         <dt class="cart__total-name">Shipping</dt>
-                        <dd class="cart__total-value">$7.95</dd>
+                        <dd class="cart__total-value">
+                            <span class="cart__shipping-price">$7.95</span>
+                            <span class="cart__shipping-free">FREE</span>
+                        </dd>
                     </dl>
                 </div>
             </div>
 
-            <div class="cart__upsell slider__wrapper">
-                <div class="cart__upsell-title">More for you</div>
-                <div class="cart__upsell-items slider slider--scrollbar slider--vertical">
+            <div class="cart__upsell slider__wrapper" data-slide="4" data-slide-mob="2">
+                <div class="cart__upsell-title">{{- section.settings.featured-title | escape -}}</div>
+                <nav class="slider__nav">
+                    <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
+                    <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+                </nav>
+                <div class="cart__upsell-items slider slider--scrollbar slider--vertical-on-desktop">
                     {% comment %} {%- for i in (1..5) -%}
                         {%- render 'product-unit-placeholder', class: "slide", add_to_cart: true -%}
                     {%- endfor -%} {% endcomment %}
-                    {%- for product in collections['best-sellers'].products limit: 9 -%}
-                        {%- render 'product-unit' with product, class: "slide", all_colors: true, add_to_cart: true, location: 'cart' -%}
-                    {%- endfor -%}
+                    {%- if section.settings.product_list != blank -%}
+                        {%- for product in section.settings.product_list -%}
+                            {%- unless product.available -%}{%- continue -%}{% endunless %}
+                            {%- render 'product-unit' with product, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
+                        {%- endfor -%}
+                    {%- elsif section.settings.collection != blank -%}
+                        {%- for product in section.settings.collection.products limit: 20 -%}
+                            {%- unless product.available -%}{%- continue -%}{% endunless %}
+                            {%- render 'product-unit' with product, in_collection: section.settings.collection, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
+                        {%- endfor -%}
+                    {%- endif -%}
                 </div>
             </div>
         </div>
@@ -97,18 +122,48 @@
             </div>
             <a href="{% if customer == blank %}{{ routes.account_login_url }}/checkout{% else %}/checkout{% endif %}" class="button button--checkout"><span>Checkout</span></a>
             <div class="cart__extra-checkout">
-                {% comment %} Extra buttons {% endcomment %}
+                <script> const delayed_checkout_buttons = '{{ content_for_additional_checkout_buttons }}'; </script>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
+</script>
 
 {% schema %}
     {
         "name": "Cart",
         "class": "shopify-section--cart",
         "settings": [
-        
+            {
+                "type": "text",
+                "id": "featured-title",
+                "label": "Featured products title",
+                "default": "More for you"
+            },
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Featured collection"
+            },
+            {
+                "type": "product_list",
+                "id": "product_list",
+                "label": "Featured products",
+                "info": "Overrides featured collection"
+            },
+            {
+                "type": "range",
+                "id": "wishlist-timeout",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "unit": "sec",
+                "label": "Add to wishlist message timeout",
+                "default": 5
+            }
         ],
         "blocks": [
             {

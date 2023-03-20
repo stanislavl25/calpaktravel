@@ -2,3 +2,11 @@
     max-width: 580px;
     margin: 90px auto;
 }
+
+.field__error-message.field__error-message--js {
+    display: none;
+}
+
+.field__error-message.field__error-message--js.field__error-message--active {
+    display: inline-block;
+}

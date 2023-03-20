@@ -10,7 +10,7 @@
 
         <div class="pdp-features__list">
         {% for title in product.metafields.custom.features_titles.value %}
-            <div class="pdp-feature{% if forloop.first %} pdp-feature--active{% endif %}">
+            <div style="order: {{ forloop.index }}" class="pdp-feature{% if forloop.first %} pdp-feature--active{% endif %}">
                 <button aria-label="Show feature details" class="pdp-feature__title">{{- title -}}</button>
                 {%- liquid
                     assign index = forloop.index0

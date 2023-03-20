@@ -2,10 +2,6 @@
 {{ 'section-customer.css' | asset_url | stylesheet_tag: preload: true }}
 
 <section class="account-header">
-        {% unless template == 'customers/account' %}
-            {% comment %} <a class="account__go-back show-only-on-mobile" href="/account">Go back</a> {% endcomment %}
-        {% endunless %}
-        
         <div class="account-header__text">
             <div class="account-header__title">Hello, {{ customer.first_name }}!</div>
             {%- if section.settings.help-link != blank -%}

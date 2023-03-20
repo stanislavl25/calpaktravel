@@ -8,6 +8,8 @@
         <link rel="canonical" href="{{ canonical_url }}">
         <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
+        <script src="https://www.googleoptimize.com/optimize.js?id=GTM-P75QQQQ"></script>
+
         {%- if settings.favicon != blank -%}
         <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
         {%- endif -%}
@@ -29,11 +31,18 @@
 
         {% render 'meta-tags' %}
 
+        {% unless settings.speed_debug %}
         <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-        <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
         <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
+        {% endunless %}
 
-        {{ content_for_header }}
+        {% if settings.speed_debug %}
+            {% capture contentForHeader %}
+                {{ content_for_header }}
+            {% endcapture %}
+        {% else %}
+            {{ content_for_header }}
+        {% endif %}
 
         {%- liquid
             assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
@@ -112,6 +121,7 @@
         {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
         {{ 'component-product-common.css' | asset_url | stylesheet_tag }}
 
+        {% unless settings.speed_debug %}
         <link rel="stylesheet" href="{{ 'component-product-unit.css' | asset_url }}" media="print" onload="this.media='all'">
         <noscript>{{ 'component-product-unit.css' | asset_url | stylesheet_tag }}</noscript>
         
@@ -123,6 +133,7 @@
 
         <link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
         <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+        {% endunless %}
 
         {%- unless settings.type_body_font.system? -%}
             <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -132,43 +143,16 @@
             <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
         {%- endunless -%} {% endcomment %}
 
-        <script>
+        {% comment %} <script>
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
             if (Shopify.designMode) {
                 document.documentElement.classList.add('shopify-design-mode');
             }
-        </script>
+        </script> {% endcomment %}
         
-        {%- render 'header-scripts' -%}
-        {% comment %} <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script> {% endcomment %}
-    </head>
-
-    <body class="template-{{ template | replace: '.', '-' }}">
-        {% section 'header' %}
-        {% section 'mobile-menu' %}
-        {% section 'search' %}
-
-        {%- if template != 'cart' -%}
-            {% section 'cart' %}
-        {%- endif -%}
-
-        <section class="header__container">
-            {% section 'notifications' %}
-            {% section 'header-banner' %}
-        </section>
-        
-        <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-            {{ content_for_layout }}
-        </main>
-
-        {% section 'contact-form' %}
-        {% section 'cookies' %}
-        {% section 'footer' %}
-
-        <ul hidden>
-            <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-            <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
-        </ul>
+        {% unless settings.speed_debug %}
+            {%- render 'header-scripts' -%}
+        {% endunless %}
 
         <script>
         window.debug = false;
@@ -180,8 +164,7 @@
             cart_add_url: '{{ routes.cart_add_url }}',
             cart_change_url: '{{ routes.cart_change_url }}',
             cart_update_url: '{{ routes.cart_update_url }}',
-            cart_url: '{{ routes.cart_url }}',
-            predictive_search_url: '{{ routes.predictive_search_url }}'
+            cart_url: '{{ routes.cart_url }}'
         };
 
         window.scripts = {
@@ -193,7 +176,8 @@
             ups: `{{ 'ups.js' | asset_url }}`,
             pdp: `{{ 'pdp.js' | asset_url }}`,
             klaviyo: 'https://a.klaviyo.com/media/js/onsite/onsite.js',
-            wishlist: `{{ 'wishlist.js' | asset_url }}`
+            wishlist: `{{ 'wishlist.js' | asset_url }}`,
+            gwp: `{{ 'gwp.js' | asset_url }}`
         }
 
         window.styles = {
@@ -203,16 +187,64 @@
             quickview: `{{ 'component-quick-view.css' | asset_url }}`,
             starRating: `{{ 'component-star-rating.css' | asset_url }}`,
             waitlist: `{{ 'component-waitlist.css' | asset_url }}`,
-            wishlist: `{{ 'component-wishlist.css' | asset_url }}`
+            wishlist: `{{ 'component-wishlist.css' | asset_url }}`,
+            wishlistPopup: `{{ 'component-wishlist-popup.css' | asset_url }}`
         }
 
         window.settings = {
             bestSellers: {{ settings.best-sellers.handle | json }},
             newArrivals: {{ settings.new-arrivals.handle | json }},
-            swatchesLimit: {{ settings.product-unit-sw-count }}
+            swatchesLimit: {{ settings.product-unit-sw-count }},
+            freeShipping: {{ settings.free-shipping | times: 100 | json }},
+            wishlistTimeout: {{ settings.wishlist-popup-timeout | json }}
         }
         </script>
+      <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+</head>
 
-        {%- render 'footer-scripts' -%}
-    </body>
+    <body class="template-{{ template | replace: '.', '-' }}">
+        <noscript><iframe height="0" width="0" style="display:none;visibility:hidden" src="https://www.googletagmanager.com/ns.html?id=GTM-5VKKRGV"></iframe></noscript>
+        
+        {% unless settings.speed_debug %}
+        {% section 'header' %}
+
+            {% render 'wishlist-popup' %}
+            {% section 'mobile-menu' %}
+            {% section 'search' %}
+        
+            {% section 'gwp' %}
+            {%- if template != 'cart' -%}
+                {% section 'cart' %}
+            {%- endif -%}
+
+            <section class="header__container">
+                {% section 'notifications' %}
+                {% section 'header-banner' %}
+            </section>
+        {% endunless %}
+
+
+        
+        <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+            {{ content_for_layout }}
+        </main>
+
+        {% unless settings.speed_debug %}
+            {% section 'contact-form' %}
+            {% comment %} {% section 'cookies' %} {% endcomment %}
+        {% section 'footer' %}
+        {% endunless %}
+
+        <ul hidden>
+            <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+            <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+        </ul>
+
+        {% unless settings.speed_debug %}
+            {%- render 'footer-scripts' -%}
+        {% endunless %}
+    
+{% include 'swymSnippet' %}
+
+</body>
 </html>

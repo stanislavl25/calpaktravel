@@ -1,7 +1,20 @@
 <div class="reviews__slide-img">
-    {%- if block.settings.image-link != blank -%}<a href="{{- block.settings.image-link -}}">{%- endif -%}
-    {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', no_wrapper: no_wrapper, lazy: true -%}
-    {%- if block.settings.image-link != blank -%}</a>{%- endif -%}
+    {%- liquid
+        if block.settings.image-link != blank
+            echo '<a href="' | append: block.settings.image-link | append: '">'
+        endif
+
+        if block.settings.image-mobile != blank
+            render 'image' with block.settings.image, sizes: '50vw', no_wrapper: no_wrapper, lazy: true, class:" hide-small"
+            render 'image' with block.settings.image-mobile, sizes: '100vw', lazy: true, class: "hide-large"
+        else
+            render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', no_wrapper: no_wrapper, lazy: true
+        endif
+
+        if block.settings.image-link != blank
+            echo '</a>'
+        endif
+    -%}
 </div>
 <div class="reviews__slide-content">
     <div class="review-slide__header">

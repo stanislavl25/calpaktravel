@@ -12,6 +12,8 @@ window.addEventListener("click", (e) => {
         let slider = wrapper.querySelector('.slider');
         let firstSlide = slider.querySelector('.slide');
 
+        console.log(slider, wrapper);
+
         if(!firstSlide) firstSlide = slider.querySelector('*');
     
         let slideWidth = firstSlide.offsetWidth;
@@ -57,13 +59,14 @@ window.addEventListener("click", (e) => {
     }
 });
 
-function moveToSlide(slider, currentPage = 0) {
+function moveToSlide(slider, currentPage = 0, sliderCheckNum = 0) {
     // if(currentPage > 0) currentPage--;
     let wrapper = slider.closest('.slider__wrapper');
     let gap = 0;
     if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
-    let firstSlide = slider.querySelector('.slide');
-    let vertical = slider.classList.contains('slider--vertical');
+    const slides = slider.querySelectorAll('.slide');
+    let firstSlide = slides[sliderCheckNum];
+    let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
 
     let maxScroll = 0;
     
@@ -103,32 +106,34 @@ function moveToSlide(slider, currentPage = 0) {
     } else wrapper.classList.remove('slider__wrapper--start');
 }
 
-function sliderThumbClick(thumb) {
+function sliderThumbClick(thumb, indexFilter = false, sliderCheckNum = 0) {
     const slider = thumb.closest('.slider');
     const actives = slider.querySelectorAll('.slide--selected');
     if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
     
     thumb.classList.add('slide--selected');
 
-    const index = getIndexWithSelector(thumb, '.slide');
+    let index = getIndexWithSelector(thumb, '.slide');
+    if(indexFilter !== false) index = indexFilter(index);
 
-    moveToSlide(document.querySelector(slider.getAttribute('data-nav-for')), index);
+    moveToSlide(document.querySelector(slider.getAttribute('data-nav-for')), index, sliderCheckNum);
 }
 
-function checkSlider(slider) {
+function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
     if(!slider) return;
     let wrapper = slider.closest('.slider__wrapper');
     if(!wrapper) return;
-    let firstSlide = slider.querySelector('.slide');
+    const slides = slider.querySelectorAll('.slide');
+    let firstSlide = slides[sliderCheckNum];
     if(!firstSlide) firstSlide = slider.querySelector('*');
     if(!firstSlide) return;
     let slideWidth = 0;
-    let vertical = slider.classList.contains('slider--vertical');
+    let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
 
     if(!wrapper.classList.contains('slider__wrapper--loaded')) {
         slider.addEventListener('scroll', function() {
             if(sliderThrottle !== false) clearTimeout(sliderThrottle);
-            sliderThrottle = setTimeout(() => checkSlider(this), 305);
+            sliderThrottle = setTimeout(() => checkSlider(this, sliderCheckNum, indexFilter), 305);
         }, {passive: true});
 
         if(slider.classList.contains("slider-nav")) {
@@ -166,10 +171,14 @@ function checkSlider(slider) {
         let nav = document.querySelector(slider.getAttribute('data-nav'));
         if(nav) {
             checkSlider(nav);
+            
             let actives = nav.querySelectorAll('.slide--selected');
             if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
+            
             let activate = nav.querySelectorAll('.slide');
-            activate[currentPage].classList.add('slide--selected');
+
+            if(indexFilter !== false) activate[indexFilter(currentPage)].classList.add('slide--selected');
+            else activate[currentPage].classList.add('slide--selected');
         }
     }
 
@@ -184,6 +193,13 @@ function checkSlider(slider) {
 
     if(currentPage == 0) wrapper.classList.add('slider__wrapper--start');
     else wrapper.classList.remove('slider__wrapper--start');
+
+    let dots = wrapper.querySelectorAll('.slider__dot');
+    if(dots.length) {
+        for(let i = 0; i < dots.length; i++) dots[i].classList.remove('slider__dot--active');
+        if(dots.length <= currentPage) currentPage -= dots.length;
+        dots[currentPage].classList.add('slider__dot--active');
+    }
 }
 
 let sliderThrottle = false;
@@ -195,7 +211,7 @@ window.addEventListener("load", () => {
             if (entry.intersectionRatio > 0) {
                 observer.unobserve(entry.target);
                 let slider = entry.target;
-                let vertical = slider.classList.contains('slider--vertical');
+                let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
                 slider.classList.add('scrolling-back');
                 if(vertical) slider.scrollTop = 0;
                 else slider.scrollLeft = 0;
@@ -213,8 +229,8 @@ function runSlider(slider, autoslide) {
     setInterval(function() {
         let wrapper = slider.closest('.slider__wrapper');
         if(wrapper.matches(':hover')) return;
-
-        let vertical = slider.classList.contains('slider--vertical');
+        
+        let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
         let slideWidth = 0;
         let currentScroll = slider.scrollLeft;
         if(vertical) currentScroll = slider.scrollTop;
@@ -250,11 +266,11 @@ function runSlider(slider, autoslide) {
             }, 1000);
         }
 
-        let dots = wrapper.querySelectorAll('.slider__dot');
-        if(dots.length) {
-            for(let i = 0; i < dots.length; i++) dots[i].classList.remove('slider__dot--active');
-            dots[currentPage].classList.add('slider__dot--active');
-        }
+        // let dots = wrapper.querySelectorAll('.slider__dot');
+        // if(dots.length) {
+        //     for(let i = 0; i < dots.length; i++) dots[i].classList.remove('slider__dot--active');
+        //     dots[currentPage].classList.add('slider__dot--active');
+        // }
 
     }, autoslide * 1000);
 }

@@ -104,6 +104,11 @@
     justify-content: center;
 }
 
+.pdp__promo-section--points .pdp-promo__media {
+    flex: 0 0 50%;
+    max-width: 220px;
+}
+
 @media (max-width: 900px) {
     .pdp__promo-section--upsell-banner + .pdp__promo-section--upsell-banner {
         margin-top: 0;

@@ -5,6 +5,7 @@ function openMenu(menu) {
     document.body.classList.add('modal-open');
 
     const header = document.querySelector('.shopify-section--header');
+    document.querySelector(`.menu-popup--${menu}`).classList.add('menu-popup--visible');
     header.setAttribute('data-menu', menu);
 }
 

@@ -5,11 +5,16 @@
       "settings": {
         "title": "Contact us",
         "title-size": "small",
-        "text": "<p><strong>Customer Service Hours<\/strong><\/p><p>Monday to Friday, 10 am - 5 pm PST <br\/>(Closed on weekends and major holidays.)<\/p>"
+        "text": "<p><strong>Customer Service Hours<\/strong><\/p><p>Monday to Friday, 10 am - 5 pm PST <br\/>(Closed on weekends and major holidays.)<\/p>",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "a9d03cf9-8a70-44ea-8554-1eb18148beed": {
       "type": "html",
+      "custom_css": [
+        ".html__section iframe {margin-top: -50px}"
+      ],
       "settings": {
         "html": "<script type=\"text\/javascript\" src=\"https:\/\/form.jotform.com\/jsform\/92266569336165\"><\/script>",
         "add-padding": false

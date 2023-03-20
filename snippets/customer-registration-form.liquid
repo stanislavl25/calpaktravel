@@ -35,6 +35,7 @@
                     autofocus
                     autocapitalize="words"
                 >
+                <div class="field__error-message field__error-message--js">Please enter your first name</div>
             </div>
 
             <div class="field field--required">
@@ -49,6 +50,7 @@
                     autofocus
                     autocapitalize="words"
                 >
+                <div class="field__error-message field__error-message--js">Please enter your last name</div>
             </div>
 
             <div class="field field--required">
@@ -71,6 +73,11 @@
                         aria-invalid="true"
                         aria-describedby="RegisterForm-email-error"
                     {% endif %}>
+                {%- if form.errors contains 'email' -%}
+                <div class="field__error-message">Please enter your email address</div>
+                {%- elsif form.errors contains 'form' -%}
+                <div class="field__error-message">{{ form.errors.messages['form'] }}</div>
+                {%- endif -%}
             </div>
     {% comment %} 
                 {%- if form.errors contains 'email' -%}
@@ -98,6 +105,9 @@
                         aria-invalid="true"
                         aria-describedby="RegisterForm-password-error"
                     {% endif %}>
+                {%- if form.errors contains 'password' -%}
+                <div class="field__error-message">Please enter a secure password</div>
+                {%- endif -%}
             </div>
 
             <div class="field field--checkbox">
@@ -107,10 +117,6 @@
             </div>
         </section>
 
-        {%- if form.errors -%}
-            {{ form.errors | default_errors }}
-        {%- endif -%}
-
         <div class="form__submit">
             <button aria-label="Register an account" type="submit" class="button">
                 <span>Register</span>
@@ -118,8 +124,8 @@
         </div>
 
         <div class="form-disclaimer">By providing your email address you agree to our
-            <a href="/pages/privacy-policy" target="_blank">privacy policy</a> and
-            <a href="/pages/terms-conditions" target="_blank">terms &amp; conditions</a>.
+            <a href="/policies/privacy-policy" target="_blank">privacy policy</a> and
+            <a href="/policies/terms-of-service" target="_blank">terms &amp; conditions</a>.
         </div>
     {% endif %}
 {% endform %}

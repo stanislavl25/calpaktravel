@@ -42,7 +42,7 @@ if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filt
 }));
 
 /////////////////////// Filter collections activators ///////////////////////
-const filterCategories = document.querySelectorAll('.collections-category');
+const filterCategories = document.querySelectorAll('button.collections-category');
 filterCategories.forEach(filterCategory => filterCategory.addEventListener('click', async (e) => {
     const target = e.target.closest('.collections-category');
     const prnt = target.closest('.collections-menu');
@@ -60,14 +60,14 @@ filterCategories.forEach(filterCategory => filterCategory.addEventListener('clic
         await loadScript(scripts.filter);
     }
 
-    applyFilter();
+    applyFilter('collections');
 }));
 
 
 window.addEventListener("load", () => {
-    const allProducts = document.querySelector('.collections-category--all');
-    if(allProducts) {
-        allProducts.querySelector('i').innerHTML = document.querySelectorAll('.product-grid .product-unit').length;
+    const emptyProductCount = document.querySelector('.collections-category i:empty');
+    if(emptyProductCount) {
+        emptyProductCount.innerHTML = document.querySelectorAll('.product-grid .product-unit').length;
     }
     
     productImagesSizes = filteredContainer.querySelector('.shopify-section--product-grid .product-unit .product-unit__image img');
@@ -76,6 +76,7 @@ window.addEventListener("load", () => {
 
 const filterCollections = document.querySelectorAll('.filter__collection');
 if(filterCollections.length) filterCollections.forEach(filterCollection => filterCollection.addEventListener('click', async (e) => {
+    e.preventDefault();
     const target = e.target.closest('.filter__collection');
     const prnt = target.closest('.filter__collections');
     const actives = prnt.querySelectorAll('.filter__collection--selected');
@@ -91,9 +92,11 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
         target.classList.add('filter__collection--selected');
     }
 
+    window.history.replaceState({}, '', target.getAttribute('href'));
+
     if(typeof renderColorGroups === 'undefined') {
         await loadScript(scripts.filter);
     }
 
-    applyFilter();
+    applyFilter('collections');
 }));

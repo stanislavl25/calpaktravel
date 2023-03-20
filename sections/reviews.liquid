@@ -21,7 +21,7 @@
         <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}"></div>
         {%- endfor -%}
     </div>
-    <div class="reviews__slider slider slider--vertical" data-autoslide="4">
+    <div class="reviews__slider slider slider--vertical-on-desktop" data-autoslide="4">
         {% for block in section.blocks %}
         <div class="reviews__slide slide">
             {% render 'review-content' with block as block, no_wrapper: true %}
@@ -98,6 +98,11 @@
                         "type": "image_picker",
                         "id": "image",
                         "label": "Image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image-mobile",
+                        "label": "Image for mobile"
                     },
                     {
                         "type": "url",

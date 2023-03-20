@@ -1,0 +1,13 @@
+<div class="login-popup__container">
+    <div class="login-popup__overlay"></div>
+    <div class="login-popup">
+        <button title="Close popup" class="popup-close">Close</button>
+        {%- if title != blank -%}
+            <h2 class="login-popup__title">{{ title }}</h2>
+        {%- endif -%}
+        {%- render 'customer-login-form' -%}
+        <div class="login-popup__reg">
+            Not a member? <a href="{{ routes.account_register_url }}">Join now.</a>
+        </div>
+    </div>
+</div>

@@ -70,6 +70,14 @@
             "image": "shopify:\/\/shop_images\/oprah-mag_6a329b7c-c662-4bcd-8b25-67d4dedf8eb5.png"
           }
         },
+        "08dc3dd1-6841-42e3-9ade-9fcc08a1d540": {
+          "type": "press",
+          "settings": {
+            "product": "stevyn-duffel",
+            "description": "<p>\"A bag fit for serial weekend-trip travelers, the roomy style also works for commuters and gym-goers.\"<\/p>",
+            "image": "shopify:\/\/shop_images\/Refinery29_logo_svg.png"
+          }
+        },
         "178c08bf-e865-4dde-8e2d-dabc2d7a57e6": {
           "type": "press",
           "settings": {
@@ -80,6 +88,7 @@
         },
         "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7": {
           "type": "press",
+          "disabled": true,
           "settings": {
             "product": "travel-wallet-croc",
             "description": "<p>\"When traveling, the last thing you want is a bulky bag weighing you down. Meet the Calpak Travel Wallet. This wallet\/purse hybrid was made for keeping you organized... switch up how you style it depending on your mood.\"<\/p>",
@@ -110,14 +119,6 @@
             "image": "shopify:\/\/shop_images\/Refinery29_logo.svg_1.png"
           }
         },
-        "08dc3dd1-6841-42e3-9ade-9fcc08a1d540": {
-          "type": "press",
-          "settings": {
-            "product": "stevyn-duffel",
-            "description": "<p>\"A bag fit for serial weekend-trip travelers, the roomy style also works for commuters and gym-goers.\"<\/p>",
-            "image": "shopify:\/\/shop_images\/Refinery29_logo_svg.png"
-          }
-        },
         "943597d7-6322-4fb2-b5e1-db77274c98f7": {
           "type": "press",
           "settings": {
@@ -128,6 +129,7 @@
         },
         "afd7c74f-c6b6-4268-8246-a5673b60aa15": {
           "type": "press",
+          "disabled": true,
           "settings": {
             "product": "water-bottle-holder",
             "description": "<p>\"This TikTok sensation is amazing for hikers, college students and other hydration enthusiasts.\"<\/p>",
@@ -136,6 +138,7 @@
         },
         "36dbac8e-744d-4ab0-a88f-5ed33845eeae": {
           "type": "press",
+          "disabled": true,
           "settings": {
             "product": "haven-laptop-tote-bag",
             "description": "<p>\"If you need something to carry your laptop on the plane or to and from meetings, the Haven Tote is an excellent choice.\"<\/p>",
@@ -151,12 +154,12 @@
         "f5d53c4d-e044-4278-868f-6260a57b7710",
         "b4391abb-45d4-4a79-8f8b-bf3b7d090780",
         "40827c3d-e165-4953-8c92-b4043f1b932a",
+        "08dc3dd1-6841-42e3-9ade-9fcc08a1d540",
         "178c08bf-e865-4dde-8e2d-dabc2d7a57e6",
         "cf729e10-07e7-4ea5-87a7-b21f53a1d7c7",
         "48b7317e-94af-48f2-b717-352fde1897ee",
         "59a23db4-cdb7-4f2a-a844-2d39171d2ee4",
         "9e16bf66-4096-403c-95ec-bad6f51ea62d",
-        "08dc3dd1-6841-42e3-9ade-9fcc08a1d540",
         "943597d7-6322-4fb2-b5e1-db77274c98f7",
         "afd7c74f-c6b6-4268-8246-a5673b60aa15",
         "36dbac8e-744d-4ab0-a88f-5ed33845eeae"

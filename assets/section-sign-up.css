@@ -20,8 +20,8 @@
 .sign-up__form iframe {
     width: 100%;
     position: absolute;
-    top: 0;
-    transform: none;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     height: 600px;
     min-height: 100%;
@@ -78,6 +78,10 @@
 
 .sign-up__image {
     position: relative;
+}
+
+.sign-up__image .ratio-container {
+    position: static;
 }
 
 .sign-up__image.sign-up__image--keep-proportions .image-ratio-container {

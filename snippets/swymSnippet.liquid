@@ -28,7 +28,7 @@
       {% endif %}
       SwymProductVariants[{{variant.id|json}}] = {
         empi:window.SwymProductInfo.product.id,epi:{{variant.id|json}},
-        dt: {{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | json }},
+        dt: {{ product.title | json }},
         du: "{{ shop.url }}{{ product.url }}",
         iu: {% if variant.image %} {{ variant | img_url: '620x620' | json }} {% else %} piu {% endif %},
         stk: {{variant.inventory_quantity}},
@@ -41,7 +41,7 @@
     window.SwymProductInfo.currentVariant = {{currentVariant.id | json}};
     var product_data = {
       et: 1, empi: window.SwymProductInfo.product.id, epi: window.SwymProductInfo.currentVariant,
-      dt: {{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | json }}, du: "{{ shop.url }}{{ product.url }}",
+      dt: {{ product.title | json }}, du: "{{ shop.url }}{{ product.url }}",
       ct: window.SwymProductInfo.product.type, pr: {{ currentVariant.price }}/100,
       iu: {% if currentVariant.image %} {{ currentVariant | img_url: '620x620' | json }} {% else %} piu {% endif %}, variants: [{ {{currentVariant.title | json}} : {{currentVariant.id | json}} }],
       stk:{{ currentVariant.inventory_quantity }} {% if currentVariant.compare_at_price %} ,op:{{currentVariant.compare_at_price}}/100 {% endif %}

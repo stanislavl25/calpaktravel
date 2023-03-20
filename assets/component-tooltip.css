@@ -53,3 +53,20 @@
 .tooltip:hover .tooltip__message {
     opacity: 1;
 }
+
+@media (max-width: 650px) {
+    .tooltip {
+        position: static;
+    }
+
+    .tooltip__message {
+        top: 100%;
+        transform: none;
+        left: 0;
+        margin: 2px 0 0;
+    }
+
+    .tooltip__message::before {
+        display: none;
+    }
+}
