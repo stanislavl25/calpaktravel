@@ -1,0 +1,88 @@
+{
+  "current": {
+    "free-shipping": 85,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "shop-menu": "",
+          "discover-menu": "",
+          "edits-title": "Latest Stories",
+          "placeholder-text": "",
+          "live": false
+        }
+      },
+      "mobile-menu": {
+        "type": "mobile-menu",
+        "settings": {
+          "shop-menu": "",
+          "discover-menu": "",
+          "edits-title": ""
+        }
+      },
+      "search": {
+        "type": "search",
+        "settings": {
+          "search-by-category": [
+
+          ],
+          "welcome-title": "",
+          "welcome-collection": "",
+          "welcome-quick-view": true,
+          "empty-title": "",
+          "empty-collection": "",
+          "empty-quick-view": true
+        }
+      },
+      "gwp": {
+        "type": "gwp",
+        "settings": {
+          "enable-gwp": false,
+          "gwp-max-number": "1"
+        }
+      },
+      "cart": {
+        "type": "cart",
+        "settings": {
+          "featured-title": "More for you",
+          "collection": "",
+          "product_list": [
+
+          ],
+          "wishlist-timeout": 5
+        }
+      },
+      "notifications": {
+        "type": "notifications",
+        "settings": {
+        }
+      },
+      "header-banner": {
+        "type": "header-banner",
+        "settings": {
+        }
+      },
+      "contact-form": {
+        "type": "contact-form",
+        "settings": {
+          "title": "",
+          "description": "",
+          "text-above": "",
+          "disclaimer": "",
+          "klaviyo-list": "",
+          "show-phone": true,
+          "button-text": "Join mailing list"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "bottom-menu": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}
