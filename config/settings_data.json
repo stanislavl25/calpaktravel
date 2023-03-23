@@ -48,9 +48,9 @@
           "ffee1719-c9f6-40e7-9c68-523341ac114f": {
             "type": "announcement",
             "settings": {
-              "text": "Check out our Sale, items up to 50% off",
+              "text": "Check out our SALE, items up to 50% off",
               "url": "shopify:\/\/collections\/sale",
-              "color_text": "#000",
+              "color_text": "#000000",
               "color_background": "linear-gradient(180deg, rgba(255, 107, 14, 1), rgba(255, 107, 14, 1) 100%)"
             }
           },
