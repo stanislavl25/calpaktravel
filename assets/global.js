@@ -535,7 +535,7 @@ function activateProductUnit(target) {
     if(window.debug) console.log('Init product', handle);
     
     return new Promise((resolve, reject) => {
-        fetch('/products/' + handle + '?view=async')
+        fetch('/products/' + handle + '?view=json')
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
