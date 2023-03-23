@@ -10,7 +10,8 @@
     },
     "faq-sidebar": {
       "type": "faq-sidebar",
-      "settings": {}
+      "settings": {
+      }
     },
     "16377711606c4809bf": {
       "type": "faq-category",
@@ -288,7 +289,7 @@
           "type": "faq",
           "settings": {
             "title": "Are returns free?",
-            "answer": "<p>Currently, we do not offer free return shipping.  However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<br\/><br\/>Flat rate return shipping fees:<br\/><br\/>- Luggage: $14.95<br\/>- Bags & Accessories: $7.95<br\/>- Apparel: $4.95<\/p>",
+            "answer": "<p>Currently, we do not offer free return shipping.  However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<br\/><br\/>Flat rate return shipping fees:<br\/><br\/>- Luggage: $14.95<br\/>- Bags & Accessories: $7.95<\/p>",
             "hide": false
           }
         },
