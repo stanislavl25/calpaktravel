@@ -345,7 +345,7 @@
           "type": "faq",
           "settings": {
             "title": "My item arrived damaged. What should I do?",
-            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for advice, or you can start a return through our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">returns portal<\/a>.<\/p>",
+            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for advice, or you can start a return through our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">returns portal<\/a>.<\/p><p><strong>Please note, all order issues must be reported to CALPAK within 30 days of delivery.<\/strong><\/p>",
             "hide": false
           }
         },
