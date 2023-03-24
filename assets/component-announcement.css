@@ -1,0 +1,26 @@
+.announcement-bar--grey {
+	background: #EAE9E1 !important;
+}
+
+.announcement-bar--yellow {
+	background: #F7F177 !important;
+}
+
+.announcement-bar--hidden {
+	display: none !important;
+}
+
+.announcement-bar a {
+	align-items: center;
+	display: flex;
+	font-size: 16px;
+	font-weight: 450;
+	letter-spacing: -0.03em;
+	line-height: 21px;
+	min-height: 42px;
+	text-align: center;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+    justify-content: center;
+}

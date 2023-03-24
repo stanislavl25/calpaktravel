@@ -45,6 +45,15 @@
       "header": {
         "type": "header",
         "blocks": {
+          "ffee1719-c9f6-40e7-9c68-523341ac114f": {
+            "type": "announcement",
+            "settings": {
+              "text": "Check out our SALE, items up to 50% off",
+              "url": "shopify:\/\/collections\/sale",
+              "color_text": "#000000",
+              "color_background": "linear-gradient(180deg, rgba(255, 107, 14, 1), rgba(255, 107, 14, 1) 100%)"
+            }
+          },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
             "settings": {
@@ -231,6 +240,7 @@
           }
         },
         "block_order": [
+          "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
