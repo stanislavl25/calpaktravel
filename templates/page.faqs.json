@@ -305,7 +305,7 @@
           "type": "faq",
           "settings": {
             "title": "I received the wrong product. What do I need to do to get the correct item?",
-            "answer": "<p>We're so sorry to hear this! Please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>  with your order number and we'll help resolve this right away. <\/p>",
+            "answer": "<p>We're so sorry to hear this! Please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>  with your order number and we'll help resolve this right away. <\/p><p><strong>Please note, all order issues must be reported to CALPAK within 30 days of delivery.<\/strong><\/p>",
             "hide": false
           }
         },
