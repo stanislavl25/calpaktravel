@@ -103,6 +103,11 @@ async function getQuickView(link, variant = false) {
 
     qvParent.classList.add('quick-view__container--active');
     qvParent.classList.remove('loading-animation', 'quick-view__container--nudge');
+
+    const qvButton = document.querySelectorAll('.qv__body .button--pdp__submit');
+    [].map.call(qvButton, (button) => {
+        button.classList.add('qv_add-to-cart');
+    });
 }
 
 window.addEventListener("click", async (e) => {
