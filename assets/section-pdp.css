@@ -636,6 +636,10 @@
     line-height: 20px;
 }
 
+.pdp__arrival--hidden {
+	display: none !important;
+}
+
 .pdp__arrival span {
     font-weight: 400;
     background: #EAE9E1;
