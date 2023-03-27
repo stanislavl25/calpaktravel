@@ -147,6 +147,59 @@
                     {%- when 'submit' -%}
                         {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
                         {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
+                        {%- when 'arrival' -%}
+                        {%- liquid
+                            assign enable = false
+                            for availableproduct in block.settings.available-products
+                                if product.handle == availableproduct.handle
+                                    assign enable = true
+                                endif
+                            endfor
+                        -%}
+                        {% if enable %}
+                        <div id="pdp__arrival" class="pdp__arrival pdp__arrival--hidden"></div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+
+                                var arrival_text    = '{{ block.settings.text }}',
+                                    now             = new Date(),
+                                    tomorrow        = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1),
+                                    second          = 1000,
+                                    minute          = second * 60,
+                                    hour            = minute * 60,
+                                    day             = hour * 24;
+
+                                var distance 	    = tomorrow - now;
+                                var distanceFormat  = {
+                                    'days': Math.floor(distance / (day)),
+                                    'hours': Math.floor((distance % (day)) / (hour)),
+                                    'minutes': Math.floor((distance % (hour)) / (minute)),
+                                    'seconds': Math.floor((distance % (minute)) / second)
+                                }
+
+                                window.fetch("https://webhooks.endrock.software//endrockapi/v3/app/estimatedArrival/?store=calpak", {
+                                    method: 'GET',
+                                    redirect: 'follow'
+                                })
+                                .then(response => response.json())
+                                .then(result => {
+
+                                    var range_from = result.data.delivery_max_date_start_at_desc_m + " - " + result.data.delivery_max_date_end_at_desc_m;
+                                    var order_time = distanceFormat.hours + ' hrs ' + distanceFormat.minutes + ' mins';
+                                    var mapObj = {
+                                        '{range}': range_from,
+                                        '{time}': order_time,
+                                    };
+
+                                    arrival_final = arrival_text.replace(/{range}|{time}/gi, function(matched){
+                                        return mapObj[matched];
+                                    });
+                                    document.querySelector('#pdp__arrival').innerHTML = arrival_final;
+                                })
+                                .catch(error => console.log('error', error));
+                            });
+                        </script>
+                        {% endif %}
                     {%- when 'description' -%}
                         {% render 'pdp-description', current_variant: current_variant %}
                     {%- else -%}
@@ -262,6 +315,23 @@
                         "id": "wishlist",
                         "label": "Enable wishlist button",
                         "default": true
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "arrival",
+                "name": "Estimated arrival",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "text",
+                        "label": "Messgage template"
                     }
                 ],
                 "limit": 1
