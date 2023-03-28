@@ -632,6 +632,25 @@
     margin-top: 5px;
 }
 
+.pdp__arrival {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.pdp__arrival--hidden {
+	display: none !important;
+}
+
+.pdp__arrival span {
+    font-weight: 400;
+    background: #EAE9E1;
+    padding: 3px 6px;
+    border-radius: 6px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
 @media (max-width: 1180px) {
     .pdp__grid {
         gap: 35px;
@@ -643,6 +662,13 @@
 }
 
 @media (max-width: 900px) {
+
+    .pdp__arrival b {
+        display: block;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
     .img-zoom {
         display: none;
     }

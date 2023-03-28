@@ -42,13 +42,25 @@
     "product-template": {
       "type": "product-template",
       "blocks": {
+        "ef919b9c-2309-4d2f-a855-59983014b88b": {
+          "type": "flash-sale",
+          "settings": {
+          }
+        },
         "38dd47f4-7ad6-4f58-9949-bd511635652e": {
           "type": "title",
-          "settings": {}
+          "settings": {
+          }
         },
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
           "type": "variants",
-          "settings": {}
+          "settings": {
+          }
+        },
+        "3f584821-31db-42cb-941c-f61866a361a0": {
+          "type": "product-labels",
+          "settings": {
+          }
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
           "type": "submit",
@@ -56,40 +68,202 @@
             "wishlist": true
           }
         },
+        "de1468ed-2f65-4371-be8f-69be7e1dcec6": {
+          "type": "shipping-calculator",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "355dabeb-9c30-46f5-9912-52a97ee1196e": {
+          "type": "points",
+          "disabled": true,
+          "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": true,
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0053A-33.jpg",
+            "text": "<p>Earn up to <span style=\"text-decoration:underline\">[points]<\/span> points!<\/p>"
+          }
+        },
         "48138d37-8473-4c57-adc6-882525675315": {
           "type": "upsell-banner",
           "settings": {
-            "product-list": [],
-            "collection-list": [],
-            "show-for-all": true,
-            "heading": "Make it a set and save $75",
+            "product-list": [
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 2-piece set",
             "product": "astyll-2-piece-luggage-set",
             "title-override": "",
-            "button-text": "Add set to bag",
-            "include-price": true,
-            "button-behaviour": "follow-link",
+            "button-text": "Add Set To Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
+          }
+        },
+        "97b58e16-1c05-46d6-a2e9-b83db6d82916": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 3-piece set",
+            "product": "astyll-3-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set To Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
+          }
+        },
+        "a59119dd-3de7-40ba-8531-92996e1e14b0": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "ambeur-carry-on-luggage",
+              "ambeur-large-luggage",
+              "ambeur-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 2-piece set",
+            "product": "ambeur-2-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set to Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
+          }
+        },
+        "0261c742-46ed-46e0-9426-08c82416e93e": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "ambeur-carry-on-luggage",
+              "ambeur-large-luggage",
+              "ambeur-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 3-piece set",
+            "product": "ambeur-3-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set to Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
+          }
+        },
+        "fd410b66-3632-41fb-9a75-d309019c7a59": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "trnk-carry-on-luggage",
+              "trnk-large-luggage",
+              "trnk-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 2-piece set",
+            "product": "trnk-2-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set to Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
+          }
+        },
+        "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "trnk-carry-on-luggage",
+              "trnk-large-luggage",
+              "trnk-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 3-piece set",
+            "product": "trnk-3-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set to Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
+          }
+        },
+        "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b": {
+          "type": "upsell-banner",
+          "disabled": true,
+          "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": true,
+            "heading": "Title",
+            "product": "car-organizer",
+            "title-override": "",
+            "button-text": "Preview product",
+            "include-price": false,
+            "button-behaviour": "quick-view",
             "button-url": ""
           }
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
+          "disabled": true,
           "settings": {
-            "product-list": [],
-            "collection-list": [],
-            "show-for-all": true,
-            "image": "shopify:\/\/shop_images\/210330_CALPAK_Q223891_Hi.jpg",
-            "title": "Title goes here",
-            "text": "<p>Lorem ipsum dolor sit amet, cons ectetur adipi.<\/p><p><a href=\"#\" title=\"#\">See details.<\/a><\/p>",
-            "button-text": "",
+            "product-list": [
+              "starter-bundle"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/chrome_ajZa2NqqKg.png",
+            "title": "Watch Live Demo",
+            "text": "<p>Learn more about the features of this bundle.<\/p><p><\/p>",
+            "button-text": "Tune In Now",
             "button-url": "",
-            "live-show-id": ""
+            "live-show-id": "0IUxs05HW5qmjx5AFvGG"
           }
         },
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8": {
           "type": "text-banner",
+          "disabled": true,
           "settings": {
-            "product-list": [],
-            "collection-list": [],
+            "product-list": [
+
+            ],
+            "collection-list": [
+
+            ],
             "show-for-all": true,
             "title": "Heading here",
             "text": "<p>Consectetur adipiscing elit. Lorem ipsum dolor sit.<\/p>",
@@ -99,32 +273,49 @@
         },
         "460a526f-69ed-4d68-89c4-1b9152dcadf7": {
           "type": "description",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
+        "ef919b9c-2309-4d2f-a855-59983014b88b",
         "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
+        "3f584821-31db-42cb-941c-f61866a361a0",
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
+        "de1468ed-2f65-4371-be8f-69be7e1dcec6",
+        "355dabeb-9c30-46f5-9912-52a97ee1196e",
         "48138d37-8473-4c57-adc6-882525675315",
+        "97b58e16-1c05-46d6-a2e9-b83db6d82916",
+        "a59119dd-3de7-40ba-8531-92996e1e14b0",
+        "0261c742-46ed-46e0-9426-08c82416e93e",
+        "fd410b66-3632-41fb-9a75-d309019c7a59",
+        "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f",
+        "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7"
       ],
       "settings": {
         "zoom": false,
-        "gallery-limit": 0,
+        "gallery-limit": 5,
         "gallery-limit-reapply": true,
-        "specifications": "",
-        "warranty-product-level": "",
-        "warranty-and-return": "",
+        "specifications": "<p>{{ product.metafields.custom.specifications | metafield_tag }}<\/p>",
+        "warranty-product-level": "<p>{{ product.metafields.custom.warranty_text | metafield_tag }}<\/p>",
+        "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
         "prop65-title": "Prop 65 Disclaimer",
-        "prop65": ""
+        "prop65": "<p>Proposition 65 is a California regulation that requires special warnings to be presented to customers if a product contains chemicals known to the State of California to cause cancer, birth defects or other reproductive harm if exposure to the chemicals in those products are above the limits set by California.<\/p><p>The following warning applies to the products linking to this page. <\/p><p>WARNING Cancer and Reproductive Harm. www.P65Warnings.ca.gov<\/p>"
       }
     },
     "pdp-product-features": {
       "type": "pdp-product-features",
-      "settings": {}
+      "settings": {
+      }
+    },
+    "4de958ad-7312-48b5-bf6e-957bddedfa79": {
+      "type": "curalate-gallery",
+      "settings": {
+      }
     },
     "pdp-featured-collection": {
       "type": "pdp-featured-collection",
@@ -146,7 +337,57 @@
       "block_order": [
         "eb465944-400d-4d86-afd8-5b1728a69de0"
       ],
-      "settings": {}
+      "settings": {
+      }
+    },
+    "9e2ed880-175f-4740-86df-747013cfd296": {
+      "type": "featured-content-blocks",
+      "disabled": true,
+      "blocks": {
+        "783be409-c32d-4f7e-8318-271228487232": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Edit Name",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/ambeur-medium-luggage",
+            "product_title": "Medium Luggage",
+            "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "98837313-7152-48c3-aeed-7dcfe119dbc9": {
+          "type": "block",
+          "settings": {
+            "target_link": "",
+            "title": "Edit Name",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.<\/p>",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
+            "product_title": "Product title",
+            "image": "shopify:\/\/shop_images\/210330_CALPAK_Q223891_Hi.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        }
+      },
+      "block_order": [
+        "783be409-c32d-4f7e-8318-271228487232",
+        "98837313-7152-48c3-aeed-7dcfe119dbc9"
+      ],
+      "settings": {
+        "heading": "",
+        "gap": true,
+        "general-layout": "text-media",
+        "content-position": "stretch",
+        "mobile-layout": "stacked",
+        "button-text": "",
+        "button-link": ""
+      }
     }
   },
   "order": [
@@ -155,7 +396,9 @@
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f",
     "product-template",
     "pdp-product-features",
+    "4de958ad-7312-48b5-bf6e-957bddedfa79",
     "pdp-featured-collection",
-    "167267170152804e97"
+    "167267170152804e97",
+    "9e2ed880-175f-4740-86df-747013cfd296"
   ]
 }

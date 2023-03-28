@@ -10,7 +10,8 @@
     },
     "faq-sidebar": {
       "type": "faq-sidebar",
-      "settings": {}
+      "settings": {
+      }
     },
     "16377711606c4809bf": {
       "type": "faq-category",
@@ -288,7 +289,7 @@
           "type": "faq",
           "settings": {
             "title": "Are returns free?",
-            "answer": "<p>Currently, we do not offer free return shipping.  However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<br\/><br\/>Flat rate return shipping fees:<br\/><br\/>- Luggage: $14.95<br\/>- Bags & Accessories: $7.95<br\/>- Apparel: $4.95<\/p>",
+            "answer": "<p>Currently, we do not offer free return shipping.  However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<br\/><br\/>Flat rate return shipping fees:<br\/><br\/>- Luggage: $14.95<br\/>- Bags & Accessories: $7.95<\/p>",
             "hide": false
           }
         },
@@ -304,7 +305,7 @@
           "type": "faq",
           "settings": {
             "title": "I received the wrong product. What do I need to do to get the correct item?",
-            "answer": "<p>We're so sorry to hear this! Please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>  with your order number and we'll help resolve this right away. <\/p>",
+            "answer": "<p>We're so sorry to hear this! Please contact us at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>  with your order number and we'll help resolve this right away. <\/p><p><strong>Please note, all order issues must be reported to CALPAK within 30 days of delivery.<\/strong><\/p>",
             "hide": false
           }
         },
@@ -344,7 +345,7 @@
           "type": "faq",
           "settings": {
             "title": "My item arrived damaged. What should I do?",
-            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for advice, or you can start a return through our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">returns portal<\/a>.<\/p>",
+            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for advice, or you can start a return through our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">returns portal<\/a>.<\/p><p><strong>Please note, all order issues must be reported to CALPAK within 30 days of delivery.<\/strong><\/p>",
             "hide": false
           }
         },

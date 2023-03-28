@@ -463,6 +463,19 @@ a.color-swatch--active::after {
 .color-kaya-bronze {
     --background: #baa286;
 }
+.color-taupe {
+    --background: #b7a096;
+}
+.color-aqua {
+    --background: #9ee8d8;
+}
+.color-kiwi {
+    --background: #6d7536;
+}
+.color-ginger {
+    --background: #6e3b09;
+}
+
 
 [data-product-handle="kaya-laptop-backpack"] .color-emerald,
 [data-product-handle="kaya-laptop-backpack-sale"] .color-emerald,

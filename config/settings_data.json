@@ -1,0 +1,663 @@
+{
+  "presets": {
+  },
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/favicon_dc3a819d-7bb4-417a-8564-c3c9166fc5c8.png",
+    "best-sellers": "best-sellers",
+    "new-arrivals": "new-arrivals",
+    "sale-tag": "postcm-sale",
+    "sale-text-pdp": "%% off",
+    "sale-text-pdp-mixed": "Up to %% off",
+    "sale-text": "%% off",
+    "sale-text-col-mixed": "Up to %% off",
+    "flash-sale-enabled": false,
+    "flash-sale-tag": "Final Sale",
+    "flash-sale-text": "Sale Ends",
+    "flash-sale-starts": "Mar 4 2023, 6am",
+    "flash-sale-ends": "Mar 8 2023, 2:45pm",
+    "flash-sale-countdown": "48",
+    "flash-sale-accent": "#ff0000",
+    "sale-badge-tag": "Sale-Message",
+    "sale-badge-text": "Ending soon!",
+    "sale-msg-enabled": true,
+    "sale-msg-tag": "Sale-Message",
+    "sale-msg-highlighted": "Special Promo",
+    "sale-msg-message": "",
+    "sale-msg-main-col-text": "#707070",
+    "type_body_font": "futura_n4",
+    "type_body_font_bolder": "futura_n5",
+    "type_body_font_bold": "futura_n6",
+    "disable_extra_scripts": false,
+    "speed_debug": false,
+    "facebook": "https:\/\/www.facebook.com\/calpaktravel\/",
+    "instagram": "https:\/\/www.instagram.com\/calpak\/?hl=en",
+    "twitter": "https:\/\/twitter.com\/calpaktravel?lang=en",
+    "youtube": "https:\/\/www.youtube.com\/calpaktravel",
+    "pinterest": "https:\/\/www.pinterest.com\/CALPAKTRAVEL\/",
+    "tiktok": "https:\/\/www.tiktok.com\/@calpak",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo-checkout.png",
+    "checkout_logo_position": "center",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#6aabb6",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#ea1b19",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "ffee1719-c9f6-40e7-9c68-523341ac114f": {
+            "type": "announcement",
+            "settings": {
+              "text": "Check out our SALE, items up to 50% off",
+              "url": "shopify:\/\/collections\/sale",
+              "color_text": "#000000",
+              "color_background": "linear-gradient(180deg, rgba(255, 107, 14, 1), rgba(255, 107, 14, 1) 100%)"
+            }
+          },
+          "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/collections\/luka-collection",
+              "block-title": "Explore ultra-lightweight, best selling bags.",
+              "description": "",
+              "button-text": "Shop Luka Collection",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Rectangle_3870_6da0deea-f0d6-4a04-8072-9f6252d0d1e0.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
+            "type": "shop-block",
+            "disabled": true,
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/products\/starter-bundle",
+              "block-title": "",
+              "description": "",
+              "button-text": "",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Group_3545.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "9bc35091-f1af-4ade-937e-7abddf8840bc": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Shop: Featured: Carousel of Best sellers",
+              "submenu-number": 1,
+              "collection": "best-sellers",
+              "block-title": "Explore Our Best Sellers"
+            }
+          },
+          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Luggage Banner",
+              "submenu-number": 2,
+              "button-url": "shopify:\/\/collections\/hue-collection",
+              "block-title": "Made for minimalists",
+              "description": "",
+              "button-text": "Explore Hue Collection",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Rectangle_3870_1.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "52c25c9a-745f-42c5-8106-d8505dcb22b6": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Luggage - Carousel",
+              "submenu-number": 2,
+              "collection": "carry-on-luggage",
+              "block-title": "Which Carry-On Will You Pick?"
+            }
+          },
+          "0d1bb8bf-16ca-4286-a210-0cc7d45304ad": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Bags",
+              "submenu-number": 3,
+              "button-url": "shopify:\/\/products\/water-bottle-holder",
+              "block-title": "Don't go hiking without it",
+              "description": "",
+              "button-text": "Shop Water Bottle Holder",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Rectangle_3871_1.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "062c0756-ce35-49c0-8dbf-7234727c215d": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Bags - Carousel",
+              "submenu-number": 3,
+              "collection": "bags",
+              "block-title": "Discover Bags Made For Every Occasion"
+            }
+          },
+          "61dca65a-4ff0-436a-a649-3f8acf379311": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Organizers",
+              "submenu-number": 4,
+              "button-url": "shopify:\/\/collections\/cosmetics-cases",
+              "block-title": "Leave no cosmetic behind",
+              "description": "",
+              "button-text": "Explore Cosmetic Cases",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Rectangle_3870_3.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "71883024-54fa-4ac9-958c-ce36bc9cf350": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Organizers - Carousel",
+              "submenu-number": 4,
+              "collection": "organizers",
+              "block-title": "Find The Best Toiletry Bag For Traveling"
+            }
+          },
+          "22ae6a34-144b-4832-b323-ec83ee28af70": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Accessories",
+              "submenu-number": 5,
+              "button-url": "shopify:\/\/products\/luka-key-pouch",
+              "block-title": "Small but mighty",
+              "description": "<p>New: a clip-on pouch for your essentials.<\/p>",
+              "button-text": "Shop Luka Key Pouch",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Rectangle_3870_4.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "5e44f4d7-ba4d-4286-8d20-b7473cd55aac": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Accessories - Carousel",
+              "submenu-number": 5,
+              "collection": "accessories",
+              "block-title": "Elevate Your Trip With CALPAK Accessories"
+            }
+          },
+          "82ab2924-4e80-4b8c-8516-2e8d226f68f8": {
+            "type": "discover-block",
+            "settings": {
+              "title": "Discover #1",
+              "button-url": "https:\/\/www.calpaktravel.com\/pages\/travel-in-style-which-bag-should-you-bring-to-your-next-destination",
+              "block-title": "",
+              "description": "",
+              "button-text": "",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Group_3546_4_0a948a16-c913-4fa0-9095-aaf1495a6101.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "c545f895-9e35-454a-91ac-dcb097d5bfb9": {
+            "type": "edit",
+            "settings": {
+              "title": "Duffels",
+              "image": "shopify:\/\/shop_images\/Rectangle_3308_f9bb7041-11e7-4981-82b8-54f40f50414a.png",
+              "edit-title": "The best duffels for travel",
+              "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/get-to-know-the-best-duffels-for-travel"
+            }
+          },
+          "4709c5e0-9817-40ec-94f6-ceec21bc54fd": {
+            "type": "edit",
+            "settings": {
+              "title": "Car Organizer",
+              "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24294_Hi.jpg",
+              "edit-title": "It Gets You There Without The Mess",
+              "description": "<p>The Car Organizer makes trips and commutes feel like a breeze.<\/p>",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/the-car-organizer-it-gets-you-there-without-the-mess"
+            }
+          }
+        },
+        "block_order": [
+          "ffee1719-c9f6-40e7-9c68-523341ac114f",
+          "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
+          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
+          "9bc35091-f1af-4ade-937e-7abddf8840bc",
+          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
+          "52c25c9a-745f-42c5-8106-d8505dcb22b6",
+          "0d1bb8bf-16ca-4286-a210-0cc7d45304ad",
+          "062c0756-ce35-49c0-8dbf-7234727c215d",
+          "61dca65a-4ff0-436a-a649-3f8acf379311",
+          "71883024-54fa-4ac9-958c-ce36bc9cf350",
+          "22ae6a34-144b-4832-b323-ec83ee28af70",
+          "5e44f4d7-ba4d-4286-8d20-b7473cd55aac",
+          "82ab2924-4e80-4b8c-8516-2e8d226f68f8",
+          "c545f895-9e35-454a-91ac-dcb097d5bfb9",
+          "4709c5e0-9817-40ec-94f6-ceec21bc54fd"
+        ],
+        "settings": {
+          "shop-menu": "shop",
+          "discover-menu": "discover",
+          "edits-title": "Latest Stories",
+          "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
+          "live": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "10b137cc-4551-491d-95bd-9a8f438261cf": {
+            "type": "social",
+            "settings": {
+              "heading": "You'll love getting there."
+            }
+          },
+          "0fd73df4-878f-4f88-9749-8c041c2ec525": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Shop CALPAK",
+              "menu": "blog-menu"
+            }
+          },
+          "2288f748-fe66-4d96-beec-03660497fead": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Company",
+              "menu": "footer"
+            }
+          },
+          "7168edfe-68a6-4d9e-a8f7-9bd8fd6d8574": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Customer Care",
+              "menu": "customer-care-new"
+            }
+          }
+        },
+        "block_order": [
+          "10b137cc-4551-491d-95bd-9a8f438261cf",
+          "0fd73df4-878f-4f88-9749-8c041c2ec525",
+          "2288f748-fe66-4d96-beec-03660497fead",
+          "7168edfe-68a6-4d9e-a8f7-9bd8fd6d8574"
+        ],
+        "settings": {
+          "bottom-menu": "additional-footer-menu"
+        }
+      },
+      "header-banner": {
+        "type": "header-banner",
+        "blocks": {
+          "75987423-fd0a-415a-bfe1-db0501bbf400": {
+            "type": "text-banner",
+            "disabled": true,
+            "settings": {
+              "display": "homepage",
+              "include_collections": [
+
+              ],
+              "exclude_collections": [
+
+              ],
+              "text": "<p>Join us for a • Live Shopping event 3\/2 at 12 pm PT to get 45% off the 8-piece travel set.<\/p>",
+              "font-size": 27,
+              "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM",
+              "button": "Get Notified",
+              "button-display": "both",
+              "starts-on": "",
+              "ends-on": ""
+            }
+          }
+        },
+        "block_order": [
+          "75987423-fd0a-415a-bfe1-db0501bbf400"
+        ],
+        "settings": {
+        }
+      },
+      "notifications": {
+        "type": "notifications",
+        "blocks": {
+          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Orders $75 and over get free shipping<\/p>",
+              "only-for-guests": false
+            }
+          },
+          "91c42567-a70f-469a-9cec-9f14f8d69477": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Enjoy 10% OFF your first order. <a href=\"\/pages\/sign-up-page\" title=\"Sign-Up\">Subscribe now<\/a><\/p>",
+              "only-for-guests": true
+            }
+          },
+          "40c7a72f-b224-4b2d-b9c8-f1659004f76d": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Join us for a • Live Shopping event 3\/2 at 12 pm PT to get 45% off the Starter Bundle. <a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\">Get notified<\/a><\/p>",
+              "only-for-guests": false
+            }
+          },
+          "e43ed852-3a63-40ae-bb57-bbe85071c91e": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Start earning on every purchase as a VIT Rewards Member. <a href=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\" title=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\">Sign up<\/a><\/p>",
+              "only-for-guests": true
+            }
+          }
+        },
+        "block_order": [
+          "58c64c20-f997-4806-98c1-48dbdac32ff7",
+          "91c42567-a70f-469a-9cec-9f14f8d69477",
+          "40c7a72f-b224-4b2d-b9c8-f1659004f76d",
+          "e43ed852-3a63-40ae-bb57-bbe85071c91e"
+        ],
+        "settings": {
+        }
+      },
+      "cart": {
+        "type": "cart",
+        "blocks": {
+          "8c9ba91f-2777-428f-837a-f7b2b9f8cc50": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "above-products",
+              "title": "Heading Goes Here",
+              "text": "<p>Banner announcement message goes here.<a href=\"https:\/\/www.calpaktravel.com\/collections\/luka-collection\"> Link goes here<\/a><\/p>",
+              "image": "shopify:\/\/shop_images\/DIGITAL_PRE-LIVE_Nav_Image_M_1.png"
+            }
+          },
+          "ed173313-2039-410a-a20a-4f9cdbf1687a": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "above-products",
+              "title": "Heading Goes Here",
+              "text": "<p>Consectetur adipiscing elit. Lorem ipsum dolor sit amet, cing elit. Dolor sit ameco nsectetur. <a href=\"#\" title=\"#\">Link goes here<\/a><\/p>"
+            }
+          },
+          "abed212b-11df-41fd-9e54-9a21ddcf1efb": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "above-products",
+              "title": "",
+              "text": "<p><strong>Save 15%<\/strong> on this purchase by signing up for rewards.<\/p><p>Register now<\/p>",
+              "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-3BANNER.jpg"
+            }
+          },
+          "aa6bc8c0-cf13-4d80-b668-c83b126bdd5c": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "under-products",
+              "title": "Gift Product Name",
+              "text": "<p>Included with purchase of Product Name<\/p>",
+              "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "8c9ba91f-2777-428f-837a-f7b2b9f8cc50",
+          "ed173313-2039-410a-a20a-4f9cdbf1687a",
+          "abed212b-11df-41fd-9e54-9a21ddcf1efb",
+          "aa6bc8c0-cf13-4d80-b668-c83b126bdd5c"
+        ],
+        "settings": {
+          "featured-title": "More for you",
+          "collection": "best-sellers",
+          "product_list": [
+
+          ],
+          "wishlist-timeout": 3
+        }
+      },
+      "contact-form": {
+        "type": "contact-form",
+        "settings": {
+          "title": "Discover the joy of packing with 10% off.",
+          "description": "<p>Plus, news and exclusive offers from the world of CALPAK.<\/p>",
+          "text-above": "<p>Enter Your Email<\/p>",
+          "disclaimer": "<p>By signing up for emails and\/or texts, you accept the <a href=\"\/policies\/privacy-policy\" title=\"Privacy Policy\">Privacy Policy<\/a> and the <a href=\"\/policies\/terms-of-service\" title=\"Terms of Service\">Terms of Service<\/a>. Promo eligible for first time purchasers only.<\/p>",
+          "klaviyo-list": "VffeY9",
+          "show-phone": false,
+          "button-text": "Join mailing list"
+        }
+      },
+      "cookies": {
+        "type": "cookies",
+        "settings": {
+          "overlay": false,
+          "text": "<p>We use cookies to optimize our website’s customer experience. <a href=\"\/policies\/privacy-policy\" title=\"Privacy Policy\">Do Not Sell My Personal Information<\/a><\/p>",
+          "button-text": "Accept cookies"
+        }
+      },
+      "search": {
+        "type": "search",
+        "settings": {
+          "search-by-category": [
+            "organizers",
+            "bags",
+            "luggage",
+            "accessories"
+          ],
+          "welcome-title": "Popular Searches",
+          "welcome-collection": "best-sellers",
+          "welcome-quick-view": true,
+          "empty-title": "Popular Searches",
+          "empty-collection": "best-sellers",
+          "empty-quick-view": true
+        }
+      },
+      "mobile-menu": {
+        "type": "mobile-menu",
+        "blocks": {
+          "adc05d65-da10-4314-9243-585b3e5e1c66": {
+            "type": "media-block",
+            "disabled": true,
+            "settings": {
+              "title": "Shop: All",
+              "menu": "shop",
+              "submenu-number": 0,
+              "image": "shopify:\/\/shop_images\/Shop_All.jpg",
+              "link": "shopify:\/\/collections\/all",
+              "media-title": "",
+              "description": "",
+              "button-text": "Shop All",
+              "link-for-button": true,
+              "text-color-scheme": "white"
+            }
+          },
+          "97742501-521b-4ea2-a166-533c5387df96": {
+            "type": "media-block",
+            "settings": {
+              "title": "Shop: All",
+              "menu": "shop",
+              "submenu-number": 0,
+              "image": "shopify:\/\/shop_images\/WEB_SEARCH-COLLECTIONS_In-Stock-And-Ready-To-Ship.png",
+              "link": "shopify:\/\/collections\/all",
+              "media-title": "",
+              "description": "",
+              "button-text": "Shop All",
+              "link-for-button": false,
+              "text-color-scheme": "white"
+            }
+          },
+          "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Best Sellers Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 1,
+              "collection": "best-sellers-for-the-homepage",
+              "override-title": "Explore Our Best Sellers"
+            }
+          },
+          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Luggage Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 2,
+              "collection": "carry-on-luggage",
+              "override-title": "Which Carry-On Will You Pick?"
+            }
+          },
+          "00fbd845-d56c-44ed-b49d-b36e2e7b9b74": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Bags Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 3,
+              "collection": "trolley-pass-through",
+              "override-title": "Discover Bags Made For Every Occasion"
+            }
+          },
+          "2780beb4-0ab0-4333-a417-c3bb8c18a553": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Organizers Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 4,
+              "collection": "makeup-bags",
+              "override-title": "Find The Best Toiletry Bag For Traveling"
+            }
+          },
+          "4552f1b4-22d2-4133-8804-c2cfd261dae7": {
+            "type": "media-block",
+            "settings": {
+              "title": "SHOP: Accessories Banner",
+              "menu": "shop",
+              "submenu-number": 5,
+              "image": "shopify:\/\/shop_images\/Frame_4_1.png",
+              "link": "shopify:\/\/products\/luka-key-pouch",
+              "media-title": "",
+              "description": "",
+              "button-text": "",
+              "link-for-button": false,
+              "text-color-scheme": "white"
+            }
+          },
+          "22ba977a-5751-40f1-ab10-64600d42f7d7": {
+            "type": "edit",
+            "settings": {
+              "title": "Duffels",
+              "image": "shopify:\/\/shop_images\/Rectangle_3308_f9bb7041-11e7-4981-82b8-54f40f50414a.png",
+              "edit-title": "The best duffels for travel.",
+              "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
+              "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel"
+            }
+          },
+          "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036": {
+            "type": "edit",
+            "settings": {
+              "title": "Car Organizer",
+              "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24294_Hi.jpg",
+              "edit-title": "It Gets You There Without The Mess",
+              "description": "<p>The Car Organizer makes trips and commutes feel like a breeze.<\/p>",
+              "link": "shopify:\/\/pages\/the-car-organizer-it-gets-you-there-without-the-mess"
+            }
+          }
+        },
+        "block_order": [
+          "adc05d65-da10-4314-9243-585b3e5e1c66",
+          "97742501-521b-4ea2-a166-533c5387df96",
+          "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
+          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
+          "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
+          "2780beb4-0ab0-4333-a417-c3bb8c18a553",
+          "4552f1b4-22d2-4133-8804-c2cfd261dae7",
+          "22ba977a-5751-40f1-ab10-64600d42f7d7",
+          "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
+        ],
+        "settings": {
+          "shop-menu": "shop",
+          "discover-menu": "discover",
+          "edits-title": "Latest Stories"
+        }
+      },
+      "gwp": {
+        "type": "gwp",
+        "blocks": {
+          "12991d47-4af3-4f34-9881-9386bc217d60": {
+            "type": "gwp-product",
+            "disabled": true,
+            "settings": {
+              "product": "car-organizer",
+              "image": "shopify:\/\/shop_images\/COMPAKT-SMALL-GARMENT-BAG-ORCHID-LIFESTYLE1.jpg",
+              "title": "Gift with purchase",
+              "description": "Included with any purchase above $110",
+              "gwp-collection": "accessories",
+              "gwp-products": [
+
+              ],
+              "gwp-any-ex-gift": false,
+              "threshold": 110,
+              "gwp-number": "1"
+            }
+          }
+        },
+        "block_order": [
+          "12991d47-4af3-4f34-9881-9386bc217d60"
+        ],
+        "settings": {
+          "enable-gwp": false,
+          "gwp-max-number": "1"
+        }
+      },
+      "checkout-promos": {
+        "type": "checkout-promos",
+        "settings": {
+          "promo-code": "",
+          "product": "",
+          "collection": "",
+          "min": 150
+        }
+      },
+      "checkout-dates": {
+        "type": "checkout-dates",
+        "settings": {
+          "enable": true
+        }
+      },
+      "checkout-settings": {
+        "type": "checkout-settings",
+        "settings": {
+          "show-shipping-message": false,
+          "shipping-message": "<p>Please allow <strong>1-3 additional business days<\/strong> for us to get your order ready to go. Keep in mind we only deliver on business days (aka not on weekends or federal holidays).<\/p>"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "platform_customizations": {
+    "custom_css": [
+
+    ]
+  }
+}

@@ -1,11 +1,13 @@
 {{ 'section-header.css' | asset_url | stylesheet_tag: preload: true }}
 
+<link rel="stylesheet" href="{{ 'component-announcement.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-header-subnav.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-popup.css' | asset_url }}" media="print" onload="this.media='screen and (min-width: 901px)'">
 <link rel="stylesheet" href="{{ 'component-menu-list.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-article-card.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
 
+<noscript>{{ 'component-announcement.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-header-subnav.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-menu-popup.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-menu-list.css' | asset_url | stylesheet_tag }}</noscript>
@@ -13,6 +15,22 @@
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
+
+{%- for block in section.blocks -%}
+    {% if block.type == 'announcement' %}
+        <div class="announcement-bar announcement-bar--hidden" role="region" {{ block.shopify_attributes }} style="background: {{ block.settings.color_background}}; color: {{ block.settings.color_text }};">
+            {%- if block.settings.text != blank -%}
+                {%- if block.settings.url != blank -%}
+                    <a href="{{ block.settings.url }}" class="announcement-bar__link" style="color: {{ block.settings.color_text }};">
+                {%- endif -%}
+                {{ block.settings.text | escape }}
+                {%- if block.settings.url != blank -%}
+                    </a>
+                {%- endif -%}
+            {%- endif -%}
+        </div>
+    {% endif %}
+{%- endfor -%}
 
 <section class="site-header">
     <nav class="site-header__nav">
@@ -70,7 +88,7 @@
     <nav class="site-header__nav">
         <ul>
             <li class="site-header__menu-item hide-small">
-                <a href="/pages/rewards">Rewards</a>
+                <a id="header-text-link" class="header-text-link-rewards" href="/pages/rewards">Rewards</a>
             </li>
             <li class="site-header__dropdown subnav__container site-header__menu-item hide-small">
                 <a href="{{ routes.account_url }}" class="subnav__activator">
@@ -396,7 +414,33 @@
                     "label": "Link"
                 }
             ]
-        }
+        },
+        {
+			"type": "announcement",
+			"name": "Announcement",
+			"settings": [
+				{
+					"type": "text",
+					"id": "text",
+					"label": "Text"
+				},
+				{
+					"type": "url",
+					"id": "url",
+					"label": "Url"
+				},
+				{
+					"type": "color",
+					"id":  "color_text",
+					"label": "Text color"
+				},
+				{
+					"type": "color_background",
+					"id":  "color_background",
+					"label": "Background color"
+				}
+			]
+		}
     ]
 }
 {% endschema %}
