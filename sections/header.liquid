@@ -105,7 +105,7 @@
                 </a>
             </li>
             <li class="site-header__menu-item">
-                <a href="{% if customer == blank %}/pages/wishlist{% else %}{{ routes.account_logout_url }}?view=wishlist{% endif %}" class="header__wishlist-link" title="Wishlist">
+                <a href="{% if customer == blank %}/pages/wishlist{% else %}{{ routes.account_url }}?view=wishlist{% endif %}" class="header__wishlist-link" title="Wishlist">
                     {% render 'icon-heart' %}
                 </a>
             </li>

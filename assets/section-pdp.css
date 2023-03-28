@@ -89,6 +89,7 @@
     font-weight: var(--font-body-weight-bold);
     white-space: nowrap;
     padding: 0 5px;
+    text-decoration: none;
 }
 
 .product-option.product-option--na {
@@ -141,6 +142,7 @@
     opacity: 0;
     pointer-events: none;
     margin-bottom: -1px;
+    overflow: hidden;
 }
 
 .pdp__variants-spacer i {

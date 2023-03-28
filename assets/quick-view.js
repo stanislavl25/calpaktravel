@@ -95,6 +95,7 @@ async function getQuickView(link, variant = false) {
         promises.push(loadStyle(styles.pdpGallery));
         promises.push(loadStyle(styles.starRating));
         promises.push(loadStyle(styles.waitlist));
+        promises.push(loadStyle(styles.tooltip));
     }
 
     if(promises.length > 0) await Promise.all(promises);
