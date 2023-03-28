@@ -3048,3 +3048,38 @@ body .icon-svg--clickable:hover {
 .dynamic-checkout__buttons li {
     position: relative;
 }
+
+.countdown__checkout {
+    background-color: #F7F177;
+    color: #000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    display: table;
+    letter-spacing: -0.03em;
+    padding: 4px 16px;
+    border-radius: 4px;
+    margin: 20px 0 12px;
+
+    b,
+    span {
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 999px) {
+        margin-top: 0;
+
+        b {
+            display: inline-block;
+            margin-right: 4px;
+
+            span {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.countdown__checkout--hidden {
+    display: none;
+}

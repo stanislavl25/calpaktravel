@@ -311,6 +311,48 @@ jQuery(document).ready(function($){
             window.sessionStorage.setItem('returning-to-edit', false);
         }
     }, 100);
+
+    // Checkout countdown
+    if( countdown_enabled) {
+
+        const countdown_time  = 10; // Value in minutes
+        const countdown_now = new Date();
+        let countdown_default = '';
+
+        if (sessionStorage.getItem('countdown_timer') != null) {
+            countdown_default = new Date(sessionStorage.getItem('countdown_timer'));
+        } else {
+            countdown_default = new Date(countdown_now.getTime() + countdown_time * 60000);
+            sessionStorage.setItem("countdown_timer", countdown_default.toString());
+        }
+
+        const
+            countdown       = countdown_default,
+            second          = 1000,
+            minute          = second * 60,
+            hour            = minute * 60,
+            day             = hour * 24;
+
+        $(".main__header").append('<div class="countdown__checkout">The items in your cart are in high demand: <b>Cart reserved for </b><span></span></div>');
+        const countdown__display = setInterval(() => {
+            const distance = countdown - new Date();
+            const distanceFormat = {
+                'days': Math.floor(distance / (day)),
+                'hours': Math.floor((distance % (day)) / (hour)),
+                'minutes': Math.floor((distance % (hour)) / (minute)),
+                'seconds': Math.floor((distance % (minute)) / second)
+            }
+            const countdown_minutes = String(distanceFormat.minutes).length > 1 ? distanceFormat.minutes : `0${distanceFormat.minutes}`;
+            const countdown_seconds = String(distanceFormat.seconds).length > 1 ? distanceFormat.seconds : `0${distanceFormat.seconds}`;
+            const countdown_time_string = `${countdown_minutes}:${countdown_seconds}`;
+            $(".countdown__checkout span").html(countdown_time_string);
+
+            if( distance < 0) {
+                clearInterval(countdown__display);
+                $(".countdown__checkout span").html('00:00');
+            }
+        }, 1000);
+    }
 });
 
 if(Shopify.Checkout.step == 'contact_information') addGiftNoteField();
