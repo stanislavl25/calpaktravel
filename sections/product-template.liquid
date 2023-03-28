@@ -14,7 +14,6 @@
 <noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
 
 <script src="{{ 'pdp.js' | asset_url }}" defer="defer"></script>
-
 {%- liquid
     assign request_arg = request.path | split: "/"
     assign option1_arg = false
@@ -87,14 +86,23 @@
         assign preorder = false
     endif
 
+    assign finalSale = false
     assign soldout = false
     for tag in product.tags
         assign tagSpl = tag | split: ':'
-        if 'soldout' == tagSpl[0]
+        assign handle = tagSpl[0] | handleize
+
+        if 'soldout' == handle
             if tagSpl.size == 1
                 assign soldout = true
             else
                 assign soldout = tagSpl[1] | downcase | split: ';'
+            endif
+        elsif 'final-sale' == handle
+            if tagSpl.size == 1
+                assign finalSale = true
+            else
+                assign finalSale = tagSpl[1] | downcase | split: ';'
             endif
         endif
     endfor
@@ -135,12 +143,12 @@
                             {% render 'pdp-meta', current_variant: current_variant %}
                         </section>
                     {%- when 'variants' -%}
-                        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant %}
+                        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant, finalSale: finalSale %}
                     {%- when 'flash-sale' -%}
                         {% render 'flash-sale-label', current_variant: current_variant %}
                     {%- when 'product-labels' -%}
                         <section class="pdp__form-labels">
-                        {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
+                        {% render 'product-form-labels', location: 'pdp', current_variant: current_variant, finalSale: finalSale %}
                         </section>
                     {%- when 'shipping-calculator' -%}
                         {% render 'shipping-calculator' %}
@@ -165,6 +173,10 @@
         gallery_limit: {{ section.settings.gallery-limit }},
         reapply_limit: {% if section.settings.gallery-limit-reapply %}true{% else %}false{% endif %},
     };
+</script>
+
+<script type="application/ld+json">
+{% render 'schema-product-stub', product_variant: current_variant %}
 </script>
 
 {% schema %}

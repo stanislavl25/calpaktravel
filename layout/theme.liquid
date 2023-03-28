@@ -154,6 +154,8 @@
             {%- render 'header-scripts' -%}
         {% endunless %}
 
+        {% render "schema" %}
+
         <script>
         window.debug = false;
         window.shopUrl = '{{ request.origin }}';
@@ -188,7 +190,8 @@
             starRating: `{{ 'component-star-rating.css' | asset_url }}`,
             waitlist: `{{ 'component-waitlist.css' | asset_url }}`,
             wishlist: `{{ 'component-wishlist.css' | asset_url }}`,
-            wishlistPopup: `{{ 'component-wishlist-popup.css' | asset_url }}`
+            wishlistPopup: `{{ 'component-wishlist-popup.css' | asset_url }}`,
+            tooltip: `{{ 'component-tooltip.css' | asset_url }}`
         }
 
         window.settings = {
