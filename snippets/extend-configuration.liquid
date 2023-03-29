@@ -1,0 +1,42 @@
+<!-- Extend - Add necessary SDK script tags and configure the store -->
+<script src='https://sdk.helloextend.com/extend-sdk-client/v1/extend-sdk-client.min.js' defer='defer'></script>
+<script src='https://sdk.helloextend.com/extend-sdk-client-shopify-addon/v1/extend-sdk-client-shopify-addon.min.js' defer='defer'></script>
+
+<script>  
+  window.addEventListener('DOMContentLoaded', function(){
+    window.Extend.config({storeId: '62e38fc1-ac25-4608-92ae-579f7f57d09b', environment: 'production'});
+    window.Extend.integration = {};
+    
+    // Set to true while developing integration for better debugging - Be sure to set to false before going live
+    window.Extend.integration.writeLogs = false;
+
+    // Extend - QA Cypress booleans
+    window.Extend.integration.isExtendPdpOfferEnabled = false;
+    window.Extend.integration.isExtendOfferModalEnabled = false;
+    window.Extend.integration.isExtendMainCartOfferEnabled = false;
+
+    // Only defines utils if Extend and ExtendShopify is defined
+    if (window.Extend && window.ExtendShopify) {
+        const extendUtils = {
+          
+            /*
+            * takes in object and logs it if writeLogs is true
+            * @param {object} objToLog will be an object of information to log 
+            */
+            logger: (objToLog) => {
+                try {
+                    if(Extend.integration.writeLogs){
+                        console.log("EXTEND: ", objToLog);
+                    }
+                } catch (error) {
+                    console.warn("EXTEND: " + error);
+                }
+            }
+        };
+        window.Extend.integration.utils = extendUtils;
+    }
+  })
+</script>
+
+<!-- Extend - Render aftermarket integration snippet -->
+{% render 'extend-aftermarket-integration' %}
