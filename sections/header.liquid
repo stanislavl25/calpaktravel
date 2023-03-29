@@ -16,9 +16,10 @@
 
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
 
+{% if template == 'index' %}
 {%- for block in section.blocks -%}
     {% if block.type == 'announcement' %}
-        <div class="announcement-bar announcement-bar--hidden" role="region" {{ block.shopify_attributes }} style="background: {{ block.settings.color_background}}; color: {{ block.settings.color_text }};">
+        <div class="announcement-bar" role="region" {{ block.shopify_attributes }} style="background: {{ block.settings.color_background}}; color: {{ block.settings.color_text }};">
             {%- if block.settings.text != blank -%}
                 {%- if block.settings.url != blank -%}
                     <a href="{{ block.settings.url }}" class="announcement-bar__link" style="color: {{ block.settings.color_text }};">
@@ -31,6 +32,7 @@
         </div>
     {% endif %}
 {%- endfor -%}
+{% endif %}
 
 <section class="site-header">
     <nav class="site-header__nav">
