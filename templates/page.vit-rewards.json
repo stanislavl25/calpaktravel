@@ -37,7 +37,7 @@
         "d413d89b-94af-4456-8fd1-1f9c05a566d3": {
           "type": "text-block",
           "settings": {
-            "title": "Join the club!",
+            "title": "Join the Club!",
             "description": "<p>As a valued member, you'll instantly get $5 just for signing up, plus you'll earn points & get exclusive rewards every time you shop.<\/p>",
             "main-link": "https:\/\/www.calpaktravel.com\/account\/register",
             "button-text": "Join Now",
@@ -59,7 +59,6 @@
         "hero-height": "limited",
         "height-limit": 80,
         "enable-sticky-promo": false,
-        "sticky-promo-floating": false,
         "promo-text": "",
         "promo-link": "",
         "close-color-scheme": "white"
