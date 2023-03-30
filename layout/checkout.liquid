@@ -79,6 +79,20 @@
 <body class="{% if customer %}customer-logged-in {% endif %}{% if settings.sale-active %}holiday-sale-active{% endif %} {{ exped_class }}">
     {{ skip_to_content_link }}
 
+    {%- liquid
+        assign countdown_stock_limit = 10
+        assign countdown_enabled = true
+        for item in checkout.line_items
+            assign in_stock = item.product.selected_or_first_available_variant.inventory_quantity
+            if in_stock < countdown_stock_limit
+                assign countdown_enabled = false
+            endif
+        endfor
+    -%}
+    <script>
+        window.countdown_enabled = {{ countdown_enabled }};
+    </script>
+
     {% comment %} {% section 'mini-cart-items' %} {% endcomment %}
     {% section 'checkout-settings' %}
 
