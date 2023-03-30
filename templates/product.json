@@ -62,6 +62,16 @@
           "settings": {
           }
         },
+        "db84d3cc-deea-45c6-a0ee-81ddf2509239": {
+          "type": "arrival",
+          "settings": {
+            "available-products": [
+              "hue-carry-on-luggage",
+              "ambeur-carry-on-luggage"
+            ],
+            "text": "<span>Want it delivered {range}?<\/span><b>Order within {time}<\/b>"
+          }
+        },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
           "type": "submit",
           "settings": {
@@ -282,6 +292,7 @@
         "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
         "3f584821-31db-42cb-941c-f61866a361a0",
+        "db84d3cc-deea-45c6-a0ee-81ddf2509239",
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
         "de1468ed-2f65-4371-be8f-69be7e1dcec6",
         "355dabeb-9c30-46f5-9912-52a97ee1196e",
