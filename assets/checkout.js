@@ -317,14 +317,16 @@ jQuery(document).ready(function($){
 
         const countdown_time  = 10; // Value in minutes
         const countdown_now = new Date();
-        let countdown_default = '';
 
-        if (sessionStorage.getItem('countdown_timer') != null) {
-            countdown_default = new Date(sessionStorage.getItem('countdown_timer'));
-        } else {
-            countdown_default = new Date(countdown_now.getTime() + countdown_time * 60000);
-            sessionStorage.setItem("countdown_timer", countdown_default.toString());
-        }
+        // let countdown_default = '';
+        // if (sessionStorage.getItem('countdown_timer') != null) {
+        //     countdown_default = new Date(sessionStorage.getItem('countdown_timer'));
+        // } else {
+        //     countdown_default = new Date(countdown_now.getTime() + countdown_time * 60000);
+        //     sessionStorage.setItem("countdown_timer", countdown_default.toString());
+        // }
+
+        const countdown_default = new Date(countdown_now.getTime() + countdown_time * 60000);
 
         const
             countdown       = countdown_default,
