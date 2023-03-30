@@ -1,3 +1,8 @@
+/* Hide announcement bar on menu open */
+body.modal-open .announcement-bar {
+	display: none;
+}
+
 .announcement-bar--grey {
 	background: #EAE9E1 !important;
 }
@@ -8,6 +13,11 @@
 
 .announcement-bar--hidden {
 	display: none !important;
+}
+
+.announcement-bar {
+	position: relative;
+	z-index: 9;
 }
 
 .announcement-bar a {
