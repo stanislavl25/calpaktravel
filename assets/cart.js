@@ -117,11 +117,15 @@ function setFreeShippingProgress(cart) {
     let freeShippingPercent = 0;
     const freeShippingStarts = settings.freeShipping;
 
-    if(cart.item_count > 0) {
-        if(isNaN(freeShippingStarts)) return false;
+    if(cart.requires_shipping) {
+        if(cart.item_count > 0) {
+            if(isNaN(freeShippingStarts)) return false;
 
-        freeShippingPercent = Math.round((cart.items_subtotal_price * 100) / freeShippingStarts);
-        if(freeShippingPercent > 100) freeShippingPercent = 100;
+            freeShippingPercent = Math.round((cart.items_subtotal_price * 100) / freeShippingStarts);
+            if(freeShippingPercent > 100) freeShippingPercent = 100;
+        }
+    } else {
+        freeShippingPercent = 100;
     }
 
     cartContainers.forEach(cartContainer => {
@@ -221,6 +225,10 @@ function openCart() {
     document.body.classList.add('modal-open');
 
     updateCartGWPs();
+    
+    if(isset(localStorage.getItem('guest_checkout')) && localStorage.getItem('guest_checkout')) {
+        document.querySelector('.cart__footer .button--checkout').setAttribute('href', '/checkout');
+    }
 
     if(delayed_checkout_buttons && !document.querySelector('#dynamic-checkout-cart')) document.querySelector('#shopify-section-cart .cart__extra-checkout').innerHTML = delayed_checkout_buttons;
 }
@@ -303,7 +311,12 @@ window.addEventListener("click", async (e) => {
 });
 
 window.addEventListener("load", () => {
-    if(document.body.classList.contains('template-cart')) updateCartGWPs();
+    if(document.body.classList.contains('template-cart')) {
+        updateCartGWPs();
+        if(isset(localStorage.getItem('guest_checkout')) && localStorage.getItem('guest_checkout')) {
+            document.querySelector('.cart-sidebar .button--checkout').setAttribute('href', '/checkout');
+        }
+    }
 });
 
 async function cartItemMoveToWishlist(target) {

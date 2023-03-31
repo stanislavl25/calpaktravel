@@ -96,6 +96,10 @@
     align-items: center;
 }
 
+.cart__empty-continue-button .round-icon {
+    background: #fff;
+}
+
 .cart__empty .product-slider {
     padding: var(--gap);
 }
@@ -292,6 +296,10 @@
     justify-content: space-between;
 }
 
+.cart__item-price-row + .cart__item-wishlist {
+    margin-top: 8px;
+}
+
 .cart__item-price {
     display: flex;
     gap: 4px;
@@ -368,7 +376,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    margin-top: 3px;
+    margin-top: 6px;
     text-decoration: underline;
 }
 
@@ -376,6 +384,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    height: 19px;
+    display: block;
 }
 
 .cart__item-remove img {

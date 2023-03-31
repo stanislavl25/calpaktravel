@@ -1,7 +1,7 @@
 {%- assign product = product-meta-json -%}
 {
     "preorder": {{ product.metafields.custom.preorder | json }},
-    "videoInfo": {% if product.metafields.model.model_height != blank %}{{ "Model Height:" | append: product.metafields.model.model_height | json }}{% else %}{{ product.metafields.video.height | json }}{% endif %},
+    "videoInfo": {% if product.metafields.model.model_height != blank %}{{ "Model Height:" | append: product.metafields.model.model_height | json }}{% elsif product.metafields.video.height != blank %}{{ product.metafields.video.height | append: "" | json }}{% else %}null{% endif %},
     "variants": {
         {%- for variant in product.variants -%}
         {%- unless forloop.first -%},{%- endunless -%}

@@ -2,23 +2,29 @@
     <div class="cart__overlay"></div>
     <div class="cart__body">
         <a class="close-button close-button--cart" title="Close"></a>
-        {% render 'cart-empty' %}
+        {% render 'cart-empty', continue: section.settings.continue-shopping %}
         
         {%- liquid
             assign free_shipping = settings.free-shipping | times: 100
-            if free_shipping == 0
-                assign free_shipping_progress = 100
-            else
-                assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
-                if free_shipping_progress > 100
-                    assign free_shipping_progress = 100
-                endif
-            endif
 
+            if cart.requires_shipping
+                if free_shipping == 0
+                    assign free_shipping_progress = 100
+                else
+                    assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+                    if free_shipping_progress > 100
+                        assign free_shipping_progress = 100
+                    endif
+                endif
+            else
+                assign free_shipping_progress = 100
+            endif
+            
             assign totalPrice = cart.total_price
             if free_shipping_progress < 100
                 assign totalPrice = totalPrice | plus: 795
             endif
+
         -%}
 
         <div class="cart__header" data-status="{%- if free_shipping_progress == 100 -%}
@@ -93,8 +99,8 @@
                             {%- render 'product-unit' with product, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
                         {%- endfor -%}
                     {%- elsif section.settings.collection != blank -%}
-                        {%- for product in section.settings.collection.products limit: 20 -%}
-                            {%- unless product.available -%}{%- continue -%}{% endunless %}
+                        {%- for product in section.settings.collection.products -%}
+                            {%- unless product.available and product.price_min <= 10000 -%}{%- continue -%}{% endunless %}
                             {%- render 'product-unit' with product, in_collection: section.settings.collection, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
                         {%- endfor -%}
                     {%- endif -%}
@@ -153,6 +159,11 @@
                 "id": "product_list",
                 "label": "Featured products",
                 "info": "Overrides featured collection"
+            },
+            {
+                "type": "url",
+                "id": "continue-shopping",
+                "label": "Continue Shopping link"
             },
             {
                 "type": "range",

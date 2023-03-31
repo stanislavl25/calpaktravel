@@ -66,7 +66,7 @@ a {
 
 strong,
 b {
-    font-weight: var(--font-body-weight-bold);
+    font-weight: var(--font-body-weight-black);
 }
 
 dl {
@@ -356,6 +356,15 @@ div.swym-inject,
 .button--secondary {
     --button-bg: #fff;
     --button-clr: #000;
+}
+
+.button--outline {
+    --button-bg: transparent;
+    --button-clr: #000;
+}
+
+.button--white {
+    --button-clr: #fff;
 }
 
 .button--tertiary {
@@ -653,6 +662,27 @@ body.swym-modal-active:not(.modal-open) {
 .pagination .disabled {
     opacity: 0.5;
     pointer-events: none;
+}
+
+#chat-button {
+    z-index: 10;
+}
+
+#attentive_overlay {
+    transition: opacity 0.5s;
+}
+
+.modal-open #attentive_overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.login-popup__container {
+    display: none;
+}
+
+.yotpo-loyalty-popup-overlay {
+    background: rgba(0, 0, 0, 0.3) !important;
 }
 
 @media (max-width: 900px) {

@@ -8,6 +8,7 @@
         if in_collection != blank
             assign firstSearch = 'first:' | append: in_collection.handle | append: ':'
             assign limitSearch = in_collection.handle | append: ':'
+
             for tag in product.tags
                 if tag contains firstSearch
                     assign firstSearch = tag | replace: firstSearch, '' | handleize
@@ -56,6 +57,7 @@
     if sizes == false or sizes == blank
         assign sizes = '(min-width: 1181px) 20vw, 25vw'
     endif
+
 -%}
 <div
     data-suffix="{{ product.template_suffix }}"

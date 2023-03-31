@@ -6,13 +6,17 @@
 
     {%- liquid
         assign free_shipping = settings.free-shipping | times: 100
-        if free_shipping == 0
-            assign free_shipping_progress = 100
-        else
-            assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
-            if free_shipping_progress > 100
+        if cart.requires_shipping
+            if free_shipping == 0
                 assign free_shipping_progress = 100
+            else
+                assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+                if free_shipping_progress > 100
+                    assign free_shipping_progress = 100
+                endif
             endif
+        else
+            assign free_shipping_progress = 100
         endif
 
         assign totalPrice = cart.total_price
@@ -21,7 +25,7 @@
         endif
     -%}
 
-    {% render 'cart-empty', location: 'cart-page' %}
+    {% render 'cart-empty', location: 'cart-page', continue: section.settings.continue-shopping %}
 
     <div class="cart__header" data-status="{%- if free_shipping_progress == 100 -%}
                     success
@@ -96,7 +100,8 @@
                 {% comment %} {%- for i in (1..5) -%}
                     {%- render 'product-unit-placeholder', class: "slide", add_to_cart: true -%}
                 {%- endfor -%} {% endcomment %}
-                {%- for product in collections['best-sellers'].products limit: 20 -%}
+                {%- for product in collections['best-sellers'].products -%}
+                    {%- unless product.available and product.price_min <= 10000 -%}{%- continue -%}{% endunless %}
                     {%- render 'product-unit' with product, class: "slide", sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', location: 'cart', wishlsit: section.settings.wishlsit, add_to_cart: true, quick_view: section.settings.quick-view -%}
                 {%- endfor -%}
             </div>
@@ -125,6 +130,11 @@
                 "id": "quick-view",
                 "label": "Quick view",
                 "default": false
+            },
+            {
+                "type": "url",
+                "id": "continue-shopping",
+                "label": "Continue Shopping link"
             }
         ]
     }
