@@ -560,7 +560,7 @@ function pdpUpdateURL(product, options) {
         url_vars = '?' + url_vars[1];
     }
 
-    let attr = options.join(',');
+    let attr = options[0];//options.join(',');
     // if(options.length > 1) {
     //     let option1Only = true,
     //         tmp = false;

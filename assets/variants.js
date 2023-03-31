@@ -19,11 +19,12 @@ function productUnitUpdateHover(option, productImageContainer, sizes) {
     } else if(hoverImg) hoverImg.remove();
 }
 
-function updateProductURLs(productContainer, options) {
+function updateProductURLs(productContainer, options, multiple = false) {
     const handle = productContainer.getAttribute('data-handle');
     const productLinks = productContainer.querySelectorAll('.product-link');
     productLinks.forEach(productLink => {
-        productLink.setAttribute('href', `/products/${handle}/${options.join(',')}`);
+        if(multiple) productLink.setAttribute('href', `/products/${handle}/${options.join(',')}`);
+        else productLink.setAttribute('href', `/products/${handle}/${options[0]}`);
     });
 }
 
@@ -38,7 +39,7 @@ function variantUpdateProcess(target) {
     if(productContainer.classList.contains('product-unit')) location = 'unit';
     else if(productContainer.classList.contains('shopify-product-form')) location = 'pdp';
 
-    let options = getProductOptionsList(productContainer, location);
+    let [options, multiple] = getProductOptionsList(productContainer, location);
     
     let option = false,
         selector = `option`;
@@ -57,7 +58,7 @@ function variantUpdateProcess(target) {
     if(!option) return;
     select.value = option.value;
 
-    updateProductURLs(productContainer, options);
+    updateProductURLs(productContainer, options, multiple);
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));

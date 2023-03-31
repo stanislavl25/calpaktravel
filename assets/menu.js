@@ -1,6 +1,7 @@
 "use strict";
 
-console.log('menu.js loaded');
+if(window.debug) console.log('menu.js loaded');
+
 function openMenu(menu) {
     document.body.classList.add('modal-open');
 
