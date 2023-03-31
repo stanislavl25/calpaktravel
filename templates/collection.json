@@ -449,6 +449,7 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": "",
