@@ -254,7 +254,7 @@
             "collection-list": [
 
             ],
-            "show-for-all": false,
+            "show-for-all": true,
             "image": "shopify:\/\/shop_images\/IMG_8991-2.jpg",
             "title": "Watch Live Demo",
             "text": "<p>Learn more about the features of this bundle.<\/p><p><\/p>",
