@@ -249,17 +249,17 @@
           "type": "image-banner",
           "settings": {
             "product-list": [
-              "starter-bundle"
-            ],
-            "collection-list": [
 
             ],
-            "show-for-all": true,
+            "collection-list": [
+              "new-arrivals"
+            ],
+            "show-for-all": false,
             "image": "shopify:\/\/shop_images\/IMG_8991-2.jpg",
-            "title": "Watch Live Demo",
-            "text": "<p>Learn more about the features of this bundle.<\/p><p><\/p>",
+            "title": "Watch Live Shopping",
+            "text": "<p>Learn how to get a FREE Luka Key Pouch on your next order<\/p><p><\/p>",
             "button-text": "Tune In Now",
-            "button-url": "",
+            "button-url": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
             "live-show-id": "0IUxs05HW5qmjx5AFvGG"
           }
         },
