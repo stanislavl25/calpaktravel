@@ -247,7 +247,6 @@
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
-          "disabled": true,
           "settings": {
             "product-list": [
               "starter-bundle"
@@ -256,7 +255,7 @@
 
             ],
             "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/chrome_ajZa2NqqKg.png",
+            "image": "shopify:\/\/shop_images\/IMG_8991-2.jpg",
             "title": "Watch Live Demo",
             "text": "<p>Learn more about the features of this bundle.<\/p><p><\/p>",
             "button-text": "Tune In Now",
@@ -311,8 +310,8 @@
         "zoom": false,
         "gallery-limit": 5,
         "gallery-limit-reapply": true,
-        "specifications": "<p>{{ product.metafields.custom.specifications | metafield_tag }}<\/p>",
-        "warranty-product-level": "<p>{{ product.metafields.custom.warranty_text | metafield_tag }}<\/p>",
+        "specifications": "{{ product.metafields.custom.specifications | metafield_tag }}",
+        "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",
         "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
         "prop65-title": "Prop 65 Disclaimer",
         "prop65": "<p>Proposition 65 is a California regulation that requires special warnings to be presented to customers if a product contains chemicals known to the State of California to cause cancer, birth defects or other reproductive harm if exposure to the chemicals in those products are above the limits set by California.<\/p><p>The following warning applies to the products linking to this page. <\/p><p>WARNING Cancer and Reproductive Harm. www.P65Warnings.ca.gov<\/p>"
