@@ -85,6 +85,7 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
                 let prod = data.products[i];
                 if(prod.title.indexOf(productTypes[j]) > -1 && added.indexOf(prod.handle) === -1) {
                     let correctVariantPrice;  
+
                     if(prod.handle === product.handle) {
                       // getting the variantion selectedAssigned
                       correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ])?.price || prod.variants[0].price;

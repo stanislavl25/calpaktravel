@@ -5,7 +5,7 @@ window.addEventListener("click", (e) => {
         e.preventDefault();
         let wrapper = e.target.closest('.slider__wrapper');
         let gap = 0;
-        let slideNum = 1;
+        let slideNum = 2;
         if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
         if(wrapper.hasAttribute('data-slide')) slideNum = Number(wrapper.getAttribute('data-slide'));
         if(window.innerWidth <= 900 && wrapper.hasAttribute('data-slide-mob')) slideNum = Number(wrapper.getAttribute('data-slide-mob'));
