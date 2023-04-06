@@ -328,9 +328,9 @@
 $(document).on("page:load page:change", function() {
 
     $('#checkout_submit').click( function(){
-        let codeValue = $('#checkout_reduction_code').val();
+        let codeValue = $('#checkout_reduction_code').val().toUpperCase();
         console.log(`click value: ${codeValue}`);
-        if(codeValue == '{{ settings.sale-msg-code }}'){
+        if(codeValue == '{{ settings.sale-msg-code | upcase }}'){
             {% if checkout.total_price < 17800 %}
                 const cartTotal = {{ checkout.total_price | json }};
                 const afterOrderItems = document.querySelector('.order-summary__section.order-summary__section--discount');
