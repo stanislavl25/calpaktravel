@@ -247,21 +247,20 @@
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
-          "disabled": true,
           "settings": {
             "product-list": [
 
             ],
             "collection-list": [
-              "new-arrivals"
+              "all"
             ],
             "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/IMG_8991-2.jpg",
-            "title": "Watch Live Shopping",
+            "image": "shopify:\/\/shop_images\/IMG_9016-2_1.jpg",
+            "title": "Watch Live Demo",
             "text": "<p>Learn how to get a FREE Luka Key Pouch on your next order<\/p><p><\/p>",
             "button-text": "Tune In Now",
             "button-url": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
-            "live-show-id": "0IUxs05HW5qmjx5AFvGG"
+            "live-show-id": "TEvfQuz8ZIwQb2Gnv1TU"
           }
         },
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8": {

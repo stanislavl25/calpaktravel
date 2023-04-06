@@ -311,6 +311,7 @@
         "blocks": {
           "75987423-fd0a-415a-bfe1-db0501bbf400": {
             "type": "text-banner",
+            "disabled": true,
             "settings": {
               "display": "homepage",
               "include_collections": [
