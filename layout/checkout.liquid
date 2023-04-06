@@ -328,9 +328,9 @@
 $(document).on("page:load page:change", function() {
 
     $('#checkout_submit').click( function(){
-        let codeValue = $('#checkout_reduction_code').val();
+        let codeValue = $('#checkout_reduction_code').val().toUpperCase();
         console.log(`click value: ${codeValue}`);
-        if(codeValue == '{{ settings.sale-msg-code }}'){
+        if(codeValue == '{{ settings.sale-msg-code | upcase }}'){
             {% if checkout.total_price < 17800 %}
                 const cartTotal = {{ checkout.total_price | json }};
                 const afterOrderItems = document.querySelector('.order-summary__section.order-summary__section--discount');
@@ -354,9 +354,9 @@ $(document).on("page:load page:change", function() {
                 padding-bottom: 0px;
                 }
                 .custom-cart-message{
-                margin-top:0px;
+                margin: 15px 0px 20px 0px;
                 color: #ea1b19;
-                font-weight:500;
+                font-weight: 500;
                 }
                 `;
                 parentDiv.prepend(stylechk);
