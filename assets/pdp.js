@@ -66,7 +66,6 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
 }
 
 function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
-    console.log(`CREATE TYPE SELECT NOW`)
     const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
     const productTypes = ['Mini Carry-On', 'Front Pocket Carry-On', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
     let foundTypes = [];
@@ -377,7 +376,6 @@ function setupGalleryMediaLimit(newMedia) {
 }
 
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
-    console.log(`UPDATING GALLERY NOW`)
     let variantTypeEl = document.querySelector('.pdp__variant-type');
     if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
