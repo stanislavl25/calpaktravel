@@ -321,23 +321,49 @@
     <!-- Upsellit -->
     <script type="text/javascript">usi_installed = 0; USI_installCode = function() { if (usi_installed == 0) { usi_installed = 1; var USI_headID = document.getElementsByTagName("head")[0]; var USI_installID = document.createElement('script'); USI_installID.type = 'text/javascript'; USI_installID.src = 'https://www.upsellit.com/active/calpak.jsp'; USI_headID.appendChild(USI_installID); } }; if (typeof(document.readyState) != "undefined" && document.readyState === "complete") { USI_installCode(); } else if (window.addEventListener){ window.addEventListener('load', USI_installCode, true); } else if (window.attachEvent) { window.attachEvent('onload', USI_installCode); } else { USI_installCode(); } setTimeout("USI_installCode()", 10000);</script>
     <!-- End Upsellit -->
-    <!-- Custom Discount Message -->
+{% if settings.chk-msg-enabled %}
+      <!-- Custom Discount Message -->
 
 <script>        
 $(document).on("page:load page:change", function() {
+
     $('#checkout_submit').click( function(){
         let codeValue = $('#checkout_reduction_code').val();
         console.log(`click value: ${codeValue}`);
         if(codeValue == '{{ settings.sale-msg-code }}'){
-            {% if checkout.total_price < 15000 %}          
+            {% if checkout.total_price < 17800 %}
                 const cartTotal = {{ checkout.total_price | json }};
-                const afterOrderItems = document.querySelector('.order-summary__section.order-summary__section--total-lines');
+                const afterOrderItems = document.querySelector('.order-summary__section.order-summary__section--discount');
                 const cartMessage = document.createElement('div');
+                const stylechk = document.createElement('style');
+                let parentDiv = afterOrderItems.parentNode;
                 cartMessage.classList.add('custom-cart-message');
                 cartMessage.appendChild(document.createTextNode('{{ settings.chk-msg-text }}'));
-                let parentDiv = afterOrderItems.parentNode;
-                parentDiv.insertBefore(cartMessage, afterOrderItems);
-                $('.order-summary__section.order-summary__section--product-list').css({
+                const mediaQuery = window.matchMedia('(max-width: 480px)');
+                if (mediaQuery.matches) {  
+                    $(cartMessage).insertBefore('.order-summary__section.order-summary__section--product-list');
+                } else {
+                    $(cartMessage).insertAfter('.order-summary__section.order-summary__section--discount');
+                } 
+                stylechk.textContent = `
+                .order-summary__section.order-summary__section--product-list{
+                display: flex;
+                flex-direction: column;
+                }
+                .order-summary__section.order-summary__section--discount{
+                padding-bottom: 0px;
+                }
+                .custom-cart-message{
+                margin-top:0px;
+                color: #ea1b19;
+                font-weight:500;
+                }
+                `;
+                parentDiv.prepend(stylechk);
+                //setTimeout(function(){
+                //    $('.notice--warning .notice__content').html(cartMessage);
+                //}, 500);
+                /*$('.order-summary__section.order-summary__section--product-list').css({
                     'display' : 'flex',
                     'flex-direction' : 'column'
                 });
@@ -348,13 +374,14 @@ $(document).on("page:load page:change", function() {
                     'margin-top' : '0px',
                     'color' : '#ea1b19',
                     'font-weight' : '500'
-                });
+                });*/
             {% endif %}
         }
     });
 });
-</script>| 
+</script>
      
-    <!-- End Custom Discount Message -->
+<!-- End Custom Discount Message -->
+{% endif %}
 </body>
 </html>
