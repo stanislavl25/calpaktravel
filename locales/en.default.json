@@ -397,8 +397,7 @@
         "description_label": "Item",
         "gift_card_and_discount_title": "Gift Card or Discount Code",
         "gift_card_and_discount_label": "Gift Card or Discount Code",
-        "gift_card_and_discount_placeholder": "Gift Card \/ Discount Code (1 per order)",
-        "cart_does_not_meet_discount_requirements_notice": "{{ code }} code eligibility: Order total must be $150+ without the free gift"
+        "gift_card_and_discount_placeholder": "Gift Card \/ Discount Code (1 per order)"
       },
       "shipping": {
         "waiting_on_rate_notice": "Getting available shipping rates."
