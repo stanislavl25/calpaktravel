@@ -165,6 +165,7 @@ function updateOptionsAvailability(options, select, container) {
             }
         }
     }
+    document.querySelector('.product-option.product-option--selected').click();
 }
 
 async function triggerWaitlist(waitlistCont) {
