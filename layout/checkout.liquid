@@ -323,11 +323,20 @@
     <!-- End Upsellit -->
     <!-- Custom Discount Message -->
 
-    <script>        
-    $(document).on("page:load page:change", function() {
-    {% for item in checkout.line_items %}
-        {% if discount_application.title == settings.sale-msg-code %}
-            {% if checkout.total_price < 15000 %}
+<script>        
+$(document).on("page:load page:change", function() {
+    $('#checkout_submit').click( function(){
+        let codeValue = $('#checkout_reduction_code').val();
+        console.log(`click value: ${codeValue}`);
+        if(codeValue == '{{ settings.sale-msg-code }}'){
+            {% if checkout.total_price < 15000 %}          
+                const cartTotal = {{ checkout.total_price | json }};
+                const afterOrderItems = document.querySelector('.order-summary__section.order-summary__section--total-lines');
+                const cartMessage = document.createElement('div');
+                cartMessage.classList.add('custom-cart-message');
+                cartMessage.appendChild(document.createTextNode('{{ settings.chk-msg-text }}'));
+                let parentDiv = afterOrderItems.parentNode;
+                parentDiv.insertBefore(cartMessage, afterOrderItems);
                 $('.order-summary__section.order-summary__section--product-list').css({
                     'display' : 'flex',
                     'flex-direction' : 'column'
@@ -340,19 +349,11 @@
                     'color' : '#ea1b19',
                     'font-weight' : '500'
                 });
-            
-                const cartTotal = {{ checkout.total_price | json }};
-                const afterOrderItems = document.querySelector('.order-summary__section.order-summary__section--total-lines');
-                const cartMessage = document.createElement('div');
-                cartMessage.classList.add('custom-cart-message');
-                cartMessage.appendChild(document.createTextNode('{{ settings.chk-msg-text }}'));
-                let parentDiv = afterOrderItems.parentNode;
-                parentDiv.insertBefore(cartMessage, afterOrderItems);
             {% endif %}
-        {% endif %}
-    {% endfor %}
+        }
     });
-    </script>| 
+});
+</script>| 
      
     <!-- End Custom Discount Message -->
 </body>
