@@ -84,10 +84,17 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
             for(let i = 0; i < data.products.length; i++) {
                 let prod = data.products[i];
                 if(prod.title.indexOf(productTypes[j]) > -1 && added.indexOf(prod.handle) === -1) {
+                    let correctVariantPrice;  
+                    if(prod.handle === product.handle) {
+                      // getting the variantion selectedAssigned
+                      correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ])?.price || prod.variants[0].price;
+                    } else {
+                      correctVariantPrice = prod.variants[0].price
+                    }
                     foundTypes.push([
                         productTypes[j],
                         prod.handle,
-                        prod.variants[0].price,
+                        correctVariantPrice,
                         prod.id == product.id
                     ]);
                     added.push(prod.handle);
@@ -369,6 +376,8 @@ function setupGalleryMediaLimit(newMedia) {
 }
 
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
+    let variantTypeEl = document.querySelector('.pdp__variant-type');
+    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
     const pdpThumbs = pdpGrid.querySelector('.pdp__gallery-thumbs, .qv__gallery-thumbs');
     const pdpGalleryInfo = pdpGrid.querySelector('.pdp__video-info');

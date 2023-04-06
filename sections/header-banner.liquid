@@ -1,197 +1,203 @@
 {% if section.blocks.size > 0 %}
-{{ 'section-header-banner.css' | asset_url | stylesheet_tag }}
+  {{ 'section-header-banner.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
-{%- assign now = "now" | date: "%s" | times: 1 %}
+{%- assign now = 'now' | date: '%s' | times: 1 %}
 {% for block in section.blocks %}
-    {%- liquid
+  {%- liquid
+    assign display = false
+    if block.settings.display == 'everywhere'
+      assign display = true
+    elsif block.settings.display == 'homepage' and template == 'index'
+      assign display = true
+    elsif block.settings.display == 'not-homepage' and template != 'index'
+      assign display = true
+    elsif block.settings.display == 'collections' and template contains 'collection'
+      assign display = true
+    elsif block.settings.display == 'pdp' and template contains 'product'
+      assign display = true
+    endif
+
+    if block.settings.exclude_collections != blank and template contains 'collection' and display == true
+      for col in block.settings.exclude_collections
+        if collection.id == col.id
+          assign display = false
+          break
+        endif
+      endfor
+    endif
+
+    if block.settings['starts-on'] != blank
+      assign this_start = block.settings['starts-on'] | date: '%s' | times: 1
+      if now < this_start
         assign display = false
-        if block.settings.display == 'everywhere'
-            assign display = true
-        elsif block.settings.display == 'homepage' and template == 'index'
-            assign display = true
-        elsif block.settings.display == 'not-homepage' and template != 'index'
-            assign display = true
-        elsif block.settings.display == 'collections' and template contains 'collection'
-            assign display = true
-        elsif block.settings.display == 'pdp' and template contains 'product'
-            assign display = true
-        endif
+      endif
+    endif
 
-
-
-        if block.settings.exclude_collections != blank and template contains 'collection' and display == true
-            for col in block.settings.exclude_collections
-                if collection.id == col.id
-                    assign display = false
-                    break
-                endif
-            endfor
-        endif
-
-        if block.settings.starts-on != blank
-            assign this_start = block.settings.starts-on | date: "%s" | times: 1
-            if now < this_start
-                assign display = false
-            endif
-        endif
-
-        if block.settings.ends-on != blank
-            assign this_end = block.settings.ends-on | date: "%s" | times: 1
-            if now > this_end
-                assign display = false
-            endif
-        endif
-    -%}
-    {% if display == true %}
-        <div data-id="{{ block.id }}" class="header-banner header-banner--{{ block.type }}">
-            {% if block.settings.button != blank and block.settings.link != blank %}
-                {%- if block.settings.button-display == 'both' -%}
-                    <a class="header-banner__text" href="{{ block.settings.link }}">{{ block.settings.text }}</a>
-                    <a href="{{ block.settings.link }}" class="button button--secondary">
-                        <span>{{ block.settings.button | escape }}</span>
-                    </a>
-                {%- else -%}
-                    {%- liquid
-                        assign buttonClass = ''
-                        if block.settings.button-display == 'mobile'
-                            assign buttonClass = 'hide-large'
-                        elsif block.settings.button-display == 'desktop'
-                            assign buttonClass = 'hide-small'
-                        endif
-                    -%}
-
-                    <a href="{{ block.settings.link }}" class="header-banner__text">{{ block.settings.text }}</a>
-                    <a href="{{ block.settings.link }}" class="button button--secondary {{ buttonClass }}">
-                        <span>{{ block.settings.button | escape }}</span>
-                    </a>
-                {%- endif -%}
-            {% else %}
-                <div class="header-banner__text">{{ block.settings.text }}</div>
-            {% endif %}
-
-            {% style %}
-            .header-banner[data-id="{{ block.id }}"] .header-banner__text {
-                font-size: {{ block.settings.font-size }}px;
-            }
-            {% endstyle %}
-        </div>
+    if block.settings['ends-on'] != blank
+      assign this_end = block.settings['ends-on'] | date: '%s' | times: 1
+      if now > this_end
+        assign display = false
+      endif
+    endif
+  -%}
+  {% if display == true %}
+    {% if block.settings.display == 'collections'
+      or block.settings.display == 'everywhere'
+      or block.settings.display == 'not-homepage'
+    %}
+      <style>
+        .header-banner.header-banner--text-banner {
+          border-bottom: 0px !important;
+        }
+      </style>
     {% endif %}
+    <div data-id="{{ block.id }}" class="header-banner header-banner--{{ block.type }}">
+      {% if block.settings.button != blank and block.settings.link != blank %}
+        {%- if block.settings['button-display'] == 'both' -%}
+          <a class="header-banner__text" href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+          <a href="{{ block.settings.link }}" class="button button--secondary">
+            <span>{{ block.settings.button | escape }}</span>
+          </a>
+        {%- else -%}
+          {%- liquid
+            assign buttonClass = ''
+            if block.settings['button-display'] == 'mobile'
+              assign buttonClass = 'hide-large'
+            elsif block.settings['button-display'] == 'desktop'
+              assign buttonClass = 'hide-small'
+            endif
+          -%}
+
+          <a href="{{ block.settings.link }}" class="header-banner__text">{{ block.settings.text }}</a>
+          <a href="{{ block.settings.link }}" class="button button--secondary {{ buttonClass }}">
+            <span>{{ block.settings.button | escape }}</span>
+          </a>
+        {%- endif -%}
+      {% else %}
+        <div class="header-banner__text">{{ block.settings.text }}</div>
+      {% endif %}
+
+      {% style %}
+        .header-banner[data-id="{{ block.id }}"] .header-banner__text {
+            font-size: {{ block.settings.font-size }}px;
+        }
+      {% endstyle %}
+    </div>
+  {% endif %}
 {% endfor %}
 
 {% schema %}
+{
+  "name": "Text Promo Banner",
+  "class": "shopify-section--header-banner",
+  "settings": [],
+  "blocks": [
     {
-        "name": "Text Promo Banner",
-        "class": "shopify-section--header-banner",
-        "settings": [
-            
-        ],
-        "blocks": [
+      "type": "text-banner",
+      "name": "Text Banner",
+      "settings": [
+        {
+          "type": "select",
+          "id": "display",
+          "label": "Display",
+          "options": [
             {
-                "type": "text-banner",
-                "name": "Text Banner",
-                "settings": [
-                    {
-                        "type": "select",
-                        "id": "display",
-                        "label": "Display",
-                        "options": [
-                            {
-                                "value": "nowhere",
-                                "label": "Off"
-                            },
-                            {
-                                "value": "everywhere",
-                                "label": "Everywhere"
-                            },
-                            {
-                                "value": "homepage",
-                                "label": "Homepage only"
-                            },
-                            {
-                                "value": "not-homepage",
-                                "label": "Everywhere except homepage"
-                            },
-                            {
-                                "value": "collections",
-                                "label": "On collection pages"
-                            },
-                            {
-                                "value": "pdp",
-                                "label": "On PDPs"
-                            }
-                        ],
-                        "default": "everywhere"
-                    },
-                    {
-                        "type": "collection_list",
-                        "id": "include_collections",
-                        "label": "Limit collections banner is shown on",
-                        "info": "If showing on collection pages at all"
-                    },
-                    {
-                        "type": "collection_list",
-                        "id": "exclude_collections",
-                        "label": "Don't show for these collections",
-                        "info": "If applicable"
-                    },
-                    {
-                        "type": "richtext",
-                        "id": "text",
-                        "label": "Text"
-                    },
-                    {
-                        "type": "range",
-                        "id": "font-size",
-                        "min": 16,
-                        "max": 36,
-                        "step": 1,
-                        "unit": "px",
-                        "label": "Font Size",
-                        "default": 20
-                    },
-                    {
-                        "type": "url",
-                        "id": "link",
-                        "label": "Link"
-                    },
-                    {
-                        "type": "text",
-                        "id": "button",
-                        "label": "Button"
-                    },
-                    {
-                        "type": "select",
-                        "id": "button-display",
-                        "label": "Button Display",
-                        "options": [
-                            {
-                                "value": "both",
-                                "label": "Both on desktop and mobile"
-                            },
-                            {
-                                "value": "mobile",
-                                "label": "Mobile only"
-                            },
-                            {
-                                "value": "desktop",
-                                "label": "Desktop only"
-                            }
-                        ],
-                        "default": "both"
-                    },
-                    {
-                        "type": "text",
-                        "id": "starts-on",
-                        "label": "Starts on"
-                    },
-                    {
-                        "type": "text",
-                        "id": "ends-on",
-                        "label": "Ends on"
-                    }
-                ]
+              "value": "nowhere",
+              "label": "Off"
+            },
+            {
+              "value": "everywhere",
+              "label": "Everywhere"
+            },
+            {
+              "value": "homepage",
+              "label": "Homepage only"
+            },
+            {
+              "value": "not-homepage",
+              "label": "Everywhere except homepage"
+            },
+            {
+              "value": "collections",
+              "label": "On collection pages"
+            },
+            {
+              "value": "pdp",
+              "label": "On PDPs"
             }
-        ]
+          ],
+          "default": "everywhere"
+        },
+        {
+          "type": "collection_list",
+          "id": "include_collections",
+          "label": "Limit collections banner is shown on",
+          "info": "If showing on collection pages at all"
+        },
+        {
+          "type": "collection_list",
+          "id": "exclude_collections",
+          "label": "Don't show for these collections",
+          "info": "If applicable"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "range",
+          "id": "font-size",
+          "min": 16,
+          "max": 36,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size",
+          "default": 20
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button"
+        },
+        {
+          "type": "select",
+          "id": "button-display",
+          "label": "Button Display",
+          "options": [
+            {
+              "value": "both",
+              "label": "Both on desktop and mobile"
+            },
+            {
+              "value": "mobile",
+              "label": "Mobile only"
+            },
+            {
+              "value": "desktop",
+              "label": "Desktop only"
+            }
+          ],
+          "default": "both"
+        },
+        {
+          "type": "text",
+          "id": "starts-on",
+          "label": "Starts on"
+        },
+        {
+          "type": "text",
+          "id": "ends-on",
+          "label": "Ends on"
+        }
+      ]
     }
+  ]
+}
 {% endschema %}
