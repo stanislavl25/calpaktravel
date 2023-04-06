@@ -323,6 +323,31 @@
     ]
   },
   {
+    
+    "name": "Promo Checkout",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "chk-msg-enabled",
+        "label": "Checkout Sale Message Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-msg-code",
+        "label": "Coupon code",
+        "default":"FREEMINITEST"
+      },
+      {
+        "type": "text",
+        "id": "chk-msg-text",
+        "label": "Message text",
+        "default": "FREEMINI code eligibility: Order total must be $150+ without the free gift",
+        "info": "Do not use double Quotation Marks"
+      }
+    ]
+  },
+  {
     "name": "Promo Message",
     "settings": [
       {
