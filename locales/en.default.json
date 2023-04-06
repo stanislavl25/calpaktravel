@@ -267,6 +267,10 @@
       "address_no_results": "No results for that address",
       "address_query_limit_html": "You have exceeded the Google API usage limit. Consider upgrading to a <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Premium Plan<\/a>.",
       "auth_error_html": "There was a problem authenticating your Google Maps account."
+    },
+    "wonderment-featured-collection": {
+      "sold_out": "Sold Out",
+      "sale": "Sale"
     }
   },
   "layout": {
@@ -393,7 +397,8 @@
         "description_label": "Item",
         "gift_card_and_discount_title": "Gift Card or Discount Code",
         "gift_card_and_discount_label": "Gift Card or Discount Code",
-        "gift_card_and_discount_placeholder": "Gift Card \/ Discount Code (1 per order)"
+        "gift_card_and_discount_placeholder": "Gift Card \/ Discount Code (1 per order)",
+        "cart_does_not_meet_discount_requirements_notice": "{{ code }} code eligibility: Order total must be $150+ without the free gift"
       },
       "shipping": {
         "waiting_on_rate_notice": "Getting available shipping rates."
