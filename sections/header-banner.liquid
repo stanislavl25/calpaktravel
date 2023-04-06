@@ -42,15 +42,17 @@
     endif
   -%}
   {% if display == true %}
-    {% if block.settings.display == 'collections'
-      or block.settings.display == 'everywhere'
-      or block.settings.display == 'not-homepage'
-    %}
-      <style>
-        .header-banner.header-banner--text-banner {
-          border-bottom: 0px !important;
-        }
-      </style>
+    {% if template contains 'collection' %}
+      {% if block.settings.display == 'collections'
+        or block.settings.display == 'everywhere'
+        or block.settings.display == 'not-homepage'
+      %}
+        <style>
+          .header-banner.header-banner--text-banner {
+            border-bottom: 0px !important;
+          }
+        </style>
+      {% endif %}
     {% endif %}
     <div data-id="{{ block.id }}" class="header-banner header-banner--{{ block.type }}">
       {% if block.settings.button != blank and block.settings.link != blank %}
