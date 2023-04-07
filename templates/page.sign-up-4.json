@@ -18,7 +18,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/dbb\/landing-page",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/cAT\/landing-page",
             "height": "800",
             "height-mobile": "600"
           }
@@ -29,7 +29,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7"
       ],
       "settings": {
-        "background": "#676f69",
+        "background": "#bba574",
         "mobile-layout": "stack-reverse"
       }
     },
@@ -40,7 +40,8 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false
           }
         }
       },
