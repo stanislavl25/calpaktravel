@@ -19,7 +19,7 @@
           "type": "filter",
           "settings": {
             "heading": ". . . New",
-            "title": "New",
+            "title": "New Arrivals",
             "collection": "new-arrivals",
             "product_list": [
 
