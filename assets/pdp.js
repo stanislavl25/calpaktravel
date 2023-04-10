@@ -173,7 +173,6 @@ function updateOptionsAvailability(options, select, container) {
             }
         }
     }
-    document.querySelector('.product-option.product-option--selected').click();
 }
 
 async function triggerWaitlist(waitlistCont) {
@@ -600,3 +599,9 @@ function pdpHandleDescriptions(pdpInfo, option) {
     const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
+window.addEventListener("load", function(){
+    const variantLuggageButton = document.querySelector('.product-option.product-option--selected');
+    if (variantLuggageButton != -1){
+    variantLuggageButton.click();
+    } 
+});
