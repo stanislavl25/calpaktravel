@@ -65,7 +65,7 @@ fbq('track', 'PageView');
                     {% endif %}
                 </div>
             {% when 'form' %}
-                <div class="sign-up__form">
+                <div class="sign-up__form" style="display:flex; flex-direction:column; justify-content:{{block.settings.vertical_alignment}};">
                     {% if block.settings.form_type == 'klaviyo' %}
                         <div class="klaviyo-form-{{ block.settings.klaviyo_id }}"></div>
                     {% else %}
@@ -317,6 +317,26 @@ fbq('track', 'PageView');
                         "type": "text",
                         "id": "height-mobile",
                         "label": "Height in pixels for mobile"
+                    },
+                    {
+                    "type": "select",
+                    "id": "vertical_alignment",
+                    "label": "Vertical alignment",
+                    "options": [
+                        {
+                        "value": "flex-start",
+                        "label": "Top"
+                        },
+                        {
+                        "value": "center",
+                        "label": "Center"
+                        },
+                        {
+                        "value": "flex-end",
+                        "label": "Bottom"
+                        }
+                    ],
+                    "default": "center"
                     }
                 ]
             }
