@@ -312,6 +312,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     available: available,
                     selected: selected,
                     title: variant.option1,
+                    first_variant_id: variant.id,
                     urlOpt1: urlOpt1,
                     url: url
                 };
@@ -489,6 +490,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.classList.add('color-' + color);
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
+        el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
 
         if(colors[color].available === false) el.classList.add('product-option--na');
 

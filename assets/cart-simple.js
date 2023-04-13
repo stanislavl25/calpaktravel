@@ -3,8 +3,8 @@
 function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false) {
     if(typeof final_sale == 'undefined') final_sale = false;
     if(typeof preorder == 'undefined') preorder = false;
-   
-    let items = typeof variant_id == 'object' ? variant_id : [{
+
+    let items = [{
         id: variant_id,
         quantity: quantity,
         properties: {}
@@ -95,6 +95,7 @@ function updateCartItems(items, callback, always) {
     })
     .then(response => {
         if(!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
         return response.json();
     })
     .then(response => {
@@ -109,187 +110,6 @@ function updateCartItems(items, callback, always) {
         window.dispatchEvent(new Event('refreshAjaxCart'))
     });
     // Extend - End code
-}
-
-function gamificationInit() {
-    const { subtotal, goals, wrapper, limit } = settings["cartGamification"];
-    document.querySelector(wrapper).innerHTML = '';
-    goals.forEach( item => {
-        const goalOffset = item.value / limit * 100;
-        const goalTemplate = `
-            <div class="cart__gamification-goal" style="left: ${goalOffset}%">
-                <figure class="cart__gamification-icon ${subtotal >= item.value ? 'cart__gamification-icon--reached' : false}">
-                    ${item.icon}
-                </figure>
-            </div>
-        `;
-        document.querySelector(wrapper).innerHTML += goalTemplate;
-    });
-
-    setGamificationProgress(subtotal * 100);
-
-    document.addEventListener('click', event => {
-        if (event.target.matches('.cart__item--gift .color-swatch')) {
-
-
-            const selectedVariantId = event.target.dataset.firstVariantId;
-            const currentVariant = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.variant;
-            const currentId = event.target.parentNode.parentNode.parentNode.parentNode.dataset.id;
-  
-
-            let clean_items = {};
-            clean_items[currentVariant] = 0;
-            
-
-            updateCartItems(clean_items, () => {
-                //updateCart(data);
-                const items = [{
-                    id: selectedVariantId,
-                    quantity: 1,
-                    properties: {
-                        'gift': 'true'
-                    }
-                }];
-
-                addToCart(items, 1, (data) => {
-                    updateCart(data, false, false);
-                    activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
-                });
-            });
-            
-        }
-    });
-}
-
-function setGamificationProducts( gifts ) {
-
-    const always = () => {};
-    let items = [];
-
-    window.fetch('/cart.js', {
-        credentials: 'same-origin',
-        method: 'GET',
-    })
-    .then((response) => response.json())
-    .then((cart) => {
-
-        window.cartItems = cart.items;
-        if(gifts.length == 0) {
-            
-            // Clean gifts from cart if exists
-            let clean_items = {};
-            const gifts_in_cart = cartItems.filter( item => item.properties.gift == 'true');
-
-            gifts_in_cart.forEach( gift => {
-                clean_items[gift.id] = 0;
-            });
-
-            if(Object.keys(clean_items).length) {
-                updateCartItems(clean_items, (data) => {
-                    updateCart(data);
-                });
-            }
-
-        } else {
-
-            gifts.forEach(gift => {
-                if(!cartItems.find(item => item.properties.gift == 'true')){
-                    items.push({
-                        id: gift,
-                        quantity: 1,
-                        properties: {
-                            'gift': 'true'
-                        }
-                    });
-                }
-            });
-            
-            if (items.length > 0) {
-                addToCart(items, 1, (data) => {
-                    updateCart(data);
-                    activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
-                });
-            } 
-        }
-    });
-}
-
-function setGamificationProgress(items_subtotal_price, cart = {}) {
-
-    const { goals, wrapper, limit } = settings["cartGamification"];
-    const cartHeader = document.querySelector('.cart__header');
-    const cartGoals = document.querySelector(wrapper);
-    const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-    const freeShippingStarts = goals.find(goal => goal.title == 'Free shipping').value * 100;
-
-    cartGoals.innerHTML = '';
-    let goalsVerbose = [];
-    let goalsGifts = [];
-
-    goals.forEach((item, index) => {
-        // Set gamification progressbar
-        const goalOffset = item.value / limit * 100;
-        const goalTemplate = `
-            <div class="cart__gamification-goal" style="left: ${goalOffset}%">
-                <figure class="cart__gamification-icon ${items_subtotal_price >= (item.value * 100) ? 'cart__gamification-icon--reached' : false}">
-                    ${item.icon}
-                </figure>
-            </div>
-        `;
-        cartGoals.innerHTML += goalTemplate;
-
-        if (items_subtotal_price < (item.value * 100)) {
-
-            let left_value = item.value - (items_subtotal_price / 100);
-            goalsVerbose.push({
-                'goal': item.title,
-                'status': 'incomplete',
-                'value': left_value
-            })
-        } else {
-            goalsVerbose.push({
-                'goal': item.title,
-                'status': 'complete',
-                'value': 0
-            });
-            if(item.product != '') goalsGifts.push(item.product);
-        }
-    });
-
-    setGamificationProducts(goalsGifts);
-    
-    let verboseTemplate = '';
-    if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
-        for(let x in goalsVerbose) {
-            let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get a`;
-            if (goalsVerbose[x].status == 'complete') {
-                verboseTemplate += `You got ${goalsVerbose[x].goal}! `;
-            } else {
-                verboseTemplate += `<b>${prefix} ${goalsVerbose[x].goal}!</b> `;
-            }
-        }
-    } else {
-        verboseTemplate = `You are $${goalsVerbose[0].value} away from <b>${goalsVerbose[0].goal}</b>!`;
-    }
-
-    document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;
-
-    let gamificationPercent = (items_subtotal_price * 100) / (limit * 100);
-    if(gamificationPercent > 100) gamificationPercent = 100;
-    gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
-
-    if (gamificationPercent == 100) {
-        const verboseGoals = goals.map(goal => goal.title).join(' + a ');
-        document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! You got <b>${ verboseGoals }!</b>`;
-    }
-
-    if(items_subtotal_price >= freeShippingStarts) {
-        cartHeader.setAttribute('data-status', 'success');
-        return true;
-    } else {
-        cartHeader.setAttribute('data-status', 'progress');
-        return false;
-    }
 }
 
 function setFreeShippingProgress(cart) {
@@ -367,7 +187,7 @@ function updateCart(data, jsonIncluded = false) {
 
     setHeaderItemCounter(cart);
     
-    let freeShipping = setGamificationProgress(cart.items_subtotal_price, cart);
+    let freeShipping = setFreeShippingProgress(cart);
 
     let totalPrice = cart.total_price;
     if(!freeShipping) totalPrice += 795;
@@ -397,8 +217,6 @@ function closeCart() {
 function openCart() {
     const cartContainer = document.querySelector('.cart__container');
     if(!cartContainer || cartContainer.classList.contains('cart__container--visible')) return;
-
-    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
     cartContainer.classList.add('cart__container--active');
     setTimeout(() => {
@@ -499,10 +317,6 @@ window.addEventListener("load", () => {
             document.querySelector('.cart-sidebar .button--checkout').setAttribute('href', '/checkout');
         }
     }
-
-    
-    
-    
 });
 
 async function cartItemMoveToWishlist(target) {
