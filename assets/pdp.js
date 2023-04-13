@@ -292,7 +292,8 @@ window.addEventListener("load", () => {
         let variantTypeEl = document.querySelector('.pdp__variant-type');
         if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
 
-        const pdpSubmitSection = document.querySelector('.pdp__submit-container');
+        const screenWidth  = window.matchMedia( '(min-width: 800px)' );
+        const pdpSubmitSection = document.querySelector( screenWidth.matches ? '.pdp__variants' : '.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
         if(floatingPDPSubmit && pdpSubmitSection) {
             let observer = new IntersectionObserver(function(entries){
