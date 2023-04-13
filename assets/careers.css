@@ -1,0 +1,155 @@
+@font-face {
+    font-family: Futura;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("https://fonts.shopifycdn.com/futura/futura_n4.df36ce3d9db534a4d7947f4aa825495ed740e410.woff2?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=b60212d2f09d9e7ffcbde21c1e3ec05f54585c95e37c4a226f147fd4e8f53a07") format("woff2"),
+         url("https://fonts.shopifycdn.com/futura/futura_n4.6bce24beb4ba1ff4ddeb20f7cd6e2fa513a3d6ec.woff?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=63297627f2e53946d79177328a83c95c286e27837326d2d7c171b0cc23004bc8") format("woff");
+}
+  
+@font-face {
+    font-family: Futura;
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url("https://fonts.shopifycdn.com/futura/futura_n5.5632c6d8a6da9141ef40e51d14264a007bcae7e5.woff2?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=9de836c9e049eb1c0d8a691edd62402d4d6e2b1112d3732616add33fee886ffa") format("woff2"),
+         url("https://fonts.shopifycdn.com/futura/futura_n5.ea788239cf399e57dbdfe80e24bba751e5c2a36c.woff?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=b44f6f29dc57efa2f736815d265e0146cd4bf4695a9ba381fe1a9fcacff01841") format("woff");
+}
+  
+@font-face {
+    font-family: Futura;
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url("https://fonts.shopifycdn.com/futura/futura_n6.bbe2e25d5b96d13ff36b242171a3d07cf5a60170.woff2?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=0d450b40df0f1494ae9bcca1d89e6c03e64b99af3ff4b31b126674f0a0072dc8") format("woff2"),
+         url("https://fonts.shopifycdn.com/futura/futura_n6.66fa8f5c3c4b2c7c04809ecefe751450fa59d995.woff?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=8a27d2cde935d1b6748f2ec418b416c0e111f75017b04e4ba8f9650b943704fe") format("woff");
+}
+  
+@font-face {
+    font-family: Futura;
+    font-weight: 400;
+    font-style: oblique;
+    font-display: swap;
+    src: url("https://fonts.shopifycdn.com/futura/futura_o4.9747e2e6ed2f11b894984527c927b42234e48815.woff2?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=3a124d6ae32b4f2e0e3ca99de3e6b469c13f61f1f11b4923ca278729e2b18925") format("woff2"),
+         url("https://fonts.shopifycdn.com/futura/futura_o4.d5edc6b1d9a050bbe0beb9093d73b883bf18c6c1.woff?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=bbe417e3a9ca5a65c566d0b05fa87a3e3062cdf27b30f23befeef8a4b1367acc") format("woff");
+  }
+  
+@font-face {
+    font-family: Futura;
+    font-weight: 500;
+    font-style: oblique;
+    font-display: swap;
+    src: url("https://fonts.shopifycdn.com/futura/futura_o5.2374ce1c635b408a1f07994a3de4a936fc50f767.woff2?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=e9e0f5562eb4ef911c2c9948104973d8eaea98702e97339363f2d60c5ea5cb1d") format("woff2"),
+         url("https://fonts.shopifycdn.com/futura/futura_o5.1bf4df2c089a877c3ba2d33a9d4c7908742bfc89.woff?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=b53bb3561fbdc4e193ca5fcf289a6bf99bd7e297d85c058ff97198447d03d128") format("woff");
+  }
+  
+@font-face {
+    font-family: Futura;
+    font-weight: 600;
+    font-style: oblique;
+    font-display: swap;
+    src: url("https://fonts.shopifycdn.com/futura/futura_o6.2978dbd38bd9b3e8b72ee3299cd940da2900eb72.woff2?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=e86b9760411b790c63179e19019d497c5bb2dbbcfaa4675759cace97fd43fdef") format("woff2"),
+         url("https://fonts.shopifycdn.com/futura/futura_o6.bbc5bc6e7a675b3182e4866da9f9643bb3821261.woff?h1=Y2FscGFrcy5uZXQ&h2=Y2FscGFrcy5jb20&h3=Y2FscGFrdHJhdmVsLmNvbQ&h4=Y2FscGFrdHJhdmVscy5jb20&h5=Y2FscGFja3RyYXZlbC5jb20&h6=Y2FscGFrLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=87536ac50f0aa3441579fd6d14683c2c371d5853c30ebfff8961762531cac314") format("woff");
+  }
+
+body {
+    font-family: Futura, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#main_fields div.field label, #custom_fields div.field label, #demographic_questions div.field label, #eeoc_fields div.field label {
+    font-size: 16px !important;
+}
+
+#app_body {
+    max-width: none !important;
+}
+
+body #wrapper {
+    padding: 0 20px;
+}
+
+#app_body .logo-container {
+    display: none !important;
+}
+
+#main_fields div.field input[type="text"], #main_fields div.field textarea, #main_fields div.field .text-field, #custom_fields div.field input[type="text"], #custom_fields div.field textarea, #custom_fields div.field .text-field, #custom_fields div.field .select2-container-multi, #demographic_questions div.field input[type="text"], #demographic_questions div.field textarea, #demographic_questions div.field .text-field, #eeoc_fields div.field input[type="text"], #eeoc_fields div.field textarea, #eeoc_fields div.field .text-field {
+    font-family: Futura, Arial, Helvetica, sans-serif;
+    height: 40px;
+    border: 1px solid #bbb !important;
+    border-radius: 0 !important;
+    padding: 0 10px;
+}
+
+/* #main_fields div.field, #custom_fields div.field, #demographic_questions div.field, #eeoc_fields div.field {
+    display: flex !important;
+    align-items: center !important;
+} */
+
+.field > label {
+    line-height: 40px !important;
+}
+
+.attach-or-paste .unstyled-button.link-button,
+.opening a,
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.button {
+    font-family: Futura, Arial, Helvetica, sans-serif !important;
+    font-size: 16px !important;
+    border: 1px solid #000 !important;
+    color: #fff !important;
+    display: inline-block !important;
+    letter-spacing: 0.11em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    background: #000 !important;
+    text-align: center !important;
+    padding: 0 40px !important;
+    font-weight: 400 !important;
+    white-space: nowrap !important;
+    height: 50px !important;
+    line-height: 50px !important;
+    transition: all 0.3s ease !important;
+    text-shadow: none !important;
+    border-radius: 0 !important;
+} 
+
+.button:hover {
+    color: #000 !important;
+    background: #fff !important;
+}
+
+body .location {
+    color: #808080 !important;
+}
+
+h1.app-title,
+h1 {
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    line-height: 1em;
+    margin: 0 0 15px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: -0.02em;
+}
+
+table {
+    width: 100% !important;
+}
+
+.content-conclusion {
+    line-height: 1em;
+}
+
+#content {
+    line-height: 1.5em !important;
+}
