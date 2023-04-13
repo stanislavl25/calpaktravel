@@ -47,15 +47,27 @@
                 {%- endif -%}
                 
                 {%- if block.settings.button-text != blank -%}
+                <div class="hero__buttons">
                     {%- if block.settings.add-link-to-button-only -%}
-                    <a href="{{ block.settings.main-link }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
-                        <span>{{- block.settings.button-text | escape -}}</span>
-                    </a>
+                        <a href="{{ block.settings.main-link }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
+                            <span>{{- block.settings.button-text | escape -}}</span>
+                        </a>
+                        {%- if block.settings.secondary-button-text != blank -%}
+                        <a href="{{ block.settings.secondary-button-url }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--white{% endif %} button--outline hero__block-button">
+                            <span>{{- block.settings.secondary-button-text | escape -}}</span>
+                        </a>
+                        {%- endif -%}
                     {%- else -%}
-                    <span class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
-                        <span>{{- block.settings.button-text | escape -}}</span>
-                    </span>
+                        <span class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
+                            <span>{{- block.settings.button-text | escape -}}</span>
+                        </span>
+                        {%- if block.settings.secondary-button-text != blank -%}
+                        <span class="button{% if block.settings.text-color-scheme == 'white' %} button--white{% endif %} button--outline hero__block-button">
+                            <span>{{- block.settings.secondary-button-text | escape -}}</span>
+                        </span>
+                        {%- endif -%}
                     {%- endif -%}
+                </div>
                 {%- endif -%}
                 
                 {%- style -%}
@@ -254,6 +266,20 @@
                         "id": "add-link-to-button-only",
                         "label": "Link for button only",
                         "default": true
+                    },
+                    {
+                        "type": "header",
+                        "content": "Secondary button"
+                    },
+                    {
+                        "type": "text",
+                        "id": "secondary-button-text",
+                        "label": "Secondary button text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "secondary-button-url",
+                        "label": "Secondary button URL"
                     },
                     {
                         "type": "header",
