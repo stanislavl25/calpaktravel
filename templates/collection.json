@@ -17,7 +17,6 @@
         },
         "e1911702-42ea-44c2-84f5-bb10bbeea478": {
           "type": "filter",
-          "disabled": true,
           "settings": {
             "heading": ". . . Mother's Day",
             "title": "Mother's Day Sale",
@@ -58,6 +57,7 @@
         },
         "645f5714-be29-44a4-9a15-aab469ecb101": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": ". . . In stock and ready to ship",
             "title": "In stock and ready to deliver",

@@ -57,6 +57,7 @@
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -74,17 +75,16 @@
           },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/products\/starter-bundle",
-              "block-title": "",
+              "button-url": "shopify:\/\/collections\/mothers-day",
+              "block-title": "Mother's Day Sale",
               "description": "",
               "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Group_3545.png",
+              "image": "shopify:\/\/shop_images\/210818_CALPAK_Holiday_29917_Hi-2.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -433,6 +433,7 @@
           "product_list": [
 
           ],
+          "empty_cart_message": "Whoops, you haven't packed yet!",
           "continue-shopping": "",
           "wishlist-timeout": 3
         }
