@@ -1,5 +1,23 @@
 {
   "sections": {
+    "5ecb82c1-5c83-4a05-8ae0-d3efb4dcdb78": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000",
+        "bold-text-background": "#fff",
+        "title-above": "Mother's Day Promo",
+        "main-text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p>",
+        "hide": false,
+        "section-id": "",
+        "cta_link": "wrap",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Shop Now",
+        "cta_color": "#000",
+        "cta_background": "#fff"
+      }
+    },
     "1eb2590d-5a13-41e5-806c-a78d7b88176d": {
       "type": "promotion-banner",
       "settings": {
@@ -10,7 +28,12 @@
         "title-above": "",
         "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
         "hide": true,
-        "section-id": "pdp-promo-new"
+        "section-id": "pdp-promo-new",
+        "cta_link": "none",
+        "cta_url": "",
+        "cta_text": "Click here",
+        "cta_color": "#000",
+        "cta_background": "#fff"
       }
     },
     "540d183a-8e53-44d1-b0af-7bf139d703fe": {
@@ -23,7 +46,12 @@
         "title-above": "",
         "main-text": "<p>Frequent flyer? Everything you need in one Starter Bundle, now <strong>15% off<\/strong> <br\/>for a very limited time with code <em>JETSET15<\/em><\/p>",
         "hide": true,
-        "section-id": "pdp-promo-traveller"
+        "section-id": "pdp-promo-traveller",
+        "cta_link": "none",
+        "cta_url": "",
+        "cta_text": "Click here",
+        "cta_color": "#000",
+        "cta_background": "#fff"
       }
     },
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f": {
@@ -36,7 +64,12 @@
         "title-above": "Limited time!",
         "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — luggage for family travels with code  <em>TOGETHER15<\/em><\/p>",
         "hide": true,
-        "section-id": "pdp-promo-family"
+        "section-id": "pdp-promo-family",
+        "cta_link": "none",
+        "cta_url": "",
+        "cta_text": "Click here",
+        "cta_color": "#000",
+        "cta_background": "#fff"
       }
     },
     "product-template": {
@@ -401,6 +434,7 @@
     }
   },
   "order": [
+    "5ecb82c1-5c83-4a05-8ae0-d3efb4dcdb78",
     "1eb2590d-5a13-41e5-806c-a78d7b88176d",
     "540d183a-8e53-44d1-b0af-7bf139d703fe",
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f",
