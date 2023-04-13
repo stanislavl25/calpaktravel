@@ -267,6 +267,10 @@
       "address_no_results": "No results for that address",
       "address_query_limit_html": "You have exceeded the Google API usage limit. Consider upgrading to a <a href=\"https:\/\/developers.google.com\/maps\/premium\/usage-limits\">Premium Plan<\/a>.",
       "auth_error_html": "There was a problem authenticating your Google Maps account."
+    },
+    "wonderment-featured-collection": {
+      "sold_out": "Sold Out",
+      "sale": "Sale"
     }
   },
   "layout": {
@@ -369,7 +373,7 @@
   "shopify": {
     "errors": {
       "reset_password_html": "An account with this email already exists. If this email is yours, <a href=\"\/account\/login\">sign in<\/a> or <a href=\"\/account\/login#recover\">reset your password<\/a>.",
-      "verify_email": "Please contact our support team at help@calpaks.com to complete your registration."
+      "verify_email": "An account activation email has been sent containing an activation link. Please click on the link to activate your account."
     },
     "checkout": {
       "customer_account": {

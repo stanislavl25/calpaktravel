@@ -5,6 +5,7 @@
       "blocks": {
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK-HOLIDAY-38_1.jpg",
             "keep-proportions": true,
@@ -17,8 +18,8 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/D8m\/landing-page",
-            "height": "600",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/T2E\/landing-page",
+            "height": "800",
             "height-mobile": "600"
           }
         }
@@ -28,7 +29,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7"
       ],
       "settings": {
-        "background": "#881739",
+        "background": "#bba574",
         "mobile-layout": "stack-reverse"
       }
     },
@@ -39,7 +40,8 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false
           }
         }
       },

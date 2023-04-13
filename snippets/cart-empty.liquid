@@ -5,7 +5,7 @@
         <button aria-label="Go to shopping page" class="cart__empty-continue-button"><span class="round-icon round-icon--prev"></span>Continue Shopping</button>
         {% endunless %}
 
-        <div class="cart__empty-text">Whoops, you haven't packed yet.</div>
+        <div class="cart__empty-text">{{ section.settings.page_title }}</div>
         <a href="{%- if continue != blank -%}{{ continue }}{%- else -%}/collections/all{%- endif -%}" class="button"><span>Continue Shopping</span></a>
     </div>
     {% unless location == 'cart-page' %}

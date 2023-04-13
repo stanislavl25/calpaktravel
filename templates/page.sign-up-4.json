@@ -18,9 +18,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/dbb\/landing-page",
-            "height": "800",
-            "height-mobile": "600"
+            "form_type": "iframe",
+            "iframe-url": "https:\/\/manage.kmail-lists.com\/subscriptions\/subscribe?a=M38Kem&g=QR3LpA",
+            "klaviyo_id": "",
+            "height": "900",
+            "height-mobile": "900",
+            "vertical_alignment": "center"
           }
         }
       },
@@ -29,7 +32,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7"
       ],
       "settings": {
-        "background": "#676f69",
+        "background": "#bba574",
         "mobile-layout": "stack-reverse"
       }
     },
@@ -40,7 +43,8 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false
           }
         }
       },

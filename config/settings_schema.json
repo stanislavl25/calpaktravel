@@ -44,40 +44,40 @@
       {
         "type": "header",
         "content": "Save for later"
-        },
-        {
-            "type": "checkbox",
-            "id": "enable-save-for-later",
-            "label": "Enable save for later",
-            "default": true
-        },
-        {
-            "type": "text",
-            "id": "save-for-later-text",
-            "label": "Save for later text",
-            "default": "Save for later"
-        },
-        {
-            "type": "checkbox",
-            "id": "save-for-later-img",
-            "label": "Show product image in the notification",
-            "default": true
-        }
+      },
+      {
+        "type": "checkbox",
+        "id": "enable-save-for-later",
+        "label": "Enable save for later",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "save-for-later-text",
+        "label": "Save for later text",
+        "default": "Save for later"
+      },
+      {
+        "type": "checkbox",
+        "id": "save-for-later-img",
+        "label": "Show product image in the notification",
+        "default": true
+      }
     ]
   },
   {
     "name": "Wishlist",
     "settings": [
-        {
-            "type": "range",
-            "label": "Wishlist popup timeout",
-            "default": 3,
-            "id": "wishlist-popup-timeout",
-            "min": 1,
-            "max": 10,
-            "step": 1,
-            "unit": "sec"
-        }
+      {
+        "type": "range",
+        "label": "Wishlist popup timeout",
+        "default": 3,
+        "id": "wishlist-popup-timeout",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "sec"
+      }
     ]
   },
   {
@@ -112,113 +112,113 @@
   {
     "name": "Collections",
     "settings": [
-        {
-            "type": "color",
-            "id": "product-unit-info-col",
-            "label": "Additional info color",
-            "default": "#707070"
-        },
-        {
-            "type": "range",
-            "id": "product-unit-sw-count",
-            "min": 1,
-            "max": 10,
-            "step": 1,
-            "default": 4,
-            "label": "Swatches shown per product"
-        }
+      {
+        "type": "color",
+        "id": "product-unit-info-col",
+        "label": "Additional info color",
+        "default": "#707070"
+      },
+      {
+        "type": "range",
+        "id": "product-unit-sw-count",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 4,
+        "label": "Swatches shown per product"
+      }
     ]
   },
   {
     "name": "Sale",
     "settings": [
-        {
-            "type": "checkbox",
-            "id": "sale-enabled",
-            "label": "Sale Enabled",
-            "default": true
-        },
-        {
-            "type": "text",
-            "id": "sale-tag",
-            "label": "Eligible products tag"
-        },
-        {
-            "type": "header",
-            "content": "PDP messaging"
-        },
-        {
-            "type": "text",
-            "id": "sale-text-pdp",
-            "label": "Sale text for PDP",
-            "info": "Use %% to show actual discount"  
-        },
-        {
-            "type": "text",
-            "id": "sale-text-pdp-mixed",
-            "label": "Sale text for PDP with mixed prices",
-            "info": "Use %% to show max discount"  
-        },
-        {
-            "type": "header",
-            "content": "Product card messaging"
-        },
-        {
-            "type": "text",
-            "id": "sale-text",
-            "label": "Sale text for product cards",
-            "info": "Use %% to show actual discount"  
-        },
-        {
-            "type": "text",
-            "id": "sale-text-col-mixed",
-            "label": "Sale text for cards with mixed prices",
-            "info": "Use %% to show max discount"  
-        },
-        {
-            "type": "header",
-            "content": "Colors"
-        },
-        {
-            "type": "color",
-            "id": "sale_price_color",
-            "label": "Sale price color",
-            "default": "#ff0000"
-        },
-        {
-            "type": "color",
-            "id": "sale_accent",
-            "label": "Sale label color",
-            "default": "#ff0000"
-        },
-        {
-            "type": "color",
-            "id": "sale_background",
-            "label": "Sale label background color",
-            "default": "#f7f7f7"
-        },
-        {
-            "type": "header",
-            "content": "Final Sale"
-        },
-        {
-            "type": "color",
-            "id": "final-sale-highlight-col",
-            "label": "Final sale highlight",
-            "default": "#F00"
-        },
-        {
-            "type": "color",
-            "id": "final-sale-highlight-t-col",
-            "label": "Final sale highlight text",
-            "default": "#FFF"
-        },
-        {
-            "type": "color",
-            "id": "final-sale-main-text",
-            "label": "Final sale text",
-            "default": "#F00"
-        }
+      {
+        "type": "checkbox",
+        "id": "sale-enabled",
+        "label": "Sale Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-tag",
+        "label": "Eligible products tag"
+      },
+      {
+        "type": "header",
+        "content": "PDP messaging"
+      },
+      {
+        "type": "text",
+        "id": "sale-text-pdp",
+        "label": "Sale text for PDP",
+        "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "text",
+        "id": "sale-text-pdp-mixed",
+        "label": "Sale text for PDP with mixed prices",
+        "info": "Use %% to show max discount"
+      },
+      {
+        "type": "header",
+        "content": "Product card messaging"
+      },
+      {
+        "type": "text",
+        "id": "sale-text",
+        "label": "Sale text for product cards",
+        "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "text",
+        "id": "sale-text-col-mixed",
+        "label": "Sale text for cards with mixed prices",
+        "info": "Use %% to show max discount"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "sale_price_color",
+        "label": "Sale price color",
+        "default": "#ff0000"
+      },
+      {
+        "type": "color",
+        "id": "sale_accent",
+        "label": "Sale label color",
+        "default": "#ff0000"
+      },
+      {
+        "type": "color",
+        "id": "sale_background",
+        "label": "Sale label background color",
+        "default": "#f7f7f7"
+      },
+      {
+        "type": "header",
+        "content": "Final Sale"
+      },
+      {
+        "type": "color",
+        "id": "final-sale-highlight-col",
+        "label": "Final sale highlight",
+        "default": "#F00"
+      },
+      {
+        "type": "color",
+        "id": "final-sale-highlight-t-col",
+        "label": "Final sale highlight text",
+        "default": "#FFF"
+      },
+      {
+        "type": "color",
+        "id": "final-sale-main-text",
+        "label": "Final sale text",
+        "default": "#F00"
+      }
     ]
   },
   {
@@ -319,6 +319,30 @@
         "id": "sale-badge-color",
         "label": "Text",
         "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "Promo Checkout",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "chk-msg-enabled",
+        "label": "Checkout Sale Message Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-msg-code",
+        "label": "Coupon code",
+        "default": "FREEMINITEST"
+      },
+      {
+        "type": "text",
+        "id": "chk-msg-text",
+        "label": "Message text",
+        "default": "FREEMINI code eligibility: Order total must be $150+ without the free gift",
+        "info": "Do not use double Quotation Marks"
       }
     ]
   },

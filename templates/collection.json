@@ -19,7 +19,7 @@
           "type": "filter",
           "settings": {
             "heading": ". . . New",
-            "title": "New",
+            "title": "New Arrivals",
             "collection": "new-arrivals",
             "product_list": [
 
@@ -417,7 +417,7 @@
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "title-size": "medium",
-        "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
         "button-link": ""
       }
@@ -429,21 +429,14 @@
           "type": "promo",
           "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/Rectangle_3870.png",
+            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/Rectangle_3870.png",
+            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
             "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM",
             "title": "Get 45% OFF 8-Piece Travel Set",
             "text": "<p>Join us for 1 hour live shopping event March 2, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM&shareLiveShopping=ab9e95c4-3a38-47a8-aaf2-3d1443b0095e#liveshopping-OjOmNxWeJvVRIj5NF1fM\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM&shareLiveShopping=ab9e95c4-3a38-47a8-aaf2-3d1443b0095e#liveshopping-OjOmNxWeJvVRIj5NF1fM\">ADD TO CALENDAR<\/a><\/p>",
             "show-for-collections": [
-              "accessories",
-              "makeup-bags",
-              "organizers",
-              "luggage-sets",
-              "checked-in-luggage",
-              "carry-on-luggage",
-              "best-sellers",
-              "tote-bags"
+
             ],
             "background": "#e4dfd5",
             "text-color": "#000000",
@@ -453,10 +446,61 @@
             "column": 1,
             "row-mob": 2
           }
+        },
+        "64e7da40-e05d-412d-809b-024b8aa13efb": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
+            "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
+            "title": "Free Luka Key Pouch",
+            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
+            "show-for-collections": [
+              "accessories",
+              "organizers",
+              "luggage",
+              "bags",
+              "new-arrivals",
+              "best-sellers",
+              "all",
+              "in-stock-ready-to-deliver"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 2,
+            "column": 1,
+            "row-mob": 2
+          }
+        },
+        "f4dcb6c4-19d4-44e4-b928-a754a8ec2cc4": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/AO2A7747.jpg",
+            "video": "",
+            "link": "",
+            "title": "MOM'S LOVE THIS! ",
+            "text": "",
+            "show-for-collections": [
+              "mini-and-me"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 1,
+            "column": 1,
+            "row-mob": 1
+          }
         }
       },
       "block_order": [
-        "b401a37d-55aa-49b7-b987-45893897281b"
+        "b401a37d-55aa-49b7-b987-45893897281b",
+        "64e7da40-e05d-412d-809b-024b8aa13efb",
+        "f4dcb6c4-19d4-44e4-b928-a754a8ec2cc4"
       ],
       "settings": {
         "wishlist": true,

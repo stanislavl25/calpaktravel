@@ -19,6 +19,7 @@
     "flash-sale-accent": "#ff0000",
     "sale-badge-tag": "Sale-Message",
     "sale-badge-text": "Ending soon!",
+    "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
     "sale-msg-tag": "Sale-Message",
     "sale-msg-highlighted": "Special Promo",
@@ -319,9 +320,9 @@
               "exclude_collections": [
 
               ],
-              "text": "<p>Join us for a • Live Shopping event 3\/2 at 12 pm PT to get 45% off the 8-piece travel set.<\/p>",
+              "text": "<p>Join us for a • Live Shopping event 4\/6 at 12 pm PT to get a free Luka Key Pouch<\/p>",
               "font-size": 27,
-              "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
               "button": "Get Notified",
               "button-display": "both",
               "starts-on": "",
@@ -432,6 +433,7 @@
           "product_list": [
 
           ],
+          "continue-shopping": "",
           "wishlist-timeout": 3
         }
       },
@@ -653,7 +655,15 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "platform_customizations": {
     "custom_css": [
