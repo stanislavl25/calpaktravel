@@ -17,6 +17,7 @@
     "flash-sale-ends": "Mar 8 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
+    "sale-badge-enabled": false,
     "sale-badge-tag": "mothers-day",
     "sale-badge-text": "Mother's Day Promo",
     "sale-msg-code": "FREEMINI",
