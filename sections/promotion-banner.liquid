@@ -5,6 +5,25 @@
 {%- endif -%}
 
 
+{% for product in section.settings.product_list %}
+    {% if canonical_url contains product.handle %}
+        <style>
+        .promotion-banner__section[data-id="{{ section.id }}"] {
+            display:block;
+        }
+        </style>
+    {% endif %}
+{% endfor %}
+{% for collection in section.settings.collection_list %}
+    {% if canonical_url contains collection.handle %}
+        <style>
+        .promotion-banner__section[data-id="{{ section.id }}"] {
+            display:block;
+        }
+        </style>
+    {% endif %}
+{% endfor %}
+
     {% if section.settings.cta_link == 'none' %}
         <section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
             {%- if section.settings.title-above != blank -%}
@@ -23,6 +42,7 @@
                 <div class="promotion-banner__content">
                     {{- section.settings.main-text -}}
                 </div>
+                
             </section>
         </a>
     {% elsif section.settings.cta_link == 'cta' %}
@@ -91,16 +111,36 @@
                 "label": "Main text"
             },
             {
+                "type":"header",
+                "content": "Display rules",
+                "info": "Collection and product rules will override hide by default checkbox rule, this will work as expected if hiding checkbox is checked"
+            },
+            {
                 "type": "checkbox",
                 "id": "hide",
                 "label": "Hide by default",
-                "default": true
+                "default": true,
+                "info": "This will hide the banner site wide except for the display rules defined below"
+            },
+            {
+                "type": "product_list",
+                "id": "product_list",
+                "label": "Products",
+                "limit": 20,
+                "info": "Ignore this setting if you are in collection template. This setting only applies if this section is in the product template."
+            },
+            {
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Collections",
+                "limit": 20,
+                "info": "Ignore this setting if you are in product template. This setting only applies if this section is in the collection template"
             },
             {
                 "type": "text",
                 "id": "section-id",
                 "label": "Section ID",
-                "info": "Used to target this section with Google Optimize. Use a unique identifier"
+                "info": "Used to target this section with Google Optimize. Use a unique identifier, do not leave this blank."
             },
             {
                 "type": "select",
