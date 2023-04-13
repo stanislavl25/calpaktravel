@@ -57,7 +57,7 @@
                             endif
                         -%}
                         {%- if go -%}
-                            <button data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></button>
+                            <a href="{{ product.url }}/{{- val -}}" data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></a>
                         {%- endif-%}
                     {%- endfor -%}
                 </div>
@@ -80,7 +80,7 @@
                             endif
                         -%}
                         {%- if go -%}
-                            <button data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></button>
+                            <a data-value="{{- val -}}" href="{{ product.url }}/{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></a>
                         {%- endif-%}
                     {%- endfor -%}
                 </div>
@@ -88,7 +88,7 @@
                 <div class="pdp__variant-buttons-title">{{- option.name | escape -}}</div>
                 <div class="pdp__variant-list">
                     {%- for value in option.values -%}
-                        <button data-value="{{- value | handleize -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></button>
+                        <a data-value="{{- value | handleize -}}" href="{{ product.url }}/{{- value | handleize -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></a>
                     {%- endfor -%}
                 </div>
             {%- endif -%}
@@ -137,4 +137,13 @@
         </div>
     </div>
     {%- endif -%}
+    <div class="variant_data">
+        {%- assign opt1 = current_variant.option1 | handleize -%}
+        {%- unless finalSale == false -%}
+            {%- if finalSale contains opt1 or finalSale == true -%}
+                <input type="hidden" name="properties[_final-sale]" value="true">
+            {%- endif -%}
+        {%- endunless -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+    </div>
 </section>
