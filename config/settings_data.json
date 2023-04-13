@@ -57,7 +57,6 @@
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -75,6 +74,7 @@
           },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
