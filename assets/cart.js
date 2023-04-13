@@ -1,6 +1,6 @@
 "use strict";
 
-function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false) {
+function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false, track = false) {
     if(typeof final_sale == 'undefined') final_sale = false;
     if(typeof preorder == 'undefined') preorder = false;
 
@@ -42,7 +42,7 @@ function addToCart(variant_id, quantity, callback, always, final_sale = false, p
         return response.json();
     })
     .then(async response => {
-        if(isset(fbq)) fbq('track', 'AddToCart', {
+        if(track && isset(fbq)) fbq('track', 'AddToCart', {
             content_name: response.items[0].product_title, 
             content_ids: [response.items[0].id],
             content_type: 'product',
