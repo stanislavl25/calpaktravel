@@ -10,3 +10,7 @@
 .field--invalid .field__error-message.field__error-message--js {
     display: inline-block;
 }
+
+.field--invalid .field__error-message.field__error-message--js + .field__error-message {
+    display: none;
+}

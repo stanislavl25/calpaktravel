@@ -26,10 +26,10 @@
                 autofocus
             {% endif %}
             >
+            <div class="field__error-message field__error-message--js">Please enter your email</div>
             {%- if form.errors contains 'form' -%}
             <div class="field__error-message">ERROR: This email doesn't exist in our database. <a href="{{ routes.account_register_url }}">Create an account</a></div>
             {%- endif -%}
-            <div class="field__error-message field__error-message--js">Please enter your email</div>
         </div>
 
         <div class="field field--submit">
