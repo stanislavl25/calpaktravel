@@ -300,6 +300,9 @@ function createSearchItem(product, available, matchedVariant, products_target) {
         const productUnit = newItem.querySelector('.product-unit');
         if(productUnitsObserver && productUnit) productUnitsObserver.observe(productUnit);
 
+        const images = productUnit.querySelectorAll('.product-unit__image img');
+        images.forEach(image => image.setAttribute('sizes', '(min-width: 1181px) 20vw, (min-width: 901px) 25vw, 50vw'));
+
         const qv = productUnit.querySelector('.quick-view__link');
         if(qv) qv.addEventListener('click', quickViewClick);
     });
