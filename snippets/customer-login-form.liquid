@@ -42,10 +42,10 @@
                     {% if form.errors contains 'form' %}
                         aria-invalid="true"
                     {% endif %}>
+                <div class="field__error-message field__error-message--js">Please enter a secure password</div>
                 {%- if form.errors contains 'form' -%}
                 <div class="field__error-message">{{ form.errors.messages['form'] }}</div>
                 {%- endif -%}
-                <div class="field__error-message field__error-message--js">Please enter a secure password</div>
             </div>
         {%- endif -%}
     </section>
