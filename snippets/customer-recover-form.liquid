@@ -1,8 +1,14 @@
-{%- form 'recover_customer_password' -%}
-    {% assign recover_success = form.posted_successfully? %}
+{%- form 'recover_customer_password', novalidate: 'novalidate' -%}
+    {%- if form.posted_successfully? -%}
+        <div class="customer__page-cta customer__page-cta--success">
+            We have sent you an e-mail containing your password reset link and instructions. Follow the link to reset your password.
+        </div>
+    {%- endif -%}
+
+    <input type="hidden" name="return_to" value="{{ routes.account_login_url }}#recover">
 
     <section class="field__list">
-        <div class="field">
+        <div class="field field--validated field--email">
             <label for="RecoverEmail">
                 Email
             </label>  
@@ -23,6 +29,7 @@
             {%- if form.errors contains 'form' -%}
             <div class="field__error-message">ERROR: This email doesn't exist in our database. <a href="{{ routes.account_register_url }}">Create an account</a></div>
             {%- endif -%}
+            <div class="field__error-message field__error-message--js">Please enter your email</div>
         </div>
 
         <div class="field field--submit">
@@ -32,7 +39,7 @@
         </div>
 
         <div class="field field--forgot-cancel">
-            <a href="{{ routes.account_login_url }}" class="forgot-pass__cancel">Cancel</a>
+            <a href="{{ routes.account_url }}" class="forgot-pass__cancel">Cancel</a>
         </div>
     </section>
 {%- endform -%}
