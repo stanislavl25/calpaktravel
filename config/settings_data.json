@@ -20,7 +20,7 @@
     "sale-badge-tag": "mothers-day",
     "sale-badge-text": "Mother's Day Promo",
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": true,
+    "sale-msg-enabled": false,
     "sale-msg-tag": "mothers-day",
     "sale-msg-highlighted": "Mother's Day",
     "sale-msg-message": "Buy 2+ eligible products and get 15% OFF",
