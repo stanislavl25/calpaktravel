@@ -127,7 +127,7 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
     });
 }
 
-async function pdpFormSubmit(productForm, showCart = true) {
+async function pdpFormSubmit(productForm, quickView = false) {
     const container = productForm.closest('.pdp__grid, .qv__body');
 
     if(container.getAttribute('data-status') == 'sold-out') return;
@@ -140,7 +140,7 @@ async function pdpFormSubmit(productForm, showCart = true) {
 
     addToCart(variant_id, 1, (data) => {
             updateCart(data);
-            if(showCart) {
+            if(!quickView) {
                 openCart();
             } else {
                 productForm.querySelector('.pdp__submit').classList.add('pdp__submit--added');
