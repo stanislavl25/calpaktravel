@@ -7,7 +7,7 @@
     {%- endif -%}
 
     <section class="field__list">
-        <div class="field">
+        <div class="field field--validated field--email">
             <label for="CustomerEmail">
                 Email
             </label>   
@@ -23,10 +23,11 @@
                 {% if form.errors contains 'form' %}
                     aria-invalid="true"
                 {% endif %}>
+            <div class="field__error-message field__error-message--js">Please enter your email</div>
         </div>
 
         {%- if form.password_needed -%}
-            <div class="field field--password">
+            <div class="field field--validated field--password">
                 <button type="button" class="show-password" title="Shop password"><span class="show-password__cta">View</span> <span class="visually-hidden">password</span></button>
                 <label for="CustomerPassword">
                     Password
@@ -44,20 +45,8 @@
                 {%- if form.errors contains 'form' -%}
                 <div class="field__error-message">{{ form.errors.messages['form'] }}</div>
                 {%- endif -%}
+                <div class="field__error-message field__error-message--js">Please enter a secure password</div>
             </div>
-            <script>
-            const showPasses = document.querySelectorAll('.show-password');
-            showPasses.forEach(showPass => showPass.addEventListener('click', function() {
-                const inpt = this.parentNode.querySelector('input');
-                if(inpt.type === 'password') {
-                    inpt.type = 'text';
-                    this.querySelector('.show-password__cta').innerHTML = 'Hide';
-                } else {
-                    inpt.type = 'password';
-                    this.querySelector('.show-password__cta').innerHTML = 'View';
-                }
-            }));
-            </script>
         {%- endif -%}
     </section>
 

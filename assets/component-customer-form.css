@@ -7,6 +7,6 @@
     display: none;
 }
 
-.field__error-message.field__error-message--js.field__error-message--active {
+.field--invalid .field__error-message.field__error-message--js {
     display: inline-block;
 }
