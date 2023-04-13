@@ -70,6 +70,17 @@ window.addEventListener("load", () => {
         emptyProductCount.innerHTML = document.querySelectorAll('.product-grid .product-unit').length;
     }
     
+    const filtersCont = document.querySelector('.collection-filters__section');
+    if(filtersCont) {
+        window.addEventListener('click', () => {
+            const filters = document.querySelector('.collection-filters');
+            filters.setAttribute('aria-expanded', false);
+            filters.classList.remove('collection-filters--active');
+        });
+
+        filtersCont.addEventListener('click', e => e.stopPropagation());
+    }
+    
     productImagesSizes = filteredContainer.querySelector('.shopify-section--product-grid .product-unit .product-unit__image img');
     if(productImagesSizes) productImagesSizes = productImagesSizes.getAttribute('sizes');
 });
