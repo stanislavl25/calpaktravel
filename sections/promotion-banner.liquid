@@ -33,11 +33,11 @@
             <div class="promotion-banner__content">
                 {{- section.settings.main-text -}}
             </div>
-            <a class="promotion-cta__url" 
+            <a class="button button--secondary" 
             style="
                 background: {{ section.settings.cta_background }};
                 color: {{ section.settings.cta_color }};"
-            href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }}</a>
+            href="{{ section.settings.cta_url }}"><span>{{ section.settings.cta_text }}</span></a>
         </section>
     {% endif %}
 
