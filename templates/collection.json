@@ -442,7 +442,7 @@
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "title-size": "medium",
-        "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
         "button-link": ""
       }
@@ -453,7 +453,7 @@
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
           "disabled": true,
-          "settings": {
+           "settings": {
             "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": "",
             "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
@@ -499,6 +499,55 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
+          }
+        },
+        "64e7da40-e05d-412d-809b-024b8aa13efb": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
+            "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
+            "title": "Free Luka Key Pouch",
+            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
+            "show-for-collections": [
+              "accessories",
+              "organizers",
+              "luggage",
+              "bags",
+              "new-arrivals",
+              "best-sellers",
+              "all",
+              "in-stock-ready-to-deliver"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 2,
+            "column": 1,
+            "row-mob": 2
+          }
+        },
+        "f4dcb6c4-19d4-44e4-b928-a754a8ec2cc4": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/AO2A7747.jpg",
+            "video": "",
+            "link": "",
+            "title": "MOM'S LOVE THIS! ",
+            "text": "",
+            "show-for-collections": [
+              "mini-and-me"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 1,
+            "column": 1,
+            "row-mob": 1
           }
         }
       },

@@ -311,11 +311,11 @@
             "collection-list": [
               "all"
             ],
-            "show-for-all": true,
-            "image": "shopify:\/\/shop_images\/Capture.png",
-            "title": "Mother's Day Promo",
-            "text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p><p><\/p>",
-            "button-text": "Shop Now",
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/IMG_9016-2_1.jpg",
+            "title": "Watch Live Demo",
+            "text": "<p>Learn how to get a FREE Luka Key Pouch on your next order<\/p><p><\/p>",
+            "button-text": "Tune In Now",
             "button-url": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
             "live-show-id": "TEvfQuz8ZIwQb2Gnv1TU"
           }
