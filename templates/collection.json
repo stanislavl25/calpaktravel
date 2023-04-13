@@ -15,6 +15,21 @@
             "selected": false
           }
         },
+        "e1911702-42ea-44c2-84f5-bb10bbeea478": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "heading": ". . . Mother's Day",
+            "title": "Mother's Day Sale",
+            "collection": "mothers-day",
+            "product_list": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/210818_CALPAK_Holiday_29917_Hi.jpg",
+            "description": "",
+            "filter-in-parent": false
+          }
+        },
         "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
           "type": "filter",
           "settings": {
@@ -374,6 +389,7 @@
       },
       "block_order": [
         "597a3a7d-e342-4ec9-8cca-f98e586237d1",
+        "e1911702-42ea-44c2-84f5-bb10bbeea478",
         "c8f3773f-80e6-466d-9317-43d1bb1e948e",
         "70b2154d-2620-4583-ab2f-871333b645be",
         "645f5714-be29-44a4-9a15-aab469ecb101",
@@ -488,7 +504,7 @@
               "mini-and-me"
             ],
             "background": "#e4dfd5",
-            "text-color": "#000",
+            "text-color": "#000000",
             "starts-on": "",
             "ends-on": "",
             "row": 1,
