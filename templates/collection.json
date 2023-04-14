@@ -24,8 +24,8 @@
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "Terms and conditions apply",
-        "terms_url": ""
+        "terms_text": "Terms & Conditions",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
     "collection-filter": {
