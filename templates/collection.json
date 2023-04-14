@@ -18,11 +18,14 @@
           "luggage"
         ],
         "section-id": "",
-        "cta_link": "none",
-        "cta_url": "",
+        "scroll_to": false,
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/bags",
         "cta_text": "Click here",
         "cta_color": "#000000",
-        "cta_background": "#ffffff"
+        "cta_background": "#ffffff",
+        "terms_text": "Terms & Conditions",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
     "collection-filter": {
