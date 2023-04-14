@@ -5,23 +5,24 @@
       "settings": {
         "preload": true,
         "background": "#f7f177",
-        "text-color": "#000",
-        "bold-text-background": "#fff",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
         "title-above": "Testing promo banner",
         "main-text": "<p>lorem ipsum dolor sit amet<\/p>",
-        "hide": true,
+        "hide": false,
         "product_list": [
 
         ],
         "collection_list": [
-          "sale"
+          "sale",
+          "luggage"
         ],
         "section-id": "",
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
-        "cta_color": "#000",
-        "cta_background": "#fff"
+        "cta_color": "#000000",
+        "cta_background": "#ffffff"
       }
     },
     "collection-filter": {
