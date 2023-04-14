@@ -18,7 +18,6 @@
           "luggage"
         ],
         "section-id": "",
-        "scroll_to": false,
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Click here",
@@ -48,7 +47,7 @@
           "settings": {
             "heading": ". . . New",
             "title": "New Arrivals",
-            "collection": "new-arrivals",
+            "collection": "mothers-day",
             "product_list": [
 
             ],
