@@ -9,7 +9,7 @@
         "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
         "main-text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p>",
-        "hide": false,
+        "hide": true,
         "product_list": [
           "kaya-laptop-backpack"
         ],

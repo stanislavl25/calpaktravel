@@ -1,5 +1,29 @@
 {
   "sections": {
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000",
+        "bold-text-background": "#fff",
+        "title-above": "Testing promo banner",
+        "main-text": "<p>lorem ipsum dolor sit amet<\/p>",
+        "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+          "sale"
+        ],
+        "section-id": "",
+        "cta_link": "none",
+        "cta_url": "",
+        "cta_text": "Click here",
+        "cta_color": "#000",
+        "cta_background": "#fff"
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -488,6 +512,7 @@
     }
   },
   "order": [
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"
