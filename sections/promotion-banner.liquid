@@ -32,6 +32,9 @@
             <div class="promotion-banner__content">
                 {{- section.settings.main-text -}}
             </div>
+            {% if section.settings.terms_text %}
+            <a title="click to go to to terms and conditions" aria-label="click to go to terms and conditions" href="{{ section.settings.terms_url }}" target="_blank" class="promotion-banner__terms">{{ section.settings.terms_text }}</a>
+            {% endif %}
         </section>
     {% elsif section.settings.cta_link == 'wrap' %}
         <a class="promotion-banner__link" href="{{ section.settings.cta_url }}">
@@ -42,6 +45,9 @@
                 <div class="promotion-banner__content">
                     {{- section.settings.main-text -}}
                 </div>
+            {% if section.settings.terms_text %}
+            <a title="click to go to to terms and conditions" aria-label="click to go to terms and conditions" href="{{ section.settings.terms_url }}" target="_blank" class="promotion-banner__terms">{{ section.settings.terms_text }}</a>
+            {% endif %}
                 
             </section>
         </a>
@@ -53,23 +59,40 @@
             <div class="promotion-banner__content">
                 {{- section.settings.main-text -}}
             </div>
+            {% if section.settings.terms_text %}
+            <a title="click to go to to terms and conditions" aria-label="click to go to terms and conditions" href="{{ section.settings.terms_url }}" target="_blank" class="promotion-banner__terms">{{ section.settings.terms_text }}</a>
+            {% endif %}
             <a class="button button--secondary" 
             style="
                 background: {{ section.settings.cta_background }};
                 color: {{ section.settings.cta_color }};"
-            href="{{ section.settings.cta_url }}"><span>{{ section.settings.cta_text }}</span></a>
+            {% if section.settings.scroll_to %}title="click to go to content" aria-label="click to go to content" href="#" onclick="scrollToProductGrid();return false;" {% else %} title="click to go to promotion" aria-label="click to go to promotion" href="{{ section.settings.cta_url }}" target="_blank" {% endif %}><span>{{ section.settings.cta_text }}</span></a>
         </section>
     {% endif %}
 
 
 <style>
+    html {
+    scroll-behavior: smooth;
+    }
     .promotion-banner__section[data-id="{{ section.id }}"] {
         --background: {{ section.settings.background }};
         --color: {{ section.settings.text-color }};
         --bold-bg: {{ section.settings.bold-text-background }};
     }
 </style>
-
+<script>
+function scrollToProductGrid(){
+    const element = document.querySelector('.shopify-section--product-grid');
+    const headerOffset = 150;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset; 
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    });
+}
+</script>
 {% schema %}
     {
         "name": "Promotional Banner",
@@ -141,6 +164,17 @@
                 "info": "Used to target this section with Google Optimize. Use a unique identifier, do not leave this blank."
             },
             {
+                "type":"header",
+                "content": "Link and CTA settings"
+            },
+            {
+                "type": "checkbox",
+                "id": "scroll_to",
+                "label": "Scroll to collection grid (collection template)",
+                "default": false,
+                "info": "This will override the CTA link set below and will make the CTA behave as a scroll to content button."
+            },
+            {
                 "type": "select",
                 "id": "cta_link",
                 "label": "Banner link type",
@@ -182,6 +216,22 @@
                 "id": "cta_background",
                 "label": "CTA background",
                 "default": "#fff"
+            },
+            {
+                "type":"header",
+                "content": "Terms and conditions"
+            },
+            {
+                "type": "text",
+                "id": "terms_text",
+                "label": "Terms text",
+                "default": "Terms and conditions apply"
+            },
+            {
+                "type": "url",
+                "id": "terms_url",
+                "label": "Terms url",
+                "info": "Will open in a new tab by default"
             }
         ],
         "presets": [
