@@ -18,7 +18,7 @@
           "luggage"
         ],
         "section-id": "",
-        "scroll_to": false,
+        "scroll_to": true,
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/bags",
         "cta_text": "Click here",
@@ -502,26 +502,6 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
-          }
-        },
-        "f4dcb6c4-19d4-44e4-b928-a754a8ec2cc4": {
-          "type": "promo",
-          "settings": {
-            "banner": "shopify:\/\/shop_images\/AO2A7747.jpg",
-            "video": "",
-            "link": "",
-            "title": "MOM'S LOVE THIS! ",
-            "text": "",
-            "show-for-collections": [
-              "mini-and-me"
-            ],
-            "background": "#e4dfd5",
-            "text-color": "#000",
-            "starts-on": "",
-            "ends-on": "",
-            "row": 1,
-            "column": 1,
-            "row-mob": 1
           }
         }
       },
