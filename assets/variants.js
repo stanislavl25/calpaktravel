@@ -29,7 +29,9 @@ function updateProductURLs(productContainer, options, multiple = false) {
 }
 
 function variantUpdateProcess(target) {
+    const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
     const productContainer = target.closest('.product-unit, .shopify-product-form');
+    
     if(!productContainer) return;
 
     const select = productContainer.querySelector('.variant-select');
@@ -58,6 +60,30 @@ function variantUpdateProcess(target) {
     if(!option) return;
     select.value = option.value;
 
+    if(includesTextWrapperForLuggageCovers.length > 1) {
+        console.log("Its clear lugge cover product")
+        if(option.getAttribute('data-option2') === "set-of-2") {
+            console.log('set-of-2')
+                includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.remove('display-none')
+            })
+        } else if(option.getAttribute('data-option2') === "set-of-3") {
+            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
+                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.remove('display-none')
+            })
+            console.log('set-of-3')
+        } else {
+            console.log('others')
+            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
+                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+            })
+        }
+    }
+
+    
     updateProductURLs(productContainer, options, multiple);
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
