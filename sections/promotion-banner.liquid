@@ -66,7 +66,7 @@
             style="
                 background: {{ section.settings.cta_background }};
                 color: {{ section.settings.cta_color }};"
-            {% if section.settings.scroll_to %}title="click to go to content" aria-label="click to go to content" href="#" onclick="scrollToProductGrid();return false;" {% else %} title="click to go to promotion" aria-label="click to go to promotion" href="{{ section.settings.cta_url }}" target="_blank" {% endif %}><span>{{ section.settings.cta_text }}</span></a>
+            href="#" onclick="scrollToProductGrid();return false;" title="click to go to promotion" aria-label="click to go to promotion" target="_blank"><span>{{ section.settings.cta_text }}</span></a>
         </section>
     {% endif %}
 
@@ -83,14 +83,21 @@
 </style>
 <script>
 function scrollToProductGrid(){
+    const ctaUrl = '{{ section.settings.cta_url }}';
+    const currentUrl = window.location.href;
     const element = document.querySelector('.shopify-section--product-grid');
     const headerOffset = 150;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset; 
+
+if(currentUrl.indexOf(ctaUrl) > -1){
     window.scrollTo({
          top: offsetPosition,
          behavior: "smooth"
     });
+} else {
+    window.location.href = "{{ section.settings.cta_url }}";
+}
 }
 </script>
 {% schema %}
@@ -166,13 +173,6 @@ function scrollToProductGrid(){
             {
                 "type":"header",
                 "content": "Link and CTA settings"
-            },
-            {
-                "type": "checkbox",
-                "id": "scroll_to",
-                "label": "Scroll to collection grid (collection template)",
-                "default": false,
-                "info": "This will override the CTA link set below and will make the CTA behave as a scroll to content button."
             },
             {
                 "type": "select",
