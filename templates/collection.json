@@ -18,9 +18,9 @@
           "luggage"
         ],
         "section-id": "",
-        "scroll_to": true,
+        "scroll_to": false,
         "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/bags",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
