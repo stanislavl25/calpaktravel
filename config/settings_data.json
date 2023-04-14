@@ -19,7 +19,7 @@
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
     "badge_display": "both",
-    "sale-badge-tag": "mothers-day:black",
+    "sale-badge-tag": "sale-badge",
     "sale-badge-text": "Mother's Day Promo",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
