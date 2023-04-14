@@ -1,5 +1,31 @@
 {
   "sections": {
+    "c56357f9-beac-4d61-ab33-35852d29924b": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000",
+        "bold-text-background": "#fff",
+        "title-above": "Promotional banner",
+        "main-text": "<p>Sample description<\/p>",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "none",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Click here",
+        "cta_color": "#000",
+        "cta_background": "#fff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -525,6 +551,7 @@
     }
   },
   "order": [
+    "c56357f9-beac-4d61-ab33-35852d29924b",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"
