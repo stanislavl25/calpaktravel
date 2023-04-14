@@ -69,6 +69,9 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
     const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
     const productTypes = ['Mini Carry-On', 'Front Pocket Carry-On', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
     let foundTypes = [];
+    console.log(`console.log variant type element`)
+    console.log(variantTypeEl)
+    console.log(product)
     fetch(`/collections/${pdpFeaturedCollection}/products.json`)
     .then(response => response.json())
     .then(data => {
@@ -88,7 +91,14 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
 
                     if(prod.handle === product.handle) {
                       // getting the variantion selectedAssigned
-                      correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ])?.price || prod.variants[0].price;
+                      if(quickView) {
+                        console.log('AAAAAAAAAAAAA')
+                        correctVariantPrice = prod.variants.find((variant) => {
+                            variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase()
+                        })?.price || prod.variants[0].price;
+                      } else {
+                          correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ])?.price || prod.variants[0].price;
+                      }
                     } else {
                       correctVariantPrice = prod.variants[0].price
                     }
@@ -173,7 +183,6 @@ function updateOptionsAvailability(options, select, container) {
             }
         }
     }
-    document.querySelector('.product-option.product-option--selected').click();
 }
 
 async function triggerWaitlist(waitlistCont) {
@@ -600,3 +609,9 @@ function pdpHandleDescriptions(pdpInfo, option) {
     const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
+window.addEventListener("load", function(){
+    const variantLuggageButton = document.querySelector('.product-option.product-option--selected');
+    if (variantLuggageButton != -1){
+    variantLuggageButton.click();
+    } 
+});

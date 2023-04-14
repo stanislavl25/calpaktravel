@@ -122,14 +122,15 @@
 .field__error-message {
     padding: 8px var(--gap) 8px 45px;
     border-radius: 9px;
-    position: relative;
-    border: 1px dashed #e00000;
-    background: #fff;
+    border: 1px solid #000;
+    background: #F7F177;
     display: inline-block;
     position: absolute;
     top: 100%;
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
     left: 0;
     z-index: 4;
 }
@@ -149,14 +150,14 @@
     line-height: 24px;
 }
 
-.field__error-message::after {
+.field__error-message:after {
     width: 10px;
     height: 10px;
     position: absolute;
-    content: '';
-    background: #fff;
-    border-style: dashed;
-    border-color: #e00000;
+    content: "";
+    background: #F7F177;
+    border-style: solid;
+    border-color: #000;
     border-width: 1px 1px 0 0;
     transform: translateY(-50%) rotate(-45deg);
     left: 14px;

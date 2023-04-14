@@ -4,14 +4,43 @@
     {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-<section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
-    {%- if section.settings.title-above != blank -%}
-        <h2 class="promotion-banner__title">{{- section.settings.title-above | escape -}}</h2>
-    {%- endif -%}
-    <div class="promotion-banner__content">
-        {{- section.settings.main-text -}}
-    </div>
-</section>
+
+    {% if section.settings.cta_link == 'none' %}
+        <section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
+            {%- if section.settings.title-above != blank -%}
+                <h2 class="promotion-banner__title">{{- section.settings.title-above | escape -}}</h2>
+            {%- endif -%}
+            <div class="promotion-banner__content">
+                {{- section.settings.main-text -}}
+            </div>
+        </section>
+    {% elsif section.settings.cta_link == 'wrap' %}
+        <a class="promotion-banner__link" href="{{ section.settings.cta_url }}">
+            <section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
+            {%- if section.settings.title-above != blank -%}
+                    <h2 class="promotion-banner__title">{{- section.settings.title-above | escape -}}</h2>
+                {%- endif -%}
+                <div class="promotion-banner__content">
+                    {{- section.settings.main-text -}}
+                </div>
+            </section>
+        </a>
+    {% elsif section.settings.cta_link == 'cta' %}
+        <section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
+            {%- if section.settings.title-above != blank -%}
+                <h2 class="promotion-banner__title">{{- section.settings.title-above | escape -}}</h2>
+            {%- endif -%}
+            <div class="promotion-banner__content">
+                {{- section.settings.main-text -}}
+            </div>
+            <a class="button button--secondary" 
+            style="
+                background: {{ section.settings.cta_background }};
+                color: {{ section.settings.cta_color }};"
+            href="{{ section.settings.cta_url }}"><span>{{ section.settings.cta_text }}</span></a>
+        </section>
+    {% endif %}
+
 
 <style>
     .promotion-banner__section[data-id="{{ section.id }}"] {
@@ -72,6 +101,49 @@
                 "id": "section-id",
                 "label": "Section ID",
                 "info": "Used to target this section with Google Optimize. Use a unique identifier"
+            },
+            {
+                "type": "select",
+                "id": "cta_link",
+                "label": "Banner link type",
+                "options": [
+                    {
+                        "value": "wrap",
+                        "label": "Whole banner"
+                    },
+                    {
+                        "value": "cta",
+                        "label": "Use CTA"
+                    },
+                    {
+                        "value": "none",
+                        "label": "None"
+                    }
+                ],
+                "default": "none"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "Link url"
+            },
+            {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA label",
+            "default": "Click here"
+            },
+            {
+                "type": "color",
+                "id": "cta_color",
+                "label": "CTA text color",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "cta_background",
+                "label": "CTA background",
+                "default": "#fff"
             }
         ],
         "presets": [
