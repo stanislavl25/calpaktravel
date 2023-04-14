@@ -100,7 +100,9 @@ async function getQuickView(link, variant = false) {
 
     if(promises.length > 0) await Promise.all(promises);
 
-    await getQuickViewProduct(link, variant).then((json) => setQuickViewContent(json, variant, qvParent));
+    await getQuickViewProduct(link, variant).then((json) => {
+        setQuickViewContent(json, json.product, qvParent)
+    });
 
     qvParent.classList.add('quick-view__container--active');
     qvParent.classList.remove('loading-animation', 'quick-view__container--nudge');
