@@ -61,7 +61,6 @@ function variantUpdateProcess(target) {
     select.value = option.value;
 
     if(includesTextWrapperForLuggageCovers.length > 1) {
-        console.log("Its clear lugge cover product")
         if(option.getAttribute('data-option2') === "set-of-2") {
             console.log('set-of-2')
                 includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
