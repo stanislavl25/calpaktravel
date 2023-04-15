@@ -203,10 +203,33 @@
         </div>
     {%- endif -%}
 
-    
+    {%-liquid 
+        
+        assign best = false
+        paginate collections[settings.best-sellers].products by 250
+            for prod in collections[settings.best-sellers].products
+                if forloop.last
+                    assign size_of_array = forloop.index
+                endif
+                if product.id == prod.id
+                    assign best = true
+                endif
+                
+            endfor
+        endpaginate
 
-    
+        comment
+        assign best_seller_found_len = settings.best-sellers.products | where: "id", product.id | size
+        if best_seller_found_len > 0
+            assign best = true
+        else
+            assign best = false
+        endif
+        endcomment
+    -%}
 
+    <script>console.log('size of collection array ')</script>
+    <script>console.log({{ size_of_array }})</script>
         
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
@@ -236,16 +259,7 @@
             </div>
         {%- endif -%}
     {%- endunless -%}
-
-    {% comment %}
-        CHECK THE PRODUCT-GRID.LIQUID  FOR THIS VARIABLE 
-        IT WAS DEFINED THERE BC WE NEEDED TO COUNT THE TIMES OF NUMBER AND RENDER SHOPIFY TAG DONT ALLOW
-
-        PRODUCT-GRID.LIQUID RENDERS PRODUCT-UNIT.LIQUID
-        PRODUCT-UNIT.LIQUID RENDERS PRODUCT=FLOATING-LABELS.LIQUID
-
-    {% endcomment%}
-    {%- if best_seller == true -%}
+    {%- if best == true -%}
         <div class="product-label">Bestseller</div>
     {%- endif -%}
     
