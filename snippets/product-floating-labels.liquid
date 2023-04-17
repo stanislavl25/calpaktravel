@@ -218,19 +218,8 @@
             endfor
         endpaginate
 
-        comment
-        assign best_seller_found_len = settings.best-sellers.products | where: "id", product.id | size
-        if best_seller_found_len > 0
-            assign best = true
-        else
-            assign best = false
-        endif
-        endcomment
     -%}
 
-    <script>console.log('size of collection array ')</script>
-    <script>console.log({{ size_of_array }})</script>
-        
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
             assign new = false
