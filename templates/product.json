@@ -35,7 +35,7 @@
         "bold-text-background": "#ffffff",
         "title-above": "",
         "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
-        "hide": true,
+        "hide": false,
         "product_list": [
 
         ],
@@ -43,7 +43,7 @@
 
         ],
         "section-id": "pdp-promo-new",
-        "cta_link": "none",
+        "cta_link": "cta",
         "cta_url": "shopify:\/\/collections",
         "cta_text": "Click here",
         "cta_color": "#000000",
