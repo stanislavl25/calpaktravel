@@ -1,5 +1,31 @@
 {
   "sections": {
+    "b11701cc-945d-43fe-8b29-77d888aec849": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000",
+        "bold-text-background": "#fff",
+        "title-above": "Mother's Day Promo",
+        "main-text": "<p>Buy 2 items (or more), get 15% off using code MOM15<\/p>",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Shop Now",
+        "cta_color": "#000",
+        "cta_background": "#fff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -525,6 +551,7 @@
     }
   },
   "order": [
+    "b11701cc-945d-43fe-8b29-77d888aec849",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"
