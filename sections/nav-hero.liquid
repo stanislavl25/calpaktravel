@@ -15,7 +15,16 @@
 
             if section.settings.image_mobile != blank
                 render 'image' with section.settings.image_mobile, preload: true, class: 'hide-large'
-                render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, class: 'hide-small'
+                if section.settings.show-video-on-mobile
+                    if section.settings.video-mob != blank
+                        render 'video' with section.settings.video-mob, poster: section.settings.image_mobile, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, class: 'hide-large'
+                        render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, class: 'hide-small'
+                    else
+                        render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls
+                    endif
+                else
+                    render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, class: 'hide-small'
+                endif
             else
                 render 'video' with section.settings.video, height: height, poster: section.settings.image, video_ratio: ratio, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls
             endif
@@ -95,6 +104,18 @@
                 "type": "image_picker",
                 "id": "image_mobile",
                 "label": "Image (Mobile)"
+            },
+            {
+                "type": "checkbox",
+                "id": "show-video-on-mobile",
+                "label": "Show video on mobile",
+                "default": true
+            },
+            {
+                "type": "video_url",
+                "id": "video-mob",
+                "label": "Different video for mobile",
+                "accept": ["vimeo"]
             }
         ],
         "blocks": [

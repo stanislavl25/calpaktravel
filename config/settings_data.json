@@ -18,8 +18,8 @@
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
-    "badge_display": "product",
-    "sale-badge-tag": "Final Sale",
+    "badge_display": "both",
+    "sale-badge-tag": "sale-badge",
     "sale-badge-text": "Mother's Day Promo",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
@@ -435,6 +435,7 @@
           "product_list": [
 
           ],
+          "empty_cart_message": "Whoops, you haven't packed yet!",
           "continue-shopping": "",
           "wishlist-timeout": 3
         }

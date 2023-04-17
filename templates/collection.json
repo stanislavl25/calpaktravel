@@ -1,5 +1,32 @@
 {
   "sections": {
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "Testing promo banner",
+        "main-text": "<p>lorem ipsum dolor sit amet<\/p>",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+          "sale",
+          "luggage"
+        ],
+        "section-id": "",
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Click here",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms & Conditions",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -20,7 +47,7 @@
           "settings": {
             "heading": ". . . New",
             "title": "New Arrivals",
-            "collection": "new-arrivals",
+            "collection": "mothers-day",
             "product_list": [
 
             ],
@@ -417,7 +444,7 @@
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "title-size": "medium",
-        "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
         "button-link": ""
       }
@@ -488,6 +515,7 @@
     }
   },
   "order": [
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"

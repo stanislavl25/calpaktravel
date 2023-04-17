@@ -23,7 +23,7 @@
         {%- else -%}
 
         <section class="field__list">
-            <div class="field field--required">
+            <div class="field field--validated field--required">
                 <label for="FirstName">First name</label>
                 <input
                     type="text"
@@ -38,7 +38,7 @@
                 <div class="field__error-message field__error-message--js">Please enter your first name</div>
             </div>
 
-            <div class="field field--required">
+            <div class="field field--validated field--required">
                 <label for="LastName">Last name</label>
                 <input
                     type="text"
@@ -53,7 +53,7 @@
                 <div class="field__error-message field__error-message--js">Please enter your last name</div>
             </div>
 
-            <div class="field field--required">
+            <div class="field field--validated field--email field--required">
                 <label for="CustomerEmail">
                     Email
                 </label>
@@ -89,7 +89,7 @@
         </span>
         {%- endif -%} {% endcomment %}
 
-            <div class="field field--required">
+            <div class="field field--validated field--password field--required">
                 <label for="CustomerPassword">
                     Password
                 </label>       
@@ -127,5 +127,7 @@
             <a href="/policies/privacy-policy" target="_blank">privacy policy</a> and
             <a href="/policies/terms-of-service" target="_blank">terms &amp; conditions</a>.
         </div>
+        	
+        <input type="hidden" name="return_to" value="/account">
     {% endif %}
 {% endform %}

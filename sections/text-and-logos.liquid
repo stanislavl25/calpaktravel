@@ -19,7 +19,7 @@
     <div class="text-and-logos__inner-logos">
         {%- for block in section.blocks -%}
         <div class="logo-block">
-            {%- render 'image' with block.settings.image, height: 30, lazy: true, sizes: '20vw' -%}
+            {%- render 'image' with block.settings.image, no_wrapper: true, lazy: true, sizes: '(min-width: 901px) 230px, (min-width: 651px) 220px, 150px' -%}
         </div>
         {%- endfor -%}
     </div>

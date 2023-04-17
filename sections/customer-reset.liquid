@@ -1,6 +1,7 @@
 {{ 'section-customer.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-form.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-customer-form.css' | asset_url | stylesheet_tag: preload: true }}
+<script src="{{ 'form-validation.js' | asset_url }}" defer="defer"></script>
 
 <div class="customer__page customer__page--form">
     <h1 class="customer__page-title">Reset my password</h1>
@@ -37,20 +38,6 @@
                     {% endif %}>
             </div>
         </section>
-
-        <script>
-            const showPasses = document.querySelectorAll('.show-password');
-            showPasses.forEach(showPass => showPass.addEventListener('click', function() {
-                const inpt = this.parentNode.querySelector('input');
-                if(inpt.type === 'password') {
-                    inpt.type = 'text';
-                    this.querySelector('.show-password__cta').innerHTML = 'Hide';
-                } else {
-                    inpt.type = 'password';
-                    this.querySelector('.show-password__cta').innerHTML = 'View';
-                }
-            }));
-        </script>
 
         {%- if form.errors -%}
             {{ form.errors | default_errors }}

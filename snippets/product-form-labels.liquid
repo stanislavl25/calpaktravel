@@ -59,18 +59,20 @@
     {%- liquid
         assign opt1 = current_variant.option1 | handleize
         
-        assign finalSale = false
-        for tag in product.tags
-            assign tagSpl = tag | split: ':'
-            assign handle = tagSpl[0] | handleize
-            if 'final-sale' == handle
-                if tagSpl.size == 1
-                    assign finalSale = true
-                else
-                    assign finalSale = tagSpl[1] | downcase | split: ';'
+        if location != 'pdp'
+            assign finalSale = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                assign handle = tagSpl[0] | handleize
+                if 'final-sale' == handle
+                    if tagSpl.size == 1
+                        assign finalSale = true
+                    else
+                        assign finalSale = tagSpl[1] | downcase | split: ';'
+                    endif
                 endif
-            endif
-        endfor
+            endfor
+        endif
     -%}
     {%- if finalSale != false -%}
     <div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
