@@ -62,23 +62,30 @@ function variantUpdateProcess(target) {
 
     if(includesTextWrapperForLuggageCovers.length > 1) {
         if(option.getAttribute('data-option2') === "set-of-2") {
-            console.log('set-of-2')
                 includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                 includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
                 includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.remove('display-none')
+                includesTextWrapperForLuggageCover.classList.remove('unseen')
+                includesTextWrapperForLuggageCover.classList.add('seen')
             })
+            
         } else if(option.getAttribute('data-option2') === "set-of-3") {
             includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                 includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
                 includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.remove('display-none')
+                includesTextWrapperForLuggageCover.classList.remove('unseen')
+                includesTextWrapperForLuggageCover.classList.add('seen')
             })
-            console.log('set-of-3')
+            
         } else {
             console.log('others')
             includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                 includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
                 includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+                includesTextWrapperForLuggageCover.classList.remove('seen')
+                includesTextWrapperForLuggageCover.classList.add('unseen')
             })
+            
         }
     }
 
