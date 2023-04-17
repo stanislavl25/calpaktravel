@@ -762,6 +762,14 @@
             "hide": false
           }
         },
+        "98aa9247-c9ef-41e3-9a24-786fd18c7dab": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I need to register for the warranty?",
+            "answer": "<p><strong>For purchases made on calpaktravel.com:<\/strong><\/p><p>If you purchased from calpaktravel.com, you do not need to register for warranty, as your order number within our system will serve as your registration.<\/p><p><strong>For any purchases not made on calpaktravel.com:<\/strong><\/p><p>We encourage you to take advantage of our warranty registration process which will help make future warranty claims easier to process. Though not mandatory, we do require proof of purchase (we all know it's difficult to hold on to receipts for so long) to process a warranty claim so make life easier for future you! For help registering, reach out to help@calpaks.com  <\/p>",
+            "hide": false
+          }
+        },
         "27e4ea8c-0040-4be2-b912-d8a34330c7cf": {
           "type": "faq",
           "disabled": true,
@@ -795,24 +803,16 @@
             "answer": "<p>Start the process of your warranty claim <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" title=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\"><span style=\"text-decoration:underline\">here<\/span><\/a>.<\/p>",
             "hide": false
           }
-        },
-        "98aa9247-c9ef-41e3-9a24-786fd18c7dab": {
-          "type": "faq",
-          "settings": {
-            "title": "Do I need to register for the warranty?",
-            "answer": "<p>We made it easy for you, so no warranty registration is required. Please include your receipt or proof of purchase for any warranty claims.<\/p>",
-            "hide": false
-          }
         }
       },
       "block_order": [
         "534ffa99-7529-4d0e-adde-96a4df51c747",
         "4f9bd0b9-b741-4813-a98e-42a44ff5e40d",
+        "98aa9247-c9ef-41e3-9a24-786fd18c7dab",
         "27e4ea8c-0040-4be2-b912-d8a34330c7cf",
         "a81a80dc-f897-41b9-8b68-c01b66b7282e",
         "ca3f7175-61fe-41a9-a258-185715d97b60",
-        "07ad2be4-2dae-4521-a5c8-6099c65ce3c9",
-        "98aa9247-c9ef-41e3-9a24-786fd18c7dab"
+        "07ad2be4-2dae-4521-a5c8-6099c65ce3c9"
       ],
       "settings": {
         "title": "Warranty",
