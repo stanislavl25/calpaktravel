@@ -10,7 +10,7 @@
     "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
     "sale-text-col-mixed": "Up to %% off",
-    "flash-sale-enabled": false,
+    "flash-sale-enabled": true,
     "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
     "flash-sale-starts": "Apr 14 2023, 6am",
