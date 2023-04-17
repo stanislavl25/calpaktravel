@@ -20,12 +20,21 @@
 
         if block.settings.collection-list != blank and show == false
             for col in block.settings.collection-list
-                for pr in collections[col].products
-                    if pr.id == product.id
-                        assign show = true
-                        break
-                    endif
-                endfor
+                if col.handle
+                    for pr in collections[col.handle].products
+                        if pr.id == product.id
+                            assign show = true
+                            break
+                        endif
+                    endfor
+                else
+                    for pr in collections[col].products
+                        if pr.id == product.id
+                            assign show = true
+                            break
+                        endif
+                    endfor
+                endif
             endfor
         endif
     endif
