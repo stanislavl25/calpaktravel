@@ -62,11 +62,11 @@
             {% if section.settings.terms_text %}
             <a title="click to go to to terms and conditions" aria-label="click to go to terms and conditions" href="{{ section.settings.terms_url }}" target="_blank" class="promotion-banner__terms">{{ section.settings.terms_text }}</a>
             {% endif %}
-            <a class="button button--secondary" 
+            <a class="button button--secondary promotion-banner__cta" 
             style="
                 background: {{ section.settings.cta_background }};
                 color: {{ section.settings.cta_color }};"
-            href="#" onclick="scrollToProductGrid();return false;" title="click to go to promotion" aria-label="click to go to promotion" target="_blank"><span>{{ section.settings.cta_text }}</span></a>
+            href="{{ section.settings.cta_url }}" title="click to go to promotion" aria-label="click to go to promotion"><span>{{ section.settings.cta_text }}</span></a>
         </section>
     {% endif %}
 
@@ -82,23 +82,32 @@
     }
 </style>
 <script>
-function scrollToProductGrid(){
-    const ctaUrl = '{{ section.settings.cta_url }}';
-    const currentUrl = window.location.href;
-    const element = document.querySelector('.shopify-section--product-grid');
-    const headerOffset = 150;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset; 
-
-if(currentUrl.indexOf(ctaUrl) > -1){
-    window.scrollTo({
-         top: offsetPosition,
-         behavior: "smooth"
+{% if section.settings.cta_link == 'cta' %}
+const currentUrl = window.location.href;
+const ctaBtn = document.querySelectorAll('.promotion-banner__cta');
+[].map.call(ctaBtn, function(el) {
+    el.addEventListener('click', function(e){
+        e.preventDefault();
+        let ctaUrl = el.getAttribute('href');
+        if(currentUrl.indexOf('collection') > -1){
+        const element = document.querySelector('.shopify-section--product-grid');
+        const headerOffset = 150;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset; 
+        if(currentUrl.indexOf(ctaUrl) > -1){
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        } else {
+            window.location.href = ctaUrl;
+        }
+    } else {
+        window.location.href = ctaUrl;
+    }
     });
-} else {
-    window.location.href = "{{ section.settings.cta_url }}";
-}
-}
+});
+{% endif %}
 </script>
 {% schema %}
     {
