@@ -7,6 +7,18 @@
     text-decoration: italic;
     font-style: italic;
 }
+.inlcudes-on-set {
+    margin-top: -52px;
+}
+
+.inlcudes-on-set.seen {
+    margin-bottom: 20px;
+}
+
+.inlcudes-on-set.unseen {
+    margin-bottom: 40px;
+}
+
 .shopify-section--single-product {
     padding: 0 var(--gap);
     margin-top: var(--gap);
@@ -292,10 +304,6 @@
     gap: 5px;
     align-items: center;
     text-decoration: inherit;
-}
-
-.pdp__submit-container {
-    margin-top: -18px;
 }
 
 .pdp__submit {
