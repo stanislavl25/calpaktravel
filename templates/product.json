@@ -9,7 +9,7 @@
         "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
         "main-text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p>",
-        "hide": true,
+        "hide": false,
         "product_list": [
           "kaya-laptop-backpack"
         ],
@@ -17,11 +17,13 @@
 
         ],
         "section-id": "",
-        "cta_link": "wrap",
+        "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
-        "cta_background": "#ffffff"
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "1eb2590d-5a13-41e5-806c-a78d7b88176d": {
@@ -45,7 +47,9 @@
         "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
-        "cta_background": "#ffffff"
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "540d183a-8e53-44d1-b0af-7bf139d703fe": {
@@ -69,7 +73,9 @@
         "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
-        "cta_background": "#ffffff"
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f": {
@@ -93,7 +99,9 @@
         "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
-        "cta_background": "#ffffff"
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "product-template": {
