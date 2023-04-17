@@ -203,10 +203,37 @@
         </div>
     {%- endif -%}
 
+    {%-liquid 
+        
+        assign best = false
+        paginate collections[settings.best-sellers].products by 250
+            for prod in collections[settings.best-sellers].products
+                if forloop.last
+                    assign size_of_array = forloop.index
+                endif
+                if product.id == prod.id
+                    assign best = true
+                endif
+                
+            endfor
+        endpaginate
+
+        comment
+        assign best_seller_found_len = settings.best-sellers.products | where: "id", product.id | size
+        if best_seller_found_len > 0
+            assign best = true
+        else
+            assign best = false
+        endif
+        endcomment
+    -%}
+
+    <script>console.log('size of collection array ')</script>
+    <script>console.log({{ size_of_array }})</script>
+        
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
             assign new = false
-            assign best = false
             for col in product.collections
                 if settings.new-arrivals == col and new == false
                     assign new = true
@@ -224,24 +251,16 @@
                     endif
                 endfor
             endif
-
-            for prod in settings.best-sellers.products limit: 20
-                if product.id == prod.id
-                    assign best = true
-                    break
-                endif
-            endfor
         -%}
-        
         {%- if new != false -%}
-        <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
-            {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
-            {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
-        </div>
+            <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
+                {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
+                {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
+            </div>
         {%- endif -%}
     {%- endunless -%}
-    
     {%- if best == true -%}
         <div class="product-label">Bestseller</div>
     {%- endif -%}
+    
 </div>

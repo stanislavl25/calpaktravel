@@ -55,15 +55,18 @@
                                     assign go = true
                                 endif
                             endif
+                            assign variant_object_by_option = product.variants | where: optionN, value | first
                         -%}
+                        
                         {%- if go -%}
-                            <a href="{{ product.url }}/{{- val -}}" data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></a>
+                            <button data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}"><span>{{- value | escape -}}</span></button>
                         {%- endif-%}
                     {%- endfor -%}
                 </div>
 
                 <div class="pdp__variant-buttons-title">{{- group2[1] | escape -}}</div>
                 <div class="pdp__variant-list">
+                    
                     {%- for value in option.values -%}
                         {%- liquid
                             assign val = value | handleize
@@ -78,9 +81,11 @@
                                     assign go = true
                                 endif
                             endif
+                            assign variant_object_by_option = product.variants | where: optionN, value | first
                         -%}
+
                         {%- if go -%}
-                            <a data-value="{{- val -}}" href="{{ product.url }}/{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></a>
+                            <button data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}"><span>{{- value | escape -}}</span></button>
                         {%- endif-%}
                     {%- endfor -%}
                 </div>
@@ -88,7 +93,7 @@
                 <div class="pdp__variant-buttons-title">{{- option.name | escape -}}</div>
                 <div class="pdp__variant-list">
                     {%- for value in option.values -%}
-                        <a data-value="{{- value | handleize -}}" href="{{ product.url }}/{{- value | handleize -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></a>
+                        <button data-value="{{- value | handleize -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% if variant_object_by_option.available %} product-option--na{% endif %}"><span>{{- value | escape -}}</span></button>
                     {%- endfor -%}
                 </div>
             {%- endif -%}

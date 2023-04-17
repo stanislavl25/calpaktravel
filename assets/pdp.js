@@ -1,6 +1,7 @@
 "use strict";
 
 let product = false;
+let quickView = false;
 let productMeta = false;
 let klaviyoLoaded = false;
 
@@ -65,10 +66,13 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
     });
 }
 
-function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
+function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeSelectProductQuickView = false) {
+    console.log(product)
     const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
     const productTypes = ['Mini Carry-On', 'Front Pocket Carry-On', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
     let foundTypes = [];
+    quickView = createTypeSelectProductQuickView;
+    product = createTypeSelectProduct;
     fetch(`/collections/${pdpFeaturedCollection}/products.json`)
     .then(response => response.json())
     .then(data => {
@@ -85,12 +89,19 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
                 let prod = data.products[i];
                 if(prod.title.indexOf(productTypes[j]) > -1 && added.indexOf(prod.handle) === -1) {
                     let correctVariantPrice;  
-
+                    
                     if(prod.handle === product.handle) {
-                      // getting the variantion selectedAssigned
-                      correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ])?.price || prod.variants[0].price;
+                        // getting the variantion selectedAssigned
+                        if(quickView) {
+                            correctVariantPrice = prod.variants.find((variant) => variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())?.price || prod.variants[0].price;
+                            console.log(document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())
+                        } else {
+                            correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))?.price || prod.variants[0].price;
+                            console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))
+                        }
+                        console.log(correctVariantPrice)
                     } else {
-                      correctVariantPrice = prod.variants[0].price
+                        correctVariantPrice = prod.variants[0].price
                     }
                     foundTypes.push([
                         productTypes[j],
@@ -290,7 +301,7 @@ window.addEventListener("load", () => {
 
     if(pdpGrid) {
         let variantTypeEl = document.querySelector('.pdp__variant-type');
-        if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
+        if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
 
         const screenWidth  = window.matchMedia( '(min-width: 800px)' );
         const pdpSubmitSection = document.querySelector( screenWidth.matches ? '.pdp__variants' : '.pdp__submit-container');
@@ -379,7 +390,7 @@ function setupGalleryMediaLimit(newMedia) {
 
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
     let variantTypeEl = document.querySelector('.pdp__variant-type');
-    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
+    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
     const pdpThumbs = pdpGrid.querySelector('.pdp__gallery-thumbs, .qv__gallery-thumbs');
     const pdpGalleryInfo = pdpGrid.querySelector('.pdp__video-info');
@@ -600,9 +611,3 @@ function pdpHandleDescriptions(pdpInfo, option) {
     const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
-window.addEventListener("load", function(){
-    const variantLuggageButton = document.querySelector('.product-option.product-option--selected');
-    if (variantLuggageButton != -1){
-    variantLuggageButton.click();
-    } 
-});
