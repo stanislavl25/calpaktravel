@@ -9,52 +9,32 @@
 
             if cart.requires_shipping
                 if free_shipping == 0
-                    assign gamification_progress = 100
+                    assign free_shipping_progress = 100
                 else
-                    assign gamification_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
-                    if gamification_progress > 100
-                        assign gamification_progress = 100
+                    assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+                    if free_shipping_progress > 100
+                        assign free_shipping_progress = 100
                     endif
                 endif
             else
-                assign gamification_progress = 100
+                assign free_shipping_progress = 100
             endif
             
             assign totalPrice = cart.total_price
-            if gamification_progress < 100
+            if free_shipping_progress < 100
                 assign totalPrice = totalPrice | plus: 795
             endif
 
         -%}
 
-        {%- liquid
-            assign progress_limit = section.settings.max_value | times: 100
-            assign total_price = cart.total_price
-            assign gamification_progress = total_price | times: 100 | divided_by: progress_limit
-            
-        -%}
-
-        <div class="cart__header" data-status="{%- if gamification_progress == 100 -%}
+        <div class="cart__header" data-status="{%- if free_shipping_progress == 100 -%}
                     success
                 {%- else -%}
                     progress
                 {%- endif -%}">
             {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
-            {%- comment -%}
-            {% render 'cart-free-shipping', gamification_progress: gamification_progress, free_shipping: free_shipping %}
-            {%- endcomment -%}
-            <div class="cart__gamification">
-                <div class="cart__gamification-msg">
-                    <div class="cart__gam-verbose"></div>
-                    <div class="cart__gam-progress">You're only <span class="shipping-value">{{ free_shipping | minus: cart.total_price | money_without_trailing_zeros }}</span> away from free shipping!</div>
-                    <div class="cart__gam-success">Congrats, you get free shipping!</div>
-                </div>
-                <div class="cart__gamification-progress">
-                    <div class="cart__gamification-indicator" style="--gamification-progress: {{ gamification_progress }}%;"></div>
-                </div>
-                <div class="cart__gamification-goals"></div>
-            </div>
+            {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
 
             {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
 
@@ -156,23 +136,6 @@
 
 <script>
     window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
-    window.settings["cartGamification"] = {
-        subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
-        wrapper: '.cart__gamification-goals',
-        limit: {{ section.settings.max_value }},
-        goals: [
-            {%- for block in section.blocks -%}
-                {% if block.type == 'gamification-goal' %}
-                {
-                    title: '{{ block.settings.title }}',
-                    value: {{ block.settings.value }},
-                    icon: `{{ block.settings.icon }}`,
-                    product: '{{ block.settings.gift.selected_or_first_available_variant.id }}'
-                }{%- unless forloop.last == true -%},{%- endunless -%}
-                {% endif %}
-            {%- endfor -%}
-        ]
-    };
 </script>
 
 {% schema %}
@@ -211,15 +174,6 @@
                 "unit": "sec",
                 "label": "Add to wishlist message timeout",
                 "default": 5
-            },
-            {
-                "type": "header",
-                "content": "Gamification"
-            },
-            {
-                "type": "number",
-                "id": "max_value",
-                "label": "Gamification max value"
             }
         ],
         "blocks": [
@@ -261,41 +215,6 @@
                         "type": "image_picker",
                         "id": "image",
                         "label": "Image"
-                    }
-                ]
-            },
-            {
-                "type": "gamification-goal",
-                "name": "Gamification goal",
-                "settings": [
-                    {
-                        "type": "text",
-                        "id": "title",
-                        "label": "Copy"
-                    },
-                    {
-                        "type": "number",
-                        "id": "value",
-                        "label": "Reach at..."
-                    },
-                    {
-                        "type": "textarea",
-                        "id": "icon",
-                        "label": "SVG icon"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Add items to cart"
-                    },
-                    {
-                        "type": "product",
-                        "id": "gift",
-                        "label": "Gift"
-                    },
-                    {
-                        "type": "text",
-                        "id": "default_variant",
-                        "label": "Default variant ID"
                     }
                 ]
             }

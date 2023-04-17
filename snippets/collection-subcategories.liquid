@@ -36,7 +36,7 @@
             assign showSub = true
         endif
     -%}
-    <section class="filter__collections{% if section.settings.text-only %} filter__collections--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %}{% if selectedInside > 0 %} filter__collections--focus{% endif %} slider slider--scrollbar">
+    <section class="filter__collections{% if section.settings.text-only %} filter__collections--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %} slider slider--scrollbar">
         {%- assign num = 0 -%}
         {%- assign numInside = 0 -%}
         {%- for block in section.blocks -%}
@@ -48,7 +48,7 @@
                 {%- assign numInside = numInside | plus: 1 -%}
             {%- endif -%}
         <a href="{% if block.settings.collection != blank %}{{ block.settings.collection.url }}{% else %}{{ collection.url }}{% endif %}" data-group="{{ num }}"
-            class="filter__collection{% if section.settings.text-only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected filter__collection--selected-init{% endif %}"
+            class="filter__collection{% if section.settings.text-only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected{% endif %}"
             {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
                 {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
             {%- endfor -%}"

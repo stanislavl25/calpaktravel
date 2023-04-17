@@ -8,7 +8,7 @@
         assign imgHeight = '133.33'
     endif
 -%}
-<div class="cart__item{% if gwpItem %} cart__item--gwp{% endif %} {%- if item.properties['gift'] == 'true' -%}cart__item--gift{%- endif -%}"
+<div class="cart__item{% if gwpItem %} cart__item--gwp{% endif %}"
     data-id="{{ item.product.id }}"
     data-handle="{{ item.product.handle }}"
     data-variant="{{ item.variant.id }}"
@@ -33,12 +33,6 @@
         </a>
     </div>
     <div class="cart__item-info">
-
-        {%- if item.properties['gift'] == 'true' -%}
-        <span class="cart__item-gift-badge">Free gift</span>
-        {%- endif -%}
-
-
         {%- unless gwpItem -%}
         <a href="{{ item.url_to_remove }}" class="cart__item-remove" title="Remove"><img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17"></a>
         {%- endunless -%}
@@ -82,60 +76,6 @@
                 <div class="cart__item-option cart__item-option--2">{{- item.variant.option2 | downcase | escape -}}</div>
                 {%- endif -%}
             {%- endif -%}
-
-            {%- if item.properties['gift'] == 'true' -%}
-
-                <div
-                    data-suffix="{{ item.product.template_suffix }}"
-                    data-handle="{{ item.product.handle }}"
-                    data-id="{{ item.product.id }}"
-                    data-variant="{{ item.variant_id }}"
-                    class="slide product-unit{% if item.product.selected_or_first_available_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
-                    >    
-                    {%- for option in item.product.options_with_values -%}   
-                        {%- assign optionLow = option.name | downcase -%}
-
-                        {%- if optionLow == 'color' -%}
-                            <div data-position="{{ option.position }}"
-                                class="product-unit__colors product-unit__colors--all"
-                                data-count="0">
-                                <div class="product-unit__colors-text">in <i>x</i> colors</div>
-                                <div class="product-unit__swatches-container">
-                                    <div class="product-unit__swatches swatches-container"></div>
-                                </div>
-                            </div>
-                        {%- endif -%}
-                    {%- endfor -%}
-                    <a href="{{ item.product.url }}" class="product-unit__image product-link">
-                        {%- liquid
-                            if img_lazy == blank and img_lazy != false
-                                assign img_lazy = true
-                            else
-                                assign img_lazy = false
-                            endif
-            
-                            if img_preload == blank
-                                assign img_preload = false
-                            endif
-                            
-                            if item.product.selected_or_first_available_variant.featured_image != blank
-                                assign img = item.product.selected_or_first_available_variant.featured_image
-                            else
-                                assign img = item.product.featured_image
-                            endif
-            
-                            render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: sizes
-                        -%}
-                    </a>
-                </div>
-
-                {%- comment -%}
-                {%- render 'product-unit' with product, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
-                {%- render 'product-unit' with product, in_collection: section.settings.collection, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
-                {%- endcomment -%}
-
-            {%- endif -%}
-
         
             {%- if item.properties['_final-sale'] == 'true' or item.properties['_final-sale'] == true -%}
                 <div class="product-label product-label--final"><strong>This item is Final Sale</strong></div>
