@@ -142,4 +142,13 @@
         </div>
     </div>
     {%- endif -%}
+    <div class="variant_data">
+        {%- assign opt1 = current_variant.option1 | handleize -%}
+        {%- unless finalSale == false -%}
+            {%- if finalSale contains opt1 or finalSale == true -%}
+                <input type="hidden" name="properties[_final-sale]" value="true">
+            {%- endif -%}
+        {%- endunless -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+    </div>
 </section>
