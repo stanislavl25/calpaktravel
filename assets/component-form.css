@@ -122,8 +122,8 @@
 .field__error-message {
     padding: 8px var(--gap) 8px 45px;
     border-radius: 9px;
-    border: 1px solid #000;
-    background: #F7F177;
+    border: 1px dashed #e00000;
+    background: #fff;
     display: inline-block;
     position: absolute;
     top: 100%;
@@ -155,9 +155,9 @@
     height: 10px;
     position: absolute;
     content: "";
-    background: #F7F177;
+    background: #fff;
     border-style: solid;
-    border-color: #000;
+    border-color: #e00000;
     border-width: 1px 1px 0 0;
     transform: translateY(-50%) rotate(-45deg);
     left: 14px;
