@@ -312,6 +312,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     available: available,
                     selected: selected,
                     title: variant.option1,
+                    first_variant_id: variant.id,
                     urlOpt1: urlOpt1,
                     url: url
                 };
@@ -489,6 +490,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.classList.add('color-' + color);
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
+        el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
 
         if(colors[color].available === false) el.classList.add('product-option--na');
 
@@ -551,7 +553,7 @@ function activateProductUnit(target) {
     if(window.debug) console.log('Init product', handle);
     
     return new Promise((resolve, reject) => {
-        fetch('/products/' + handle + '?view=async')
+        fetch('/products/' + handle + '?view=json')
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
@@ -707,15 +709,6 @@ window.addEventListener("load", () => {
         });
     }, {threshold: 0, rootMargin: '0px'});
 
-    const scrollingButtons = document.querySelectorAll(".button[data-scroll-to]");
-    scrollingButtons.forEach(scrollingButton => scrollingButton.addEventListener('click', e => {
-        const target = Number(scrollingButton.getAttribute('data-scroll-to'));
-        if(isNaN(target)) return false;
-        
-        const sections = document.querySelectorAll('#MainContent .shopify-section');
-        if(typeof sections[target - 1] == 'undefined') return false;
-        sections[target - 1].scrollIntoView({behavior: 'smooth'});
-    }));
     
     const productUnits = document.querySelectorAll(".product-unit");
     productUnits.forEach( productUnit => productUnitsObserver.observe(productUnit) );

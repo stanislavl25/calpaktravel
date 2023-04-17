@@ -127,7 +127,7 @@ function pdpCreateTypeSelect(variantTypeEl, product, quickView = false) {
     });
 }
 
-async function pdpFormSubmit(productForm, quickView = false) {
+async function pdpFormSubmit(productForm, showCart = true) {
     const container = productForm.closest('.pdp__grid, .qv__body');
 
     if(container.getAttribute('data-status') == 'sold-out') return;
@@ -140,7 +140,7 @@ async function pdpFormSubmit(productForm, quickView = false) {
 
     addToCart(variant_id, 1, (data) => {
             updateCart(data);
-            if(!quickView) {
+            if(showCart) {
                 openCart();
             } else {
                 productForm.querySelector('.pdp__submit').classList.add('pdp__submit--added');
@@ -292,8 +292,7 @@ window.addEventListener("load", () => {
         let variantTypeEl = document.querySelector('.pdp__variant-type');
         if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product);
 
-        const screenWidth  = window.matchMedia( '(min-width: 800px)' );
-        const pdpSubmitSection = document.querySelector( screenWidth.matches ? '.pdp__variants' : '.pdp__submit-container');
+        const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
         if(floatingPDPSubmit && pdpSubmitSection) {
             let observer = new IntersectionObserver(function(entries){

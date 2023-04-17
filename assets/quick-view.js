@@ -37,7 +37,7 @@ function setQuickViewContent(data, variant, qvParent) {
     const productForm = qvParent.querySelector('.shopify-product-form');
     if(productForm) productForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        pdpFormSubmit(productForm, true);
+        pdpFormSubmit(productForm, false);
     });
 
     const videos = qvParent.querySelectorAll(".video-iframe-container");
