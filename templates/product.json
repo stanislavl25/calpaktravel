@@ -59,6 +59,32 @@
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
+    "6e3f70cb-ca5f-4b2b-b0b0-7ac1d205cd4d": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000",
+        "bold-text-background": "#fff",
+        "title-above": "Mother's Day Promo",
+        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
+        "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Click here",
+        "cta_color": "#000",
+        "cta_background": "#fff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
     "1eb2590d-5a13-41e5-806c-a78d7b88176d": {
       "type": "promotion-banner",
       "settings": {
@@ -521,6 +547,7 @@
   },
   "order": [
     "df6c7666-c581-4b2c-96cd-c8f742c7a5d2",
+    "6e3f70cb-ca5f-4b2b-b0b0-7ac1d205cd4d",
     "1eb2590d-5a13-41e5-806c-a78d7b88176d",
     "540d183a-8e53-44d1-b0af-7bf139d703fe",
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f",
