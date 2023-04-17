@@ -2,21 +2,61 @@
   "sections": {
     "df6c7666-c581-4b2c-96cd-c8f742c7a5d2": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
-        "text-color": "#000",
-        "bold-text-background": "#fff",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
-        "main-text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p>",
-        "hide": false,
+        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
+        "hide": true,
+        "product_list": [
+          "luka-duffel",
+          "insulated-lunch-bag",
+          "stevyn-duffel",
+          "kaya-laptop-backpack",
+          "haven-laptop-tote-bag",
+          "terra-26l-backpack-duffel",
+          "luka-belt-bag",
+          "luka-expandable-laptop-tote",
+          "luka-mini-belt-bag",
+          "luka-mini-backpack",
+          "luka-laptop-backpack",
+          "luka-key-pouch",
+          "luka-mini-carry-on-luggage",
+          "compakt-duffel-bag",
+          "compakt-tote-bag",
+          "water-bottle-holder",
+          "hue-duffel",
+          "compression-packing-cubes",
+          "packing-cubes-5-piece-set",
+          "compakt-large-garment-bag",
+          "compakt-small-garment-bag",
+          "car-organizer",
+          "power-luggage-tag",
+          "jewelry-case",
+          "large-clear-cosmetic-case",
+          "medium-clear-cosmetics-case",
+          "mini-clear-cosmetics-case",
+          "tech-organizer",
+          "hue-carry-on-luggage",
+          "hue-carry-on-luggage-with-pocket",
+          "hue-mini-carry-on-luggage",
+          "ambeur-carry-on-luggage",
+          "ambeur-mini-carry-on-luggage",
+          "trnk-mini-carry-on-luggage"
+        ],
+        "collection_list": [
+
+        ],
         "section-id": "",
         "cta_link": "wrap",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Shop Now",
-        "cta_color": "#000",
-        "cta_background": "#fff"
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
     "1eb2590d-5a13-41e5-806c-a78d7b88176d": {
@@ -29,12 +69,20 @@
         "title-above": "",
         "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
         "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
         "section-id": "pdp-promo-new",
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
-        "cta_color": "#000",
-        "cta_background": "#fff"
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "540d183a-8e53-44d1-b0af-7bf139d703fe": {
@@ -47,12 +95,20 @@
         "title-above": "",
         "main-text": "<p>Frequent flyer? Everything you need in one Starter Bundle, now <strong>15% off<\/strong> <br\/>for a very limited time with code <em>JETSET15<\/em><\/p>",
         "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
         "section-id": "pdp-promo-traveller",
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
-        "cta_color": "#000",
-        "cta_background": "#fff"
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f": {
@@ -65,12 +121,20 @@
         "title-above": "Limited time!",
         "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — luggage for family travels with code  <em>TOGETHER15<\/em><\/p>",
         "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
         "section-id": "pdp-promo-family",
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
-        "cta_color": "#000",
-        "cta_background": "#fff"
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": ""
       }
     },
     "product-template": {
