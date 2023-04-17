@@ -1,3 +1,12 @@
+.display-none {
+    display: none!important;
+}
+.variation-type-set {
+    margin: 0;
+    color: var(--gray);
+    text-decoration: italic;
+    font-style: italic;
+}
 .shopify-section--single-product {
     padding: 0 var(--gap);
     margin-top: var(--gap);
