@@ -131,15 +131,12 @@ function gamificationInit() {
     document.addEventListener('click', event => {
         if (event.target.matches('.cart__item--gift .color-swatch')) {
 
-
             const selectedVariantId = event.target.dataset.firstVariantId;
             const currentVariant = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.variant;
             const currentId = event.target.parentNode.parentNode.parentNode.parentNode.dataset.id;
-  
 
             let clean_items = {};
             clean_items[currentVariant] = 0;
-            
 
             updateCartItems(clean_items, () => {
                 //updateCart(data);
@@ -147,7 +144,7 @@ function gamificationInit() {
                     id: selectedVariantId,
                     quantity: 1,
                     properties: {
-                        'gift': 'true'
+                        '_gift': 'true'
                     }
                 }];
 
@@ -178,7 +175,7 @@ function setGamificationProducts( gifts ) {
             
             // Clean gifts from cart if exists
             let clean_items = {};
-            const gifts_in_cart = cartItems.filter( item => item.properties?.gift == 'true');
+            const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
 
             gifts_in_cart.forEach( gift => {
                 clean_items[gift.id] = 0;
@@ -193,12 +190,12 @@ function setGamificationProducts( gifts ) {
         } else {
 
             gifts.forEach(gift => {
-                if(!cartItems.find(item => item.properties?.gift == 'true')){
+                if(!cartItems.find(item => item.properties?._gift == 'true')){
                     items.push({
                         id: gift,
                         quantity: 1,
                         properties: {
-                            'gift': 'true'
+                            '_gift': 'true'
                         }
                     });
                 }
@@ -215,6 +212,8 @@ function setGamificationProducts( gifts ) {
 }
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
+
+    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
     const { goals, wrapper, limit } = settings["cartGamification"];
     const cartHeader = document.querySelector('.cart__header');
