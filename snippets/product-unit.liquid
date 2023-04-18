@@ -83,7 +83,7 @@
         {%- endif -%}
 
         {%- if floatingLabels != false and labels != false -%}
-            {% render 'product-floating-labels', product: product, current_variant: current_variant, location: location %}
+            {% render 'product-floating-labels', product: product, current_variant: current_variant, location: location, best_seller: best_seller %}
         {%- endif -%}
 
         {% comment %}     

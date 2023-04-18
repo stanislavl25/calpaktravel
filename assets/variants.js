@@ -29,7 +29,9 @@ function updateProductURLs(productContainer, options, multiple = false) {
 }
 
 function variantUpdateProcess(target) {
+    const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
     const productContainer = target.closest('.product-unit, .shopify-product-form');
+    
     if(!productContainer) return;
 
     const select = productContainer.querySelector('.variant-select');
@@ -58,6 +60,36 @@ function variantUpdateProcess(target) {
     if(!option) return;
     select.value = option.value;
 
+    if(includesTextWrapperForLuggageCovers.length > 1) {
+        if(option.getAttribute('data-option2') === "set-of-2") {
+                includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.remove('display-none')
+                includesTextWrapperForLuggageCover.classList.remove('unseen')
+                includesTextWrapperForLuggageCover.classList.add('seen')
+            })
+            
+        } else if(option.getAttribute('data-option2') === "set-of-3") {
+            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
+                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.remove('display-none')
+                includesTextWrapperForLuggageCover.classList.remove('unseen')
+                includesTextWrapperForLuggageCover.classList.add('seen')
+            })
+            
+        } else {
+            console.log('others')
+            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
+                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+                includesTextWrapperForLuggageCover.classList.remove('seen')
+                includesTextWrapperForLuggageCover.classList.add('unseen')
+            })
+            
+        }
+    }
+
+    
     updateProductURLs(productContainer, options, multiple);
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');

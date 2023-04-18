@@ -841,3 +841,12 @@ function getProductOptionsList(productContainer, location = 'pdp') {
 
     return [options, multipleSizes];
 }
+
+/* adding id to footer links */
+window.addEventListener("load", () => {
+    const footerLinks = document.querySelectorAll('.footer__widget .list-menu__item');
+    [].map.call(footerLinks, (footerLink) => {
+        let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
+        footerLink.setAttribute('id', 'menu-footer-' + idString);
+    });
+});

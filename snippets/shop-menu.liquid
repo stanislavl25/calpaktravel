@@ -7,7 +7,7 @@
             <ul class="menu">
                 {% for link in linklists[section.settings.shop-menu].links %}
                 <li data-id="{{ forloop.index }}" class="menu-item{% if forloop.first %} menu-item--active{% endif %}">
-                    <a href="{{ link.url }}">{{ link.title | escape }}</a>
+                    <a class="{% if link.links.size == 0 %}has-no-submenu{% else %}has-menu{% endif %}" href="{{ link.url }}">{{ link.title | escape }}</a>
                     {% if link.links.size > 0 %}
                     <ul class="submenu">
                         {% for sublink in link.links %}

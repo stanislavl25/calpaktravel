@@ -122,7 +122,6 @@
 .field__error-message {
     padding: 8px var(--gap) 8px 45px;
     border-radius: 9px;
-    position: relative;
     border: 1px dashed #e00000;
     background: #fff;
     display: inline-block;

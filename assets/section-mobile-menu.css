@@ -163,7 +163,7 @@
     line-height: 42px;
 }
 
-.slide-menu-item > a:only-child {
+.slide-menu-item:not(.slide-menu-item--single) > a:only-child {
     line-height: 30px;
     font-size: 16px;
     height: auto;
