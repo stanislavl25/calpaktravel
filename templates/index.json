@@ -24,7 +24,7 @@
           "type": "text-block",
           "settings": {
             "title": "Mother's Day Promo: Buy 2 items (or more), Get 15% off",
-            "description": "<p>Use promo code <strong>MOM15<\/strong><\/p><p>Limited time only, <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\"><em>Terms and Conditions <\/em>apply.<\/a><\/p>",
+            "description": "<p>Use promo code <strong>MOM15<\/strong><\/p><p>Limited time only, <em>Terms and Conditions <\/em>apply.<\/p>",
             "main-link": "shopify:\/\/collections\/mothers-day",
             "button-text": "Shop Now",
             "add-link-to-button-only": false,
@@ -56,7 +56,7 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/AO2A7747_59bef4c9-f926-4460-b8dd-dc5baa9509f5.jpg",
+            "image": "shopify:\/\/shop_images\/AO2A7747-3.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
