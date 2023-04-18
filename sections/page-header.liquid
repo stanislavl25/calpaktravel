@@ -25,16 +25,7 @@
     </div>
     {%- endif -%}
 </div>
-<script>
-window.addEventListener('load', function() {
-    let textToBold = document.querySelector('.page__description .metafield-multi_line_text_field');
-    let matchText = '{{ section.settings.bold_text }}';
-    if (textToBold.textContent.includes(matchText)){
-        textToBold = textToBold.innerHTML.replace("MOM15", '<b>{{ section.settings.bold_text }}</b>');
-        document.querySelector('.page__description .metafield-multi_line_text_field').innerHTML = textToBold;
-    } 
-});
-</script>
+
 {% schema %}
     {
         "name": "Page Header",
@@ -80,12 +71,6 @@ window.addEventListener('load', function() {
                 "type": "url",
                 "id": "button-link",
                 "label": "Button link"
-            },
-            {
-                "type": "text",
-                "id": "bold_text",
-                "label": "Text to be bolded",
-                "default": "MOM15"
             }
         ],
         "presets": [
