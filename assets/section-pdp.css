@@ -10,7 +10,11 @@
 .inlcudes-on-set {
     margin-top: -52px;
 }
-
+@media screen and (max-width:900px){
+.inlcudes-on-set {
+    margin-top: -20px;
+}
+}
 .inlcudes-on-set.seen {
     margin-bottom: 20px;
 }
