@@ -64,8 +64,8 @@
       "settings": {
         "preload": true,
         "background": "#f7f177",
-        "text-color": "#000",
-        "bold-text-background": "#fff",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
         "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
         "hide": true,
@@ -128,8 +128,8 @@
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Shop Now",
-        "cta_color": "#000",
-        "cta_background": "#fff",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
@@ -420,10 +420,42 @@
         },
         "609ee977-939e-4747-af83-eacb42d0ad15": {
           "type": "image-banner",
-          "disabled": true,
           "settings": {
             "product-list": [
-
+              "luka-duffel",
+              "insulated-lunch-bag",
+              "stevyn-duffel",
+              "kaya-laptop-backpack",
+              "haven-laptop-tote-bag",
+              "terra-26l-backpack-duffel",
+              "luka-belt-bag",
+              "luka-key-pouch",
+              "luka-laptop-backpack",
+              "luka-mini-backpack",
+              "luka-mini-belt-bag",
+              "luka-expandable-laptop-tote",
+              "compakt-duffel-bag",
+              "compakt-tote-bag",
+              "car-organizer",
+              "water-bottle-holder",
+              "hue-duffel",
+              "packing-cubes-5-piece-set",
+              "large-clear-cosmetic-case",
+              "medium-clear-cosmetics-case",
+              "mini-clear-cosmetics-case",
+              "tech-organizer",
+              "compression-packing-cubes",
+              "compakt-large-garment-bag",
+              "compakt-small-garment-bag",
+              "power-luggage-tag",
+              "jewelry-case",
+              "hue-carry-on-luggage-with-pocket",
+              "ambeur-carry-on-luggage",
+              "hue-carry-on-luggage",
+              "ambeur-mini-carry-on-luggage",
+              "hue-mini-carry-on-luggage",
+              "luka-mini-carry-on-luggage",
+              "trnk-mini-carry-on-luggage"
             ],
             "collection-list": [
               "mothers-day"
@@ -431,7 +463,7 @@
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Capture.png",
             "title": "Mother's Day Promo",
-            "text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p>",
+            "text": "<p>Buy 2+ eligible products and get 15% OFF<\/p><p><\/p>",
             "button-text": "Shop Now",
             "button-url": "shopify:\/\/collections\/mothers-day",
             "live-show-id": ""
