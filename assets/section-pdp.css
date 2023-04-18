@@ -7,19 +7,19 @@
     text-decoration: italic;
     font-style: italic;
 }
-.inlcudes-on-set {
+.pdp__form-labels .inlcudes-on-set {
     margin-top: -52px;
 }
 @media screen and (max-width:900px){
-.inlcudes-on-set {
+.pdp__form-labels .inlcudes-on-set {
     margin-top: -20px;
 }
 }
-.inlcudes-on-set.seen {
+.pdp__form-labels .inlcudes-on-set.seen {
     margin-bottom: 20px;
 }
 
-.inlcudes-on-set.unseen {
+.pdp__form-labels .inlcudes-on-set.unseen {
     margin-bottom: 40px;
 }
 
