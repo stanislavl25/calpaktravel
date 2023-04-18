@@ -724,6 +724,10 @@
 }
 
 @media (max-width: 900px) {
+    .cart__gamification-goal:last-child {
+        margin-left: -27px;
+    }
+
     .cart__body-top {
         padding: 0;
     }
