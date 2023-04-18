@@ -28,6 +28,8 @@
             "main-link": "shopify:\/\/collections\/trnk-collection",
             "button-text": "Shop Now",
             "add-link-to-button-only": false,
+            "secondary-button-text": "",
+            "secondary-button-url": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -38,8 +40,8 @@
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3723-4.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3705-4.jpg",
+            "image": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/AO2A7682-4.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
@@ -54,7 +56,7 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-2.jpg",
+            "image": "shopify:\/\/shop_images\/AO2A7682-4.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
@@ -96,6 +98,8 @@
             "main-link": "shopify:\/\/products\/starter-bundle",
             "button-text": "",
             "add-link-to-button-only": true,
+            "secondary-button-text": "",
+            "secondary-button-url": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -473,6 +477,8 @@
         "title": "Join the club—get $5 instantly.",
         "text": "<p>Very Important Travelers earn points, get insider rewards, and exclusive early access to sales.<\/p>",
         "button-text": "Become a VIT Now",
+        "button-behavior": "link",
+        "scroll-to": 3,
         "link": "https:\/\/www.calpaktravel.com\/pages\/rewards",
         "link-for-button": true,
         "height": "custom",
