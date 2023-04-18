@@ -23,8 +23,8 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Mother's Day Promo: Buy 2 items (or more), Get 15% off",
-            "description": "<p>Use promo code <strong>MOM15 <\/strong>Limited time only, <em>Terms and Conditions <\/em>apply.<\/p>",
+            "title": "Mother's Day Promo: Buy 2 items (or more), get 15% off",
+            "description": "<p>Use promo code. <strong>MOM15. <\/strong>Limited time only, <em>Terms and Conditions <\/em>apply.<\/p>",
             "main-link": "shopify:\/\/collections\/mothers-day",
             "button-text": "Shop Now",
             "add-link-to-button-only": false,
