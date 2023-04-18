@@ -83,7 +83,9 @@ function variantUpdateProcess(target) {
         if(option.getAttribute('data-available') == 'false') productContainer.classList.add('product-unit--na');
         else productContainer.classList.remove('product-unit--na');
         
+        try {
         productContainer.querySelector('.product-unit__price').innerHTML = formatedPrice;
+        } catch {}
         
         const pdpDscnts = productContainer.querySelectorAll('.dscnt');
         if(cprice) {

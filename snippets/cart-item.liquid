@@ -8,7 +8,7 @@
         assign imgHeight = '133.33'
     endif
 -%}
-<div class="cart__item{% if gwpItem %} cart__item--gwp{% endif %} {%- if item.properties['gift'] == 'true' -%}cart__item--gift{%- endif -%}"
+<div class="cart__item{% if gwpItem %} cart__item--gwp{% endif %} {%- if item.properties['_gift'] == 'true' -%}cart__item--gift{%- endif -%}"
     data-id="{{ item.product.id }}"
     data-handle="{{ item.product.handle }}"
     data-variant="{{ item.variant.id }}"
@@ -34,7 +34,7 @@
     </div>
     <div class="cart__item-info">
 
-        {%- if item.properties['gift'] == 'true' -%}
+        {%- if item.properties['_gift'] == 'true' -%}
         <span class="cart__item-gift-badge">Free gift</span>
         {%- endif -%}
 
@@ -83,7 +83,7 @@
                 {%- endif -%}
             {%- endif -%}
 
-            {%- if item.properties['gift'] == 'true' -%}
+            {%- if item.properties['_gift'] == 'true' -%}
 
                 <div
                     data-suffix="{{ item.product.template_suffix }}"
