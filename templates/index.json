@@ -23,9 +23,9 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Buy 2, Get 15% Off",
-            "description": "<p>Shop our best-selling luggage collection in an indulgent new hue.<\/p>",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "title": "Mother's Day Promo: Buy 2 items (or more), Get 15% off",
+            "description": "<p>Use promo code MOM15. Limited time only<\/p><p><a href=\"\/pages\/promotion-terms\" target=\"_blank\" title=\"Promotion Terms\"><em>Terms and Conditions apply<\/em><\/a><\/p>",
+            "main-link": "shopify:\/\/collections\/mothers-day",
             "button-text": "Shop Now",
             "add-link-to-button-only": false,
             "secondary-button-text": "",
