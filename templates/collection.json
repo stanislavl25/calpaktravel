@@ -5,8 +5,8 @@
       "settings": {
         "preload": true,
         "background": "#f7f177",
-        "text-color": "#000",
-        "bold-text-background": "#fff",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
         "main-text": "<p>Buy 2 items (or more), get 15% off using code MOM15<\/p>",
         "hide": false,
@@ -20,8 +20,8 @@
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Shop Now",
-        "cta_color": "#000",
-        "cta_background": "#fff",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
@@ -461,7 +461,8 @@
         "title-size": "medium",
         "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
-        "button-link": ""
+        "button-link": "",
+        "bold_text": "MOM15"
       }
     },
     "product-grid-section-id": {
@@ -491,14 +492,13 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
-          "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "banner": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
+            "banner-mobile": "shopify:\/\/shop_images\/AO2A7682-4.jpg",
             "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
-            "title": "Free Luka Key Pouch",
-            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
+            "title": "Buy 2, Get 15% OFF",
+            "text": "<p>Join us for 1 hour live shopping event May 3, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\">ADD TO CALENDAR<\/a><\/p>",
             "show-for-collections": [
               "accessories",
               "organizers",
@@ -507,7 +507,9 @@
               "new-arrivals",
               "best-sellers",
               "all",
-              "in-stock-ready-to-deliver"
+              "in-stock-ready-to-deliver",
+              "mothers-day",
+              "sale"
             ],
             "background": "#e4dfd5",
             "text-color": "#000000",
