@@ -178,7 +178,7 @@ function setGamificationProducts( gifts ) {
             
             // Clean gifts from cart if exists
             let clean_items = {};
-            const gifts_in_cart = cartItems.filter( item => item.properties.gift == 'true');
+            const gifts_in_cart = cartItems.filter( item => item.properties?.gift == 'true');
 
             gifts_in_cart.forEach( gift => {
                 clean_items[gift.id] = 0;
@@ -193,7 +193,7 @@ function setGamificationProducts( gifts ) {
         } else {
 
             gifts.forEach(gift => {
-                if(!cartItems.find(item => item.properties.gift == 'true')){
+                if(!cartItems.find(item => item.properties?.gift == 'true')){
                     items.push({
                         id: gift,
                         quantity: 1,
