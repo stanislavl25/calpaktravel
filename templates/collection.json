@@ -461,8 +461,7 @@
         "title-size": "medium",
         "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
-        "button-link": "",
-        "bold_text": "MOM15"
+        "button-link": ""
       }
     },
     "product-grid-section-id": {
@@ -525,7 +524,7 @@
             "banner": "shopify:\/\/shop_images\/AO2A7747.jpg",
             "video": "",
             "link": "",
-            "title": "MOM'S LOVE THIS! ",
+            "title": "MOMS LOVE THIS! ",
             "text": "",
             "show-for-collections": [
               "mini-and-me"
