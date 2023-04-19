@@ -4,6 +4,8 @@
         assign product = product.product
     endif
 
+    assign cancelDisplay = false
+
     if current_variant == blank
         if in_collection != blank
             assign firstSearch = 'first:' | append: in_collection.handle | append: ':'
@@ -38,12 +40,18 @@
 
         if early_access == 'only'
             unless current_variant.metafields.custom.early_access == true
+                assign earlyAccessVariantFound = false
                 for var in product.variants
-                    if var.metafields.custom.early_access == true
+                    if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
                         assign current_variant = var
+                        assign earlyAccessVariantFound = true
                         break
                     endif
                 endfor
+
+                unless earlyAccessVariantFound
+                    assign cancelDisplay = true
+                endunless
             endunless
         endif
     endif
@@ -57,8 +65,8 @@
     if sizes == false or sizes == blank
         assign sizes = '(min-width: 1181px) 20vw, 25vw'
     endif
-
 -%}
+{%- unless cancelDisplay -%}
 <div
     data-suffix="{{ product.template_suffix }}"
     data-handle="{{ product.handle }}"
@@ -177,3 +185,4 @@
     </div>
     {%- endif -%}
 </div>
+{%- endunless -%}

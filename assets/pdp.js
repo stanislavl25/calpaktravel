@@ -601,7 +601,7 @@ function pdpHandleDescriptions(pdpInfo, option) {
 }
 window.addEventListener("load", function(){
     const variantLuggageButton = document.querySelector('.product-option.product-option--selected');
-    if (variantLuggageButton != -1){
-    variantLuggageButton.click();
+    if (variantLuggageButton && variantLuggageButton != -1){
+        variantLuggageButton.click();
     } 
 });

@@ -20,6 +20,10 @@ const color_groups = {
 
 const colors_img = ["trnk-grey", "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue"];
 
+function isSafari() {
+    return navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1
+}
+
 function getColorGroup(color) {
     for(let grp in color_groups) {
         for(let i = 0; i < color_groups[grp].length; i++) {
@@ -179,19 +183,37 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     let finalSale = [];
     let collection = false,
         collectionLimit = false,
-        earlyAccess = false;
+        earlyAccessEnabled = meta.earlyAccess,
+        earlyAccessVar = target.hasAttribute('data-early-access')?handleize(target.getAttribute('data-early-access')):false;
+
     if(isProductUnit) collection = target.getAttribute('data-collection');
-    if(target.hasAttribute('data-early-access')) earlyAccess = target.getAttribute('data-early-access');
 
     tags.forEach(tag => {
         let tg = handleize(tag);
-        if(tag.indexOf('group1:') > -1) {
-            groups[0] = tag.replace('group1:', '').split(':');
-            if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
-        } else if(tag.indexOf('group2:') > -1) {
-            groups[1] = tag.replace('group2:', '').split(':');
-            if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
-        } else if(tag.indexOf('hide:') === 0) {
+
+        if(!isProductUnit && earlyAccessEnabled && earlyAccessVar !== false) {
+            if(tag.indexOf('ea-group1:') > -1) {
+                groups[0] = tag.replace('ea-group1:', '').split(':');
+                if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
+            } else if(tag.indexOf('ea-group2:') > -1) {
+                groups[1] = tag.replace('ea-group2:', '').split(':');
+                if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
+            }
+        } else {
+            if(tag.indexOf('group1:') === 0) {
+                if(typeof groups[0] == 'undefined') {
+                    groups[0] = tag.replace('group1:', '').split(':');
+                    if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
+                }
+            } else if(tag.indexOf('group2:') === 0) {
+                if(typeof groups[1] == 'undefined') {
+                    groups[1] = tag.replace('group2:', '').split(':');
+                    if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
+                }
+            }
+        }
+
+        if(tag.indexOf('hide:') === 0) {
             let _hide = tag.replace('hide:', '').split(';');
             hide.push(..._hide);
         } else if(tag.indexOf('early-access:') === 0) {
@@ -237,6 +259,25 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(hideUnavailable && !product.variants[i].available) continue;
         const opt1 = handleize(product.variants[i].option1);
         if((collectionLimit !== false && collectionLimit.indexOf(opt1) === -1) || (hide !== false && hide.indexOf(opt1) > -1)) continue;
+        
+        if(isProductUnit) {
+            if(earlyAccessEnabled) { // Apply only when product has early access enabled
+                if(earlyAccessVar == 'all'); // If collection should show all EA variants don't hide anything
+                else if(earlyAccessVar == 'only') {
+                     // Skip variant if only EA should be shown but this variant is not EA
+                    if(meta.variants[product.variants[i].id].earlyAccess !== true) continue;
+                } else if(meta.variants[product.variants[i].id].earlyAccess === true) {
+                    // Skip variant if this is not a EA collection but this variant is EA
+                    continue;
+                }
+            } else if(meta.variants[product.variants[i].id].earlyAccess === true) continue;
+        } else if(meta.variants[product.variants[i].id].earlyAccess === true) { // If current variant is an early access variant on PDP
+            if (
+                !earlyAccessEnabled // Disable variant if early access is not enabled for this PDP
+                ||
+                (earlyAccessVar != "true" && earlyAccessVar != opt1) // Disable variant if it's not the current EA variant shown
+            ) continue;
+        }
         
         availableVariants.push(product.variants[i]);
     }
@@ -421,7 +462,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(!isProductUnit) {
         let swatchesCheck = [], swatchesElements = [];
-        product.variants.forEach(variant => {
+        availableVariants.forEach(variant => {
             if(swatchesCheck.indexOf(variant.option1) === -1) {
                 swatchesCheck.push(variant.option1);
                 const varHandle = handleize(variant.option1);
@@ -433,10 +474,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         (groups[0][1].length === 0 || groups[0][1].indexOf(varHandle) === -1) && 
                         (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1)
                     ) {
-                        pushGroupIndex = 1;
+                        if(groups.length > 1) pushGroupIndex = 1;
+                        else return;
                     }
-    
-                    if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = [];
+
+                    if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = '';
 
                     let img = '';
                     if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
