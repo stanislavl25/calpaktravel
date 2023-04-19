@@ -27,7 +27,7 @@
             "description": "<p>Use promo code <strong>MOM15<\/strong>.<strong> <\/strong>Limited time only.  <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
             "main-link": "shopify:\/\/collections\/mothers-day",
             "button-text": "Shop Now",
-            "add-link-to-button-only": false,
+            "add-link-to-button-only": true,
             "secondary-button-text": "",
             "secondary-button-url": "",
             "show-screens": "all",
