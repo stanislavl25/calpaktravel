@@ -630,11 +630,11 @@
               "image": "shopify:\/\/shop_images\/COMPAKT-ZIPPERED-POUCH-SET-PINK-GRID-LIFESTYLE1.jpg",
               "title": "FREE GIFT",
               "description": "Included with any purchase in the Compakt Collection",
-              "gwp-collection": "compakt-collection",
+              "gwp-collection": "",
               "gwp-products": [
 
               ],
-              "gwp-any-ex-gift": false,
+              "gwp-any-ex-gift": true,
               "threshold": 0,
               "gwp-number": "1"
             }
