@@ -2,7 +2,7 @@
     <h2 class="field__meassage-notice" aria-label="form alert message">Hi {{ customer.first_name }}! You are logged in. <a href="{{ routes.account_url }}">Click here</a> to go to your account page. </h2>
 {% endif %}
 {% form 'create_customer', novalidate: 'novalidate' %}
-<input id="form-register__redirect" type="hidden" name="return_to" value="{{ routes.account_register_url }}#new">
+<input id="form-register__redirect" type="hidden" name="return_to" value="{{ routes.account_register_url }}">
         {%- if form.errors contains 'form' -%}
             <div class="field__meassage-notice" aria-label="form alert message">An email has been sent to your email address containing an activation link. Please click on the link to activate your account. <br><br>If you do not receive the email within a few minutes, please check your spam folder.</div>
         {%- endif -%}
