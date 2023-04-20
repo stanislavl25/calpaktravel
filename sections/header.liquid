@@ -56,6 +56,9 @@
                 <a href="#" class="menu-popup__activator" data-target="shop">Shop</a>
             </li>
             <li class="site-header__menu-item">
+                <a href="{{ section.settings.sale_link }}" class="only-desktop" data-target="sale">Sale</a>
+            </li>
+            <li class="site-header__menu-item">
                 <a href="#" class="menu-popup__activator" data-target="discover">Discover</a>
             </li>
             <li class="site-header__menu-item">
@@ -151,6 +154,11 @@
             "type": "link_list",
             "id": "shop-menu",
             "label": "Shop Menu"
+        },
+        {
+        "type": "url",
+        "id": "sale_link",
+        "label": "Sale link (Only Desktop)"
         },
         {
             "type": "link_list",
