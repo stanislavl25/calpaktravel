@@ -647,7 +647,7 @@
         ],
         "settings": {
           "enable-gwp": true,
-          "gwp-max-number": "2"
+          "gwp-max-number": "1"
         }
       },
       "checkout-promos": {
