@@ -9,12 +9,15 @@
 
 .menu-item > a {
     font-size: 36px;
+    padding: 0 5px;
     letter-spacing: -0.02em;
     text-decoration: none;
     color: inherit;
     display: inline-block;
     line-height: 1.2em;
-    border: 1px solid transparent;
+    border: 1px solid #000;
+    border-radius: 9px;
+    transition: all 0.3s ease;
 }
 
 .menu-item--active > a,
@@ -22,9 +25,6 @@
     padding: 0 5px;
     border: 1px solid #000;
     border-radius: 9px;
-}
-
-.menu-item--active > a {
     background: #fff;
 }
 
