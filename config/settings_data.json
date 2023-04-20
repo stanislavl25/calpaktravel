@@ -13,17 +13,19 @@
     "flash-sale-enabled": false,
     "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "Mar 4 2023, 6am",
-    "flash-sale-ends": "Mar 8 2023, 2:45pm",
+    "flash-sale-starts": "Apr 14 2023, 6am",
+    "flash-sale-ends": "Apr 18 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
-    "sale-badge-tag": "Sale-Message",
-    "sale-badge-text": "Ending soon!",
+    "sale-badge-enabled": true,
+    "sale-badge-tag": "mothers-day",
+    "sale-badge-text": "Mother's Day Promo",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
-    "sale-msg-tag": "Sale-Message",
-    "sale-msg-highlighted": "Special Promo",
-    "sale-msg-message": "",
+    "sale-msg-pdp-only": true,
+    "sale-msg-tag": "mothers-day",
+    "sale-msg-highlighted": "Code: MOM15",
+    "sale-msg-message": "Buy 2+ eligible items and get 15% OFF",
     "sale-msg-main-col-text": "#707070",
     "type_body_font": "futura_n4",
     "type_body_font_bolder": "futura_n5",
@@ -57,6 +59,7 @@
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -74,17 +77,16 @@
           },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/products\/starter-bundle",
-              "block-title": "",
+              "button-url": "shopify:\/\/collections\/mothers-day",
+              "block-title": "Buy 2 items (or more), get 15% OFF",
               "description": "",
-              "button-text": "",
+              "button-text": "Shop Mother's Day",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Group_3545.png",
+              "image": "shopify:\/\/shop_images\/210818_CALPAK_Holiday_29917_Hi-2.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -258,7 +260,7 @@
           "4709c5e0-9817-40ec-94f6-ceec21bc54fd"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
@@ -433,6 +435,7 @@
           "product_list": [
 
           ],
+          "empty_cart_message": "Whoops, you haven't packed yet!",
           "continue-shopping": "",
           "wishlist-timeout": 3
         }
@@ -606,13 +609,12 @@
         "blocks": {
           "12991d47-4af3-4f34-9881-9386bc217d60": {
             "type": "gwp-product",
-            "disabled": true,
             "settings": {
               "product": "car-organizer",
               "image": "shopify:\/\/shop_images\/COMPAKT-SMALL-GARMENT-BAG-ORCHID-LIFESTYLE1.jpg",
               "title": "Gift with purchase",
               "description": "Included with any purchase above $110",
-              "gwp-collection": "accessories",
+              "gwp-collection": "2-piece-luggage-sets",
               "gwp-products": [
 
               ],

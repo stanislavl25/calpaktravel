@@ -29,10 +29,27 @@
                 assign discount = '<span class="dscnt"></span>'
             endif
         -%}
-    <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
-        {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-        {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
-    </div>
+        {% if settings.badge_display == 'both' %}
+            <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
+                {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+            </div>
+        {% elsif settings.badge_display == 'product' %}
+            {% if template contains 'product' %} 
+                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
+                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                </div>
+            {% endif %}
+        {% elsif settings.badge_display == 'collection' %}
+            {% if template contains 'collection' %} 
+                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
+                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                </div>
+            {% endif %}
+        {% endif %}
+        
     {%- endif -%}
 {%- endif -%}
 
@@ -186,10 +203,14 @@
         </div>
     {%- endif -%}
 
+    
+
+    
+
+        
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
             assign new = false
-            assign best = false
             for col in product.collections
                 if settings.new-arrivals == col and new == false
                     assign new = true
@@ -207,24 +228,25 @@
                     endif
                 endfor
             endif
-
-            for prod in settings.best-sellers.products limit: 20
-                if product.id == prod.id
-                    assign best = true
-                    break
-                endif
-            endfor
         -%}
-        
         {%- if new != false -%}
-        <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
-            {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
-            {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
-        </div>
+            <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
+                {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
+                {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
+            </div>
         {%- endif -%}
     {%- endunless -%}
-    
-    {%- if best == true -%}
+
+    {% comment %}
+        CHECK THE PRODUCT-GRID.LIQUID  FOR THIS VARIABLE 
+        IT WAS DEFINED THERE BC WE NEEDED TO COUNT THE TIMES OF NUMBER AND RENDER SHOPIFY TAG DONT ALLOW
+
+        PRODUCT-GRID.LIQUID RENDERS PRODUCT-UNIT.LIQUID
+        PRODUCT-UNIT.LIQUID RENDERS PRODUCT=FLOATING-LABELS.LIQUID
+
+    {% endcomment%}
+    {%- if best_seller == true -%}
         <div class="product-label">Bestseller</div>
     {%- endif -%}
+    
 </div>

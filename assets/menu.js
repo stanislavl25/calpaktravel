@@ -38,8 +38,12 @@ if(mobileMenuBackLinks.length > 0) mobileMenuBackLinks.forEach(mobileMenuBackLin
 }));
 
 let menuItems = document.querySelectorAll('.menu-item > a');
-for(let i = 0; i < menuItems.length; i++) menuItems[i].addEventListener('click', e => {
-    e.preventDefault();
+for(let i = 0; i < menuItems.length; i++) menuItems[i].addEventListener('click', e => {  
+    if(e.target.classList.contains('has-menu')){
+        e.preventDefault();
+    } else {
+        return;
+    }
     const closestMenu = e.target.closest('.menu-popup');
     const menuItem = e.target.closest('.menu-item');
     const id = menuItem.getAttribute('data-id');

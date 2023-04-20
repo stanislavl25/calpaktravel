@@ -1,5 +1,31 @@
 {
   "sections": {
+    "b11701cc-945d-43fe-8b29-77d888aec849": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "Mother's Day Promo",
+        "main-text": "<p>Buy 2 items (or more), get 15% off using code MOM15<\/p>",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Shop Now",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -13,6 +39,20 @@
 
             ],
             "selected": false
+          }
+        },
+        "e1911702-42ea-44c2-84f5-bb10bbeea478": {
+          "type": "filter",
+          "settings": {
+            "heading": ". . . Mother's Day",
+            "title": "Mother's Day Sale",
+            "collection": "mothers-day",
+            "product_list": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Frame_1_1_39acd0cf-6cc9-4c24-b3e0-427c1a64730e.jpg",
+            "description": "",
+            "filter-in-parent": false
           }
         },
         "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
@@ -43,6 +83,7 @@
         },
         "645f5714-be29-44a4-9a15-aab469ecb101": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": ". . . In stock and ready to ship",
             "title": "In stock and ready to deliver",
@@ -374,6 +415,7 @@
       },
       "block_order": [
         "597a3a7d-e342-4ec9-8cca-f98e586237d1",
+        "e1911702-42ea-44c2-84f5-bb10bbeea478",
         "c8f3773f-80e6-466d-9317-43d1bb1e948e",
         "70b2154d-2620-4583-ab2f-871333b645be",
         "645f5714-be29-44a4-9a15-aab469ecb101",
@@ -449,14 +491,12 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
-          "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "banner": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
             "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
-            "title": "Free Luka Key Pouch",
-            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
+            "title": "Buy 2, Get 15% OFF",
+            "text": "<p>Join us for 1 hour live shopping event May 3, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\">ADD TO CALENDAR<\/a><\/p>",
             "show-for-collections": [
               "accessories",
               "organizers",
@@ -465,7 +505,9 @@
               "new-arrivals",
               "best-sellers",
               "all",
-              "in-stock-ready-to-deliver"
+              "in-stock-ready-to-deliver",
+              "mothers-day",
+              "sale"
             ],
             "background": "#e4dfd5",
             "text-color": "#000000",
@@ -482,13 +524,13 @@
             "banner": "shopify:\/\/shop_images\/AO2A7747.jpg",
             "video": "",
             "link": "",
-            "title": "MOM'S LOVE THIS! ",
+            "title": "MOMS LOVE THIS! ",
             "text": "",
             "show-for-collections": [
               "mini-and-me"
             ],
             "background": "#e4dfd5",
-            "text-color": "#000",
+            "text-color": "#000000",
             "starts-on": "",
             "ends-on": "",
             "row": 1,
@@ -509,6 +551,7 @@
     }
   },
   "order": [
+    "b11701cc-945d-43fe-8b29-77d888aec849",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"

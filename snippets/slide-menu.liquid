@@ -12,7 +12,7 @@
             -%}
 
             {% for link in linklists[menu].links %}
-            <li class="slide-menu-item{% if link.links.size > 0 %} slide-menu-item--has-sub{% endif %}">
+            <li class="slide-menu-item{% if link.links.size > 0 %} slide-menu-item--has-sub {% else %} slide-menu-item--single{% endif %}">
                 <a href="{{ link.url }}">{{ link.title | escape }}</a>
                 {% if link.links.size > 0 %}
                 <button aria-label="Show submenu" class="slide-menu__sub-button"></button>

@@ -11,7 +11,11 @@
         {%- endif -%}
     </h1>
 
+{% if template contains 'collection' %}
+    <div class="page__description">{{- collection.description -}}</div>
+{% else %}
     <div class="page__description">{{- section.settings.text -}}</div>
+{% endif %}
 
     {%- if section.settings.button-text != blank -%}
     <div class="page__header-button">
@@ -55,7 +59,8 @@
             {
                 "type": "richtext",
                 "id": "text",
-                "label": "Text"
+                "label": "Text",
+                "info": "This text will appear only on non-collection pages. This is overridden by the collection description on collection pages."
             },
             {
                 "type": "text",
