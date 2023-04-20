@@ -303,19 +303,40 @@
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
     @media (max-width: 900px) {
         *::-webkit-scrollbar {
-            all: initial !important;
-            width: 4px !important;
-            background: #d8d8d8 !important;
+            display: none !important;
         }
-        *::-webkit-scrollbar-thumb {
-            all: initial !important;
-            background: #7c7c7c !important;
+
+        .slider__wrapper--nav,
+        .slider__wrapper:has(.slider--scrollbar) {
+            --scroll-pos: 0%;
+            position: relative;
+            padding-bottom: 10px;
         }
         
-        *::-webkit-scrollbar-button { all: initial !important; }
-        *::-webkit-scrollbar-track { all: initial !important; }
-        *::-webkit-scrollbar-track-piece { all: initial !important; }
-        *::-webkit-scrollbar-corner { all: initial !important; }
-        *::-webkit-resizer { all: initial !important; }
+        .slider__wrapper--nav {
+            padding-bottom: 0;
+        }
+
+        .slider__wrapper--nav::before,
+        .slider__wrapper:has(.slider--scrollbar)::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #aeaeae;
+        }
+
+        .slider__wrapper--nav::after,
+        .slider__wrapper:has(.slider--scrollbar)::after {
+            position: absolute;
+            left: var(--scroll-pos);
+            transform: translateX(calc(-1 * var(--scroll-pos)));
+            bottom: 0;
+            width: 20%;
+            border-top: 1px solid #000;
+            content: '';
+            display: block !important;
+        }
     }
 }
