@@ -628,7 +628,7 @@
           "12991d47-4af3-4f34-9881-9386bc217d60"
         ],
         "settings": {
-          "enable-gwp": false,
+          "enable-gwp": true,
           "gwp-max-number": "1"
         }
       },
