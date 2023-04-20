@@ -46,6 +46,8 @@
         "title": "",
         "text": "",
         "button-text": "",
+        "button-behavior": "link",
+        "scroll-to": 3,
         "link": "",
         "link-for-button": false,
         "height": "image",
@@ -58,7 +60,7 @@
     "14a585b0-b699-48a2-b1e5-c73b07bedf29": {
       "type": "html",
       "settings": {
-        "html": "<div data-bambuser-liveshopping-widget=\"channel\" data-channel-id=\"FOK9bx6KgOlMoeMu1Vqs\" data-channel-locale=\"\"><\/div>",
+        "html": "<div data-bambuser-liveshopping-widget=\"channel\" data-channel-id=\"v4DNkQEzFKzneKGoFVgX\" data-channel-locale=\"\"><\/div>\n<script>\n  (function(d, t, i) {\n    if (d.getElementById(i)) return;\n    var s, ss = d.getElementsByTagName(t)[0];\n    s = d.createElement(t); s.id = i;\n    s.src = 'https:\/\/lcx-widgets.bambuser.com\/embed.js';\n    ss.parentNode.insertBefore(s, ss);\n  })(document, 'script', \"bambuser-liveshopping-widget\");\n<\/script>",
         "add-padding": true
       }
     },
@@ -68,9 +70,12 @@
         "c3c6d8b6-cab2-4ea0-be00-ce19def3d7ee": {
           "type": "form",
           "settings": {
+            "form_type": "iframe",
             "iframe-url": "https:\/\/calpak.attn.tv\/p\/aJ0\/landing-page",
+            "klaviyo_id": "",
             "height": "450",
-            "height-mobile": "500"
+            "height-mobile": "500",
+            "vertical_alignment": "center"
           }
         }
       },
