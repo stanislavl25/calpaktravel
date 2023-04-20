@@ -1,6 +1,17 @@
+{% if customer %}
+    <h2 class="field__meassage-notice" aria-label="form alert message">Hi {{ customer.first_name }}! Your account has been created. <a href="{{ routes.account_url }}">Click here</a> to go to your account page. </h2>
+{% endif %}
 {% form 'create_customer', novalidate: 'novalidate' %}
-    <input type="hidden" name="return_to" value="{{ routes.account_register_url }}#new">
-
+<input id="form-register__redirect" type="hidden" name="return_to" value="{{ routes.account_register_url }}">
+        {% for error in form.errors %}
+            {% if error == 'form' %}
+                {% if form.errors.messages[error] contains 'activation link'%}
+                    <div class="field__meassage-notice" aria-label="form alert message">{{ form.errors.messages[error] }}</div>
+                {% else %}    
+                    <div class="field__meassage-notice" aria-label="form alert message">{{ form.errors.messages[error] }}</div>
+                {% endif %}                  
+            {% endif %}
+        {% endfor %}
         {%- if form.posted_successfully? -%}
             <div class="customer__page-cta customer__page-cta--success">
                 {%- if section.settings.after-reg-title != blank -%}
