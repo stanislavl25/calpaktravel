@@ -9,7 +9,7 @@
 
 .menu-item > a {
     font-size: 36px;
-    padding: 0 5px;
+    padding: 0px 5px 5px 5px;
     letter-spacing: -0.02em;
     text-decoration: none;
     color: inherit;
@@ -22,7 +22,6 @@
 
 .menu-item--active > a,
 .menu-item > a:hover {
-    padding: 0 5px;
     border: 1px solid #000;
     border-radius: 9px;
     background: #fff;
