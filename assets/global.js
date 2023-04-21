@@ -338,15 +338,32 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let selected = current_variant.id == variant.id,
             available = variant.available;
 
+        let preorder = false,
+            hover = false,
+            earlyAccess = false,
+            videoInfo = false;
+        if(meta) {
+            if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
+            else if(meta.preorder) preorder = meta.preorder;
+
+            if(meta.variants[variant.id].videoInfo) videoInfo = meta.variants[variant.id].videoInfo;
+            else if(meta.videoInfo) videoInfo = meta.videoInfo;
+
+            if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
+
+            if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
+        }
+
         if(colorOption !== false) {
 
             if(colorOption in colors) {
                 if(colors[colorOption].available === false && available === true) colors[colorOption].available = true;
                 if(colors[colorOption].selected === false && selected === true) colors[colorOption].selected = true;
             } else {
-                let urlOpt1 = `${shopUrl}/products/${handle}/${colorOption}`;
+                let urlOpt1 = `${shopUrl}/products/${handle}/${earlyAccess?'early-access-':''}${colorOption}`;
                 let url;
-                if(opt2 != false) url = `${shopUrl}/products/${handle}/${colorOption},${handleize(current_variant.option2)}`;
+
+                if(opt2 != false) url = `${shopUrl}/products/${handle}/${earlyAccess?'early-access-':''}${colorOption},${handleize(current_variant.option2)}`;
                 else url = urlOpt1;
                 
                 colors[colorOption] = {
@@ -368,19 +385,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(isProductUnit) {
             if(maxPrice === false || variantPrice > maxPrice) maxPrice = variantPrice;
             if(minPrice === false || variantPrice < minPrice) minPrice = variantPrice;
-        }
-
-        let preorder = false;
-        let hover = false;
-        let videoInfo = false;
-        if(meta) {
-            if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
-            else if(meta.preorder) preorder = meta.preorder;
-
-            if(meta.variants[variant.id].videoInfo) videoInfo = meta.variants[variant.id].videoInfo;
-            else if(meta.videoInfo) videoInfo = meta.videoInfo;
-
-            if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
         }
 
         let img = false;
@@ -408,6 +412,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 ${img?`data-image="${img}"`:''}
                 data-option1="${opt1}"
                 data-option2="${opt2}"
+                ${earlyAccess?'data-early-access':''}
                 ${created?`data-created="${created}"`:''}
                 data-sku="${handleize(variant.sku)}"
                 ${hover?`data-hover="${hover}"`:''}
@@ -483,11 +488,17 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     let img = '';
                     if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
 
+                    let earlyAccess = false;
+                    if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
+
+                    const url = `${shopUrl}/products/${product.handle}/${earlyAccess?'early-access-':''}${varHandle}`;
+                    let activeSwatch = (varHandle == handleize(current_variant.option1));
+
                     swatchesElements[pushGroupIndex] += `<a
-                        href="${shopUrl}/products/${product.handle}/${varHandle}"
+                        href="${url}"
                         data-value="${varHandle}"
                         title="${capitalize(variant.option1)}"
-                        class="color-swatch color-${varHandle}${colors[varHandle].available?'':' product-option--na'}">
+                        class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'}">
                             ` + img + `
                         </a>`;
                 }
@@ -504,8 +515,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             </div>`;
         }
 
-        const activeSwatch = swatchesGroupsEl.querySelector(`.color-swatch[data-value="${handleize(current_variant.option1)}"]`);
-        if(activeSwatch) activeSwatch.classList.add('color-swatch--active');
         return;
     }
 
@@ -523,9 +532,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         let el = document.createElement('a');
         
-        if(hasMultipleSizes) el.setAttribute('href', colors[color].url);
-        else el.setAttribute('href', colors[color].urlOpt1);
+        let url;
+        if(hasMultipleSizes) url = colors[color].url;
+        else url = colors[color].urlOpt1;
 
+        el.setAttribute('href', url);
         el.classList.add('color-swatch');
         if(allColors) el.classList.add('slide');
         el.classList.add('color-' + color);
@@ -538,6 +549,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
             if(!variantAutoSelected) el.classList.add('color-swatch--first');
+
+            const productLinks = target.querySelectorAll('.product-link, .quick-view__link');
+            productLinks.forEach(productLink => productLink.setAttribute('href', url));
         }
 
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');

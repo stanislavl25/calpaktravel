@@ -19,12 +19,12 @@ function productUnitUpdateHover(option, productImageContainer, sizes) {
     } else if(hoverImg) hoverImg.remove();
 }
 
-function updateProductURLs(productContainer, options, multiple = false) {
+function updateProductURLs(productContainer, options, multiple = false, earlyAccess = false) {
     const handle = productContainer.getAttribute('data-handle');
-    const productLinks = productContainer.querySelectorAll('.product-link');
+    const productLinks = productContainer.querySelectorAll('.product-link, .quick-view__link');
     productLinks.forEach(productLink => {
-        if(multiple) productLink.setAttribute('href', `/products/${handle}/${options.join(',')}`);
-        else productLink.setAttribute('href', `/products/${handle}/${options[0]}`);
+        if(multiple) productLink.setAttribute('href', `/products/${handle}/${earlyAccess?'early-access-':''}${options.join(',')}`);
+        else productLink.setAttribute('href', `/products/${handle}/${earlyAccess?'early-access-':''}${options[0]}`);
     });
 }
 
@@ -78,7 +78,6 @@ function variantUpdateProcess(target) {
             })
             
         } else {
-            console.log('others')
             includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                 includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
                 includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
@@ -89,8 +88,7 @@ function variantUpdateProcess(target) {
         }
     }
 
-    
-    updateProductURLs(productContainer, options, multiple);
+    updateProductURLs(productContainer, options, multiple, option.hasAttribute('data-early-access'));
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));
