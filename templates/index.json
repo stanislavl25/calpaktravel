@@ -76,7 +76,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 100,
+        "height-limit": 110,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
