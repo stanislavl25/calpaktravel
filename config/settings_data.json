@@ -599,7 +599,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -609,6 +609,7 @@
         "blocks": {
           "12991d47-4af3-4f34-9881-9386bc217d60": {
             "type": "gwp-product",
+            "disabled": true,
             "settings": {
               "product": "car-organizer",
               "image": "shopify:\/\/shop_images\/COMPAKT-SMALL-GARMENT-BAG-ORCHID-LIFESTYLE1.jpg",
@@ -620,16 +621,34 @@
               ],
               "gwp-any-ex-gift": false,
               "threshold": 110,
+              "gwp-number": "2"
+            }
+          },
+          "3f948b59-6e03-4691-b1b4-bdfc944cf13c": {
+            "type": "gwp-product",
+            "disabled": true,
+            "settings": {
+              "product": "silk-travel-set",
+              "image": "shopify:\/\/shop_images\/COMPAKT-ZIPPERED-POUCH-SET-PINK-GRID-LIFESTYLE1.jpg",
+              "title": "FREE GIFT",
+              "description": "Included with any purchase in the Compakt Collection",
+              "gwp-collection": "",
+              "gwp-products": [
+
+              ],
+              "gwp-any-ex-gift": true,
+              "threshold": 0,
               "gwp-number": "1"
             }
           }
         },
         "block_order": [
-          "12991d47-4af3-4f34-9881-9386bc217d60"
+          "12991d47-4af3-4f34-9881-9386bc217d60",
+          "3f948b59-6e03-4691-b1b4-bdfc944cf13c"
         ],
         "settings": {
           "enable-gwp": false,
-          "gwp-max-number": "1"
+          "gwp-max-number": "2"
         }
       },
       "checkout-promos": {
