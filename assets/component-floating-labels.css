@@ -24,8 +24,7 @@
 }
 
 .product-label--badge {
-    top: 35px;
-    right: 0;
+    right: 14px;
     position: absolute;
     width: 110px;
     height: 110px;
@@ -40,13 +39,21 @@
     align-items: center;
     justify-content: center;
     z-index: 5;
+    font-size: 21px;
+}
+.product-label--badge.product-label--badge-top {
+    top: 35px;
+}
+.product-label--badge.product-label--badge-bottom {
+    top: 553px;
 }
 
 .pdp__gallery-container .product-label--badge {
     margin: var(--gap) var(--gap) 0 0;
 }
 
-.product-unit .product-label--badge {
+.product-unit .product-label--badge.product-label--badge-bottom,
+.product-unit .product-label--badge.product-label--badge-top {
     bottom: 35px;
     top: auto;
 
@@ -57,6 +64,9 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
+}
+.product-label--badge.product-label--badge-tilt {
+    transform: rotate(17.82deg);
 }
 .product-unit .product-label--badge.product-label--badge-tilt {
     transform: rotate(17.82deg);

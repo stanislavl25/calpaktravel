@@ -301,6 +301,22 @@
       },
       {
         "type": "select",
+        "id": "badge-placement",
+        "label": "Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
+        "type": "select",
         "id": "badge_display",
         "label": "Where to display the badge",
         "options": [
