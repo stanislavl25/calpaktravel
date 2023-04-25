@@ -65,6 +65,12 @@
     if sizes == false or sizes == blank
         assign sizes = '(min-width: 1181px) 20vw, 25vw'
     endif
+
+    assign unit_url = product.url | append: '/'
+    if current_variant.metafields.custom.early_access and product.metafields.custom.early_access
+        assign unit_url = unit_url | append: 'early-access-'
+    endif
+    assign unit_url = unit_url | append: opt1
 -%}
 {%- unless cancelDisplay -%}
 <div
@@ -85,7 +91,7 @@
     >    
     <div class="product-unit__image-wrapper">
         {%- if quick_view == true -%}
-            <a class="quick-view__link quick-view__link--circle" href="{{ product.url }}" title="Quick View">
+            <a class="quick-view__link quick-view__link--circle" href="{{ unit_url }}" title="Quick View">
                 <img alt="Quick View" src="{{ 'quick-view-cross.svg' | asset_url }}" loading="lazy">
             </a>
         {%- endif -%}
@@ -116,7 +122,7 @@
             {%- endif -%}
         {%- endfor -%}
 
-        <a href="{{ product.url }}" class="product-unit__image product-link">
+        <a href="{{ unit_url }}" class="product-unit__image product-link">
             {%- liquid
                 if img_lazy == blank and img_lazy != false
                     assign img_lazy = true
@@ -146,7 +152,7 @@
     {%- endif -%}
 
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
-        <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
+        <a href="{{ unit_url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
     </div>
 
     {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
