@@ -261,6 +261,7 @@
         ],
         "settings": {
           "shop-menu": "mothers-day-menu",
+          "sale_link": "",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
@@ -506,7 +507,7 @@
               "link": "shopify:\/\/collections\/all",
               "media-title": "",
               "description": "",
-              "button-text": "Shop All",
+              "button-text": "Buy 2+ items, get 15% off",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
