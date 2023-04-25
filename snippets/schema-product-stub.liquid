@@ -77,16 +77,11 @@
         {%- liquid
             assign hidden = ''
             assign hidden_array = false
-            assign early_access = false
             assign price_min = false
             assign price_compare_min = false
             assign price_max = false
             assign price_compare_max = false
             assign count = 0
-
-            if template contains 'early-access'
-                assign early_access = true
-            endif
 
             for tag in product.tags
                 assign tg = tag | downcase
@@ -97,17 +92,6 @@
                         assign hidden = hidden | append: ','
                     endif
                     assign hidden = hidden | append: tg
-                    continue
-                endif
-
-                if early_access == false and tg contains 'early-access:'
-                    assign tg = tg | replace: 'early-access:', '' | strip | split: ';'
-                    for ea_color in tg
-                        if hidden != ''
-                            assign hidden = hidden | append: ','
-                        endif
-                        assign hidden = hidden | append: ea_color
-                    endfor
                     continue
                 endif
             endfor
@@ -124,6 +108,16 @@
                 if hidden_array contains sanitized_value
                     continue
                 endif
+
+                unless early_access == 'all'
+                    if prod_variant.metafields.custom.early_access and early_access == blank or early_access == false
+                        continue
+                    endif
+
+                    if early_access == 'only' and prod_variant.metafields.custom.early_access != true or prod_variant.metafields.custom.early_access != true
+                        continue
+                    endif
+                endunless
 
                 assign sanitized_value = prod_variant.option2 | handleize
                 if hidden_array contains sanitized_value
