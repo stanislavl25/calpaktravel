@@ -13,11 +13,10 @@
         assign current_variant = product.selected_or_first_available_variant
     endif
 -%}
-
-{% if current_variant.metafields.custom.featured_images != blank %}
-{% comment %}
-    New system with metafields
-{% endcomment %}
+{% if current_variant.metafields.custom.featured_images != blank and use_media_metafields == true %}
+    {% comment %}
+        New system with metafields
+    {% endcomment %}
 
     {%- assign varVideoActive = false -%}
     {% for variant in product.variants %}
