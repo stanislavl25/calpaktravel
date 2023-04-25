@@ -611,3 +611,15 @@ function pdpHandleDescriptions(pdpInfo, option) {
     const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
+const changeBadgeAbsolutePosition = e => {
+    if(window.innerWidth < 900) {
+        let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
+        let badge = document.querySelector('.pdp__gallery-container .product-label--badge');
+        badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
+    } else {
+        badge.style.top = 'initial'
+    }
+};
+document.addEventListener("DOMContentLoaded", changeBadgeAbsolutePosition);
+window.addEventListener("resize", changeBadgeAbsolutePosition);
+changeBadgeAbsolutePosition()
