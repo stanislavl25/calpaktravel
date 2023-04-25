@@ -8,6 +8,6 @@
     {% comment %} <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
     <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button> {% endcomment %}
     <div data-nav-for=".pdp__gallery" class="pdp__gallery-thumbs slider slider-nav slider--scrollbar">
-        {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, thumbnails: true, testDev: testDev %}
+        {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, thumbnails: true, use_media_metafields: use_media_metafields %}
     </div>
 </div>
