@@ -294,6 +294,12 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "sale-badge-text-tilt",
+        "label": "Text Tilt",
+        "default": true
+      },
+      {
         "type": "select",
         "id": "badge_display",
         "label": "Where to display the badge",

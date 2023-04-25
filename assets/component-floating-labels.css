@@ -47,10 +47,19 @@
 }
 
 .product-unit .product-label--badge {
-    width: 90px;
-    height: 90px;
     bottom: 35px;
     top: auto;
+
+    width: 74px;
+    height: 74px;   
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+.product-unit .product-label--badge.product-label--badge-tilt {
+    transform: rotate(17.82deg);
 }
 
 .product-unit:not(.product-unit--na) .product-label--na {
