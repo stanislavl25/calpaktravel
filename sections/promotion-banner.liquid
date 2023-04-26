@@ -6,7 +6,7 @@
 
 
 {% for product in section.settings.product_list %}
-    {% if canonical_url contains product.handle %}
+    {% if canonical_url == product.handle %}
         <style>
         .promotion-banner__section[data-id="{{ section.id }}"] {
             display:flex;
@@ -15,7 +15,7 @@
     {% endif %}
 {% endfor %}
 {% for collection in section.settings.collection_list %}
-    {% if canonical_url contains collection.handle %}
+    {% if canonical_url == collection.handle %}
         <style>
         .promotion-banner__section[data-id="{{ section.id }}"] {
             display:flex;
