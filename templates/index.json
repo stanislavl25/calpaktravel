@@ -28,6 +28,8 @@
             "main-link": "shopify:\/\/collections\/trnk-collection",
             "button-text": "Shop Now",
             "add-link-to-button-only": false,
+            "secondary-button-text": "",
+            "secondary-button-url": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -96,6 +98,8 @@
             "main-link": "shopify:\/\/products\/starter-bundle",
             "button-text": "",
             "add-link-to-button-only": true,
+            "secondary-button-text": "",
+            "secondary-button-url": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -473,6 +477,8 @@
         "title": "Join the club—get $5 instantly.",
         "text": "<p>Very Important Travelers earn points, get insider rewards, and exclusive early access to sales.<\/p>",
         "button-text": "Become a VIT Now",
+        "button-behavior": "link",
+        "scroll-to": 3,
         "link": "https:\/\/www.calpaktravel.com\/pages\/rewards",
         "link-for-button": true,
         "height": "custom",
@@ -480,6 +486,22 @@
         "text-alignment": "center",
         "text-color-scheme": "white",
         "background": "#ff6b0e"
+      }
+    },
+    "0289f3f5-735e-4226-94a8-b23cd4ee6569": {
+      "type": "sticky-promo",
+      "settings": {
+        "product_list": [
+          "ambeur-2-piece-luggage-set"
+        ],
+        "collection_list": [
+          "trnk-collection"
+        ],
+        "promo-image": "shopify:\/\/shop_images\/6F6A9412_1.jpg",
+        "promo-text": "Promo text",
+        "background-color": "#ff6b0e",
+        "promo-link": "",
+        "close-color-scheme": "white"
       }
     }
   },
@@ -492,6 +514,7 @@
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
-    "5a6f5490-2467-4517-8d4e-1b098c285ad9"
+    "5a6f5490-2467-4517-8d4e-1b098c285ad9",
+    "0289f3f5-735e-4226-94a8-b23cd4ee6569"
   ]
 }
