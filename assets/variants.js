@@ -37,6 +37,7 @@ function variantUpdateProcess(target) {
     const select = productContainer.querySelector('.variant-select');
     if(!select) return;
 
+    const hasSizeSelector = productContainer.querySelector('.product-unit__sizes') ? true: false;
     let location = false;
     if(productContainer.classList.contains('product-unit')) location = 'unit';
     else if(productContainer.classList.contains('shopify-product-form')) location = 'pdp';
@@ -46,10 +47,16 @@ function variantUpdateProcess(target) {
     let option = false,
         selector = `option`;
     if(location == 'unit' && options.length > 1) {
-        selector += `[data-option1="${options[0]}"]`;
+        if (hasSizeSelector) {
+            const optionSize = productContainer.querySelector('.product-unit__sizes .size-swatch.selected').dataset.title;
+            selector += `[data-option1="${options[0]}"][data-option2="${optionSize}"]`;
+        } else {
+            selector += `[data-option1="${options[0]}"]`;
+        }
         option = select.querySelector(selector + '[data-available="true"]');
-        if(!option) option = select.querySelector(selector);
-        else {
+        if(!option) {
+            option = select.querySelector(selector)
+        } else {
             options[1] = option.getAttribute('data-option2');
         }
     } else {
