@@ -261,7 +261,7 @@
         ],
         "settings": {
           "shop-menu": "mothers-day-menu",
-          "sale_link": "",
+          "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
