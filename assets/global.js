@@ -179,6 +179,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     let tags = product.tags;
     if(typeof tags == 'string') tags = tags.split(', ');
     let colorIndex = false;
+    let sizeIndex = false;
     let groups = [], hide = [];
     let finalSale = [];
     let collection = false,
@@ -187,6 +188,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         earlyAccessVar = target.hasAttribute('data-early-access')?handleize(target.getAttribute('data-early-access')):false;
 
     if(isProductUnit) collection = target.getAttribute('data-collection');
+
+    if(target.hasAttribute('data-early-access')) earlyAccess = target.getAttribute('data-early-access');
+    const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
 
     tags.forEach(tag => {
         let tg = handleize(tag);
@@ -237,9 +241,14 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;
         if( optionName.toLowerCase().trim() == 'color' ) colorIndex = i;
+        if( optionName.toLowerCase().trim() == 'size' ) sizeIndex = i;
     }
 
     let colors = {
+        _count: 0
+    };
+
+    let sizes = {
         _count: 0
     };
 
@@ -375,6 +384,30 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 };
 
                 colors._count++
+            }
+        }
+
+        if (hasSizeSelector) {
+            let sizeOption = false;
+            if(sizeIndex === 0) sizeOption = opt1;
+            else if(sizeIndex === 1 && opt2 != false) sizeOption = opt2;
+
+            if(sizeOption !== false) {
+
+                if(sizeOption in sizes) {
+                    if(sizes[sizeOption].available === false && available === true) sizes[sizeOption].available = true;
+                    if(sizes[sizeOption].selected === false && selected === true) sizes[sizeOption].selected = true;
+                } else {
+                    
+                    sizes[sizeOption] = {
+                        available: available,
+                        selected: selected,
+                        title: variant.option2,
+                        first_variant_id: variant.id,
+                        first_variant_price: variant.price
+                    };
+                    sizes._count++
+                }
             }
         }
 
@@ -563,6 +596,53 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         swatches.appendChild(el);
     }
 
+    // If sizes wrapper
+
+    if (hasSizeSelector) {
+
+        let currentSize = false;
+        const selects = target.querySelector('.product-unit__sizes');
+        const sizesContainer = selects.querySelector('.sizes-container');
+
+        for (const size in sizes) {
+            if(size == '_count') continue;
+    
+            let el = document.createElement('a');
+            el.setAttribute('href', '#');
+            el.classList.add('size-swatch');
+            el.classList.add('size-' + size);
+            el.setAttribute('title', sizes[size].title);
+            el.setAttribute('data-title', size);
+            el.value = size;
+            el.setAttribute('data-first-variant-id', sizes[size].first_variant_id);
+
+            if (target.querySelector('.product-unit__select--seleted').innerHTML.trim() == '') {
+                el.classList.add('selected');
+                target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
+            }
+
+            if(sizes[size].available === false) el.classList.add('product-option--na');
+    
+            if(sizes[size].selected === true) {
+                el.classList.add('size-swatch--active');
+                currentSize = sizes[size].title;
+                if(!variantAutoSelected) el.classList.add('size-swatch--first');
+            }
+    
+            if(sizes[size].available === false && sizes[size].selected === true) target.classList.add('product-unit--na');
+
+            el.innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
+
+            sizesContainer.appendChild(el);
+            
+        }
+
+        if (sizes._count <= 1) {
+            selects.parentNode.classList.add('hide')
+        }
+        
+    }  
+
     if(isProductUnit && currentColor) {
         let colorValue = document.createElement('div');
         colorValue.classList.add('color-swatch__value');
@@ -624,6 +704,35 @@ function closeAllDropdowns() {
 }
 
 window.addEventListener("click", async (e) => {
+
+    if(e.target.classList.contains('size-swatch')) {
+        e.preventDefault();
+
+        if(typeof variantUpdateProcess == 'undefined') {
+            await loadScript(scripts.variants);
+        }
+
+        const thisSize = e.target.querySelectorAll('span')[0].innerHTML;
+        const thisPrice = e.target.querySelectorAll('span')[1].innerHTML;
+        const sizesContainer = e.target.parentNode.querySelectorAll('.size-swatch');
+        const variantSelector = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.variant-select');
+        const selectedContainer = e.target.parentNode.parentNode.parentNode.querySelector('label');
+        const componentContainer = e.target.parentNode.parentNode.parentNode.querySelector('input[type="checkbox"]');
+        const colorContainer = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors');
+        const colorTarget = colorContainer.querySelector('.product-unit__colors .color-swatch--active');
+        componentContainer.checked = false;
+        selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
+        sizesContainer.forEach(element => element.classList.remove('selected'));
+        e.target.classList.add('selected');
+        variantUpdateProcess(colorTarget);
+        colorContainer.querySelectorAll('.color-swatch').forEach( color => {    
+            const option = variantSelector.querySelector(`[data-option1="${color.dataset.value}"][data-option2="${e.target.dataset.title}"]`);
+            option.dataset.available == 'true' 
+                ? color.classList.remove('product-option--na')
+                : color.classList.add('product-option--na');
+        });
+    }
+
     if(e.target.classList.contains('color-swatch')) {
         e.preventDefault();
         if(typeof variantUpdateProcess == 'undefined') {
