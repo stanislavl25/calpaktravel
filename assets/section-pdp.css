@@ -682,8 +682,8 @@
     }
 }
 
-/*changed max-width from 900px to 1200px*/
-@media (max-width: 1200px) {
+/*changed max-width from 900px to 1120px*/
+@media (max-width: 1120px) {
 
     .pdp__arrival b {
         display: block;
