@@ -13,11 +13,11 @@
                 {% endif %}
         {% endcase %}
         <div class="collection-image-banner-text-wrapper">
-            <p class="collection-image-banner-text">
+            <h1 class="collection-image-banner-text">
                 {% if section.settings.summer-arrivals-banner-text != blank %}
                     {{- section.settings.summer-arrivals-banner-text -}}
                 {% endif %}
-            </p>
+            </h1>
         </div>
     </div>
     <div class="collection-filters__control collection-filter-with-banner">
@@ -171,10 +171,10 @@
     <script>
         const changeFiltersLocation = (e) => {
             
-            const sortView = document.querySelector('.collection-view');
-            const sortColor = document.querySelector('.collection-filters__control');
-            const oldFilter = document.querySelector('.collection-filters-not-banner');
-            const oldSectionFilter = document.querySelector('.collection-filters__section');
+            const sortView = document.querySelector('.collection-filters__section .collection-view');
+            const sortColor = document.querySelector('.collection-filters__section .collection-filters__control');
+            const oldFilter = document.querySelector('.collection-filters__section .collection-filters-not-banner');
+            const oldSectionFilter = document.querySelector('.collection-filters__section .collection-filters__section');
             if (document.body.clientWidth > 600) {
                 sortColor.classList.add('visibility-hidden');
                 sortView.classList.add('visibility-hidden');
