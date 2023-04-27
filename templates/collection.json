@@ -503,11 +503,32 @@
             "row-mob": 2
           }
         },
-        "93958757-d99e-40ac-9681-c941a84f5e13": {
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
           "type": "module",
           "settings": {
             "pictured_link": true,
             "row": 1,
+            "column": 5,
+            "col_span": 1,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
+            "product_title": "Ambeur",
+            "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "93958757-d99e-40ac-9681-c941a84f5e13": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 2,
             "column": 1,
             "col_span": 2,
             "row_span": 1,
@@ -524,12 +545,67 @@
             "video-ratio-h": "9",
             "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
+        },
+        "22881909-1257-4d1c-87e6-3506c294f4e4": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 3,
+            "column": 4,
+            "col_span": 2,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "pictured_product": "shopify:\/\/products\/jewelry-case",
+            "product_title": "Jewlery Case",
+            "image": "shopify:\/\/shop_images\/COMPAKT_SHOE_BAG_ALL_LIFESTYLE3.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "cf9914ea-723b-48aa-9c74-ab2a44489463": {
+          "type": "modular-section",
+          "settings": {
+            "pictured_link": true,
+            "gap": 10,
+            "section_height": 70,
+            "row": 4,
+            "column": 1,
+            "col_span": 5,
+            "row_span": 1,
+            "target_link": "shopify:\/\/products\/astyll-medium-luggage",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/astyll-medium-luggage",
+            "product_title": "Astyll Medium Luggage",
+            "image": "shopify:\/\/shop_images\/AO2A7747-3.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "target_link_r": "",
+            "title_r": "",
+            "description_r": "",
+            "button-text_r": "",
+            "pictured_product_r": "",
+            "product_title_r": "",
+            "video_r": "",
+            "video-ratio-w_r": "16",
+            "video-ratio-h_r": "9"
+          }
         }
       },
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
-        "93958757-d99e-40ac-9681-c941a84f5e13"
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
+        "93958757-d99e-40ac-9681-c941a84f5e13",
+        "22881909-1257-4d1c-87e6-3506c294f4e4",
+        "cf9914ea-723b-48aa-9c74-ab2a44489463"
       ],
       "settings": {
         "wishlist": true,
