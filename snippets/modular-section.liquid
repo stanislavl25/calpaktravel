@@ -1,0 +1,134 @@
+<style>
+    .wrap--{{ block.id }} {
+        grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
+        grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
+        display:flex;
+        gap:{{ block.settings.gap }}px;
+    }
+</style>
+<section class="modular-section__wrap wrap--{{ block.id }}">
+<div class="modular-section content-block block_id--{{ block.id }} block-left">
+        {%- if block.settings.description != blank or block.settings.title != blank -%}
+        <div class="content-block__info">
+            {%- if block.settings.title != blank -%}
+            <div class="content-block__title">
+                {%- if block.settings.target_link != blank -%}
+                <a href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
+                {%- else -%}
+                {{- block.settings.title | escape -}}
+                {%- endif -%}
+            </div>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+            <div class="content-block__description">
+                {{- block.settings.description -}}
+            </div>
+            {%- endif -%}
+        </div>
+        {%- endif -%}
+
+        <div class="content-block__media">
+            {%- liquid
+                if block.settings.target_link != blank
+                    echo '<a href="' | append: block.settings.target_link | append: '">'
+                endif
+
+                if block.settings.video != blank
+                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+
+                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
+                else
+                    if block.settings.image_mobile != blank and block.settings.image != blank
+                        render 'image' with block.settings.image, lazy: true, sizes: size, class: 'hide-small'
+                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
+                    elsif block.settings.image != blank
+                        render 'image' with block.settings.image, height:block.settings.section_height, lazy: true, sizes: size
+                    elsif block.settings.image_mobile != blank
+                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size
+                    endif
+                endif
+
+                if block.settings.target_link != blank
+                    echo '</a>'
+                endif
+            -%}
+        </div>
+
+        {%- if block.settings.button-text != blank -%}
+        <div class="floating-link">
+            <a href="{{ block.settings.target_link }}" class="button button--secondary">
+                <span>{{- block.settings.button-text | escpe -}}</span>
+            </a>
+
+            {% if block.settings.product_title != blank %}
+            <div class="floating-link__pictured">
+                Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+            </div>
+            {% endif %}
+        </div>
+        {%- endif -%}
+    </div>
+<div class="modular-section content-block block_id--{{ block.id }} block-right">
+        {%- if block.settings.description_r != blank or block.settings.title_r != blank -%}
+        <div class="content-block__info">
+            {%- if block.settings.title_r != blank -%}
+            <div class="content-block__title">
+                {%- if block.settings.target_link_r != blank -%}
+                <a href="{{ block.settings.target_link_r }}">{{- block.settings.title_r | escape -}}</a>
+                {%- else -%}
+                {{- block.settings.title_r | escape -}}
+                {%- endif -%}
+            </div>
+            {%- endif -%}
+
+            {%- if block.settings.description_r != blank -%}
+            <div class="content-block__description">
+                {{- block.settings.description_r -}}
+            </div>
+            {%- endif -%}
+        </div>
+        {%- endif -%}
+
+        <div class="content-block__media">
+            {%- liquid
+                if block.settings.target_link_r != blank
+                    echo '<a href="' | append: block.settings.target_link_r | append: '">'
+                endif
+
+                if block.settings.video_r != blank
+                    assign ratio = block.settings.video-ratio-w_r | append: '/' | append: block.settings.video-ratio-h_r
+
+                    render 'video' with block.settings.video_r, poster: block.settings.image_r, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
+                else
+                    if block.settings.image_mobile_r != blank and block.settings.image_r != blank
+                        render 'image' with block.settings.image_r, lazy: true, sizes: size, class: 'hide-small'
+                        render 'image' with block.settings.image_mobile_r, lazy: true, sizes: size, class: 'hide-large'
+                    elsif block.settings.image_r != blank
+                        render 'image' with block.settings.image_r, height:block.settings.section_height, lazy: true, sizes: size
+                    elsif block.settings.image_mobile_r != blank
+                        render 'image' with block.settings.image_mobile_r, lazy: true, sizes: size
+                    endif
+                endif
+
+                if block.settings.target_link != blank
+                    echo '</a>'
+                endif
+            -%}
+        </div>
+
+        {%- if block.settings.button-text != blank -%}
+        <div class="floating-link">
+            <a href="{{ block.settings.target_link }}" class="button button--secondary">
+                <span>{{- block.settings.button-text | escpe -}}</span>
+            </a>
+
+            {% if block.settings.product_title != blank %}
+            <div class="floating-link__pictured">
+                Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+            </div>
+            {% endif %}
+        </div>
+        {%- endif -%}
+    </div>
+</section
