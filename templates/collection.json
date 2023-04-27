@@ -567,7 +567,7 @@
           "settings": {
             "pictured_link": true,
             "row": 3,
-            "mobile_row": 1,
+            "mobile_row": 5,
             "column": 4,
             "col_span": 2,
             "row_span": 1,
@@ -589,7 +589,7 @@
           "settings": {
             "pictured_link": true,
             "row": 5,
-            "mobile_row": 6,
+            "mobile_row": 7,
             "column": 1,
             "col_span": 3,
             "row_span": 1,
@@ -611,7 +611,7 @@
           "settings": {
             "pictured_link": true,
             "row": 6,
-            "mobile_row": 7,
+            "mobile_row": 9,
             "column": 3,
             "col_span": 3,
             "row_span": 1,
@@ -635,6 +635,7 @@
             "gap": 10,
             "section_height": 70,
             "row": 4,
+            "mobile_row": 11,
             "column": 1,
             "col_span": 5,
             "row_span": 1,
