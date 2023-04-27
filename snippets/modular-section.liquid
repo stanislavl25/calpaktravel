@@ -8,15 +8,15 @@
     @media screen and (max-width:900px){
         .wrap--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
-            grid-column: {{ block.settings.column }} / span 3;
+            grid-column: 1 / span 3;
             display:flex;
             flex-direction:column;
         }
     }
     @media screen and (max-width:649px){
         .wrap--{{ block.id }} {
-            grid-row: {{ block.settings.row }} / span 1;
-            grid-column: {{ block.settings.column }} / span 2;
+            grid-row: {{ block.settings.mobile_row }} / span 1;
+            grid-column: 1 / span 2;
         }
     }
 </style>
