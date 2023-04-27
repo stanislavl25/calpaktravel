@@ -467,6 +467,28 @@
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 1,
+            "mobile_row": 1,
+            "column": 5,
+            "col_span": 1,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
+            "product_title": "Ambeur",
+            "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
           "disabled": true,
@@ -487,6 +509,29 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
+          }
+        },
+        "93958757-d99e-40ac-9681-c941a84f5e13": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 2,
+            "mobile_row": 3,
+            "column": 1,
+            "col_span": 2,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/compakt-tote-bag",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/compakt-tote-bag",
+            "product_title": "Compakt Tote Bag",
+            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
@@ -516,51 +561,6 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
-          }
-        },
-        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 1,
-            "mobile_row": 1,
-            "column": 5,
-            "col_span": 1,
-            "row_span": 1,
-            "min_height_mobile": 280,
-            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
-            "title": "",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
-            "product_title": "Ambeur",
-            "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
-          }
-        },
-        "93958757-d99e-40ac-9681-c941a84f5e13": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 2,
-            "mobile_row": 3,
-            "column": 1,
-            "col_span": 2,
-            "row_span": 1,
-            "min_height_mobile": 280,
-            "target_link": "shopify:\/\/products\/compakt-tote-bag",
-            "title": "",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/compakt-tote-bag",
-            "product_title": "Compakt Tote Bag",
-            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
         },
         "22881909-1257-4d1c-87e6-3506c294f4e4": {
@@ -607,28 +607,6 @@
             "video-ratio-h": "9"
           }
         },
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 6,
-            "mobile_row": 9,
-            "column": 3,
-            "col_span": 3,
-            "row_span": 1,
-            "min_height_mobile": 280,
-            "target_link": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
-            "title": "",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/car-organizer",
-            "product_title": "Car Organizer",
-            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
-          }
-        },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
           "type": "modular-section",
           "settings": {
@@ -662,21 +640,76 @@
             "video-ratio-w_r": "1",
             "video-ratio-h_r": "1"
           }
+        },
+        "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 6,
+            "mobile_row": 9,
+            "column": 3,
+            "col_span": 3,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/car-organizer",
+            "product_title": "Car Organizer",
+            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "abec5b12-8c9b-421f-b544-9298823c4160": {
+          "type": "modular-section",
+          "settings": {
+            "pictured_link": true,
+            "gap": 10,
+            "section_height": 70,
+            "row": 3,
+            "mobile_row": 1,
+            "column": 1,
+            "col_span": 5,
+            "row_span": 1,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "target_link_r": "",
+            "title_r": "",
+            "description_r": "",
+            "button-text_r": "",
+            "pictured_product_r": "",
+            "product_title_r": "",
+            "video_r": "",
+            "video-ratio-w_r": "16",
+            "video-ratio-h_r": "9"
+          }
         }
       },
       "block_order": [
-        "b401a37d-55aa-49b7-b987-45893897281b",
-        "64e7da40-e05d-412d-809b-024b8aa13efb",
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
+        "b401a37d-55aa-49b7-b987-45893897281b",
         "93958757-d99e-40ac-9681-c941a84f5e13",
+        "64e7da40-e05d-412d-809b-024b8aa13efb",
         "22881909-1257-4d1c-87e6-3506c294f4e4",
         "aea27576-7ef1-4bea-a766-642569b8c192",
+        "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "2b60dc18-50f2-4c56-99ee-1694268aa83b",
-        "cf9914ea-723b-48aa-9c74-ab2a44489463"
+        "abec5b12-8c9b-421f-b544-9298823c4160"
       ],
       "settings": {
         "wishlist": true,
-        "quickview": true,
+        "quickview": false,
         "row_gap": 40,
         "column_gap": 10,
         "collection_list": [
