@@ -665,6 +665,7 @@
         },
         "abec5b12-8c9b-421f-b544-9298823c4160": {
           "type": "modular-section",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "gap": 10,
