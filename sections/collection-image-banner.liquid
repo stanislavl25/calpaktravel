@@ -1,0 +1,243 @@
+{% if section.settings.summer-arrivals-banner-enabled %}
+    <div class="collection-image-banner-wrapper">
+        {% case section.settings.summer-arrivals-media-type %}  
+            {% when 'video' %}
+                {% if section.settings.summer-arrivals-banner-video %}
+                    <video autoplay muted loop class="collection-image-banner-video">
+                        <source src="{{- section.settings.summer-arrivals-banner-video.sources[1].url -}}" type="video/mp4">
+                    </video>
+                {% endif %}
+            {% when 'image' %}
+                {% if section.settings.summer-arrivals-banner-image %}
+                    <img class="collection-image-banner-image" src="{{- section.settings.summer-arrivals-banner-image | img_url: '4096x4096' -}}" alt="Summer Arrivals Cover Image">
+                {% endif %}
+        {% endcase %}
+        <div class="collection-image-banner-text-wrapper">
+            <p class="collection-image-banner-text">
+                {% if section.settings.summer-arrivals-banner-text != blank %}
+                    {{- section.settings.summer-arrivals-banner-text -}}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    <div class="collection-filters__control collection-filter-with-banner ">
+        <div class="collection-filter__activators">
+            <button id="filter__activator--sort-banner" aria-controls="collection-filters" aria-label="Sort product list" class="filter__activator filter__activator--sort">
+                Sort by <i></i>
+            </button>
+    
+            <button id="filter__activator--color-banner" aria-controls="collection-filters" aria-label="Filter products by color" class="filter__activator filter__activator--color">
+                Color <i></i>
+            </button>
+        </div>
+        <div class="collection-view">
+            <span class="col-view__text">View</span>
+            <button aria-label="Show less products in one row" aria-current="false" class="col-view__button col-view__button--less">
+                <span class="mobile-only">1</span>
+                <span class="tablet-only">2</span>
+                <span class="desktop-only">3</span>
+            </button>
+            <button aria-label="Fit more products in one row" aria-current="true" class="col-view__button col-view__button--more">
+                <span class="mobile-only">2</span>
+                <span class="tablet-only">3</span>
+                <span class="desktop-only">5</span>
+            </button>
+        </div>
+    </div>
+    {%- render 'collection-filters', banner: true -%}
+
+    <style>
+        .shopify-section--collection-image-banner.banner-active {
+            height: calc({{ section.settings.summer-arrivals-banner-media-height }}px + 297px);
+        }
+        .shopify-section--collection-image-banner {
+            width: 100%;
+            display: flex;
+            margin-top: 50px;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            height: calc({{ section.settings.summer-arrivals-banner-media-height }}px + 75px);
+        }
+
+        .collection-image-banner-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            
+            /* CUSTOMIZER GIVEN CSS*/
+            height: {{ section.settings.summer-arrivals-banner-media-height }}px;
+        }
+
+        .collection-image-banner-video,
+        .collection-image-banner-image {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            height: {{ section.settings.summer-arrivals-banner-media-height }}px;
+        }
+        .collection-image-banner-text-wrapper {
+            position: absolute;
+            z-index: 10;
+            padding-inline: 38px;
+            padding-block: 4px;
+            border-radius: 9px;
+            
+            /* CUSTOMIZER GIVEN CSS*/
+            background: {{ section.settings.summer-arrivals-banner-text-background-color }};
+            color: {{ section.settings.summer-arrivals-banner-text-color }};
+        }
+
+        .collection-image-banner-text {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 85px;
+            line-height: 109px;
+            text-align: center;
+            letter-spacing: -0.02em;
+            
+            color: {{ section.settings.summer-arrivals-banner-text-color }};
+        }
+
+        .collection-filter-with-banner {
+            font-size: 16px;
+            line-height: 1.25em;
+            font-family: var(--font-body-family);
+            font-style: var(--font-body-style);
+            font-weight: var(--font-body-weight);
+            box-sizing: inherit;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .collection-filter-with-banner {
+            font-size: 16px;
+            line-height: 1.25em;
+            font-family: var(--font-body-family);
+            font-style: var(--font-body-style);
+            font-weight: var(--font-body-weight);
+            box-sizing: inherit;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            height: 75px;
+            width: 100%;
+            margin-inline: 18px;
+            padding-block: 18px;
+        }
+        
+        .collection-filters-banner.collection-filters--active {
+            top: unset;
+            bottom: 0;
+        }
+    </style>
+
+    <script>
+        const changeFiltersLocation = (e) => {
+            
+            const sortView = document.querySelector('.collection-view');
+            const sortColor = document.querySelector('.collection-filters__control');
+            const oldFilter = document.querySelector('.collection-filters-not-banner');
+            const oldSectionFilter = document.querySelector('.collection-filters__section');
+
+            sortColor.classList.add('visibility-hidden');
+            sortView.classList.add('visibility-hidden');
+            oldSectionFilter.classList.add('d-none');
+            oldFilter.remove();
+        };
+
+        
+
+        document.addEventListener("DOMContentLoaded", changeFiltersLocation);
+        document.addEventListener("shopify:section:load", changeFiltersLocation);
+
+    </script>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Cover Image Banner",
+        "class": "shopify-section--collection-image-banner",
+        "presets": [
+            {
+                "name": "Summer Arrivals Cover Image Banner"
+            }
+        ],
+        "settings": [
+            {
+                "type": "header",
+                "content": "Settings"
+            },
+            {
+                "type": "checkbox",
+                "id": "summer-arrivals-banner-enabled",
+                "label": "Summer Arrivals Banner Enabled",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "summer-arrivals-banner-text",
+                "label": "Central Banner Text"
+            },
+            {
+                "type": "select",
+                "id": "summer-arrivals-media-type",
+                "label": "Cover Media Type",
+                "options": [
+                    {
+                        "value": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "value": "video",
+                        "label": "Video"
+                    }
+                ],
+                "default": "image"
+            },
+            {
+                "type": "image_picker",
+                "id": "summer-arrivals-banner-image",
+                "label": "Cover Image for Banner",
+                "info": "Only applies if Image is the Cover Media Type Selected"
+            },
+            {
+                "type": "video",
+                "id": "summer-arrivals-banner-video",
+                "label": "Cover Video for Banner",
+                "info": "Only applies if Video is the Cover Media Type Selected"
+            },
+            {
+                "type": "number",
+                "id": "summer-arrivals-banner-media-height",
+                "label": "Cover Media Height on Desktop in pixels",
+                "default": 500
+            },
+            {
+                "type": "number",
+                "id": "summer-arrivals-banner-media-height-mobile",
+                "label": "Cover Media Height on Mobile in pixels",
+                "default": 300
+            },
+            {
+                "type": "color",
+                "id": "summer-arrivals-banner-text-color",
+                "label": "Central Banner Text Color",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "summer-arrivals-banner-text-background-color",
+                "label": "Central Banner Text Background Color",
+                "default": "#FFF"
+            }
+        ]
+    
+    }
+{% endschema %}

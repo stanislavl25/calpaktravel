@@ -18,6 +18,7 @@
     padding: 0 var(--gap);
     border-radius: 0 0 9px 9px;
     padding-top: 11px;
+    z-index: 20;
 }
 
 .collections-menu {
