@@ -50,7 +50,7 @@
                     render 'video' with block.settings.video, poster: block.settings.image, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
                 else
                     if block.settings.image_mobile != blank and block.settings.image != blank
-                        render 'image' with block.settings.image, lazy: true, sizes: size, class: 'hide-small'
+                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
                         render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
                     elsif block.settings.image != blank
                         render 'image' with block.settings.image, height:0, lazy: true, sizes: size
