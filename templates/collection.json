@@ -662,39 +662,6 @@
             "video-ratio-w": "16",
             "video-ratio-h": "9"
           }
-        },
-        "abec5b12-8c9b-421f-b544-9298823c4160": {
-          "type": "modular-section",
-          "disabled": true,
-          "settings": {
-            "pictured_link": true,
-            "gap": 10,
-            "section_height": 70,
-            "row": 3,
-            "mobile_row": 1,
-            "column": 1,
-            "col_span": 5,
-            "row_span": 1,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "button-text": "",
-            "pictured_product": "",
-            "product_title": "",
-            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
-            "target_link_r": "",
-            "title_r": "",
-            "description_r": "",
-            "button-text_r": "",
-            "pictured_product_r": "",
-            "product_title_r": "",
-            "video_r": "",
-            "video-ratio-w_r": "16",
-            "video-ratio-h_r": "9"
-          }
         }
       },
       "block_order": [
@@ -705,8 +672,7 @@
         "22881909-1257-4d1c-87e6-3506c294f4e4",
         "aea27576-7ef1-4bea-a766-642569b8c192",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b",
-        "abec5b12-8c9b-421f-b544-9298823c4160"
+        "2b60dc18-50f2-4c56-99ee-1694268aa83b"
       ],
       "settings": {
         "wishlist": true,
