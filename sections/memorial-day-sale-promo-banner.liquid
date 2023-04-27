@@ -56,6 +56,23 @@
         font-size: 50px;
         font-weight: 400;
     }
+
+    @media (max-width: 900px) {
+        div.product-label.product-label--memorial-day {
+            flex-direction: column;
+            height: 153px;
+            width: calc(100% - 22px);
+            padding-inline: 8px;
+            justify-content: center;
+
+        }
+        div.product-label.product-label--memorial-day .countdown-timer span,
+        div.product-label.product-label--memorial-day label {
+            font-size: 36px;
+            line-height: 51.28px;
+            text-align: center;
+        }
+    }
 </style>
 {%schema%}
     {
