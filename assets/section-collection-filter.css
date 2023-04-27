@@ -5,7 +5,7 @@
 .collection-filters__section {
     position: sticky;
     top: 42px;
-    z-index: 9;
+    z-index: 20;
     background: #fff;
 }
 
@@ -400,6 +400,7 @@
         bottom: 0;
         top: auto;
         padding: 0;
+        z-index: 20;
     }
     
     .collection-filters__inner {

@@ -20,7 +20,7 @@
             </p>
         </div>
     </div>
-    <div class="collection-filters__control collection-filter-with-banner ">
+    <div class="collection-filters__control collection-filter-with-banner">
         <div class="collection-filter__activators">
             <button id="filter__activator--sort-banner" aria-controls="collection-filters" aria-label="Sort product list" class="filter__activator filter__activator--sort">
                 Sort by <i></i>
@@ -136,6 +136,36 @@
             top: unset;
             bottom: 0;
         }
+
+        @media (max-width: 600px) {
+            .shopify-section--collection-image-banner,
+            .shopify-section--collection-image-banner.banner-active {
+                height: {{ section.settings.summer-arrivals-banner-media-height-mobile }}px;
+            }
+
+            .collection-image-banner-wrapper {
+                height: {{ section.settings.summer-arrivals-banner-media-height-mobile }}px;
+            }
+    
+            .collection-image-banner-video,
+            .collection-image-banner-image {
+                height: {{ section.settings.summer-arrivals-banner-media-height-mobile }}px;
+            }
+            .collection-image-banner-text-wrapper {
+                padding-inline: 14px;
+                padding-block: 11px;
+            }
+            .collection-image-banner-text {
+                font-size: 40px;
+                line-height: 35px;
+
+                text-align: center;
+                letter-spacing: -0.02em;
+            }
+            .collection-filters__control.collection-filter-with-banner {
+                display: none;
+            }
+        }
     </style>
 
     <script>
@@ -145,11 +175,12 @@
             const sortColor = document.querySelector('.collection-filters__control');
             const oldFilter = document.querySelector('.collection-filters-not-banner');
             const oldSectionFilter = document.querySelector('.collection-filters__section');
-
-            sortColor.classList.add('visibility-hidden');
-            sortView.classList.add('visibility-hidden');
-            oldSectionFilter.classList.add('d-none');
-            oldFilter.remove();
+            if (document.body.clientWidth > 600) {
+                sortColor.classList.add('visibility-hidden');
+                sortView.classList.add('visibility-hidden');
+                oldSectionFilter.classList.add('d-none');
+                oldFilter.remove();
+            }
         };
 
         
