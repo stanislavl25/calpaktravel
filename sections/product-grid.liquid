@@ -19,7 +19,7 @@
         {% for collection_item in section.settings.collection_list %}
             {% if collection_item.handle == collection.handle %}
                 <style>
-                .modular-block {
+                .modular-block, .modular-section__wrap {
                     display:flex;
                 }
                 </style>
@@ -27,8 +27,8 @@
         {% endfor %}
     {% else %}
         <style>
-            .modular-block {
-                display:flex;
+            .modular-block, .modular-section__wrap {
+               display:flex;
             }
         </style>
     {% endif %}
@@ -286,6 +286,12 @@
                         "content": "Display rules"
                     },
                     {
+                    "type": "checkbox",
+                    "id": "pictured_link",
+                    "label": "Pictured product link to quick view",
+                    "default": true
+                    },
+                    {
                     "type": "number",
                     "id": "row",
                     "label": "Row position",
@@ -308,6 +314,13 @@
                     "id": "row_span",
                     "label": "Height (rows)",
                     "default": 1
+                    },
+                    {
+                    "type": "number",
+                    "id": "min_height_mobile",
+                    "label": "Mobile height (px)",
+                    "default": 280,
+                    "info": "Height of the block on mobile devices"
                     },
                     {
                         "type": "header",
@@ -391,6 +404,12 @@
                 "name": "Modular Section",
                 "settings": [  
                     {
+                    "type": "checkbox",
+                    "id": "pictured_link",
+                    "label": "Pictured product link to quick view",
+                    "default": true
+                    },
+                    {
                     "type": "range",
                     "id": "gap",
                     "min": 0,
@@ -407,7 +426,7 @@
                     "max": 200,
                     "step": 10,
                     "unit": "%",
-                    "label": "Font size",
+                    "label": "Section height",
                     "default": 70
                     },
                     {
@@ -424,13 +443,13 @@
                     "type": "number",
                     "id": "column",
                     "label": "Column position",
-                    "default": 1
+                    "default": 3
                     },
                     {
                     "type": "number",
                     "id": "col_span",
                     "label": "Width (columns)",
-                    "default": 2
+                    "default": 5
                     },
                     {
                     "type": "number",

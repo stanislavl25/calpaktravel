@@ -1,8 +1,20 @@
-
 <style>
     .block_id--{{ block.id }} {
         grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
+    }
+    @media screen and (max-width:900px){
+        .block_id--{{ block.id }} {
+            grid-row: {{ block.settings.row }} / span 1;
+            grid-column: {{ block.settings.column }} / span 2;
+        }
+    }
+    @media screen and (max-width:649px){
+        .block_id--{{ block.id }} {
+            grid-row: {{ block.settings.row }} / span 1;
+            grid-column: {{ block.settings.column }} / span 2;
+            min-height: {{ block.settings.min_height_mobile }}px;
+        }
     }
 </style>
 <div class="modular-block content-block block_id--{{ block.id }}">
@@ -11,7 +23,7 @@
             {%- if block.settings.title != blank -%}
             <div class="content-block__title">
                 {%- if block.settings.target_link != blank -%}
-                <a href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
+                <a class="" href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
                 {%- else -%}
                 {{- block.settings.title | escape -}}
                 {%- endif -%}
@@ -61,7 +73,7 @@
 
             {% if block.settings.product_title != blank %}
             <div class="floating-link__pictured">
-                Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+                Pictured: <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
             </div>
             {% endif %}
         </div>
