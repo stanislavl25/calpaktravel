@@ -27,6 +27,19 @@
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
+    "c73bb04c-639e-4668-8e33-3a9e76dad60e": {
+      "type": "collection-image-banner",
+      "settings": {
+        "summer-arrivals-banner-enabled": true,
+        "summer-arrivals-banner-text": "Summer Arrivals",
+        "summer-arrivals-media-type": "image",
+        "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2.jpg",
+        "summer-arrivals-banner-media-height": 500,
+        "summer-arrivals-banner-media-height-mobile": 300,
+        "summer-arrivals-banner-text-color": "#000",
+        "summer-arrivals-banner-text-background-color": "#FFF"
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -666,6 +679,7 @@
   },
   "order": [
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
+    "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"
