@@ -10,22 +10,22 @@
     "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
     "sale-text-col-mixed": "Up to %% off",
-    "flash-sale-enabled": false,
-    "flash-sale-tag": "Final Sale",
+    "flash-sale-enabled": true,
+    "flash-sale-tag": "",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "Apr 14 2023, 6am",
-    "flash-sale-ends": "Apr 18 2023, 2:45pm",
+    "flash-sale-starts": "Apr 25 2023, 00:00am",
+    "flash-sale-ends": "Apr 25 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
-    "sale-badge-tag": "mothers-day",
-    "sale-badge-text": "Mother's Day Promo",
+    "badge_display": "both",
+    "sale-badge-tag": "",
+    "sale-badge-text": "Memorial Day Sale",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
-    "sale-msg-pdp-only": true,
-    "sale-msg-tag": "mothers-day",
-    "sale-msg-highlighted": "Code: MOM15",
-    "sale-msg-message": "Buy 2+ eligible items and get 15% OFF",
+    "sale-msg-tag": "Final Sale",
+    "sale-msg-highlighted": "Mother's Day",
+    "sale-msg-message": "Buy 2+ eligible products and get 15% OFF using code MOSTLOVED.",
     "sale-msg-main-col-text": "#707070",
     "type_body_font": "futura_n4",
     "type_body_font_bolder": "futura_n5",
@@ -59,7 +59,6 @@
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -77,16 +76,17 @@
           },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/mothers-day",
-              "block-title": "Buy 2 items (or more), get 15% OFF",
+              "button-url": "shopify:\/\/products\/starter-bundle",
+              "block-title": "",
               "description": "",
-              "button-text": "Shop Mother's Day",
+              "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/210818_CALPAK_Holiday_29917_Hi-2.jpg",
+              "image": "shopify:\/\/shop_images\/Group_3545.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -260,12 +260,12 @@
           "4709c5e0-9817-40ec-94f6-ceec21bc54fd"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false
+          "live": true
         }
       },
       "footer": {
@@ -507,7 +507,7 @@
               "link": "shopify:\/\/collections\/all",
               "media-title": "",
               "description": "",
-              "button-text": "Buy 2+ items, get 15% off",
+              "button-text": "Shop All",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
@@ -600,7 +600,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -616,40 +616,22 @@
               "image": "shopify:\/\/shop_images\/COMPAKT-SMALL-GARMENT-BAG-ORCHID-LIFESTYLE1.jpg",
               "title": "Gift with purchase",
               "description": "Included with any purchase above $110",
-              "gwp-collection": "2-piece-luggage-sets",
+              "gwp-collection": "accessories",
               "gwp-products": [
 
               ],
               "gwp-any-ex-gift": false,
               "threshold": 110,
-              "gwp-number": "2"
-            }
-          },
-          "3f948b59-6e03-4691-b1b4-bdfc944cf13c": {
-            "type": "gwp-product",
-            "disabled": true,
-            "settings": {
-              "product": "silk-travel-set",
-              "image": "shopify:\/\/shop_images\/COMPAKT-ZIPPERED-POUCH-SET-PINK-GRID-LIFESTYLE1.jpg",
-              "title": "FREE GIFT",
-              "description": "Included with any purchase in the Compakt Collection",
-              "gwp-collection": "",
-              "gwp-products": [
-
-              ],
-              "gwp-any-ex-gift": true,
-              "threshold": 0,
               "gwp-number": "1"
             }
           }
         },
         "block_order": [
-          "12991d47-4af3-4f34-9881-9386bc217d60",
-          "3f948b59-6e03-4691-b1b4-bdfc944cf13c"
+          "12991d47-4af3-4f34-9881-9386bc217d60"
         ],
         "settings": {
           "enable-gwp": false,
-          "gwp-max-number": "2"
+          "gwp-max-number": "1"
         }
       },
       "checkout-promos": {

@@ -20,10 +20,6 @@ const color_groups = {
 
 const colors_img = ["trnk-grey", "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue", "pink-grid", "green-checkerboard", "orchid-fields"];
 
-function isSafari() {
-    return navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1
-}
-
 function getColorGroup(color) {
     for(let grp in color_groups) {
         for(let i = 0; i < color_groups[grp].length; i++) {
@@ -179,45 +175,23 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     let tags = product.tags;
     if(typeof tags == 'string') tags = tags.split(', ');
     let colorIndex = false;
-    let sizeIndex = false;
     let groups = [], hide = [];
     let finalSale = [];
     let collection = false,
         collectionLimit = false,
-        earlyAccessEnabled = meta.earlyAccess,
-        earlyAccessVar = target.hasAttribute('data-early-access')?handleize(target.getAttribute('data-early-access')):false;
-
+        earlyAccess = false;
     if(isProductUnit) collection = target.getAttribute('data-collection');
-
     if(target.hasAttribute('data-early-access')) earlyAccess = target.getAttribute('data-early-access');
-    const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
 
     tags.forEach(tag => {
         let tg = handleize(tag);
-
-        if(!isProductUnit && earlyAccessEnabled && earlyAccessVar !== false) {
-            if(tag.indexOf('ea-group1:') > -1) {
-                groups[0] = tag.replace('ea-group1:', '').split(':');
-                if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
-            } else if(tag.indexOf('ea-group2:') > -1) {
-                groups[1] = tag.replace('ea-group2:', '').split(':');
-                if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
-            }
-        } else {
-            if(tag.indexOf('group1:') === 0) {
-                if(typeof groups[0] == 'undefined') {
-                    groups[0] = tag.replace('group1:', '').split(':');
-                    if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
-                }
-            } else if(tag.indexOf('group2:') === 0) {
-                if(typeof groups[1] == 'undefined') {
-                    groups[1] = tag.replace('group2:', '').split(':');
-                    if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
-                }
-            }
-        }
-
-        if(tag.indexOf('hide:') === 0) {
+        if(tag.indexOf('group1:') > -1) {
+            groups[0] = tag.replace('group1:', '').split(':');
+            if(groups[0].length > 1) groups[0][1] = groups[0][1].split(';');
+        } else if(tag.indexOf('group2:') > -1) {
+            groups[1] = tag.replace('group2:', '').split(':');
+            if(groups[1].length > 1) groups[1][1] = groups[1][1].split(';');
+        } else if(tag.indexOf('hide:') === 0) {
             let _hide = tag.replace('hide:', '').split(';');
             hide.push(..._hide);
         } else if(tag.indexOf('early-access:') === 0) {
@@ -241,14 +215,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;
         if( optionName.toLowerCase().trim() == 'color' ) colorIndex = i;
-        if( optionName.toLowerCase().trim() == 'size' ) sizeIndex = i;
     }
 
     let colors = {
-        _count: 0
-    };
-
-    let sizes = {
         _count: 0
     };
 
@@ -268,25 +237,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(hideUnavailable && !product.variants[i].available) continue;
         const opt1 = handleize(product.variants[i].option1);
         if((collectionLimit !== false && collectionLimit.indexOf(opt1) === -1) || (hide !== false && hide.indexOf(opt1) > -1)) continue;
-        
-        if(isProductUnit) {
-            if(earlyAccessEnabled) { // Apply only when product has early access enabled
-                if(earlyAccessVar == 'all'); // If collection should show all EA variants don't hide anything
-                else if(earlyAccessVar == 'only') {
-                     // Skip variant if only EA should be shown but this variant is not EA
-                    if(meta.variants[product.variants[i].id].earlyAccess !== true) continue;
-                } else if(meta.variants[product.variants[i].id].earlyAccess === true) {
-                    // Skip variant if this is not a EA collection but this variant is EA
-                    continue;
-                }
-            } else if(meta.variants[product.variants[i].id].earlyAccess === true) continue;
-        } else if(meta.variants[product.variants[i].id].earlyAccess === true) { // If current variant is an early access variant on PDP
-            if (
-                !earlyAccessEnabled // Disable variant if early access is not enabled for this PDP
-                ||
-                (earlyAccessVar != "true" && earlyAccessVar != opt1) // Disable variant if it's not the current EA variant shown
-            ) continue;
-        }
         
         availableVariants.push(product.variants[i]);
     }
@@ -347,32 +297,15 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let selected = current_variant.id == variant.id,
             available = variant.available;
 
-        let preorder = false,
-            hover = false,
-            earlyAccess = false,
-            videoInfo = false;
-        if(meta) {
-            if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
-            else if(meta.preorder) preorder = meta.preorder;
-
-            if(meta.variants[variant.id].videoInfo) videoInfo = meta.variants[variant.id].videoInfo;
-            else if(meta.videoInfo) videoInfo = meta.videoInfo;
-
-            if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
-
-            if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
-        }
-
         if(colorOption !== false) {
 
             if(colorOption in colors) {
                 if(colors[colorOption].available === false && available === true) colors[colorOption].available = true;
                 if(colors[colorOption].selected === false && selected === true) colors[colorOption].selected = true;
             } else {
-                let urlOpt1 = `${shopUrl}/products/${handle}/${earlyAccess?'early-access-':''}${colorOption}`;
+                let urlOpt1 = `${shopUrl}/products/${handle}/${colorOption}`;
                 let url;
-
-                if(opt2 != false) url = `${shopUrl}/products/${handle}/${earlyAccess?'early-access-':''}${colorOption},${handleize(current_variant.option2)}`;
+                if(opt2 != false) url = `${shopUrl}/products/${handle}/${colorOption},${handleize(current_variant.option2)}`;
                 else url = urlOpt1;
                 
                 colors[colorOption] = {
@@ -387,30 +320,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             }
         }
 
-        if (hasSizeSelector) {
-            let sizeOption = false;
-            if(sizeIndex === 0) sizeOption = opt1;
-            else if(sizeIndex === 1 && opt2 != false) sizeOption = opt2;
-
-            if(sizeOption !== false) {
-
-                if(sizeOption in sizes) {
-                    if(sizes[sizeOption].available === false && available === true) sizes[sizeOption].available = true;
-                    if(sizes[sizeOption].selected === false && selected === true) sizes[sizeOption].selected = true;
-                } else {
-                    
-                    sizes[sizeOption] = {
-                        available: available,
-                        selected: selected,
-                        title: variant.option2,
-                        first_variant_id: variant.id,
-                        first_variant_price: variant.price
-                    };
-                    sizes._count++
-                }
-            }
-        }
-
         let variantPrice = variant.price;
         let variantComparePrice = false;
         if(variant.compare_at_price && variant.compare_at_price > variant.price) variantComparePrice = variant.compare_at_price;
@@ -418,6 +327,19 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(isProductUnit) {
             if(maxPrice === false || variantPrice > maxPrice) maxPrice = variantPrice;
             if(minPrice === false || variantPrice < minPrice) minPrice = variantPrice;
+        }
+
+        let preorder = false;
+        let hover = false;
+        let videoInfo = false;
+        if(meta) {
+            if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
+            else if(meta.preorder) preorder = meta.preorder;
+
+            if(meta.variants[variant.id].videoInfo) videoInfo = meta.variants[variant.id].videoInfo;
+            else if(meta.videoInfo) videoInfo = meta.videoInfo;
+
+            if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
         }
 
         let img = false;
@@ -445,7 +367,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 ${img?`data-image="${img}"`:''}
                 data-option1="${opt1}"
                 data-option2="${opt2}"
-                ${earlyAccess?'data-early-access':''}
                 ${created?`data-created="${created}"`:''}
                 data-sku="${handleize(variant.sku)}"
                 ${hover?`data-hover="${hover}"`:''}
@@ -500,7 +421,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(!isProductUnit) {
         let swatchesCheck = [], swatchesElements = [];
-        availableVariants.forEach(variant => {
+        product.variants.forEach(variant => {
             if(swatchesCheck.indexOf(variant.option1) === -1) {
                 swatchesCheck.push(variant.option1);
                 const varHandle = handleize(variant.option1);
@@ -512,26 +433,19 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         (groups[0][1].length === 0 || groups[0][1].indexOf(varHandle) === -1) && 
                         (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1)
                     ) {
-                        if(groups.length > 1) pushGroupIndex = 1;
-                        else return;
+                        pushGroupIndex = 1;
                     }
-
-                    if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = '';
+    
+                    if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = [];
 
                     let img = '';
                     if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
 
-                    let earlyAccess = false;
-                    if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
-
-                    const url = `${shopUrl}/products/${product.handle}/${earlyAccess?'early-access-':''}${varHandle}`;
-                    let activeSwatch = (varHandle == handleize(current_variant.option1));
-
                     swatchesElements[pushGroupIndex] += `<a
-                        href="${url}"
+                        href="${shopUrl}/products/${product.handle}/${varHandle}"
                         data-value="${varHandle}"
                         title="${capitalize(variant.option1)}"
-                        class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'}">
+                        class="color-swatch color-${varHandle}${colors[varHandle].available?'':' product-option--na'}">
                             ` + img + `
                         </a>`;
                 }
@@ -548,6 +462,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             </div>`;
         }
 
+        const activeSwatch = swatchesGroupsEl.querySelector(`.color-swatch[data-value="${handleize(current_variant.option1)}"]`);
+        if(activeSwatch) activeSwatch.classList.add('color-swatch--active');
         return;
     }
 
@@ -565,11 +481,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         let el = document.createElement('a');
         
-        let url;
-        if(hasMultipleSizes) url = colors[color].url;
-        else url = colors[color].urlOpt1;
+        if(hasMultipleSizes) el.setAttribute('href', colors[color].url);
+        else el.setAttribute('href', colors[color].urlOpt1);
 
-        el.setAttribute('href', url);
         el.classList.add('color-swatch');
         if(allColors) el.classList.add('slide');
         el.classList.add('color-' + color);
@@ -582,9 +496,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
             if(!variantAutoSelected) el.classList.add('color-swatch--first');
-
-            const productLinks = target.querySelectorAll('.product-link, .quick-view__link');
-            productLinks.forEach(productLink => productLink.setAttribute('href', url));
         }
 
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
@@ -595,53 +506,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         swatches.appendChild(el);
     }
-
-    // If sizes wrapper
-
-    if (hasSizeSelector) {
-
-        let currentSize = false;
-        const selects = target.querySelector('.product-unit__sizes');
-        const sizesContainer = selects.querySelector('.sizes-container');
-
-        for (const size in sizes) {
-            if(size == '_count') continue;
-    
-            let el = document.createElement('a');
-            el.setAttribute('href', '#');
-            el.classList.add('size-swatch');
-            el.classList.add('size-' + size);
-            el.setAttribute('title', sizes[size].title);
-            el.setAttribute('data-title', size);
-            el.value = size;
-            el.setAttribute('data-first-variant-id', sizes[size].first_variant_id);
-
-            if (target.querySelector('.product-unit__select--seleted').innerHTML.trim() == '') {
-                el.classList.add('selected');
-                target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
-            }
-
-            if(sizes[size].available === false) el.classList.add('product-option--na');
-    
-            if(sizes[size].selected === true) {
-                el.classList.add('size-swatch--active');
-                currentSize = sizes[size].title;
-                if(!variantAutoSelected) el.classList.add('size-swatch--first');
-            }
-    
-            if(sizes[size].available === false && sizes[size].selected === true) target.classList.add('product-unit--na');
-
-            el.innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
-
-            sizesContainer.appendChild(el);
-            
-        }
-
-        if (sizes._count <= 1) {
-            selects.parentNode.classList.add('hide')
-        }
-        
-    }  
 
     if(isProductUnit && currentColor) {
         let colorValue = document.createElement('div');
@@ -704,35 +568,6 @@ function closeAllDropdowns() {
 }
 
 window.addEventListener("click", async (e) => {
-
-    if(e.target.classList.contains('size-swatch')) {
-        e.preventDefault();
-
-        if(typeof variantUpdateProcess == 'undefined') {
-            await loadScript(scripts.variants);
-        }
-
-        const thisSize = e.target.querySelectorAll('span')[0].innerHTML;
-        const thisPrice = e.target.querySelectorAll('span')[1].innerHTML;
-        const sizesContainer = e.target.parentNode.querySelectorAll('.size-swatch');
-        const variantSelector = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.variant-select');
-        const selectedContainer = e.target.parentNode.parentNode.parentNode.querySelector('label');
-        const componentContainer = e.target.parentNode.parentNode.parentNode.querySelector('input[type="checkbox"]');
-        const colorContainer = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors');
-        const colorTarget = colorContainer.querySelector('.product-unit__colors .color-swatch--active');
-        componentContainer.checked = false;
-        selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
-        sizesContainer.forEach(element => element.classList.remove('selected'));
-        e.target.classList.add('selected');
-        variantUpdateProcess(colorTarget);
-        colorContainer.querySelectorAll('.color-swatch').forEach( color => {    
-            const option = variantSelector.querySelector(`[data-option1="${color.dataset.value}"][data-option2="${e.target.dataset.title}"]`);
-            option.dataset.available == 'true' 
-                ? color.classList.remove('product-option--na')
-                : color.classList.add('product-option--na');
-        });
-    }
-
     if(e.target.classList.contains('color-swatch')) {
         e.preventDefault();
         if(typeof variantUpdateProcess == 'undefined') {

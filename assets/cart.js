@@ -161,9 +161,6 @@ function updateCartGWPs() {
         if(typeof gwpConfig != 'undefined') {
             for(let i = 0; i < gwpConfig.products.length; i++) {
                 const product = gwpConfig.products[i];
-                const prodId = Number(cartGWPItem.getAttribute('data-id'));
-
-                if(prodId != product.pid) continue;
 
                 cartGWPItem.querySelector('.cart__item-title').innerHTML = product.title;
                 cartGWPItem.querySelector('.cart__item-image .ratio-container').innerHTML = getImage(product.image, '180px', `${product.title} picture`);

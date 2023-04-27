@@ -46,9 +46,7 @@
             </div>
             {%- endif -%}
         </div>
-        <div class="collection-showcase__products slider__wrapper slider__wrapper--buttons-side">
-            <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-            <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+        <div class="collection-showcase__products slider__wrapper">
             <div class="slider slider--scrollbar">
                 {%- for product in block.settings.product_list -%}
                     {%- render 'product-unit' with product, class: "slide", quick_view: true, sizes: '(min-width: 901px) 25vw, 50vw' -%}

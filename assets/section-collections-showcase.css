@@ -46,11 +46,6 @@
     overflow: hidden;
 }
 
-.collection-showcase__products.slider__wrapper--buttons-side .button-tri-left,
-.collection-showcase__products.slider__wrapper--buttons-side .button-tri-right {
-    top: calc(50% - 30px);
-}
-
 .collection-showcase__switch-cont {
     display: flex;
     gap: 5px;
@@ -77,11 +72,5 @@
     .collection-showcase__switch-cont {
         font-size: 20px;
         white-space: nowrap;
-    }
-}
-
-@media (max-width: 410px) {
-    .collection-showcase__switch-cont {
-        font-size: 16px;
     }
 }

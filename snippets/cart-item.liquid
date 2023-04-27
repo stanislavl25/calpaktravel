@@ -37,11 +37,7 @@
         <a href="{{ item.url_to_remove }}" class="cart__item-remove" title="Remove"><img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17"></a>
         {%- endunless -%}
 
-        <div class="cart__item-title">
-            {{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}
-            {% if gwpItem and item.quantity > 1 %}x {{ item.quantity }}
-            {% endif %}
-        </div>
+        <div class="cart__item-title">{{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</div>
 
         <div class="cart__item-description"></div>
 
@@ -77,7 +73,9 @@
                 {%- endif -%}
 
                 {%- if item.variant.option2 != blank -%}
-                <div class="cart__item-option cart__item-option--2">{{- item.variant.option2 | downcase | escape -}}</div>
+                    <div class="cart__item-option cart__item-option--2" style="text-transform: none;">Luggage Height: {{ product.metafields.product.size-label | downcase | escape }}</div>
+                {% elsif item.variant.option2 != blank %}
+                    <div class="cart__item-option cart__item-option--2">{{- item.variant.option2 | downcase | escape -}}</div>
                 {%- endif -%}
             {%- endif -%}
         

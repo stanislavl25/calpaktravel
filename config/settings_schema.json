@@ -294,6 +294,28 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "sale-badge-text-tilt",
+        "label": "Text Tilt",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "badge-placement",
+        "label": "Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
         "type": "select",
         "id": "badge_display",
         "label": "Where to display the badge",

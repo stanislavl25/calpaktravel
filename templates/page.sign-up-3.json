@@ -5,24 +5,22 @@
       "blocks": {
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3723-4_8f1c83e7-a481-4762-8094-107b993eaff9.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK-HOLIDAY-38_1.jpg",
             "keep-proportions": true,
             "align": "center",
             "title": "Featured Products",
-            "text": "<p><a href=\"\/collections\/trnk-collection\" title=\"Trnk Collection\">Trnk Collection in Espresso<\/a><\/p>",
+            "text": "<p><a href=\"https:\/\/www.calpaktravel.com\/products\/kaya-laptop-backpack\/emerald\" title=\"https:\/\/www.calpaktravel.com\/products\/kaya-laptop-backpack\/emerald\">Kaya Laptop Backpack in <em>Emerald<\/em><\/a><\/p>",
             "text-color": "#ffffff"
           }
         },
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "form_type": "klaviyo",
-            "iframe-url": "",
-            "klaviyo_id": "X5a7Wy",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/T2E\/landing-page",
             "height": "800",
-            "height-mobile": "600",
-            "vertical_alignment": "center"
+            "height-mobile": "600"
           }
         }
       },

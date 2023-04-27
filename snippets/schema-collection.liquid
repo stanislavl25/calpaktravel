@@ -12,12 +12,12 @@
     {% if collection.handle == 'best-sellers' %}
         {% for product in collection.products limit: 20 %}
             {% if product.price == 0 %}{% continue %}{% endif%}
-            ,{% render 'schema-product-stub', aggregateProduct: true, product: product, early_access: early_access %}
+            ,{% render 'schema-product-stub', aggregateProduct: true, product: product %}
         {% endfor %}
     {% else %}
         {% for product in collection.products %}
             {% if product.price == 0 %}{% continue %}{% endif%}
-            ,{% render 'schema-product-stub', aggregateProduct: true, product: product, early_access: early_access %}
+            ,{% render 'schema-product-stub', aggregateProduct: true, product: product %}
         {% endfor %}
     {% endif %}
 ]

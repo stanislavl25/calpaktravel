@@ -14,7 +14,7 @@
             endif
 
             if section.settings.image_mobile != blank
-                render 'image' with section.settings.image_mobile, preload: true, class: 'img-sizer hide-large'
+                render 'image' with section.settings.image_mobile, preload: true, class: 'hide-large'
                 if section.settings.show-video-on-mobile
                     if section.settings.video-mob != blank
                         render 'video' with section.settings.video-mob, poster: section.settings.image_mobile, autoplay: section.settings.autoplay, loop: section.settings.loop, controls: section.settings.controls, class: 'hide-large'

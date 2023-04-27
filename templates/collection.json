@@ -1,36 +1,30 @@
 {
   "sections": {
-    "b11701cc-945d-43fe-8b29-77d888aec849": {
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Mother's Day Promo",
-        "main-text": "<p>Buy 2 items (or more), get 15% off using code MOM15<\/p>",
-        "hide": true,
+        "title-above": "Testing promo banner",
+        "main-text": "<p>lorem ipsum dolor sit amet<\/p>",
+        "hide": false,
         "product_list": [
 
         ],
         "collection_list": [
-          "all",
-          "best-sellers",
-          "new-arrivals",
           "sale",
-          "mothers-day",
-          "luggage",
-          "bags",
-          "organizers",
-          "accessories"
+          "luggage"
         ],
         "section-id": "",
-        "cta_link": "cta",
+        "cta_link": "wrap",
         "cta_url": "shopify:\/\/collections\/mothers-day",
-        "cta_text": "Shop Now",
+        "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "Terms and conditions apply",
+        "terms_text": "Terms & Conditions",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -49,26 +43,12 @@
             "selected": false
           }
         },
-        "e1911702-42ea-44c2-84f5-bb10bbeea478": {
-          "type": "filter",
-          "settings": {
-            "heading": ". . . Mother's Day",
-            "title": "Mother's Day Sale",
-            "collection": "mothers-day",
-            "product_list": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Frame_1_1_39acd0cf-6cc9-4c24-b3e0-427c1a64730e.jpg",
-            "description": "",
-            "filter-in-parent": false
-          }
-        },
         "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
           "type": "filter",
           "settings": {
             "heading": ". . . New",
             "title": "New Arrivals",
-            "collection": "new-arrivals",
+            "collection": "mothers-day",
             "product_list": [
 
             ],
@@ -91,7 +71,6 @@
         },
         "645f5714-be29-44a4-9a15-aab469ecb101": {
           "type": "filter",
-          "disabled": true,
           "settings": {
             "heading": ". . . In stock and ready to ship",
             "title": "In stock and ready to deliver",
@@ -423,7 +402,6 @@
       },
       "block_order": [
         "597a3a7d-e342-4ec9-8cca-f98e586237d1",
-        "e1911702-42ea-44c2-84f5-bb10bbeea478",
         "c8f3773f-80e6-466d-9317-43d1bb1e948e",
         "70b2154d-2620-4583-ab2f-871333b645be",
         "645f5714-be29-44a4-9a15-aab469ecb101",
@@ -462,8 +440,22 @@
         "text-only": false
       }
     },
+    "c73bb04c-639e-4668-8e33-3a9e76dad60e": {
+      "type": "collection-image-banner",
+      "settings": {
+        "summer-arrivals-banner-enabled": true,
+        "summer-arrivals-banner-text": "Summer Arrivals",
+        "summer-arrivals-media-type": "image",
+        "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2.jpg",
+        "summer-arrivals-banner-media-height": 500,
+        "summer-arrivals-banner-media-height-mobile": 300,
+        "summer-arrivals-banner-text-color": "#000000",
+        "summer-arrivals-banner-text-background-color": "#ffffff"
+      }
+    },
     "30abf871-7ca5-49dc-b65e-778656d00be9": {
       "type": "page-header",
+      "disabled": true,
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "title-size": "medium",
@@ -475,6 +467,28 @@
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 1,
+            "mobile_row": 1,
+            "column": 5,
+            "col_span": 1,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
+            "product_title": "Ambeur",
+            "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
           "disabled": true,
@@ -497,14 +511,39 @@
             "row-mob": 2
           }
         },
+        "93958757-d99e-40ac-9681-c941a84f5e13": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 2,
+            "mobile_row": 3,
+            "column": 1,
+            "col_span": 2,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/compakt-tote-bag",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/compakt-tote-bag",
+            "product_title": "Compakt Tote Bag",
+            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
+          }
+        },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
+          "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
+            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
             "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
-            "title": "Buy 2, Get 15% OFF",
-            "text": "<p>Join us for 1 hour live shopping event May 3, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\">ADD TO CALENDAR<\/a><\/p>",
+            "title": "Free Luka Key Pouch",
+            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
             "show-for-collections": [
               "accessories",
               "organizers",
@@ -513,9 +552,7 @@
               "new-arrivals",
               "best-sellers",
               "all",
-              "in-stock-ready-to-deliver",
-              "mothers-day",
-              "sale"
+              "in-stock-ready-to-deliver"
             ],
             "background": "#e4dfd5",
             "text-color": "#000000",
@@ -526,41 +563,132 @@
             "row-mob": 2
           }
         },
-        "f4dcb6c4-19d4-44e4-b928-a754a8ec2cc4": {
-          "type": "promo",
+        "22881909-1257-4d1c-87e6-3506c294f4e4": {
+          "type": "module",
           "settings": {
-            "banner": "shopify:\/\/shop_images\/AO2A7747.jpg",
+            "pictured_link": true,
+            "row": 3,
+            "mobile_row": 5,
+            "column": 4,
+            "col_span": 2,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/jewelry-case",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/jewelry-case",
+            "product_title": "Jewlery Case",
+            "image": "shopify:\/\/shop_images\/COMPAKT_SHOE_BAG_ALL_LIFESTYLE3.jpg",
             "video": "",
-            "link": "",
-            "title": "MOMS LOVE THIS! ",
-            "text": "",
-            "show-for-collections": [
-              "mini-and-me"
-            ],
-            "background": "#e4dfd5",
-            "text-color": "#000000",
-            "starts-on": "",
-            "ends-on": "",
-            "row": 1,
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "aea27576-7ef1-4bea-a766-642569b8c192": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 5,
+            "mobile_row": 7,
             "column": 1,
-            "row-mob": 1
+            "col_span": 3,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/collections\/2-piece-luggage-sets",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "",
+            "product_title": "",
+            "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-PINK-GRID-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "cf9914ea-723b-48aa-9c74-ab2a44489463": {
+          "type": "modular-section",
+          "settings": {
+            "pictured_link": true,
+            "gap": 10,
+            "section_height": 70,
+            "row": 4,
+            "mobile_row": 11,
+            "column": 1,
+            "col_span": 5,
+            "row_span": 1,
+            "target_link": "shopify:\/\/products\/astyll-medium-luggage",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/astyll-medium-luggage",
+            "product_title": "Astyll Medium Luggage",
+            "image": "shopify:\/\/shop_images\/AO2A7747-3.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/AO2A7707-4.jpg",
+            "target_link_r": "shopify:\/\/products\/hue-carry-on-luggage",
+            "title_r": "",
+            "description_r": "",
+            "button-text_r": "Shop now",
+            "pictured_product_r": "shopify:\/\/products\/hue-carry-on-luggage",
+            "product_title_r": "Hue Carry On Luggage",
+            "image_r": "shopify:\/\/shop_images\/IMG_9016-2.jpg",
+            "video_r": "https:\/\/player.vimeo.com\/video\/403125830?title=0&byline=0&color=ffffff&portrait=0&muted=1&sidedock=0&api=1&autoplay=1&loop=1&controls=1",
+            "video-ratio-w_r": "1",
+            "video-ratio-h_r": "1"
+          }
+        },
+        "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 6,
+            "mobile_row": 9,
+            "column": 3,
+            "col_span": 3,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/car-organizer",
+            "product_title": "Car Organizer",
+            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
           }
         }
       },
       "block_order": [
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
         "b401a37d-55aa-49b7-b987-45893897281b",
+        "93958757-d99e-40ac-9681-c941a84f5e13",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
-        "f4dcb6c4-19d4-44e4-b928-a754a8ec2cc4"
+        "22881909-1257-4d1c-87e6-3506c294f4e4",
+        "aea27576-7ef1-4bea-a766-642569b8c192",
+        "cf9914ea-723b-48aa-9c74-ab2a44489463",
+        "2b60dc18-50f2-4c56-99ee-1694268aa83b"
       ],
       "settings": {
         "wishlist": true,
-        "quickview": true
+        "quickview": false,
+        "row_gap": 40,
+        "column_gap": 10,
+        "collection_list": [
+          "summer-arrivals"
+        ]
       }
     }
   },
   "order": [
-    "b11701cc-945d-43fe-8b29-77d888aec849",
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
+    "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"
   ]
