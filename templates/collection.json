@@ -502,15 +502,43 @@
             "column": 1,
             "row-mob": 2
           }
+        },
+        "93958757-d99e-40ac-9681-c941a84f5e13": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "row_span": 1,
+            "min_height_mobile": 280,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/compakt-tote-bag",
+            "product_title": "Compakt Tote Bag",
+            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
+          }
         }
       },
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
-        "64e7da40-e05d-412d-809b-024b8aa13efb"
+        "64e7da40-e05d-412d-809b-024b8aa13efb",
+        "93958757-d99e-40ac-9681-c941a84f5e13"
       ],
       "settings": {
         "wishlist": true,
-        "quickview": true
+        "quickview": true,
+        "row_gap": 40,
+        "column_gap": 10,
+        "collection_list": [
+          "summer-arrivals"
+        ]
       }
     }
   },
