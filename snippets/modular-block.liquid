@@ -1,11 +1,11 @@
 <style>
     .block_id--{{ block.id }} {
-        grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
+        grid-row: 1 / span {{ block.settings.row_span }};
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
     }
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
-            grid-row: {{ block.settings.row }} / span 1;
+            grid-row: 1 / span 1;
             grid-column: 1 / span 2;
         }
     }
@@ -13,7 +13,7 @@
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
             grid-column: 1 / span 2;
-            min-height: {{ block.settings.min_height_mobile }}px;
+            min-height: 280px;
         }
     }
 </style>
