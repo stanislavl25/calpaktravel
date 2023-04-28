@@ -5,6 +5,7 @@
       "blocks": {
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Royal_Woods.webp",
             "keep-proportions": true,
@@ -17,7 +18,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "form_type": "iframe",
+            "form_type": "klaviyo",
             "iframe-url": "",
             "klaviyo_id": "Xu7VLX",
             "height": "600",
