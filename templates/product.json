@@ -464,6 +464,19 @@
         "button-text": "",
         "button-link": ""
       }
+    },
+    "90416912-f6ab-434d-b5e8-dd97b757ddfc": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "memorial-day-enabled": true,
+        "memorial-day-sale-tag": "Final Sale",
+        "memorial-day-sale-text": "Sale Ends",
+        "memorial-day-sale-starts": "April 28, 2023 9AM",
+        "memorial-day-sale-ends": "April 29, 2023 10AM",
+        "memorial-day-sale-countdown": "24",
+        "memorial-day-sale-accent": "#f00",
+        "memorial-day-sale-text-col": "#fff"
+      }
     }
   },
   "order": [
@@ -476,6 +489,7 @@
     "4de958ad-7312-48b5-bf6e-957bddedfa79",
     "pdp-featured-collection",
     "167267170152804e97",
-    "9e2ed880-175f-4740-86df-747013cfd296"
+    "9e2ed880-175f-4740-86df-747013cfd296",
+    "90416912-f6ab-434d-b5e8-dd97b757ddfc"
   ]
 }

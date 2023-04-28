@@ -503,6 +503,19 @@
         "promo-link": "",
         "close-color-scheme": "white"
       }
+    },
+    "3655ee82-744b-460a-903e-46737e577fe6": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "memorial-day-enabled": true,
+        "memorial-day-sale-tag": "Final Sale",
+        "memorial-day-sale-text": "Memorial day SALE",
+        "memorial-day-sale-starts": "",
+        "memorial-day-sale-ends": "",
+        "memorial-day-sale-countdown": "24",
+        "memorial-day-sale-accent": "#f00",
+        "memorial-day-sale-text-col": "#fff"
+      }
     }
   },
   "order": [
@@ -515,6 +528,7 @@
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
     "5a6f5490-2467-4517-8d4e-1b098c285ad9",
-    "0289f3f5-735e-4226-94a8-b23cd4ee6569"
+    "0289f3f5-735e-4226-94a8-b23cd4ee6569",
+    "3655ee82-744b-460a-903e-46737e577fe6"
   ]
 }
