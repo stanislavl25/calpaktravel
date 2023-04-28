@@ -17,9 +17,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/Lhz\/landing-page",
+            "form_type": "iframe",
+            "iframe-url": "",
+            "klaviyo_id": "Xu7VLX",
             "height": "600",
-            "height-mobile": "400"
+            "height-mobile": "400",
+            "vertical_alignment": "center"
           }
         }
       },
@@ -39,7 +42,8 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false
           }
         }
       },
