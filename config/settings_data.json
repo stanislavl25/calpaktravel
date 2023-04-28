@@ -18,6 +18,7 @@
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
+    "sale-badge-text-tilt": false,
     "badge_display": "both",
     "sale-badge-tag": "",
     "sale-badge-text": "Memorial Day Sale",
