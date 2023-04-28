@@ -471,6 +471,7 @@
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
+          "disabled": true,
           "settings": {
             "product-list": [
 
