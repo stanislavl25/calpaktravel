@@ -77,6 +77,25 @@
                     endif
                 endfor
                 
+                assign use_lifestyle_images = false 
+                assign = this_user_friendly_index = forloop.index
+                for block in section.blocks
+                    if block.type == 'lifestyle-image-filter'
+                        if block.settings.enable-lifestyle-image-filter == true
+                            assign = lifestyle_images_indexes = block.settings.lifestyle-image-filter-indexes | split: ','
+                            
+                            for lifestyle_images_index in lifestyle_images_indexes
+                                assign lifestyle_images_index_number_type = lifestyle_images_index | plus: 0
+                                if lifestyle_images_index_number_type == this_user_friendly_index
+                                    assign use_lifestyle_images = true
+                                    break
+                                endif
+                            endfor 
+                        endif
+                        break
+
+                    endif
+                endfor
 
                 
                 if product.tags contains "do not display"
@@ -84,9 +103,9 @@
                 endif
                 
                 if forloop.index <= 5
-                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller
+                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller, use_lifestyle_images: use_lifestyle_images, indexes: lifestyle_images_indexes, index: this_user_friendly_index
                 else
-                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller
+                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, use_lifestyle_images: use_lifestyle_images, indexes: lifestyle_images_indexes, index: this_user_friendly_index
                 endif
             endfor
         endpaginate
@@ -408,7 +427,7 @@
             {
                 "type": "modular-section",
                 "name": "Modular Section",
-                "settings": [  
+                "settings": [ 
                     {
                     "type": "checkbox",
                     "id": "pictured_link",
@@ -623,6 +642,25 @@
                         "type": "image_picker",
                         "id": "image_mobile_r",
                         "label": "Image for mobile"
+                    }
+                ]
+            },
+            {
+                "type": "lifestyle-image-filter",
+                "name": "Featured Image Filter",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "checkbox",
+                        "id": "enable-lifestyle-image-filter",
+                        "label": "Enable Featured Image Filter",
+                        "default": true
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "lifestyle-image-filter-indexes",
+                        "label": "Featured Image Filter Indexes",
+                        "info": "The products positions in the page with a comma separator. For example if you want the lifestyle image in the first and third products you should write 1,3."
                     }
                 ]
             }
