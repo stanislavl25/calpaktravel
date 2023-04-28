@@ -473,9 +473,9 @@
         "memorial-day-sale-text": "Sale Ends",
         "memorial-day-sale-starts": "April 28, 2023 9AM",
         "memorial-day-sale-ends": "April 29, 2023 10AM",
-        "memorial-day-sale-countdown": "24",
-        "memorial-day-sale-accent": "#f00",
-        "memorial-day-sale-text-col": "#fff"
+        "memorial-day-sale-countdown": "48",
+        "memorial-day-sale-accent": "#ff0000",
+        "memorial-day-sale-text-col": "#ffffff"
       }
     }
   },
