@@ -17,7 +17,7 @@
         }
     }
 </style>
-<div class="modular-block content-block block_id--{{ block.id }}">
+<div class="modular-block content-block block_id--{{ block.id }}" data-span="{{ block.settings.col_span}}">
     {%- if block.settings.description != blank or block.settings.title != blank -%}
         <div class="content-block__info">
             {%- if block.settings.title != blank -%}

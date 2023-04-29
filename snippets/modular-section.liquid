@@ -1,6 +1,6 @@
 <style>
     .wrap--{{ block.id }} {
-        grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
+        grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
         display:flex;
         gap:{{ block.settings.gap }}px;
@@ -20,7 +20,7 @@
         }
     }
 </style>
-<section class="modular-section__wrap wrap--{{ block.id }}">
+<section class="modular-section__wrap wrap--{{ block.id }}" data-span="{{ block.settings.col_span}}">
 <div class="modular-section content-block block_id--{{ block.id }} block-left">
         {%- if block.settings.description != blank or block.settings.title != blank -%}
         <div class="content-block__info">

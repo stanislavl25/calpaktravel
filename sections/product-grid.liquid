@@ -14,25 +14,31 @@
 <noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
 {%- endif -%}
 
-{% if template == 'collection' or 'summer-arrival' %}
-    {% if section.settings.collection_list != empty %}
-        {% for collection_item in section.settings.collection_list %}
-            {% if collection_item.handle == collection.handle %}
-                <style>
+
+<style>
+    .modular-block img, .modular-section img {
+        border-radius: 9px;
+    }
+    .modular-block, .modular-section {
+        border-radius: 9px;
+        padding: 0px {{ section.settings.module_padding }}px;
+    }
+    {% if template == 'collection' or 'summer-arrival' %}
+        {% if section.settings.collection_list != empty %}
+            {% for collection_item in section.settings.collection_list %}
+                {% if collection_item.handle == collection.handle %}
+                    .modular-block, .modular-section__wrap {
+                        display:flex!important;
+                    }
+                {% endif %}
+            {% endfor %}
+        {% else %}
                 .modular-block, .modular-section__wrap {
-                    display:flex!important;
+                   display:flex!important;
                 }
-                </style>
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        <style>
-            .modular-block, .modular-section__wrap {
-               display:flex!important;
-            }
-        </style>
+        {% endif %}
     {% endif %}
-{% endif %}
+</style>
 
 {%- liquid
     assign show_short_info = false
@@ -153,13 +159,23 @@
             },
             {
                 "type": "header",
-                "content": "Modular blocks display rules"
+                "content": "Modular block and section settings"
             },
             {
                 "type": "collection_list",
                 "id": "collection_list",
                 "label": "Collections to display on",
                 "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+            },
+            {
+                "type": "range",
+                "id": "module_padding",
+                "min": 0,
+                "max": 50,
+                "step": 1,
+                "unit": "px",
+                "label": "Modules sides spacing",
+                "default": 10
             }
         ],
         "blocks": [
