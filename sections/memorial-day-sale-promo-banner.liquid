@@ -7,20 +7,31 @@
             if section.settings.countdown-sale-tag == blank
                 assign memorialDaySale = true
             else
-                assign memorialDaySale = false
+                assign memorialDaySale = true
                 for tag in product.tags
                     assign tagSpl = tag | split: ':'
                     if section.settings.countdown-sale-tag == tagSpl[0]
                         if tagSpl.size == 1
-                            assign memorialDaySale = true
+                            assign memorialDaySale = false
                         else
-                            assign memorialDaySale = tagSpl[1] | split: ';'
+                            assign aux = tagSpl[1] | split: ';'
+                            if aux
+                                assign memorialDaySale = false
+                            else
+                                assign memorialDaySale = true
+                            endif
                         endif
                     endif
                 endfor
             endif
 
             assign timeLeft = ends | minus: now
+            assign collections_excluded = section.settings.countdown-unwanted-collections | map: "handle"
+
+
+            if collections_excluded contains collection.handle
+                assign memorialDaySale = false
+            endif
         -%}
 
         {%- if timeLeft > 0 and memorialDaySale != false -%}
@@ -33,6 +44,10 @@
         {%- endif -%}
     {%- endif -%}
 </div>
+
+<script>
+    console.log({{ collections_excluded | json }})
+</script>
 <style>
     div.product-label.product-label--countdown {
         display: flex;
@@ -102,11 +117,6 @@
             },
             {
                 "type": "text",
-                "id": "countdown-sale-tag",
-                "label": "Eligible products tag"
-            },
-            {
-                "type": "text",
                 "id": "countdown-sale-text",
                 "label": "Text",
                 "default": "Memorial day SALE"
@@ -138,6 +148,12 @@
                 "default": "24"
             },
             {
+                "type": "collection_list",
+                "id": "countdown-unwanted-collections",
+                "label": "Exclude from following collections",
+                "info": "If showing on collection pages at all"
+            },
+            {
                 "type": "header",
                 "content": "Colors"
             },
@@ -152,6 +168,11 @@
                 "id": "countdown-sale-text-col",
                 "label": "Text color",
                 "default": "#fff"
+            }, 
+            {
+                "type": "textarea",
+                "id": "countdown-sale-tag",
+                "label": "Eligible products tag"
             }
         ]
     }
