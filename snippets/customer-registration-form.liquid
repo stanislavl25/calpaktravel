@@ -3,12 +3,14 @@
 {% endif %}
 {% form 'create_customer', novalidate: 'novalidate' %}
 <input id="form-register__redirect" type="hidden" name="return_to" value="{{ routes.account_register_url }}">
+        {% assign classic_account = false %}
         {% for error in form.errors %}
             {% if error == 'form' %}
                 {% if form.errors.messages[error] contains 'activation link'%}
-                    <div class="field__meassage-notice" aria-label="form alert message">{{ form.errors.messages[error] }}</div>
+                    <div class="field__meassage-notice" aria-label="form alert message">{{ settings.form-alert-non-classic }}</div>
                 {% else %}    
-                    <div class="field__meassage-notice" aria-label="form alert message">{{ form.errors.messages[error] }}</div>
+                    {% assign classic_account = true %}
+                    <div class="field__meassage-notice" aria-label="form alert message"><span class="spinner">{{ settings.form-alert-classic }}</span></div>
                 {% endif %}                  
             {% endif %}
         {% endfor %}
@@ -129,7 +131,7 @@
         </section>
 
         <div class="form__submit">
-            <button aria-label="Register an account" type="submit" class="button">
+            <button id="btnRegister" aria-label="Register an account" type="submit" class="button">
                 <span>Register</span>
             </button>
         </div>
@@ -141,3 +143,38 @@
 
     {% endif %}
 {% endform %}
+<script>
+    window.onload = () => {
+        const classicAccount = '{{ classic_account }}';
+        console.log(classicAccount);
+        if(classicAccount == 'true'){
+            console.log('redirecting...');
+            let emailCookieValue;
+            const getCookie = function (name) {
+                var value = '; ' + document.cookie;
+                var parts = value.split('; ' + name + '=');
+                if (parts.length == 2) return parts.pop().split(';').shift();
+            };
+            emailCookieValue = getCookie('emailRegister');
+            console.log(emailCookieValue);
+            if(emailCookieValue) {
+                
+                setTimeout(() => {
+                    console.log("redirect");
+                    window.location.replace("/account/login");
+                }, "5000");
+            }
+        }
+        
+        document.querySelector('#btnRegister').addEventListener('click', () => {
+                console.log("click on submit");
+                const emailValue = document.querySelector("#CustomerEmail").value;
+                if(emailValue) {
+                    let now = new Date();
+                    now.setTime(now.getTime()+(10*60*1000));
+                    document.cookie = `emailRegister=${emailValue}; expires="${now.toUTCString()}"; path=/;`;
+                }
+        });
+
+    };
+</script>

@@ -225,3 +225,20 @@
     background: #f7f177;  
     margin-bottom: 1rem;
 }
+.field__meassage-notice .spinner{
+        position: relative;
+        display: inline-flex;
+        margin-bottom: 20px;
+}
+.field__meassage-notice .spinner:after {
+    content: "";
+    position: absolute;
+    bottom: -60%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px dashed var(--gray);
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotate 1.6s infinite linear;
+}
