@@ -1,11 +1,11 @@
 <style>
     .block_id--{{ block.id }} {
-        grid-row: 1 / span {{ block.settings.row_span }};
+        grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
     }
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
-            grid-row: 1 / span 1;
+            grid-row: {{ block.settings.row }} / span 1;
             grid-column: 1 / span 2;
         }
     }
@@ -38,27 +38,26 @@
         </div>
     {%- endif -%}
 
-        <div class="content-block__media">
-            {%- liquid
-                assign video_active = false
-                if block.settings.target_link != blank
-                    echo '<a href="' | append: block.settings.target_link | append: '">'
-                endif
+    <div class="content-block__media">
+        {%- liquid
+            assign video_active = false
+            if block.settings.target_link != blank
+                echo '<a href="' | append: block.settings.target_link | append: '">'
+            endif
 
-                if block.settings.video != blank
-                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
-                    assign video_active = true
+            if block.settings.video != blank
+                assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                assign video_active = true
 
-                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, height:0, loop: true, controls: true, autoplay: true
-                else
-                    if block.settings.image_mobile != blank and block.settings.image != blank
-                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
-                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
-                    elsif block.settings.image != blank
-                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size
-                    elsif block.settings.image_mobile != blank
-                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size
-                    endif
+                render 'video' with block.settings.video, poster: block.settings.image, lazy: true, height:0, loop: true, controls: true, autoplay: true
+            else
+                if block.settings.image_mobile != blank and block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
+                elsif block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size
+                elsif block.settings.image_mobile != blank
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size
                 endif
             endif
 
