@@ -41,25 +41,26 @@
             assign text_only = true
         endif 
     -%}
-    <section class="filter__collections{% if text_only %} filter__collections--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %}{% if selectedInside > 0 %} filter__collections--focus{% endif %} slider slider--scrollbar">
+    <section class="filter__collections{% if radio_only %} filter__collection--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %}{% if selectedInside > 0 %} filter__collections--focus{% endif %} slider slider--scrollbar">
         {%- assign num = 0 -%}
         {%- assign numInside = 0 -%}
-        {%- for block in section.blocks -%}
+        {%- for block in section.blocks -%}            
             {%- if block.type == 'category' -%}
                 {%- assign num = num | plus: 1 -%}
                 {%- assign numInside = 0 -%}
+                {% assign radio_only = block.settings.radio_only %}
                 {%- continue -%}
             {%- else -%}
                 {%- assign numInside = numInside | plus: 1 -%}
             {%- endif -%}
         <a href="{% if block.settings.collection != blank %}{{ block.settings.collection.url }}{% else %}{{ collection.url }}{% endif %}" data-group="{{ num }}"
-            class="filter__collection{% if text_only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected filter__collection--selected-init{% endif %}"
+            class="filter__collection{% if radio_only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected filter__collection--selected-init{% endif %}"
             {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
                 {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
             {%- endfor -%}"
             {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
         >
-            {%- unless text_only -%}
+            {%- unless radio_only -%}
             <div class="filter__collection-image">
                 {%- liquid
                     assign lazy = true
@@ -81,7 +82,7 @@
                 {{- block.settings.title | escape -}}
             </h2>
 
-            {%- if block.settings.description != blank and text_only == false -%}
+            {%- if block.settings.description != blank and radio_only == false -%}
             <div class="filter__collection-desc">{{- block.settings.description -}}</div>
             {%- endif -%}
         </a>
