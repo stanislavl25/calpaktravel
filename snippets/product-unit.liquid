@@ -59,6 +59,7 @@
     endif
 
 -%}
+
 <div
     id="product-card__{{index}}"
     data-suffix="{{ product.template_suffix }}"
@@ -120,11 +121,15 @@
                 if img_preload == blank
                     assign img_preload = false
                 endif
-                
-                if current_variant.featured_image != blank
-                    assign img = current_variant.featured_image
-                else
-                    assign img = product.featured_image
+                assign hover_image_url = current_variant.metafields.custom.hover_image | img_url
+                if use_lifestyle_images == false or hover_image_url == blank
+                    if current_variant.featured_image != blank
+                        assign img = current_variant.featured_image
+                    else
+                        assign img = product.featured_image
+                    endif
+                else 
+                    assign img = current_variant.metafields.custom.hover_image
                 endif
 
                 render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: sizes

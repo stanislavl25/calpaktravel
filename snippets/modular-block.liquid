@@ -1,11 +1,11 @@
 <style>
     .block_id--{{ block.id }} {
-        grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
+        grid-row: 1 / span {{ block.settings.row_span }};
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
     }
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
-            grid-row: {{ block.settings.row }} / span 1;
+            grid-row: 1 / span 1;
             grid-column: 1 / span 2;
         }
     }
@@ -13,12 +13,12 @@
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
             grid-column: 1 / span 2;
-            min-height: {{ block.settings.min_height_mobile }}px;
+            min-height: 280px;
         }
     }
 </style>
 <div class="modular-block content-block block_id--{{ block.id }}">
-        {%- if block.settings.description != blank or block.settings.title != blank -%}
+    {%- if block.settings.description != blank or block.settings.title != blank -%}
         <div class="content-block__info">
             {%- if block.settings.title != blank -%}
             <div class="content-block__title">
@@ -36,7 +36,7 @@
             </div>
             {%- endif -%}
         </div>
-        {%- endif -%}
+    {%- endif -%}
 
         <div class="content-block__media">
             {%- liquid
@@ -60,14 +60,16 @@
                         render 'image' with block.settings.image_mobile, lazy: true, sizes: size
                     endif
                 endif
+            endif
 
-                if block.settings.target_link != blank
-                    echo '</a>'
-                endif
-            -%}
-        </div>
+            if block.settings.target_link != blank
+                echo '</a>'
+            endif
+        -%}
+    </div>
 
-        {%- if block.settings.button-text != blank and video_active != true -%}
+
+    {%- if block.settings.button-text != blank and video_active != true -%}
         <div class="floating-link">
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
                 <span>{{- block.settings.button-text | escpe -}}</span>
@@ -79,12 +81,13 @@
             </div>
             {% endif %}
         </div>
-        {%- endif -%}
-    </div>
-    {% if video_active == true %}
-        <style>
-        .block_id--{{ block.id }} .video-iframe-container{
-                    height:100%; 
-                }
-        </style>
-    {% endif %}
+    {%- endif -%}
+</div>
+{% if video_active == true %}
+  <style>
+    .block_id--{{ block.id }} .video-iframe-container{
+        height:100%; 
+    }
+  </style>
+{% endif %}
+

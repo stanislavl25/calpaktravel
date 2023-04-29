@@ -1,4 +1,4 @@
-{% if section.settings.summer-arrivals-banner-enabled %}
+{% if section.settings.summer-arrivals-banner-enabled and collection.handle == 'summer-arrivals' %}
     <div class="collection-image-banner-wrapper">
         {% case section.settings.summer-arrivals-media-type %}  
             {% when 'video' %}
@@ -171,16 +171,14 @@
     <script>
         const changeFiltersLocation = (e) => {
             
-            const sortView = document.querySelector('.collection-filters__section .collection-view');
-            const sortColor = document.querySelector('.collection-filters__section .collection-filters__control');
-            const oldFilter = document.querySelector('.collection-filters__section .collection-filters-not-banner');
-            const oldSectionFilter = document.querySelector('.collection-filters__section .collection-filters__section');
-            if (document.body.clientWidth > 600) {
-                sortColor.classList.add('visibility-hidden');
-                sortView.classList.add('visibility-hidden');
-                oldSectionFilter.classList.add('d-none');
-                oldFilter.remove();
-            }
+            const sortView = document.querySelector('.collection-view');
+            const sortColor = document.querySelector('.collection-filter__activators');
+            const oldFilter = document.querySelector('.collection-filters-not-banner');
+            const oldSectionFilter = document.querySelector('.collection-filters__section');
+            sortColor.classList.add('visibility-hidden');
+            sortView.classList.add('visibility-hidden');
+            {% comment %} oldSectionFilter.classList.add('d-none'); {% endcomment %}
+            oldFilter.remove();
         };
 
         
@@ -193,7 +191,7 @@
 
 {% schema %}
     {
-        "name": "Cover Image Banner",
+        "name": "Summer Arrivals Banner",
         "class": "shopify-section--collection-image-banner",
         "presets": [
             {
