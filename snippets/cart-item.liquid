@@ -73,7 +73,7 @@
                 {%- endif -%}
 
                 {%- if item.variant.option2 != blank -%}
-                    <div class="cart__item-option cart__item-option--2" style="text-transform: none;">Luggage Height: {{ product.metafields.product.size-label | downcase | escape }}</div>
+                    <div class="cart__item-option cart__item-option--2" style="text-transform: none;">{{ product.metafields.product.size-label | downcase | escape | replace: 'luggage height:', ''}}</div>
                 {% elsif item.variant.option2 != blank %}
                     <div class="cart__item-option cart__item-option--2">{{- item.variant.option2 | downcase | escape -}}</div>
                 {%- endif -%}
