@@ -14,13 +14,13 @@
 <noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
 {%- endif -%}
 
-{% if template == 'collection' %}
+{% if template == 'collection' or 'summer-arrival' %}
     {% if section.settings.collection_list != empty %}
         {% for collection_item in section.settings.collection_list %}
             {% if collection_item.handle == collection.handle %}
                 <style>
                 .modular-block, .modular-section__wrap {
-                    display:flex;
+                    display:flex!important;
                 }
                 </style>
             {% endif %}
@@ -28,7 +28,7 @@
     {% else %}
         <style>
             .modular-block, .modular-section__wrap {
-               display:flex;
+               display:flex!important;
             }
         </style>
     {% endif %}
@@ -60,7 +60,7 @@
 -%}
 
 <section class="product-grid" style="row-gap: {{section.settings.row_gap}}px; column-gap:{{section.settings.column_gap}}px;">
-    {%- liquid
+    {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
             assign limitProducts = 20
@@ -69,7 +69,7 @@
         assign best_seller_counter = 0
         paginate collection.products by limitProducts
             for product in collection.products limit: limitProducts
-                
+                assign index = forloop.index
                 assign best_seller = false
                 for prod in collections[settings.best-sellers].products limit: 20
                     if product.id == prod.id
@@ -84,9 +84,9 @@
                 endif
                 
                 if forloop.index <= 5
-                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller
+                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
                 else
-                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller
+                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
                 endif
             endfor
         endpaginate
@@ -99,6 +99,8 @@
                     render 'modular-block' with block as block
                 when 'modular-section'
                     render 'modular-section' with block as block
+                when 'static'
+                    render 'static-block' with block as block
             endcase
         endfor
     -%}
@@ -162,6 +164,23 @@
             }
         ],
         "blocks": [
+             {
+                "type": "static",
+                "name": "Static content",
+                "settings": [
+                    {
+                    "type": "image_picker",
+                    "id": "static_img",
+                    "label": "Image"
+                    },
+                    {
+                    "type": "number",
+                    "id": "index",
+                    "label": "Product position in grid",
+                    "default": 3
+                    }
+                ]
+            },
             {
                 "type": "promo",
                 "name": "Promo",
@@ -384,19 +403,6 @@
                         "id": "video",
                         "label": "Video",
                         "accept": ["vimeo"]
-                    },
-                    {
-                        "type": "text",
-                        "id": "video-ratio-w",
-                        "label": "Video aspect ratio width",
-                        "default": "16",
-                        "info": "16/9 - standard widescreen, 9/16 - portrait, 1/1 square, etc."
-                    },
-                    {
-                        "type": "text",
-                        "id": "video-ratio-h",
-                        "label": "Video aspect ratio height",
-                        "default": "9"
                     },
                     {
                         "type": "image_picker",

@@ -40,14 +40,16 @@
 
         <div class="content-block__media">
             {%- liquid
+                assign video_active = false
                 if block.settings.target_link != blank
                     echo '<a href="' | append: block.settings.target_link | append: '">'
                 endif
 
                 if block.settings.video != blank
                     assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                    assign video_active = true
 
-                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
+                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, height:0, loop: true, controls: true, autoplay: true
                 else
                     if block.settings.image_mobile != blank and block.settings.image != blank
                         render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
@@ -65,13 +67,13 @@
             -%}
         </div>
 
-        {%- if block.settings.button-text != blank -%}
+        {%- if block.settings.button-text != blank and video_active != true -%}
         <div class="floating-link">
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
                 <span>{{- block.settings.button-text | escpe -}}</span>
             </a>
 
-            {% if block.settings.product_title != blank %}
+            {% if block.settings.product_title != blank and video_active != true %}
             <div class="floating-link__pictured">
                 Pictured: <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
             </div>
@@ -79,3 +81,10 @@
         </div>
         {%- endif -%}
     </div>
+    {% if video_active == true %}
+        <style>
+        .block_id--{{ block.id }} .video-iframe-container{
+                    height:100%; 
+                }
+        </style>
+    {% endif %}
