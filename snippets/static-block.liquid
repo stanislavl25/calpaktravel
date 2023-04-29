@@ -1,0 +1,25 @@
+<script>
+window.addEventListener('load', function() {
+    const card = document.querySelector('#product-card__{{ block.settings.index }}');
+    const link = card.querySelector('.product-unit__image');
+    const imgs = card.querySelectorAll('img');
+    const swatches = card.querySelector('div.product-unit__image-wrapper > div.product-unit__colors > div.product-unit__swatches-container');
+    [].map.call(imgs, function(img) {
+        img.classList.add('f-loaded');
+    });
+        swatches.addEventListener('click', function(e) {
+            [].map.call(imgs, function(img) {
+                img.classList.remove('f-loaded');
+                console.log('removed');
+            });
+        });
+});
+</script>
+<style>
+#product-card__{{ block.settings.index }} img.f-loaded {
+    background-image: url('{{ block.settings.static_img | image_url}}');
+    background-size: cover;
+    background-position: center;
+    object-position:-1000px;
+}
+</style>

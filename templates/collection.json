@@ -683,6 +683,19 @@
           "summer-arrivals"
         ]
       }
+    },
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "memorial-day-enabled": true,
+        "memorial-day-sale-tag": "",
+        "memorial-day-sale-text": "Memorial day SALE",
+        "memorial-day-sale-starts": "",
+        "memorial-day-sale-ends": "",
+        "memorial-day-sale-countdown": "24",
+        "memorial-day-sale-accent": "#f00",
+        "memorial-day-sale-text-col": "#fff"
+      }
     }
   },
   "order": [
@@ -690,6 +703,7 @@
     "collection-filter",
     "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
-    "product-grid-section-id"
+    "product-grid-section-id",
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1"
   ]
 }
