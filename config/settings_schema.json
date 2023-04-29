@@ -81,6 +81,23 @@
     ]
   },
   {
+    "name": "Form alert messages",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "form-alert-classic",
+        "label": "Error message for classic account",
+        "default": "An account with this email already exists, you're being redirected to login page..."
+      },
+      {
+        "type": "textarea",
+        "id": "form-alert-non-classic",
+        "label": "Error message for non classic account",
+        "default": "An email has been sent to your email address containing the activation link to activate your account. <br> If you do not receive the email within a few minutes, please check your spam folder."
+      }
+    ]
+  },
+  {
     "name": "Preorder",
     "settings": [
       {
