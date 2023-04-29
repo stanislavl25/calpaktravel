@@ -1,6 +1,6 @@
 <style>
     .block_id--{{ block.id }} {
-        grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
+        grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
     }
     @media screen and (max-width:900px){
@@ -13,12 +13,12 @@
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
             grid-column: 1 / span 2;
-            min-height: {{ block.settings.min_height_mobile }}px;
+            min-height: 280px;
         }
     }
 </style>
 <div class="modular-block content-block block_id--{{ block.id }}">
-        {%- if block.settings.description != blank or block.settings.title != blank -%}
+    {%- if block.settings.description != blank or block.settings.title != blank -%}
         <div class="content-block__info">
             {%- if block.settings.title != blank -%}
             <div class="content-block__title">
@@ -36,38 +36,39 @@
             </div>
             {%- endif -%}
         </div>
-        {%- endif -%}
+    {%- endif -%}
 
-        <div class="content-block__media">
-            {%- liquid
-                assign video_active = false
-                if block.settings.target_link != blank
-                    echo '<a href="' | append: block.settings.target_link | append: '">'
+    <div class="content-block__media">
+        {%- liquid
+            assign video_active = false
+            if block.settings.target_link != blank
+                echo '<a href="' | append: block.settings.target_link | append: '">'
+            endif
+
+            if block.settings.video != blank
+                assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                assign video_active = true
+
+                render 'video' with block.settings.video, poster: block.settings.image, lazy: true, height:0, loop: true, controls: true, autoplay: true
+            else
+                if block.settings.image_mobile != blank and block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
+                elsif block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size
+                elsif block.settings.image_mobile != blank
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size
                 endif
+            endif
 
-                if block.settings.video != blank
-                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
-                    assign video_active = true
+            if block.settings.target_link != blank
+                echo '</a>'
+            endif
+        -%}
+    </div>
 
-                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, height:0, loop: true, controls: true, autoplay: true
-                else
-                    if block.settings.image_mobile != blank and block.settings.image != blank
-                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
-                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
-                    elsif block.settings.image != blank
-                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size
-                    elsif block.settings.image_mobile != blank
-                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size
-                    endif
-                endif
 
-                if block.settings.target_link != blank
-                    echo '</a>'
-                endif
-            -%}
-        </div>
-
-        {%- if block.settings.button-text != blank and video_active != true -%}
+    {%- if block.settings.button-text != blank and video_active != true -%}
         <div class="floating-link">
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
                 <span>{{- block.settings.button-text | escpe -}}</span>
@@ -79,12 +80,13 @@
             </div>
             {% endif %}
         </div>
-        {%- endif -%}
-    </div>
-    {% if video_active == true %}
-        <style>
-        .block_id--{{ block.id }} .video-iframe-container{
-                    height:100%; 
-                }
-        </style>
-    {% endif %}
+    {%- endif -%}
+</div>
+{% if video_active == true %}
+  <style>
+    .block_id--{{ block.id }} .video-iframe-container{
+        height:100%; 
+    }
+  </style>
+{% endif %}
+
