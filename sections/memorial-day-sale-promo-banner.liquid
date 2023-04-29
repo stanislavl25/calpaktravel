@@ -1,45 +1,60 @@
-<div class="memorial-day-wrapper">
-    {%- if section.settings.memorial-day-enabled -%}
+<div class="countdown-wrapper">
+    {%- if section.settings.countdown-enabled -%}
         {%- liquid
             assign now = "now" | date: '%s' | times: 1
-            assign ends = section.settings.memorial-day-sale-ends | date: '%s' | times: 1
+            assign ends = section.settings.countdown-sale-ends | date: '%s' | times: 1
 
-            if section.settings.memorial-day-sale-tag == blank
+            if section.settings.countdown-sale-tag == blank
                 assign memorialDaySale = true
             else
-                assign memorialDaySale = false
+                assign memorialDaySale = true
                 for tag in product.tags
                     assign tagSpl = tag | split: ':'
-                    if section.settings.memorial-day-sale-tag == tagSpl[0]
+                    if section.settings.countdown-sale-tag == tagSpl[0]
                         if tagSpl.size == 1
-                            assign memorialDaySale = true
+                            assign memorialDaySale = false
                         else
-                            assign memorialDaySale = tagSpl[1] | split: ';'
+                            assign aux = tagSpl[1] | split: ';'
+                            if aux
+                                assign memorialDaySale = false
+                            else
+                                assign memorialDaySale = true
+                            endif
                         endif
                     endif
                 endfor
             endif
 
             assign timeLeft = ends | minus: now
+            assign collections_excluded = section.settings.countdown-unwanted-collections | map: "handle"
+
+
+            if collections_excluded contains collection.handle
+                assign memorialDaySale = false
+            endif
         -%}
 
         {%- if timeLeft > 0 and memorialDaySale != false -%}
 
-            <div class="product-label product-label--memorial-day{% if memorialDaySale != true %} product-label--active{% endif %}"{% if memorialDaySale != true %} data-options="{{ memorialDaySale | join: ' ' }}"{% endif %}>
-                <label>{{- section.settings.memorial-day-sale-text | escape -}}</label>
+            <div class="product-label product-label--countdown{% if memorialDaySale != true %} product-label--active{% endif %}"{% if memorialDaySale != true %} data-options="{{ memorialDaySale | join: ' ' }}"{% endif %}>
+                <label>{{- section.settings.countdown-sale-text | escape -}}</label>
                 <div class="countdown-timer" data-time="{{- timeLeft -}}"></div>
             </div>
 
         {%- endif -%}
     {%- endif -%}
 </div>
+
+<script>
+    console.log({{ collections_excluded | json }})
+</script>
 <style>
-    div.product-label.product-label--memorial-day {
+    div.product-label.product-label--countdown {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: {{ section.settings.memorial-day-sale-accent }};
-        color: {{ section.settings.memorial-day-sale-text-col }};
+        background: {{ section.settings.countdown-sale-accent }};
+        color: {{ section.settings.countdown-sale-text-col }};
         width: calc(100% - 36px);
         height: 88px;
         margin-inline: auto;
@@ -47,40 +62,46 @@
         padding-block: 12px;
         border-radius: 9px;
     }
-    div.product-label.product-label--memorial-day .countdown-timer {
+    div.product-label.product-label--countdown .countdown-timer {
         display: flex!important;
         align-items: center;
     }
-    div.product-label.product-label--memorial-day .countdown-timer span,
-    div.product-label.product-label--memorial-day label {
+    div.product-label.product-label--countdown .countdown-timer,
+    div.product-label.product-label--countdown .countdown-timer span,
+    div.product-label.product-label--countdown label {
         font-size: 50px;
         font-weight: 400;
     }
 
     @media (max-width: 900px) {
-        div.product-label.product-label--memorial-day {
-            flex-direction: column;
-            height: 153px;
-            width: calc(100% - 22px);
-            padding-inline: 8px;
-            justify-content: center;
-
+        div.product-label.product-label--countdown {
+            height: 53px;
+            width: calc(100% - 24px);
+            padding-top: 7px;
+            padding-bottom: 8px;
         }
-        div.product-label.product-label--memorial-day .countdown-timer span,
-        div.product-label.product-label--memorial-day label {
-            font-size: 36px;
-            line-height: 51.28px;
+        
+        div.product-label.product-label--countdown label {
+            margin-left: 2px;
+        }
+
+        
+        div.product-label.product-label--countdown .countdown-timer,
+        div.product-label.product-label--countdown .countdown-timer span,
+        div.product-label.product-label--countdown label {
+            font-size: 30px;
+            line-height: 38px;
             text-align: center;
         }
     }
 </style>
 {%schema%}
     {
-        "name": "Memorial day Banner",
-        "class": "shopify-section--memorial-day-banner",
+        "name": "Countdown Banner",
+        "class": "shopify-section--countdown-banner",
         "presets": [
             {
-                "name": "Memorial day Banner"
+                "name": "Countdown Banner"
             }
         ],
         "settings": [
@@ -90,34 +111,29 @@
             },
             {
                 "type": "checkbox",
-                "id": "memorial-day-enabled",
-                "label": "Memorial Day SALE Banner Enabled",
+                "id": "countdown-enabled",
+                "label": "Countdown Banner Enabled",
                 "default": true
             },
             {
                 "type": "text",
-                "id": "memorial-day-sale-tag",
-                "label": "Eligible products tag"
-            },
-            {
-                "type": "text",
-                "id": "memorial-day-sale-text",
+                "id": "countdown-sale-text",
                 "label": "Text",
                 "default": "Memorial day SALE"
             },
             {
                 "type": "text",
-                "id": "memorial-day-sale-starts",
+                "id": "countdown-sale-starts",
                 "label": "Start date\/time"
             },
             {
                 "type": "text",
-                "id": "memorial-day-sale-ends",
+                "id": "countdown-sale-ends",
                 "label": "End date\/time"
             },
             {
                 "type": "select",
-                "id": "memorial-day-sale-countdown",
+                "id": "countdown-sale-countdown",
                 "label": "Show countdown when",
                 "options": [
                     {
@@ -132,20 +148,31 @@
                 "default": "24"
             },
             {
+                "type": "collection_list",
+                "id": "countdown-unwanted-collections",
+                "label": "Exclude from following collections",
+                "info": "If showing on collection pages at all"
+            },
+            {
                 "type": "header",
                 "content": "Colors"
             },
             {
                 "type": "color",
-                "id": "memorial-day-sale-accent",
+                "id": "countdown-sale-accent",
                 "label": "Accent color",
                 "default": "#f00"
             },
             {
                 "type": "color",
-                "id": "memorial-day-sale-text-col",
+                "id": "countdown-sale-text-col",
                 "label": "Text color",
                 "default": "#fff"
+            }, 
+            {
+                "type": "textarea",
+                "id": "countdown-sale-tag",
+                "label": "Eligible products tag"
             }
         ]
     }
