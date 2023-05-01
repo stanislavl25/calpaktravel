@@ -493,6 +493,7 @@
         },
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": "",
@@ -516,7 +517,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "row": 2,
+            "row": 3,
             "mobile_row": 3,
             "column": 1,
             "col_span": 2,
@@ -562,6 +563,7 @@
         },
         "22881909-1257-4d1c-87e6-3506c294f4e4": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "row": 3,
@@ -580,6 +582,7 @@
         },
         "aea27576-7ef1-4bea-a766-642569b8c192": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "row": 5,
@@ -601,8 +604,8 @@
           "settings": {
             "pictured_link": true,
             "gap": 10,
-            "section_height": 70,
-            "row": 4,
+            "section_height": 40,
+            "row": 5,
             "mobile_row": 11,
             "column": 1,
             "col_span": 5,
@@ -631,6 +634,7 @@
         },
         "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "row": 6,
