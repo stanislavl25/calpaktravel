@@ -240,3 +240,6 @@
     z-index: 1;
     animation: rotate 1.6s infinite linear;
 }
+.hidden {
+    display: none;
+}
