@@ -76,8 +76,12 @@
                 <div class="cart__item-option cart__item-option--1">{{- item.variant.option1 | downcase | escape -}}</div>
                 {%- endif -%}
 
-                {%- if item.variant.option2 != blank -%}
-                <div class="cart__item-option cart__item-option--2">{{- item.variant.option2 | downcase | escape -}}</div>
+                {%- if item.product.metafields.product.size-label != blank -%}
+                    <div class="cart__item-option cart__item-option--2" style="text-transform: none;">{{ item.product.metafields.product.size-label | downcase | escape | replace: 'luggage height:', ''}}</div>
+                {% elsif item.variant.option2 != blank and item.product.metafields.product.size-label == blank %}
+                    <div class="cart__item-option cart__item-option--2">{{- item.variant.option2 | downcase | escape -}}</div>
+                {% else %}
+                    <div class="cart__item-option cart__item-option--2" style="text-transform: none;">{{ item.product.metafields.product.size-label | downcase | escape | replace: 'luggage height:', ''}}</div>
                 {%- endif -%}
             {%- endif -%}
         
