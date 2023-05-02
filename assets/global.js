@@ -190,7 +190,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(isProductUnit) collection = target.getAttribute('data-collection');
 
-    if(target.hasAttribute('data-early-access')) earlyAccess = target.getAttribute('data-early-access');
     const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
 
     tags.forEach(tag => {
