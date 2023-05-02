@@ -479,7 +479,7 @@
           "settings": {
             "pictured_link": true,
             "row": 1,
-            "mobile_row": 1,
+            "mobile_row": 2,
             "column": 3,
             "col_span": 3,
             "target_link": "shopify:\/\/products\/ambeur-vanity-case",
@@ -518,7 +518,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "row": 3,
+            "row": 5,
             "mobile_row": 3,
             "column": 1,
             "col_span": 2,
