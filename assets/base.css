@@ -6,14 +6,6 @@
     --section-gap: 54px;
 }
 
-.d-none {
-    display: none!important;
-}
-
-.visibility-hidden {
-    visibility: hidden!important;
-}
-
 body {
     margin: 0;
 }

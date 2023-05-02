@@ -12,8 +12,6 @@ window.addEventListener("click", (e) => {
         let slider = wrapper.querySelector('.slider');
         let firstSlide = slider.querySelector('.slide');
 
-        console.log(slider, wrapper);
-
         if(!firstSlide) firstSlide = slider.querySelector('*');
     
         let slideWidth = firstSlide.offsetWidth;
@@ -130,10 +128,29 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
     let slideWidth = 0;
     let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
 
+    let currentScroll = 0;
+    let maxScroll = 0;
+
+    if(vertical) {
+        currentScroll = Math.ceil(slider.scrollTop);
+        maxScroll = slider.scrollHeight - slider.clientHeight;
+        slideWidth = firstSlide.offsetHeight;
+    } else {
+        currentScroll = Math.ceil(slider.scrollLeft);
+        maxScroll = slider.scrollWidth - slider.clientWidth;
+        slideWidth = firstSlide.offsetWidth;
+    }
+
+    let thisIsSafari = isSafari();
+
     if(!wrapper.classList.contains('slider__wrapper--loaded')) {
         slider.addEventListener('scroll', function() {
             if(sliderThrottle !== false) clearTimeout(sliderThrottle);
             sliderThrottle = setTimeout(() => checkSlider(this, sliderCheckNum, indexFilter), 305);
+
+            if(thisIsSafari) requestAnimationFrame(() => {
+                wrapper.style.setProperty('--scroll-pos', (slider.scrollLeft * 100 / maxScroll) + '%');
+            });
         }, {passive: true});
 
         if(slider.classList.contains("slider-nav")) {
@@ -148,19 +165,6 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
         }
 
         wrapper.classList.add('slider__wrapper--loaded');
-    }
-
-    let currentScroll = 0;
-    let maxScroll = 0;
-
-    if(vertical) {
-        currentScroll = Math.ceil(slider.scrollTop);
-        maxScroll = slider.scrollHeight - slider.clientHeight;
-        slideWidth = firstSlide.offsetHeight;
-    } else {
-        currentScroll = Math.ceil(slider.scrollLeft);
-        maxScroll = slider.scrollWidth - slider.clientWidth;
-        slideWidth = firstSlide.offsetWidth;
     }
 
     let maxPage = Math.round(maxScroll / slideWidth);
@@ -223,6 +227,10 @@ window.addEventListener("load", () => {
     }, {threshold: 0, rootMargin: '0px'});
 
     sliders.forEach( slider => observer.observe(slider) );
+
+    if(isSafari()) {
+        document.body.classList.add("isSafari");
+    }
 });
 
 function runSlider(slider, autoslide) {

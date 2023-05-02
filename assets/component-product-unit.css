@@ -200,11 +200,6 @@
     transition: opacity 0.3s;
 }
 
-.product-unit__colors--all .product-unit__swatches-container {
-    max-width: 100%;
-    opacity: 1;
-}
-
 .section-filtered .product-unit__swatches .color-swatch--filter {
     order: -1;
 }
@@ -376,6 +371,145 @@
     display: block;
 }
 
+.product-unit--quickadd {
+    z-index: 1;
+    justify-content: space-between;
+}
+
+.product-unit--quickadd .extra-colors {
+    display: none;
+}
+
+.product-unit--quickadd .product-unit__colors--all .product-unit__swatches-container {
+    max-width: 100%;
+    opacity: 1;
+}
+
+.product-unit--quickadd .product-unit__image-wrapper {
+    border-radius: 9px;
+}
+
+.product-unit__size-component {
+    display: none;
+}
+
+.product-unit--quickadd .product-unit__sizes {
+    position: absolute;
+    z-index: 11;
+    display: none;
+    width: calc(100% - 32px);
+    margin: auto;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border: 1px solid #DADADA;
+    border-radius: 4px;
+    bottom: 60px;
+    overflow: hidden;
+}
+
+.product-unit--quickadd .product-unit__sizes .product-unit__select {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-unit--quickadd .product-unit__sizes .product-unit__select a {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
+    padding: 7px 16px 9px;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+.product-unit--quickadd .product-unit__sizes .product-unit__select a:hover,
+.product-unit--quickadd .product-unit__sizes .product-unit__select a.selected {
+    background: #4B92FC;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.product-unit--quickadd .product-unit__sizes .product-unit__select a * {
+    pointer-events: none;
+}
+
+.product-unit--quickadd .product-unit__select--seleted {
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    border: 1px solid #000000;
+    border-radius: 9px;
+    width: calc(100% - 32px);
+    margin: 0 auto 10px;
+    left: 0;
+    right: 0;
+    padding: 11px 18px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 450;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40px;
+}
+
+.product-unit--quickadd .product-unit__size-component { 
+    display: block;
+}
+
+.product-unit--quickadd .product-unit__size-component input {
+    display: none;
+}
+
+.product-unit--quickadd .product-unit__size-component input:checked ~ div {
+    display: block;
+}
+
+.product-unit--quickadd .product-unit__size-component input:checked ~ label::before {
+    bottom: -11px;
+}
+
+.product-unit--quickadd .product-unit__select--seleted::before {
+    width: calc(100% + 34px);
+    height: 150px;
+    content: '';
+    display: block;
+    left: -17px;
+    position: absolute;
+    /*bottom: -11px;*/
+    bottom: -96px;
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 9px 9px 0 0;
+}
+
+.product-unit--quickadd .product-unit__select--seleted::after {
+    width: 12px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    content: '';
+    right: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9.94727L0.803849 0.947265L11.1962 0.947266L6 9.94727Z' fill='black'/%3E%3C/svg%3E%0A");
+}
+
+.product-unit--quickadd .product-unit__colors--all {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin: 6px 0 0;
+}
+
+.product-unit--quickadd .product-unit__button .button--add-to-cart {
+    width: 100%;
+}
+
 @keyframes colorFade { 0% { background: #e5e5e5; } 100% { background: #fafafa; } }
 
 .product-unit__placeholder-image {
@@ -461,5 +595,28 @@
         left: 6px;
         right: 6px;
         max-width: 140px;
+    }
+
+    .product-unit--quickadd .product-unit__sizes {
+        bottom: 35px;
+    }
+
+    .product-unit--quickadd .product-unit__select--seleted {
+        padding: 8px 30px 8px 10px;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .product-unit--quickadd .product-unit__sizes .product-unit__select a {
+        padding: 5px 10px 6px;
+    }
+
+    .product-unit--quickadd .product-unit__size-component input:checked ~ div {
+        width: 100%;
+    }
+
+    .product-unit--quickadd .product-unit__select--seleted::before {
+        bottom: -113px;
     }
 }

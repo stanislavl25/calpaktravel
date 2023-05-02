@@ -14,17 +14,11 @@
     <a href="{{ featured_collection.url }}">{{- featured_collection.title | escape -}}</a>
 {% endif %} {% endcomment %}
 
-{% comment %}
-    changed to only display product.title
 {% if current_product_group_type != blank %}
     <span>{{ current_product_group_type }}</span>
 {% else %}
     <span>{{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}</span>
 {% endif %}
-{% endcomment %}
-
-<span>{{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}</span>
-
 
 <script type="application/ld+json">
     {%- assign position = 2 -%}

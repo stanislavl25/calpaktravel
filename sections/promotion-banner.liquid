@@ -86,7 +86,7 @@
 </style>
 <script>
 {% if section.settings.cta_link == 'cta' %}
-let currentUrl = window.location.href;
+const currentUrl = window.location.href;
 const ctaBtn = document.querySelectorAll('.promotion-banner__cta');
 [].map.call(ctaBtn, function(el) {
     el.addEventListener('click', function(e){

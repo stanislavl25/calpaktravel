@@ -26,18 +26,13 @@ if(colViewButtons.length > 0) colViewButtons.forEach(colViewButton => colViewBut
 /////////////////////// Filter popup activators ///////////////////////
 let filterActivators = document.querySelectorAll('.filter__activator');
 if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filterActivator.addEventListener('click', async (e) => {
-    e.stopPropagation();
-    e.preventDefault();
+
     if(typeof renderColorGroups === 'undefined') {
         await loadScript(scripts.filter);
     }
 
     const filters = document.querySelector('.collection-filters');
     if(!filters.classList.contains('collection-filters--loaded')) initFilter();
-
-    if(filters.classList.contains('collection-filters-banner')) {
-        document.querySelector('.shopify-section--collection-image-banner').classList.add('banner-active');
-    }
 
     if(e.target.classList.contains('filter__activator--sort')) filters.setAttribute('data-tab', 'sort');
     else filters.setAttribute('data-tab', 'color');
@@ -79,9 +74,6 @@ window.addEventListener("load", () => {
     if(filtersCont) {
         window.addEventListener('click', () => {
             const filters = document.querySelector('.collection-filters');
-            if(filters.classList.contains('collection-filters-banner')) {
-                document.querySelector('.shopify-section--collection-image-banner').classList.remove('banner-active');
-            }
             filters.setAttribute('aria-expanded', false);
             filters.classList.remove('collection-filters--active');
         });

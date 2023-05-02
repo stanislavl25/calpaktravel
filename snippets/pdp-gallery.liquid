@@ -1,6 +1,6 @@
-{% assign use_media_metafields = section.settings.use_media_metafields %}
+
 <div class="slider__wrapper">
-    <div data-nav=".pdp__gallery-thumbs" data-slider-on="mobile" data-video-order="{{ product.metafields.custom.product_video_position }}" class="pdp__gallery slider{% if current_variant.metafields.custom.featured_images == blank or use_media_metafields == false %} pdp__gallery--old{% endif %}">
+    <div data-nav=".pdp__gallery-thumbs" data-slider-on="mobile" data-video-order="{{ product.metafields.custom.product_video_position }}" class="pdp__gallery slider{% if current_variant.metafields.custom.featured_images == blank %} pdp__gallery--old{% endif %}">
         {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, zoom: section.settings.zoom %}
     </div>
 </div>
@@ -8,6 +8,6 @@
     {% comment %} <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
     <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button> {% endcomment %}
     <div data-nav-for=".pdp__gallery" class="pdp__gallery-thumbs slider slider-nav slider--scrollbar">
-        {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, thumbnails: true, use_media_metafields: use_media_metafields %}
+        {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, thumbnails: true %}
     </div>
 </div>

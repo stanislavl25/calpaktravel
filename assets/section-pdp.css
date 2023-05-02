@@ -690,8 +690,7 @@
     }
 }
 
-/*changed max-width from 900px to 1120px*/
-@media (max-width: 1120px) {
+@media (max-width: 900px) {
 
     .pdp__arrival b {
         display: block;
@@ -745,13 +744,7 @@
         gap: 0 19px;
         justify-content: flex-start;
         height: 22px;
-        overflow: scroll;
-        flex-wrap:nowrap;
-
-    }
-
-    .pdp__breadcrumbs::-webkit-scrollbar {
-        display: none;
+        overflow: hidden;
     }
 
     .pdp__grid {

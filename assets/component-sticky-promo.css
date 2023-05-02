@@ -18,26 +18,11 @@
 
 .sticky-promo__close {
     position: absolute;
-    right: 5px;
-    top: 4px;
+    right: 0;
+    top: 0;
     z-index: 10;
-    width: 20px;
-    height: 20px;
-    
-    border-radius: 100%;
-}
-
-.sticky-promo .close-button:before, 
-.sticky-promo .close-button:after  {
-    width: 15px;
-}
-
-.sticky-promo .close-button--black {
-    background-color: white;
-}
-
-.sticky-promo .close-button--white {
-    background-color: black;
+    width: 45px;
+    height: 45px;
 }
 
 .sticky-promo__info {

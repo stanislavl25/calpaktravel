@@ -1,6 +1,6 @@
 {
   "sections": {
-    "5ecb82c1-5c83-4a05-8ae0-d3efb4dcdb78": {
+    "df6c7666-c581-4b2c-96cd-c8f742c7a5d2": {
       "type": "promotion-banner",
       "settings": {
         "preload": true,
@@ -8,10 +8,118 @@
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
-        "main-text": "<p>Buy 2+ eligible products and get 15% OFF.<\/p>",
-        "hide": false,
+        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
+        "hide": true,
         "product_list": [
-          "kaya-laptop-backpack"
+          "luka-duffel",
+          "insulated-lunch-bag",
+          "stevyn-duffel",
+          "kaya-laptop-backpack",
+          "haven-laptop-tote-bag",
+          "terra-26l-backpack-duffel",
+          "luka-belt-bag",
+          "luka-expandable-laptop-tote",
+          "luka-mini-belt-bag",
+          "luka-mini-backpack",
+          "luka-laptop-backpack",
+          "luka-key-pouch",
+          "luka-mini-carry-on-luggage",
+          "compakt-duffel-bag",
+          "compakt-tote-bag",
+          "water-bottle-holder",
+          "hue-duffel",
+          "compression-packing-cubes",
+          "packing-cubes-5-piece-set",
+          "compakt-large-garment-bag",
+          "compakt-small-garment-bag",
+          "car-organizer",
+          "power-luggage-tag",
+          "jewelry-case",
+          "large-clear-cosmetic-case",
+          "medium-clear-cosmetics-case",
+          "small-clear-cosmetics-case",
+          "tech-organizer",
+          "hue-carry-on-luggage",
+          "hue-carry-on-luggage-with-pocket",
+          "hue-mini-carry-on-luggage",
+          "ambeur-carry-on-luggage",
+          "ambeur-mini-carry-on-luggage",
+          "trnk-mini-carry-on-luggage"
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "wrap",
+        "cta_url": "shopify:\/\/collections\/mothers-day",
+        "cta_text": "Shop Now",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
+    "6e3f70cb-ca5f-4b2b-b0b0-7ac1d205cd4d": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "Mother's Day Promo",
+        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
+        "hide": true,
+        "product_list": [
+          "luka-toiletry-bag",
+          "starter-bundle",
+          "terra-carry-on-luggage",
+          "terra-hanging-toiletry-bag",
+          "terra-sling-bag",
+          "sunglasses-case",
+          "hue-medium-luggage",
+          "hue-large-luggage",
+          "hue-trunk-luggage",
+          "hue-toiletry-bag",
+          "stevyn-rolling-duffel",
+          "ambeur-2-piece-luggage-set",
+          "ambeur-3-piece-luggage-set",
+          "ambeur-large-luggage",
+          "ambeur-medium-luggage",
+          "ambeur-vanity-case",
+          "ambeur-front-pocket-carry-on-luggage",
+          "ambeur-carry-on-luggage",
+          "compakt-shoe-bag-set",
+          "compakt-zippered-pouch-set",
+          "padded-laptop-sleeve",
+          "trnk-2-piece-luggage-set",
+          "trnk-3-piece-luggage-set",
+          "trnk-carry-on-luggage",
+          "trnk-large-hat-box",
+          "trnk-large-luggage",
+          "trnk-medium-hat-box",
+          "trnk-medium-luggage",
+          "trnk-small-hat-box",
+          "trnk-vanity-case",
+          "clear-luggage-cover",
+          "astyll-3-piece-luggage-set",
+          "astyll-2-piece-luggage-set",
+          "astyll-carry-on-luggage",
+          "astyll-medium-luggage",
+          "astyll-large-luggage",
+          "terrazzo-2-piece-luggage-set",
+          "terrazzo-carry-on-luggage",
+          "hotel-calpak-robe",
+          "hotel-calpak-satin-scarf",
+          "hotel-calpak-slippers",
+          "hotel-calpak-tote-bag",
+          "relaxed-french-terry-sweatshirt-men",
+          "double-layered-face-masks",
+          "womens-cropped-jersey-t-shirt-fw",
+          "womens-relaxed-french-terry-joggers-fw",
+          "womens-relaxed-french-terry-shorts-fw",
+          "womens-relaxed-french-terry-sweatshirt-fw",
+          "silk-travel-set",
+          "glenroe-backpack-sale"
         ],
         "collection_list": [
 
@@ -23,7 +131,7 @@
         "cta_color": "#000000",
         "cta_background": "#ffffff",
         "terms_text": "Terms and conditions apply",
-        "terms_url": ""
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
     "1eb2590d-5a13-41e5-806c-a78d7b88176d": {
@@ -35,7 +143,7 @@
         "bold-text-background": "#ffffff",
         "title-above": "",
         "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
-        "hide": false,
+        "hide": true,
         "product_list": [
 
         ],
@@ -43,8 +151,8 @@
 
         ],
         "section-id": "pdp-promo-new",
-        "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections",
+        "cta_link": "none",
+        "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
@@ -310,6 +418,57 @@
             "button-url": ""
           }
         },
+        "609ee977-939e-4747-af83-eacb42d0ad15": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "luka-duffel",
+              "insulated-lunch-bag",
+              "stevyn-duffel",
+              "kaya-laptop-backpack",
+              "haven-laptop-tote-bag",
+              "terra-26l-backpack-duffel",
+              "luka-belt-bag",
+              "luka-key-pouch",
+              "luka-laptop-backpack",
+              "luka-mini-backpack",
+              "luka-mini-belt-bag",
+              "luka-expandable-laptop-tote",
+              "compakt-duffel-bag",
+              "compakt-tote-bag",
+              "car-organizer",
+              "water-bottle-holder",
+              "hue-duffel",
+              "packing-cubes-5-piece-set",
+              "large-clear-cosmetic-case",
+              "medium-clear-cosmetics-case",
+              "small-clear-cosmetics-case",
+              "tech-organizer",
+              "compression-packing-cubes",
+              "compakt-large-garment-bag",
+              "compakt-small-garment-bag",
+              "power-luggage-tag",
+              "jewelry-case",
+              "hue-carry-on-luggage-with-pocket",
+              "ambeur-carry-on-luggage",
+              "hue-carry-on-luggage",
+              "ambeur-mini-carry-on-luggage",
+              "hue-mini-carry-on-luggage",
+              "luka-mini-carry-on-luggage",
+              "trnk-mini-carry-on-luggage"
+            ],
+            "collection-list": [
+              "mothers-day"
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Capture.png",
+            "title": "Mother's Day Promo",
+            "text": "<p>Buy 2+ eligible products and get 15% OFF<\/p><p><\/p>",
+            "button-text": "Shop Now",
+            "button-url": "shopify:\/\/collections\/mothers-day",
+            "live-show-id": ""
+          }
+        },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
           "disabled": true,
@@ -318,9 +477,9 @@
 
             ],
             "collection-list": [
-              "accessories"
+              "all"
             ],
-            "show-for-all": false,
+            "show-for-all": true,
             "image": "shopify:\/\/shop_images\/IMG_9016-2_1.jpg",
             "title": "Watch Live Demo",
             "text": "<p>Learn how to get a FREE Luka Key Pouch on your next order<\/p><p><\/p>",
@@ -368,6 +527,7 @@
         "fd410b66-3632-41fb-9a75-d309019c7a59",
         "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f",
         "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
+        "609ee977-939e-4747-af83-eacb42d0ad15",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7"
@@ -375,10 +535,9 @@
       "settings": {
         "zoom": false,
         "gallery-limit": 5,
-        "use_media_metafields": false,
         "gallery-limit-reapply": true,
-        "specifications": "<p>{{ product.metafields.custom.specifications | metafield_tag }}<\/p>",
-        "warranty-product-level": "<p>{{ product.metafields.custom.warranty_text | metafield_tag }}<\/p>",
+        "specifications": "{{ product.metafields.custom.specifications | metafield_tag }}",
+        "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",
         "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
         "prop65-title": "Prop 65 Disclaimer",
         "prop65": "<p>Proposition 65 is a California regulation that requires special warnings to be presented to customers if a product contains chemicals known to the State of California to cause cancer, birth defects or other reproductive harm if exposure to the chemicals in those products are above the limits set by California.<\/p><p>The following warning applies to the products linking to this page. <\/p><p>WARNING Cancer and Reproductive Harm. www.P65Warnings.ca.gov<\/p>"
@@ -465,23 +624,11 @@
         "button-text": "",
         "button-link": ""
       }
-    },
-    "90416912-f6ab-434d-b5e8-dd97b757ddfc": {
-      "type": "memorial-day-sale-promo-banner",
-      "settings": {
-        "memorial-day-enabled": true,
-        "memorial-day-sale-tag": "Final Sale",
-        "memorial-day-sale-text": "Sale Ends",
-        "memorial-day-sale-starts": "April 28, 2023 9AM",
-        "memorial-day-sale-ends": "April 29, 2023 10AM",
-        "memorial-day-sale-countdown": "48",
-        "memorial-day-sale-accent": "#ff0000",
-        "memorial-day-sale-text-col": "#ffffff"
-      }
     }
   },
   "order": [
-    "5ecb82c1-5c83-4a05-8ae0-d3efb4dcdb78",
+    "df6c7666-c581-4b2c-96cd-c8f742c7a5d2",
+    "6e3f70cb-ca5f-4b2b-b0b0-7ac1d205cd4d",
     "1eb2590d-5a13-41e5-806c-a78d7b88176d",
     "540d183a-8e53-44d1-b0af-7bf139d703fe",
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f",
@@ -490,7 +637,6 @@
     "4de958ad-7312-48b5-bf6e-957bddedfa79",
     "pdp-featured-collection",
     "167267170152804e97",
-    "9e2ed880-175f-4740-86df-747013cfd296",
-    "90416912-f6ab-434d-b5e8-dd97b757ddfc"
+    "9e2ed880-175f-4740-86df-747013cfd296"
   ]
 }

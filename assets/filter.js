@@ -399,10 +399,6 @@ function resetFilter() {
 const closeFilters = document.querySelectorAll('.filters__close');
 if(closeFilters.length > 0) closeFilters.forEach(closeFilter => closeFilter.addEventListener('click', () => {
     const filters = closeFilter.closest('.collection-filters');
-
-    if(filters.classList.contains('collection-filters-banner')) {
-        document.querySelector('.shopify-section--collection-image-banner').classList.remove('banner-active');
-    }
     filters.setAttribute('aria-expanded', false);
     filters.classList.remove('collection-filters--active');
 }));

@@ -11,6 +11,7 @@ function getEligiblePriceAndNumber(cart, gwpProduct, gwp_ids) {
             (gwpProduct.ids == 'all' || gwpProduct.ids.indexOf(item.product_id) > -1) &&
             item.handle != 'gift-card' &&
             item.price > 0 &&
+            (!isset(item.properties) || !isset(item.properties['_gwp'])) &&
             gwp_ids.indexOf(item.product_id) === -1
         ) {
             totalEligiblePrice += item.line_price;
@@ -46,6 +47,10 @@ function fillGWPConfig() {
     });
 }
 
+function isGWPItem(item) {
+    return isset(item.properties) && isset(item.properties['_gwp']) && item.properties['_gwp'] == true;
+}
+
 async function checkGWP(data) {
     const cart = JSON.parse(stripHTML(data.sections['cart-json']));
 
@@ -62,7 +67,7 @@ async function checkGWP(data) {
 
         for(let i = 0; i < gwpConfig.products.length; i++) {
             let gwpProduct = gwpConfig.products[i];
-
+            
             // Calculating total price and number of eligible items
             let [totalEligiblePrice, eligibleCount] = getEligiblePriceAndNumber(cart, gwpProduct, allGwpIds);
             
@@ -74,6 +79,7 @@ async function checkGWP(data) {
                 product: gwpProduct,
                 number: gwpProduct.type == 2?eligibleCount:1
             });
+            if(gwpConfig.type == 1) break;
         }
 
         let gwpItemsUpdate = [],
@@ -81,7 +87,7 @@ async function checkGWP(data) {
         // remove free non-gwps
         cart.items.forEach(item => {
             if(
-                (item.price == 0 || allGwpIds.indexOf(item.product_id) > -1) && // If item is free or is part of all GWPs
+                (item.price == 0 || isGWPItem(item) || allGwpIds.indexOf(item.product_id) > -1) && // If item is free or is part of all GWPs
                 (activeGWPs.length == 0 || activeGwpIds.indexOf(item.product_id) == -1)) { // and if it's not a part of active GWPs
                 gwpItemsUpdate.push([item.key, 0]); // remove it from cart
             }
@@ -131,14 +137,17 @@ async function checkGWP(data) {
         }
 
         if(gwpItemsUpdate.length > 0) {
-            let promises = [];
-            gwpItemsUpdate.forEach(gwpItemsUpd => {
-                promises.push(
-                        changeCartItem(gwpItemsUpd[0], gwpItemsUpd[1])
-                    );
-            });
+            // let promises = [];
+            for(let it = 0; it < gwpItemsUpdate.length; it++) {
+                data = await changeCartItem(gwpItemsUpdate[it][0], gwpItemsUpdate[it][1]);
+            }
+            // gwpItemsUpdate.forEach(gwpItemsUpd => {
+                // promises.push(
+                        // changeCartItem(gwpItemsUpd[0], gwpItemsUpd[1])
+                    // );
+            // });
 
-            data = await Promise.all(promises).then(values => values.pop());
+            // data = await Promise.all(promises).then(values => values.pop());
         }
 
         resolve(data);
