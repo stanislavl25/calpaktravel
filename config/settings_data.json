@@ -24,6 +24,7 @@
     "badge_display": "both",
     "sale-badge-tag": "",
     "sale-badge-text": "Memorial Day Sale",
+    "sale-badge-bg": "#16ba6b",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
     "sale-msg-tag": "Final Sale",
