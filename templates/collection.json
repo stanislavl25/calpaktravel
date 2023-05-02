@@ -457,8 +457,8 @@
         "countdown-unwanted-collections": [
           "bags"
         ],
-        "countdown-sale-accent": "#f00",
-        "countdown-sale-text-col": "#fff",
+        "countdown-sale-accent": "#16ba6b",
+        "countdown-sale-text-col": "#000",
         "countdown-sale-tag": ""
       }
     },
