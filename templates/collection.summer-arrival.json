@@ -485,7 +485,7 @@
             "target_link": "shopify:\/\/products\/ambeur-vanity-case",
             "title": "",
             "description": "",
-            "button-text": "Shop now",
+            "button-text": "",
             "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
             "product_title": "Ambeur",
             "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
@@ -624,7 +624,7 @@
             "target_link_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "title_r": "",
             "description_r": "",
-            "button-text_r": "Shop now",
+            "button-text_r": "",
             "pictured_product_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "product_title_r": "Hue Carry On Luggage",
             "image_r": "shopify:\/\/shop_images\/IMG_9016-2.jpg",
@@ -689,6 +689,11 @@
         "countdown-sale-text-col": "#ffffff",
         "countdown-sale-tag": ""
       }
+    },
+    "6910cb6e-7791-4494-a663-9fa82c1b25aa": {
+      "type": "curalate-gallery",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -697,6 +702,7 @@
     "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
-    "97047c8c-df3a-4c5b-b36b-25faeea73ff1"
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
+    "6910cb6e-7791-4494-a663-9fa82c1b25aa"
   ]
 }
