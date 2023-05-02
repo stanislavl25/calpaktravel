@@ -375,7 +375,6 @@
       "settings": {
         "zoom": false,
         "gallery-limit": 5,
-        "use_media_metafields": false,
         "gallery-limit-reapply": true,
         "specifications": "<p>{{ product.metafields.custom.specifications | metafield_tag }}<\/p>",
         "warranty-product-level": "<p>{{ product.metafields.custom.warranty_text | metafield_tag }}<\/p>",
@@ -469,14 +468,17 @@
     "90416912-f6ab-434d-b5e8-dd97b757ddfc": {
       "type": "memorial-day-sale-promo-banner",
       "settings": {
-        "memorial-day-enabled": true,
-        "memorial-day-sale-tag": "Final Sale",
-        "memorial-day-sale-text": "Sale Ends",
-        "memorial-day-sale-starts": "April 28, 2023 9AM",
-        "memorial-day-sale-ends": "April 29, 2023 10AM",
-        "memorial-day-sale-countdown": "48",
-        "memorial-day-sale-accent": "#ff0000",
-        "memorial-day-sale-text-col": "#ffffff"
+        "countdown-enabled": true,
+        "countdown-sale-text": "Memorial day SALE",
+        "countdown-sale-starts": "May 2, 2023 10AM",
+        "countdown-sale-ends": "May 3, 2023 10AM",
+        "countdown-sale-countdown": "24",
+        "countdown-unwanted-collections": [
+
+        ],
+        "countdown-sale-accent": "#16ba6b",
+        "countdown-sale-text-col": "#000",
+        "countdown-sale-tag": "Final Sale"
       }
     }
   },
