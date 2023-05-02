@@ -1,3 +1,6 @@
+.customer__page--form form{
+    position: relative;
+}
 .form__field-line {
     display: flex;
     box-shadow: 0 0 0 1px #000;
@@ -217,6 +220,9 @@
     }
 }
 .field__meassage-notice{
+    position: absolute;
+    width: 100%;
+    top:0;
     font-size: 16px;
     text-align: center;
     border: 1px solid #000;
