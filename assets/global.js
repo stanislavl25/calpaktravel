@@ -475,7 +475,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     } else target.appendChild(select);
 
     const wishlistButtons = target.querySelectorAll('.wishlist__button');
-    if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, current_variant.id));
+    if(wishlistButtons.length > 0 && wishlist && current_variant) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, current_variant.id));
     
     if(isProductUnit) {
         select.setAttribute('data-min-price', minPrice);

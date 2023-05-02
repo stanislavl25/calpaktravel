@@ -5,6 +5,7 @@
     endif
 
     assign cancelDisplay = false
+    assign hide = ''
 
     if current_variant == blank
         if in_collection != blank
@@ -12,7 +13,13 @@
             assign limitSearch = in_collection.handle | append: ':'
 
             for tag in product.tags
-                if tag contains firstSearch
+                if tag contains 'hide:'
+                    assign val = tag | split: ":" | last
+                    unless hide == ''
+                        assign hide = hide | append: ';'
+                    endunless
+                    assign hide = hide | append: val
+                elsif tag contains firstSearch
                     assign firstSearch = tag | replace: firstSearch, '' | handleize
                     for variant in product.variants
                         assign opt1 = variant.option1 | handleize
@@ -34,24 +41,30 @@
             endfor
         endif
 
+        if hide != ''
+            assign hide = hide | split: ';'
+        endif
+
         if current_variant == blank
             assign current_variant = product.selected_or_first_available_variant
         endif
 
         if early_access == 'only'
-            unless current_variant.metafields.custom.early_access == true
-                assign earlyAccessVariantFound = false
-                for var in product.variants
-                    if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
-                        assign current_variant = var
-                        assign earlyAccessVariantFound = true
-                        break
-                    endif
-                endfor
+            assign earlyAccessVariantFound = false
+            for var in product.variants
+                assign varOpt1 = var.option1 | handleize
+                if hide contains varOpt1
+                    continue
+                endif
+                if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
+                    assign current_variant = var
+                    assign earlyAccessVariantFound = true
+                    break
+                endif
+            endfor
 
-                unless earlyAccessVariantFound
-                    assign cancelDisplay = true
-                endunless
+            unless earlyAccessVariantFound
+                assign cancelDisplay = true
             endunless
         endif
     endif
