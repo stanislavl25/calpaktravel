@@ -103,8 +103,18 @@ function variantUpdateProcess(target) {
     
     const optionalLabels = productContainer.closest('.product-unit, .pdp__grid, .qv__body').querySelectorAll('.product-label[data-options]');
     optionalLabels.forEach(optionalLabel => {
-        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) optionalLabel.classList.add('product-label--active');
-        else optionalLabel.classList.remove('product-label--active');
+        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { optionalLabel.classList.add('product-label--active');
+            
+            if(optionalLabel.classList.contains('product-label--extra-sale')) {
+                productContainer.closest('.product-unit, .pdp__info').classList.add('extra-sale-active');
+            }
+        } else {
+            optionalLabel.classList.remove('product-label--active');
+            
+            if(optionalLabel.classList.contains('product-label--extra-sale')) {
+                productContainer.closest('.product-unit, .pdp__info').classList.remove('extra-sale-active');
+            }
+        }
     });
 
     if(location == 'unit') {

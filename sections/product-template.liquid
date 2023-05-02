@@ -109,6 +109,7 @@
 
     assign finalSale = false
     assign soldout = false
+    assign extraSale = false
     for tag in product.tags
         assign tagSpl = tag | split: ':'
         assign handle = tagSpl[0] | handleize
@@ -124,6 +125,14 @@
                 assign finalSale = true
             else
                 assign finalSale = tagSpl[1] | downcase | split: ';'
+            endif
+        elsif settings.extra-sale-enabled
+            if settings.extra-sale-tag == tagSpl[0]
+                if tagSpl.size == 1
+                    assign extraSale = true
+                else
+                    assign extraSale = tagSpl[1] | downcase | split: ';'
+                endif
             endif
         endif
     endfor
@@ -147,7 +156,7 @@
     </aside>
 
     <main
-        class="pdp__info"
+        class="pdp__info{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}"
         >
         {% form 'product', product, data-handle: product.handle, data-id: product.id %}
             <script type="text/json" class="pdp-json" data-current-variant="{{ current_variant.id }}">{{ product | json }}</script>

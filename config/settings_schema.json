@@ -130,6 +130,58 @@
     ]
   },
   {
+    "name": "Final Sale",
+    "settings": [
+        {
+            "type": "color",
+            "id": "final-sale-highlight-col",
+            "label": "Final sale highlight",
+            "default": "#F00"
+        },
+        {
+            "type": "color",
+            "id": "final-sale-highlight-t-col",
+            "label": "Final sale highlight text",
+            "default": "#FFF"
+        },
+        {
+            "type": "color",
+            "id": "final-sale-main-text",
+            "label": "Final sale text",
+            "default": "#F00"
+        },
+        {
+            "type": "checkbox",
+            "id": "product-disclaimer",
+            "label": "Enable product disclaimer text"
+        },
+        {
+            "type": "checkbox",
+            "id": "product-disclaimer-no-final",
+            "label": "Show only when product is not final sale",
+            "default": true
+        },
+        {
+            "type": "text",
+            "id": "product-disclaimer-tag",
+            "label": "Show for products with this tag",
+            "default": "no-additional-discount"
+        },
+        {
+            "type": "text",
+            "id": "product-disclaimer-text",
+            "label": "No additional discount text",
+            "default": "Not eligible for additional discount"
+        },
+        {
+            "type": "color",
+            "id": "product-disclaimer-color",
+            "label": "Disclaimer text color",
+            "default": "#F00"
+        }
+    ]
+  },
+  {
     "name": "Sale",
     "settings": [
       {
@@ -196,28 +248,76 @@
         "id": "sale_background",
         "label": "Sale label background color",
         "default": "#f7f7f7"
+      }
+    ]
+  },
+  {
+    "name": "Extra Sale",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "extra-sale-enabled",
+        "label": "Extra Sale Enabled",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "extra-sale-tag",
+        "label": "Eligible products tag"
       },
       {
         "type": "header",
-        "content": "Final Sale"
+        "content": "PDP messaging"
+      },
+      {
+        "type": "text",
+        "id": "extra-sale-text-pdp",
+        "label": "Sale text for PDP",
+        "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "text",
+        "id": "extra-sale-text-pdp-mixed",
+        "label": "Sale text for PDP with mixed prices",
+        "info": "Use %% to show max discount"
+      },
+      {
+        "type": "header",
+        "content": "Product card messaging"
+      },
+      {
+        "type": "text",
+        "id": "extra-sale-text",
+        "label": "Sale text for product cards",
+        "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "text",
+        "id": "extra-sale-text-col-mixed",
+        "label": "Sale text for cards with mixed prices",
+        "info": "Use %% to show max discount"
+      },
+      {
+        "type": "header",
+        "content": "Colors"
       },
       {
         "type": "color",
-        "id": "final-sale-highlight-col",
-        "label": "Final sale highlight",
-        "default": "#F00"
+        "id": "extra-sale_price_color",
+        "label": "Sale price color",
+        "default": "#ff0000"
       },
       {
         "type": "color",
-        "id": "final-sale-highlight-t-col",
-        "label": "Final sale highlight text",
-        "default": "#FFF"
+        "id": "extra-sale_accent",
+        "label": "Sale label color",
+        "default": "#ff0000"
       },
       {
         "type": "color",
-        "id": "final-sale-main-text",
-        "label": "Final sale text",
-        "default": "#F00"
+        "id": "extra-sale_background",
+        "label": "Sale label background color",
+        "default": "#f7f7f7"
       }
     ]
   },

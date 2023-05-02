@@ -318,6 +318,10 @@
     color: var(--sale-price-color);
 }
 
+.extra-sale-active .product-unit__price s + b {
+    color: var(--extra-sale-price-color);
+}
+
 .button--add-to-cart {
     transition: opacity 0.3s;
 }

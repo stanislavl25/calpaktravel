@@ -116,8 +116,10 @@
 .product-unit--na .product-label.product-label--promo,
 .product-unit--na .product-label.product-label--final,
 .product-unit--na .product-label--sale,
+.product-unit--na .product-label--extra-sale,
 [data-status="sold-out"] .product-label.product-label--promo,
 [data-status="sold-out"] .product-label.product-label--sale,
+[data-status="sold-out"] .product-label.product-label--extra-sale,
 [data-status="sold-out"] .product-label--final {
     display: none;
 }
@@ -171,6 +173,15 @@
 
 .color-swatch--first {
     order: -1;
+}
+
+.product-label--disclaimer {
+    color: var(--product-disclaimer-text);
+}
+
+.product-label--final.product-label--active[data-options] + .product-label--disclaimer--no-final,
+.product-label--final:not([data-options]) + .product-label--disclaimer--no-final {
+    display: none;
 }
 
 /* @media (max-width: 900px) {
