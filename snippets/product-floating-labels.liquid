@@ -158,6 +158,43 @@
 
     {%- endif -%}
 
+    {%- if settings.extra-sale-enabled -%}
+        {%- liquid
+            if settings.extra-sale-tag == blank
+                assign sale = true
+            else
+                assign sale = false
+                for tag in product.tags
+                    assign tagSpl = tag | split: ':'
+                    if settings.extra-sale-tag == tagSpl[0]
+                        if tagSpl.size == 1
+                            assign sale = true
+                        else
+                            assign sale = tagSpl[1] | downcase | split: ';'
+                        endif
+                    endif
+                endfor
+            endif
+        -%}
+
+        {%- if settings.extra-sale-text-pdp != blank and sale != false -%}
+            {%- liquid
+                if current_variant.compare_at_price > current_variant.price
+                    assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
+                    assign discount = '<span class="dscnt">' | append: discount | append: '%' | append: '</span>'
+                    assign discounted = true
+                else
+                    assign discount = '<span class="dscnt"></span>'
+                    assign discounted = false
+                endif
+            -%}
+        <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--extra-sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+            {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
+            {{- settings.extra-sale-text-pdp | escape | replace: '%%', discount -}}
+        </div>
+        {%- endif -%}
+
+    {%- endif -%}
 
     {%- liquid
         assign comingSoon = false

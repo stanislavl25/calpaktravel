@@ -95,6 +95,12 @@ body .floating-labels .product-label--sale {
     background: var(--sale-background);
 }
 
+body .floating-labels .product-label--extra-sale {
+    color: var(--extra-sale-accent);
+    border-color: var(--extra-sale-accent);
+    background: var(--extra-sale-background);
+}
+
 .floating-labels .product-label--promo {
     color: var(--promo-msg-hgt-t);
     background: var(--promo-msg-hgt);

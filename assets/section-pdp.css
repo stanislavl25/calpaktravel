@@ -293,6 +293,10 @@
     color: var(--sale-price-color);
 }
 
+.extra-sale-active .pdp__price s + b {
+    color: var(--extra-sale-price-color);
+}
+
 .pdp__price-inner {
     display: flex;
     gap: 5px;
@@ -507,6 +511,10 @@
 
 .pdp__form-labels {
     display: contents;
+}
+
+.pdp__info .pdp__form-labels .product-label {
+    margin-bottom: calc(-1 * var(--gap));
 }
 
 .pdp__description {
@@ -783,6 +791,10 @@
 
     .pdp__variant-buttons:not(.pdp__variant-buttons--grouped):not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) .pdp__variant-list {
         grid-template-columns: repeat(auto-fit,minmax(80px,1fr))
+    }
+
+    .pdp__info .pdp__form-labels .product-label {
+        margin-bottom: -8px;
     }
 }
 

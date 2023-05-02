@@ -20,6 +20,11 @@ const color_groups = {
 
 const colors_img = ["trnk-grey", "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue", "pink-grid", "green-checkerboard", "orchid-fields"];
 
+function isSafari() {
+    // return true;
+    return navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Chrome") === -1
+}
+
 function getColorGroup(color) {
     for(let grp in color_groups) {
         for(let i = 0; i < color_groups[grp].length; i++) {
@@ -181,7 +186,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         collectionLimit = false,
         earlyAccess = false;
     if(isProductUnit) collection = target.getAttribute('data-collection');
-    if(target.hasAttribute('data-early-access')) earlyAccess = target.getAttribute('data-early-access');
+
+    const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
 
     tags.forEach(tag => {
         let tg = handleize(tag);
@@ -396,7 +402,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     } else target.appendChild(select);
 
     const wishlistButtons = target.querySelectorAll('.wishlist__button');
-    if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, current_variant.id));
+    if(wishlistButtons.length > 0 && wishlist && current_variant) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, current_variant.id));
     
     if(isProductUnit) {
         select.setAttribute('data-min-price', minPrice);

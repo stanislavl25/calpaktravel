@@ -116,8 +116,10 @@
 .product-unit--na .product-label.product-label--promo,
 .product-unit--na .product-label.product-label--final,
 .product-unit--na .product-label--sale,
+.product-unit--na .product-label--extra-sale,
 [data-status="sold-out"] .product-label.product-label--promo,
 [data-status="sold-out"] .product-label.product-label--sale,
+[data-status="sold-out"] .product-label.product-label--extra-sale,
 [data-status="sold-out"] .product-label--final {
     display: none;
 }
@@ -172,6 +174,18 @@
 .color-swatch--first {
     order: -1;
 }
+
+
+.product-label--disclaimer {
+    color: var(--product-disclaimer-text);
+}
+
+.product-label--final.product-label--active[data-options] + .product-label--disclaimer--no-final,
+.product-label--final:not([data-options]) + .product-label--disclaimer--no-final {
+    display: none;
+}
+
+
 div.product-label.product.label--memorial-day {
     display: flex;
     align-items: center;
@@ -184,6 +198,7 @@ div.product-label.product.label--memorial-day label {
     font-size: 50px;
     font-weight: 400;
 }
+
 /* @media (max-width: 900px) {
     .product-unit__image .img-hover {
         display: none;

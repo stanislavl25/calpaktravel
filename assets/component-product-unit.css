@@ -159,7 +159,10 @@
     max-width: none;
     overflow-x: auto;
 }
-
+.cart__upsell-items .product-unit__colors--all .product-unit__swatches-container {
+    max-width: 100%;
+    opacity: 1;
+}
 .product-unit__colors--all .round-icon {
     position: absolute;
     z-index: 5;
@@ -318,12 +321,23 @@
     color: var(--sale-price-color);
 }
 
+.extra-sale-active .product-unit__price s + b {
+    color: var(--extra-sale-price-color);
+}
+
 .button--add-to-cart {
     transition: opacity 0.3s;
 }
 
 .product-unit__button {
     margin-top: 7px;
+    display: none;
+}
+.cart__upsell-items .product-unit__button {
+    display: block;
+}
+.product-unit__button--active {
+    display: block;
 }
 
 .product-unit:not(.product-unit--loaded) .button--add-to-cart {
