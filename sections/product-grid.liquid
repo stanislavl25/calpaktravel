@@ -60,9 +60,9 @@
                 endif
                 
                 if forloop.index <= 5
-                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller
+                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller
                 else
-                    render 'product-unit' with product, in_collection: collection, wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller
+                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller
                 endif
             endfor
         endpaginate

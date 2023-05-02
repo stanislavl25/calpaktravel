@@ -6,20 +6,23 @@
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Royal_Woods.webp",
+            "image": "shopify:\/\/shop_images\/CALPAK-MDW-Landing-Page-GIF-1000-Revised.gif",
             "keep-proportions": true,
             "align": "center",
-            "title": "Featured Products",
-            "text": "<p><a href=\"\/products\/haven-laptop-tote-bag\" title=\"Haven Laptop Tote Bag\">Haven Laptop Tote<\/a> in<em> <\/em><a href=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/forest\" title=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/forest\"><em>Forest<\/em><\/a><em> <\/em>and <a href=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/espresso\" title=\"https:\/\/www.calpaktravel.com\/products\/haven-laptop-tote-bag\/espresso\"><em>Espresso<\/em><\/a><\/p>",
+            "title": "",
+            "text": "",
             "text-color": "#ffffff"
           }
         },
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/Lhz\/landing-page",
+            "form_type": "iframe",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/9SY\/landing-page",
+            "klaviyo_id": "",
             "height": "600",
-            "height-mobile": "400"
+            "height-mobile": "600",
+            "vertical_alignment": "center"
           }
         }
       },
@@ -28,7 +31,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7"
       ],
       "settings": {
-        "background": "#676f69",
+        "background": "#ffffff",
         "mobile-layout": "stack-reverse"
       }
     },
@@ -39,7 +42,8 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false
           }
         }
       },

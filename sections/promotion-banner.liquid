@@ -4,9 +4,9 @@
     {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-
-{% for product in section.settings.product_list %}
-    {% if canonical_url contains product.handle %}
+{% if template == 'product' %}
+{% for product_item in section.settings.product_list %}
+    {% if product_item.handle == product.handle %}
         <style>
         .promotion-banner__section[data-id="{{ section.id }}"] {
             display:flex;
@@ -14,8 +14,11 @@
         </style>
     {% endif %}
 {% endfor %}
-{% for collection in section.settings.collection_list %}
-    {% if canonical_url contains collection.handle %}
+{% endif %}
+
+{% if template == 'collection' %}
+{% for collection_item in section.settings.collection_list %}
+    {% if collection_item.handle == collection.handle %}
         <style>
         .promotion-banner__section[data-id="{{ section.id }}"] {
             display:flex;
@@ -23,7 +26,7 @@
         </style>
     {% endif %}
 {% endfor %}
-
+{% endif %}
     {% if section.settings.cta_link == 'none' %}
         <section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
             {%- if section.settings.title-above != blank -%}

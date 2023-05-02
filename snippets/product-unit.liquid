@@ -123,6 +123,28 @@
         </div>
         {%- endif -%} {% endcomment %}
 
+        {% if all_sizes == true %}
+            {%- for option in product.options_with_values -%}   
+                {%- assign optionLow = option.name | downcase -%}
+                {%- if optionLow == 'size' -%}
+
+                    <div class="product-unit__size-component">
+                        <input type="text" class="product-unit__size-component">
+                        <input 
+                            id="product-unit__size-component--{{ product.handle }}" 
+                            type="checkbox" 
+                        />
+                        <label for="product-unit__size-component--{{ product.handle }}" class="product-unit__select--seleted"></label>
+                        <div data-position="{{ option.position }}"
+                            class="product-unit__sizes{% if all_colors_quickadd == true %} product-unit__sizes--all{% endif %}"
+                            data-count="0">
+                            <div class="product-unit__select sizes-container"></div>
+                        </div>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+        {% endif %}
+
         {%- for option in product.options_with_values -%}   
             {%- assign optionLow = option.name | downcase -%}
 
@@ -197,6 +219,7 @@
     -%}
 
     {%- if add_to_cart == true -%}
+    <div class="product-unit__colors--quickadd"></div>
     <div class="product-unit__button">
         <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
             <div class="button-msg-add">Add to Bag</div>

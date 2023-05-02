@@ -9,12 +9,20 @@
         "bold-text-background": "#ffffff",
         "title-above": "Mother's Day Promo",
         "main-text": "<p>Buy 2 items (or more), get 15% off using code MOM15<\/p>",
-        "hide": false,
+        "hide": true,
         "product_list": [
 
         ],
         "collection_list": [
-
+          "all",
+          "best-sellers",
+          "new-arrivals",
+          "sale",
+          "mothers-day",
+          "luggage",
+          "bags",
+          "organizers",
+          "accessories"
         ],
         "section-id": "",
         "cta_link": "cta",
