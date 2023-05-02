@@ -767,8 +767,14 @@ p.pdp__stock-variant {
         top: auto;
         gap: 0 19px;
         justify-content: flex-start;
-        height: 22px;
-        overflow: hidden;
+        height: 30px;
+        overflow: scroll;
+        flex-wrap:nowrap;
+
+    }
+
+    .pdp__breadcrumbs::-webkit-scrollbar {
+        display: none;
     }
 
     .pdp__grid {

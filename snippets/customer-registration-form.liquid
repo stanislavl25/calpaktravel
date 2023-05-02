@@ -39,7 +39,7 @@
             </div>
         {%- else -%}
 
-        <section class="field__list {% if error_notice == true %}hidden{% endif %}">
+        <section class="field__list {% if error_notice == true %}hidden__register-form{% endif %}">
             <div class="field field--validated field--required">
                 <label for="FirstName">First name</label>
                 <input
@@ -93,7 +93,7 @@
                 {%- if form.errors contains 'email' -%}
                 <div class="field__error-message">Please enter your email address</div>
                 {%- elsif form.errors contains 'form' -%}
-                <div class="field__error-message {% if classic_account == false %}hidden{% endif %}">{{ form.errors.messages['form'] }}</div>
+                <div class="field__error-message {% if classic_account == false %}hidden__register-form{% endif %}">{{ form.errors.messages['form'] }}</div>
                 {%- endif -%}
             </div>
     {% comment %} 
@@ -134,13 +134,13 @@
             </div>
         </section>
 
-        <div class="form__submit {% if error_notice == true %}hidden{% endif %}">
+        <div class="form__submit {% if error_notice == true %}hidden__register-form{% endif %}">
             <button id="btnRegister" aria-label="Register an account" type="submit" class="button">
                 <span>Register</span>
             </button>
         </div>
 
-        <div class="form-disclaimer {% if error_notice == true %}hidden{% endif %}">By providing your email address you agree to our
+        <div class="form-disclaimer {% if error_notice == true %}hidden__register-form{% endif %}">By providing your email address you agree to our
             <a href="/policies/privacy-policy" target="_blank">privacy policy</a> and
             <a href="/policies/terms-of-service" target="_blank">terms &amp; conditions</a>.
         </div>
@@ -149,9 +149,7 @@
 <script>
     window.onload = () => {
         const classicAccount = '{{ classic_account }}';
-        console.log(classicAccount);
         if(classicAccount == 'true'){
-            console.log('redirecting...');
             let emailCookieValue;
             const getCookie = function (name) {
                 var value = '; ' + document.cookie;
@@ -159,18 +157,15 @@
                 if (parts.length == 2) return parts.pop().split(';').shift();
             };
             emailCookieValue = getCookie('emailRegister');
-            console.log(emailCookieValue);
             if(emailCookieValue) {
                 
                 setTimeout(() => {
-                    console.log("redirect");
                     window.location.replace("/account/login");
                 }, "5000");
             }
         }
         
         document.querySelector('#btnRegister').addEventListener('click', () => {
-                console.log("click on submit");
                 const emailValue = document.querySelector("#CustomerEmail").value;
                 if(emailValue) {
                     let now = new Date();
@@ -178,6 +173,12 @@
                     document.cookie = `emailRegister=${emailValue}; expires="${now.toUTCString()}"; path=/;`;
                 }
         });
-
+    
+        const noticeBox = document.querySelector('.field__meassage-notice');
+        if(noticeBox) {
+            const noticeBoxHeight = noticeBox.clientHeight;
+            console.log(noticeBoxHeight);
+            document.querySelector('.form-disclaimer.hidden__register-form').style.marginBottom = `-${noticeBoxHeight}px`;
+        }
     };
 </script>
