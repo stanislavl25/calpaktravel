@@ -453,6 +453,7 @@
         "summer-arrivals-banner-text": "Summer Arrivals",
         "summer-arrivals-media-type": "image",
         "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2.jpg",
+        "summer-arrivals-banner-video": "shopify:\/\/files\/videos\/TB_DSK_750x1242_a05d0b98-ca3f-49cc-b99b-a864c55debc5.mp4",
         "summer-arrivals-banner-media-height": 500,
         "summer-arrivals-banner-media-height-mobile": 300,
         "summer-arrivals-banner-text-color": "#000000",
@@ -684,8 +685,8 @@
         "countdown-unwanted-collections": [
 
         ],
-        "countdown-sale-accent": "#f00",
-        "countdown-sale-text-col": "#fff",
+        "countdown-sale-accent": "#ff0000",
+        "countdown-sale-text-col": "#ffffff",
         "countdown-sale-tag": ""
       }
     }
