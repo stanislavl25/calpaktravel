@@ -37,11 +37,7 @@
         <a href="{{ item.url_to_remove }}" class="cart__item-remove" title="Remove"><img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17"></a>
         {%- endunless -%}
 
-        <div class="cart__item-title">
-            {{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}
-            {% if gwpItem and item.quantity > 1 %}x {{ item.quantity }}
-            {% endif %}
-        </div>
+        <div class="cart__item-title">{{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</div>
 
         <div class="cart__item-description"></div>
 

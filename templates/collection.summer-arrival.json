@@ -40,6 +40,7 @@
             "product_list": [
 
             ],
+            "radio_only": false,
             "selected": false
           }
         },
@@ -91,6 +92,7 @@
             "product_list": [
 
             ],
+            "radio_only": false,
             "selected": false
           }
         },
@@ -215,6 +217,7 @@
             "product_list": [
 
             ],
+            "radio_only": false,
             "selected": false
           }
         },
@@ -305,6 +308,7 @@
             "product_list": [
 
             ],
+            "radio_only": false,
             "selected": false
           }
         },
@@ -356,6 +360,7 @@
             "product_list": [
 
             ],
+            "radio_only": false,
             "selected": false
           }
         },
@@ -396,6 +401,7 @@
             "product_list": [
 
             ],
+            "radio_only": false,
             "selected": false
           }
         }
@@ -447,6 +453,7 @@
         "summer-arrivals-banner-text": "Summer Arrivals",
         "summer-arrivals-media-type": "image",
         "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2.jpg",
+        "summer-arrivals-banner-video": "shopify:\/\/files\/videos\/TB_DSK_750x1242_a05d0b98-ca3f-49cc-b99b-a864c55debc5.mp4",
         "summer-arrivals-banner-media-height": 500,
         "summer-arrivals-banner-media-height-mobile": 300,
         "summer-arrivals-banner-text-color": "#000000",
@@ -472,21 +479,17 @@
           "settings": {
             "pictured_link": true,
             "row": 1,
-            "mobile_row": 1,
-            "column": 5,
-            "col_span": 1,
-            "row_span": 1,
-            "min_height_mobile": 280,
+            "mobile_row": 2,
+            "column": 3,
+            "col_span": 3,
             "target_link": "shopify:\/\/products\/ambeur-vanity-case",
             "title": "",
             "description": "",
-            "button-text": "Shop now",
+            "button-text": "",
             "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
             "product_title": "Ambeur",
             "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
+            "video": ""
           }
         },
         "b401a37d-55aa-49b7-b987-45893897281b": {
@@ -515,12 +518,10 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "row": 2,
-            "mobile_row": 3,
+            "row": 3,
+            "mobile_row": 6,
             "column": 1,
             "col_span": 2,
-            "row_span": 1,
-            "min_height_mobile": 280,
             "target_link": "shopify:\/\/products\/compakt-tote-bag",
             "title": "",
             "description": "",
@@ -529,8 +530,6 @@
             "product_title": "Compakt Tote Bag",
             "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
             "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
             "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
         },
@@ -565,14 +564,13 @@
         },
         "22881909-1257-4d1c-87e6-3506c294f4e4": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "row": 3,
             "mobile_row": 5,
             "column": 4,
             "col_span": 2,
-            "row_span": 1,
-            "min_height_mobile": 280,
             "target_link": "shopify:\/\/products\/jewelry-case",
             "title": "",
             "description": "",
@@ -580,21 +578,18 @@
             "pictured_product": "shopify:\/\/products\/jewelry-case",
             "product_title": "Jewlery Case",
             "image": "shopify:\/\/shop_images\/COMPAKT_SHOE_BAG_ALL_LIFESTYLE3.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
+            "video": ""
           }
         },
         "aea27576-7ef1-4bea-a766-642569b8c192": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "row": 5,
             "mobile_row": 7,
             "column": 1,
             "col_span": 3,
-            "row_span": 1,
-            "min_height_mobile": 280,
             "target_link": "shopify:\/\/collections\/2-piece-luggage-sets",
             "title": "",
             "description": "",
@@ -602,9 +597,7 @@
             "pictured_product": "",
             "product_title": "",
             "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-PINK-GRID-LIFESTYLE.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
+            "video": ""
           }
         },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
@@ -612,12 +605,11 @@
           "settings": {
             "pictured_link": true,
             "gap": 10,
-            "section_height": 70,
-            "row": 4,
+            "section_height": 40,
+            "row": 5,
             "mobile_row": 11,
             "column": 1,
             "col_span": 5,
-            "row_span": 1,
             "target_link": "shopify:\/\/products\/astyll-medium-luggage",
             "title": "",
             "description": "",
@@ -628,11 +620,11 @@
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/AO2A7707-4.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/AO2A7747-17.jpg",
             "target_link_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "title_r": "",
             "description_r": "",
-            "button-text_r": "Shop now",
+            "button-text_r": "",
             "pictured_product_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "product_title_r": "Hue Carry On Luggage",
             "image_r": "shopify:\/\/shop_images\/IMG_9016-2.jpg",
@@ -643,14 +635,13 @@
         },
         "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "row": 6,
             "mobile_row": 9,
             "column": 3,
             "col_span": 3,
-            "row_span": 1,
-            "min_height_mobile": 280,
             "target_link": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
             "title": "",
             "description": "",
@@ -658,9 +649,7 @@
             "pictured_product": "shopify:\/\/products\/car-organizer",
             "product_title": "Car Organizer",
             "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
+            "video": ""
           }
         }
       },
@@ -681,20 +670,29 @@
         "column_gap": 10,
         "collection_list": [
           "summer-arrivals"
-        ]
+        ],
+        "module_padding": 10
       }
     },
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
       "type": "memorial-day-sale-promo-banner",
       "settings": {
-        "memorial-day-enabled": true,
-        "memorial-day-sale-tag": "",
-        "memorial-day-sale-text": "Memorial day SALE",
-        "memorial-day-sale-starts": "",
-        "memorial-day-sale-ends": "",
-        "memorial-day-sale-countdown": "24",
-        "memorial-day-sale-accent": "#f00",
-        "memorial-day-sale-text-col": "#fff"
+        "countdown-enabled": true,
+        "countdown-sale-text": "Memorial day SALE",
+        "countdown-sale-starts": "",
+        "countdown-sale-ends": "",
+        "countdown-sale-countdown": "24",
+        "countdown-unwanted-collections": [
+
+        ],
+        "countdown-sale-accent": "#ff0000",
+        "countdown-sale-text-col": "#ffffff",
+        "countdown-sale-tag": ""
+      }
+    },
+    "6910cb6e-7791-4494-a663-9fa82c1b25aa": {
+      "type": "curalate-gallery",
+      "settings": {
       }
     }
   },
@@ -704,6 +702,7 @@
     "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
-    "97047c8c-df3a-4c5b-b36b-25faeea73ff1"
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
+    "6910cb6e-7791-4494-a663-9fa82c1b25aa"
   ]
 }

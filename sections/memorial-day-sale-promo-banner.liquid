@@ -1,0 +1,179 @@
+<div class="countdown-wrapper">
+    {%- if section.settings.countdown-enabled -%}
+        {%- liquid
+            assign now = "now" | date: '%s' | times: 1
+            assign ends = section.settings.countdown-sale-ends | date: '%s' | times: 1
+
+            if section.settings.countdown-sale-tag == blank
+                assign memorialDaySale = true
+            else
+                assign memorialDaySale = true
+                for tag in product.tags
+                    assign tagSpl = tag | split: ':'
+                    if section.settings.countdown-sale-tag == tagSpl[0]
+                        if tagSpl.size == 1
+                            assign memorialDaySale = false
+                        else
+                            assign aux = tagSpl[1] | split: ';'
+                            if aux
+                                assign memorialDaySale = false
+                            else
+                                assign memorialDaySale = true
+                            endif
+                        endif
+                    endif
+                endfor
+            endif
+
+            assign timeLeft = ends | minus: now
+            assign collections_excluded = section.settings.countdown-unwanted-collections | map: "handle"
+
+
+            if collections_excluded contains collection.handle
+                assign memorialDaySale = false
+            endif
+        -%}
+
+        {%- if timeLeft > 0 and memorialDaySale != false -%}
+
+            <div class="product-label product-label--countdown{% if memorialDaySale != true %} product-label--active{% endif %}"{% if memorialDaySale != true %} data-options="{{ memorialDaySale | join: ' ' }}"{% endif %}>
+                <label>{{- section.settings.countdown-sale-text | escape -}}</label>
+                <div class="countdown-timer" data-time="{{- timeLeft -}}"></div>
+            </div>
+
+        {%- endif -%}
+    {%- endif -%}
+</div>
+
+<script>
+    console.log({{ collections_excluded | json }})
+</script>
+<style>
+    div.product-label.product-label--countdown {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: {{ section.settings.countdown-sale-accent }};
+        color: {{ section.settings.countdown-sale-text-col }};
+        width: calc(100% - 36px);
+        height: 88px;
+        margin-inline: auto;
+        padding-inline: 20px;
+        padding-block: 12px;
+        border-radius: 9px;
+    }
+    div.product-label.product-label--countdown .countdown-timer {
+        display: flex!important;
+        align-items: center;
+    }
+    div.product-label.product-label--countdown .countdown-timer,
+    div.product-label.product-label--countdown .countdown-timer span,
+    div.product-label.product-label--countdown label {
+        font-size: 50px;
+        font-weight: 400;
+    }
+
+    @media (max-width: 900px) {
+        div.product-label.product-label--countdown {
+            height: 53px;
+            width: calc(100% - 24px);
+            padding-top: 7px;
+            padding-bottom: 8px;
+        }
+        
+        div.product-label.product-label--countdown label {
+            margin-left: 2px;
+        }
+
+        
+        div.product-label.product-label--countdown .countdown-timer,
+        div.product-label.product-label--countdown .countdown-timer span,
+        div.product-label.product-label--countdown label {
+            font-size: 30px;
+            line-height: 38px;
+            text-align: center;
+        }
+    }
+</style>
+{%schema%}
+    {
+        "name": "Countdown Banner",
+        "class": "shopify-section--countdown-banner",
+        "presets": [
+            {
+                "name": "Countdown Banner"
+            }
+        ],
+        "settings": [
+            {
+                "type": "header",
+                "content": "Settings"
+            },
+            {
+                "type": "checkbox",
+                "id": "countdown-enabled",
+                "label": "Countdown Banner Enabled",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "countdown-sale-text",
+                "label": "Text",
+                "default": "Memorial day SALE"
+            },
+            {
+                "type": "text",
+                "id": "countdown-sale-starts",
+                "label": "Start date\/time"
+            },
+            {
+                "type": "text",
+                "id": "countdown-sale-ends",
+                "label": "End date\/time"
+            },
+            {
+                "type": "select",
+                "id": "countdown-sale-countdown",
+                "label": "Show countdown when",
+                "options": [
+                    {
+                        "value": "24",
+                        "label": "less than 24 hours left"
+                    },
+                    {
+                        "value": "48",
+                        "label": "less than 48 hours left"
+                    }
+                ],
+                "default": "24"
+            },
+            {
+                "type": "collection_list",
+                "id": "countdown-unwanted-collections",
+                "label": "Exclude from following collections",
+                "info": "If showing on collection pages at all"
+            },
+            {
+                "type": "header",
+                "content": "Colors"
+            },
+            {
+                "type": "color",
+                "id": "countdown-sale-accent",
+                "label": "Accent color",
+                "default": "#f00"
+            },
+            {
+                "type": "color",
+                "id": "countdown-sale-text-col",
+                "label": "Text color",
+                "default": "#fff"
+            }, 
+            {
+                "type": "textarea",
+                "id": "countdown-sale-tag",
+                "label": "Eligible products tag"
+            }
+        ]
+    }
+{%endschema%}

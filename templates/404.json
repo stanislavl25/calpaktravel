@@ -10,9 +10,6 @@
     "404": {
       "type": "404",
       "settings": {
-        "title": "Oops, sorry! Wrong destination.",
-        "text": "<p>Looks like this page no longer exists. <a href=\"\/collections\/all-products\" title=\"All Products\">Click here<\/a> to get back to shopping.<\/p>",
-        "show-search": true
       }
     },
     "c5913569-388f-4b67-85a9-c74467bd828d": {
@@ -45,7 +42,8 @@
         "9796a411-173a-4944-b6fa-f45fb8fa9fb1",
         "c7c136d0-f001-415e-875c-c52d09923368"
       ],
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [

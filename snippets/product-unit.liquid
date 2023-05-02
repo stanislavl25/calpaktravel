@@ -65,6 +65,7 @@
 
             unless earlyAccessVariantFound
                 assign cancelDisplay = true
+
             endunless
         endif
     endif
@@ -101,8 +102,9 @@
         endfor
     endif
 -%}
-{%- unless cancelDisplay -%}
+
 <div
+    id="product-card__{{index}}"
     data-suffix="{{ product.template_suffix }}"
     data-handle="{{ product.handle }}"
     data-id="{{ product.id }}"
@@ -120,7 +122,7 @@
     >    
     <div class="product-unit__image-wrapper">
         {%- if quick_view == true -%}
-            <a class="quick-view__link quick-view__link--circle" href="{{ unit_url }}" title="Quick View">
+            <a class="quick-view__link quick-view__link--circle" href="{{ product.url }}" title="Quick View">
                 <img alt="Quick View" src="{{ 'quick-view-cross.svg' | asset_url }}" loading="lazy">
             </a>
         {%- endif -%}
@@ -135,28 +137,6 @@
             {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
         </div>
         {%- endif -%} {% endcomment %}
-
-        {% if all_sizes == true %}
-            {%- for option in product.options_with_values -%}   
-                {%- assign optionLow = option.name | downcase -%}
-                {%- if optionLow == 'size' -%}
-
-                    <div class="product-unit__size-component">
-                        <input type="text" class="product-unit__size-component">
-                        <input 
-                            id="product-unit__size-component--{{ product.handle }}" 
-                            type="checkbox" 
-                        />
-                        <label for="product-unit__size-component--{{ product.handle }}" class="product-unit__select--seleted"></label>
-                        <div data-position="{{ option.position }}"
-                            class="product-unit__sizes{% if all_colors_quickadd == true %} product-unit__sizes--all{% endif %}"
-                            data-count="0">
-                            <div class="product-unit__select sizes-container"></div>
-                        </div>
-                    </div>
-                {%- endif -%}
-            {%- endfor -%}
-        {% endif %}
 
         {%- for option in product.options_with_values -%}   
             {%- assign optionLow = option.name | downcase -%}
@@ -173,7 +153,7 @@
             {%- endif -%}
         {%- endfor -%}
 
-        <a href="{{ unit_url }}" class="product-unit__image product-link">
+        <a href="{{ product.url }}" class="product-unit__image product-link">
             {%- liquid
                 if img_lazy == blank and img_lazy != false
                     assign img_lazy = true
@@ -184,11 +164,15 @@
                 if img_preload == blank
                     assign img_preload = false
                 endif
-                
-                if current_variant.featured_image != blank
-                    assign img = current_variant.featured_image
-                else
-                    assign img = product.featured_image
+                assign hover_image_url = current_variant.metafields.custom.hover_image | img_url
+                if use_lifestyle_images == false or hover_image_url == blank
+                    if current_variant.featured_image != blank
+                        assign img = current_variant.featured_image
+                    else
+                        assign img = product.featured_image
+                    endif
+                else 
+                    assign img = current_variant.metafields.custom.hover_image
                 endif
 
                 render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: sizes
@@ -203,7 +187,7 @@
     {%- endif -%}
 
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
-        <a href="{{ unit_url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
+        <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
     </div>
 
     {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
@@ -232,7 +216,6 @@
     -%}
 
     {%- if add_to_cart == true -%}
-    <div class="product-unit__colors--quickadd"></div>
     <div class="product-unit__button">
         <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
             <div class="button-msg-add">Add to Bag</div>
@@ -243,4 +226,3 @@
     </div>
     {%- endif -%}
 </div>
-{%- endunless -%}

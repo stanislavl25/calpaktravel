@@ -93,12 +93,9 @@ function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeS
                         // getting the variantion selectedAssigned
                         if(quickView) {
                             correctVariantPrice = prod.variants.find((variant) => variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())?.price || prod.variants[0].price;
-                            console.log(document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())
                         } else {
                             correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))?.price || prod.variants[0].price;
-                            console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))
                         }
-                        console.log(correctVariantPrice)
                     } else {
                         correctVariantPrice = prod.variants[0].price
                     }
@@ -388,6 +385,7 @@ function setupGalleryMediaLimit(newMedia) {
 }
 
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
+    
     let variantTypeEl = document.querySelector('.pdp__variant-type');
     if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
@@ -412,7 +410,6 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
 
     let newMedia = [];
     let newMediaThumbs = [];
-    
     if(pdpGallery.classList.contains('pdp__gallery--old')) {
         let sku = option.getAttribute('data-sku');
         let color = option.getAttribute('data-option1');
@@ -430,7 +427,7 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
             else pdpGalleryInfo.innerHTML = '';
         } else pdpGalleryInfo.innerHTML = '';
     }
-
+    
     if(newMedia.length > 0) {
         let mediaVarVideo = false;
         let mediaProdVideo = false;
@@ -610,3 +607,15 @@ function pdpHandleDescriptions(pdpInfo, option) {
     const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
+const changeBadgeAbsolutePosition = e => {
+    if(window.innerWidth < 900) {
+        let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
+        let badge = document.querySelector('.pdp__gallery-container .product-label--badge');
+        badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
+    } else {
+        badge.style.top = 'initial'
+    }
+};
+document.addEventListener("DOMContentLoaded", changeBadgeAbsolutePosition);
+window.addEventListener("resize", changeBadgeAbsolutePosition);
+changeBadgeAbsolutePosition()

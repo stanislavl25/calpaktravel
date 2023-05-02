@@ -1,6 +1,6 @@
 {%- assign product_type = product.type | downcase -%}
 
-<section class="pdp__variants"{% if early_access != blank %} data-early-access="{{ early_access }}"{% endif %}>
+<section class="pdp__variants">
     {% comment %} //// SIZES/QTY/ETC //// {% endcomment %}
     {%- for option in product.options_with_values -%}   
         {%- assign optionLow = option.name | downcase -%}

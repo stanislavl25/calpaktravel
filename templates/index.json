@@ -23,11 +23,11 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Buy 2 items (or more), get 15% off",
-            "description": "<p>Use promo code <strong>MOM15<\/strong>.<strong> <\/strong>Limited time only. <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
-            "main-link": "shopify:\/\/collections\/mothers-day",
+            "title": "Meet Espresso",
+            "description": "<p>Shop our best-selling luggage collection in an indulgent new hue.<\/p>",
+            "main-link": "shopify:\/\/collections\/trnk-collection",
             "button-text": "Shop Now",
-            "add-link-to-button-only": true,
+            "add-link-to-button-only": false,
             "secondary-button-text": "",
             "secondary-button-url": "",
             "show-screens": "all",
@@ -40,9 +40,10 @@
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Hollyridge_calpak0693CA.jpg",
+            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3723-4.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3705-4.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/mothers-day",
+            "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
             "description": "",
             "button-text": "",
@@ -55,9 +56,9 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2_dfa5d683-77e0-4696-885f-52301c6de80b.jpg",
+            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/mothers-day",
+            "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
             "description": "",
             "button-text": "",
@@ -76,7 +77,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 110,
+        "height-limit": 100,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
@@ -486,6 +487,35 @@
         "text-color-scheme": "white",
         "background": "#ff6b0e"
       }
+    },
+    "0289f3f5-735e-4226-94a8-b23cd4ee6569": {
+      "type": "sticky-promo",
+      "settings": {
+        "product_list": [
+          "ambeur-2-piece-luggage-set"
+        ],
+        "collection_list": [
+          "trnk-collection"
+        ],
+        "promo-image": "shopify:\/\/shop_images\/6F6A9412_1.jpg",
+        "promo-text": "Promo text",
+        "background-color": "#ff6b0e",
+        "promo-link": "",
+        "close-color-scheme": "black"
+      }
+    },
+    "3655ee82-744b-460a-903e-46737e577fe6": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "memorial-day-enabled": true,
+        "memorial-day-sale-tag": "Final Sale",
+        "memorial-day-sale-text": "Memorial day SALE",
+        "memorial-day-sale-starts": "",
+        "memorial-day-sale-ends": "",
+        "memorial-day-sale-countdown": "24",
+        "memorial-day-sale-accent": "#ff0000",
+        "memorial-day-sale-text-col": "#ffffff"
+      }
     }
   },
   "order": [
@@ -497,6 +527,8 @@
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
-    "5a6f5490-2467-4517-8d4e-1b098c285ad9"
+    "5a6f5490-2467-4517-8d4e-1b098c285ad9",
+    "0289f3f5-735e-4226-94a8-b23cd4ee6569",
+    "3655ee82-744b-460a-903e-46737e577fe6"
   ]
 }

@@ -127,8 +127,13 @@
         position: relative;
     }
 
-    .content-slider .slider__wrapper .slider.content-slider__nav {
-        margin: 0;
+    .content-slider .slider__wrapper--nav::after {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: var(--gap);
+        right: var(--gap);
+        border-top: 1px dashed #aeaeae;
     }
 
     .content-slider__nav-slide {
