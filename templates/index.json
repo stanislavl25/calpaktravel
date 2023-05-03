@@ -3,6 +3,39 @@
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
       "blocks": {
+        "05c1be71-e898-478e-adad-1b2271f72d07": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/luggage",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": false,
+            "show-screens": "desktop",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "488d30f2-0c2e-491b-88cc-600019715197": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/luggage",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
@@ -20,40 +53,8 @@
             "background": "#e4dfd5"
           }
         },
-        "05c1be71-e898-478e-adad-1b2271f72d07": {
-          "type": "media-block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
-            "video": "",
-            "main-link": "shopify:\/\/collections\/luggage",
-            "title": "",
-            "description": "",
-            "button-text": "",
-            "add-link-to-button-only": false,
-            "show-screens": "desktop",
-            "text-color-scheme": "white",
-            "text-alignment": "center"
-          }
-        },
-        "488d30f2-0c2e-491b-88cc-600019715197": {
-          "type": "media-block",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
-            "video": "",
-            "main-link": "shopify:\/\/collections\/luggage",
-            "title": "",
-            "description": "",
-            "button-text": "",
-            "add-link-to-button-only": true,
-            "show-screens": "all",
-            "text-color-scheme": "white",
-            "text-alignment": "center"
-          }
-        },
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Hollyridge_calpak0693CA.jpg",
             "video": "",
@@ -69,7 +70,6 @@
         },
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2_dfa5d683-77e0-4696-885f-52301c6de80b.jpg",
             "video": "",
@@ -85,9 +85,9 @@
         }
       },
       "block_order": [
-        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197",
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd"
       ],
