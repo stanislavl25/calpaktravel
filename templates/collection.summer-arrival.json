@@ -657,6 +657,13 @@
             "static_img": "shopify:\/\/shop_images\/image_188.png",
             "index": 11
           }
+        },
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6": {
+          "type": "static",
+          "settings": {
+            "static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
+            "index": 15
+          }
         }
       },
       "block_order": [
@@ -668,7 +675,8 @@
         "aea27576-7ef1-4bea-a766-642569b8c192",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "2b60dc18-50f2-4c56-99ee-1694268aa83b",
-        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab"
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6"
       ],
       "settings": {
         "wishlist": true,
