@@ -227,7 +227,6 @@
           },
           "82ab2924-4e80-4b8c-8516-2e8d226f68f8": {
             "type": "discover-block",
-            "disabled": true,
             "settings": {
               "title": "Discover #1",
               "button-url": "https:\/\/www.calpaktravel.com\/pages\/travel-in-style-which-bag-should-you-bring-to-your-next-destination",
@@ -244,6 +243,7 @@
           },
           "61a72dd4-4cbc-441b-9ad8-8b8436289091": {
             "type": "discover-block",
+            "disabled": true,
             "settings": {
               "title": "Discover #1",
               "button-url": "shopify:\/\/collections\/new-arrivals",
