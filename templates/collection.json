@@ -404,6 +404,19 @@
             "radio_only": false,
             "selected": false
           }
+        },
+        "a82f64a2-a57f-4cc8-91a0-339004a338e6": {
+          "type": "category",
+          "settings": {
+            "heading": "Summer Arrival",
+            "title": "Summer arrival",
+            "collection": "summer-arrivals",
+            "product_list": [
+
+            ],
+            "radio_only": false,
+            "selected": false
+          }
         }
       },
       "block_order": [
@@ -434,7 +447,8 @@
         "72cccac1-90ad-4a4d-acbe-2048e9dd97ae",
         "28434334-9c5a-48f8-b177-3f51889eb761",
         "9259d563-108f-4e2c-8ab1-05c5107d2ad6",
-        "62ae8053-c3fa-4ba2-b598-947d7ea2d3ae"
+        "62ae8053-c3fa-4ba2-b598-947d7ea2d3ae",
+        "a82f64a2-a57f-4cc8-91a0-339004a338e6"
       ],
       "settings": {
         "collection_list": [
@@ -450,6 +464,7 @@
       "type": "memorial-day-sale-promo-banner",
       "settings": {
         "countdown-enabled": true,
+        "countdown-label-collection-enabled": true,
         "countdown-sale-text": "Sale Ends",
         "countdown-sale-starts": "May 2, 2023 10AM",
         "countdown-sale-ends": "May 3, 2023 10AM",
@@ -458,8 +473,7 @@
           "bags"
         ],
         "countdown-sale-accent": "#16ba6b",
-        "countdown-sale-text-col": "#000",
-        "countdown-sale-tag": ""
+        "countdown-sale-text-col": "#000000"
       }
     },
     "c73bb04c-639e-4668-8e33-3a9e76dad60e": {
