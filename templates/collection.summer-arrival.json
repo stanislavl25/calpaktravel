@@ -615,18 +615,16 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/astyll-medium-luggage",
             "product_title": "Astyll Medium Luggage",
-            "image": "shopify:\/\/shop_images\/AO2A7747-3.jpg",
+            "image": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-PRODUCTS.png",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/AO2A7747-17.jpg",
             "target_link_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "title_r": "",
             "description_r": "",
             "button-text_r": "",
             "pictured_product_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "product_title_r": "Hue Carry On Luggage",
-            "image_r": "shopify:\/\/shop_images\/IMG_9016-2.jpg",
             "video_r": "https:\/\/player.vimeo.com\/video\/403125830?title=0&byline=0&color=ffffff&portrait=0&muted=1&sidedock=0&api=1&autoplay=1&loop=1&controls=1",
             "video-ratio-w_r": "1",
             "video-ratio-h_r": "1"
@@ -664,6 +662,13 @@
             "static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
             "index": 15
           }
+        },
+        "7676be9e-c601-451f-896f-70d29d759dd8": {
+          "type": "static",
+          "settings": {
+            "static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-COMPAKT-TOTE-BAG.png",
+            "index": 17
+          }
         }
       },
       "block_order": [
@@ -676,7 +681,8 @@
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "2b60dc18-50f2-4c56-99ee-1694268aa83b",
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
-        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6"
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
+        "7676be9e-c601-451f-896f-70d29d759dd8"
       ],
       "settings": {
         "wishlist": true,
