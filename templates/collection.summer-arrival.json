@@ -527,7 +527,7 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/compakt-tote-bag",
             "product_title": "Compakt Tote Bag",
-            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3693.png",
             "video": "",
             "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
@@ -650,6 +650,13 @@
             "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": ""
           }
+        },
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
+          "type": "static",
+          "settings": {
+            "static_img": "shopify:\/\/shop_images\/image_188.png",
+            "index": 3
+          }
         }
       },
       "block_order": [
@@ -660,7 +667,8 @@
         "22881909-1257-4d1c-87e6-3506c294f4e4",
         "aea27576-7ef1-4bea-a766-642569b8c192",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b"
+        "2b60dc18-50f2-4c56-99ee-1694268aa83b",
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab"
       ],
       "settings": {
         "wishlist": true,
