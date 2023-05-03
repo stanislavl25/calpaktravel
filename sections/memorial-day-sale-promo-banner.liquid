@@ -3,28 +3,7 @@
         {%- liquid
             assign now = "now" | date: '%s' | times: 1
             assign ends = section.settings.countdown-sale-ends | date: '%s' | times: 1
-
-            if section.settings.countdown-sale-tag == blank
-                assign memorialDaySale = true
-            else
-                assign memorialDaySale = true
-                for tag in product.tags
-                    assign tagSpl = tag | split: ':'
-                    if section.settings.countdown-sale-tag == tagSpl[0]
-                        if tagSpl.size == 1
-                            assign memorialDaySale = false
-                        else
-                            assign aux = tagSpl[1] | split: ';'
-                            if aux
-                                assign memorialDaySale = false
-                            else
-                                assign memorialDaySale = true
-                            endif
-                        endif
-                    endif
-                endfor
-            endif
-
+            assign memorialDaySale = false
             assign timeLeft = ends | minus: now
             assign collections_excluded = section.settings.countdown-unwanted-collections | map: "handle"
 
@@ -168,11 +147,6 @@
                 "id": "countdown-sale-text-col",
                 "label": "Text color",
                 "default": "#fff"
-            }, 
-            {
-                "type": "textarea",
-                "id": "countdown-sale-tag",
-                "label": "Eligible products tag"
             }
         ]
     }
