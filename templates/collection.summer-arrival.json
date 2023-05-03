@@ -404,6 +404,32 @@
             "radio_only": false,
             "selected": false
           }
+        },
+        "36bcba02-475a-4f72-a2a5-31995047ad20": {
+          "type": "category",
+          "settings": {
+            "heading": "Summer arrival",
+            "title": "Summer arrival",
+            "collection": "summer-arrivals",
+            "product_list": [
+
+            ],
+            "radio_only": true,
+            "selected": false
+          }
+        },
+        "a488773c-ac02-4b53-aa68-bfc1ba902fce": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> hue carry on",
+            "title": "Hue carry on",
+            "collection": "hue-collection",
+            "product_list": [
+
+            ],
+            "description": "",
+            "filter-in-parent": false
+          }
         }
       },
       "block_order": [
@@ -434,7 +460,9 @@
         "72cccac1-90ad-4a4d-acbe-2048e9dd97ae",
         "28434334-9c5a-48f8-b177-3f51889eb761",
         "9259d563-108f-4e2c-8ab1-05c5107d2ad6",
-        "62ae8053-c3fa-4ba2-b598-947d7ea2d3ae"
+        "62ae8053-c3fa-4ba2-b598-947d7ea2d3ae",
+        "36bcba02-475a-4f72-a2a5-31995047ad20",
+        "a488773c-ac02-4b53-aa68-bfc1ba902fce"
       ],
       "settings": {
         "collection_list": [
