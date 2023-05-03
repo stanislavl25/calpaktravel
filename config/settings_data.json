@@ -20,7 +20,6 @@
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": true,
-    "badge-placement": "bottom",
     "badge_display": "both",
     "sale-badge-tag": "Final Sale",
     "sale-badge-text": "Memorial Day Sale",
@@ -48,6 +47,7 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
+    "badge-placement": "bottom",
     "sections": {
       "header": {
         "type": "header",
