@@ -41,10 +41,14 @@
     z-index: 5;
     font-size: 21px;
 }
-.product-label--badge.product-label--badge-top {
+.product-label--badge-collection-page {
+    right: 11.01px;
+    bottom: 47.01px;
+}
+.product-label--badge.product-label--badge-desktop-top {
     top: 35px;
 }
-.product-label--badge.product-label--badge-bottom {
+.product-label--badge.product-label--badge-desktop-bottom {
     top: 553px;
 }
 
@@ -114,22 +118,25 @@ body .floating-labels .product-label--extra-sale {
 }
 
 @media (max-width: 900px) {
-    .product-label--badge.product-label--badge-bottom,
-    .product-label--badge.product-label--badge-top {
+    .product-label--badge {
         font-size: 14px;
-        top: 440px;
-        right: 8px;
-        width: 142px;
-        height: 23px;
-        border-radius: 8px;
-        transform: rotate(0deg);
+        right: 13px;
+        width: 74px;
+        height: 74px;
+        border-radius: 74px;
+        transform: rotate(0deg)!important;
+    }
+    .product-label--badge.product-label--badge-mobile-bottom {
         margin: 0px;
     }
-
-    .product-unit .product-label--badge {
-        display: none;
+    .product-label--badge.product-label--badge-mobile-top {
+        top: 35px;
     }
-
+    .product-label--badge.product-label--badge-collection-page {
+        right: 11.01px;
+        bottom: 37.01px;
+        transform: rotate(17.38deg)!important;
+    }
     .floating-labels {
         flex-direction: column;
     }
