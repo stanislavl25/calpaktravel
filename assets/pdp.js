@@ -608,12 +608,30 @@ function pdpHandleDescriptions(pdpInfo, option) {
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
 const changeBadgeAbsolutePosition = e => {
-    if(window.innerWidth < 900) {
-        let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
-        let badge = document.querySelector('.pdp__gallery-container .product-label--badge');
-        badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
-    } else {
-        badge.style.top = 'initial'
+    if(window.location.pathname.includes('product')) {
+        if(window.innerWidth < 900) {
+            let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
+            let badge = document.querySelector('.pdp__gallery-container .product-label--badge-mobile-bottom');
+            if(badge) {
+                badge.style.marginTop = `0px`; 
+                badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
+            } else {
+                badge = document.querySelector('.pdp__gallery-container .product-label--badge');
+                badge.style.marginTop = ``; 
+                badge.style.top = ``; 
+            }
+        } else {
+            let first_media = document.querySelector('.pdp__gallery-container .pdp__media--wide');
+            let badge = document.querySelector('.pdp__gallery-container .product-label--badge-desktop-bottom');
+            if(badge) {
+                badge.style.marginTop = `0px`; 
+                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 10}px`; 
+            } else {
+                badge = document.querySelector('.pdp__gallery-container .product-label--badge');
+                badge.style.marginTop = ``; 
+                badge.style.top = ``; 
+            }
+        }
     }
 };
 document.addEventListener("DOMContentLoaded", changeBadgeAbsolutePosition);

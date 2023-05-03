@@ -418,8 +418,24 @@
       },
       {
         "type": "select",
-        "id": "badge-placement",
-        "label": "Badge Placement",
+        "id": "desktop-badge-placement",
+        "label": "Desktop Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
+        "type": "select",
+        "id": "mobile-badge-placement",
+        "label": "Mobile Badge Placement",
         "options": [
           {
             "value": "top",

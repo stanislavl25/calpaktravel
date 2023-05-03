@@ -3,28 +3,7 @@
         {%- liquid
             assign now = "now" | date: '%s' | times: 1
             assign ends = section.settings.countdown-sale-ends | date: '%s' | times: 1
-
-            if section.settings.countdown-sale-tag == blank
-                assign memorialDaySale = true
-            else
-                assign memorialDaySale = true
-                for tag in product.tags
-                    assign tagSpl = tag | split: ':'
-                    if section.settings.countdown-sale-tag == tagSpl[0]
-                        if tagSpl.size == 1
-                            assign memorialDaySale = false
-                        else
-                            assign aux = tagSpl[1] | split: ';'
-                            if aux
-                                assign memorialDaySale = false
-                            else
-                                assign memorialDaySale = true
-                            endif
-                        endif
-                    endif
-                endfor
-            endif
-
+            assign memorialDaySale = true
             assign timeLeft = ends | minus: now
             assign collections_excluded = section.settings.countdown-unwanted-collections | map: "handle"
 
@@ -45,9 +24,42 @@
     {%- endif -%}
 </div>
 
-<script>
-    console.log({{ collections_excluded | json }})
-</script>
+{% if section.settings.countdown-label-collection-enabled and timeLeft > 0 and memorialDaySale != false and template contains 'collection'%}
+    <script>
+        console.log('testing')
+        const addLabelToCollectionProductUnit = e => {
+            if(document.querySelector('html').clientWidth < 900) {
+                if([...document.querySelectorAll('.countdown-sale-badge-label')].length < 1) {
+                    
+                    let products = document.querySelectorAll('.product-unit.product-unit--quickadd');
+                    [...products].map((productUnit, index) => {
+                        if(!productUnit.classList.contains('slide')) {
+                            let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
+                            let newLabel = document.createElement('p');
+    
+                            newLabel.setAttribute('class', 'countdown-sale-badge-label');        
+                            newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
+                            newLabel.appendChild(newLabelText);
+                            
+                            productUnit.appendChild(newLabel);
+                        }
+                    });
+                }
+            } else {
+                [...document.querySelectorAll('.countdown-sale-badge-label')].map(countdownSaleBadgeLabel => countdownSaleBadgeLabel.parentNode.removeChild(countdownSaleBadgeLabel));
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", addLabelToCollectionProductUnit);
+        window.addEventListener("resize", addLabelToCollectionProductUnit);
+        document.addEventListener("shopify:section:load", addLabelToCollectionProductUnit);
+        try {
+            addLabelToCollectionProductUnit();
+        } catch(e) {
+            setTimeout(addLabelToCollectionProductUnit, 1000);
+        }
+    </script>
+{% endif %}
 <style>
     div.product-label.product-label--countdown {
         display: flex;
@@ -57,6 +69,10 @@
         color: {{ section.settings.countdown-sale-text-col }};
         width: calc(100% - 36px);
         height: 88px;
+        margin-top: 44px;
+        {% if template == 'collection' %}
+            margin-bottom: -40px;
+        {% endif %}
         margin-inline: auto;
         padding-inline: 20px;
         padding-block: 12px;
@@ -73,12 +89,18 @@
         font-weight: 400;
     }
 
+    .product-unit p.countdown-sale-badge-label {
+        display: none;
+    }
     @media (max-width: 900px) {
         div.product-label.product-label--countdown {
             height: 53px;
             width: calc(100% - 24px);
             padding-top: 7px;
             padding-bottom: 8px;
+            {% if template == 'collection' %}
+                margin-bottom: 0px;
+            {% endif %}
         }
         
         div.product-label.product-label--countdown label {
@@ -92,6 +114,23 @@
             font-size: 30px;
             line-height: 38px;
             text-align: center;
+        }
+        .product-unit p.countdown-sale-badge-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 126px;
+            height: 30px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 18px;
+            background: {{ section.settings.countdown-sale-accent }};
+            color: {{ section.settings.countdown-sale-text-col }};
+            padding-inline: 6px 6px;
+            padding-block: 6px;
+            margin-top: 8px;
+            margin-bottom: 0px;
         }
     }
 </style>
@@ -113,6 +152,12 @@
                 "type": "checkbox",
                 "id": "countdown-enabled",
                 "label": "Countdown Banner Enabled",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "countdown-label-collection-enabled",
+                "label": "Countdown sale Label to in collection",
                 "default": true
             },
             {
@@ -168,11 +213,6 @@
                 "id": "countdown-sale-text-col",
                 "label": "Text color",
                 "default": "#fff"
-            }, 
-            {
-                "type": "textarea",
-                "id": "countdown-sale-tag",
-                "label": "Eligible products tag"
             }
         ]
     }
