@@ -1,5 +1,15 @@
 {
   "sections": {
+    "30abf871-7ca5-49dc-b65e-778656d00be9": {
+      "type": "page-header",
+      "settings": {
+        "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "title-size": "medium",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
       "disabled": true,
@@ -487,17 +497,6 @@
         "summer-arrivals-banner-text-background-color": "#ffffff"
       }
     },
-    "30abf871-7ca5-49dc-b65e-778656d00be9": {
-      "type": "page-header",
-      "disabled": true,
-      "settings": {
-        "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "title-size": "medium",
-        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
-        "button-text": "",
-        "button-link": ""
-      }
-    },
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
@@ -745,10 +744,10 @@
     }
   },
   "order": [
+    "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
     "c73bb04c-639e-4668-8e33-3a9e76dad60e",
-    "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "6910cb6e-7791-4494-a663-9fa82c1b25aa"
