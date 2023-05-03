@@ -16,6 +16,9 @@
     window.addEventListener('load', changeTheProductImage);
     document.addEventListener("DOMContentLoaded", changeTheProductImage);
     document.addEventListener("shopify:section:load", changeTheProductImage);
+    document.addEventListener("shopify:section:change", changeTheProductImage);
+    document.addEventListener('page:load', changeTheProductImage);
+    document.addEventListener('page:change', changeTheProductImage);
 </script>
 <style>
 #product-card__{{ block.settings.index }} .product-unit__image > img.f-loaded {
