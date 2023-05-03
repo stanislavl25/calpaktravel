@@ -151,7 +151,7 @@
         {%- endunless -%}
         <input type="hidden" name="id" value="{{ current_variant.id }}">
     </div>
-    {% if current_variant.inventory_quantity <= 15 and current_variant.inventory_policy == 'deny' %}
+    {% if current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %}
         <div class="pdp__inventory-policy">
             <p class="pdp__stock-variant">Low Stock</p><P >only {{ current_variant.inventory_quantity }} left</P>
         </div>
