@@ -7,15 +7,31 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/220225_CALPAK_HueMini_32249_Hi-3.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/200122_CALPAK_HUE_CARRYON_FP_2005_Hi.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1074_1-4.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/hue-collection",
+            "main-link": "shopify:\/\/collections\/luggage",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": false,
-            "show-screens": "mobile",
+            "show-screens": "desktop",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "488d30f2-0c2e-491b-88cc-600019715197": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/luggage",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
@@ -70,13 +86,14 @@
       },
       "block_order": [
         "05c1be71-e898-478e-adad-1b2271f72d07",
+        "488d30f2-0c2e-491b-88cc-600019715197",
         "ee068b0d-f69b-4136-8fef-be3ec21f588f",
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd"
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 110,
+        "height-limit": 105,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
