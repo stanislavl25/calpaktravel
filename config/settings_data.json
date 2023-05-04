@@ -20,6 +20,7 @@
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": true,
+    "mobile-badge-placement": "bottom",
     "badge_display": "both",
     "sale-badge-tag": "Final Sale",
     "sale-badge-text": "Memorial Day Sale",
