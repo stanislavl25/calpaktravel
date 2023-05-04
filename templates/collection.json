@@ -499,7 +499,6 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
-          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
             "video": "",
