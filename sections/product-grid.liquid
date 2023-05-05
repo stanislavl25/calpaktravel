@@ -19,7 +19,11 @@
     .modular-block img, .modular-section img {
         border-radius: 9px;
     }
-    .modular-block, .modular-section {
+    .modular-block {
+        border-radius: 9px;
+        padding: 0;
+    }
+    .modular-section {
         border-radius: 9px;
         padding: 0px {{ section.settings.module_padding }}px;
     }
@@ -38,6 +42,15 @@
                 }
         {% endif %}
     {% endif %}
+    .product-grid {
+        row-gap: {{section.settings.row_gap}}px;
+        column-gap:{{section.settings.column_gap}}px;
+    }
+    @media (max-width: 900px) {
+        .product-grid {
+            row-gap: 25px;
+        }    
+    }
 </style>
 
 {%- liquid
@@ -65,7 +78,7 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
-<section class="product-grid" style="row-gap: {{section.settings.row_gap}}px; column-gap:{{section.settings.column_gap}}px;">
+<section class="product-grid">
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -179,25 +192,94 @@
             }
         ],
         "blocks": [
-             {
+            {
                 "type": "static",
                 "name": "Static content",
                 "settings": [
                     {
-                    "type": "image_picker",
-                    "id": "static_img",
-                    "label": "Image"
+                        "type": "number",
+                        "id": "index",
+                        "label": "Product position in grid",
+                        "default": 3,
+                        "info": "This is not related to the column position, this is the position from only the products that are displayed in the grid. For example, if you have 20 products in the collection and you set this to 3, the static block will be displayed inside the 3rd product."
                     },
                     {
-                    "type": "number",
-                    "id": "index",
-                    "label": "Product position in grid",
-                    "default": 3,
-                    "info": "This is not related to the column position, this is the position from only the products that are displayed in the grid. For example, if you have 20 products in the collection and you set this to 3, the static block will be displayed inside the 3rd product."
+                        "type": "paragraph",
+                        "content": "Save changes to see the preview."
                     },
                     {
-                    "type": "paragraph",
-                    "content": "Save changes to see the preview."
+                        "type": "header",
+                        "content": "Desktop Settings"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "enable_static_for_desktop",
+                        "default": true,
+                        "label": "Enable Static Content For Desktop"
+                    },
+                    {
+                        "type": "select",
+                        "id": "static_media_type_desktop",
+                        "label": "Static Content Desktop Media Type",
+                        "options": [
+                            {
+                                "value": "image",
+                                "label": "Image"
+                            },
+                            {
+                                "value": "video",
+                                "label": "Video"
+                            }
+                        ],
+                        "default": "image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "desktop_static_img",
+                        "label": "Desktop Image"
+                    },
+                    {
+                        "type": "video",
+                        "id": "desktop_static_video",
+                        "label": "Desktop Video",
+                        "info": "Only applies if Video is the Cover Media Type Selected"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Mobile Settings"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "enable_static_for_mobile",
+                        "default": true,
+                        "label": "Enable Static Content For Mobile"
+                    },
+                    {
+                        "type": "select",
+                        "id": "static_media_type_mobile",
+                        "label": "Static Content Mobile Media Type",
+                        "options": [
+                            {
+                                "value": "image",
+                                "label": "Image"
+                            },
+                            {
+                                "value": "video",
+                                "label": "Video"
+                            }
+                        ],
+                        "default": "image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "mobile_static_img",
+                        "label": "Mobile Image"
+                    },
+                    {
+                        "type": "video",
+                        "id": "mobile_static_video",
+                        "label": "Desktop Video",
+                        "info": "Only applies if Video is the Cover Media Type Selected"
                     }
                 ]
             },
@@ -378,23 +460,13 @@
                         "label": "Description"
                     },
                     {
-                        "type": "text",
-                        "id": "button-text",
-                        "label": "Button Text"
-                    },
-                    {
                         "type": "header",
                         "content": "Product"
                     },
                     {
-                        "type": "url",
-                        "id": "pictured_product",
-                        "label": "Pictured Product URL"
-                    },
-                    {
-                        "type": "text",
-                        "id": "product_title",
-                        "label": "Product Title"
+                        "type": "product_list",
+                        "id": "pictured_products",
+                        "label": "Pictured Products List"
                     },
                     {
                         "type": "header",

@@ -3,10 +3,24 @@
         grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
     }
+    .floating-link__pictured {
+        margin-left: 20px;
+    }
+    .floating-link {
+        left: 24px;
+        right: 24px
+    }
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
             grid-column: 1 / span 2;
+        }
+        .floating-link__pictured {
+            margin-left: 6px;
+        }
+        .floating-link {
+            left: 10px;
+            right: 10px
         }
     }
     @media screen and (max-width:649px){
@@ -69,19 +83,17 @@
 
 
     {%- if video_active != true -%}
-        {%- if block.settings.product_title != blank or block.settings.button-text != blank -%}
-            <div class="floating-link">
-                {% if block.settings.button-text != blank %}
-                    <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                        <span>{{- block.settings.button-text | escpe -}}</span>
-                    </a>
-                {% endif %}
-
-                {% if block.settings.product_title != blank %}
-                <div class="floating-link__pictured">
-                    Pictured: <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+        {% assign pictured_products = block.settings.pictured_products %}
+        {% 
+            if pictured_products.count > 0
+        %}
+        <div class="floating-link">
+            <div class="floating-link__pictured">
+                <span style="margin-right: 2px;">Pictured: </span>
+                {%- for pictured_product in pictured_products -%}
+                    <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{- pictured_product.url -}}">{{- pictured_product.title | escape -}}</a>{%if forloop.last != true  %}<span>,</span>{%endif%}
+                {%- endfor -%}
                 </div>
-                {% endif %}
             </div>
         {%- endif -%}
     {%- endif -%}
@@ -90,11 +102,6 @@
     {% if video_active == true %}
         .block_id--{{ block.id }} .video-iframe-container{
             height:100%; 
-        }
-    {% endif %}
-    {% if block.settings.button-text == blank %}
-        .floating-link__pictured {
-            margin-left: 19px;
         }
     {% endif %}
   </style>
