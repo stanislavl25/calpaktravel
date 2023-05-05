@@ -22,7 +22,7 @@
             "iframe-url": "https:\/\/calpak.attn.tv\/p\/3eO\/landing-page",
             "klaviyo_id": "",
             "height": "600",
-            "height-mobile": "400",
+            "height-mobile": "700",
             "vertical_alignment": "center"
           }
         }
@@ -32,7 +32,7 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7"
       ],
       "settings": {
-        "background": "#676f69",
+        "background": "#ffffff",
         "mobile-layout": "stack-reverse"
       }
     },
