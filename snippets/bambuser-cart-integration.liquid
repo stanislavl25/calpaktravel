@@ -138,7 +138,12 @@ window.onBambuserLiveShoppingReady = player => {
     player.on(player.EVENT.CHECKOUT, () => {
         // Use the showCheckout() method to safely
         // navigate the user to your checkout page
-        player.showCheckout(window.location.origin + "/checkout");
+        {% if customer %}
+            player.showCheckout(window.location.origin + "/checkout");
+        {% else %}
+            player.showCheckout(window.location.origin + "/account/login/checkout");
+        {% endif %}
+        
     });
     // ---- End of Cart Integrations ----
 
