@@ -5,6 +5,7 @@
       "blocks": {
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Royal_Woods.webp",
             "keep-proportions": true,
@@ -17,9 +18,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/Lhz\/landing-page",
+            "form_type": "iframe",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/3eO\/landing-page",
+            "klaviyo_id": "",
             "height": "600",
-            "height-mobile": "400"
+            "height-mobile": "400",
+            "vertical_alignment": "center"
           }
         }
       },
@@ -39,7 +43,8 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false
           }
         }
       },
