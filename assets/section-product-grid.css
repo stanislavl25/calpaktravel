@@ -12,6 +12,10 @@
     row-gap: 40px;
 }
 
+.product-grid--gap {
+    column-gap: 10px;
+}
+
 .product-grid__empty-text {
     display: none;
     justify-content: center;
