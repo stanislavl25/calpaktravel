@@ -1,0 +1,87 @@
+<div data-section-id="{{ section.id }}" data-section-type="promos-section" data-scroll-lock="{{ section.settings.scroll_lock_promo }}">
+  {% for block in section.blocks %}
+    {% if block.type == 'announcement-bar' %}
+      {%- if block.settings.show_announcement_bar -%}
+        {%- if block.settings.homepage_limit -%}
+          {%- if template.name == 'index' -%}
+            {%- assign show_announcement_bar = true -%}
+          {%- endif -%}
+        {%- else -%}
+          {%- assign show_announcement_bar = true -%}
+        {%- endif -%}
+        {%- if show_announcement_bar -%}
+          <header id="block-{{ block.id }}" class="promo-bar{% if block.settings.holiday_banner %} promo-holiday-banner{% endif %} promo-bar-{{ block.id }} align-center size-default placement-top"
+            data-type="{{ block.type }}"
+            {% if block.settings.autohide %}
+            data-hide-delay="{{ block.settings.autohide_delay_range | times: 1000 }}"
+            {% else %}
+            data-hide-delay="no-delay"
+            {% endif %}
+            data-bar-placement="{{ block.settings.bar_placement}}"
+            data-show-for="{{ block.settings.show_for}}"
+            data-homepage-limit="{{ block.settings.homepage_limit }}"
+            {{ block.shopify_attributes }}>
+            <a title="Hide" href="#" class="hide-promo-bar">Hide</a>
+            <div data-timeout="{{ block.settings.timeout }}" class="promo-bar-text-container">
+              <div class="promo-bar-text-cell">
+              {% if block.settings.link != blank %}
+                {% if block.settings.holiday_banner %}
+                  <div class="promo-bar-text">
+                      <a href="{{ block.settings.link}}">
+                        {{ block.settings.title | replace: '((countdown))', '<span class="countdown"></span>' }}
+                      </a>
+                  </div>
+                {% else %}
+                  <a href="{{ block.settings.link}}">
+                    <div class="promo-bar-text">
+                      {{ block.settings.title | replace: '((countdown))', '<span class="countdown"></span>' }}
+                    </div>
+                  </a>
+                {% endif %}
+              {% else %}
+                <div class="promo-bar-text">
+                  {{ block.settings.title | replace: '((countdown))', '<span class="countdown"></span>' }}
+                </div>
+              {% endif %}
+              </div>
+
+              {% if block.settings.title-2 != blank %}
+              <div class="promo-bar-text-cell">
+                {% if block.settings.link-2 != blank %}
+                  {% if block.settings.holiday_banner %}
+                    <div class="promo-bar-text">
+                      <a href="{{ block.settings.link-2}}">
+                        {{ block.settings.title-2 | replace: '((countdown))', '<span class="countdown"></span>' }}
+                      </a>
+                    </div>
+                  {% else %}
+                    <a href="{{ block.settings.link-2}}">
+                      <div class="promo-bar-text">
+                        {{ block.settings.title-2 | replace: '((countdown))', '<span class="countdown"></span>' }}
+                      </div>
+                    </a>
+                  {% endif %}
+                {% else %}
+                <div class="promo-bar-text">{{ block.settings.title-2 | replace: '((countdown))', '<span class="countdown"></span>' }}</div>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+          </header>
+          {% if block.settings.holiday_banner %}
+            {% include "holiday-banner" %}
+          {% endif %}
+          <style>
+            section.promo-bar-{{ block.id }} div.promo-bar-text {
+              background-color: {{ block.settings.color_background }};
+              color: {{ block.settings.color_text }};
+            }
+            section.promo-bar-{{ block.id }} a {
+              color: {{ block.settings.color_text }};
+            }
+          </style>
+        {%- endif -%}
+      {%- endif -%}
+    {% endif %}
+  {% endfor %}
+</div>
