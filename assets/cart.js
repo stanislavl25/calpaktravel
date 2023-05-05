@@ -219,7 +219,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     const cartHeader = document.querySelector('.cart__header');
     const cartGoals = document.querySelector(wrapper);
     const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-    const freeShippingStarts = goals.find(goal => goal.title == 'Free shipping').value * 100;
+    const freeShippingStarts = goals.find(goal => goal.title == 'free shipping').value * 100;
 
     cartGoals.innerHTML = '';
     let goalsVerbose = [];
@@ -260,9 +260,9 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     let verboseTemplate = '';
     if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
         for(let x in goalsVerbose) {
-            let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get a`;
+            let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get`;
             if (goalsVerbose[x].status == 'complete') {
-                verboseTemplate += `You got ${goalsVerbose[x].goal}! `;
+                verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
             } else {
                 verboseTemplate += `<b>${prefix} ${goalsVerbose[x].goal}!</b> `;
             }
@@ -278,8 +278,8 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
 
     if (gamificationPercent == 100) {
-        const verboseGoals = goals.map(goal => goal.title).join(' + a ');
-        document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! You got <b>${ verboseGoals }!</b>`;
+        const verboseGoals = goals[goals.length - 1].title;
+        document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! <br> <b>You got ${ verboseGoals }!</b>`;
     }
 
     if(items_subtotal_price >= freeShippingStarts) {
