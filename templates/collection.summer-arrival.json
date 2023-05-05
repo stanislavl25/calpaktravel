@@ -617,7 +617,7 @@
           "settings": {
             "pictured_link": true,
             "gap": 10,
-            "section_height": 40,
+            "section_height": 100,
             "row": 5,
             "mobile_row": 11,
             "column": 1,
