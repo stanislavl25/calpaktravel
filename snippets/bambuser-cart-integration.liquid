@@ -134,11 +134,21 @@ window.onBambuserLiveShoppingReady = player => {
             }
         });
     });
+if (typeof customer !== 'undefined') {
+    console.log('User is logged in' + 'aaaaaaaaaa');
+    } else {
+    console.log('User is not logged in' + 'aaaaaaaaaa');
+    }
 
     player.on(player.EVENT.CHECKOUT, () => {
         // Use the showCheckout() method to safely
         // navigate the user to your checkout page
+        {% if customer %}
         player.showCheckout(window.location.origin + "/checkout");
+        {% else %}
+        player.showCheckout(window.location.origin + "/account/login/checkout");
+        {% endif %}
+        
     });
     // ---- End of Cart Integrations ----
 
