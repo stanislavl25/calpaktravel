@@ -47,6 +47,9 @@
     {%- render 'collection-filters', banner: true -%}
 
     <style>
+        .page__header {
+            display: none!important
+        }
         .shopify-section--collection-image-banner.banner-active {
             height: calc({{ section.settings.summer-arrivals-banner-media-height }}px + 297px);
         }
@@ -74,9 +77,10 @@
         .collection-image-banner-video,
         .collection-image-banner-image {
             position: absolute;
-            right: 0;
+            {% comment %} right: 0; {% endcomment %}
             top: 0;
-            width: 100%;
+            width: calc(100% - 36px);
+            border-radius: 9px;
             object-fit: cover;
             object-position: center;
             height: {{ section.settings.summer-arrivals-banner-media-height }}px;
@@ -127,7 +131,6 @@
             justify-content: space-between;
             gap: 20px;
             height: 75px;
-            width: 100%;
             margin-inline: 18px;
             padding-block: 18px;
         }
@@ -150,6 +153,9 @@
             .collection-image-banner-video,
             .collection-image-banner-image {
                 height: {{ section.settings.summer-arrivals-banner-media-height-mobile }}px;
+                right: unset;
+                border-radius: 6px;
+                width: calc(100% - 20px);
             }
             .collection-image-banner-text-wrapper {
                 padding-inline: 14px;

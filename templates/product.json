@@ -477,8 +477,7 @@
 
         ],
         "countdown-sale-accent": "#16ba6b",
-        "countdown-sale-text-col": "#000",
-        "countdown-sale-tag": "Final Sale"
+        "countdown-sale-text-col": "#000"
       }
     }
   },

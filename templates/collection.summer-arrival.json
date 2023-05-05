@@ -491,8 +491,9 @@
         "summer-arrivals-banner-text": "Summer Arrivals",
         "summer-arrivals-media-type": "image",
         "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Rectangle_3701.png",
+        "summer-arrivals-banner-video": "shopify:\/\/files\/videos\/taco-bell-landing.mp4",
         "summer-arrivals-banner-media-height": 500,
-        "summer-arrivals-banner-media-height-mobile": 300,
+        "summer-arrivals-banner-media-height-mobile": 233,
         "summer-arrivals-banner-text-color": "#000000",
         "summer-arrivals-banner-text-background-color": "#ffffff"
       }
