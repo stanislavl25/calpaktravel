@@ -704,7 +704,7 @@
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
           "holiday-banner-color": "#000",
-          "countdown-active": false,
+          "countdown-active": true,
           "countdown-show": "always",
           "countdown-to": "May 6, 2023 12:00pm"
         }
