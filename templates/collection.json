@@ -604,6 +604,37 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3693.png",
             "video": ""
           }
+        },
+        "26121484-6047-4828-919f-49c8e5363c7d": {
+          "type": "modular-section",
+          "settings": {
+            "pictured_link": true,
+            "gap": 10,
+            "section_height": 70,
+            "row": 5,
+            "mobile_row": 5,
+            "column": 1,
+            "col_span": 5,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "astyll-medium-luggage"
+            ],
+            "image": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-PRODUCTS.png",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "target_link_r": "",
+            "title_r": "",
+            "description_r": "",
+            "button-text_r": "",
+            "pictured_product_r": "",
+            "product_title_r": "",
+            "video_r": "",
+            "video-ratio-w_r": "16",
+            "video-ratio-h_r": "9"
+          }
         }
       },
       "block_order": [
@@ -611,7 +642,8 @@
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "251cc4d4-f075-47d7-9a48-190411fb06ba",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
-        "8beb041e-a61d-40dd-b978-d4c14c2679f9"
+        "8beb041e-a61d-40dd-b978-d4c14c2679f9",
+        "26121484-6047-4828-919f-49c8e5363c7d"
       ],
       "settings": {
         "wishlist": true,
