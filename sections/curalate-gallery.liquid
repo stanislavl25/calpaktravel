@@ -9,14 +9,20 @@
         <a class="curalate-gallery__cta" href="https://www.calpaktravel.com/pages/tag-your-adventures">Shop Gallery</a>
     </aside> {% endcomment %}
 </header>
-<div class="curalate-gallery-container" crl8-container-id="product" crl8-filter="productId:'{{ product.selected_or_first_available_variant.sku }}'"></div>
+<div class="curalate-gallery_embed" data-crl8-container-id="gallery-zfEKaK3p"></div>
 
 {% schema %}
     {
         "name": "Curalate Gallery",
         "class": "shopify-section--curalate",
         "settings": [
-        
+            {
+            "type": "text",
+            "id": "gallery_id",
+            "label": "Curalate gallery ID",
+            "default": "gallery-zfEKaK3p",
+            "info": "The gallery ID can be found in after the attribute data-crl8-container-id in the div embed code snippet."
+            }
         ],
         "presets": [
             {
