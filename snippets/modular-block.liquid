@@ -1,4 +1,9 @@
 <style>
+    {% if  block.settings.only_mobile %}
+        div.modular-block.block_id--{{ block.id }} {
+            display: none!important;
+        }
+    {% endif%}
     .block_id--{{ block.id }} {
         grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
@@ -24,6 +29,16 @@
         }
     }
     @media screen and (max-width:649px){
+        {% if  block.settings.only_mobile %}
+            div.modular-block.block_id--{{ block.id }} {
+                display: flex!important;;
+            }
+        {% else %}
+            .block_id--{{ block.id }} {
+                grid-row: {{ block.settings.row }} / span 1;
+                grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
+            }
+        {% endif%}
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
             grid-column: 1 / span 2;
