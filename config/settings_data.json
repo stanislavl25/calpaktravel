@@ -673,7 +673,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Up to 45% OFF Luggage  ((countdown))<\/p>",
+              "content": "<p>EVERYWHERE  ((countdown))<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#e4dfd5",
               "text-color": "#000"
@@ -687,16 +687,76 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Shop Starter Bundle - 45% OFF<\/p>",
+              "content": "<p>Homepage<\/p>",
               "url": "shopify:\/\/products\/starter-bundle",
               "background": "#e4dfd5",
               "text-color": "#000"
+            }
+          },
+          "6d5ada61-5422-4ddd-8431-83d12e7f908d": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Collections<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          },
+          "9fa415be-78ed-4366-b763-46ea0fa97166": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": true,
+              "other": false,
+              "content": "<p>PDPs<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          },
+          "1aa906b3-b5a8-4cb9-bd30-dc27fec6b4d9": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": true,
+              "content": "<p>Blog, articles, pages<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          },
+          "bb311c67-8727-4ff8-b7fe-da9334e2f39c": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": true,
+              "other": false,
+              "content": "<p>Collection + PDPs<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
             }
           }
         },
         "block_order": [
           "a02aad90-afc9-4aca-8e84-086c1640b07d",
-          "37840dc1-0e40-46cc-8659-8d9469ae6df5"
+          "37840dc1-0e40-46cc-8659-8d9469ae6df5",
+          "6d5ada61-5422-4ddd-8431-83d12e7f908d",
+          "9fa415be-78ed-4366-b763-46ea0fa97166",
+          "1aa906b3-b5a8-4cb9-bd30-dc27fec6b4d9",
+          "bb311c67-8727-4ff8-b7fe-da9334e2f39c"
         ],
         "settings": {
           "show": "everywhere",
