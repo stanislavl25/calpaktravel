@@ -19,19 +19,21 @@
     .modular-block img, .modular-section img {
         border-radius: 9px;
     }
-    .modular-block {
+    .modular-block,
+    .modular-section {
         border-radius: 9px;
         padding: 0;
     }
-    .modular-section {
-        border-radius: 9px;
-        padding: 0px {{ section.settings.module_padding }}px;
-    }
+
     {% if template == 'collection' or 'summer-arrival' %}
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
                 {% if collection_item.handle == collection.handle %}
                     .modular-block, .modular-section__wrap {
+                        display:flex!important;
+                    }
+                {% else %} 
+                    .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap {
                         display:flex!important;
                     }
                 {% endif %}
@@ -78,7 +80,7 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
-<section class="product-grid">
+<section class="product-grid {{collection.handle}}">
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -114,9 +116,9 @@
                 when 'promo'
                     render 'promo-unit' with block
                 when 'module'
-                    render 'modular-block' with block as block
+                    render 'modular-block' with block as block, collection: collection
                 when 'modular-section'
-                    render 'modular-section' with block as block
+                    render 'modular-section' with block as block, collection: collection
                 when 'static'
                     render 'static-block' with block as block
             endcase
@@ -278,7 +280,7 @@
                     {
                         "type": "video",
                         "id": "mobile_static_video",
-                        "label": "Desktop Video",
+                        "label": "Mobile Video",
                         "info": "Only applies if Video is the Cover Media Type Selected"
                     }
                 ]
@@ -411,6 +413,12 @@
                     "id": "pictured_link",
                     "label": "Pictured product link to quick view",
                     "default": true
+                    },
+                    {
+                    "type": "checkbox",
+                    "id": "only_mobile",
+                    "label": "Display this Block only on mobile",
+                    "default": false
                     },
                     {
                     "type": "number",
@@ -573,23 +581,13 @@
                         "label": "Description"
                     },
                     {
-                        "type": "text",
-                        "id": "button-text",
-                        "label": "Button Text"
-                    },
-                    {
                         "type": "header",
                         "content": "Product"
                     },
                     {
-                        "type": "url",
-                        "id": "pictured_product",
-                        "label": "Pictured Product URL"
-                    },
-                    {
-                        "type": "text",
-                        "id": "product_title",
-                        "label": "Product Title"
+                        "type": "product_list",
+                        "id": "pictured_products",
+                        "label": "Pictured Products List"
                     },
                     {
                         "type": "header",
