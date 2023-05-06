@@ -100,7 +100,7 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
     const prnt = target.closest('.filter__collections');
     const actives = prnt.querySelectorAll('.filter__collection--selected');
     /* add collection handle to grid container */
-    
+    const bannerImg = document.querySelector('.collection-image-banner-wrapper');
     const productGrid = document.querySelector('section.product-grid');
     const dataCollection = target.getAttribute('data-collection');
 
@@ -112,8 +112,15 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
         productGrid.classList.remove(className);
         }
     }
+    for (let i = bannerImg.classList.length - 1; i >= 0; i--) {
+        const className = bannerImg.classList[i];
+        if (className !== 'collection-image-banner-wrapper') { // remove the class if it's not the specific one
+        bannerImg.classList.remove(className);
+        }
+    }
 
     productGrid.classList.add(`${dataCollection}`);
+    bannerImg.classList.add(`${dataCollection}`);
 
     let clickingActive = false;
     if(actives.length) actives.forEach(active => {
