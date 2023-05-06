@@ -669,14 +669,14 @@
             "type": "promo-bar-line",
             "settings": {
               "everywhere": false,
-              "homepage": false,
+              "homepage": true,
               "collections": false,
               "pdp": false,
               "other": false,
               "content": "<p>promo link  ((countdown))<\/p>",
               "url": "",
-              "background": "",
-              "text-color": ""
+              "background": "#e4dfd5",
+              "text-color": "#000"
             }
           },
           "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
@@ -689,8 +689,8 @@
               "other": false,
               "content": "<p>promo link  ((countdown))<\/p>",
               "url": "",
-              "background": "#f7f177",
-              "text-color": ""
+              "background": "#e4dfd5",
+              "text-color": "#000"
             }
           }
         },
