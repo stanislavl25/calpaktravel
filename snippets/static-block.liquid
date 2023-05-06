@@ -119,6 +119,9 @@
     @media screen and (max-width:900px){
         #product-card__{{ block.settings.index }} .product-unit__image > img.f-loaded {
             background-image: url('{{ block.settings.mobile_static_img | image_url}}');
+            background-size: cover;
+            background-position: center;
+            object-position:-1000px;
         }
         #product-card__{{ block.settings.index }} .product-unit__image > .static-video-mobile {
             position: absolute;
