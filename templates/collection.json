@@ -501,24 +501,6 @@
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
-        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 1,
-            "mobile_row": 1,
-            "column": 5,
-            "col_span": 1,
-            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
-            "video": ""
-          }
-        },
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
           "disabled": true,
@@ -539,25 +521,6 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
-          }
-        },
-        "93958757-d99e-40ac-9681-c941a84f5e13": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 2,
-            "mobile_row": 3,
-            "column": 1,
-            "col_span": 2,
-            "target_link": "shopify:\/\/products\/compakt-tote-bag",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
-            "video": "",
-            "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
@@ -589,103 +552,30 @@
             "row-mob": 2
           }
         },
-        "22881909-1257-4d1c-87e6-3506c294f4e4": {
+        "251cc4d4-f075-47d7-9a48-190411fb06ba": {
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "row": 3,
-            "mobile_row": 5,
-            "column": 4,
-            "col_span": 2,
-            "target_link": "shopify:\/\/products\/jewelry-case",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/COMPAKT_SHOE_BAG_ALL_LIFESTYLE3.jpg",
-            "video": ""
-          }
-        },
-        "aea27576-7ef1-4bea-a766-642569b8c192": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 5,
-            "mobile_row": 7,
-            "column": 1,
-            "col_span": 3,
-            "target_link": "shopify:\/\/collections\/2-piece-luggage-sets",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-PINK-GRID-LIFESTYLE.jpg",
-            "video": ""
-          }
-        },
-        "cf9914ea-723b-48aa-9c74-ab2a44489463": {
-          "type": "modular-section",
-          "settings": {
-            "pictured_link": true,
-            "gap": 10,
-            "section_height": 70,
-            "row": 4,
-            "mobile_row": 11,
-            "column": 1,
-            "col_span": 5,
-            "target_link": "shopify:\/\/products\/astyll-medium-luggage",
-            "title": "",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/astyll-medium-luggage",
-            "product_title": "Astyll Medium Luggage",
-            "image": "shopify:\/\/shop_images\/AO2A7747-3.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/AO2A7707-4.jpg",
-            "target_link_r": "shopify:\/\/products\/hue-carry-on-luggage",
-            "title_r": "",
-            "description_r": "",
-            "button-text_r": "Shop now",
-            "pictured_product_r": "shopify:\/\/products\/hue-carry-on-luggage",
-            "product_title_r": "Hue Carry On Luggage",
-            "image_r": "shopify:\/\/shop_images\/IMG_9016-2.jpg",
-            "video_r": "https:\/\/player.vimeo.com\/video\/403125830?title=0&byline=0&color=ffffff&portrait=0&muted=1&sidedock=0&api=1&autoplay=1&loop=1&controls=1",
-            "video-ratio-w_r": "1",
-            "video-ratio-h_r": "1"
-          }
-        },
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 6,
-            "mobile_row": 9,
+            "only_mobile": false,
+            "row": 1,
+            "mobile_row": 1,
             "column": 3,
             "col_span": 3,
-            "target_link": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
+            "target_link": "",
             "title": "",
             "description": "",
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3696.png",
             "video": ""
           }
         }
       },
       "block_order": [
-        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
         "b401a37d-55aa-49b7-b987-45893897281b",
-        "93958757-d99e-40ac-9681-c941a84f5e13",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
-        "22881909-1257-4d1c-87e6-3506c294f4e4",
-        "aea27576-7ef1-4bea-a766-642569b8c192",
-        "cf9914ea-723b-48aa-9c74-ab2a44489463",
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b"
+        "251cc4d4-f075-47d7-9a48-190411fb06ba"
       ],
       "settings": {
         "wishlist": true,
