@@ -676,7 +676,7 @@
               "content": "<p>EVERYWHERE  ((countdown))<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#e4dfd5",
-              "text-color": "#000"
+              "text-color": "#000000"
             }
           },
           "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
@@ -690,7 +690,7 @@
               "content": "<p>Homepage<\/p>",
               "url": "shopify:\/\/products\/starter-bundle",
               "background": "#e4dfd5",
-              "text-color": "#000"
+              "text-color": "#000000"
             }
           },
           "6d5ada61-5422-4ddd-8431-83d12e7f908d": {
@@ -759,7 +759,7 @@
           "bb311c67-8727-4ff8-b7fe-da9334e2f39c"
         ],
         "settings": {
-          "show": "everywhere",
+          "show": "no",
           "timeout": 5,
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
