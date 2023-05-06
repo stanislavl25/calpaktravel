@@ -668,13 +668,13 @@
           "a02aad90-afc9-4aca-8e84-086c1640b07d": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": false,
-              "homepage": true,
+              "everywhere": true,
+              "homepage": false,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>promo link  ((countdown))<\/p>",
-              "url": "",
+              "content": "<p>Up to 45% OFF Luggage  ((countdown))<\/p>",
+              "url": "shopify:\/\/collections\/sale",
               "background": "#e4dfd5",
               "text-color": "#000"
             }
@@ -682,13 +682,13 @@
           "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": true,
-              "homepage": false,
+              "everywhere": false,
+              "homepage": true,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>promo link  ((countdown))<\/p>",
-              "url": "",
+              "content": "<p>Shop Starter Bundle - 45% OFF<\/p>",
+              "url": "shopify:\/\/products\/starter-bundle",
               "background": "#e4dfd5",
               "text-color": "#000"
             }
