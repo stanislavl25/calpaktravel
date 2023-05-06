@@ -668,7 +668,7 @@
           "a02aad90-afc9-4aca-8e84-086c1640b07d": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": true,
+              "everywhere": false,
               "homepage": false,
               "collections": false,
               "pdp": false,
@@ -703,10 +703,10 @@
           "timeout": 5,
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
-          "holiday-banner-color": "#000",
+          "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "always",
-          "countdown-to": "May 6, 2023 12:00pm"
+          "countdown-to": "May 6, 2023 5:40pm"
         }
       }
     },
