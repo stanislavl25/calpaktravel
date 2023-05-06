@@ -84,9 +84,7 @@
 
     {%- if video_active != true -%}
         {% assign pictured_products = block.settings.pictured_products %}
-        {% 
-            if pictured_products.count > 0
-        %}
+        {% if pictured_products.count > 0 %}
         <div class="floating-link">
             <div class="floating-link__pictured">
                 <span style="margin-right: 2px;">Pictured: </span>
