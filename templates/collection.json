@@ -456,8 +456,7 @@
         ],
         "collection_list_ex": [
 
-        ],
-        "text-only": true
+        ]
       }
     },
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
@@ -491,7 +490,6 @@
     },
     "30abf871-7ca5-49dc-b65e-778656d00be9": {
       "type": "page-header",
-      "disabled": true,
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "title-size": "medium",
