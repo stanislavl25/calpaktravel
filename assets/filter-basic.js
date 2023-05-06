@@ -99,9 +99,20 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
     const target = e.target.closest('.filter__collection');
     const prnt = target.closest('.filter__collections');
     const actives = prnt.querySelectorAll('.filter__collection--selected');
+    /* add collection handle to grid container */
     
     const productGrid = document.querySelector('section.product-grid');
     const dataCollection = target.getAttribute('data-collection');
+
+    
+// loop through all the classes of the div element
+    for (let i = productGrid.classList.length - 1; i >= 0; i--) {
+        const className = productGrid.classList[i];
+        if (className !== 'product-grid') { // remove the class if it's not the specific one
+        productGrid.classList.remove(className);
+        }
+    }
+
     productGrid.classList.add(`${dataCollection}`);
 
     let clickingActive = false;

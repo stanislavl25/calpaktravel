@@ -33,7 +33,7 @@
                         display:flex!important;
                     }
                 {% else %} 
-                    .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap {
+                    .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap, .{{ collection_item.handle }} .static-video-desktop {
                         display:flex!important;
                     }
                 {% endif %}
@@ -80,7 +80,7 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
-<section class="product-grid {{collection.handle}}">
+<section class="product-grid">
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -198,6 +198,13 @@
                 "type": "static",
                 "name": "Static content",
                 "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "info": "For organization purposes. Not shown on site.",
+                        "default": "Static: name your block"
+                    },
                     {
                         "type": "number",
                         "id": "index",
