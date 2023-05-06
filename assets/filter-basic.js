@@ -99,6 +99,11 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
     const target = e.target.closest('.filter__collection');
     const prnt = target.closest('.filter__collections');
     const actives = prnt.querySelectorAll('.filter__collection--selected');
+    
+    const productGrid = document.querySelector('section.product-grid');
+    const dataCollection = target.getAttribute('data-collection');
+    productGrid.classList.add(`${dataCollection}`);
+
     let clickingActive = false;
     if(actives.length) actives.forEach(active => {
         if(active == target) clickingActive = true;

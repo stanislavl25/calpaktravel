@@ -24,11 +24,16 @@
         border-radius: 9px;
         padding: 0;
     }
+
     {% if template == 'collection' or 'summer-arrival' %}
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
                 {% if collection_item.handle == collection.handle %}
                     .modular-block, .modular-section__wrap {
+                        display:flex!important;
+                    }
+                {% else %} 
+                    .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap {
                         display:flex!important;
                     }
                 {% endif %}
@@ -75,7 +80,7 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
-<section class="product-grid">
+<section class="product-grid {{collection.handle}}">
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -111,9 +116,9 @@
                 when 'promo'
                     render 'promo-unit' with block
                 when 'module'
-                    render 'modular-block' with block as block
+                    render 'modular-block' with block as block, collection: collection
                 when 'modular-section'
-                    render 'modular-section' with block as block
+                    render 'modular-section' with block as block, collection: collection
                 when 'static'
                     render 'static-block' with block as block
             endcase
