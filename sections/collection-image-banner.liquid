@@ -1,5 +1,5 @@
 {% if section.settings.summer-arrivals-banner-enabled %}
-    <div class="collection-image-banner-wrapper">
+    <div class="collection-image-banner-wrapper {{ collection.handle }}">
         {% case section.settings.summer-arrivals-media-type %}  
             {% when 'video' %}
                 {% if section.settings.summer-arrivals-banner-video %}
@@ -139,6 +139,17 @@
             top: unset;
             bottom: 0;
         }
+        {% if section.settings.collection_list != empty %}
+            {% for collection_item in section.settings.collection_list %}
+                .{{ collection_item.handle }}.collection-image-banner-wrapper{
+                    display: flex;
+                }
+            {% endfor %}
+        {% else %} 
+            .collection-image-banner-wrapper{
+                display: flex;
+            }
+        {% endif %}  
 
         @media (max-width: 600px) {
             .shopify-section--collection-image-banner {
@@ -178,23 +189,50 @@
     </style>
 
     <script>
+        const filterCollectionsBanner = document.querySelectorAll('.filter__collection');
+        const oldFilter = document.querySelector('.collection-filters-not-banner');
+        const oldFilterParent = oldFilter.parentNode;
+        const filterBanner = document.querySelector('.collection-filter-with-banner');
+        const filterBannerParent = filterBanner.parentNode;
+        const oldSectionFilter = document.querySelector('.collection-filters__section');
+
         const changeFiltersLocation = (e) => {
-            if(window.innerWidth > 900) {
-                const sortView = document.querySelector('.collection-view');
-                const sortColor = document.querySelector('.collection-filter__activators');
-                const oldFilter = document.querySelector('.collection-filters-not-banner');
-                const oldSectionFilter = document.querySelector('.collection-filters__section');
-                sortColor.classList.add('visibility-hidden');
-                sortView.classList.add('visibility-hidden');
-                {% comment %} oldSectionFilter.classList.add('d-none'); {% endcomment %}
-                oldFilter.remove();
+            if (window.innerWidth > 900) {
+                // oldSectionFilter.classList.add('d-none');
+                setTimeout(() => {
+                    const bannerImgDiv = document.querySelector('.collection-image-banner-wrapper');
+                    const sortView = document.querySelector('.collection-view');
+                    const sortColor = document.querySelector('.collection-filter__activators');
+                    console.log('Initial Value: ' + bannerImgDiv.classList.value);
+                    {% for collection_item in section.settings.collection_list %}
+                        console.log('handle: {{ collection_item.handle }}')
+                        if(bannerImgDiv.classList.value == 'collection-image-banner-wrapper {{ collection_item.handle }}'){
+                            console.log('Change filters location: ' + bannerImgDiv.classList.value);
+                            sortColor.classList.add('visibility-hidden');
+                            sortView.classList.add('visibility-hidden');
+                            oldFilter.remove();
+                            filterBannerParent.appendChild(filterBanner);
+                            bannerImgDiv.parentNode.style.display = 'flex';
+                            return;
+                        } else {
+                            console.log('Reverse filters location: ' + bannerImgDiv.classList.value);
+                            sortColor.classList.remove('visibility-hidden');
+                            sortView.classList.remove('visibility-hidden');
+                            filterBanner.remove();
+                            oldFilterParent.appendChild(oldFilter);
+                            bannerImgDiv.parentNode.style.display = 'none';
+                        }
+                    {% endfor %}
+                    console.log('final Value: ' + bannerImgDiv.classList.value);
+                }, 2000);
             }
         };
-
         
-
         document.addEventListener("DOMContentLoaded", changeFiltersLocation);
         document.addEventListener("shopify:section:load", changeFiltersLocation);
+        [].map.call(filterCollectionsBanner, function (el) {
+            el.addEventListener('click', changeFiltersLocation);
+        });
 
     </script>
 {% endif %}
@@ -218,6 +256,12 @@
                 "id": "summer-arrivals-banner-enabled",
                 "label": "Summer Arrivals Banner Enabled",
                 "default": true
+            },
+            {
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Collections to display on the banner",
+                "info": "If no collections are selected, the banner will be displayed on all collections"
             },
             {
                 "type": "text",
