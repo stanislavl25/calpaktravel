@@ -88,7 +88,10 @@ window.addEventListener("load", () => {
 
         filtersCont.addEventListener('click', e => e.stopPropagation());
     }
-    
+        /* removing class from quickview links: hide */ 
+    document.querySelectorAll('a.quick-view__link').forEach(quickviewLink => { 
+        quickviewLink.classList.remove('hide');
+    });
     productImagesSizes = filteredContainer.querySelector('.shopify-section--product-grid .product-unit .product-unit__image img');
     if(productImagesSizes) productImagesSizes = productImagesSizes.getAttribute('sizes');
 });
@@ -104,7 +107,6 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
     const productGrid = document.querySelector('section.product-grid');
     const dataCollection = target.getAttribute('data-collection');
 
-    
 // loop through all the classes of the div element
     for (let i = productGrid.classList.length - 1; i >= 0; i--) {
         const className = productGrid.classList[i];
@@ -112,15 +114,18 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
         productGrid.classList.remove(className);
         }
     }
-    for (let i = bannerImg.classList.length - 1; i >= 0; i--) {
+    if(bannerImg){
+        for (let i = bannerImg.classList.length - 1; i >= 0; i--) {
         const className = bannerImg.classList[i];
         if (className !== 'collection-image-banner-wrapper') { // remove the class if it's not the specific one
         bannerImg.classList.remove(className);
         }
     }
+    bannerImg.classList.add(`${dataCollection}`);
+    }
 
     productGrid.classList.add(`${dataCollection}`);
-    bannerImg.classList.add(`${dataCollection}`);
+    
     console.log('dataCollection' + dataCollection);
     let clickingActive = false;
     if(actives.length) actives.forEach(active => {

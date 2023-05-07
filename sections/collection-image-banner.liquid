@@ -225,6 +225,20 @@
                     {% endfor %}
                     console.log('final Value: ' + bannerImgDiv.classList.value);
                 }, 2000);
+            } else {
+                setTimeout(() => {
+                    const bannerImgDiv = document.querySelector('.collection-image-banner-wrapper');
+                    console.log('Initial Value: ' + bannerImgDiv.classList.value);
+                    {% for collection_item in section.settings.collection_list %}
+                        console.log('handle: {{ collection_item.handle }}')
+                        if(bannerImgDiv.classList.value == 'collection-image-banner-wrapper {{ collection_item.handle }}'){
+                            bannerImgDiv.parentNode.style.display = 'flex';
+                            return;
+                        } else {
+                            bannerImgDiv.parentNode.style.display = 'none';
+                        }
+                    {% endfor %}
+                }, 2000);
             }
         };
         
