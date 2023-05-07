@@ -14,7 +14,6 @@
                     {% when 'video' %}
                         {% if block.settings.mobile_static_video %}
                             if(!link.querySelector('.static-video-mobile')) {
-                                console.log('mobile video added');
                                 link.innerHTML += `
                                     <video autoplay muted loop class="static-video-mobile">
                                         <source src="{{- block.settings.mobile_static_video.sources[1].url -}}" type="video/mp4">
@@ -120,25 +119,17 @@
     }
     window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
+    
     window.addEventListener("resize", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("shopify:section:load", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("shopify:section:change", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener('page:load', changeTheProductImage_{{ block.settings.index }});
     document.addEventListener('page:change', changeTheProductImage_{{ block.settings.index }});
     setTimeout(() => {
-        console.log('after stwatches loaded');
+        console.log('after stwatches loaded')
         changeTheProductImage_{{ block.settings.index }}();
 
-    }, 7500);
-    let radioLinks_{{ block.settings.index }} = document.querySelectorAll('a.filter__collection');
-    [].map.call(radioLinks_{{ block.settings.index }}, function(radioLink) {
-        radioLink.addEventListener('click', function(e) {
-            setTimeout(() => {
-                console.log('radiolink clicked');
-                changeTheProductImage_{{ block.settings.index }}();
-            }, 2600);
-        })
-    });
+    }, 7500)
 </script>
 <style>
 {% if block.settings.enable_static_for_desktop == true %}
@@ -183,9 +174,7 @@
     } 
 {% endif %}
 
-.static-video-desktop{
-    display:none;
-}
+
 #product-card__{{ block.settings.index }} .product-unit__image > .static-video-mobile {
     display: none;
 }
