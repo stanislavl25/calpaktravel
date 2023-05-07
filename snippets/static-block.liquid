@@ -129,7 +129,16 @@
         console.log('after stwatches loaded')
         changeTheProductImage_{{ block.settings.index }}();
 
-    }, 7500)
+    }, 7500);
+    let radioLinks_{{ block.settings.index }} = document.querySelectorAll('a.filter__collection');
+    [].map.call(radioLinks_{{ block.settings.index }}, function(radioLink) {
+        radioLink.addEventListener('click', function(e) {
+            setTimeout(() => {
+                console.log('radiolink clicked');
+                changeTheProductImage_{{ block.settings.index }}();
+            }, 7600);
+        })
+    });
 </script>
 <style>
 {% if block.settings.enable_static_for_desktop == true %}

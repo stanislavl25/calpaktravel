@@ -33,7 +33,7 @@
                         display:flex!important;
                     }
                 {% else %} 
-                    .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap {
+                .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap, .{{ collection_item.handle }} .static-video-desktop {
                         display:flex!important;
                     }
                 {% endif %}
@@ -80,7 +80,9 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
-<section class="product-grid {{collection.handle}}">
+
+<section class="product-grid {{ collection.handle }}">
+
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -207,7 +209,7 @@
                     },
                     {
                         "type": "paragraph",
-                        "content": "Save changes to see the preview."
+                        "content": "Since this rule uses the product index, it is not possible to have both mobile/desktop position fields. If you need to display a static block in a different position on mobile, you can create a duplicate of the block and set the position for mobile, see the settings below."
                     },
                     {
                         "type": "header",
