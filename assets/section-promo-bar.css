@@ -1,12 +1,15 @@
-
 .promo-bar__cells {
     --page: 0;
-    transition: transform 0.3s;
+    transition: transform .3s;
     transform: translateY(calc(-40px * var(--page)))
 }
 
 .promo-bar__cells--back {
     transition: none
+}
+
+body.promo-bar-hidden section.promo-bar {
+  display: none
 }
 
 section.promo-bar {
@@ -16,7 +19,6 @@ section.promo-bar {
     z-index: 101;
     position: relative;
     font-size: .8125em;
-    font-family: "proxima-nova";
     text-align: center
 }
 

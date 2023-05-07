@@ -49,7 +49,7 @@
                             assign seconds = countdown_time_left | modulo: 3600 | modulo: 60 | prepend: '00' | slice: -2, 2
                             assign countdown_time_left_text = '<span>' | append: hours | append: '</span> : <span>' | append: minutes | append: '</span> : <span>' | append: seconds | append: '</span>'
 
-                            assign countdown_markup = '<div id="countdown-timer" class="countdown-timer" data-time-left="' | append: countdown_time_left | append: '">' | append: countdown_time_left_text | append: '</div>'
+                            assign countdown_markup = '<div class="countdown-timer" data-time-left="' | append: countdown_time_left | append: '">' | append: countdown_time_left_text | append: '</div>'
                         endif
                     endif
                 endif
@@ -95,7 +95,7 @@
                     endif
                 -%}
                 <div
-                    style="{% if block.settings.background != blank %}background: {{ block.settings.background }};{% endif %}{% if block.settings.text-color != blank %}color: {{ block.settings.text-color }};{% endif %}" 
+                    style="background: {{ block.settings.background }};{% if block.settings.background != blank %}background: {{ block.settings.background }};{% endif %}{% if block.settings.text-color != blank %}color: {{ block.settings.text-color }};{% endif %}" 
                     class="promo-bar-text-cell{% if block.settings.content contains '((flash-sale))' %} promo-bar-text-cell--flash-sale{% endif %}">
                     <div class="promo-bar-text">
                         {% if block.settings.url != blank %}
@@ -140,7 +140,6 @@
             document.body.classList.add('promo-bar-hidden');
             calpakStorage.setItem('promo-bar-hidden', 1);
         });
-
     </script>
 
 {% endunless %}
