@@ -131,7 +131,7 @@
 
     {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
     {%- if product_type contains 'luggage' and featured_collection != false -%}
-        {% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 40000 and current_variant.inventory_policy == 'deny' %}
+        {% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %}
         <div class="pdp__inventory-policy pdp__low-luggage">
             <p class="pdp__stock-variant">Low Stock</p><p >Only {{ current_variant.inventory_quantity }} left</p>
         </div>
@@ -157,7 +157,7 @@
         <input type="hidden" name="id" value="{{ current_variant.id }}">
     </div>
     {%- unless product_type contains 'luggage' and featured_collection != false -%}
-        <div class="pdp__stock{% if current_variant.inventory_quantity <= 40000 and current_variant.inventory_policy == 'deny' %} pdp__stock--active{% endif %}">
+        <div class="pdp__stock{% if current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %} pdp__stock--active{% endif %}">
             <p class="pdp__stock-variant">Low Stock</p><p>Only</p><span>{{ current_variant.inventory_quantity }}</span> left
         </div>
     {%- endunless -%}    
