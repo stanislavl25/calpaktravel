@@ -1,4 +1,4 @@
-{% if section.settings.summer-arrivals-banner-enabled %}
+{% if section.settings.summer-arrivals-banner-enabled and collection.handle == 'summer-arrivals' %}
     <div class="collection-image-banner-wrapper">
         {% case section.settings.summer-arrivals-media-type %}  
             {% when 'video' %}
@@ -65,7 +65,7 @@
 
         .collection-image-banner-wrapper {
             width: 100%;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             

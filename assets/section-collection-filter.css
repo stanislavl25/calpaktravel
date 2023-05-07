@@ -147,9 +147,11 @@
     margin-right: -9px;
 }
  
-.collection-view * {
-    visibility: hidden;
-}
+@media (min-width: 1181px) {
+    .collection-view * {
+        visibility: hidden;
+    }
+} 
 
 .col-view__text {
     margin-right: 5px;
