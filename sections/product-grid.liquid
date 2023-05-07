@@ -80,7 +80,9 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
+
 <section class="product-grid {{ collection.handle }}">
+
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -174,13 +176,13 @@
             },
             {
                 "type": "header",
-                "content": "Modular block, Banner and Section settings"
+                "content": "Modular block and section settings"
             },
             {
                 "type": "collection_list",
                 "id": "collection_list",
                 "label": "Collections to display on",
-                "info": "If no collections are selected, the modular blocks (banner, modules, sections, static) will be displayed on all collections."
+                "info": "If no collections are selected, the modular blocks will be displayed on all collections."
             },
             {
                 "type": "range",
@@ -198,13 +200,6 @@
                 "type": "static",
                 "name": "Static content",
                 "settings": [
-                    {
-                        "type": "text",
-                        "id": "heading",
-                        "label": "Label",
-                        "info": "For organization purposes. Not shown on site.",
-                        "default": "Static: name your block"
-                    },
                     {
                         "type": "number",
                         "id": "index",

@@ -14,7 +14,6 @@
                     {% when 'video' %}
                         {% if block.settings.mobile_static_video %}
                             if(!link.querySelector('.static-video-mobile')) {
-                                console.log('mobile video added');
                                 link.innerHTML += `
                                     <video autoplay muted loop class="static-video-mobile">
                                         <source src="{{- block.settings.mobile_static_video.sources[1].url -}}" type="video/mp4">
@@ -120,13 +119,14 @@
     }
     window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
+    
     window.addEventListener("resize", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("shopify:section:load", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("shopify:section:change", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener('page:load', changeTheProductImage_{{ block.settings.index }});
     document.addEventListener('page:change', changeTheProductImage_{{ block.settings.index }});
     setTimeout(() => {
-        console.log('after stwatches loaded');
+        console.log('after stwatches loaded')
         changeTheProductImage_{{ block.settings.index }}();
 
     }, 7500);
@@ -183,9 +183,7 @@
     } 
 {% endif %}
 
-.static-video-desktop{
-    display:none;
-}
+
 #product-card__{{ block.settings.index }} .product-unit__image > .static-video-mobile {
     display: none;
 }
