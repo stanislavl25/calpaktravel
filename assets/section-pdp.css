@@ -210,8 +210,8 @@ p.pdp__stock-variant {
     background: #EAE9E1;
     border: 0.5px solid #000000;
     border-radius: 6px;
-    width: 95px;
-    height: 29px;
+    width: 85px;
+    height: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -497,6 +497,9 @@ p.pdp__stock-variant {
     align-items: baseline;
     font-size: 14px;
 }
+.pdp__stock--active p {
+    margin: 0;
+}
 
 .pdp__payments {
     position: relative;
@@ -531,9 +534,6 @@ p.pdp__stock-variant {
     display: contents;
 }
 
-.pdp__info .pdp__form-labels .product-label {
-    margin-bottom: calc(-1 * var(--gap));
-}
 
 .pdp__description {
     display: flex;
@@ -780,6 +780,9 @@ p.pdp__stock-variant {
     .pdp__info .shopify-product-form,
     .pdp__info {
         display: contents;
+    }
+    .pdp__info .pdp__form-labels .product-label {
+        margin-bottom: 0;
     }
 
     .pdp__header {
