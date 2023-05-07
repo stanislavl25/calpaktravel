@@ -222,8 +222,8 @@
 </head>
 
     <body class="template-{{ template | replace: '.', '-' }}">
-        {% section 'promo-bar' %}
         {% unless settings.speed_debug %}
+        {% section 'promo-bar' %}
         {% section 'header' %}
 
             {% render 'wishlist-popup' %}

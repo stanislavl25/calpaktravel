@@ -16,12 +16,12 @@ if(promoBarCells.length > 1) {
 
                 setTimeout(() => {
                     cells.style.setProperty('--page', index);
-                }, 10);
+                }, 0);
 
                 setTimeout(() => {
                     cells.classList.remove('promo-bar__cells--back');
-                }, 100);
-            }, 100);
+                }, 340);
+            }, 350);
         }
     }, timeout);
 }
@@ -105,3 +105,19 @@ if(countdown_ticks.length) {
         }
     }, 1000);
 }
+const body = document.body;
+const promoSection = document.getElementById('shopify-section-promo-bar');
+
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      if (body.classList.contains('modal-open')) {
+        promoSection.style.display = 'none';
+      } else {
+        promoSection.style.display = 'block';
+      }
+    }
+  });
+});
+
+observer.observe(body, { attributes: true });
