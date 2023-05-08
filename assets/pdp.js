@@ -625,7 +625,7 @@ const changeBadgeAbsolutePosition = e => {
             let badge = document.querySelector('.pdp__gallery-container .product-label--badge-desktop-bottom');
             if(badge) {
                 badge.style.marginTop = `0px`; 
-                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 10}px`; 
+                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 26}px`; 
             } else {
                 badge = document.querySelector('.pdp__gallery-container .product-label--badge');
                 badge.style.marginTop = ``; 
