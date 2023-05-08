@@ -561,6 +561,7 @@
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
           "settings": {
+            "heading": "Desktop\/Mobile: Static content",
             "index": 11,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -637,13 +638,14 @@
             "banner-image": "shopify:\/\/shop_images\/Rectangle_3701.png",
             "banner-media-height": 500,
             "banner-media-height-mobile": 300,
-            "banner-text-color": "#000",
-            "banner-text-background-color": "#FFF"
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff"
           }
         },
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
           "settings": {
+            "heading": "Desktop\/Mobile: Static content",
             "index": 3,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -670,7 +672,8 @@
         "row_gap": 40,
         "column_gap": 10,
         "collection_list": [
-          "summer-arrivals"
+          "summer-arrivals",
+          "best-sellers"
         ],
         "module_padding": 10
       }
