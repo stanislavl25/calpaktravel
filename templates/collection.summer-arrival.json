@@ -660,6 +660,25 @@
             "static_media_type_mobile": "image",
             "mobile_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png"
           }
+        },
+        "d6ca6737-46ba-4790-8308-9173c146e312": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": true,
+            "row": 1,
+            "mobile_row": 6,
+            "column": 2,
+            "col_span": 1,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/image_138.png",
+            "video": ""
+          }
         }
       },
       "block_order": [
@@ -671,7 +690,8 @@
         "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
         "7676be9e-c601-451f-896f-70d29d759dd8",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
-        "850bb4ba-1437-4875-9c18-6a221ba616e8"
+        "850bb4ba-1437-4875-9c18-6a221ba616e8",
+        "d6ca6737-46ba-4790-8308-9173c146e312"
       ],
       "settings": {
         "wishlist": true,
