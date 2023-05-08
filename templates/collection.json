@@ -653,7 +653,7 @@
       ],
       "settings": {
         "wishlist": true,
-        "quickview": false,
+        "quickview": true,
         "hide_view": true,
         "row_gap": 40,
         "column_gap": 10,
