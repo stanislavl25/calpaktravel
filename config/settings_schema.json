@@ -490,7 +490,6 @@
         "id": "starter-bundle-badge",
         "label": "Starter Bundle Message",
         "info": "Insert here the custom starter bundle badge message"
-
       },
       {
         "type": "text",
@@ -560,7 +559,6 @@
         "id": "sale-msg-pdp-only",
         "label": "Show on PDP only"
       },
-
       {
         "type": "text",
         "id": "sale-msg-tag",
