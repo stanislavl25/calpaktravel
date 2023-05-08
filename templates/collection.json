@@ -642,7 +642,8 @@
           "type": "banner",
           "settings": {
             "collection_list": [
-              "summer-arrivals"
+              "summer-arrivals",
+              "all-products"
             ],
             "banner-text": "Summer Arrivals",
             "row": "1",
