@@ -102,10 +102,9 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
     const target = e.target.closest('.filter__collection');
     const prnt = target.closest('.filter__collections');
     const actives = prnt.querySelectorAll('.filter__collection--selected');
-    
+    const bannerImg = document.querySelector('.collection-image-banner-wrapper');
     const productGrid = document.querySelector('section.product-grid');
     const dataCollection = target.getAttribute('data-collection');
-
 
 // loop through all the classes of the div element
     for (let i = productGrid.classList.length - 1; i >= 0; i--) {

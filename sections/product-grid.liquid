@@ -24,7 +24,11 @@
         border-radius: 9px;
         padding: 0;
     }
-
+    {% if section.settings.hide_view == true %}
+        .collection-view * {
+            visibility: hidden;
+        }
+    {% endif %}
     {% if template == 'collection' or 'summer-arrival' %}
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
@@ -123,6 +127,8 @@
                     render 'modular-section' with block as block, collection: collection
                 when 'static'
                     render 'static-block' with block as block
+                when 'banner'
+                    render 'banner-image-grid' with block as block
             endcase
         endfor
     -%}
@@ -148,6 +154,12 @@
                 "type": "checkbox",
                 "id": "quickview",
                 "label": "Enable quickview",
+                "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "hide_view",
+                "label": "Hide column view settings",
                 "default": true
             },
             {
@@ -632,11 +644,7 @@
                         "type": "header",
                         "content": "Right block"
                     },
-                    {
-                        "type": "url",
-                        "id": "target_link_r",
-                        "label": "Object link"
-                    },
+
                     {
                         "type": "header",
                         "content": "Text"
@@ -661,14 +669,9 @@
                         "content": "Product"
                     },
                     {
-                        "type": "url",
-                        "id": "pictured_product_r",
-                        "label": "Pictured Product URL"
-                    },
-                    {
-                        "type": "text",
-                        "id": "product_title_r",
-                        "label": "Product Title"
+                        "type": "product_list",
+                        "id": "pictured_products_r",
+                        "label": "Pictured Products List"
                     },
                     {
                         "type": "header",
@@ -702,6 +705,91 @@
                         "type": "image_picker",
                         "id": "image_mobile_r",
                         "label": "Image for mobile"
+                    }
+                ]
+            },
+            {
+                "type": "banner",
+                "name": "Banner",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Settings"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list",
+                        "label": "Collections to display on the banner",
+                        "info": "If no collections are selected, the banner will be displayed on all collections"
+                    },
+                    {
+                        "type": "text",
+                        "id": "banner-text",
+                        "label": "Central Banner Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row",
+                        "label": "Row desktop position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row_mobile",
+                        "label": "Row mobile position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "select",
+                        "id": "media-type",
+                        "label": "Cover Media Type",
+                        "options": [
+                            {
+                                "value": "image",
+                                "label": "Image"
+                            },
+                            {
+                                "value": "video",
+                                "label": "Video"
+                            }
+                        ],
+                        "default": "image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "banner-image",
+                        "label": "Cover Image for Banner",
+                        "info": "Only applies if Image is the Cover Media Type Selected"
+                    },
+                    {
+                        "type": "video",
+                        "id": "banner-video",
+                        "label": "Cover Video for Banner",
+                        "info": "Only applies if Video is the Cover Media Type Selected"
+                    },
+                    {
+                        "type": "number",
+                        "id": "banner-media-height",
+                        "label": "Cover Media Height on Desktop in pixels",
+                        "default": 500
+                    },
+                    {
+                        "type": "number",
+                        "id": "banner-media-height-mobile",
+                        "label": "Cover Media Height on Mobile in pixels",
+                        "default": 300
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-color",
+                        "label": "Central Banner Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-background-color",
+                        "label": "Central Banner Text Background Color",
+                        "default": "#FFF"
                     }
                 ]
             }
