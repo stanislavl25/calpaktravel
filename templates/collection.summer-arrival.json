@@ -615,6 +615,25 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
           }
         },
+        "d6ca6737-46ba-4790-8308-9173c146e312": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": true,
+            "row": 1,
+            "mobile_row": 6,
+            "column": 2,
+            "col_span": 1,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/image_138.png",
+            "video": ""
+          }
+        },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
           "type": "modular-section",
           "settings": {
@@ -629,9 +648,9 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "compakt-duffel-bag"
             ],
-            "image": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-PRODUCTS.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
@@ -659,23 +678,16 @@
             "mobile_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png"
           }
         },
-        "d6ca6737-46ba-4790-8308-9173c146e312": {
-          "type": "module",
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd": {
+          "type": "static",
           "settings": {
-            "pictured_link": true,
-            "only_mobile": true,
-            "row": 1,
-            "mobile_row": 6,
-            "column": 2,
-            "col_span": 1,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/image_138.png",
-            "video": ""
+            "heading": "Desktop\/Mobile: Static content",
+            "index": 17,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image"
           }
         }
       },
@@ -687,9 +699,10 @@
         "93958757-d99e-40ac-9681-c941a84f5e13",
         "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
         "7676be9e-c601-451f-896f-70d29d759dd8",
+        "d6ca6737-46ba-4790-8308-9173c146e312",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
-        "d6ca6737-46ba-4790-8308-9173c146e312"
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd"
       ],
       "settings": {
         "wishlist": true,
