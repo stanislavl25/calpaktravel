@@ -2,7 +2,7 @@
     .wrap--{{ block.id }} {
         grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
-        display:flex;
+        display:none;
         gap:{{ block.settings.gap }}px;
     }
     .floating-link__pictured {
@@ -144,7 +144,7 @@
         </div>
 
         {%- if video_active_r != true -%}
-            {% assign pictured_products = block.settings.pictured_products %}
+            {% assign pictured_products = block.settings.pictured_products_r %}
             {% if pictured_products.count > 0 %}
             <div class="floating-link">
                 <div class="floating-link__pictured">

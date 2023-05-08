@@ -46,8 +46,9 @@
             </button>
         </div>
     </div>
+{% comment %}
     {%- render 'collection-filters', banner: true -%}
-
+{% endcomment %}
     <style>
         .page__header {
             display: none!important
@@ -189,7 +190,6 @@
             }
         }
     </style>
-
     <script>
         const filterCollectionsBanner = document.querySelectorAll('.filter__collection');
         const oldFilter = document.querySelector('.collection-filters-not-banner');

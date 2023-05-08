@@ -21,7 +21,6 @@
         endfor
     endif
 -%}
-
 {%- if show -%}
     <section class="collection-filters__section">
         {{ 'section-collection-filter.css' | asset_url | stylesheet_tag: preload: true }}
@@ -37,7 +36,6 @@
         <script src="{{ 'filter-basic.js' | asset_url }}" defer="defer"></script>
 
         {%- render 'collection-filter-controls' -%}
-
         {%- render 'collection-filters' -%}
     </section>
 
