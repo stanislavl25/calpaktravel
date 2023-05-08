@@ -681,7 +681,7 @@
         "c5327c66-dd37-45d8-acec-7b52d78da3cd": {
           "type": "static",
           "settings": {
-            "heading": "Desktop\/Mobile: Static content",
+            "heading": "Desktop: Static content",
             "index": 17,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
