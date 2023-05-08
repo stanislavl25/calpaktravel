@@ -640,6 +640,17 @@
             "banner-text-color": "#000",
             "banner-text-background-color": "#FFF"
           }
+        },
+        "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
+          "type": "static",
+          "settings": {
+            "index": 3,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/image_137.png",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image"
+          }
         }
       },
       "block_order": [
@@ -649,7 +660,8 @@
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
         "26121484-6047-4828-919f-49c8e5363c7d",
-        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5"
+        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
+        "a5843c4f-bafe-40f9-88aa-4a6e14286c14"
       ],
       "settings": {
         "wishlist": true,
