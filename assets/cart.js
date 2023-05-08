@@ -219,7 +219,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     const cartHeader = document.querySelector('.cart__header');
     const cartGoals = document.querySelector(wrapper);
     const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-    const freeShippingStarts = goals.find(goal => goal.title == 'free shipping').value * 100;
+    const freeShippingStarts = goals.find(goal => goal.title == 'free standard shipping').value * 100;
 
     cartGoals.innerHTML = '';
     let goalsVerbose = [];
