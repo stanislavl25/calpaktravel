@@ -133,9 +133,7 @@ body .floating-labels .product-label--extra-sale {
         top: 35px;
     }
     .product-label--badge.product-label--badge-collection-page {
-        right: 11.01px;
-        bottom: 37.01px;
-        transform: rotate(17.38deg)!important;
+        display: none;
     }
     .floating-labels {
         flex-direction: column;

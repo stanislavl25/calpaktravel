@@ -417,6 +417,12 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "countdown-label-collection-enabled",
+        "label": "Enable countdown sale as label in collection",
+        "default": true
+      },
+      {
         "type": "select",
         "id": "desktop-badge-placement",
         "label": "Desktop Badge Placement",
