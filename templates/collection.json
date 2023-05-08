@@ -475,19 +475,6 @@
         "countdown-sale-text-col": "#000000"
       }
     },
-    "c73bb04c-639e-4668-8e33-3a9e76dad60e": {
-      "type": "collection-image-banner",
-      "settings": {
-        "summer-arrivals-banner-enabled": true,
-        "summer-arrivals-banner-text": "Summer Arrivals",
-        "summer-arrivals-media-type": "image",
-        "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2.jpg",
-        "summer-arrivals-banner-media-height": 500,
-        "summer-arrivals-banner-media-height-mobile": 300,
-        "summer-arrivals-banner-text-color": "#000000",
-        "summer-arrivals-banner-text-background-color": "#ffffff"
-      }
-    },
     "30abf871-7ca5-49dc-b65e-778656d00be9": {
       "type": "page-header",
       "settings": {
@@ -557,7 +544,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 1,
+            "row": 2,
             "mobile_row": 1,
             "column": 3,
             "col_span": 3,
@@ -574,7 +561,6 @@
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
           "settings": {
-            "heading": "Static: name your block",
             "index": 11,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -625,15 +611,34 @@
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
-            "target_link_r": "",
             "title_r": "",
             "description_r": "",
             "button-text_r": "",
-            "pictured_product_r": "",
-            "product_title_r": "",
+            "pictured_products_r": [
+              "compakt-large-garment-bag",
+              "compakt-duffel-bag"
+            ],
+            "image_r": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-3.jpg",
             "video_r": "",
             "video-ratio-w_r": "16",
             "video-ratio-h_r": "9"
+          }
+        },
+        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
+          "type": "banner",
+          "settings": {
+            "collection_list": [
+              "summer-arrivals"
+            ],
+            "banner-text": "Summer Arrivals",
+            "row": "1",
+            "row_mobile": "1",
+            "media-type": "image",
+            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701.png",
+            "banner-media-height": 500,
+            "banner-media-height-mobile": 300,
+            "banner-text-color": "#000",
+            "banner-text-background-color": "#FFF"
           }
         }
       },
@@ -643,11 +648,13 @@
         "251cc4d4-f075-47d7-9a48-190411fb06ba",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
-        "26121484-6047-4828-919f-49c8e5363c7d"
+        "26121484-6047-4828-919f-49c8e5363c7d",
+        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5"
       ],
       "settings": {
         "wishlist": true,
         "quickview": false,
+        "hide_view": true,
         "row_gap": 40,
         "column_gap": 10,
         "collection_list": [
@@ -661,7 +668,6 @@
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
-    "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id"
   ]
