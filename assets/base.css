@@ -761,3 +761,8 @@ body.swym-modal-active:not(.modal-open) {
         display: block!important;
     }
 }
+/*hide bazar voice*/
+#crl8-gallery-zfEKaK3p-carousel a[aria-label="Powered by Bazaarvoice - Opens in new tab"],
+#crl8-gallery-zfEKaK3p-carousel a[aria-label="Powered by Bazaarvoice - Opens in new tab"] {
+    display: none;
+}

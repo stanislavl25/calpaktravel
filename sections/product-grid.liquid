@@ -24,23 +24,41 @@
         border-radius: 9px;
         padding: 0;
     }
-
+    {% if section.settings.hide_view == true %}
+        .collection-view * {
+            visibility: hidden;
+        }
+    {% endif %}
     {% if template == 'collection' or 'summer-arrival' %}
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
                 {% if collection_item.handle == collection.handle %}
-                    .modular-block, .modular-section__wrap {
-                        display:flex!important;
-                    }
+                    .modular-block, .modular-section__wrap, .static-video-desktop
+                .static-video-mobile {
+                   display:flex!important;
+                }
+                .product-unit__image > .f-loaded {
+                    object-position:-1000px!important;
+                }
                 {% else %} 
-                .{{ collection_item.handle }}.collection-image-banner-wrapper, .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap, .{{ collection_item.handle }} .static-video-desktop {
+                .{{ collection_item.handle }} .modular-block, 
+                .{{ collection_item.handle }} .modular-section__wrap, 
+                .{{ collection_item.handle }} .static-video-desktop,
+                .{{ collection_item.handle }} .static-video-mobile {
                         display:flex!important;
                     }
+                .{{ collection_item.handle }} .product-unit__image > .f-loaded {
+                    object-position:-1000px!important;
+                }
                 {% endif %}
             {% endfor %}
         {% else %}
-                .modular-block, .modular-section__wrap {
+                .modular-block, .modular-section__wrap, .static-video-desktop
+                .static-video-mobile {
                    display:flex!important;
+                }
+                .product-unit__image > .f-loaded {
+                    object-position:-1000px!important;
                 }
         {% endif %}
     {% endif %}
@@ -80,7 +98,9 @@
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
 -%}
 
-<section class="product-grid">
+
+<section class="product-grid {{ collection.handle }}">
+
     {%- liquid 
         assign limitProducts = 200
         if collection.handle == 'best-sellers'
@@ -121,6 +141,8 @@
                     render 'modular-section' with block as block, collection: collection
                 when 'static'
                     render 'static-block' with block as block
+                when 'banner'
+                    render 'banner-image-grid' with block as block
             endcase
         endfor
     -%}
@@ -149,6 +171,12 @@
                 "default": true
             },
             {
+                "type": "checkbox",
+                "id": "hide_view",
+                "label": "Hide column view settings",
+                "default": true
+            },
+            {
                 "type": "header",
                 "content": "Product grid spacing"
             },
@@ -174,13 +202,13 @@
             },
             {
                 "type": "header",
-                "content": "Modular block, Banner and Section settings"
+                "content": "Modular block and section settings"
             },
             {
                 "type": "collection_list",
                 "id": "collection_list",
                 "label": "Collections to display on",
-                "info": "If no collections are selected, the modular blocks (banner, modules, sections, static) will be displayed on all collections."
+                "info": "If no collections are selected, the modular blocks will be displayed on all collections."
             },
             {
                 "type": "range",
@@ -202,8 +230,8 @@
                         "type": "text",
                         "id": "heading",
                         "label": "Label",
-                        "info": "For organization purposes. Not shown on site.",
-                        "default": "Static: name your block"
+                        "default": "Desktop/Mobile: Static content",
+                        "info": "For organization purposes. Not shown on site."
                     },
                     {
                         "type": "number",
@@ -214,7 +242,7 @@
                     },
                     {
                         "type": "paragraph",
-                        "content": "Save changes to see the preview."
+                        "content": "Since this rule uses the product index, it is not possible to have both mobile/desktop position fields. If you need to display a static block in a different position on mobile, you can create a duplicate of the block and set the position for mobile, see the settings below."
                     },
                     {
                         "type": "header",
@@ -428,10 +456,31 @@
                     "default": false
                     },
                     {
+                        "type": "header",
+                        "content": "Desktop Settings"
+                    },
+                    {
                     "type": "number",
                     "id": "row",
                     "label": "Row position",
                     "default": 1
+                    },
+                    {
+                    "type": "number",
+                    "id": "column",
+                    "label": "Desktop Column position",
+                    "default": 1,
+                    "info": "From 1 to 5"
+                    },
+                    {
+                    "type": "number",
+                    "id": "col_span",
+                    "label": "Desktop Width Span (columns)",
+                    "default": 2
+                    },
+                    {
+                        "type": "header",
+                        "content": "Mobile settings"
                     },
                     {
                     "type": "number",
@@ -441,14 +490,15 @@
                     },
                     {
                     "type": "number",
-                    "id": "column",
-                    "label": "Column position",
-                    "default": 1
+                    "id": "column_mobile",
+                    "label": "Mobile Column position",
+                    "default": 1,
+                    "info": "Only 1 or 2"
                     },
                     {
                     "type": "number",
-                    "id": "col_span",
-                    "label": "Width (columns)",
+                    "id": "col_span_mobile",
+                    "label": "Mobile Width Span (columns)",
                     "default": 2
                     },
                     {
@@ -637,11 +687,7 @@
                         "type": "header",
                         "content": "Right block"
                     },
-                    {
-                        "type": "url",
-                        "id": "target_link_r",
-                        "label": "Object link"
-                    },
+
                     {
                         "type": "header",
                         "content": "Text"
@@ -666,14 +712,9 @@
                         "content": "Product"
                     },
                     {
-                        "type": "url",
-                        "id": "pictured_product_r",
-                        "label": "Pictured Product URL"
-                    },
-                    {
-                        "type": "text",
-                        "id": "product_title_r",
-                        "label": "Product Title"
+                        "type": "product_list",
+                        "id": "pictured_products_r",
+                        "label": "Pictured Products List"
                     },
                     {
                         "type": "header",
@@ -707,6 +748,91 @@
                         "type": "image_picker",
                         "id": "image_mobile_r",
                         "label": "Image for mobile"
+                    }
+                ]
+            },
+            {
+                "type": "banner",
+                "name": "Banner",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Settings"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list",
+                        "label": "Collections to display on the banner",
+                        "info": "If no collections are selected, the banner will be displayed on all collections"
+                    },
+                    {
+                        "type": "text",
+                        "id": "banner-text",
+                        "label": "Central Banner Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row",
+                        "label": "Row desktop position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row_mobile",
+                        "label": "Row mobile position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "select",
+                        "id": "media-type",
+                        "label": "Cover Media Type",
+                        "options": [
+                            {
+                                "value": "image",
+                                "label": "Image"
+                            },
+                            {
+                                "value": "video",
+                                "label": "Video"
+                            }
+                        ],
+                        "default": "image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "banner-image",
+                        "label": "Cover Image for Banner",
+                        "info": "Only applies if Image is the Cover Media Type Selected"
+                    },
+                    {
+                        "type": "video",
+                        "id": "banner-video",
+                        "label": "Cover Video for Banner",
+                        "info": "Only applies if Video is the Cover Media Type Selected"
+                    },
+                    {
+                        "type": "number",
+                        "id": "banner-media-height",
+                        "label": "Cover Media Height on Desktop in pixels",
+                        "default": 500
+                    },
+                    {
+                        "type": "number",
+                        "id": "banner-media-height-mobile",
+                        "label": "Cover Media Height on Mobile in pixels",
+                        "default": 300
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-color",
+                        "label": "Central Banner Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-background-color",
+                        "label": "Central Banner Text Background Color",
+                        "default": "#FFF"
                     }
                 ]
             }

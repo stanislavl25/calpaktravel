@@ -101,6 +101,22 @@
             endif
         endfor
     endif
+
+    if settings.sale-badge-tag == blank
+            assign saleBadge = true
+        else
+            assign saleBadge = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.sale-badge-tag == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign saleBadge = true
+                    else
+                        assign saleBadge = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        endif
 -%}
 
 <div
@@ -118,7 +134,7 @@
         data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-    class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
+        class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}"
     >    
     <div class="product-unit__image-wrapper">
         {%- if quick_view == true -%}
