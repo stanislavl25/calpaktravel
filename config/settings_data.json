@@ -14,16 +14,19 @@
     "flash-sale-enabled": true,
     "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "May 2 2023, 00:00am",
-    "flash-sale-ends": "May 3 2023, 2:45pm",
+    "flash-sale-starts": "May 4 2023, 10:00am",
+    "flash-sale-ends": "May 5 2023, 10:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": true,
-    "badge-placement": "bottom",
+    "desktop-badge-placement": "bottom",
+    "mobile-badge-placement": "top",
     "badge_display": "both",
     "sale-badge-tag": "Final Sale",
     "sale-badge-text": "Memorial Day Sale",
+    "starter-bundle-badge": "8-Piece Travel Set",
+    "sale-badge-text-starter": "Special Offer",
     "sale-badge-bg": "#16ba6b",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
@@ -48,6 +51,7 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
+    "badge-placement": "bottom",
     "sections": {
       "header": {
         "type": "header",
@@ -658,6 +662,113 @@
         "settings": {
           "show-shipping-message": false,
           "shipping-message": "<p>Please allow <strong>1-3 additional business days<\/strong> for us to get your order ready to go. Keep in mind we only deliver on business days (aka not on weekends or federal holidays).<\/p>"
+        }
+      },
+      "promo-bar": {
+        "type": "promo-bar",
+        "blocks": {
+          "a02aad90-afc9-4aca-8e84-086c1640b07d": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>EVERYWHERE  ((countdown))<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#e4dfd5",
+              "text-color": "#000000"
+            }
+          },
+          "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": true,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Homepage<\/p>",
+              "url": "shopify:\/\/products\/starter-bundle",
+              "background": "#e4dfd5",
+              "text-color": "#000000"
+            }
+          },
+          "6d5ada61-5422-4ddd-8431-83d12e7f908d": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Collections<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          },
+          "9fa415be-78ed-4366-b763-46ea0fa97166": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": true,
+              "other": false,
+              "content": "<p>PDPs<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          },
+          "1aa906b3-b5a8-4cb9-bd30-dc27fec6b4d9": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": true,
+              "content": "<p>Blog, articles, pages<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          },
+          "bb311c67-8727-4ff8-b7fe-da9334e2f39c": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": true,
+              "other": false,
+              "content": "<p>Collection + PDPs<\/p>",
+              "url": "",
+              "background": "",
+              "text-color": ""
+            }
+          }
+        },
+        "block_order": [
+          "a02aad90-afc9-4aca-8e84-086c1640b07d",
+          "37840dc1-0e40-46cc-8659-8d9469ae6df5",
+          "6d5ada61-5422-4ddd-8431-83d12e7f908d",
+          "9fa415be-78ed-4366-b763-46ea0fa97166",
+          "1aa906b3-b5a8-4cb9-bd30-dc27fec6b4d9",
+          "bb311c67-8727-4ff8-b7fe-da9334e2f39c"
+        ],
+        "settings": {
+          "show": "no",
+          "timeout": 5,
+          "holiday_banner": false,
+          "holiday-banner-background": "#eae1cf",
+          "holiday-banner-color": "#000000",
+          "countdown-active": true,
+          "countdown-show": "always",
+          "countdown-to": "May 6, 2023 5:40pm"
         }
       }
     },

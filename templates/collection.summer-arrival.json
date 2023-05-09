@@ -1,5 +1,15 @@
 {
   "sections": {
+    "30abf871-7ca5-49dc-b65e-778656d00be9": {
+      "type": "page-header",
+      "settings": {
+        "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "title-size": "medium",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
       "disabled": true,
@@ -40,8 +50,21 @@
             "product_list": [
 
             ],
-            "radio_only": false,
+            "radio_only": true,
             "selected": false
+          }
+        },
+        "f4dfaee4-0996-4610-a1c6-f990e773a15f": {
+          "type": "filter",
+          "settings": {
+            "heading": "-> Summer Arrivals",
+            "title": "Summer Arrivals",
+            "collection": "summer-arrivals",
+            "product_list": [
+
+            ],
+            "description": "",
+            "filter-in-parent": false
           }
         },
         "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
@@ -408,6 +431,7 @@
       },
       "block_order": [
         "597a3a7d-e342-4ec9-8cca-f98e586237d1",
+        "f4dfaee4-0996-4610-a1c6-f990e773a15f",
         "c8f3773f-80e6-466d-9317-43d1bb1e948e",
         "70b2154d-2620-4583-ab2f-871333b645be",
         "645f5714-be29-44a4-9a15-aab469ecb101",
@@ -442,56 +466,12 @@
         ],
         "collection_list_ex": [
 
-        ],
-        "text-only": false
-      }
-    },
-    "c73bb04c-639e-4668-8e33-3a9e76dad60e": {
-      "type": "collection-image-banner",
-      "settings": {
-        "summer-arrivals-banner-enabled": true,
-        "summer-arrivals-banner-text": "Summer Arrivals",
-        "summer-arrivals-media-type": "image",
-        "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2.jpg",
-        "summer-arrivals-banner-video": "shopify:\/\/files\/videos\/TB_DSK_750x1242_a05d0b98-ca3f-49cc-b99b-a864c55debc5.mp4",
-        "summer-arrivals-banner-media-height": 500,
-        "summer-arrivals-banner-media-height-mobile": 300,
-        "summer-arrivals-banner-text-color": "#000000",
-        "summer-arrivals-banner-text-background-color": "#ffffff"
-      }
-    },
-    "30abf871-7ca5-49dc-b65e-778656d00be9": {
-      "type": "page-header",
-      "disabled": true,
-      "settings": {
-        "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "title-size": "medium",
-        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
-        "button-text": "",
-        "button-link": ""
+        ]
       }
     },
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
-        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 1,
-            "mobile_row": 2,
-            "column": 3,
-            "col_span": 3,
-            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
-            "title": "",
-            "description": "",
-            "button-text": "",
-            "pictured_product": "shopify:\/\/products\/ambeur-vanity-case",
-            "product_title": "Ambeur",
-            "image": "shopify:\/\/shop_images\/13-14-INCH-PADDED-LAPTOP-SLEEVE-GREEN-CHECKERBOARD-LIFESTYLE.jpg",
-            "video": ""
-          }
-        },
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
           "disabled": true,
@@ -512,25 +492,6 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
-          }
-        },
-        "93958757-d99e-40ac-9681-c941a84f5e13": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "row": 3,
-            "mobile_row": 6,
-            "column": 1,
-            "col_span": 2,
-            "target_link": "shopify:\/\/products\/compakt-tote-bag",
-            "title": "",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/compakt-tote-bag",
-            "product_title": "Compakt Tote Bag",
-            "image": "shopify:\/\/shop_images\/15-17-INCH-PADDED-LAPTOP-SLEEVE-PINK-GRID-LIFESTYLE.jpg",
-            "video": "",
-            "image_mobile": "shopify:\/\/shop_images\/Frame_35_2.png"
           }
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
@@ -562,42 +523,135 @@
             "row-mob": 2
           }
         },
-        "22881909-1257-4d1c-87e6-3506c294f4e4": {
+        "3cafe206-a3e1-43d4-a22c-d684d558f998": {
+          "type": "banner",
+          "settings": {
+            "collection_list": [
+              "summer-arrivals"
+            ],
+            "banner-text": "Summer Arrivals",
+            "row": "1",
+            "row_mobile": "1",
+            "media-type": "image",
+            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
+            "banner-media-height": 500,
+            "banner-media-height-mobile": 300,
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff"
+          }
+        },
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
+          "type": "static",
+          "settings": {
+            "heading": "Video: Luka Large Duffel",
+            "index": 1,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "video",
+            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
+            "enable_static_for_mobile": false,
+            "static_media_type_mobile": "image",
+            "mobile_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4"
+          }
+        },
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "pictured_link": true,
-            "row": 3,
-            "mobile_row": 5,
-            "column": 4,
-            "col_span": 2,
-            "target_link": "shopify:\/\/products\/jewelry-case",
+            "only_mobile": false,
+            "row": 2,
+            "column": 3,
+            "col_span": 3,
+            "mobile_row": 3,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
             "title": "",
             "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/jewelry-case",
-            "product_title": "Jewlery Case",
-            "image": "shopify:\/\/shop_images\/COMPAKT_SHOE_BAG_ALL_LIFESTYLE3.jpg",
+            "pictured_products": [
+              "luka-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3696_3fc056aa-c219-4f58-9dc3-24eb45031d5f.png",
             "video": ""
           }
         },
-        "aea27576-7ef1-4bea-a766-642569b8c192": {
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6": {
+          "type": "static",
+          "settings": {
+            "heading": "Static: name your block",
+            "index": 3,
+            "enable_static_for_desktop": false,
+            "static_media_type_desktop": "image",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_137.png"
+          }
+        },
+        "d6ca6737-46ba-4790-8308-9173c146e312": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "pictured_link": true,
-            "row": 5,
-            "mobile_row": 7,
-            "column": 1,
-            "col_span": 3,
-            "target_link": "shopify:\/\/collections\/2-piece-luggage-sets",
+            "only_mobile": true,
+            "row": 1,
+            "column": 2,
+            "col_span": 1,
+            "mobile_row": 6,
+            "column_mobile": 2,
+            "col_span_mobile": 1,
+            "target_link": "",
             "title": "",
             "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "",
-            "product_title": "",
-            "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-PINK-GRID-LIFESTYLE.jpg",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/image_138.png",
             "video": ""
+          }
+        },
+        "93958757-d99e-40ac-9681-c941a84f5e13": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": false,
+            "row": 3,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 7,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "shopify:\/\/products\/compakt-tote-bag",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "luka-key-pouch"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png",
+            "video": ""
+          }
+        },
+        "7676be9e-c601-451f-896f-70d29d759dd8": {
+          "type": "static",
+          "settings": {
+            "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
+            "index": 11,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/image_188.png",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
+          }
+        },
+        "850bb4ba-1437-4875-9c18-6a221ba616e8": {
+          "type": "static",
+          "settings": {
+            "heading": "Desktop\/Mobile: Tech Organizer",
+            "index": 15,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_137_5371b6ce-5106-4220-ad4c-ce5ad6a58a14.png"
           }
         },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
@@ -605,67 +659,64 @@
           "settings": {
             "pictured_link": true,
             "gap": 10,
-            "section_height": 40,
-            "row": 5,
-            "mobile_row": 11,
+            "section_height": 100,
+            "row": 6,
+            "mobile_row": 12,
             "column": 1,
             "col_span": 5,
-            "target_link": "shopify:\/\/products\/astyll-medium-luggage",
+            "target_link": "",
             "title": "",
             "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/astyll-medium-luggage",
-            "product_title": "Astyll Medium Luggage",
-            "image": "shopify:\/\/shop_images\/AO2A7747-3.jpg",
+            "pictured_products": [
+              "compakt-duffel-bag"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/AO2A7747-17.jpg",
-            "target_link_r": "shopify:\/\/products\/hue-carry-on-luggage",
             "title_r": "",
             "description_r": "",
             "button-text_r": "",
-            "pictured_product_r": "shopify:\/\/products\/hue-carry-on-luggage",
-            "product_title_r": "Hue Carry On Luggage",
-            "image_r": "shopify:\/\/shop_images\/IMG_9016-2.jpg",
-            "video_r": "https:\/\/player.vimeo.com\/video\/403125830?title=0&byline=0&color=ffffff&portrait=0&muted=1&sidedock=0&api=1&autoplay=1&loop=1&controls=1",
+            "pictured_products_r": [
+              "luka-belt-bag",
+              "luka-key-pouch"
+            ],
+            "video_r": "https:\/\/vimeo.com\/825181299",
             "video-ratio-w_r": "1",
             "video-ratio-h_r": "1"
           }
         },
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b": {
-          "type": "module",
-          "disabled": true,
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd": {
+          "type": "static",
           "settings": {
-            "pictured_link": true,
-            "row": 6,
-            "mobile_row": 9,
-            "column": 3,
-            "col_span": 3,
-            "target_link": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
-            "title": "",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/car-organizer",
-            "product_title": "Car Organizer",
-            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
-            "video": ""
+            "heading": "Desktop: Static content",
+            "index": 17,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image"
           }
         }
       },
       "block_order": [
-        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
         "b401a37d-55aa-49b7-b987-45893897281b",
-        "93958757-d99e-40ac-9681-c941a84f5e13",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
-        "22881909-1257-4d1c-87e6-3506c294f4e4",
-        "aea27576-7ef1-4bea-a766-642569b8c192",
+        "3cafe206-a3e1-43d4-a22c-d684d558f998",
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
+        "d6ca6737-46ba-4790-8308-9173c146e312",
+        "93958757-d99e-40ac-9681-c941a84f5e13",
+        "7676be9e-c601-451f-896f-70d29d759dd8",
+        "850bb4ba-1437-4875-9c18-6a221ba616e8",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
-        "2b60dc18-50f2-4c56-99ee-1694268aa83b"
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd"
       ],
       "settings": {
         "wishlist": true,
         "quickview": false,
+        "hide_view": true,
         "row_gap": 40,
         "column_gap": 10,
         "collection_list": [
@@ -678,6 +729,7 @@
       "type": "memorial-day-sale-promo-banner",
       "settings": {
         "countdown-enabled": true,
+        "countdown-label-collection-enabled": true,
         "countdown-sale-text": "Memorial day SALE",
         "countdown-sale-starts": "",
         "countdown-sale-ends": "",
@@ -686,21 +738,22 @@
 
         ],
         "countdown-sale-accent": "#ff0000",
-        "countdown-sale-text-col": "#ffffff",
-        "countdown-sale-tag": ""
+        "countdown-sale-text-col": "#ffffff"
       }
     },
     "6910cb6e-7791-4494-a663-9fa82c1b25aa": {
       "type": "curalate-gallery",
       "settings": {
+        "gallery_id": "gallery-zfEKaK3p",
+        "title": "Travel looks good on you.",
+        "subtitle": "Tag your adventures @calpak #calpaktravel."
       }
     }
   },
   "order": [
+    "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
-    "c73bb04c-639e-4668-8e33-3a9e76dad60e",
-    "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "6910cb6e-7791-4494-a663-9fa82c1b25aa"

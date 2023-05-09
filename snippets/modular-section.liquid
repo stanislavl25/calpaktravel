@@ -2,15 +2,25 @@
     .wrap--{{ block.id }} {
         grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
-        display:flex;
+        display:none;
         gap:{{ block.settings.gap }}px;
     }
+    .floating-link__pictured {
+        margin-left: 20px;
+    }
     @media screen and (max-width:900px){
+        .floating-link__pictured {
+            margin-left: 6px;
+        }
+        .floating-link {
+            left: 10px;
+            right: 10px
+        }
         .wrap--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
             grid-column: 1 / span 3;
             display:flex;
-            flex-direction:column;
+            flex-direction:row;
         }
     }
     @media screen and (max-width:649px){
@@ -70,18 +80,18 @@
             -%}
         </div>
 
-        {%- if block.settings.button-text != blank and video_active_l != true -%}
-        <div class="floating-link">
-            <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                <span>{{- block.settings.button-text | escpe -}}</span>
-            </a>
-
-            {% if block.settings.product_title != blank and video_active_l != true %}
-            <div class="floating-link__pictured">
-                Pictured: <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
-            </div>
-            {% endif %}
-        </div>
+        {%- if video_active_l != true -%}
+            {% assign pictured_products = block.settings.pictured_products %}
+            {% if pictured_products.count > 0 %}
+            <div class="floating-link">
+                <div class="floating-link__pictured">
+                    <span style="margin-right: 2px;">Pictured: </span>
+                    {%- for pictured_product in pictured_products -%}
+                        <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{- pictured_product.url -}}">{{- pictured_product.title | escape -}}</a>{%if forloop.last != true  %}<span>,</span>{%endif%}
+                    {%- endfor -%}
+                    </div>
+                </div>
+            {%- endif -%}
         {%- endif -%}
     </div>
 <div class="modular-section content-block block_id--{{ block.id }} block-right">
@@ -133,18 +143,18 @@
             -%}
         </div>
 
-        {%- if block.settings.button-text_r != blank and video_active_r != true -%}
-        <div class="floating-link">
-            <a href="{{ block.settings.target_link_r }}" class="button button--secondary">
-                <span>{{- block.settings.button-text_r | escpe -}}</span>
-            </a>
-
-            {% if block.settings.product_title_r != blank and video_active_r != true %}
-            <div class="floating-link__pictured">
-                Pictured: <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{ block.settings.pictured_product_r }}">{{- block.settings.product_title_r | escape -}}</a>
-            </div>
-            {% endif %}
-        </div>
+        {%- if video_active_r != true -%}
+            {% assign pictured_products = block.settings.pictured_products_r %}
+            {% if pictured_products.count > 0 %}
+            <div class="floating-link">
+                <div class="floating-link__pictured">
+                    <span style="margin-right: 2px;">Pictured: </span>
+                    {%- for pictured_product in pictured_products -%}
+                        <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{- pictured_product.url -}}">{{- pictured_product.title | escape -}}</a>{%if forloop.last != true  %}<span>,</span>{%endif%}
+                    {%- endfor -%}
+                    </div>
+                </div>
+            {%- endif -%}
         {%- endif -%}
     </div>
 </section>

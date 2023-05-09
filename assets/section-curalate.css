@@ -20,6 +20,6 @@ body  {
     display: none;
 }
 
-.shopify-section--curalate:has(#crl8-product-carousel-carousel-heading) {
+.shopify-section--curalate:has(.curalate-gallery_embed) {
     display: flex;
 }

@@ -19,12 +19,12 @@ function productUnitUpdateHover(option, productImageContainer, sizes) {
     } else if(hoverImg) hoverImg.remove();
 }
 
-function updateProductURLs(productContainer, options, multiple = false) {
+function updateProductURLs(productContainer, options, multiple = false, earlyAccess = false) {
     const handle = productContainer.getAttribute('data-handle');
-    const productLinks = productContainer.querySelectorAll('.product-link');
+    const productLinks = productContainer.querySelectorAll('.product-link, .quick-view__link');
     productLinks.forEach(productLink => {
-        if(multiple) productLink.setAttribute('href', `/products/${handle}/${options.join(',')}`);
-        else productLink.setAttribute('href', `/products/${handle}/${options[0]}`);
+        if(multiple) productLink.setAttribute('href', `/products/${handle}/${earlyAccess?'early-access-':''}${options.join(',')}`);
+        else productLink.setAttribute('href', `/products/${handle}/${earlyAccess?'early-access-':''}${options[0]}`);
     });
 }
 
@@ -37,6 +37,7 @@ function variantUpdateProcess(target) {
     const select = productContainer.querySelector('.variant-select');
     if(!select) return;
 
+    const hasSizeSelector = productContainer.querySelector('.product-unit__sizes') ? true: false;
     let location = false;
     if(productContainer.classList.contains('product-unit')) location = 'unit';
     else if(productContainer.classList.contains('shopify-product-form')) location = 'pdp';
@@ -46,10 +47,16 @@ function variantUpdateProcess(target) {
     let option = false,
         selector = `option`;
     if(location == 'unit' && options.length > 1) {
-        selector += `[data-option1="${options[0]}"]`;
+        if (hasSizeSelector) {
+            const optionSize = productContainer.querySelector('.product-unit__sizes .size-swatch.selected').dataset.title;
+            selector += `[data-option1="${options[0]}"][data-option2="${optionSize}"]`;
+        } else {
+            selector += `[data-option1="${options[0]}"]`;
+        }
         option = select.querySelector(selector + '[data-available="true"]');
-        if(!option) option = select.querySelector(selector);
-        else {
+        if(!option) {
+            option = select.querySelector(selector)
+        } else {
             options[1] = option.getAttribute('data-option2');
         }
     } else {
@@ -78,7 +85,6 @@ function variantUpdateProcess(target) {
             })
             
         } else {
-            console.log('others')
             includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                 includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
                 includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
@@ -89,8 +95,7 @@ function variantUpdateProcess(target) {
         }
     }
 
-    
-    updateProductURLs(productContainer, options, multiple);
+    updateProductURLs(productContainer, options, multiple, option.hasAttribute('data-early-access'));
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));
@@ -150,6 +155,7 @@ function variantUpdateProcess(target) {
         productUnitUpdateHover(option, productImageContainer, sizes);
 
     } else if(location == 'pdp') {
+        console.log('Location: pdp');
         const pdpInfo = productContainer.closest('.pdp__info, .qv__product');
         const pdpGrid = productContainer.closest('.pdp__grid, .qv__body');
         const isQuickView = pdpGrid.classList.contains('qv__body');
@@ -188,11 +194,11 @@ function variantUpdateProcess(target) {
 
         const qty = option.getAttribute('data-qty');
         const stock = pdpInfo.querySelector('.pdp__stock');
-        if(qty) {
+        if(qty>0 && qty<=10) {
             stock.querySelector('span').innerHTML = qty;
             stock.classList.add('pdp__stock--active');
         } else stock.classList.remove('pdp__stock--active');
-
+        
         if(price * 1 <= 5000) pdpInfo.querySelector('.pdp__payments').classList.add('pdp__payments--limit');
         else pdpInfo.querySelector('.pdp__payments').classList.remove('pdp__payments--limit');
         pdpInfo.querySelector('.pdp__payments-amnt').innerHTML = formatPrice(price / 4 / 100);

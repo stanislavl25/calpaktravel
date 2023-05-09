@@ -507,14 +507,6 @@
     "3655ee82-744b-460a-903e-46737e577fe6": {
       "type": "memorial-day-sale-promo-banner",
       "settings": {
-        "memorial-day-enabled": true,
-        "memorial-day-sale-tag": "Final Sale",
-        "memorial-day-sale-text": "Memorial day SALE",
-        "memorial-day-sale-starts": "",
-        "memorial-day-sale-ends": "",
-        "memorial-day-sale-countdown": "24",
-        "memorial-day-sale-accent": "#ff0000",
-        "memorial-day-sale-text-col": "#ffffff"
       }
     }
   },

@@ -12,6 +12,10 @@
     row-gap: 40px;
 }
 
+.product-grid--gap {
+    column-gap: 10px;
+}
+
 .product-grid__empty-text {
     display: none;
     justify-content: center;
@@ -22,6 +26,17 @@
 
 .section-filtered--empty .product-grid__empty-text {
     display: flex;
+}
+.product-label--promo.starter-label {
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    height: 22px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .promo-unit {
