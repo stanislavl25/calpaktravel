@@ -627,10 +627,9 @@
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/image_188.png",
-            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "image",
-            "mobile_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4"
+            "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
           }
         },
         "26121484-6047-4828-919f-49c8e5363c7d": {
@@ -639,7 +638,7 @@
             "pictured_link": true,
             "gap": 10,
             "section_height": 70,
-            "row": 5,
+            "row": 6,
             "mobile_row": 5,
             "column": 1,
             "col_span": 5,
@@ -649,7 +648,7 @@
             "pictured_products": [
               "astyll-medium-luggage"
             ],
-            "image": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-PRODUCTS.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
@@ -660,7 +659,6 @@
               "compakt-large-garment-bag",
               "compakt-duffel-bag"
             ],
-            "image_r": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-3.jpg",
             "video_r": "",
             "video-ratio-w_r": "16",
             "video-ratio-h_r": "9"
@@ -670,12 +668,13 @@
           "type": "static",
           "settings": {
             "heading": "Mobile: Static content",
-            "index": 4,
-            "enable_static_for_desktop": false,
+            "index": 11,
+            "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "image",
-            "mobile_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-PRODUCTS.png"
+            "mobile_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg"
           }
         }
       },
