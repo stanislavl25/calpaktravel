@@ -543,8 +543,7 @@
           "type": "banner",
           "settings": {
             "collection_list": [
-              "summer-arrivals",
-              "all-products"
+              "summer-arrivals"
             ],
             "banner-text": "Summer Arrivals",
             "row": "1",
@@ -587,9 +586,11 @@
             "pictured_link": true,
             "only_mobile": false,
             "row": 2,
-            "mobile_row": 3,
             "column": 3,
             "col_span": 3,
+            "mobile_row": 3,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
             "target_link": "",
             "title": "",
             "description": "",
@@ -606,9 +607,11 @@
             "pictured_link": true,
             "only_mobile": false,
             "row": 4,
-            "mobile_row": 6,
             "column": 1,
             "col_span": 2,
+            "mobile_row": 6,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
             "target_link": "",
             "title": "",
             "description": "",
@@ -697,8 +700,7 @@
         "row_gap": 40,
         "column_gap": 10,
         "collection_list": [
-          "summer-arrivals",
-          "best-sellers"
+          "summer-arrivals"
         ],
         "module_padding": 10
       }
@@ -706,7 +708,9 @@
     "c21deb88-82ba-42cd-8b8a-9516d11e23cf": {
       "type": "curalate-gallery",
       "settings": {
-        "gallery_id": "gallery-zfEKaK3p"
+        "gallery_id": "gallery-zfEKaK3p",
+        "title": "Travel looks good on you.",
+        "subtitle": "Tag your adventures @calpak #calpaktravel."
       }
     }
   },
