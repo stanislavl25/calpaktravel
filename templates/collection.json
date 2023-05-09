@@ -539,6 +539,24 @@
             "row-mob": 2
           }
         },
+        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
+          "type": "banner",
+          "settings": {
+            "collection_list": [
+              "summer-arrivals",
+              "all-products"
+            ],
+            "banner-text": "Summer Arrivals",
+            "row": "1",
+            "row_mobile": "1",
+            "media-type": "image",
+            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701.png",
+            "banner-media-height": 500,
+            "banner-media-height-mobile": 300,
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff"
+          }
+        },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
           "settings": {
@@ -564,7 +582,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "luka-duffel"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3696.png",
             "video": ""
@@ -638,24 +656,6 @@
             "video-ratio-h_r": "9"
           }
         },
-        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
-          "type": "banner",
-          "settings": {
-            "collection_list": [
-              "summer-arrivals",
-              "all-products"
-            ],
-            "banner-text": "Summer Arrivals",
-            "row": "1",
-            "row_mobile": "1",
-            "media-type": "image",
-            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701.png",
-            "banner-media-height": 500,
-            "banner-media-height-mobile": 300,
-            "banner-text-color": "#000000",
-            "banner-text-background-color": "#ffffff"
-          }
-        },
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
           "settings": {
@@ -684,12 +684,12 @@
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
+        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
         "251cc4d4-f075-47d7-9a48-190411fb06ba",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
         "26121484-6047-4828-919f-49c8e5363c7d",
-        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
         "98bbbe49-ef4a-4acd-9165-232fac007486"
       ],
