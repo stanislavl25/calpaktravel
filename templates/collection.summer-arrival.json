@@ -525,6 +525,7 @@
         },
         "3cafe206-a3e1-43d4-a22c-d684d558f998": {
           "type": "banner",
+          "disabled": true,
           "settings": {
             "collection_list": [
               "summer-arrivals"
@@ -532,12 +533,32 @@
             "banner-text": "Summer Arrivals",
             "row": "1",
             "row_mobile": "1",
-            "media-type": "video",
-            "banner-video": "shopify:\/\/files\/videos\/IMG_3027_5.mp4",
+            "media-type": "image",
+            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
             "banner-media-height": 500,
             "banner-media-height-mobile": 300,
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ffffff"
+          }
+        },
+        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": false,
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "video": "https:\/\/vimeo.com\/825181299"
           }
         },
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
@@ -720,32 +741,13 @@
             "image": "shopify:\/\/shop_images\/image_189.png",
             "video": ""
           }
-        },
-        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "only_mobile": false,
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "video": ""
-          }
         }
       },
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "3cafe206-a3e1-43d4-a22c-d684d558f998",
+        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d",
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
         "d6ca6737-46ba-4790-8308-9173c146e312",
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
@@ -755,8 +757,7 @@
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "c5327c66-dd37-45d8-acec-7b52d78da3cd",
-        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7",
-        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d"
+        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7"
       ],
       "settings": {
         "wishlist": true,
