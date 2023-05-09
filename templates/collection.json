@@ -668,7 +668,7 @@
           "type": "static",
           "settings": {
             "heading": "Mobile: Static content",
-            "index": 11,
+            "index": 17,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
