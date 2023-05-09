@@ -24,7 +24,7 @@
     {%- endif -%}
 </div>
 
-{% if settings.countdown-label-collection-enabled and timeLeft > 0 and memorialDaySale != false and template contains 'collection'%}
+{% if settings.countdown-label-collection-enabled and template contains 'collection'%}
     <script>
         console.log('testing')
         const addLabelToCollectionProductUnit = e => {
