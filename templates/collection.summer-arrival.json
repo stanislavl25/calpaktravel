@@ -698,6 +698,27 @@
             "static_media_type_mobile": "image",
             "mobile_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-COMPAKT-TOTE-BAG.png"
           }
+        },
+        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": false,
+            "row": 8,
+            "column": 5,
+            "col_span": 1,
+            "mobile_row": 17,
+            "column_mobile": 2,
+            "col_span_mobile": -3,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "stevyn-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/image_189.png",
+            "video": ""
+          }
         }
       },
       "block_order": [
@@ -712,7 +733,8 @@
         "7676be9e-c601-451f-896f-70d29d759dd8",
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
-        "c5327c66-dd37-45d8-acec-7b52d78da3cd"
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd",
+        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7"
       ],
       "settings": {
         "wishlist": true,
