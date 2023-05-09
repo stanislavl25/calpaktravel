@@ -655,7 +655,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 5,
+            "row": 4,
             "column": 1,
             "col_span": 2,
             "mobile_row": 9,
@@ -702,7 +702,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 4,
+            "row": 5,
             "column": 1,
             "col_span": 2,
             "mobile_row": 12,
