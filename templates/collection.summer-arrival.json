@@ -536,14 +536,14 @@
             "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
             "banner-media-height": 500,
             "banner-media-height-mobile": 300,
-            "banner-text-color": "#000",
-            "banner-text-background-color": "#FFF"
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff"
           }
         },
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
           "type": "static",
           "settings": {
-            "heading": "Static: name your block",
+            "heading": "Video: Luka Large Duffel",
             "index": 1,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
@@ -561,16 +561,49 @@
             "row": 2,
             "column": 3,
             "col_span": 3,
-            "mobile_row": 2,
+            "mobile_row": 3,
             "column_mobile": 1,
             "col_span_mobile": 2,
-            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
+            "target_link": "",
             "title": "",
             "description": "",
             "pictured_products": [
               "luka-duffel"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3696_3fc056aa-c219-4f58-9dc3-24eb45031d5f.png",
+            "video": ""
+          }
+        },
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6": {
+          "type": "static",
+          "settings": {
+            "heading": "Static: name your block",
+            "index": 3,
+            "enable_static_for_desktop": false,
+            "static_media_type_desktop": "image",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_137.png"
+          }
+        },
+        "d6ca6737-46ba-4790-8308-9173c146e312": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": true,
+            "row": 1,
+            "column": 2,
+            "col_span": 1,
+            "mobile_row": 6,
+            "column_mobile": 2,
+            "col_span_mobile": 1,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/image_138.png",
             "video": ""
           }
         },
@@ -595,61 +628,30 @@
             "video": ""
           }
         },
-        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6": {
-          "type": "static",
-          "settings": {
-            "heading": "Static: name your block",
-            "index": 3,
-            "enable_static_for_desktop": false,
-            "static_media_type_desktop": "image",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "image",
-            "mobile_static_img": "shopify:\/\/shop_images\/image_137.png"
-          }
-        },
         "7676be9e-c601-451f-896f-70d29d759dd8": {
           "type": "static",
           "settings": {
-            "heading": "Static: name your block",
+            "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
             "index": 11,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/image_188.png",
-            "enable_static_for_mobile": false,
-            "static_media_type_mobile": "image"
-          }
-        },
-        "4370d102-00e4-42f2-b02d-e08988d02a12": {
-          "type": "static",
-          "settings": {
-            "heading": "Mobile: Static content",
-            "index": 11,
-            "enable_static_for_desktop": false,
-            "static_media_type_desktop": "image",
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "image",
             "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
           }
         },
-        "d6ca6737-46ba-4790-8308-9173c146e312": {
-          "type": "module",
+        "850bb4ba-1437-4875-9c18-6a221ba616e8": {
+          "type": "static",
           "settings": {
-            "pictured_link": true,
-            "only_mobile": true,
-            "row": 1,
-            "column": 2,
-            "col_span": 1,
-            "mobile_row": 6,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/image_138.png",
-            "video": ""
+            "heading": "Desktop\/Mobile: Tech Organizer",
+            "index": 15,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "image",
+            "desktop_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_137_5371b6ce-5106-4220-ad4c-ce5ad6a58a14.png"
           }
         },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
@@ -658,11 +660,11 @@
             "pictured_link": true,
             "gap": 10,
             "section_height": 100,
-            "row": 5,
-            "mobile_row": 11,
+            "row": 6,
+            "mobile_row": 12,
             "column": 1,
             "col_span": 5,
-            "target_link": "shopify:\/\/products\/astyll-medium-luggage",
+            "target_link": "",
             "title": "",
             "description": "",
             "pictured_products": [
@@ -676,24 +678,12 @@
             "description_r": "",
             "button-text_r": "",
             "pictured_products_r": [
-
+              "luka-belt-bag",
+              "luka-key-pouch"
             ],
-            "video_r": "https:\/\/player.vimeo.com\/video\/403125830?title=0&byline=0&color=ffffff&portrait=0&muted=1&sidedock=0&api=1&autoplay=1&loop=1&controls=1",
+            "video_r": "https:\/\/vimeo.com\/825181299",
             "video-ratio-w_r": "1",
             "video-ratio-h_r": "1"
-          }
-        },
-        "850bb4ba-1437-4875-9c18-6a221ba616e8": {
-          "type": "static",
-          "settings": {
-            "heading": "Static: name your block",
-            "index": 15,
-            "enable_static_for_desktop": true,
-            "static_media_type_desktop": "image",
-            "desktop_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "image",
-            "mobile_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png"
           }
         },
         "c5327c66-dd37-45d8-acec-7b52d78da3cd": {
@@ -715,13 +705,12 @@
         "3cafe206-a3e1-43d4-a22c-d684d558f998",
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
-        "93958757-d99e-40ac-9681-c941a84f5e13",
         "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
-        "7676be9e-c601-451f-896f-70d29d759dd8",
-        "4370d102-00e4-42f2-b02d-e08988d02a12",
         "d6ca6737-46ba-4790-8308-9173c146e312",
-        "cf9914ea-723b-48aa-9c74-ab2a44489463",
+        "93958757-d99e-40ac-9681-c941a84f5e13",
+        "7676be9e-c601-451f-896f-70d29d759dd8",
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
+        "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "c5327c66-dd37-45d8-acec-7b52d78da3cd"
       ],
       "settings": {
