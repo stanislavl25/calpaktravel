@@ -166,7 +166,7 @@
 
 @media (max-width: 900px) {
     .slider.filter__collections {
-        padding: var(--gap) 0 calc(var(--gap) - 10px);
+        padding: 0.8rem;
     }
 
     @-moz-document url-prefix() {
@@ -178,4 +178,9 @@
     .filter__collection--selected-init {
         order: -1;
     }
+}
+@media (max-width: 649px){
+    .slider.filter__collections {
+        padding: var(--gap) 0 calc(var(--gap) - 10px);
+    } 
 }

@@ -836,7 +836,22 @@ window.addEventListener("load", () => {
     const videos = document.querySelectorAll(".video-iframe-container");
     videos.forEach( video => videoObserver.observe(video) );
 
-    document.querySelectorAll('.quick-view__link').forEach(quickViewLink => quickViewLink.addEventListener('click', quickViewClick));
+    let quickViewLinks = document.querySelectorAll('.quick-view__link');
+    [...quickViewLinks].map( function(quickViewLink) {
+        quickViewLink.addEventListener('click', quickViewClick);
+    });
+
+    const subcategoryActivators = document.querySelectorAll('.filter__collections .filter__collection');
+    [...subcategoryActivators].map( function(subcategoryActivator) {
+        subcategoryActivator.addEventListener('click', function(e) {
+            setTimeout(() => {
+                let quickViewLinksDynamic = document.querySelectorAll('.quick-view__link');
+                [...quickViewLinksDynamic].map( function(quickViewLink) {
+                    quickViewLink.addEventListener('click', quickViewClick);
+                });
+            }, 3000);
+        });
+    });
 
     const footerLinks = document.querySelectorAll('.footer__widget-title');
     footerLinks.forEach(footerLink => footerLink.addEventListener('click', e => e.target.classList.toggle('footer__widget-title--active')));

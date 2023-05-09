@@ -155,6 +155,7 @@ function variantUpdateProcess(target) {
         productUnitUpdateHover(option, productImageContainer, sizes);
 
     } else if(location == 'pdp') {
+        console.log('Location: pdp');
         const pdpInfo = productContainer.closest('.pdp__info, .qv__product');
         const pdpGrid = productContainer.closest('.pdp__grid, .qv__body');
         const isQuickView = pdpGrid.classList.contains('qv__body');
