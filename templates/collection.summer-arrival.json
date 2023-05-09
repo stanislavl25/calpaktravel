@@ -525,7 +525,6 @@
         },
         "3cafe206-a3e1-43d4-a22c-d684d558f998": {
           "type": "banner",
-          "disabled": true,
           "settings": {
             "collection_list": [
               "summer-arrivals"
@@ -655,7 +654,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 1,
+            "row": 5,
             "column": 1,
             "col_span": 2,
             "mobile_row": 9,
