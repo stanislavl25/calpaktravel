@@ -701,7 +701,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "only_mobile": true,
             "row": 5,
             "column": 1,
             "col_span": 2,
