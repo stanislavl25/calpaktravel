@@ -212,7 +212,7 @@ a.color-swatch--active::after {
 }
 
 .color-orange {
-    --background: #FD5D00;
+    --background: #FF813D;
 }
 
 .color-mist {
@@ -474,6 +474,30 @@ a.color-swatch--active::after {
 }
 .color-ginger {
     --background: #6e3b09;
+}
+.color-watermelon {
+    --background: #FF425F;
+}
+.color-green-apple {
+    --background: #009936;
+}
+.color-khaki {
+    --background: #8C7936   ;
+}
+.color-lagoon{
+    --background: #00779E;
+}
+.color-palm {
+    --background: #85A34D;
+}
+.color-modern-abstract {
+    --background: #EBCEB8;
+}
+.color-orange-grid {
+    --background: #FA8C23;
+}
+.color-speckle {
+    --background: #EEE6DF;
 }
 
 
