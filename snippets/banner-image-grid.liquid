@@ -53,7 +53,7 @@
             position: absolute;
             {% comment %} right: 0; {% endcomment %}
             top: 0;
-            width: calc(100% - 36px);
+            width: 100%;
             border-radius: 9px;
             object-fit: cover;
             object-position: center;
@@ -124,8 +124,12 @@
                 display: flex;
             }
         {% endif %}  
-
-        @media (max-width: 600px) {
+        @media (max-width:900px){
+            .collection-image-banner-wrapper {
+                grid-column: 1 / span 3;
+            }
+        }
+        @media (max-width: 649px) {
             .shopify-section--collection-image-banner {
                 margin-top: 25px;
                 grid-column: 1 / span 2;
@@ -146,7 +150,7 @@
                 height: {{ block.settings.banner-media-height-mobile }}px;
                 right: unset;
                 border-radius: 6px;
-                width: calc(100% - 20px);
+                width: 100%;
             }
             .collection-image-banner-text-wrapper {
                 padding-inline: 14px;

@@ -456,10 +456,31 @@
                     "default": false
                     },
                     {
+                        "type": "header",
+                        "content": "Desktop Settings"
+                    },
+                    {
                     "type": "number",
                     "id": "row",
                     "label": "Row position",
                     "default": 1
+                    },
+                    {
+                    "type": "number",
+                    "id": "column",
+                    "label": "Desktop Column position",
+                    "default": 1,
+                    "info": "From 1 to 5"
+                    },
+                    {
+                    "type": "number",
+                    "id": "col_span",
+                    "label": "Desktop Width Span (columns)",
+                    "default": 2
+                    },
+                    {
+                        "type": "header",
+                        "content": "Mobile settings"
                     },
                     {
                     "type": "number",
@@ -469,14 +490,15 @@
                     },
                     {
                     "type": "number",
-                    "id": "column",
-                    "label": "Column position",
-                    "default": 1
+                    "id": "column_mobile",
+                    "label": "Mobile Column position",
+                    "default": 1,
+                    "info": "Only 1 or 2"
                     },
                     {
                     "type": "number",
-                    "id": "col_span",
-                    "label": "Width (columns)",
+                    "id": "col_span_mobile",
+                    "label": "Mobile Width Span (columns)",
                     "default": 2
                     },
                     {

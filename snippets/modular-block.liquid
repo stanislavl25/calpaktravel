@@ -41,7 +41,7 @@
         {% endif%}
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
-            grid-column: 1 / span 1;
+            grid-column: {{ block.settings.column_mobile }} / span {{ block.settings.col_span_mobile }};
             min-height: 280px;
         }
     }
