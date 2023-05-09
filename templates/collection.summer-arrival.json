@@ -557,7 +557,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 2,
+            "row": 3,
             "column": 3,
             "col_span": 3,
             "mobile_row": 3,
@@ -608,6 +608,7 @@
         },
         "93958757-d99e-40ac-9681-c941a84f5e13": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
@@ -751,7 +752,6 @@
       "type": "memorial-day-sale-promo-banner",
       "settings": {
         "countdown-enabled": true,
-        "countdown-label-collection-enabled": true,
         "countdown-sale-text": "Memorial day SALE",
         "countdown-sale-starts": "",
         "countdown-sale-ends": "",
