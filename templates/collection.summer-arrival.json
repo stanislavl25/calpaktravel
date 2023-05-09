@@ -697,8 +697,30 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_137_5371b6ce-5106-4220-ad4c-ce5ad6a58a14.png"
           }
         },
+        "159bdf93-1c5c-49da-9969-a5be2118c8ff": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": false,
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 12,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
+            "video": ""
+          }
+        },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
           "type": "modular-section",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "gap": 10,
@@ -777,6 +799,7 @@
         "629cf9cf-f796-48b3-b5ff-294d4e7009bf",
         "7676be9e-c601-451f-896f-70d29d759dd8",
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
+        "159bdf93-1c5c-49da-9969-a5be2118c8ff",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "c5327c66-dd37-45d8-acec-7b52d78da3cd",
         "0bc1b97b-fa84-4270-a648-315f2dd2f2a7"
