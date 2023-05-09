@@ -2,6 +2,7 @@
   "sections": {
     "df6c7666-c581-4b2c-96cd-c8f742c7a5d2": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -61,6 +62,7 @@
     },
     "6e3f70cb-ca5f-4b2b-b0b0-7ac1d205cd4d": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -419,6 +421,7 @@
         },
         "609ee977-939e-4747-af83-eacb42d0ad15": {
           "type": "image-banner",
+          "disabled": true,
           "settings": {
             "product-list": [
               "luka-duffel",
@@ -564,7 +567,7 @@
         "eb465944-400d-4d86-afd8-5b1728a69de0": {
           "type": "shopify:\/\/apps\/okendo-product-reviews-ugc\/blocks\/reviews-widget\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
           "settings": {
-            "product": "{{product}}",
+            "product": "",
             "widget_type": "reviews_widget"
           }
         }
