@@ -18,7 +18,7 @@
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
-            grid-column: 1 / span 2;
+            grid-column: 1 / span 1;
         }
         .floating-link__pictured {
             margin-left: 6px;
@@ -36,12 +36,12 @@
         {% else %}
             .block_id--{{ block.id }} {
                 grid-row: {{ block.settings.row }} / span 1;
-                grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
+                grid-column: {{ block.settings.column }} / span 1;
             }
         {% endif%}
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
-            grid-column: 1 / span 2;
+            grid-column: 1 / span 1;
             min-height: 280px;
         }
     }

@@ -33,18 +33,32 @@
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
                 {% if collection_item.handle == collection.handle %}
-                    .modular-block, .modular-section__wrap {
-                        display:flex!important;
-                    }
+                    .modular-block, .modular-section__wrap, .static-video-desktop
+                .static-video-mobile {
+                   display:flex!important;
+                }
+                .product-unit__image > .f-loaded {
+                    object-position:-1000px!important;
+                }
                 {% else %} 
-                .{{ collection_item.handle }} .modular-block, .{{ collection_item.handle }} .modular-section__wrap, .{{ collection_item.handle }} .static-video-desktop {
+                .{{ collection_item.handle }} .modular-block, 
+                .{{ collection_item.handle }} .modular-section__wrap, 
+                .{{ collection_item.handle }} .static-video-desktop,
+                .{{ collection_item.handle }} .static-video-mobile {
                         display:flex!important;
                     }
+                .{{ collection_item.handle }} .product-unit__image > .f-loaded {
+                    object-position:-1000px!important;
+                }
                 {% endif %}
             {% endfor %}
         {% else %}
-                .modular-block, .modular-section__wrap {
+                .modular-block, .modular-section__wrap, .static-video-desktop
+                .static-video-mobile {
                    display:flex!important;
+                }
+                .product-unit__image > .f-loaded {
+                    object-position:-1000px!important;
                 }
         {% endif %}
     {% endif %}
