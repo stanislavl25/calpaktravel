@@ -599,7 +599,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 3,
+            "row": 2,
             "column": 3,
             "col_span": 3,
             "mobile_row": 6,
