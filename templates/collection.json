@@ -2,6 +2,7 @@
   "sections": {
     "b11701cc-945d-43fe-8b29-77d888aec849": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -51,6 +52,7 @@
         },
         "e1911702-42ea-44c2-84f5-bb10bbeea478": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": ". . . Mother's Day",
             "title": "Mother's Day Sale",
@@ -91,7 +93,6 @@
         },
         "645f5714-be29-44a4-9a15-aab469ecb101": {
           "type": "filter",
-          "disabled": true,
           "settings": {
             "heading": ". . . In stock and ready to ship",
             "title": "In stock and ready to deliver",
@@ -499,6 +500,7 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
             "video": "",
