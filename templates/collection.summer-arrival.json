@@ -549,8 +549,7 @@
             "static_media_type_desktop": "video",
             "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
             "enable_static_for_mobile": false,
-            "static_media_type_mobile": "image",
-            "mobile_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4"
+            "static_media_type_mobile": "image"
           }
         },
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
