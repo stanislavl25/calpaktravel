@@ -650,6 +650,27 @@
             "video": ""
           }
         },
+        "629cf9cf-f796-48b3-b5ff-294d4e7009bf": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": false,
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 8,
+            "column_mobile": 2,
+            "col_span_mobile": 1,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3693_b5472a86-acb2-4d9f-b211-4d9f5895a533.png",
+            "video": ""
+          }
+        },
         "7676be9e-c601-451f-896f-70d29d759dd8": {
           "type": "static",
           "settings": {
@@ -753,6 +774,7 @@
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
         "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
         "93958757-d99e-40ac-9681-c941a84f5e13",
+        "629cf9cf-f796-48b3-b5ff-294d4e7009bf",
         "7676be9e-c601-451f-896f-70d29d759dd8",
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
