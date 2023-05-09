@@ -633,7 +633,7 @@ p.pdp__stock-variant {
     opacity: 1;
 }
 
-.pdp__form-labels .product-label {
+.pdp__form-labels .product-label:first-child {
     margin: -18px 0 0;
 }
 
@@ -704,6 +704,10 @@ p.pdp__stock-variant {
     font-size: 13px;
 }
 
+.variant_data {
+    display: none;
+}
+
 @media (max-width: 1180px) {
     .pdp__grid {
         gap: 35px;
@@ -751,7 +755,7 @@ p.pdp__stock-variant {
         order: -1;
     }
 
-    .pdp__form-labels .product-label {
+    .pdp__info .pdp__form-labels .product-label {
         margin: 0;
     }
 
@@ -816,7 +820,7 @@ p.pdp__stock-variant {
         grid-template-columns: repeat(auto-fit,minmax(80px,1fr))
     }
 
-    .pdp__info .pdp__form-labels .product-label {
+    .pdp__info .pdp__form-labels .product-label:first-child {
         margin-bottom: -8px;
     }
 }
