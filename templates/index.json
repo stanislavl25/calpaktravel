@@ -39,9 +39,9 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Buy 2 items (or more), get 15% off",
-            "description": "<p>Use promo code <strong>MOM15<\/strong>.<strong> <\/strong>Limited time only. <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
-            "main-link": "shopify:\/\/collections\/mothers-day",
+            "title": "Meet Espresso",
+            "description": "<p>Shop our best-selling luggage collection in an indulgent new hue.<\/p>",
+            "main-link": "shopify:\/\/collections\/trnk-collection",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "secondary-button-text": "",
@@ -56,9 +56,10 @@
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Hollyridge_calpak0693CA.jpg",
+            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3723-4.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3705-4.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/mothers-day",
+            "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
             "description": "",
             "button-text": "",
@@ -71,9 +72,9 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0060A-4_2_dfa5d683-77e0-4696-885f-52301c6de80b.jpg",
+            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/mothers-day",
+            "main-link": "shopify:\/\/collections\/trnk-collection",
             "title": "",
             "description": "",
             "button-text": "",
