@@ -655,7 +655,7 @@
             "gap": 10,
             "section_height": 70,
             "row": 6,
-            "mobile_row": 5,
+            "mobile_row": 12,
             "column": 1,
             "col_span": 5,
             "target_link": "",
