@@ -1,15 +1,5 @@
 {
   "sections": {
-    "30abf871-7ca5-49dc-b65e-778656d00be9": {
-      "type": "page-header",
-      "settings": {
-        "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "title-size": "medium",
-        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
-        "button-text": "",
-        "button-link": ""
-      }
-    },
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
       "disabled": true,
@@ -469,6 +459,16 @@
         ]
       }
     },
+    "30abf871-7ca5-49dc-b65e-778656d00be9": {
+      "type": "page-header",
+      "settings": {
+        "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "title-size": "medium",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
@@ -532,8 +532,8 @@
             "banner-text": "Summer Arrivals",
             "row": "1",
             "row_mobile": "1",
-            "media-type": "image",
-            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
+            "media-type": "video",
+            "banner-video": "shopify:\/\/files\/videos\/IMG_3027_5.mp4",
             "banner-media-height": 500,
             "banner-media-height-mobile": 300,
             "banner-text-color": "#000000",
@@ -720,6 +720,26 @@
             "image": "shopify:\/\/shop_images\/image_189.png",
             "video": ""
           }
+        },
+        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "only_mobile": false,
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "video": ""
+          }
         }
       },
       "block_order": [
@@ -735,7 +755,8 @@
         "850bb4ba-1437-4875-9c18-6a221ba616e8",
         "cf9914ea-723b-48aa-9c74-ab2a44489463",
         "c5327c66-dd37-45d8-acec-7b52d78da3cd",
-        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7"
+        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7",
+        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d"
       ],
       "settings": {
         "wishlist": true,
@@ -774,9 +795,9 @@
     }
   },
   "order": [
-    "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
+    "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "6910cb6e-7791-4494-a663-9fa82c1b25aa"
