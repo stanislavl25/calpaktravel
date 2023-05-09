@@ -305,6 +305,13 @@ function createSearchItem(product, available, matchedVariant, products_target) {
 
         const qv = productUnit.querySelector('.quick-view__link');
         if(qv) qv.addEventListener('click', quickViewClick);
+
+        let countdown_ticks = productUnit.querySelectorAll('.countdown-timer');
+
+        if(countdown_ticks.length) {
+            updateTimeouts(countdown_ticks);
+            setInterval(() => updateTimeouts(countdown_ticks), 1000);
+        }
     });
 
     let order = 500;

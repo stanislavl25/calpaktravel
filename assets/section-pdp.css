@@ -327,12 +327,12 @@ p.pdp__stock-variant {
 }
 
 .pdp__feat-col,
-.pdp__reviews {
+.pdp__reviews-cont {
     grid-column: 1;
 }
 
 .pdp__reviews {
-    display: flex;
+    display: inline-flex;
     gap: 5px;
     align-items: center;
     text-decoration: inherit;

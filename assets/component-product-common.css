@@ -38,7 +38,7 @@
 
 .product-unit__image-wrapper ~ .product-label {
     border-radius: 6px;
-    gap: 5px;
+    gap: 10px;
     display: flex;
     align-self: flex-start;
     height: 22px;
@@ -189,3 +189,9 @@
         display: none;
     }
 } */
+
+@media (max-width: 900px) {
+    .product-unit__image-wrapper ~ .product-label {
+        gap: 5px;
+    }
+}

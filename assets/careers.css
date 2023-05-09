@@ -90,11 +90,20 @@ body #wrapper {
     line-height: 40px !important;
 }
 
+.accessible .level-0 h2, .accessible .level-0 h3, .accessible .level-0 h4, .accessible .level-0 h5, .accessible .level-0 h6 {
+    font-weight: normal;
+}
+
+h3, .accessible .level-0 h3 {
+    font-size: 22px;
+}
+
 .attach-or-paste .unstyled-button.link-button,
 .opening a,
 a {
     color: inherit;
     text-decoration: underline;
+    font-weight: normal;
 }
 
 .button {
@@ -152,4 +161,34 @@ table {
 
 #content {
     line-height: 1.5em !important;
+}
+
+#embedded_job_board_wrapper > h1 {
+    display: none !important;
+}
+
+#board_title {
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#main {
+    padding-bottom: 0;
+}
+
+#app_body h1 {
+    margin-bottom: 25px;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.content-pay-transparency .pay-input .title {
+    font-weight: normal;
+}
+
+#embedded_job_board_wrapper .level-0:not(:last-child) {
+    margin-bottom: 60px;
 }
