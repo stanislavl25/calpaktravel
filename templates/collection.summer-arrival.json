@@ -469,22 +469,6 @@
         ]
       }
     },
-    "c73bb04c-639e-4668-8e33-3a9e76dad60e": {
-      "type": "collection-image-banner",
-      "settings": {
-        "summer-arrivals-banner-enabled": true,
-        "collection_list": [
-
-        ],
-        "summer-arrivals-banner-text": "Summer Arrivals",
-        "summer-arrivals-media-type": "image",
-        "summer-arrivals-banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
-        "summer-arrivals-banner-media-height": 500,
-        "summer-arrivals-banner-media-height-mobile": 233,
-        "summer-arrivals-banner-text-color": "#000000",
-        "summer-arrivals-banner-text-background-color": "#ffffff"
-      }
-    },
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
@@ -539,6 +523,23 @@
             "row-mob": 2
           }
         },
+        "3cafe206-a3e1-43d4-a22c-d684d558f998": {
+          "type": "banner",
+          "settings": {
+            "collection_list": [
+              "summer-arrivals"
+            ],
+            "banner-text": "Summer Arrivals",
+            "row": "1",
+            "row_mobile": "1",
+            "media-type": "image",
+            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
+            "banner-media-height": 500,
+            "banner-media-height-mobile": 300,
+            "banner-text-color": "#000",
+            "banner-text-background-color": "#FFF"
+          }
+        },
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
           "type": "static",
           "settings": {
@@ -557,10 +558,12 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
-            "row": 1,
-            "mobile_row": 2,
+            "row": 2,
             "column": 3,
             "col_span": 3,
+            "mobile_row": 2,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
             "target_link": "shopify:\/\/products\/ambeur-vanity-case",
             "title": "",
             "description": "",
@@ -577,9 +580,11 @@
             "pictured_link": true,
             "only_mobile": false,
             "row": 3,
-            "mobile_row": 7,
             "column": 1,
             "col_span": 2,
+            "mobile_row": 7,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
             "target_link": "shopify:\/\/products\/compakt-tote-bag",
             "title": "",
             "description": "",
@@ -632,9 +637,11 @@
             "pictured_link": true,
             "only_mobile": true,
             "row": 1,
-            "mobile_row": 6,
             "column": 2,
             "col_span": 1,
+            "mobile_row": 6,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
             "target_link": "",
             "title": "",
             "description": "",
@@ -705,6 +712,7 @@
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
+        "3cafe206-a3e1-43d4-a22c-d684d558f998",
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
         "93958757-d99e-40ac-9681-c941a84f5e13",
@@ -747,7 +755,9 @@
     "6910cb6e-7791-4494-a663-9fa82c1b25aa": {
       "type": "curalate-gallery",
       "settings": {
-        "gallery_id": "gallery-zfEKaK3p"
+        "gallery_id": "gallery-zfEKaK3p",
+        "title": "Travel looks good on you.",
+        "subtitle": "Tag your adventures @calpak #calpaktravel."
       }
     }
   },
@@ -755,7 +765,6 @@
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
-    "c73bb04c-639e-4668-8e33-3a9e76dad60e",
     "product-grid-section-id",
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "6910cb6e-7791-4494-a663-9fa82c1b25aa"
