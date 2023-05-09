@@ -545,10 +545,10 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": true,
+            "only_mobile": false,
             "row": 1,
             "column": 1,
-            "col_span": 2,
+            "col_span": 5,
             "mobile_row": 1,
             "column_mobile": 1,
             "col_span_mobile": 2,
