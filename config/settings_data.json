@@ -691,7 +691,7 @@
               "other": false,
               "content": "<p>Homepage<\/p>",
               "url": "shopify:\/\/products\/starter-bundle",
-              "background": "#e4dfd5",
+              "background": "#f7f177",
               "text-color": "#000000"
             }
           },
@@ -761,8 +761,8 @@
           "bb311c67-8727-4ff8-b7fe-da9334e2f39c"
         ],
         "settings": {
-          "show": "no",
-          "timeout": 5,
+          "show": "everywhere",
+          "timeout": 3,
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
           "holiday-banner-color": "#000000",
