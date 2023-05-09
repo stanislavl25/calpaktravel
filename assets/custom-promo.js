@@ -16,7 +16,7 @@ if(promoBarCells.length > 1) {
 
                 setTimeout(() => {
                     cells.style.setProperty('--page', index);
-                }, 0);
+                }, 100);
 
                 setTimeout(() => {
                     cells.classList.remove('promo-bar__cells--back');
