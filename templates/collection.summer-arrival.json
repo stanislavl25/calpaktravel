@@ -708,7 +708,7 @@
             "col_span": 1,
             "mobile_row": 17,
             "column_mobile": 2,
-            "col_span_mobile": -3,
+            "col_span_mobile": 1,
             "target_link": "",
             "title": "",
             "description": "",
