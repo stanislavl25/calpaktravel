@@ -536,14 +536,14 @@
             "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
             "banner-media-height": 500,
             "banner-media-height-mobile": 300,
-            "banner-text-color": "#000",
-            "banner-text-background-color": "#FFF"
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff"
           }
         },
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
           "type": "static",
           "settings": {
-            "heading": "Static: name your block",
+            "heading": "Video: Luka Larger Duffel",
             "index": 1,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
