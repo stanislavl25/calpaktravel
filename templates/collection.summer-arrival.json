@@ -561,10 +561,10 @@
             "row": 2,
             "column": 3,
             "col_span": 3,
-            "mobile_row": 2,
+            "mobile_row": 3,
             "column_mobile": 1,
             "col_span_mobile": 2,
-            "target_link": "shopify:\/\/products\/ambeur-vanity-case",
+            "target_link": "",
             "title": "",
             "description": "",
             "pictured_products": [
