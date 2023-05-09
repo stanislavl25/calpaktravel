@@ -8,6 +8,9 @@
     .floating-link__pictured {
         margin-left: 20px;
     }
+    .wrap--{{ block.id }} .content-block{
+        width:50%;
+    }
     @media screen and (max-width:900px){
         .floating-link__pictured {
             margin-left: 6px;
@@ -25,8 +28,13 @@
     }
     @media screen and (max-width:649px){
         .wrap--{{ block.id }} {
-            grid-row: {{ block.settings.mobile_row }} / span 1;
+            grid-row: {{ block.settings.row }} / span 1;
             grid-column: 1 / span 2;
+            display:flex;
+            flex-direction:column;
+        }
+        .wrap--{{ block.id }} .content-block{
+            width:100%;
         }
     }
 </style>
@@ -125,7 +133,7 @@
                 if block.settings.video_r != blank
                     assign ratio = block.settings.video-ratio-w_r | append: '/' | append: block.settings.video-ratio-h_r
                     assign video_active_r = true
-                    render 'video' with block.settings.video_r, poster: block.settings.image_r, lazy: true, video_ratio: ratio, loop: true, controls: true, autoplay: true
+                    echo '<video autoplay muted loop class="modular-section-video"><source src="' | append: block.settings.video_r.sources[1].url | append: '" type="video/mp4"></video>'
                 else
                     if block.settings.image_mobile_r != blank and block.settings.image_r != blank
                         render 'image' with block.settings.image_r, lazy: true, sizes: size, class: 'hide-small'
@@ -163,12 +171,20 @@
     .block_id--{{ block.id }}.block-left .video-iframe-container{
       height:100%; 
     }
+    .block_id--{{ block.id }}.block-left .video-iframe-container iframe{
+      height:100%;
+      border-radius:9px; 
+    }
     </style>
 {% endif %}
 {% if video_active_r == true %}
   <style>
     .block_id--{{ block.id }}.block-right .video-iframe-container{
         height:100%; 
+    }
+    .block_id--{{ block.id }}.block-right .video-iframe-container iframe{
+        height:100%;
+        border-radius:9px; 
     }
   </style>
 {% endif %}

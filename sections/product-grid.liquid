@@ -24,6 +24,9 @@
         border-radius: 9px;
         padding: 0;
     }
+    video.modular-section-video {
+        border-radius: 9px;
+    }
     {% if section.settings.hide_view == true %}
         .collection-view * {
             visibility: hidden;
@@ -41,10 +44,10 @@
                     object-position:-1000px!important;
                 }
                 {% else %} 
-                .{{ collection_item.handle }} .modular-block, 
-                .{{ collection_item.handle }} .modular-section__wrap, 
-                .{{ collection_item.handle }} .static-video-desktop,
-                .{{ collection_item.handle }} .static-video-mobile {
+                .{{ collection_item.handle }} .modular-block:not(.d-none), 
+                .{{ collection_item.handle }} .modular-section__wrap:not(.d-none), 
+                .{{ collection_item.handle }} .static-video-desktop:not(.d-none),
+                .{{ collection_item.handle }} .static-video-mobile:not(.d-none) {
                         display:flex!important;
                     }
                 .{{ collection_item.handle }} .product-unit__image > .f-loaded {
@@ -726,11 +729,10 @@
                         "label": "Image"
                     },
                     {
-                        "type": "video_url",
+                        "type": "video",
                         "id": "video_r",
-                        "label": "Video",
-                        "accept": ["vimeo"]
-                    },
+                        "label": "Video (second block)"
+                      },
                     {
                         "type": "text",
                         "id": "video-ratio-w_r",
@@ -843,4 +845,4 @@
             }
         ]
     }
-{% endschema %}
+{% endschema %}:not(.d-none)
