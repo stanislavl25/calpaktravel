@@ -587,7 +587,7 @@
             "pictured_link": true,
             "only_mobile": false,
             "row": 2,
-            "mobile_row": 1,
+            "mobile_row": 3,
             "column": 3,
             "col_span": 3,
             "target_link": "",
