@@ -24,42 +24,6 @@
     {%- endif -%}
 </div>
 
-{% if settings.countdown-label-collection-enabled and template contains 'collection'%}
-    <script>
-        console.log('testing')
-        const addLabelToCollectionProductUnit = e => {
-            if(document.querySelector('html').clientWidth < 900) {
-                if([...document.querySelectorAll('.countdown-sale-badge-label')].length < 1) {
-                    
-                    let products = document.querySelectorAll('.product-unit.product-unit--quickadd');
-                    [...products].map((productUnit, index) => {
-                        if(!productUnit.classList.contains('slide')) {
-                            let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
-                            let newLabel = document.createElement('p');
-    
-                            newLabel.setAttribute('class', 'countdown-sale-badge-label');        
-                            newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
-                            newLabel.appendChild(newLabelText);
-                            
-                            productUnit.appendChild(newLabel);
-                        }
-                    });
-                }
-            } else {
-                [...document.querySelectorAll('.countdown-sale-badge-label')].map(countdownSaleBadgeLabel => countdownSaleBadgeLabel.parentNode.removeChild(countdownSaleBadgeLabel));
-            }
-        };
-
-        document.addEventListener("DOMContentLoaded", addLabelToCollectionProductUnit);
-        window.addEventListener("resize", addLabelToCollectionProductUnit);
-        document.addEventListener("shopify:section:load", addLabelToCollectionProductUnit);
-        try {
-            addLabelToCollectionProductUnit();
-        } catch(e) {
-            setTimeout(addLabelToCollectionProductUnit, 1000);
-        }
-    </script>
-{% endif %}
 <style>
     div.product-label.product-label--countdown {
         display: flex;
@@ -126,14 +90,14 @@
             font-size: 13px;
             font-weight: 400;
             line-height: 18px;
-            background: {{ section.settings.countdown-sale-accent }};
-            color: {{ section.settings.countdown-sale-text-col }};
+            background-color: var(--sale-badge-bg);
+            color: var(--sale-badge-color);
             padding-inline: 6px 6px;
             padding-block: 6px;
             margin-top: 8px;
             margin-bottom: 0px;
         }
-        product-label.product-label--badge.product-label--badge-tilt.product-label--badge-collection-page {
+        .product-label.product-label--badge.product-label--badge-tilt.product-label--badge-collection-page {
             display: none;
         }
     }
