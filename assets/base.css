@@ -782,18 +782,5 @@ body.swym-modal-active:not(.modal-open) {
 #crl8-gallery-zfEKaK3p-carousel a[aria-label="Powered by Bazaarvoice - Opens in new tab"] {
     display: none;
 }
-    .collection-image-banner-wrapper.desktop {
-        display: flex!important;
-    }
-    .collection-image-banner-wrapper.mobile {
-            display: none!important;
-    }
-@media (max-width: 649px) {
-    .collection-image-banner-wrapper.desktop {
-        display: none!important;
-    }
-    .collection-image-banner-wrapper.mobile {
-            display: flex!important;
-    }
-}
+
 

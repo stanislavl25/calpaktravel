@@ -115,6 +115,20 @@
                 .{{ collection_item.handle }}.collection-image-banner-wrapper{
                     display: flex;
                 }
+            .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.desktop {
+                display: flex;
+            }
+            .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.mobile {
+                    display: none;
+            }
+            @media (max-width: 649px) {
+                .{{ collection_item.handle }}.collection-image-banner-wrapper.desktop {
+                    display: none;
+                }
+                .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.mobile {
+                        display: flex;
+                }
+            }
             {% endfor %}
         {% else %} 
             .collection-image-banner-wrapper{
