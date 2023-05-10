@@ -651,7 +651,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "both",
+            "display": "mobile",
             "row": 4,
             "column": 5,
             "col_span": 1,
@@ -698,7 +698,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 5,
+            "row": 6,
             "column": 1,
             "col_span": 2,
             "mobile_row": 12,
