@@ -246,7 +246,7 @@
             "disabled": true,
             "settings": {
               "title": "Discover #1",
-              "button-url": "shopify:\/\/collections\/new-arrivals",
+              "button-url": "shopify:\/\/collections\/summer-arrivals",
               "block-title": "",
               "description": "",
               "button-text": "",
@@ -262,7 +262,7 @@
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Rectangle_3308_f9bb7041-11e7-4981-82b8-54f40f50414a.png",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel",
               "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -270,12 +270,23 @@
           },
           "4709c5e0-9817-40ec-94f6-ceec21bc54fd": {
             "type": "edit",
+            "disabled": true,
             "settings": {
               "title": "Car Organizer",
               "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24294_Hi.jpg",
               "edit-title": "It gets you there without the mess",
               "description": "<p>The Car Organizer makes trips and commutes feel like a breeze.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/the-car-organizer-it-gets-you-there-without-the-mess"
+            }
+          },
+          "491b71bb-f040-4310-a675-0e2f56ab7118": {
+            "type": "edit",
+            "settings": {
+              "title": "Packing Cubes",
+              "image": "shopify:\/\/shop_images\/Frame_38_1.png",
+              "edit-title": "Your favorite organizing tool",
+              "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
             }
           }
         },
@@ -296,7 +307,8 @@
           "82ab2924-4e80-4b8c-8516-2e8d226f68f8",
           "61a72dd4-4cbc-441b-9ad8-8b8436289091",
           "c545f895-9e35-454a-91ac-dcb097d5bfb9",
-          "4709c5e0-9817-40ec-94f6-ceec21bc54fd"
+          "4709c5e0-9817-40ec-94f6-ceec21bc54fd",
+          "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
           "shop-menu": "shop",
