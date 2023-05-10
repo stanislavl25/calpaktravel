@@ -569,6 +569,7 @@
         },
         "251cc4d4-f075-47d7-9a48-190411fb06ba": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
