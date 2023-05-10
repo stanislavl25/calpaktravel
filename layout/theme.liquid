@@ -319,14 +319,14 @@ for (var i = 0; i < atcButtons.length; i++) {
                     
                     let products = document.querySelectorAll('.product-unit.product-unit--quickadd.product-unit--add-sale-badge');
                     [...products].map((productUnit, index) => {
-                        let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
-                        let newLabel = document.createElement('p');
-
-                        newLabel.setAttribute('class', 'countdown-sale-badge-label');        
-                        newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
-                        newLabel.appendChild(newLabelText);
-                        
-                        productUnit.appendChild(newLabel);
+                          let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
+                          let newLabel = document.createElement('p');
+  
+                          newLabel.setAttribute('class', 'countdown-sale-badge-label');        
+                          newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
+                          newLabel.appendChild(newLabelText);
+                          
+                          productUnit.appendChild(newLabel);
                     });
                 }
             } else {

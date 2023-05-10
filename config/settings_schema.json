@@ -419,7 +419,7 @@
       {
         "type": "checkbox",
         "id": "countdown-label-collection-enabled",
-        "label": "Hide Sale Label on Mobile",
+        "label": "Enable countdown sale as label in collection",
         "default": true
       },
       {
