@@ -463,7 +463,6 @@
       "type": "memorial-day-sale-promo-banner",
       "settings": {
         "countdown-enabled": true,
-        "countdown-label-collection-enabled": true,
         "countdown-sale-text": "Sale Ends",
         "countdown-sale-starts": "May 2, 2023 10AM",
         "countdown-sale-ends": "May 5, 2023 10AM",
@@ -606,7 +605,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": true,
-            "row": 1,
+            "row": 2,
             "column": 1,
             "col_span": 2,
             "mobile_row": 6,
@@ -696,7 +695,6 @@
               "luka-belt-bag",
               "luka-key-pouch"
             ],
-            "video_r": "https:\/\/vimeo.com\/825181299",
             "video-ratio-w_r": "1",
             "video-ratio-h_r": "1"
           }
