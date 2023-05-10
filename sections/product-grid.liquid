@@ -52,7 +52,7 @@
     {% if template == 'collection' or 'summer-arrival' %}
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
-                .product-unit__image > .f-loaded {
+                .{{ collection_item.handle }} .product-unit__image > .f-loaded {
                     object-position:-1000px!important;
                 }
                 .{{ collection_item.handle }} .modular-block:not(.d-none), 
