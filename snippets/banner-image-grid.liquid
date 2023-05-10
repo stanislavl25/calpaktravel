@@ -1,4 +1,4 @@
-    <div class="collection-image-banner-wrapper {{ collection.handle }}">
+    <div class="collection-image-banner-wrapper {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
 
         {% case block.settings.media-type %}  
             {% when 'video' %}
@@ -21,9 +21,6 @@
         </div>
     </div>
     <style>
-        .page__header {
-            display: none!important
-        }
         .shopify-section--collection-image-banner.banner-active {
             height: calc({{ block.settings.banner-media-height }}px + 297px);
         }
@@ -127,6 +124,9 @@
         @media (max-width:900px){
             .collection-image-banner-wrapper {
                 grid-column: 1 / span 3;
+            }
+            .collection-image-banner-text {
+                font-size: 65px;
             }
         }
         @media (max-width: 649px) {
