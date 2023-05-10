@@ -1,9 +1,4 @@
 <style>
-    {% if  block.settings.only_mobile %}
-        div.modular-block.block_id--{{ block.id }} {
-            display: none!important;
-        }
-    {% endif%}
     .block_id--{{ block.id }} {
         grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
@@ -46,7 +41,7 @@
         }
     }
 </style>
-<div class="modular-block content-block block_id--{{ block.id }}" data-span="{{ block.settings.col_span}}">
+<div class="modular-block content-block block_id--{{ block.id }} {{ block.settings.display }}" data-span="{{ block.settings.col_span}}">
     {%- if block.settings.description != blank or block.settings.title != blank -%}
         <div class="content-block__info">
             {%- if block.settings.title != blank -%}
@@ -77,8 +72,14 @@
             if block.settings.video != blank
                 assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
                 assign video_active = true
-
-                render 'video' with block.settings.video, poster: block.settings.image, lazy: true, height:0, loop: true, controls: true, autoplay: true
+                    if block.settings.video.sources[0].url contains 'mp4'
+                        assign video_url = block.settings.video.sources[0].url
+                    elsif block.settings.video.sources[1].url contains 'mp4'
+                        assign video_url = block.settings.video.sources[1].url
+                    else
+                        assign video_url = block.settings.video.sources[2].url
+                    endif
+                echo '<video autoplay muted loop class="modular-block-video"><source src="' | append: video_url | append: '" type="video/mp4"></video>'
             else
                 if block.settings.image_mobile != blank and block.settings.image != blank
                     render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'

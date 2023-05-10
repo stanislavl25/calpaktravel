@@ -31,6 +31,39 @@
     height:100%;
     display: block;
 }
+    video.modular-block-video {
+    border-radius: 9px;
+    object-fit: cover;
+    width:100%;
+    height:100%;
+    display: block;
+    }
+    .modular-block.desktop{
+    display: flex!important;
+}
+.modular-block.mobile{
+    display: none!important;
+}
+.modular-block.both{
+    display: flex;
+}
+@media (max-width:649px){
+    .modular-block.desktop{
+    display: none!important;
+    }
+    .modular-block.mobile{
+        display: flex!important;
+    }
+    .modular-block.both{
+        display: flex;
+    }
+}
+.modular-block .video-iframe-container .vp-video-wrapper.transparent {
+    border-radius: 9px;
+}
+    .modular-block .video-iframe-container {
+        --ratio: auto!important;
+    }
     {% if section.settings.hide_view == true %}
         .collection-view * {
             visibility: hidden;
@@ -157,7 +190,19 @@
 <div class="product-grid__empty-text">
     <h3>No matching products found</h3>
 </div>
-
+<script>
+     const sectionVideo = document.querySelectorAll('.modular-section-video');
+    [].map.call(sectionVideo, function(video){
+        video.addEventListener('mouseover', function(){
+            console.log('mouseover');
+            video.setAttribute('controls', 'controls');
+        });
+        video.addEventListener('mouseout', function(){
+            console.log('mouseleave');
+            video.removeAttribute('controls');
+        });
+    })
+</script>
 {% render 'schema-collection' %}
 
 {% schema %}
@@ -457,10 +502,24 @@
                     "default": true
                     },
                     {
-                    "type": "checkbox",
-                    "id": "only_mobile",
-                    "label": "Display this Block only on mobile",
-                    "default": false
+                    "type": "select",
+                    "id": "display",
+                    "label": "Display rules for modular block",
+                    "options": [
+                        {
+                        "value": "desktop",
+                        "label": "Only Desktop"
+                        },
+                        {
+                        "value": "mobile",
+                        "label": "Only Mobile"
+                        },
+                        {
+                        "value": "both",
+                        "label": "Both"
+                        }
+                    ],
+                    "default": "both"
                     },
                     {
                         "type": "header",
@@ -550,10 +609,9 @@
                         "label": "Image"
                     },
                     {
-                        "type": "video_url",
-                        "id": "video",
-                        "label": "Video",
-                        "accept": ["vimeo"]
+                    "type": "video",
+                    "id": "video",
+                    "label": "A Shopify-hosted video"
                     },
                     {
                         "type": "image_picker",
@@ -727,6 +785,26 @@
                     {
                         "type": "header",
                         "content": "Settings"
+                    },
+                    {
+                    "type": "select",
+                    "id": "display",
+                    "label": "Display rules for banner",
+                    "options": [
+                        {
+                        "value": "desktop",
+                        "label": "Only Desktop"
+                        },
+                        {
+                        "value": "mobile",
+                        "label": "Only Mobile"
+                        },
+                        {
+                        "value": "both",
+                        "label": "Desktop and Mobile"
+                        }
+                    ],
+                    "default": "desktop"
                     },
                     {
                         "type": "collection_list",
