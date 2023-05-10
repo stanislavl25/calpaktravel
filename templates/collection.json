@@ -593,7 +593,7 @@
           "type": "static",
           "settings": {
             "heading": "Mobile: Luka Belt Bag",
-            "index": 3,
+            "index": 5,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
             "enable_static_for_mobile": true,
@@ -603,6 +603,7 @@
         },
         "8beb041e-a61d-40dd-b978-d4c14c2679f9": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "both",
@@ -621,11 +622,31 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png"
           }
         },
+        "71baa67a-2226-426d-9b84-717bf4a6e1a8": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 4,
+            "column": 5,
+            "col_span": 1,
+            "mobile_row": 9,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3693_b5472a86-acb2-4d9f-b211-4d9f5895a533.png"
+          }
+        },
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
-            "index": 11,
+            "index": 8,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/image_188.png",
@@ -647,8 +668,49 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_137_5371b6ce-5106-4220-ad4c-ce5ad6a58a14.png"
           }
         },
+        "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 5,
+            "column": 4,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "video": "shopify:\/\/files\/videos\/IMG_3027_5.mp4"
+          }
+        },
+        "212c972f-9876-4c34-906d-1e46cefc4380": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 6,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 12,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "compakt-duffel-bag"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3695.png"
+          }
+        },
         "26121484-6047-4828-919f-49c8e5363c7d": {
           "type": "modular-section",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "gap": 10,
@@ -690,7 +752,7 @@
             "pictured_link": true,
             "display": "both",
             "row": 8,
-            "column": 5,
+            "column": 2,
             "col_span": 1,
             "mobile_row": 17,
             "column_mobile": 2,
@@ -699,7 +761,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-              "stevyn-duffel"
+
             ],
             "image": "shopify:\/\/shop_images\/image_189.png"
           }
@@ -713,8 +775,11 @@
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
+        "71baa67a-2226-426d-9b84-717bf4a6e1a8",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
         "5cc6dafd-9a03-497d-a746-581d39df58db",
+        "5a9fc48f-6b94-416e-88c7-3325d24efb85",
+        "212c972f-9876-4c34-906d-1e46cefc4380",
         "26121484-6047-4828-919f-49c8e5363c7d",
         "98bbbe49-ef4a-4acd-9165-232fac007486",
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d"
