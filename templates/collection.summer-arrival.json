@@ -463,6 +463,7 @@
       "type": "page-header",
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "display": "only-mobile",
         "title-size": "medium",
         "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
@@ -526,6 +527,7 @@
         "3cafe206-a3e1-43d4-a22c-d684d558f998": {
           "type": "banner",
           "settings": {
+            "display": "desktop",
             "collection_list": [
               "summer-arrivals"
             ],
@@ -544,7 +546,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": true,
+            "display": "both",
             "row": 1,
             "column": 1,
             "col_span": 5,
@@ -556,8 +558,7 @@
             "description": "",
             "pictured_products": [
 
-            ],
-            "video": "https:\/\/vimeo.com\/825262652?share=copy"
+            ]
           }
         },
         "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
@@ -576,7 +577,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": true,
+            "display": "both",
             "row": 1,
             "column": 2,
             "col_span": 1,
@@ -589,15 +590,14 @@
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/image_138.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/image_138.png"
           }
         },
         "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 2,
             "column": 3,
             "col_span": 3,
@@ -611,8 +611,7 @@
               "luka-expandable-laptop-tote",
               "luka-key-pouch"
             ],
-            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0193-4.jpg",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0193-4.jpg"
           }
         },
         "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6": {
@@ -632,7 +631,7 @@
           "disabled": true,
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 3,
             "column": 1,
             "col_span": 2,
@@ -645,15 +644,14 @@
             "pictured_products": [
               "luka-key-pouch"
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png"
           }
         },
         "629cf9cf-f796-48b3-b5ff-294d4e7009bf": {
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": true,
+            "display": "both",
             "row": 4,
             "column": 1,
             "col_span": 2,
@@ -666,8 +664,7 @@
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3693_b5472a86-acb2-4d9f-b211-4d9f5895a533.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/Rectangle_3693_b5472a86-acb2-4d9f-b211-4d9f5895a533.png"
           }
         },
         "7676be9e-c601-451f-896f-70d29d759dd8": {
@@ -700,7 +697,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 5,
             "column": 1,
             "col_span": 2,
@@ -713,8 +710,7 @@
             "pictured_products": [
               "compakt-duffel-bag"
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/Rectangle_3695.png"
           }
         },
         "cf9914ea-723b-48aa-9c74-ab2a44489463": {
@@ -728,25 +724,18 @@
             "mobile_row": 12,
             "column": 1,
             "col_span": 5,
-            "target_link": "",
             "title": "",
             "description": "",
             "pictured_products": [
               "compakt-duffel-bag"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
             "title_r": "",
             "description_r": "",
-            "button-text_r": "",
             "pictured_products_r": [
               "luka-belt-bag",
               "luka-key-pouch"
-            ],
-            "video-ratio-w_r": "1",
-            "video-ratio-h_r": "1"
+            ]
           }
         },
         "c5327c66-dd37-45d8-acec-7b52d78da3cd": {
@@ -766,7 +755,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 8,
             "column": 5,
             "col_span": 1,
@@ -779,8 +768,7 @@
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/image_189.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/image_189.png"
           }
         }
       },
