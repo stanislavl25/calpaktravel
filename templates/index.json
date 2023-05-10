@@ -40,7 +40,7 @@
           "type": "text-block",
           "settings": {
             "title": "Get 45% off the Starter Bundle",
-            "description": "<p>Our 8-piece starter set for $545 $299<\/p>",
+            "description": "<p>Our 8-piece starter set for $299<\/p>",
             "main-link": "shopify:\/\/products\/starter-bundle",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
