@@ -478,6 +478,7 @@
       "type": "page-header",
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "display": "only-mobile",
         "title-size": "medium",
         "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
@@ -541,6 +542,7 @@
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
           "type": "banner",
           "settings": {
+            "display": "desktop",
             "collection_list": [
               "summer-arrivals"
             ],
@@ -572,7 +574,7 @@
           "disabled": true,
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 2,
             "column": 3,
             "col_span": 3,
@@ -585,8 +587,7 @@
             "pictured_products": [
               "luka-duffel"
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3696_3fc056aa-c219-4f58-9dc3-24eb45031d5f.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/Rectangle_3696_3fc056aa-c219-4f58-9dc3-24eb45031d5f.png"
           }
         },
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
@@ -605,7 +606,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": true,
+            "display": "both",
             "row": 2,
             "column": 1,
             "col_span": 2,
@@ -618,15 +619,14 @@
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/image_138.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/image_138.png"
           }
         },
         "8beb041e-a61d-40dd-b978-d4c14c2679f9": {
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 4,
             "column": 1,
             "col_span": 2,
@@ -639,8 +639,7 @@
             "pictured_products": [
               "luka-key-pouch"
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png"
           }
         },
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
@@ -679,25 +678,18 @@
             "mobile_row": 12,
             "column": 1,
             "col_span": 5,
-            "target_link": "",
             "title": "",
             "description": "",
             "pictured_products": [
               "compakt-duffel-bag"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3695.png",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
             "title_r": "",
             "description_r": "",
-            "button-text_r": "",
             "pictured_products_r": [
               "luka-belt-bag",
               "luka-key-pouch"
-            ],
-            "video-ratio-w_r": "1",
-            "video-ratio-h_r": "1"
+            ]
           }
         },
         "98bbbe49-ef4a-4acd-9165-232fac007486": {
@@ -717,7 +709,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "only_mobile": false,
+            "display": "both",
             "row": 8,
             "column": 5,
             "col_span": 1,
@@ -730,8 +722,7 @@
             "pictured_products": [
               "stevyn-duffel"
             ],
-            "image": "shopify:\/\/shop_images\/image_189.png",
-            "video": ""
+            "image": "shopify:\/\/shop_images\/image_189.png"
           }
         }
       },
