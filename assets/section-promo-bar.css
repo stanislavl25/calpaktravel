@@ -40,7 +40,8 @@ section.promo-bar .countdown-timer {
 section.promo-bar .countdown-timer span {
     flex: 0 0 1.4em;
     text-align: center;
-    font-weight: 600
+    font-weight: 600;
+    font-size: 16px;
 }
 
 section.promo-bar .countdown-timer--done {
@@ -135,14 +136,15 @@ section.promo-bar div.promo-bar-text {
     letter-spacing: 0.05em;
     white-space: nowrap;
     height: 40px;
-    text-align: center
+    text-align: center;
+    font-size: 16px;
 }
 
 section.promo-bar div.promo-bar-text p {
     display: inline-block;
     margin: 0;
     line-height: 1.2em;
-    text-decoration: none
+    text-decoration: none;
 }
 
 section.promo-bar div.promo-bar-text a {
