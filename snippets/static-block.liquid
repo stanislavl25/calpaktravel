@@ -4,9 +4,9 @@
         const link = card.querySelector('.product-unit__image');
         const imgs = card.querySelectorAll('.product-unit__image img');
         const imgHover = card.querySelectorAll('img.img-hover');
-        let swatches = card.querySelectorAll('.product-unit__swatches');
+        let swatches = card.querySelectorAll('.product-unit__swatches-container');
         if (swatches.length < 1) {
-            swatches = card.querySelectorAll('.product-unit__swatches');
+            swatches = card.querySelectorAll('.product-unit__swatches-container');
         }
         setTimeout(() => {
                 if(window.innerWidth < 900) {

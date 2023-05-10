@@ -79,7 +79,7 @@
                     else
                         assign video_url = block.settings.video.sources[2].url
                     endif
-                echo '<video autoplay muted loop class="modular-block-video"><source src="' | append: video_url | append: '" type="video/mp4"></video>'
+                echo '<video autoplay muted loop playsinline class="modular-block-video"><source src="' | append: video_url | append: '" type="video/mp4"></video>'
             else
                 if block.settings.image_mobile != blank and block.settings.image != blank
                     render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
