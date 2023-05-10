@@ -39,9 +39,9 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Meet Espresso",
-            "description": "<p>Shop our best-selling luggage collection in an indulgent new hue.<\/p>",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "title": "Get 45% off the Starter Bundle",
+            "description": "<p>Our 8-piece starter set for $545 $299<\/p>",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "secondary-button-text": "",
@@ -56,10 +56,10 @@
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3723-4.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3705-4.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_2.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
@@ -72,9 +72,9 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-2.jpg",
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
