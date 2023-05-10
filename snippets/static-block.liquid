@@ -2,7 +2,7 @@
     const changeTheProductImage_{{ block.settings.index }} = () => {
         const card = document.querySelector('#product-card__{{ block.settings.index }}');
         const link = card.querySelector('.product-unit__image');
-        const imgs = card.querySelectorAll('img');
+        const imgs = card.querySelectorAll('.product-unit__image img');
         const imgHover = card.querySelectorAll('img.img-hover');
         let swatches = card.querySelectorAll('.product-unit__swatches');
         if (swatches.length < 1) {
@@ -79,7 +79,10 @@
                                             swatch.addEventListener('click', function(e) {
                                                 console.log('desktop static video click');
                                                 [].map.call(imgs, function(img) {
-                                                    [...card.querySelectorAll('.static-video-desktop')].map(video => video.classList.add('d-none'))
+                                                    [...card.querySelectorAll('.static-video-desktop')].map( function(video){
+                                                        console.log('hidding video');
+                                                        video.classList.add('d-none');
+                                                    })
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
@@ -99,6 +102,7 @@
                                         swatch.addEventListener('click', function(e) {
                                             console.log('desktop static img click');
                                             [].map.call(imgs, function(img) {
+                                                console.log('hidding image');
                                                 img.classList.remove('f-loaded');
                                             });
                                         });
@@ -117,7 +121,10 @@
             }
         }, 2200);
     }
-    window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
+    setTimeout(() => {
+        console.log('after stwatches loaded')
+        changeTheProductImage_{{ block.settings.index }}();
+        window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
     document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
     
     window.addEventListener("resize", changeTheProductImage_{{ block.settings.index }});
@@ -125,20 +132,15 @@
     document.addEventListener("shopify:section:change", changeTheProductImage_{{ block.settings.index }});
     document.addEventListener('page:load', changeTheProductImage_{{ block.settings.index }});
     document.addEventListener('page:change', changeTheProductImage_{{ block.settings.index }});
-    setTimeout(() => {
-        console.log('after stwatches loaded')
-        changeTheProductImage_{{ block.settings.index }}();
-
-    }, 7500);
     let radioLinks_{{ block.settings.index }} = document.querySelectorAll('a.filter__collection');
     [].map.call(radioLinks_{{ block.settings.index }}, function(radioLink) {
         radioLink.addEventListener('click', function(e) {
             setTimeout(() => {
-                console.log('radiolink clicked');
                 changeTheProductImage_{{ block.settings.index }}();
-            }, 3600);
+            }, 3000);
         })
     });
+    }, 0);
 </script>
 <style>
 {% if block.settings.enable_static_for_desktop == true %}
@@ -147,7 +149,7 @@
         right: 0;
         top: 0;
         width: 100%;
-        border-radius: 9px;
+        border-radius: 0px;
         object-fit: cover;
         object-position: center;
         height: 100%;
@@ -174,7 +176,7 @@
             right: 0;
             top: 0;
             width: 100%;
-            border-radius: 9px;
+            border-radius: 0px;
             object-fit: cover;
             object-position: center;
             height: 100%;

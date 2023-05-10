@@ -463,7 +463,6 @@
       "type": "memorial-day-sale-promo-banner",
       "settings": {
         "countdown-enabled": true,
-        "countdown-label-collection-enabled": true,
         "countdown-sale-text": "Sale Ends",
         "countdown-sale-starts": "May 2, 2023 10AM",
         "countdown-sale-ends": "May 5, 2023 10AM",
@@ -570,6 +569,7 @@
         },
         "251cc4d4-f075-47d7-9a48-190411fb06ba": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "only_mobile": false,
@@ -592,7 +592,7 @@
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
           "settings": {
-            "heading": "Mobile: Static content",
+            "heading": "Mobile: Luka Belt Bag",
             "index": 3,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
@@ -606,7 +606,7 @@
           "settings": {
             "pictured_link": true,
             "only_mobile": true,
-            "row": 1,
+            "row": 2,
             "column": 1,
             "col_span": 2,
             "mobile_row": 6,
@@ -646,7 +646,7 @@
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
           "settings": {
-            "heading": "Desktop\/Mobile: Static content",
+            "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
             "index": 11,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -696,7 +696,6 @@
               "luka-belt-bag",
               "luka-key-pouch"
             ],
-            "video_r": "https:\/\/vimeo.com\/825181299",
             "video-ratio-w_r": "1",
             "video-ratio-h_r": "1"
           }
@@ -704,7 +703,7 @@
         "98bbbe49-ef4a-4acd-9165-232fac007486": {
           "type": "static",
           "settings": {
-            "heading": "Mobile: Static content",
+            "heading": "Desktop\/Mobile: Compakt Tote Bag",
             "index": 17,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -729,7 +728,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "stevyn-duffel"
             ],
             "image": "shopify:\/\/shop_images\/image_189.png",
             "video": ""

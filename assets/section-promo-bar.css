@@ -1,11 +1,19 @@
 .promo-bar__cells {
     --page: 0;
     transition: transform .3s;
-    transform: translateY(calc(-40px * var(--page)))
+    transform: translateY(calc(-40px * var(--page)));
+  background: #E4DFD5;
+
 }
 
 .promo-bar__cells--back {
-    transition: none
+    transition: none;
+    opacity: 1;
+    z-index: -102;
+}
+
+body.promo-bar-hidden section.promo-bar {
+  display: none
 }
 
 body.promo-bar-hidden section.promo-bar {

@@ -312,9 +312,9 @@ for (var i = 0; i < atcButtons.length; i++) {
 
 {% if settings.countdown-label-collection-enabled and template contains 'collection'%}
     <script>
-        console.log('testing')
         const addLabelToCollectionProductUnit = e => {
             if(document.querySelector('html').clientWidth < 900) {
+              console.log('addLabelToCollectionProductUnit')
                 if([...document.querySelectorAll('.countdown-sale-badge-label')].length < 1) {
                     
                     let products = document.querySelectorAll('.product-unit.product-unit--quickadd.product-unit--add-sale-badge');
