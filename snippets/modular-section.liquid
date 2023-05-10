@@ -67,10 +67,17 @@
                     echo '<a href="' | append: block.settings.target_link | append: '">'
                 endif
 
-                if block.settings.video != blank
+                if block.settings.video_l != blank
                     assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
                     assign video_active_l = true
-                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
+                    if block.settings.video_l.sources[0].url contains 'mp4'
+                        assign video_url_l = block.settings.video_l.sources[0].url
+                    elsif block.settings.video_l.sources[1].url contains 'mp4'
+                        assign video_url_l = block.settings.video_l.sources[1].url
+                    else
+                        assign video_url_l = block.settings.video_l.sources[2].url
+                    endif
+                    echo '<video autoplay muted loop class="modular-section-video"><source src="' | append: video_url_l | append: '" type="video/mp4"></video>'
                 else
                     if block.settings.image_mobile != blank and block.settings.image != blank
                         render 'image' with block.settings.image, lazy: true, sizes: size, class: 'hide-small'
@@ -88,7 +95,7 @@
             -%}
         </div>
 
-        {%- if video_active_l != true -%}
+        {%- if video_active_l != true -%} 
             {% assign pictured_products = block.settings.pictured_products %}
             {% if pictured_products.count > 0 %}
             <div class="floating-link">
@@ -133,7 +140,14 @@
                 if block.settings.video_r != blank
                     assign ratio = block.settings.video-ratio-w_r | append: '/' | append: block.settings.video-ratio-h_r
                     assign video_active_r = true
-                    echo '<video autoplay muted loop class="modular-section-video"><source src="' | append: block.settings.video_r.sources[1].url | append: '" type="video/mp4"></video>'
+                    if block.settings.video_r.sources[0].url contains 'mp4'
+                        assign video_url_r = block.settings.video_r.sources[0].url
+                    elsif block.settings.video_r.sources[1].url contains 'mp4'
+                        assign video_url_r = block.settings.video_r.sources[1].url
+                    else
+                        assign video_url_r = block.settings.video_r.sources[2].url
+                    endif
+                    echo '<video autoplay muted loop class="modular-section-video"><source src="' | append: video_url_r | append: '" type="video/mp4"></video>'
                 else
                     if block.settings.image_mobile_r != blank and block.settings.image_r != blank
                         render 'image' with block.settings.image_r, lazy: true, sizes: size, class: 'hide-small'
