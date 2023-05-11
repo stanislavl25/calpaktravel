@@ -442,30 +442,6 @@
         "info": "Use %% to show actual discount"
       },
       {
-        "type": "checkbox",
-        "id": "sale-msg-starter",
-        "label": "Display custom Badge on Starter Bundle",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "starter-bundle-badge",
-        "label": "Starter Bundle Message",
-        "info": "Insert here the custom starter bundle badge message"
-      },
-      {
-        "type": "text",
-        "id": "sale-badge-text-starter",
-        "label": "Starter Bundle Text",
-        "info": "Insert here the custom starter promo message"
-      },
-      {
-        "type": "color",
-        "id": "starter__customizer-badge",
-        "label": "Background of starter bundle",
-        "default": "#f7f177"
-      },
-      {
         "type": "header",
         "content": "Colors"
       },

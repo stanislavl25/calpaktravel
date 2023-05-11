@@ -1,51 +1,10 @@
 {%- liquid
-    if block.type != 'image-banner'
-        assign block = pdp-promo
+    assign block = pdp-promo
+    assign show = false
+
+    if block.settings.product.available == false and block.settings.product != blank
         assign show = false
-
-        if block.settings.product.available == false and block.settings.product != blank
-            assign show = false
-        else
-            if block.settings.show-for-all
-                assign show = true
-            endif
-            
-            if block.settings.product-list != blank and show == false
-                for prod in block.settings.product-list
-                    if prod == product
-                        assign show = true
-                        break
-                    endif
-                endfor
-            endif
-
-            if block.settings.collection-list != blank and show == false
-                for col in block.settings.collection-list
-                    if col.handle
-                        for pr in collections[col.handle].products
-                            if pr.id == product.id
-                                assign show = true
-                                break
-                            endif
-                        endfor
-                    else
-                        for pr in collections[col].products
-                            if pr.id == product.id
-                                assign show = true
-                                break
-                            endif
-                        endfor
-                    endif
-                endfor
-            endif
-        endif
     else
-        assign show = false
-        
-        assign a = false
-        assign b = false
-        
-        
         if block.settings.show-for-all
             assign show = true
         endif
@@ -62,30 +21,25 @@
         if block.settings.collection-list != blank and show == false
             for col in block.settings.collection-list
                 if col.handle
-                    paginate collections[col.handle].products by 1000
-                        for pr in collections[col.handle].products
-                            if pr.id == product.id
-                                assign show = true
-                                break
-                            endif
-                        endfor
-                    endpaginate
+                    for pr in collections[col.handle].products
+                        if pr.id == product.id
+                            assign show = true
+                            break
+                        endif
+                    endfor
                 else
-                    paginate collections[col.handle].products by 1000
-                        for pr in collections[col].products
-                            if pr.id == product.id
-                                assign show = true
-                                break
-                            endif
-                        endfor
-                    endpaginate
+                    for pr in collections[col].products
+                        if pr.id == product.id
+                            assign show = true
+                            break
+                        endif
+                    endfor
                 endif
             endfor
         endif
     endif
 
     assign liveShowShown = false
-        
 -%}
 {%- if show -%}
 <section class="pdp__promo-section pdp__promo-section--{{ block.type }}">

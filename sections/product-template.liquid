@@ -241,7 +241,7 @@
                     {%- when 'description' -%}
                         {% render 'pdp-description', current_variant: current_variant %}
                     {%- else -%}
-                        {% render 'pdp-promo' with block: block, product: product, current_variant: current_variant %}
+                        {% render 'pdp-promo' with block, current_variant: current_variant %}
                 {%- endcase -%}
             {%- endfor -%}
         {% endform %}

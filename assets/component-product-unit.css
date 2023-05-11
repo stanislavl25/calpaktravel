@@ -1,7 +1,3 @@
-.splash a img {
-    display: none!important;
-}
-
 .product-unit {
     position: relative;
     display: flex;
@@ -339,7 +335,6 @@
 .cart__upsell-items .product-unit__button {
     display: block;
 }
-
 .product-unit__button--active {
     display: block;
 }

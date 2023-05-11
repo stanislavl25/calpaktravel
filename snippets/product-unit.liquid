@@ -118,7 +118,7 @@
     data-variant="{{ current_variant.id }}"
     class="product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
     >    
-    <div class="product-unit__image-wrapper splash">
+    <div class="product-unit__image-wrapper">
         {%- if quick_view == true -%}
             <a class="quick-view__link quick-view__link--circle" href="{{ unit_url }}" title="Quick View">
                 <img alt="Quick View" src="{{ 'quick-view-cross.svg' | asset_url }}" loading="lazy">

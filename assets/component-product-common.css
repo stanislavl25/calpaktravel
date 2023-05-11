@@ -1,17 +1,3 @@
-@keyframes onload {
-    0% {
-        opacity: 0;
-    }
-    1% {
-        opacity: 0;
-    }
-    90% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 .product-label:not(.product-label--active).product-label--preorder,
 .product-label:not(.product-label--active)[data-options] {
     display: none;
@@ -102,53 +88,15 @@
     height: 100%;
     object-fit: cover;
     z-index: 2;
-    opacity: 0;
 }
 
-.product-unit__image > img:first-child {
-    animation-name: onload;
-  animation-duration: 0s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-    opacity: 1;
-}
-.static-video-desktop{
-    animation-name: onload;
-  animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-.modular-block{
-    animation-name: onload;
-  animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-.product-unit__image > img:last-child {
-    animation-name: onload;
-  animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-direction: normal;
-    animation-timing-function: ease-in;
-    animation-fill-mode: backwards;
-    opacity: 0;
-}
 .product-unit__image .img-hover {
     opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
+    transition: opacity 0.3s;
 }
+
 .product-unit__image-wrapper:hover .img-hover {
     opacity: 1;
-    z-index: 2;
 }
 
 .product-unit__title {
