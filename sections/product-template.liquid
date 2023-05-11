@@ -124,9 +124,7 @@
             else
                 assign finalSale = tagSpl[1] | downcase | split: ';'
             endif
-        endif
-        
-        if settings.extra-sale-enabled
+        elsif settings.extra-sale-enabled
             if settings.extra-sale-tag == tagSpl[0]
                 if tagSpl.size == 1
                     assign extraSale = true
