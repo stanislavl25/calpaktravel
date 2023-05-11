@@ -630,12 +630,23 @@
           },
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036": {
             "type": "edit",
+            "disabled": true,
             "settings": {
               "title": "Car Organizer",
               "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24294_Hi.jpg",
               "edit-title": "It Gets You There Without The Mess",
               "description": "<p>The Car Organizer makes trips and commutes feel like a breeze.<\/p>",
               "link": "shopify:\/\/pages\/the-car-organizer-it-gets-you-there-without-the-mess"
+            }
+          },
+          "0cbd71a8-3720-4451-a6b1-66cf6157729e": {
+            "type": "edit",
+            "settings": {
+              "title": "Packing Cubes",
+              "image": "shopify:\/\/shop_images\/Frame_38_1.png",
+              "edit-title": "Your favorite organizing tool",
+              "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
             }
           }
         },
@@ -648,7 +659,8 @@
           "2780beb4-0ab0-4333-a417-c3bb8c18a553",
           "4552f1b4-22d2-4133-8804-c2cfd261dae7",
           "22ba977a-5751-40f1-ab10-64600d42f7d7",
-          "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
+          "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036",
+          "0cbd71a8-3720-4451-a6b1-66cf6157729e"
         ],
         "settings": {
           "shop-menu": "mothers-day-menu",
