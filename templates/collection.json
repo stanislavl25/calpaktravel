@@ -788,7 +788,7 @@
             "pictured_link": true,
             "display": "desktop",
             "row": 8,
-            "column": 3,
+            "column": 4,
             "col_span": 2,
             "mobile_row": 1,
             "column_mobile": 1,
@@ -797,8 +797,9 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
-            ]
+              "compression-packing-cubes"
+            ],
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2236_1.jpg"
           }
         }
       },
