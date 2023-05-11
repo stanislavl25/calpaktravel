@@ -26,9 +26,9 @@
     "badge_display": "both",
     "sale-badge-tag": "Final Sale",
     "sale-badge-text": "Memorial Day Sale",
+    "sale-badge-bg": "#16ba6b",
     "starter-bundle-badge": "8-Piece Travel Set",
     "sale-badge-text-starter": "Special Offer",
-    "sale-badge-bg": "#16ba6b",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
     "sale-msg-tag": "Final Sale",
@@ -684,6 +684,7 @@
           },
           "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": true,
