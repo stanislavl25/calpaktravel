@@ -61,6 +61,7 @@
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -78,11 +79,10 @@
           },
           "d354ff31-c668-4b29-8245-34b614309172": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/new-arrivals",
+              "button-url": "shopify:\/\/collections\/summer-arrivals",
               "block-title": "Explore bags for your sweetest summer yet",
               "description": "",
               "button-text": "Shop Summer Arrivals",
@@ -126,13 +126,13 @@
             "settings": {
               "title": "Shop: Luggage Banner",
               "submenu-number": 2,
-              "button-url": "shopify:\/\/collections\/hue-collection",
-              "block-title": "Made for minimalists",
+              "button-url": "shopify:\/\/products\/starter-bundle",
+              "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
               "description": "",
-              "button-text": "Explore Hue Collection",
+              "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Rectangle_3870_1.png",
+              "image": "shopify:\/\/shop_images\/AO2A7863-2.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
