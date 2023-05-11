@@ -7,7 +7,12 @@ body  {
 }
 
 .curalate-gallery__header {
-    padding: var(--gap);
+    padding: 0px 50px;
+}
+@media screen and (max-width:649px){
+    .curalate-gallery__header {
+        padding: 0px 40px;
+    }
 }
 
 .curalate-gallery__title {
@@ -21,5 +26,5 @@ body  {
 }
 
 .shopify-section--curalate:has(.curalate-gallery_embed) {
-    display: flex;
+    display: none;
 }

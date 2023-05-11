@@ -1,24 +1,24 @@
 "use strict";
 
 const color_groups = {
-    'beige': ['beige', 'nude', 'linen', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
+    'beige': ['beige', 'nude', 'linen', 'speckle', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
     'black': ['black', 'trnk-black', 'matte-black', 'ambeur-black', 'luka-black', 'brushed-black', 'wavy', 'eclipse', 'cheetah', 'plaid', 'obsidian', 'onyx', 'midnight-marble'],
-    'blue': ['astrology', 'aqua', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
-    'brown': ['papaya', 'ginger', 'taupe', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee'],
-    'green': ['pale-green','kiwi', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive', 'green-checkerboard'],
+    'blue': ['astrology', 'aqua', 'lagoon', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
+    'brown': ['papaya', 'ginger', 'khaki', 'taupe', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee'],
+    'green': ['pale-green', 'khaki', 'modern-abstract', 'palm', 'green-apple', 'kiwi', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive', 'green-checkerboard'],
     'grey': ['grey', 'taupe', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
     'lavender': ['lavender', 'orchid', 'amethyst', 'things-between', 'groovy-blue', 'bloom', 'orchid-fields'],
     'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold'],
-    'orange': ['orange', 'papaya', 'retro-sunset', 'pumpkin', 'canyon'],
-    'pink': ['pink', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink', 'pink-grid'],
+    'orange': ['orange', 'papaya', 'orange-grid', 'retro-sunset', 'pumpkin', 'canyon'],
+    'pink': ['pink', 'watermelon', 'modern-abstract', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink', 'pink-grid'],
     'print': ['astrology', 'trnk-almond', 'trnk-espresso', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity', 'orchid-fields', 'green-checkerboard', 'pink-grid'],
-    'red': ['red', 'brick', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid'],
+    'red': ['red', 'brick', 'watermelon', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid'],
     'rose-gold': ['rose-gold', 'rosewood-tie-dye', 'jen-pink'],
     'white': ['white', 'linen', 'dove-grey', 'bloom', 'sky-tie-dye', 'sky-tie-dye-wash', 'white-bandana', 'confetti', 'cream', 'gold-marble', 'milk-marble', 'terrazzo', 'stone'],
     'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow']
 };
 
-const colors_img = ["trnk-grey", "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue", "pink-grid", "green-checkerboard", "orchid-fields"];
+const colors_img = ["trnk-grey", 'modern-abstract', 'speckle', 'orange-grid', "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue", "pink-grid", "green-checkerboard", "orchid-fields"];
 
 function isSafari() {
     // return true;
@@ -639,6 +639,7 @@ function activateProductUnit(target) {
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
+            [...target.querySelectorAll('.splash')].map(splash => splash.classList.remove('splash'))
             target.classList.add('product-unit--loaded');
             if(window.debug) console.log('Done product', handle);
             resolve(true);
@@ -836,7 +837,22 @@ window.addEventListener("load", () => {
     const videos = document.querySelectorAll(".video-iframe-container");
     videos.forEach( video => videoObserver.observe(video) );
 
-    document.querySelectorAll('.quick-view__link').forEach(quickViewLink => quickViewLink.addEventListener('click', quickViewClick));
+    let quickViewLinks = document.querySelectorAll('.quick-view__link');
+    [...quickViewLinks].map( function(quickViewLink) {
+        quickViewLink.addEventListener('click', quickViewClick);
+    });
+
+    const subcategoryActivators = document.querySelectorAll('.filter__collections .filter__collection');
+    [...subcategoryActivators].map( function(subcategoryActivator) {
+        subcategoryActivator.addEventListener('click', function(e) {
+            setTimeout(() => {
+                let quickViewLinksDynamic = document.querySelectorAll('.quick-view__link');
+                [...quickViewLinksDynamic].map( function(quickViewLink) {
+                    quickViewLink.addEventListener('click', quickViewClick);
+                });
+            }, 3000);
+        });
+    });
 
     const footerLinks = document.querySelectorAll('.footer__widget-title');
     footerLinks.forEach(footerLink => footerLink.addEventListener('click', e => e.target.classList.toggle('footer__widget-title--active')));
@@ -864,10 +880,17 @@ function activateCart() {
 ///////////////////////// TIMERS ///////////////////////////
 function updateTimeouts(countdown_ticks) {
     for(let i = 0; i < countdown_ticks.length; i++) {
+        //console.log('testing')
+        //console.log(countdown_ticks[i]);
         let time_left = countdown_ticks[i].getAttribute('data-time');
-
-        time_left--;
-        countdown_ticks[i].setAttribute('data-time', time_left);
+        if (!time_left) {
+            time_left = countdown_ticks[i].getAttribute('data-time-left');
+            time_left--;
+            countdown_ticks[i].setAttribute('data-time-left', time_left);
+        } else {
+            time_left--;
+            countdown_ticks[i].setAttribute('data-time', time_left);
+        }
 
         if(time_left < 0) {
             return;
@@ -962,4 +985,42 @@ window.addEventListener("load", () => {
         let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
         footerLink.setAttribute('id', 'menu-footer-' + idString);
     });
+});
+/* quickadd code from google optimize - product swatches - product unit */
+document.addEventListener('DOMContentLoaded', function () {
+//quick add function
+    const loadQuickAdd = () => {
+    document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
+    document.querySelector('.product-grid').classList.add('product-grid--gap');
+    document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
+    document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
+        colors.classList.add('product-unit__colors--all', 'slide');
+        colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
+    });
+    document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
+    document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
+    swatches.classList.add('slider');
+    const sliderWrapper = swatches.parentNode;
+    sliderWrapper.setAttribute('data-slide', 4);
+    sliderWrapper.setAttribute('data-slide-mob', 3);
+    sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
+    sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+    checkSlider(sliderWrapper.querySelector('.slider'));
+});
+}
+loadQuickAdd();
+document.addEventListener("shopify:section:load", loadQuickAdd);
+document.addEventListener("shopify:section:change", loadQuickAdd);
+document.addEventListener('page:load', loadQuickAdd);
+document.addEventListener('page:change', loadQuickAdd);
+    
+const subcategoryLinks = document.querySelectorAll('a.filter__collection');
+[].map.call(subcategoryLinks, (subcategoryLink) => {
+    subcategoryLink.addEventListener('click', (e) => {
+        setTimeout( function() {
+            loadQuickAdd();
+        }, 2000);       
+    });
+});
+    
 });

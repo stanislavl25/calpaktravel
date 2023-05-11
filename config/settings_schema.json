@@ -417,6 +417,12 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "countdown-label-collection-enabled",
+        "label": "Enable countdown sale as label in collection",
+        "default": true
+      },
+      {
         "type": "select",
         "id": "desktop-badge-placement",
         "label": "Desktop Badge Placement",
@@ -515,7 +521,6 @@
         "id": "starter-bundle-badge",
         "label": "Starter Bundle Message",
         "info": "Custom Sale Label Text"
-
       },
       {
         "type": "text",
@@ -569,7 +574,6 @@
         "id": "sale-msg-pdp-only",
         "label": "Show on PDP only"
       },
-
       {
         "type": "text",
         "id": "sale-msg-tag",
