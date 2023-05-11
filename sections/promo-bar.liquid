@@ -124,17 +124,6 @@
             </div>
         </div>
     </section>
-    <script>
-        const promoBar = document.querySelector('.promo-bar__cells');
-        // Get the first and last child divs
-        // Get the first child div and its background color
-        const firstChild = promoBar.firstElementChild;
-        const firstChildBgColor = window.getComputedStyle(firstChild).backgroundColor;
-
-        // Get the last child div and apply the background color
-        const lastChild = promoBar.lastElementChild;
-        lastChild.style.backgroundColor = firstChildBgColor;
-    </script>
     {% if section.settings.holiday_banner %}
         {% include "holiday-banner" %}
     {% endif %}

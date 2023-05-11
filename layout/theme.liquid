@@ -223,7 +223,6 @@
 
     <body class="template-{{ template | replace: '.', '-' }}">
         {% unless settings.speed_debug %}
-        <div class="header-container">
         {% section 'promo-bar' %}
         {% section 'header' %}
 
@@ -240,7 +239,6 @@
                 {% section 'notifications' %}
                 {% section 'header-banner' %}
             </section>
-            </div>
         {% endunless %}
 
 
