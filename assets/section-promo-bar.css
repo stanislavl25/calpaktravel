@@ -151,7 +151,8 @@ section.promo-bar div.promo-bar-text p {
 section.promo-bar div.promo-bar-text a {
     border-bottom: 1px solid;
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
+    padding-right: 10px;
 }
 
 @media screen and (max-width: 699.9px) {
