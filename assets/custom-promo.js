@@ -119,19 +119,3 @@ const observer = new MutationObserver((mutations) => {
 });
 
 observer.observe(body, { attributes: true });
-const navbar = document.querySelector('.header-container');
-const stickyElement = document.querySelector('.collection-filters__section');
-
-      // Create a ResizeObserver instance
-const observernav = new ResizeObserver(entries => {
-for (let entry of entries) {
-if (entry.target === navbar) {
-const navbarHeight = navbar.offsetHeight;
-// Update the top position of the sticky element
-stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
-}
-}
-});
-
-// Observe changes to the navbar element
-observernav.observe(navbar);
