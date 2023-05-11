@@ -22,6 +22,18 @@
             left: 10px;
             right: 10px
         }
+        .modular-block-video {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            z-index: 2;
+            display: block;
+        }
     }
     @media screen and (max-width:649px){
         {% if  block.settings.only_mobile %}
