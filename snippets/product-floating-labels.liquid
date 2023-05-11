@@ -100,7 +100,7 @@
     {%- endif -%}
 {%- endif -%}
 
-<div class="floating-labels">
+<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter!=false  %} promo-starter-label{%endif%}">
     {%- if location != 'pdp' -%}
 
         {%- liquid

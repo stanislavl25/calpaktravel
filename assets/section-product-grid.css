@@ -27,6 +27,9 @@
 .section-filtered--empty .product-grid__empty-text {
     display: flex;
 }
+.floating-labels.promo-starter-label {
+    flex-direction: column;
+}
 .product-label--promo.starter-label {
     padding: 4px 8px;
     font-size: 14px;
