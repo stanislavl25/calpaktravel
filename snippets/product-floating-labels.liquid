@@ -1,5 +1,8 @@
 {%- liquid
     assign opt1 = current_variant.option1 | handleize
+    assign starter_bundle = collections.all.products | where: 'data-handle', 'starter-bundle'
+    assign starter_true = true
+     assign product_handle = product.handle 
 -%}
 {%- if settings.sale-badge-enabled and location != 'cart' -%}
     {%- liquid
@@ -32,8 +35,21 @@
         {% if settings.badge_display == 'both' %}
             <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                {% unless product.handle contains "starter-bundle"%}  
+                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                  {%  else %}
+                    {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
+                {% endunless %}
             </div>
+            {% if settings.starter__customizer-badge != blank %}
+                <style>
+                    .starter-customize {
+                        background-color: {{ settings.starter__customizer-badge }} !important;
+                        border: 2px dotted black !important;
+                        color: #000 !important;
+                    }
+                </style>
+            {% endif %}
         {% elsif settings.badge_display == 'product' %}
             {% if template contains 'product' %} 
                 <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
@@ -103,12 +119,12 @@
         -%}
 
         {%- if promoMsg != false -%}
-        <div class="product-label product-label--promo{% if promoMsg contains opt1 and promoMsg != true %} product-label--active{% endif %}"
-            {% if promoMsg != true %}data-options="{{ promoMsg | join: ' ' }}"{% endif %}>
-            {%- if settings.sale-msg-highlighted != blank -%}
-                {{- settings.sale-msg-highlighted | escape -}}
-            {%- endif -%}
-        </div>
+            <div class="product-label product-label--promo{% if promoMsg contains opt1 and promoMsg != true %} product-label--active{% endif %}"
+                {% if promoMsg != true %}data-options="{{ promoMsg | join: ' ' }}"{% endif %}>
+                {%- if settings.sale-msg-highlighted != blank -%}
+                    {{- settings.sale-msg-highlighted | escape -}}
+                {%- endif -%}
+            </div>
         {%- endif -%}
     {%- endif -%}
 
@@ -142,12 +158,21 @@
                     assign discounted = false
                 endif
             -%}
-        <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
-            {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
-            {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
-        </div>
+        
+            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if product.handle == "starter-bundle" and template contains 'collection' %}    
+        starter-customize{% endif %}{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+                {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
+                {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
+            </div>
         {%- endif -%}
 
+    {%- endif -%}
+    {%- if settings.sale-msg-starter -%}
+        {% if product.handle == "starter-bundle" and template contains 'collection' %}
+            <div class="product-label--promo starter-label">
+                {{settings.starter-bundle-badge}}
+            </div>
+        {% endif %}
     {%- endif -%}
 
     {%- if settings.extra-sale-enabled -%}

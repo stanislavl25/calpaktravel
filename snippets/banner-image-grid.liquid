@@ -1,0 +1,185 @@
+    <div class="collection-image-banner-wrapper {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
+
+        {% case block.settings.media-type %}  
+            {% when 'video' %}
+                {% if block.settings.banner-video %}
+                    <video autoplay muted loop class="collection-image-banner-video">
+                        <source src="{{- block.settings.banner-video.sources[1].url -}}" type="video/mp4">
+                    </video>
+                {% endif %}
+            {% when 'image' %}
+                {% if block.settings.banner-image %}
+                    <img class="collection-image-banner-image" src="{{- block.settings.banner-image | img_url: '4096x4096' -}}" alt="Summer Arrivals Cover Image">
+                {% endif %}
+        {% endcase %}
+        <div class="collection-image-banner-text-wrapper">
+            <h1 class="collection-image-banner-text">
+                {% if block.settings.banner-text != blank %}
+                    {{- block.settings.banner-text -}}
+                {% endif %}
+            </h1>
+        </div>
+    </div>
+    <style>
+        .shopify-section--collection-image-banner.banner-active {
+            height: calc({{ block.settings.banner-media-height }}px + 297px);
+        }
+        .shopify-section--collection-image-banner {
+            width: 100%;
+            display: flex;
+            margin-top: 50px;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: calc({{ block.settings.banner-media-height }}px + 75px);
+        }
+
+        .collection-image-banner-wrapper {
+            width: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            grid-column: 1 / span 5;
+            grid-row: {{ block.settings.row }} / span 1;
+            /* CUSTOMIZER GIVEN CSS*/
+            height: {{ block.settings.banner-media-height }}px;
+        }
+
+        .collection-image-banner-video,
+        .collection-image-banner-image {
+            position: absolute;
+            {% comment %} right: 0; {% endcomment %}
+            top: 0;
+            width: 100%;
+            border-radius: 9px;
+            object-fit: cover;
+            object-position: center;
+            height: {{ block.settings.banner-media-height }}px;
+        }
+        .collection-image-banner-text-wrapper {
+            position: absolute;
+            z-index: 10;
+            padding-inline: 38px;
+            padding-block: 4px;
+            border-radius: 9px;
+            
+            /* CUSTOMIZER GIVEN CSS*/
+            background: {{ block.settings.banner-text-background-color }};
+            color: {{ block.settings.banner-text-color }};
+        }
+
+        .collection-image-banner-text {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 85px;
+            line-height: 109px;
+            text-align: center;
+            letter-spacing: -0.02em;
+            
+            color: {{ block.settings.banner-text-color }};
+        }
+
+        .collection-filter-with-banner {
+            font-size: 16px;
+            line-height: 1.25em;
+            font-family: var(--font-body-family);
+            font-style: var(--font-body-style);
+            font-weight: var(--font-body-weight);
+            box-sizing: inherit;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .collection-filter-with-banner {
+            font-size: 16px;
+            line-height: 1.25em;
+            font-family: var(--font-body-family);
+            font-style: var(--font-body-style);
+            font-weight: var(--font-body-weight);
+            box-sizing: inherit;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            height: 75px;
+            margin-inline: 18px;
+            padding-block: 18px;
+        }
+        
+        .collection-filters-banner.collection-filters--active {
+            top: unset;
+            bottom: 0;
+        }
+        {% if block.settings.collection_list != empty %}
+            {% for collection_item in block.settings.collection_list %}
+                .{{ collection_item.handle }}.collection-image-banner-wrapper{
+                    display: flex;
+                }
+            .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.desktop {
+                display: flex;
+            }
+            .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.mobile {
+                    display: none;
+            }
+            @media (max-width: 649px) {
+                .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.desktop {
+                    display: none;
+                }
+                .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.mobile {
+                        display: flex;
+                }
+            }
+            {% endfor %}
+        {% else %} 
+            .collection-image-banner-wrapper{
+                display: flex;
+            }
+        {% endif %}  
+        @media (max-width:900px){
+            .collection-image-banner-wrapper {
+                grid-column: 1 / span 3;
+            }
+            .collection-image-banner-text {
+                font-size: 65px;
+            }
+        }
+        @media (max-width: 649px) {
+            .shopify-section--collection-image-banner {
+                margin-top: 25px;
+                grid-column: 1 / span 2;
+            }
+            .shopify-section--collection-image-banner,
+            .shopify-section--collection-image-banner.banner-active {
+                height: {{ block.settings.banner-media-height-mobile }}px;
+            }
+
+            .collection-image-banner-wrapper {
+                height: {{ block.settings.banner-media-height-mobile }}px;
+                grid-column: 1 / span 2;
+                grid-row: {{ block.settings.row_mobile }} / span 1;
+            }
+    
+            .collection-image-banner-video,
+            .collection-image-banner-image {
+                height: {{ block.settings.banner-media-height-mobile }}px;
+                right: unset;
+                border-radius: 6px;
+                width: 100%;
+            }
+            .collection-image-banner-text-wrapper {
+                padding-inline: 14px;
+                padding-block: 11px;
+            }
+            .collection-image-banner-text {
+                font-size: 40px;
+                line-height: 35px;
+
+                text-align: center;
+                letter-spacing: -0.02em;
+            }
+            .collection-filters__control.collection-filter-with-banner {
+                display: none;
+            }
+        }
+    </style>
+    

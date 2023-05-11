@@ -1,0 +1,311 @@
+{{ 'section-promo-bar.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-promo.js' | asset_url }}" defer="defer"></script>
+{% unless section.settings.show == 'no' %}
+    {%- assign show_announcement_bar = false -%}
+    {% if section.settings.show == 'everywhere' %}
+        {%- assign show_announcement_bar = true -%}
+    {% elsif section.settings.show == 'home' and template.name == 'index' %}
+        {%- assign show_announcement_bar = true -%}
+    {% endif %}
+
+    {% include 'flash-sale-vars' %}
+
+    {%- if show_announcement_bar -%}
+    <section class="promo-bar{% if flash_sale_active %} flash-sale-active{% endif %}{% if section.settings.holiday_banner %} promo-holiday-banner{% endif %} align-center size-default placement-top">
+        <a title="Hide" href="#" class="hide-promo-bar">Hide</a>
+
+        {% if flash_sale_active %}
+            {% capture flash_sale_timer %}
+            <span class="flash-sale__timer" data-time-left="{{ flash_sale_time_left }}">{{ flash_sale_time_left_text }}</span>
+            {% endcapture %}
+        {% endif %}
+
+        <div data-timeout="{{ section.settings.timeout }}" class="promo-bar-text-container">
+            {%- liquid
+                assign countdown_markup = ''
+                if section.settings.countdown-active
+                    assign now = "now" | date: "%s" | times: 1
+                    assign this_year = "now" | date: "%Y"
+                    assign end = section.settings.countdown-to | date: "%s" | times: 1
+
+                    if now < end
+                        assign countdown_time_left = end | minus: now
+                        assign hours = countdown_time_left | divided_by: 3600 | floor
+
+                        assign show = section.settings.countdown-show
+                        if show == 'always'
+                            assign show = true
+                        elsif show == '24' and hours < 24
+                            assign show = true
+                        elsif show == '48' and hours < 48
+                            assign show = true
+                        else
+                            assign show = false
+                        endif
+                        
+                        if show
+                            assign hours = hours | prepend: '00' | slice: -2, 2
+                            assign minutes = countdown_time_left | modulo: 3600 | divided_by: 60 | floor | prepend: '00' | slice: -2, 2
+                            assign seconds = countdown_time_left | modulo: 3600 | modulo: 60 | prepend: '00' | slice: -2, 2
+                            assign countdown_time_left_text = '<span>' | append: hours | append: '</span> : <span>' | append: minutes | append: '</span> : <span>' | append: seconds | append: '</span>'
+
+                            assign countdown_markup = '<div class="countdown-timer" data-time-left="' | append: countdown_time_left | append: '">' | append: countdown_time_left_text | append: '</div>'
+                        endif
+                    endif
+                endif
+            -%}
+            <div class="promo-bar__cells">
+            {%- assign activeSlides = 0 -%}
+            {%- assign firstSlide = false -%}
+            {% for block in section.blocks %}
+                {%- liquid
+                    assign display = false
+                    if block.settings.everywhere
+                        assign display = true
+                    elsif template contains 'product'
+                        if block.settings.pdp
+                            assign display = true
+                        endif
+                    elsif template contains 'collection'
+                        if block.settings.collections
+                            assign display = true
+                        endif
+                    elsif template == 'index'
+                        if block.settings.homepage
+                            assign display = true
+                        endif
+                    elsif block.settings.other
+                        assign display = true
+                    endif
+
+                    unless display == true
+                        continue
+                    endunless
+                    
+                    unless flash_sale_active
+                        if block.settings.content contains '((flash-sale))'
+                            continue
+                        endif
+                    endunless
+                -%}
+                {%- liquid
+                    assign activeSlides = activeSlides | plus: 1
+                    if firstSlide == false
+                        assign firstSlide = block
+                    endif
+                -%}
+                <div
+                    style="background: {{ block.settings.background }};{% if block.settings.background != blank %}background: {{ block.settings.background }};{% endif %}{% if block.settings.text-color != blank %}color: {{ block.settings.text-color }};{% endif %}" 
+                    class="promo-bar-text-cell{% if block.settings.content contains '((flash-sale))' %} promo-bar-text-cell--flash-sale{% endif %}">
+                    <div class="promo-bar-text">
+                        {% if block.settings.url != blank %}
+                        <a href="{{ block.settings.url }}">
+                            {{ block.settings.content | replace: '((countdown))', countdown_markup | replace: '((flash-sale))', flash_sale_timer }}
+                        </a>
+                        {% else %}
+                            {{ block.settings.content | replace: '((countdown))', countdown_markup | replace: '((flash-sale))', flash_sale_timer }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            {% if activeSlides > 1 %}
+                <div class="promo-bar-text-cell{% if firstSlide.settings.content contains '((flash-sale))' %} promo-bar-text-cell--flash-sale{% endif %}">
+                    <div class="promo-bar-text">
+                        {% if firstSlide.settings.url != blank %}
+                        <a href="{{ firstSlide.settings.url }}">
+                            {{ firstSlide.settings.content | replace: '((countdown))', countdown_markup | replace: '((flash-sale))', flash_sale_timer }}
+                        </a>
+                        {% else %}
+                            {{ firstSlide.settings.content | replace: '((countdown))', countdown_markup | replace: '((flash-sale))', flash_sale_timer }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </section>
+    {% if section.settings.holiday_banner %}
+        {% include "holiday-banner" %}
+    {% endif %}
+    {%- endif -%}
+
+    <script>
+        var calpakStorage = window.sessionStorage;
+        if(calpakStorage.getItem('promo-bar-hidden') == 1) {
+            document.body.classList.add('promo-bar-hidden');
+        } else document.body.classList.remove('promo-bar-hidden');
+
+        document.querySelector(".promo-bar .hide-promo-bar").addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.classList.add('promo-bar-hidden');
+            calpakStorage.setItem('promo-bar-hidden', 1);
+        });
+    </script>
+
+{% endunless %}
+
+{% schema %}
+{
+    "name": "Promo bar",
+    "settings": [
+        {
+            "type": "select",
+            "label": "Show",
+            "id": "show",
+            "options": [
+                {
+                    "label": "No",
+                    "value": "no"
+                },
+                {
+                    "label": "On homepage only",
+                    "value": "home"
+                },
+                {
+                    "label": "Everywhere",
+                    "value": "everywhere"
+                }
+            ],
+            "default": "everywhere"
+        },
+		{
+            "type": "range",
+            "id": "timeout",
+            "min": 3,
+            "max": 10,
+            "step": 1,
+            "unit": "sec",
+            "label": "Text switch timeout",
+            "default": 5
+        },
+        {
+            "type": "header",
+            "content": "Holiday Banner"
+        },
+        {
+            "type": "checkbox",
+            "id": "holiday_banner",
+            "label": "Enable",
+            "default": false
+        },
+        {
+            "type": "color",
+            "id": "holiday-banner-background",
+            "label": "Background",
+            "default": "#eae1cf"
+        },
+        {
+            "type": "color",
+            "id": "holiday-banner-color",
+            "label": "Text color",
+            "default": "#000"
+        },
+        {
+            "type": "header",
+            "content": "Countdown"
+        },
+        {
+            "type": "checkbox",
+            "id": "countdown-active",
+            "label": "Active",
+            "default": false
+        },
+        {
+            "type": "select",
+            "id": "countdown-show",
+            "label": "Show countdown",
+            "options": [
+                {
+                    "value": "always",
+                    "label": "Always"
+                },
+                {
+                    "value": "24",
+                    "label": "When 24 hours left"
+                },
+                {
+                    "value": "48",
+                    "label": "When 48 hours left"
+                }
+            ],
+            "default": "always"
+        },
+        {
+            "type": "text",
+            "id": "countdown-to",
+            "label": "Countdown date and time"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "promo-bar-line",
+            "name": "Promo slide",
+            "settings": [
+                {
+                    "type": "header",
+                    "content": "Display"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "everywhere",
+                    "label": "Everywhere",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "homepage",
+                    "label": "Homepage",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "id": "collections",
+                    "label": "Collections",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "id": "pdp",
+                    "label": "PDPs",
+                    "default": false
+                },
+                {
+                    "type": "checkbox",
+                    "id": "other",
+                    "label": "Other pages",
+                    "default": false,
+                    "info": "Blog, articles, pages, etc."
+                },
+                {
+                    "type": "header",
+                    "content": "Content"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content",
+                    "info": "Use ((countdown)) to show the countdown"
+                },
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Link",
+                    "info": "Optional"
+                },
+                {
+                    "type": "color",
+                    "id": "background",
+                    "label": "Background",
+                    "info": "Leave blank to use global values"
+                },
+                {
+                    "type": "color",
+                    "id": "text-color",
+                    "label": "Text color",
+                    "info": "Leave blank to use global values"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

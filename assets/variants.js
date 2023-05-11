@@ -155,6 +155,7 @@ function variantUpdateProcess(target) {
         productUnitUpdateHover(option, productImageContainer, sizes);
 
     } else if(location == 'pdp') {
+        console.log('Location: pdp');
         const pdpInfo = productContainer.closest('.pdp__info, .qv__product');
         const pdpGrid = productContainer.closest('.pdp__grid, .qv__body');
         const isQuickView = pdpGrid.classList.contains('qv__body');
@@ -193,11 +194,11 @@ function variantUpdateProcess(target) {
 
         const qty = option.getAttribute('data-qty');
         const stock = pdpInfo.querySelector('.pdp__stock');
-        if(qty) {
+        if(qty>0 && qty<=10) {
             stock.querySelector('span').innerHTML = qty;
             stock.classList.add('pdp__stock--active');
         } else stock.classList.remove('pdp__stock--active');
-
+        
         if(price * 1 <= 5000) pdpInfo.querySelector('.pdp__payments').classList.add('pdp__payments--limit');
         else pdpInfo.querySelector('.pdp__payments').classList.remove('pdp__payments--limit');
         pdpInfo.querySelector('.pdp__payments-amnt').innerHTML = formatPrice(price / 4 / 100);

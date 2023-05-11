@@ -190,6 +190,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(isProductUnit) collection = target.getAttribute('data-collection');
 
+    if(target.hasAttribute('data-early-access')) earlyAccess = target.getAttribute('data-early-access');
     const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
 
     tags.forEach(tag => {
@@ -691,6 +692,7 @@ function activateProductUnit(target) {
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
+            [...target.querySelectorAll('.splash')].map(splash => splash.classList.remove('splash'))
             target.classList.add('product-unit--loaded');
             if(window.debug) console.log('Done product', handle);
             resolve(true);
@@ -888,7 +890,22 @@ window.addEventListener("load", () => {
     const videos = document.querySelectorAll(".video-iframe-container");
     videos.forEach( video => videoObserver.observe(video) );
 
-    document.querySelectorAll('.quick-view__link').forEach(quickViewLink => quickViewLink.addEventListener('click', quickViewClick));
+    let quickViewLinks = document.querySelectorAll('.quick-view__link');
+    [...quickViewLinks].map( function(quickViewLink) {
+        quickViewLink.addEventListener('click', quickViewClick);
+    });
+
+    const subcategoryActivators = document.querySelectorAll('.filter__collections .filter__collection');
+    [...subcategoryActivators].map( function(subcategoryActivator) {
+        subcategoryActivator.addEventListener('click', function(e) {
+            setTimeout(() => {
+                let quickViewLinksDynamic = document.querySelectorAll('.quick-view__link');
+                [...quickViewLinksDynamic].map( function(quickViewLink) {
+                    quickViewLink.addEventListener('click', quickViewClick);
+                });
+            }, 3000);
+        });
+    });
 
     const footerLinks = document.querySelectorAll('.footer__widget-title');
     footerLinks.forEach(footerLink => footerLink.addEventListener('click', e => e.target.classList.toggle('footer__widget-title--active')));
@@ -916,10 +933,17 @@ function activateCart() {
 ///////////////////////// TIMERS ///////////////////////////
 function updateTimeouts(countdown_ticks) {
     for(let i = 0; i < countdown_ticks.length; i++) {
+        console.log('testing')
+        console.log(countdown_ticks[i]);
         let time_left = countdown_ticks[i].getAttribute('data-time');
-
-        time_left--;
-        countdown_ticks[i].setAttribute('data-time', time_left);
+        if (!time_left) {
+            time_left = countdown_ticks[i].getAttribute('data-time-left');
+            time_left--;
+            countdown_ticks[i].setAttribute('data-time-left', time_left);
+        } else {
+            time_left--;
+            countdown_ticks[i].setAttribute('data-time', time_left);
+        }
 
         if(time_left < 0) {
             return;
@@ -1014,4 +1038,42 @@ window.addEventListener("load", () => {
         let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
         footerLink.setAttribute('id', 'menu-footer-' + idString);
     });
+});
+/* quickadd code from google optimize - product swatches - product unit */
+document.addEventListener('DOMContentLoaded', function () {
+//quick add function
+    const loadQuickAdd = () => {
+    document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
+    document.querySelector('.product-grid').classList.add('product-grid--gap');
+    document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
+    document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
+        colors.classList.add('product-unit__colors--all', 'slide');
+        colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
+    });
+    document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
+    document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
+    swatches.classList.add('slider');
+    const sliderWrapper = swatches.parentNode;
+    sliderWrapper.setAttribute('data-slide', 4);
+    sliderWrapper.setAttribute('data-slide-mob', 3);
+    sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
+    sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+    checkSlider(sliderWrapper.querySelector('.slider'));
+});
+}
+loadQuickAdd();
+document.addEventListener("shopify:section:load", loadQuickAdd);
+document.addEventListener("shopify:section:change", loadQuickAdd);
+document.addEventListener('page:load', loadQuickAdd);
+document.addEventListener('page:change', loadQuickAdd);
+    
+const subcategoryLinks = document.querySelectorAll('a.filter__collection');
+[].map.call(subcategoryLinks, (subcategoryLink) => {
+    subcategoryLink.addEventListener('click', (e) => {
+        setTimeout( function() {
+            loadQuickAdd();
+        }, 2000);       
+    });
+});
+    
 });

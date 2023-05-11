@@ -1,0 +1,202 @@
+<script>
+    window.addEventListener("load", function() {
+        const changeTheProductImage_{{ block.settings.index }} = () => {
+            const card = document.querySelector('#product-card__{{ block.settings.index }}');
+            const link = card.querySelector('.product-unit__image');
+            const imgs = card.querySelectorAll('.product-unit__image img');
+            const imgHover = card.querySelectorAll('img.img-hover');
+            let swatches = card.querySelectorAll('.product-unit__swatches-container');
+            if (swatches.length < 1) {
+                swatches = card.querySelectorAll('.product-unit__swatches-container');
+            }
+            setTimeout(() => {
+                    if(window.innerWidth < 900) {
+                    {% if block.settings.enable_static_for_mobile == true %}
+                        {% case block.settings.static_media_type_mobile %}  
+                            {% when 'video' %}
+                                {% if block.settings.mobile_static_video %}
+                                    if(!link.querySelector('.static-video-mobile')) {
+                                        link.innerHTML += `
+                                            <video autoplay muted loop class="static-video-mobile">
+                                                <source src="{{- block.settings.mobile_static_video.sources[1].url -}}" type="video/mp4">
+                                            </video>
+                                        `;
+                                    }
+                                    try {
+                                            [...swatches].map(swatch => {
+                                                swatch.addEventListener('click', function(e) {
+                                                    console.log('mobile static video click');
+                                                    [].map.call(imgs, function(img) {
+                                                        img.classList.remove('f-loaded');
+                                                    });
+                                                });
+                                            })
+                                        } catch (e) {
+                                            console.error(e)
+                                            console.error('Swatches didnt load yet')
+                                        }
+                                {% endif %}
+                            {% when 'image' %}
+                                {% if block.settings.mobile_static_img %}
+                                    [].map.call(imgs, function(img) {
+                                        img.classList.add('f-loaded');
+                                    });
+                                    try {
+                                        [...swatches].map(swatch => {
+                                            swatch.addEventListener('click', function(e) {
+                                                [].map.call(imgs, function(img) {
+                                                    console.log('mobile static image click');
+                                                    [...card.querySelectorAll('.static-video-desktop')].map(video => video.classList.add('d-none'))
+                                                    img.classList.remove('f-loaded');
+                                                });
+                                            });
+                                        })
+                                    } catch (e) {
+                                        console.error('Swatches didnt load yet')
+                                    }
+                                {% endif %}
+                        {% endcase %}
+                    {% else %}
+                        [].map.call(imgs, function(img) {
+                            img.classList.remove('f-loaded');
+                            img.classList.remove('d-none');
+                        });
+                    {% endif %}
+                } else {
+                    {% if block.settings.enable_static_for_desktop == true %}
+                        
+                        {% case block.settings.static_media_type_desktop %}  
+                            {% when 'video' %}
+                                {% if block.settings.desktop_static_video %}
+                                    if(!link.querySelector('.static-video-desktop')) {
+                                        link.innerHTML += `
+                                            <video autoplay muted loop class="static-video-desktop">
+                                                <source src="{{- block.settings.desktop_static_video.sources[1].url -}}" type="video/mp4">
+                                            </video>
+                                        `;
+                                    }
+                                    try {
+                                            [...swatches].map(swatch => {
+                                                swatch.addEventListener('click', function(e) {
+                                                    console.log('desktop static video click');
+                                                    [].map.call(imgs, function(img) {
+                                                        [...card.querySelectorAll('.static-video-desktop')].map( function(video){
+                                                            console.log('hidding video');
+                                                            video.classList.add('d-none');
+                                                        })
+                                                        img.classList.remove('f-loaded');
+                                                    });
+                                                });
+                                            })
+                                        } catch (e) {
+                                            console.error('Swatches didnt load yet')
+                                        }
+                                {% endif %}
+                            {% when 'image' %}
+                                {% if block.settings.desktop_static_img %}
+                                    [].map.call(imgs, function(img) {
+                                        img.classList.add('f-loaded');
+                                    });
+    
+                                    try {
+                                        [...swatches].map(swatch => {
+                                            swatch.addEventListener('click', function(e) {
+                                                console.log('desktop static img click');
+                                                [].map.call(imgs, function(img) {
+                                                    console.log('hidding image');
+                                                    img.classList.remove('<f-loaded>');
+                                                });
+                                            });
+                                        })
+                                    } catch (e) {
+                                        console.error('Swatches didnt load yet')
+                                    }
+                                {% endif %}
+                        {% endcase %}
+                    {% else %}
+                        [].map.call(imgs, function(img) {
+                            img.classList.remove('f-loaded');
+                            img.classList.remove('d-none');
+                        });
+                    {% endif %}
+                }
+            }, 0);
+        }
+        setTimeout(() => {
+            console.log('after stwatches loaded')
+            changeTheProductImage_{{ block.settings.index }}();
+            window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
+        document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
+        
+        window.addEventListener("resize", changeTheProductImage_{{ block.settings.index }});
+        document.addEventListener("shopify:section:load", changeTheProductImage_{{ block.settings.index }});
+        document.addEventListener("shopify:section:change", changeTheProductImage_{{ block.settings.index }});
+        document.addEventListener('page:load', changeTheProductImage_{{ block.settings.index }});
+        document.addEventListener('page:change', changeTheProductImage_{{ block.settings.index }});
+        let radioLinks_{{ block.settings.index }} = document.querySelectorAll('a.filter__collection');
+        [].map.call(radioLinks_{{ block.settings.index }}, function(radioLink) {
+            radioLink.addEventListener('click', function(e) {
+                setTimeout(() => {
+                    changeTheProductImage_{{ block.settings.index }}();
+                }, 1000);
+            })
+        });
+        }, 0);
+    });
+</script>
+<style>
+{% if block.settings.enable_static_for_desktop == true %}
+    #product-card__{{ block.settings.index }} .product-unit__image > .static-video-desktop {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        border-radius: 0px;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        z-index: 2;
+        display:none;
+    }
+    #product-card__{{ block.settings.index }} .product-unit__image > img.f-loaded {
+        background-image: url('{{ block.settings.desktop_static_img | image_url}}');
+        background-size: cover;
+        background-position: center;
+        object-position:0px;
+        opacity:0;
+    }
+{% endif %}
+{% if block.settings.enable_static_for_mobile == true %}
+    @media screen and (max-width:900px){
+        #product-card__{{ block.settings.index }} .product-unit__image > img.f-loaded {
+            background-image: url('{{ block.settings.mobile_static_img | image_url}}');
+            background-size: cover;
+            background-position: center;
+            object-position:0px;
+            opacity:0;
+        }
+        #product-card__{{ block.settings.index }} .product-unit__image > video.static-video-mobile {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            border-radius: 0px;
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            z-index: 3;
+            display: block
+        }
+    } 
+{% endif %}
+
+
+#product-card__{{ block.settings.index }} .product-unit__image > .static-video-mobile {
+    display: none;
+}
+@media screen and (max-width:900px){
+    #product-card__{{ block.settings.index }} .product-unit__image > .static-video-desktop {
+        display: none;
+    }
+}
+</style>

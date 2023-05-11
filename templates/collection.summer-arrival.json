@@ -1,6 +1,6 @@
 {
   "sections": {
-    "b11701cc-945d-43fe-8b29-77d888aec849": {
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
       "disabled": true,
       "settings": {
@@ -8,30 +8,23 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Mother's Day Promo",
-        "main-text": "<p>Buy 2 items (or more), get 15% off using code MOM15<\/p>",
-        "hide": true,
+        "title-above": "Testing promo banner",
+        "main-text": "<p>lorem ipsum dolor sit amet<\/p>",
+        "hide": false,
         "product_list": [
 
         ],
         "collection_list": [
-          "all",
-          "best-sellers",
-          "new-arrivals",
           "sale",
-          "mothers-day",
-          "luggage",
-          "bags",
-          "organizers",
-          "accessories"
+          "luggage"
         ],
         "section-id": "",
-        "cta_link": "cta",
+        "cta_link": "wrap",
         "cta_url": "shopify:\/\/collections\/mothers-day",
-        "cta_text": "Shop Now",
+        "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "Terms and conditions apply",
+        "terms_text": "Terms & Conditions",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -51,7 +44,7 @@
             "selected": false
           }
         },
-        "aa5cbd40-97cf-44c3-97b3-4f0397167dce": {
+        "f4dfaee4-0996-4610-a1c6-f990e773a15f": {
           "type": "filter",
           "settings": {
             "heading": "-> Summer Arrivals",
@@ -69,7 +62,7 @@
           "settings": {
             "heading": ". . . New",
             "title": "New Arrivals",
-            "collection": "new-arrivals",
+            "collection": "mothers-day",
             "product_list": [
 
             ],
@@ -428,7 +421,7 @@
       },
       "block_order": [
         "597a3a7d-e342-4ec9-8cca-f98e586237d1",
-        "aa5cbd40-97cf-44c3-97b3-4f0397167dce",
+        "f4dfaee4-0996-4610-a1c6-f990e773a15f",
         "c8f3773f-80e6-466d-9317-43d1bb1e948e",
         "70b2154d-2620-4583-ab2f-871333b645be",
         "645f5714-be29-44a4-9a15-aab469ecb101",
@@ -506,11 +499,12 @@
           "type": "promo",
           "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/AO2A7740-2.jpg",
+            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
             "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
             "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
-            "title": "Buy 2, Get 15% OFF",
-            "text": "<p>Watch our Mother's Day 1 hour live shopping event!<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=g1uCrKHQO89bR8znTmpY\">WATCH NOW<\/a><\/p>",
+            "title": "Free Luka Key Pouch",
+            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
             "show-for-collections": [
               "accessories",
               "organizers",
@@ -519,9 +513,7 @@
               "new-arrivals",
               "best-sellers",
               "all",
-              "in-stock-ready-to-deliver",
-              "mothers-day",
-              "sale"
+              "in-stock-ready-to-deliver"
             ],
             "background": "#e4dfd5",
             "text-color": "#000000",
@@ -532,7 +524,7 @@
             "row-mob": 2
           }
         },
-        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
+        "3cafe206-a3e1-43d4-a22c-d684d558f998": {
           "type": "banner",
           "settings": {
             "display": "desktop",
@@ -550,7 +542,26 @@
             "banner-text-background-color": "#ffffff"
           }
         },
-        "7f629c14-61ca-4cfa-b514-756101b71ede": {
+        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 1,
+            "column": 1,
+            "col_span": 5,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ]
+          }
+        },
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab": {
           "type": "static",
           "settings": {
             "heading": "Video: Luka Large Duffel",
@@ -562,7 +573,7 @@
             "static_media_type_mobile": "image"
           }
         },
-        "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e": {
+        "d6ca6737-46ba-4790-8308-9173c146e312": {
           "type": "module",
           "settings": {
             "pictured_link": true,
@@ -582,7 +593,7 @@
             "image": "shopify:\/\/shop_images\/image_138.png"
           }
         },
-        "00502ff4-5f0b-4184-8f85-af5354461ebd": {
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e": {
           "type": "module",
           "settings": {
             "pictured_link": true,
@@ -603,7 +614,7 @@
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0193-4.jpg"
           }
         },
-        "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6": {
           "type": "static",
           "settings": {
             "heading": "Mobile: Luka Belt Bag",
@@ -615,19 +626,19 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_137.png"
           }
         },
-        "8beb041e-a61d-40dd-b978-d4c14c2679f9": {
+        "93958757-d99e-40ac-9681-c941a84f5e13": {
           "type": "module",
           "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 4,
+            "row": 3,
             "column": 1,
             "col_span": 2,
             "mobile_row": 7,
             "column_mobile": 1,
             "col_span_mobile": 2,
-            "target_link": "",
+            "target_link": "shopify:\/\/products\/compakt-tote-bag",
             "title": "",
             "description": "",
             "pictured_products": [
@@ -636,7 +647,7 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3693_d1a075db-7585-4fab-a215-9650f8d627a1.png"
           }
         },
-        "71baa67a-2226-426d-9b84-717bf4a6e1a8": {
+        "629cf9cf-f796-48b3-b5ff-294d4e7009bf": {
           "type": "module",
           "settings": {
             "pictured_link": true,
@@ -656,7 +667,7 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3693_b5472a86-acb2-4d9f-b211-4d9f5895a533.png"
           }
         },
-        "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
+        "7676be9e-c601-451f-896f-70d29d759dd8": {
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
@@ -669,7 +680,7 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
           }
         },
-        "5cc6dafd-9a03-497d-a746-581d39df58db": {
+        "850bb4ba-1437-4875-9c18-6a221ba616e8": {
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Tech Organizer",
@@ -682,7 +693,7 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_137_5371b6ce-5106-4220-ad4c-ce5ad6a58a14.png"
           }
         },
-        "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
+        "750d78fe-78aa-40a7-8cb2-49438d3534b0": {
           "type": "module",
           "settings": {
             "pictured_link": true,
@@ -702,7 +713,7 @@
             "video": "shopify:\/\/files\/videos\/IMG_3027_5.mp4"
           }
         },
-        "212c972f-9876-4c34-906d-1e46cefc4380": {
+        "159bdf93-1c5c-49da-9969-a5be2118c8ff": {
           "type": "module",
           "settings": {
             "pictured_link": true,
@@ -722,13 +733,13 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3695.png"
           }
         },
-        "26121484-6047-4828-919f-49c8e5363c7d": {
+        "cf9914ea-723b-48aa-9c74-ab2a44489463": {
           "type": "modular-section",
           "disabled": true,
           "settings": {
             "pictured_link": true,
             "gap": 10,
-            "section_height": 70,
+            "section_height": 100,
             "row": 6,
             "mobile_row": 12,
             "column": 1,
@@ -747,7 +758,7 @@
             ]
           }
         },
-        "98bbbe49-ef4a-4acd-9165-232fac007486": {
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd": {
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
@@ -757,10 +768,10 @@
             "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "image",
-            "mobile_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg"
+            "mobile_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-COMPAKT-TOTE-BAG.png"
           }
         },
-        "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
+        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7": {
           "type": "module",
           "settings": {
             "pictured_link": true,
@@ -784,20 +795,21 @@
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
-        "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
-        "7f629c14-61ca-4cfa-b514-756101b71ede",
-        "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
-        "00502ff4-5f0b-4184-8f85-af5354461ebd",
-        "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
-        "8beb041e-a61d-40dd-b978-d4c14c2679f9",
-        "71baa67a-2226-426d-9b84-717bf4a6e1a8",
-        "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
-        "5cc6dafd-9a03-497d-a746-581d39df58db",
-        "5a9fc48f-6b94-416e-88c7-3325d24efb85",
-        "212c972f-9876-4c34-906d-1e46cefc4380",
-        "26121484-6047-4828-919f-49c8e5363c7d",
-        "98bbbe49-ef4a-4acd-9165-232fac007486",
-        "8497f629-c8e0-41e5-b8ee-3ca5c866475d"
+        "3cafe206-a3e1-43d4-a22c-d684d558f998",
+        "8c62965c-9be6-4c6d-a3a5-bcd96cbc992d",
+        "b82dbb2c-cbc3-46d6-bab2-43bb107135ab",
+        "d6ca6737-46ba-4790-8308-9173c146e312",
+        "a2bc42fb-b576-4e0d-b3bb-755f9e2ab12e",
+        "f9cd44d9-dc42-4fcf-b7b6-d1f7984a90c6",
+        "93958757-d99e-40ac-9681-c941a84f5e13",
+        "629cf9cf-f796-48b3-b5ff-294d4e7009bf",
+        "7676be9e-c601-451f-896f-70d29d759dd8",
+        "850bb4ba-1437-4875-9c18-6a221ba616e8",
+        "750d78fe-78aa-40a7-8cb2-49438d3534b0",
+        "159bdf93-1c5c-49da-9969-a5be2118c8ff",
+        "cf9914ea-723b-48aa-9c74-ab2a44489463",
+        "c5327c66-dd37-45d8-acec-7b52d78da3cd",
+        "0bc1b97b-fa84-4270-a648-315f2dd2f2a7"
       ],
       "settings": {
         "wishlist": true,
@@ -811,7 +823,22 @@
         "module_padding": 10
       }
     },
-    "c21deb88-82ba-42cd-8b8a-9516d11e23cf": {
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "countdown-enabled": true,
+        "countdown-sale-text": "Memorial day SALE",
+        "countdown-sale-starts": "",
+        "countdown-sale-ends": "",
+        "countdown-sale-countdown": "24",
+        "countdown-unwanted-collections": [
+
+        ],
+        "countdown-sale-accent": "#ff0000",
+        "countdown-sale-text-col": "#ffffff"
+      }
+    },
+    "6910cb6e-7791-4494-a663-9fa82c1b25aa": {
       "type": "curalate-gallery",
       "settings": {
         "gallery_id": "gallery-zfEKaK3p",
@@ -821,11 +848,11 @@
     }
   },
   "order": [
-    "b11701cc-945d-43fe-8b29-77d888aec849",
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
-    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
-    "c21deb88-82ba-42cd-8b8a-9516d11e23cf"
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
+    "6910cb6e-7791-4494-a663-9fa82c1b25aa"
   ]
 }

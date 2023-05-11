@@ -75,6 +75,9 @@ body .floating-labels .product-label--sale {
     border-color: var(--sale-accent);
     background: var(--sale-background);
 }
+body .floating-labels .product-label--sale .custom-dash {
+    border: 2px dotted black;
+}
 
 body .floating-labels .product-label--extra-sale {
     color: var(--extra-sale-accent);
@@ -100,11 +103,14 @@ body .floating-labels .product-label--extra-sale {
         height: 90px;
         top: 0;
     }
-
-    .product-unit .product-label--badge {
-        display: none;
+    .product-label--badge.product-label--badge-mobile-top {
+        top: 35px;
     }
-
+    .product-label--badge.product-label--badge-collection-page {
+        right: 11.01px;
+        bottom: 37.01px;
+        transform: rotate(17.38deg)!important;
+    }
     .floating-labels {
         flex-direction: column;
     }
