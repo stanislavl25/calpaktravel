@@ -1,4 +1,4 @@
-    <div class="collection-image-banner-wrapper {{ collection.handle }}">
+    <div class="collection-image-banner-wrapper {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
 
         {% case block.settings.media-type %}  
             {% when 'video' %}
@@ -21,9 +21,6 @@
         </div>
     </div>
     <style>
-        .page__header {
-            display: none!important
-        }
         .shopify-section--collection-image-banner.banner-active {
             height: calc({{ block.settings.banner-media-height }}px + 297px);
         }
@@ -53,7 +50,7 @@
             position: absolute;
             {% comment %} right: 0; {% endcomment %}
             top: 0;
-            width: calc(100% - 36px);
+            width: 100%;
             border-radius: 9px;
             object-fit: cover;
             object-position: center;
@@ -118,14 +115,35 @@
                 .{{ collection_item.handle }}.collection-image-banner-wrapper{
                     display: flex;
                 }
+            .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.desktop {
+                display: flex;
+            }
+            .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.mobile {
+                    display: none;
+            }
+            @media (max-width: 649px) {
+                .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.desktop {
+                    display: none;
+                }
+                .{{ collection_item.handle }}.collection-image-banner-wrapper.banner--{{block.id}}.mobile {
+                        display: flex;
+                }
+            }
             {% endfor %}
         {% else %} 
             .collection-image-banner-wrapper{
                 display: flex;
             }
         {% endif %}  
-
-        @media (max-width: 600px) {
+        @media (max-width:900px){
+            .collection-image-banner-wrapper {
+                grid-column: 1 / span 3;
+            }
+            .collection-image-banner-text {
+                font-size: 65px;
+            }
+        }
+        @media (max-width: 649px) {
             .shopify-section--collection-image-banner {
                 margin-top: 25px;
                 grid-column: 1 / span 2;
@@ -146,7 +164,7 @@
                 height: {{ block.settings.banner-media-height-mobile }}px;
                 right: unset;
                 border-radius: 6px;
-                width: calc(100% - 20px);
+                width: 100%;
             }
             .collection-image-banner-text-wrapper {
                 padding-inline: 14px;

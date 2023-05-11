@@ -126,7 +126,6 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
 
     productGrid.classList.add(`${dataCollection}`);
     
-    console.log('dataCollection' + dataCollection);
     let clickingActive = false;
     if(actives.length) actives.forEach(active => {
         if(active == target) clickingActive = true;
