@@ -66,7 +66,7 @@
                     {% endif %}
                 "
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                {% unless product.handle contains "starter-bundle"%}  
+                {% unless product.handle contains "starter-bundle" and template contains 'collection'%}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                   {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
