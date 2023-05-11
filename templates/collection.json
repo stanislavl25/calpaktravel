@@ -59,6 +59,7 @@
         },
         "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": ". . . New",
             "title": "New Arrivals",
@@ -823,7 +824,10 @@
       "settings": {
         "gallery_id": "gallery-zfEKaK3p",
         "title": "Summer Arrivals + You",
-        "subtitle": ""
+        "subtitle": "",
+        "collection_list": [
+
+        ]
       }
     }
   },
