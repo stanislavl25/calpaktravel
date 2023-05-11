@@ -880,8 +880,8 @@ function activateCart() {
 ///////////////////////// TIMERS ///////////////////////////
 function updateTimeouts(countdown_ticks) {
     for(let i = 0; i < countdown_ticks.length; i++) {
-        console.log('testing')
-        console.log(countdown_ticks[i]);
+        //console.log('testing')
+        //console.log(countdown_ticks[i]);
         let time_left = countdown_ticks[i].getAttribute('data-time');
         if (!time_left) {
             time_left = countdown_ticks[i].getAttribute('data-time-left');
