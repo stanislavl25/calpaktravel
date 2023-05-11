@@ -507,6 +507,16 @@
     "3655ee82-744b-460a-903e-46737e577fe6": {
       "type": "memorial-day-sale-promo-banner",
       "settings": {
+        "countdown-enabled": true,
+        "countdown-sale-text": "Memorial day SALE",
+        "countdown-sale-starts": "May 11 2023, 6:00pm",
+        "countdown-sale-ends": "May 12 2023, 6:00pm",
+        "countdown-sale-countdown": "48",
+        "countdown-unwanted-collections": [
+
+        ],
+        "countdown-sale-accent": "#f00",
+        "countdown-sale-text-col": "#fff"
       }
     }
   },
