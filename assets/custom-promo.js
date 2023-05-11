@@ -13,9 +13,11 @@ if(promoBarCells.length > 1) {
             index = 0;
             setTimeout(() => {
                 cells.classList.add('promo-bar__cells--back');
+
                 setTimeout(() => {
                     cells.style.setProperty('--page', index);
-                }, 100);
+                }, 0);
+
                 setTimeout(() => {
                     cells.classList.remove('promo-bar__cells--back');
                 }, 340);
