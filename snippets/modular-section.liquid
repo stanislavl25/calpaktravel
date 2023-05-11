@@ -77,7 +77,7 @@
                     else
                         assign video_url_l = block.settings.video_l.sources[2].url
                     endif
-                    echo '<video autoplay muted loop class="modular-section-video"><source src="' | append: video_url_l | append: '" type="video/mp4"></video>'
+                    echo '<video autoplay muted loop playsinline class="modular-section-video"><source src="' | append: video_url_l | append: '" type="video/mp4"></video>'
                 else
                     if block.settings.image_mobile != blank and block.settings.image != blank
                         render 'image' with block.settings.image, lazy: true, sizes: size, class: 'hide-small'
@@ -147,7 +147,7 @@
                     else
                         assign video_url_r = block.settings.video_r.sources[2].url
                     endif
-                    echo '<video autoplay muted loop class="modular-section-video"><source src="' | append: video_url_r | append: '" type="video/mp4"></video>'
+                    echo '<video autoplay muted loop playsinline class="modular-section-video"><source src="' | append: video_url_r | append: '" type="video/mp4"></video>'
                 else
                     if block.settings.image_mobile_r != blank and block.settings.image_r != blank
                         render 'image' with block.settings.image_r, lazy: true, sizes: size, class: 'hide-small'

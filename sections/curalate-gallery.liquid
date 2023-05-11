@@ -1,6 +1,21 @@
 {{ 'section-curalate.css' | asset_url | stylesheet_tag }}
-
-<header class="curalate-gallery__header">
+<style>   
+#shopify-section-template--{{section.id}}{
+    display:none;
+}
+{% if section.settings.collection_list != empty %}
+    {% for collection_item in section.settings.collection_list %}
+        .shopify-section--curalate:has(.{{ collection_item.handle}}){
+        display:flex;
+    }
+    {% endfor %}
+{% else %}
+.shopify-section--curalate:has(.curalate-gallery_embed){
+    display:flex!important;
+}
+{% endif %}
+</style>
+<header class="curalate-gallery__header gallery--{{section.id}} {{collection-handle}}">
     <aside>
         {% if section.settings.title %}<h2 class="curalate-gallery__title">{{section.settings.title}}</h2>{% endif %}
         {% if section.settings.subtitle %}<div class="curalate-gallery__subtitle">{{section.settings.subtitle}}</div>{% endif %}
@@ -34,7 +49,14 @@
                 "id": "subtitle",
                 "label": "Subheading",
                 "default": "Tag your adventures @calpak #calpaktravel."
-              }
+              },
+              {
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Collections to display on",
+                "limit": 50,
+                "info": "if no collections are selected, it will be displayed sitewide"
+              }             
         ],
         "presets": [
             {

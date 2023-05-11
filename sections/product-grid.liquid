@@ -31,33 +31,6 @@
     height:100%;
     display: block;
 }
-    video.modular-block-video {
-    border-radius: 9px;
-    object-fit: cover;
-    width:100%;
-    height:100%;
-    display: block;
-    }
-    .modular-block.desktop{
-    display: flex!important;
-}
-.modular-block.mobile{
-    display: none!important;
-}
-.modular-block.both{
-    display: flex;
-}
-@media (max-width:649px){
-    .modular-block.desktop{
-    display: none!important;
-    }
-    .modular-block.mobile{
-        display: flex!important;
-    }
-    .modular-block.both{
-        display: flex;
-    }
-}
 .modular-block .video-iframe-container .vp-video-wrapper.transparent {
     border-radius: 9px;
 }
@@ -72,15 +45,9 @@
     {% if template == 'collection' or 'summer-arrival' %}
         {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
-                {% if collection_item.handle == collection.handle %}
-                    .modular-block, .modular-section__wrap, .static-video-desktop
-                .static-video-mobile {
-                   display:flex!important;
-                }
-                .product-unit__image > .f-loaded {
+                .{{ collection_item.handle }} .product-unit__image > .f-loaded {
                     object-position:-1000px!important;
                 }
-                {% else %} 
                 .{{ collection_item.handle }} .modular-block:not(.d-none), 
                 .{{ collection_item.handle }} .modular-section__wrap:not(.d-none), 
                 .{{ collection_item.handle }} .static-video-desktop:not(.d-none),
@@ -90,7 +57,26 @@
                 .{{ collection_item.handle }} .product-unit__image > .f-loaded {
                     object-position:-1000px!important;
                 }
-                {% endif %}
+                .{{ collection_item.handle }} .modular-block.desktop{
+                    display: flex!important;
+                }
+                .{{ collection_item.handle }} .modular-block.mobile{
+                    display: none!important;
+                }
+                .{{ collection_item.handle }} .modular-block.both{
+                    display: flex;
+                }
+                @media (max-width:649px){
+                    .{{ collection_item.handle }} .modular-block.desktop{
+                    display: none!important;
+                    }
+                    .{{ collection_item.handle }} .modular-block.mobile{
+                        display: flex!important;
+                    }
+                    .{{ collection_item.handle }} .modular-block.both{
+                        display: flex;
+                    }
+                }
             {% endfor %}
         {% else %}
                 .modular-block, .modular-section__wrap, .static-video-desktop
@@ -890,4 +876,4 @@
             }
         ]
     }
-{% endschema %}:not(.d-none)
+{% endschema %}
