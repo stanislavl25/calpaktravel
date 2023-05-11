@@ -21,12 +21,7 @@
                 endif
             endfor
         endif
-
-
-        assign text_tilt = false
-        if template contains "collection"
-            assign text_tilt = settings.sale-badge-text-tilt
-        endif
+        assign text_tilt = settings.sale-badge-text-tilt
         case settings.desktop-badge-placement
             when 'top'
                 assign badge_placement_top_desktop = true
