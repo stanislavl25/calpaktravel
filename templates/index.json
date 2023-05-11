@@ -39,10 +39,10 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Get 45% off the Starter Bundle",
-            "description": "<p>Our 8-piece starter set for $299!<\/p>",
-            "main-link": "shopify:\/\/products\/starter-bundle",
-            "button-text": "Shop Now",
+            "title": "Meet the Luka Large Duffel",
+            "description": "<p>Plus, more fresh arrivals in thirst-quenching summer colors. <\/p>",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
+            "button-text": "Shop Summer Arrivals",
             "add-link-to-button-only": true,
             "secondary-button-text": "",
             "secondary-button-url": "",
@@ -56,10 +56,9 @@
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_2.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2399-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
             "title": "",
             "description": "",
             "button-text": "",
@@ -72,9 +71,9 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0622_1-3.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
             "title": "",
             "description": "",
             "button-text": "",
@@ -94,7 +93,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 105,
+        "height-limit": 100,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
