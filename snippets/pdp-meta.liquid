@@ -4,13 +4,11 @@
         <div class="pdp__feat-col">Part of <a href="{{ collection.url }}">{{- collection.title | escape -}}</a></div>
     {%- endif -%}
 
-    <div class="pdp__reviews-cont">
-        <a href="{{ product.url }}/reviews" class="pdp__reviews">
-            {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
-                {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-            {%- endif -%}
-        </a>
-    </div>
+    <a href="{{ product.url }}/reviews" class="pdp__reviews">
+        {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+            {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+        {%- endif -%}
+    </a>
 
     <div class="pdp__price">
         <div class="pdp__price-inner">

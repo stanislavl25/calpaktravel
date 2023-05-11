@@ -36,9 +36,9 @@
     position: absolute;
 }
 
-.product-unit:not(.product-unit--quickadd):focus .product-unit__swatches-container::before,
-.product-unit:not(.product-unit--quickadd):focus-within .product-unit__swatches-container::before,
-.product-unit:not(.product-unit--quickadd):hover .product-unit__swatches-container::before {
+.product-unit:focus .product-unit__swatches-container::before,
+.product-unit:focus-within .product-unit__swatches-container::before,
+.product-unit:hover .product-unit__swatches-container::before {
     opacity: 1;
 }
 

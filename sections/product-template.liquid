@@ -71,8 +71,10 @@
                         break
                     endif
                 elsif option1_arg == var_option1
+                    if variant.metafields.custom.early_access == true or early_access == false
                         assign current_variant = variant
                         break
+                    endif
                 endif
             endfor
         endif

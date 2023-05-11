@@ -147,13 +147,8 @@
 }
 
 @media (min-width: 1181px) {
-    /* .collection-view * {
+    .collection-view * {
         visibility: hidden;
-    } */
-    .col-filter--larger-active ~ .shopify-section--product-grid .product-grid {
-        max-width: 1400px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 

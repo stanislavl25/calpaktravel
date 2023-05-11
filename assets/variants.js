@@ -95,8 +95,7 @@ function variantUpdateProcess(target) {
         }
     }
 
-    const earlyAccessValue = productContainer.getAttribute('data-early-access');
-    updateProductURLs(productContainer, options, multiple, earlyAccessValue == 'all' || earlyAccessValue == 'only');
+    updateProductURLs(productContainer, options, multiple, option.hasAttribute('data-early-access'));
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));

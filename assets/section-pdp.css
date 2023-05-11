@@ -303,12 +303,12 @@
 }
 
 .pdp__feat-col,
-.pdp__reviews-cont {
+.pdp__reviews {
     grid-column: 1;
 }
 
 .pdp__reviews {
-    display: inline-flex;
+    display: flex;
     gap: 5px;
     align-items: center;
     text-decoration: inherit;

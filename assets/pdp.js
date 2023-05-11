@@ -599,12 +599,8 @@ function pdpUpdateURL(product, options) {
 
     // if(selector.variantIdField.options[selector.variantIdField.selectedIndex].classList.contains('early-access-option')) attr = 'early-access-' + attr;
 
-    if(document.location.href.indexOf('?preview_key=') === -1) {
-        let eaURL = false;
-        if(document.location.href.indexOf('/early-access') > -1) eaURL = true;
-
-        window.history.replaceState({}, '', `/products/${product.handle}/${eaURL?'early-access-':''}${attr}${url_vars}`);
-    }
+    let not_ea_url = document.location.href.indexOf('/early-access') === -1 || document.location.href.indexOf('/early-access-') > -1;
+    if(document.location.href.indexOf('?preview_key=') === -1 && not_ea_url) window.history.replaceState({}, '', '/products/' + product.handle + '/' + attr + url_vars);
 }
 
 function pdpHandleDescriptions(pdpInfo, option) {

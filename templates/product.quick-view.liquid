@@ -101,9 +101,6 @@
 
     {% form 'product', product, class: "qv__product shopify-product-form", data-handle: product.handle, data-id: product.id %}
         <script type="text/json" class="qv-meta-json">{% render 'product-meta-json' with product %}</script>
-
-        {% render 'flash-sale-label', current_variant: current_variant %}
-
         <section class="pdp__header">
             <h1 class="pdp__title"><a class="product-link" href="{{- product.url -}}">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a></h1>
 

@@ -37,11 +37,13 @@
 }
 
 /* Tablet */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .product-grid {
         grid-template-columns: repeat(var(--tablet-columns), 1fr);
     }
+}
 
+@media (max-width: 900px) {
     .promo-unit {
         grid-row: var(--row-mob);
         grid-column: span 3;

@@ -284,10 +284,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             if (
                 !earlyAccessEnabled // Disable variant if early access is not enabled for this PDP
                 ||
-                earlyAccessVar == "false"
-                ||
-                earlyAccessVar == false
-                // (earlyAccessVar != "true" && earlyAccessVar != opt1) // Disable variant if it's not the current EA variant shown
+                (earlyAccessVar != "true" && earlyAccessVar != opt1) // Disable variant if it's not the current EA variant shown
             ) continue;
         }
         
@@ -354,7 +351,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             hover = false,
             earlyAccess = false,
             videoInfo = false;
-
         if(meta) {
             if(meta.variants[variant.id].preorder) preorder = meta.variants[variant.id].preorder;
             else if(meta.preorder) preorder = meta.preorder;
@@ -362,12 +358,10 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             if(meta.variants[variant.id].videoInfo) videoInfo = meta.variants[variant.id].videoInfo;
             else if(meta.videoInfo) videoInfo = meta.videoInfo;
 
-            // if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
+            if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
 
             if(isProductUnit && meta.variants[variant.id].hover) hover = meta.variants[variant.id].hover;
         }
-
-        earlyAccess = (earlyAccessVar == 'all' || earlyAccessVar == 'only');
 
         if(colorOption !== false) {
 
@@ -684,8 +678,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             swatchesContainer.appendChild(extra_colors);
         }
     }
-    
-    // if(isProductUnit) setProductUnitSwatchesCount();
 }
 
 function activateProductUnit(target) {
@@ -709,17 +701,6 @@ function activateProductUnit(target) {
 function closeAllDropdowns() {
     const openDropdowns = document.querySelectorAll('.site-header__dropdown--active');
     if(openDropdowns.length > 0) openDropdowns.forEach(openDropdown => openDropdown.classList.remove('site-header__dropdown--active'));
-}
-
-function setProductUnitSwatchesCount() {
-    const productUnitColorsAll = document.querySelectorAll('.product-unit__colors--all .product-unit__swatches-container');
-    productUnitColorsAll.forEach(productUnitColors => {
-        const colorSwatch = productUnitColors.querySelector('.color-swatch');
-        if(!colorSwatch) return;
-
-        const prnt = productUnitColors.parentNode;
-        productUnitColors.style.setProperty('--fits', Math.floor(prnt.offsetWidth / colorSwatch.offsetWidth));
-    });
 }
 
 window.addEventListener("click", async (e) => {

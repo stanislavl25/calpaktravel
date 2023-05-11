@@ -40,13 +40,6 @@ function setQuickViewContent(data, variant, qvParent) {
         pdpFormSubmit(productForm, true);
     });
 
-    let countdown_ticks = qvParent.querySelectorAll('.countdown-timer');
-
-    if(countdown_ticks.length) {
-        updateTimeouts(countdown_ticks);
-        setInterval(() => updateTimeouts(countdown_ticks), 1000);
-    }
-
     const videos = qvParent.querySelectorAll(".video-iframe-container");
     if(videoObserver && videos.length) videos.forEach( video => videoObserver.observe(video) );
 
