@@ -41,6 +41,23 @@
         endcase
 
     -%}
+    {%- liquid
+        if settings.sale-badge-tag-bundle == blank
+            assign saleBadge-bundle = true
+        else
+            assign saleBadge-bundle = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.sale-badge-tag-bundle == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign saleBadge-bundle = true
+                    else
+                        assign saleBadge-bundle = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        endif
+    -%}
 
     {%- if settings.sale-badge-text != blank and saleBadge != false -%}
         {%- liquid
@@ -70,10 +87,11 @@
                         {% endif %}
                     {% endif %}
                 "
-                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                {% unless product.handle contains "starter-bundle"%}  
+                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %} {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}>
+                {% unless product.handle contains "starter-bundle" and template contains 'collection'%}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                   {%  else %}
+                
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
                 {% endunless %}
             </div>
@@ -81,7 +99,7 @@
                 <style>
                     .starter-customize {
                         background-color: {{ settings.starter__customizer-badge }} !important;
-                        border: 2px dotted black !important;
+                        border: 1px dotted black !important;
                         color: #000 !important;
                     }
                 </style>
@@ -105,7 +123,7 @@
     {%- endif -%}
 {%- endif -%}
 
-<div class="floating-labels">
+<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter!=false  %} promo-starter-label{%endif%}">
     {%- if location != 'pdp' -%}
 
         {%- liquid
