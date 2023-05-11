@@ -61,6 +61,7 @@
         assign disclaimer = false
 
         if settings.product-disclaimer
+            assign disclaimerTagHandle = settings.product-disclaimer-tag | handleize
             for tag in product.tags
                 assign tagSpl = tag | split: ':'
                 assign handle = tagSpl[0] | handleize
@@ -71,7 +72,9 @@
                     else
                         assign finalSale = tagSpl[1] | downcase | split: ';'
                     endif
-                elsif settings.product-disclaimer-tag == handle
+                endif
+                
+                if disclaimerTagHandle == handle
                     if tagSpl.size == 1
                         assign disclaimer = true
                     else
@@ -105,6 +108,7 @@
         {%- endif -%}
     </div>
     {%- endif -%}
+
     {%- if disclaimer != false -%}
     <div class="product-label product-label--disclaimer{% if settings.product-disclaimer-no-final %} product-label--disclaimer--no-final{% endif %}{% if disclaimer contains opt1 and disclaimer != true %} product-label--active{% endif %}"
         {% if disclaimer != true %}data-options="{{ disclaimer | join: ' ' }}"{% endif %}">
@@ -112,6 +116,7 @@
     </div>
     {%- endif -%}
 {%- endif -%}
+
 {% if template contains "product" %}
     {%- if product.handle == "clear-luggage-cover" -%}
         <div class="inlcudes-on-set unseen">

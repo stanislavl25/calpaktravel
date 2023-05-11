@@ -303,7 +303,9 @@
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
     @media (max-width: 900px) {
         *::-webkit-scrollbar {
-            display: none !important;
+            all: initial !important;
+            width: 4px !important;
+            background: #d8d8d8 !important;
         }
 
         body .slider__wrapper--nav .slider-nav.content-slider__nav {
@@ -360,5 +362,15 @@
             content: '';
             display: block !important;
         }
+        *::-webkit-scrollbar-thumb {
+            all: initial !important;
+            background: #7c7c7c !important;
+        }
+        
+        *::-webkit-scrollbar-button { all: initial !important; }
+        *::-webkit-scrollbar-track { all: initial !important; }
+        *::-webkit-scrollbar-track-piece { all: initial !important; }
+        *::-webkit-scrollbar-corner { all: initial !important; }
+        *::-webkit-resizer { all: initial !important; }
     }
 }

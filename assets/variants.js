@@ -95,7 +95,8 @@ function variantUpdateProcess(target) {
         }
     }
 
-    updateProductURLs(productContainer, options, multiple, option.hasAttribute('data-early-access'));
+    const earlyAccessValue = productContainer.getAttribute('data-early-access');
+    updateProductURLs(productContainer, options, multiple, earlyAccessValue == 'all' || earlyAccessValue == 'only');
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));
@@ -113,13 +114,13 @@ function variantUpdateProcess(target) {
         if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { optionalLabel.classList.add('product-label--active');
             
             if(optionalLabel.classList.contains('product-label--extra-sale')) {
-                productContainer.closest('.product-unit, .pdp__info').classList.add('extra-sale-active');
+                productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.add('extra-sale-active');
             }
         } else {
             optionalLabel.classList.remove('product-label--active');
             
             if(optionalLabel.classList.contains('product-label--extra-sale')) {
-                productContainer.closest('.product-unit, .pdp__info').classList.remove('extra-sale-active');
+                productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.remove('extra-sale-active');
             }
         }
     });

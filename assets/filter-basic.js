@@ -26,13 +26,18 @@ if(colViewButtons.length > 0) colViewButtons.forEach(colViewButton => colViewBut
 /////////////////////// Filter popup activators ///////////////////////
 let filterActivators = document.querySelectorAll('.filter__activator');
 if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filterActivator.addEventListener('click', async (e) => {
-
+    e.stopPropagation();
+    e.preventDefault();
     if(typeof renderColorGroups === 'undefined') {
         await loadScript(scripts.filter);
     }
 
     const filters = document.querySelector('.collection-filters');
     if(!filters.classList.contains('collection-filters--loaded')) initFilter();
+
+    if(filters.classList.contains('collection-filters-banner')) {
+        document.querySelector('.shopify-section--collection-image-banner').classList.add('banner-active');
+    }
 
     if(e.target.classList.contains('filter__activator--sort')) filters.setAttribute('data-tab', 'sort');
     else filters.setAttribute('data-tab', 'color');
@@ -74,13 +79,19 @@ window.addEventListener("load", () => {
     if(filtersCont) {
         window.addEventListener('click', () => {
             const filters = document.querySelector('.collection-filters');
+            if(filters.classList.contains('collection-filters-banner')) {
+                document.querySelector('.shopify-section--collection-image-banner').classList.remove('banner-active');
+            }
             filters.setAttribute('aria-expanded', false);
             filters.classList.remove('collection-filters--active');
         });
 
         filtersCont.addEventListener('click', e => e.stopPropagation());
     }
-    
+        /* removing class from quickview links: hide */ 
+    document.querySelectorAll('a.quick-view__link').forEach(quickviewLink => { 
+        quickviewLink.classList.remove('hide');
+    });
     productImagesSizes = filteredContainer.querySelector('.shopify-section--product-grid .product-unit .product-unit__image img');
     if(productImagesSizes) productImagesSizes = productImagesSizes.getAttribute('sizes');
 });
@@ -91,6 +102,30 @@ if(filterCollections.length) filterCollections.forEach(filterCollection => filte
     const target = e.target.closest('.filter__collection');
     const prnt = target.closest('.filter__collections');
     const actives = prnt.querySelectorAll('.filter__collection--selected');
+    const bannerImg = document.querySelector('.collection-image-banner-wrapper');
+    const productGrid = document.querySelector('section.product-grid');
+    const dataCollection = target.getAttribute('data-collection');
+
+// loop through all the classes of the div element
+    for (let i = productGrid.classList.length - 1; i >= 0; i--) {
+        const className = productGrid.classList[i];
+        if (className !== 'product-grid') { // remove the class if it's not the specific one
+        productGrid.classList.remove(className);
+        }
+    }
+    if(bannerImg){
+        for (let i = bannerImg.classList.length - 1; i >= 0; i--) {
+        const className = bannerImg.classList[i];
+        if (className !== 'collection-image-banner-wrapper') { // remove the class if it's not the specific one
+        bannerImg.classList.remove(className);
+        }
+    }
+    bannerImg.classList.add(`${dataCollection}`);
+    }
+
+
+    productGrid.classList.add(`${dataCollection}`);
+    
     let clickingActive = false;
     if(actives.length) actives.forEach(active => {
         if(active == target) clickingActive = true;

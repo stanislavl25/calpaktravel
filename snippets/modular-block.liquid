@@ -1,0 +1,146 @@
+<style>
+    .block_id--{{ block.id }} {
+        grid-row: {{ block.settings.row }} / span 1;
+        grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
+    }
+    .floating-link__pictured {
+        margin-left: 20px;
+    }
+    .floating-link {
+        left: 24px;
+        right: 24px
+    }
+    .modular-block-video {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        border-radius: 6px;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        z-index: 2;
+        display: block;
+    }
+    @media screen and (max-width:900px){
+        .block_id--{{ block.id }} {
+            grid-row: {{ block.settings.row }} / span 1;
+            grid-column: 1 / span 1;
+        }
+        .floating-link__pictured {
+            margin-left: 6px;
+        }
+        .floating-link {
+            left: 10px;
+            right: 10px
+        }
+        .modular-block-video {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            z-index: 2;
+            display: block;
+        }
+    }
+    @media screen and (max-width:649px){
+        {% if  block.settings.only_mobile %}
+            div.modular-block.block_id--{{ block.id }} {
+                display: flex!important;;
+            }
+        {% else %}
+            .block_id--{{ block.id }} {
+                grid-row: {{ block.settings.row }} / span 1;
+                grid-column: {{ block.settings.column }} / span 1;
+            }
+        {% endif%}
+        .block_id--{{ block.id }} {
+            grid-row: {{ block.settings.mobile_row }} / span 1;
+            grid-column: {{ block.settings.column_mobile }} / span {{ block.settings.col_span_mobile }};
+            min-height: 280px;
+        }
+    }
+</style>
+<div class="modular-block content-block block_id--{{ block.id }} {{ block.settings.display }}" data-span="{{ block.settings.col_span}}">
+    {%- if block.settings.description != blank or block.settings.title != blank -%}
+        <div class="content-block__info">
+            {%- if block.settings.title != blank -%}
+            <div class="content-block__title">
+                {%- if block.settings.target_link != blank -%}
+                <a class="" href="{{ block.settings.target_link }}">{{- block.settings.title | escape -}}</a>
+                {%- else -%}
+                {{- block.settings.title | escape -}}
+                {%- endif -%}
+            </div>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+            <div class="content-block__description">
+                {{- block.settings.description -}}
+            </div>
+            {%- endif -%}
+        </div>
+    {%- endif -%}
+
+    <div class="content-block__media">
+        {%- liquid
+            assign video_active = false
+            if block.settings.target_link != blank
+                echo '<a href="' | append: block.settings.target_link | append: '">'
+            endif
+
+            if block.settings.video != blank
+                assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                assign video_active = true
+                    if block.settings.video.sources[0].url contains 'mp4'
+                        assign video_url = block.settings.video.sources[0].url
+                    elsif block.settings.video.sources[1].url contains 'mp4'
+                        assign video_url = block.settings.video.sources[1].url
+                    else
+                        assign video_url = block.settings.video.sources[2].url
+                    endif
+                echo '<video autoplay muted loop playsinline class="modular-block-video"><source src="' | append: video_url | append: '" type="video/mp4"></video>'
+            else
+                if block.settings.image_mobile != blank and block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
+                elsif block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size
+                elsif block.settings.image_mobile != blank
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size
+                endif
+            endif
+
+            if block.settings.target_link != blank
+                echo '</a>'
+            endif
+        -%}
+    </div>
+
+
+    {%- if video_active != true -%}
+        {% assign pictured_products = block.settings.pictured_products %}
+        {% if pictured_products.count > 0 %}
+        <div class="floating-link">
+            <div class="floating-link__pictured">
+                <span style="margin-right: 2px;">Pictured: </span>
+                {%- for pictured_product in pictured_products -%}
+                    <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{- pictured_product.url -}}">{{- pictured_product.title | escape -}}</a>{%if forloop.last != true  %}<span>,</span>{%endif%}
+                {%- endfor -%}
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endif -%}
+</div>
+<style>
+    {% if video_active == true %}
+        .block_id--{{ block.id }} .video-iframe-container{
+            height:100%; 
+        }
+    {% endif %}
+  </style>
+

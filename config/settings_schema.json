@@ -168,9 +168,13 @@
         "default": "#F00"
       },
       {
+        "type": "header",
+        "content": "No additional discount"
+      },
+      {
         "type": "checkbox",
         "id": "product-disclaimer",
-        "label": "Enable product disclaimer text"
+        "label": "Enable disclaimer text"
       },
       {
         "type": "checkbox",
@@ -223,12 +227,6 @@
         "info": "Use %% to show actual discount"
       },
       {
-        "type": "text",
-        "id": "sale-text-pdp-mixed",
-        "label": "Sale text for PDP with mixed prices",
-        "info": "Use %% to show max discount"
-      },
-      {
         "type": "header",
         "content": "Product card messaging"
       },
@@ -237,12 +235,6 @@
         "id": "sale-text",
         "label": "Sale text for product cards",
         "info": "Use %% to show actual discount"
-      },
-      {
-        "type": "text",
-        "id": "sale-text-col-mixed",
-        "label": "Sale text for cards with mixed prices",
-        "info": "Use %% to show max discount"
       },
       {
         "type": "header",
@@ -293,12 +285,6 @@
         "info": "Use %% to show actual discount"
       },
       {
-        "type": "text",
-        "id": "extra-sale-text-pdp-mixed",
-        "label": "Sale text for PDP with mixed prices",
-        "info": "Use %% to show max discount"
-      },
-      {
         "type": "header",
         "content": "Product card messaging"
       },
@@ -307,12 +293,6 @@
         "id": "extra-sale-text",
         "label": "Sale text for product cards",
         "info": "Use %% to show actual discount"
-      },
-      {
-        "type": "text",
-        "id": "extra-sale-text-col-mixed",
-        "label": "Sale text for cards with mixed prices",
-        "info": "Use %% to show max discount"
       },
       {
         "type": "header",

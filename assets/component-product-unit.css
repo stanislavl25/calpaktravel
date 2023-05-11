@@ -1,3 +1,7 @@
+.splash a img {
+    display: none!important;
+}
+
 .product-unit {
     position: relative;
     display: flex;
@@ -214,11 +218,7 @@
 }
 
 [data-suffix*="apparel"] .product-unit__colors-text {
-    /* color: #fff; */
-    color: var(--gray);
-    background: #fff;
-    padding: 2px 6px;
-    border-radius: 6px;
+    color: #fff;
 }
 
 .product-unit__colors-text i {
@@ -335,6 +335,7 @@
 .cart__upsell-items .product-unit__button {
     display: block;
 }
+
 .product-unit__button--active {
     display: block;
 }
@@ -388,12 +389,6 @@
     max-width: 100%;
     opacity: 1;
 }
-
-/* @media (min-width: 901px) {
-    .product-unit--quickadd .product-unit__colors--all .product-unit__swatches-container {
-        max-width: min(100%, calc(var(--fits) * 28px));
-    }
-} */
 
 .product-unit--quickadd .product-unit__image-wrapper {
     border-radius: 9px;

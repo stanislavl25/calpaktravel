@@ -2,6 +2,7 @@
   "sections": {
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
@@ -38,11 +39,12 @@
         },
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
-            "title": "Meet the Luka Large Duffel",
-            "description": "<p>Plus, more fresh arrivals in thirst-quenching summer colors. <\/p>",
-            "main-link": "shopify:\/\/collections\/summer-arrivals",
-            "button-text": "Shop Summer Arrivals",
+            "title": "Get 45% off the Starter Bundle",
+            "description": "<p>Our 8-piece starter set for $299!<\/p>",
+            "main-link": "shopify:\/\/products\/starter-bundle",
+            "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "secondary-button-text": "",
             "secondary-button-url": "",
@@ -55,10 +57,12 @@
         },
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2399-2.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_2.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/summer-arrivals",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
@@ -70,10 +74,11 @@
         },
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0622_1-3.jpg",
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/summer-arrivals",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
@@ -93,7 +98,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 100,
+        "height-limit": 105,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
@@ -103,16 +108,14 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "LIMITED TIME ONLY: Get 45% off the Starter Bundle",
-            "description": "<p>Our 8-piece starter set for $545 $299!<\/p>",
-            "main-link": "shopify:\/\/products\/starter-bundle",
-            "button-text": "",
+            "title": "Meet the Luka Large Duffel",
+            "description": "<p>Plus, more fresh arrivals in thirst-quenching summer colors. <\/p>",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
+            "button-text": "Shop Summer Arrivals",
             "add-link-to-button-only": true,
             "secondary-button-text": "",
             "secondary-button-url": "",
@@ -125,28 +128,25 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_1.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_1.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2399-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": true,
-            "show-screens": "all",
+            "show-screens": "desktop",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-BANNER_d9e1b4f7-416e-4dbb-9646-6b83fc5af13b.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0622_1-3.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
             "title": "",
             "description": "",
             "button-text": "",
