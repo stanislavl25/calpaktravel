@@ -118,7 +118,7 @@
         data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-    class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
+    class="product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
     >    
     <div class="product-unit__image-wrapper splash">
         {%- if quick_view == true -%}
