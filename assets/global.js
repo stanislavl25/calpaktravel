@@ -981,7 +981,6 @@ window.addEventListener("load", () => {
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
-
 //quick add function
     const loadQuickAdd = () => {
     document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
