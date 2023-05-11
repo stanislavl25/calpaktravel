@@ -250,12 +250,16 @@ div.swym-inject,
 .hide {
     display: none !important;
 }
-
+.quick-view__link.hide{
+    display: inline-block !important;
+}
 .ratio-container {
     position: relative;
     padding-top: 50%;
 }
-
+.product-unit__image > img:last-child{
+    opacity: 0;
+}
 .ratio-container > img {
     position: absolute;
     top: 0;

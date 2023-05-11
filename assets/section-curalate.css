@@ -26,5 +26,5 @@ body  {
 }
 
 .shopify-section--curalate:has(.curalate-gallery_embed) {
-    display: flex;
+    display: none;
 }

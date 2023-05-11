@@ -982,7 +982,7 @@ window.addEventListener("load", () => {
 document.addEventListener('DOMContentLoaded', function () {
 
 //quick add function
-const loadQuickAdd = () => {
+    const loadQuickAdd = () => {
     document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
     document.querySelector('.product-grid').classList.add('product-grid--gap');
     document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
