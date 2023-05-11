@@ -123,7 +123,6 @@
             }, 0);
         }
         setTimeout(() => {
-            console.log('after stwatches loaded')
             changeTheProductImage_{{ block.settings.index }}();
             window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
         document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
@@ -137,8 +136,9 @@
         [].map.call(radioLinks_{{ block.settings.index }}, function(radioLink) {
             radioLink.addEventListener('click', function(e) {
                 setTimeout(() => {
+                    console.log('after radio clicked');
                     changeTheProductImage_{{ block.settings.index }}();
-                }, 1000);
+                }, 1500);
             })
         });
         }, 0);
