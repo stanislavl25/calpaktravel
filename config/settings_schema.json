@@ -481,6 +481,22 @@
       },
       {
         "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type": "color",
+        "id": "sale-badge-bg",
+        "label": "Background",
+        "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "sale-badge-color",
+        "label": "Text",
+        "default": "#000"
+      },
+      {
+        "type": "header",
         "content": "Display custom Badge on Starter Bundle"
       },
       {
@@ -512,22 +528,6 @@
         "id": "starter__customizer-badge",
         "label": "Background of starter bundle",
         "default": "#f7f177"
-      },
-      {
-        "type": "header",
-        "content": "Colors"
-      },
-      {
-        "type": "color",
-        "id": "sale-badge-bg",
-        "label": "Background",
-        "default": "#f7f177"
-      },
-      {
-        "type": "color",
-        "id": "sale-badge-color",
-        "label": "Text",
-        "default": "#000"
       }
     ]
   },
