@@ -117,20 +117,31 @@ const observer = new MutationObserver((mutations) => {
     }
   });
 });
-
 observer.observe(body, { attributes: true });
-const navbar = document.querySelector('.header-container');
-const stickyElement = document.querySelector('.collection-filters__section');
-const StickyElement2 = document.querySelector('.pdp__floating-submit');
 
-const observernav = new ResizeObserver(entries => {
-  for (let entry of entries) {
-    if (entry.target === navbar) {
-      const navbarHeight = navbar.offsetHeight;
-      StickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
-      stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.header-container');
+  const stickyElement = document.querySelector('.collection-filters__section');
+  const stickyElement2 = document.querySelector('.pdp__floating-submit');
+
+  const observernav = new ResizeObserver(entries => {
+    for (let entry of entries) {
+      if (entry.target === navbar) {
+        const navbarHeight = navbar.offsetHeight;
+        stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
+      }
     }
-  }
-});
+  });
 
-observernav.observe(navbar);
+  const observerSticky2 = new ResizeObserver(entries => {
+    for (let entry of entries) {
+      if (entry.target === stickyElement2) {
+        const navbarHeight = navbar.offsetHeight;
+        stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+      }
+    }
+  });
+
+  observernav.observe(navbar);
+  observerSticky2.observe(stickyElement2);
+});
