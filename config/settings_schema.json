@@ -168,13 +168,9 @@
         "default": "#F00"
       },
       {
-        "type": "header",
-        "content": "No additional discount"
-      },
-      {
         "type": "checkbox",
         "id": "product-disclaimer",
-        "label": "Enable disclaimer text"
+        "label": "Enable product disclaimer text"
       },
       {
         "type": "checkbox",
