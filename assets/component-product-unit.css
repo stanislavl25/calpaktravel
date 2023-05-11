@@ -1,3 +1,7 @@
+.splash a img {
+    display: none!important;
+}
+
 .product-unit {
     position: relative;
     display: flex;
