@@ -207,7 +207,9 @@
             </div>
         {%- when 'image-banner' -%}
             <div class="pdp-promo__media">
+                <a href="{{ block.settings.button-url }}">
                 {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+                </a>
             </div>
             <div class="pdp-promo__text-block">
                 {%- if block.settings.title != blank -%}
