@@ -697,8 +697,8 @@
           "3f948b59-6e03-4691-b1b4-bdfc944cf13c"
         ],
         "settings": {
-          "enable-gwp": false,
-          "gwp-max-number": "2"
+          "enable-gwp": true,
+          "gwp-max-number": "1"
         }
       },
       "checkout-promos": {
