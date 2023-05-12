@@ -460,6 +460,17 @@
         ]
       }
     },
+    "30abf871-7ca5-49dc-b65e-778656d00be9": {
+      "type": "page-header",
+      "settings": {
+        "title": "{{ collection.metafields.custom.collection_heading.value }}",
+        "display": "only-mobile",
+        "title-size": "medium",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
       "type": "memorial-day-sale-promo-banner",
       "settings": {
@@ -473,17 +484,6 @@
         ],
         "countdown-sale-accent": "#16ba6b",
         "countdown-sale-text-col": "#000000"
-      }
-    },
-    "30abf871-7ca5-49dc-b65e-778656d00be9": {
-      "type": "page-header",
-      "settings": {
-        "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "display": "only-mobile",
-        "title-size": "medium",
-        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
-        "button-text": "",
-        "button-link": ""
       }
     },
     "product-grid-section-id": {
@@ -834,8 +834,8 @@
   "order": [
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "collection-filter",
-    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
+    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "product-grid-section-id",
     "c21deb88-82ba-42cd-8b8a-9516d11e23cf"
   ]

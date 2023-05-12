@@ -312,13 +312,13 @@
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
-          "disabled": true,
           "settings": {
             "product-list": [
 
             ],
             "collection-list": [
-              "accessories"
+              "accessories",
+              "duffel"
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/IMG_9016-2_1.jpg",
@@ -375,9 +375,10 @@
       "settings": {
         "zoom": false,
         "gallery-limit": 5,
+        "use_media_metafields": false,
         "gallery-limit-reapply": true,
-        "specifications": "<p>{{ product.metafields.custom.specifications | metafield_tag }}<\/p>",
-        "warranty-product-level": "<p>{{ product.metafields.custom.warranty_text | metafield_tag }}<\/p>",
+        "specifications": "{{ product.metafields.custom.specifications | metafield_tag }}",
+        "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",
         "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
         "prop65-title": "Prop 65 Disclaimer",
         "prop65": "<p>Proposition 65 is a California regulation that requires special warnings to be presented to customers if a product contains chemicals known to the State of California to cause cancer, birth defects or other reproductive harm if exposure to the chemicals in those products are above the limits set by California.<\/p><p>The following warning applies to the products linking to this page. <\/p><p>WARNING Cancer and Reproductive Harm. www.P65Warnings.ca.gov<\/p>"
@@ -391,6 +392,12 @@
     "4de958ad-7312-48b5-bf6e-957bddedfa79": {
       "type": "curalate-gallery",
       "settings": {
+        "gallery_id": "gallery-zfEKaK3p",
+        "title": "Travel looks good on you.",
+        "subtitle": "Tag your adventures @calpak #calpaktravel.",
+        "collection_list": [
+
+        ]
       }
     },
     "pdp-featured-collection": {
@@ -477,7 +484,7 @@
 
         ],
         "countdown-sale-accent": "#16ba6b",
-        "countdown-sale-text-col": "#000"
+        "countdown-sale-text-col": "#000000"
       }
     }
   },
