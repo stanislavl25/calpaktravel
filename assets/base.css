@@ -369,6 +369,9 @@ div.swym-inject,
     --button-bg: #fff;
     --button-clr: #000;
 }
+.button-img-block {
+    cursor: pointer;
+}
 
 .button--outline {
     --button-bg: transparent;
