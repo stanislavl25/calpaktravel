@@ -12,7 +12,12 @@
     height: 42px;
     z-index: 2;
 }
-
+@media screen and (max-width: 900px){
+  .floating-link {
+    height: auto;
+    padding:10px;
+}
+}
 .floating-link--top {
     bottom: auto;
     top: var(--gap);

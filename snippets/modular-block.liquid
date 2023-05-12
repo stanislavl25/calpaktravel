@@ -1,24 +1,72 @@
 <style>
     .block_id--{{ block.id }} {
-        grid-row: {{ block.settings.row }} / span {{ block.settings.row_span }};
+        grid-row: {{ block.settings.row }} / span 1;
         grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
+    }
+    .floating-link__pictured {
+        margin-left: 20px;
+    }
+    .floating-link {
+        left: 24px;
+        right: 24px
+    }
+    .modular-block-video {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        border-radius: 6px;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        z-index: 2;
+        display: block;
     }
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
-            grid-column: 1 / span 2;
+            grid-column: 1 / span 1;
+        }
+        .floating-link__pictured {
+            margin-left: 6px;
+        }
+        .floating-link {
+            left: 10px;
+            right: 10px
+        }
+        .modular-block-video {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            z-index: 2;
+            display: block;
         }
     }
     @media screen and (max-width:649px){
+        {% if  block.settings.only_mobile %}
+            div.modular-block.block_id--{{ block.id }} {
+                display: flex!important;;
+            }
+        {% else %}
+            .block_id--{{ block.id }} {
+                grid-row: {{ block.settings.row }} / span 1;
+                grid-column: {{ block.settings.column }} / span 1;
+            }
+        {% endif%}
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.mobile_row }} / span 1;
-            grid-column: 1 / span 2;
-            min-height: {{ block.settings.min_height_mobile }}px;
+            grid-column: {{ block.settings.column_mobile }} / span {{ block.settings.col_span_mobile }};
+            min-height: 280px;
         }
     }
 </style>
-<div class="modular-block content-block block_id--{{ block.id }}">
-        {%- if block.settings.description != blank or block.settings.title != blank -%}
+<div class="modular-block content-block block_id--{{ block.id }} {{ block.settings.display }}" data-span="{{ block.settings.col_span}}">
+    {%- if block.settings.description != blank or block.settings.title != blank -%}
         <div class="content-block__info">
             {%- if block.settings.title != blank -%}
             <div class="content-block__title">
@@ -36,46 +84,63 @@
             </div>
             {%- endif -%}
         </div>
-        {%- endif -%}
+    {%- endif -%}
 
-        <div class="content-block__media">
-            {%- liquid
-                if block.settings.target_link != blank
-                    echo '<a href="' | append: block.settings.target_link | append: '">'
-                endif
+    <div class="content-block__media">
+        {%- liquid
+            assign video_active = false
+            if block.settings.target_link != blank
+                echo '<a href="' | append: block.settings.target_link | append: '">'
+            endif
 
-                if block.settings.video != blank
-                    assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
-
-                    render 'video' with block.settings.video, poster: block.settings.image, lazy: true, video_ratio: ratio, loop: true, controls: false, autoplay: true
-                else
-                    if block.settings.image_mobile != blank and block.settings.image != blank
-                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
-                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
-                    elsif block.settings.image != blank
-                        render 'image' with block.settings.image, height:0, lazy: true, sizes: size
-                    elsif block.settings.image_mobile != blank
-                        render 'image' with block.settings.image_mobile, lazy: true, sizes: size
+            if block.settings.video != blank
+                assign ratio = block.settings.video-ratio-w | append: '/' | append: block.settings.video-ratio-h
+                assign video_active = true
+                    if block.settings.video.sources[0].url contains 'mp4'
+                        assign video_url = block.settings.video.sources[0].url
+                    elsif block.settings.video.sources[1].url contains 'mp4'
+                        assign video_url = block.settings.video.sources[1].url
+                    else
+                        assign video_url = block.settings.video.sources[2].url
                     endif
+                echo '<video autoplay muted loop playsinline class="modular-block-video"><source src="' | append: video_url | append: '" type="video/mp4"></video>'
+            else
+                if block.settings.image_mobile != blank and block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size, class: 'hide-small'
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size, class: 'hide-large'
+                elsif block.settings.image != blank
+                    render 'image' with block.settings.image, height:0, lazy: true, sizes: size
+                elsif block.settings.image_mobile != blank
+                    render 'image' with block.settings.image_mobile, lazy: true, sizes: size
                 endif
+            endif
 
-                if block.settings.target_link != blank
-                    echo '</a>'
-                endif
-            -%}
-        </div>
-
-        {%- if block.settings.button-text != blank -%}
-        <div class="floating-link">
-            <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                <span>{{- block.settings.button-text | escpe -}}</span>
-            </a>
-
-            {% if block.settings.product_title != blank %}
-            <div class="floating-link__pictured">
-                Pictured: <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
-            </div>
-            {% endif %}
-        </div>
-        {%- endif -%}
+            if block.settings.target_link != blank
+                echo '</a>'
+            endif
+        -%}
     </div>
+
+
+    {%- if video_active != true -%}
+        {% assign pictured_products = block.settings.pictured_products %}
+        {% if pictured_products.count > 0 %}
+        <div class="floating-link">
+            <div class="floating-link__pictured">
+                <span style="margin-right: 2px;">Pictured: </span>
+                {%- for pictured_product in pictured_products -%}
+                    <a class="{% if block.settings.pictured_link == true %}quick-view__link{% endif %}" href="{{- pictured_product.url -}}">{{- pictured_product.title | escape -}}</a>{%if forloop.last != true  %}<span>,</span>{%endif%}
+                {%- endfor -%}
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endif -%}
+</div>
+<style>
+    {% if video_active == true %}
+        .block_id--{{ block.id }} .video-iframe-container{
+            height:100%; 
+        }
+    {% endif %}
+  </style>
+

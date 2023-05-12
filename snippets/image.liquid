@@ -9,7 +9,7 @@
         assign ratio = max_ratio
     endif
 -%}
-<div class="ratio-container{% if class != blank %} {{ class }}{% endif %}" style="padding-top: {{ ratio }}%">
+<div class="ratio-container{% if class != blank %} {{ class }}{% endif %}{%if splash %} splash{% endif %}" style="padding-top: {{ ratio }}%">
 {% endunless %}
 
 {%- liquid
@@ -40,6 +40,8 @@
     else
         assign img_class = ''
     endif
+
+    
 
     if asset == true
         echo image | asset_img_url: 'master' | img_tag

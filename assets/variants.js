@@ -19,12 +19,12 @@ function productUnitUpdateHover(option, productImageContainer, sizes) {
     } else if(hoverImg) hoverImg.remove();
 }
 
-function updateProductURLs(productContainer, options, multiple = false) {
+function updateProductURLs(productContainer, options, multiple = false, earlyAccess = false) {
     const handle = productContainer.getAttribute('data-handle');
-    const productLinks = productContainer.querySelectorAll('.product-link');
+    const productLinks = productContainer.querySelectorAll('.product-link, .quick-view__link');
     productLinks.forEach(productLink => {
-        if(multiple) productLink.setAttribute('href', `/products/${handle}/${options.join(',')}`);
-        else productLink.setAttribute('href', `/products/${handle}/${options[0]}`);
+        if(multiple) productLink.setAttribute('href', `/products/${handle}/${earlyAccess?'early-access-':''}${options.join(',')}`);
+        else productLink.setAttribute('href', `/products/${handle}/${earlyAccess?'early-access-':''}${options[0]}`);
     });
 }
 
@@ -37,6 +37,7 @@ function variantUpdateProcess(target) {
     const select = productContainer.querySelector('.variant-select');
     if(!select) return;
 
+    const hasSizeSelector = productContainer.querySelector('.product-unit__sizes') ? true: false;
     let location = false;
     if(productContainer.classList.contains('product-unit')) location = 'unit';
     else if(productContainer.classList.contains('shopify-product-form')) location = 'pdp';
@@ -46,10 +47,16 @@ function variantUpdateProcess(target) {
     let option = false,
         selector = `option`;
     if(location == 'unit' && options.length > 1) {
-        selector += `[data-option1="${options[0]}"]`;
+        if (hasSizeSelector) {
+            const optionSize = productContainer.querySelector('.product-unit__sizes .size-swatch.selected').dataset.title;
+            selector += `[data-option1="${options[0]}"][data-option2="${optionSize}"]`;
+        } else {
+            selector += `[data-option1="${options[0]}"]`;
+        }
         option = select.querySelector(selector + '[data-available="true"]');
-        if(!option) option = select.querySelector(selector);
-        else {
+        if(!option) {
+            option = select.querySelector(selector)
+        } else {
             options[1] = option.getAttribute('data-option2');
         }
     } else {
@@ -78,7 +85,6 @@ function variantUpdateProcess(target) {
             })
             
         } else {
-            console.log('others')
             includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                 includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
                 includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
@@ -89,8 +95,8 @@ function variantUpdateProcess(target) {
         }
     }
 
-    
-    updateProductURLs(productContainer, options, multiple);
+    const earlyAccessValue = productContainer.getAttribute('data-early-access');
+    updateProductURLs(productContainer, options, multiple, earlyAccessValue == 'all' || earlyAccessValue == 'only');
     
     const wishlistButtons = productContainer.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, option.value));
@@ -105,8 +111,18 @@ function variantUpdateProcess(target) {
     
     const optionalLabels = productContainer.closest('.product-unit, .pdp__grid, .qv__body').querySelectorAll('.product-label[data-options]');
     optionalLabels.forEach(optionalLabel => {
-        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) optionalLabel.classList.add('product-label--active');
-        else optionalLabel.classList.remove('product-label--active');
+        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { optionalLabel.classList.add('product-label--active');
+            
+            if(optionalLabel.classList.contains('product-label--extra-sale')) {
+                productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.add('extra-sale-active');
+            }
+        } else {
+            optionalLabel.classList.remove('product-label--active');
+            
+            if(optionalLabel.classList.contains('product-label--extra-sale')) {
+                productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.remove('extra-sale-active');
+            }
+        }
     });
 
     if(location == 'unit') {

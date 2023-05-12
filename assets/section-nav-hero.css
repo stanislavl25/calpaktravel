@@ -75,6 +75,9 @@
         bottom: 0;
         left: 0;
         top: auto;
+        position: relative;
+        padding: 0;
+        margin-top: var(--gap);
     }
 
     .nav-hero__item {
@@ -82,12 +85,12 @@
     }
 
     .nav-hero__media {
-        border-radius: 0 0 9px 9px;
         position: relative;
         overflow: hidden;
     }
-
-    .nav-hero__media .video-container {
+    
+    .nav-hero__media .img-sizer + .video-container {
+        border-radius: 0 0 9px 9px;
         position: absolute;
         top: 0;
         left: 0;
@@ -97,7 +100,7 @@
 }
 
 @media (max-width: 650px) {
-    .content-slider .slider__wrapper--nav::after,
+    .slider__wrapper--nav::after,
     .content-slider__nav-slide.slide--selected::after {
         display: none;
     }

@@ -29,7 +29,7 @@
         {{ page_title }}
         {%- if current_tags %} | tagged "{{ current_tags | join: ', ' }}"{% endif -%}
         {%- if current_page != 1 %} | Page {{ current_page }}{% endif -%}
-        {%- unless page_title contains shop.name %} | {{ shop.name }}{% endunless -%}
+        {%- unless page_title contains "| CALPAK" %} | CALPAK{% endunless -%}
         </title>
 
         {% if page_description %}
@@ -76,9 +76,12 @@
             --font-body-weight-black: {{ body_font_black.weight }};
             
             --sale-price-color: {{ settings.sale_price_color }};
+            --extra-sale-price-color: {{ settings.extra-sale_price_color }};
 
             --flash-accent: {{ settings.flash-sale-accent }};
             --flash-text: {{ settings.flash-sale-text-col }};
+
+            --product-disclaimer-text: {{ settings.product-disclaimer-color }};
 
             --promo-msg-hgt: {{ settings.sale-msg-highlight-col }};
             --promo-msg-hgt-t: {{ settings.sale-msg-highlight-t-col }};
@@ -94,6 +97,9 @@
 
             --sale-accent: {{ settings.sale_accent }};
             --sale-background: {{ settings.sale_background }};
+
+            --extra-sale-accent: {{ settings.extra-sale_accent }};
+            --extra-sale-background: {{ settings.extra-sale_background }};
 
             --sale-badge-bg: {{ settings.sale-badge-bg }};
             --sale-badge-color: {{ settings.sale-badge-color }};
@@ -210,6 +216,9 @@
         }
         </script>
       <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+ <!-- Extend -- Render Extend SDK Configuration script -->
+      {% render 'extend-configuration' %}
+      <!-- Extend -- End Extend code -->
 </head>
 
     <body class="template-{{ template | replace: '.', '-' }}">

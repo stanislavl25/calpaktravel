@@ -1,3 +1,6 @@
+.customer__page--form form{ 
+    position: relative; 
+} 
 .form__field-line {
     display: flex;
     box-shadow: 0 0 0 1px #000;
@@ -217,6 +220,9 @@
     }
 }
 .field__meassage-notice{
+    position: absolute;
+    width: 95%;
+    top:0;
     font-size: 16px;
     text-align: center;
     border: 1px solid #000;
@@ -224,4 +230,24 @@
     padding: 1rem;
     background: #f7f177;  
     margin-bottom: 1rem;
+}
+.field__meassage-notice .spinner{
+        position: relative;
+        display: inline-flex;
+        margin-bottom: 20px;
+}
+.field__meassage-notice .spinner:after {
+    content: "";
+    position: absolute;
+    bottom: -60%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px dashed var(--gray);
+    border-radius: 50%;
+    z-index: 1;
+    animation: rotate 1.6s infinite linear;
+}
+.hidden__register-form {
+    visibility: hidden;
 }

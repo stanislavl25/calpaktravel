@@ -57,6 +57,7 @@ ups.transitTime = {
     fetch('https://ups-eta.herokuapp.com/getEta', {
         method: 'POST',
         crossorigin: true,
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         },

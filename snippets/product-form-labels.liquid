@@ -58,8 +58,31 @@
 {%- if collection.metafields.custom.show_final_sale == true or collection == blank or location == 'pdp' -%}
     {%- liquid
         assign opt1 = current_variant.option1 | handleize
-        
-        if location != 'pdp'
+        assign disclaimer = false
+
+        if settings.product-disclaimer
+            assign disclaimerTagHandle = settings.product-disclaimer-tag | handleize
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                assign handle = tagSpl[0] | handleize
+
+                if 'final-sale' == handle
+                    if tagSpl.size == 1
+                        assign finalSale = true
+                    else
+                        assign finalSale = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+                
+                if disclaimerTagHandle == handle
+                    if tagSpl.size == 1
+                        assign disclaimer = true
+                    else
+                        assign disclaimer = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        elsif location != 'pdp'
             assign finalSale = false
             for tag in product.tags
                 assign tagSpl = tag | split: ':'
@@ -85,7 +108,15 @@
         {%- endif -%}
     </div>
     {%- endif -%}
+
+    {%- if disclaimer != false -%}
+    <div class="product-label product-label--disclaimer{% if settings.product-disclaimer-no-final %} product-label--disclaimer--no-final{% endif %}{% if disclaimer contains opt1 and disclaimer != true %} product-label--active{% endif %}"
+        {% if disclaimer != true %}data-options="{{ disclaimer | join: ' ' }}"{% endif %}">
+        {{- settings.product-disclaimer-text -}}
+    </div>
+    {%- endif -%}
 {%- endif -%}
+
 {% if template contains "product" %}
     {%- if product.handle == "clear-luggage-cover" -%}
         <div class="inlcudes-on-set unseen">

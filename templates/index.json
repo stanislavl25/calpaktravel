@@ -2,32 +2,50 @@
   "sections": {
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/220225_CALPAK_HueMini_32249_Hi-3.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/200122_CALPAK_HUE_CARRYON_FP_2005_Hi.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1074_1-4.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/hue-collection",
+            "main-link": "shopify:\/\/collections\/luggage",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": false,
-            "show-screens": "mobile",
+            "show-screens": "desktop",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "488d30f2-0c2e-491b-88cc-600019715197": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/luggage",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
         },
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
-            "title": "Meet Espresso",
-            "description": "<p>Shop our best-selling luggage collection in an indulgent new hue.<\/p>",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "title": "Get 45% off the Starter Bundle",
+            "description": "<p>Our 8-piece starter set for $299!<\/p>",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "button-text": "Shop Now",
-            "add-link-to-button-only": false,
+            "add-link-to-button-only": true,
             "secondary-button-text": "",
             "secondary-button-url": "",
             "show-screens": "all",
@@ -39,11 +57,12 @@
         },
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3723-4.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3705-4.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_2.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
@@ -55,10 +74,11 @@
         },
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-2.jpg",
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/trnk-collection",
+            "main-link": "shopify:\/\/products\/starter-bundle",
             "title": "",
             "description": "",
             "button-text": "",
@@ -71,13 +91,14 @@
       },
       "block_order": [
         "05c1be71-e898-478e-adad-1b2271f72d07",
+        "488d30f2-0c2e-491b-88cc-600019715197",
         "ee068b0d-f69b-4136-8fef-be3ec21f588f",
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd"
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 100,
+        "height-limit": 105,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
         "promo-text": "•Trnk Collection Live Now",
@@ -87,16 +108,14 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "LIMITED TIME ONLY: Get 45% off the Starter Bundle",
-            "description": "<p>Our 8-piece starter set for $545 $299!<\/p>",
-            "main-link": "shopify:\/\/products\/starter-bundle",
-            "button-text": "",
+            "title": "Meet the Luka Large Duffel",
+            "description": "<p>Plus, more fresh arrivals in thirst-quenching summer colors. <\/p>",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
+            "button-text": "Shop Summer Arrivals",
             "add-link-to-button-only": true,
             "secondary-button-text": "",
             "secondary-button-url": "",
@@ -109,28 +128,25 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_1.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_1.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2399-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
             "title": "",
             "description": "",
             "button-text": "",
             "add-link-to-button-only": true,
-            "show-screens": "all",
+            "show-screens": "desktop",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-BANNER_d9e1b4f7-416e-4dbb-9646-6b83fc5af13b.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0622_1-3.jpg",
             "video": "",
-            "main-link": "shopify:\/\/products\/starter-bundle",
+            "main-link": "shopify:\/\/collections\/summer-arrivals",
             "title": "",
             "description": "",
             "button-text": "",
@@ -487,22 +503,6 @@
         "text-color-scheme": "white",
         "background": "#ff6b0e"
       }
-    },
-    "0289f3f5-735e-4226-94a8-b23cd4ee6569": {
-      "type": "sticky-promo",
-      "settings": {
-        "product_list": [
-          "ambeur-2-piece-luggage-set"
-        ],
-        "collection_list": [
-          "trnk-collection"
-        ],
-        "promo-image": "shopify:\/\/shop_images\/6F6A9412_1.jpg",
-        "promo-text": "Promo text",
-        "background-color": "#ff6b0e",
-        "promo-link": "",
-        "close-color-scheme": "white"
-      }
     }
   },
   "order": [
@@ -514,7 +514,6 @@
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
-    "5a6f5490-2467-4517-8d4e-1b098c285ad9",
-    "0289f3f5-735e-4226-94a8-b23cd4ee6569"
+    "5a6f5490-2467-4517-8d4e-1b098c285ad9"
   ]
 }

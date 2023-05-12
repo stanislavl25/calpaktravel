@@ -746,11 +746,29 @@
     "163784206218635dba": {
       "type": "faq-category",
       "blocks": {
+        "6645e1cc-533b-4c31-9078-9492d8964f40": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "Does my purchase come with a warranty?",
+            "answer": "<p>Yes, most of our products come with either 1 or 2-year limited warranty. Please see the Product Guarantee <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\" title=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">page<\/a> for more info. Purchases made from sample sales are sold as-is and are excluded from any warranties.<br\/><br\/>Please note, if the exact make and model of your luggage is no longer available, CALPAK will replace your luggage with something comparable.<br\/><br\/>Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\">here<\/a> to start a warranty claim. In partnership with Extend, we also have extended warranty plans available for post-purchase.<\/p>",
+            "hide": false
+          }
+        },
         "534ffa99-7529-4d0e-adde-96a4df51c747": {
           "type": "faq",
           "settings": {
             "title": "Does my purchase come with a warranty?",
-            "answer": "<p>Yes, most of our products come with either 1 or 2-year limited warranty. Please see the Product Guarantee <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\" title=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">page<\/a> for more info. Purchases made from sample sales are sold as-is and are excluded from any warranties.<br\/><br\/>Please note, if the exact make and model of your luggage is no longer available, CALPAK will replace your luggage with something comparable.<br\/><br\/>Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\">here<\/a> to start a warranty claim. In partnership with Extend, we also have extended warranty plans available for post-purchase.<\/p>",
+            "answer": "<p>Yes, most of our products come with either 1, 2, or 5-year limited warranty. Please see the Product Guarantee <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\" title=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">page<\/a> for more info. <\/p><p>Please note, if the exact make and model of your luggage is no longer available, CALPAK will replace your luggage with something comparable.<br\/><br\/>Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\">here<\/a> to start a warranty claim. In partnership with Extend, we also have extended warranty plans available for post-purchase for products purchased on calpaktravel.com.<\/p><p>Sample Sale: Sample sale purchases are sold as is and are excluded from any warranties. <\/p>",
+            "hide": false
+          }
+        },
+        "6f935cf9-d67d-4c18-9b7c-efdbf4d5472b": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "How do I purchase an Extend Warranty?",
+            "answer": "<p>We can send you a unique link to purchase Extend within 30 days. Please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a> for more information.<\/p>",
             "hide": false
           }
         },
@@ -758,7 +776,24 @@
           "type": "faq",
           "settings": {
             "title": "How do I purchase an Extend Warranty?",
-            "answer": "<p>We can send you a unique link to purchase Extend within 30 days. Please reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a> for more information.<\/p>",
+            "answer": "<p>At this time, Extend Warranties are only available for purchases made directly from calpaktravel.com. We can provide you with a post-purchase link up to 30 days from your order date. Please reach out to <a href=\"mailto:help@calpaks.com\"><span style=\"text-decoration:underline\">help@calpaks.com<\/span><\/a> for further assistance.<\/p>",
+            "hide": false
+          }
+        },
+        "4c86932e-aa03-4530-8daf-a7717112293e": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "Do I need to register for the warranty?",
+            "answer": "<p>We made it easy for you, so no warranty registration is required. Please include your receipt or proof of purchase for any warranty claims.<\/p>",
+            "hide": false
+          }
+        },
+        "98aa9247-c9ef-41e3-9a24-786fd18c7dab": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I need to register for the warranty?",
+            "answer": "<p><strong>For purchases made on calpaktravel.com:<\/strong><\/p><p>If you purchased from calpaktravel.com, you do not need to register for warranty, as your order number within our system will serve as your registration.<\/p><p><strong>For any purchases not made on calpaktravel.com:<\/strong><\/p><p>We encourage you to take advantage of our warranty registration process which will help make future warranty claims easier to process. Though not mandatory, we do require proof of purchase (we all know it's difficult to hold on to receipts for so long) to process a warranty claim to make life easier for future you! For help registering, reach out to help@calpaks.com  <\/p>",
             "hide": false
           }
         },
@@ -771,19 +806,19 @@
             "hide": false
           }
         },
+        "ca3f7175-61fe-41a9-a258-185715d97b60": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I file a warranty claim?",
+            "answer": "<p>Warranty claims must be filed via email. We are not able to start the warranty process through text message or direct messages via CALPAK's social media accounts.<\/p><p>Start the process of your warranty claim <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" title=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\"><span style=\"text-decoration:underline\">here<\/span><\/a>. If you need to file an extended warranty claim, please reach out to Extend <a href=\"https:\/\/customers.extend.com\/claims\" title=\"https:\/\/customers.extend.com\/claims\">here<\/a>.<\/p>",
+            "hide": false
+          }
+        },
         "a81a80dc-f897-41b9-8b68-c01b66b7282e": {
           "type": "faq",
           "settings": {
             "title": "Do you offer replacement parts?",
             "answer": "<p>We only replace items with manufacturing defects, which do not include damage caused by normal wear and tear, misuse, improper care, negligence, accidents, or transport damage including those from the airline.<\/p><p>We send spare parts for easy repair issues. Here's more on that:<br\/>1. Most luggage can be easily repaired with a screwdriver and spare part. It's easy and usually takes less than 5 minutes.<br\/>2. Save time instead of waiting for your luggage to be returned to us. We can send you a spare part right away, which saves you weeks of waiting on repairs.<br\/>3. Repairing your luggage creates less waste! Instead of going into the trash, you can continue using your item.<\/p><p>Please note, if the exact spare part is no longer available, CALPAK will do its best to provide you with a part that will maintain the functionality of the product. However, it may not be an exact match.<\/p><p>For warranty issues or to request a spare part, email us at <a href=\"mailto:warranty@calpaks.com\" title=\"mailto:warranty@calpaks.com\">warranty@calpaks.com<\/a>.<\/p>",
-            "hide": false
-          }
-        },
-        "ca3f7175-61fe-41a9-a258-185715d97b60": {
-          "type": "faq",
-          "settings": {
-            "title": "How do I file a warranty claim?",
-            "answer": "<p>Warranty claims must be filed via email. We are not able to start the warranty process through text message or direct messages via CALPAK's social media accounts.<br\/><\/p><p>Start the process of your warranty claim <a href=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\" title=\"https:\/\/www.calpaktravel.com\/pages\/contact-us\"><span style=\"text-decoration:underline\">here<\/span><\/a>. If you need to file an extended warranty claim, please reach out to Extend <a href=\"https:\/\/customers.extend.com\/claims\" title=\"https:\/\/customers.extend.com\/claims\">here<\/a>.<\/p>",
             "hide": false
           }
         },
@@ -796,23 +831,36 @@
             "hide": false
           }
         },
-        "98aa9247-c9ef-41e3-9a24-786fd18c7dab": {
+        "5cc5137e-291f-4159-9a7a-3e10fc9ba091": {
           "type": "faq",
           "settings": {
-            "title": "Do I need to register for the warranty?",
-            "answer": "<p>We made it easy for you, so no warranty registration is required. Please include your receipt or proof of purchase for any warranty claims.<\/p>",
+            "title": "What qualifies as proof of purchase?",
+            "answer": "<p>We accept order confirmation emails and photos of receipts as proof of purchase. Proof of purchase must include date of purchase in order to be approved. <\/p>",
+            "hide": false
+          }
+        },
+        "dcb2de5e-0e24-4127-ab66-558096f76013": {
+          "type": "faq",
+          "settings": {
+            "title": "When does my warranty period start?",
+            "answer": "<p>The warranty period begins from the date of purchase.<\/p>",
             "hide": false
           }
         }
       },
       "block_order": [
+        "6645e1cc-533b-4c31-9078-9492d8964f40",
         "534ffa99-7529-4d0e-adde-96a4df51c747",
+        "6f935cf9-d67d-4c18-9b7c-efdbf4d5472b",
         "4f9bd0b9-b741-4813-a98e-42a44ff5e40d",
+        "4c86932e-aa03-4530-8daf-a7717112293e",
+        "98aa9247-c9ef-41e3-9a24-786fd18c7dab",
         "27e4ea8c-0040-4be2-b912-d8a34330c7cf",
-        "a81a80dc-f897-41b9-8b68-c01b66b7282e",
         "ca3f7175-61fe-41a9-a258-185715d97b60",
+        "a81a80dc-f897-41b9-8b68-c01b66b7282e",
         "07ad2be4-2dae-4521-a5c8-6099c65ce3c9",
-        "98aa9247-c9ef-41e3-9a24-786fd18c7dab"
+        "5cc5137e-291f-4159-9a7a-3e10fc9ba091",
+        "dcb2de5e-0e24-4127-ab66-558096f76013"
       ],
       "settings": {
         "title": "Warranty",
