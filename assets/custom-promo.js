@@ -90,7 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let entry of entries) {
       if (entry.target === stickyElement2) {
         const navbarHeight = navbar.offsetHeight;
-        stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+        if (window.innerWidth <= 900) {
+            stickyElement2.style.top = 'auto';
+          } else {
+            stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+        }
       }
     }
   });
