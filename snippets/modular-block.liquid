@@ -10,6 +10,18 @@
         left: 24px;
         right: 24px
     }
+    .modular-block-video {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        border-radius: 6px;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        z-index: 2;
+        display: block;
+    }
     @media screen and (max-width:900px){
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
@@ -21,6 +33,18 @@
         .floating-link {
             left: 10px;
             right: 10px
+        }
+        .modular-block-video {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            z-index: 2;
+            display: block;
         }
     }
     @media screen and (max-width:649px){

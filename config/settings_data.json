@@ -15,7 +15,7 @@
     "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
     "flash-sale-starts": "May 4 2023, 10:00am",
-    "flash-sale-ends": "May 11 2023, 10:00am",
+    "flash-sale-ends": "May 13 2023, 10:00am",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
     "sale-badge-enabled": true,
@@ -26,9 +26,9 @@
     "badge_display": "both",
     "sale-badge-tag": "Final Sale",
     "sale-badge-text": "Memorial Day Sale",
+    "sale-badge-bg": "#16ba6b",
     "starter-bundle-badge": "8-Piece Travel Set",
     "sale-badge-text-starter": "Special Offer",
-    "sale-badge-bg": "#16ba6b",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
     "sale-msg-tag": "Final Sale",
@@ -516,7 +516,7 @@
               "link": "shopify:\/\/collections\/all",
               "media-title": "",
               "description": "",
-              "button-text": "Shop All",
+              "button-text": "Buy 2+ items, get 15% off",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
@@ -684,6 +684,7 @@
           },
           "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": true,
@@ -769,7 +770,7 @@
           "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "always",
-          "countdown-to": "May 11, 2023 5:40pm"
+          "countdown-to": "May 12, 2023 5:40pm"
         }
       }
     },

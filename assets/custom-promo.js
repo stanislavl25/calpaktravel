@@ -56,53 +56,6 @@ if (document.querySelector('.promo-holiday-banner')) {
     }
 }
 
-let countdown_ticks = document.querySelectorAll('.countdown-timer, .flash-sale__timer');
-if(countdown_ticks.length) {
-    setInterval(function(){
-        countdown_ticks = document.querySelectorAll('.countdown-timer, .flash-sale__timer');
-        for(let i = 0; i < countdown_ticks.length; i++) {
-            let time_left = countdown_ticks[i].getAttribute('data-time-left');
-            let flash_sale = countdown_ticks[i].classList.contains('flash-sale__timer');
-
-            time_left--;
-            countdown_ticks[i].setAttribute('data-time-left', time_left);
-            if(time_left < 0) {
-                if(flash_sale) {
-                    let activeStuff = document.querySelectorAll('.flash-sale-active');
-                    if(activeStuff.length) for( let i = 0; i < activeStuff.length; i++ ) {
-                        activeStuff[i].classList.remove('flash-sale-active');
-                        activeStuff[i].classList.add('flash-sale-ended');
-                    }
-                } else countdown_ticks[i].classList.add('countdown-timer--done');
-                return;
-            }
-
-            let d = 0;//Math.floor(time_left / 86400);
-            let h = Math.floor(time_left / 3600);
-            let m = Math.floor((time_left - h * 3600) / 60);
-            let s = time_left % 3600 % 60;
-
-            if(m < 10) m = '0' + m;
-            if(s < 10) s = '0' + s;
-
-            let timeLeftHtml = '';
-            if(d > 0) {
-                h -= 24 * d;
-                if(h < 10) h = '0' + h;
-                timeLeftHtml = '<span>' + d + 'D</span> : <span>' + h + 'H</span> : <span>' + m + 'M</span>';
-            } else {
-                if(h < 10) h = '0' + h;
-                timeLeftHtml = '<span>' + h + '</span> : <span>' + m + '</span> : <span>' + s + '</span>';
-            }
-
-            if(flash_sale) {
-                if(d > 0) countdown_ticks[i].classList.add('flash-sale__timer--days');
-                else countdown_ticks[i].classList.remove('flash-sale__timer--days');
-            }
-            countdown_ticks[i].innerHTML = timeLeftHtml;
-        }
-    }, 1000);
-}
 const body = document.body;
 const promoSection = document.getElementById('shopify-section-promo-bar');
 
@@ -117,5 +70,35 @@ const observer = new MutationObserver((mutations) => {
     }
   });
 });
-
 observer.observe(body, { attributes: true });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const navbar = document.querySelector('.header-container');
+  const stickyElement = document.querySelector('.collection-filters__section');
+  const stickyElement2 = document.querySelector('.pdp__floating-submit');
+
+  const observernav = new ResizeObserver(entries => {
+    for (let entry of entries) {
+      if (entry.target === navbar) {
+        const navbarHeight = navbar.offsetHeight;
+        stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
+      }
+    }
+  });
+
+  const observerSticky2 = new ResizeObserver(entries => {
+    for (let entry of entries) {
+      if (entry.target === stickyElement2) {
+        const navbarHeight = navbar.offsetHeight;
+        if (window.innerWidth <= 900) {
+            stickyElement2.style.top = 'auto';
+          } else {
+            stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+        }
+      }
+    }
+  });
+
+  observernav.observe(navbar);
+  observerSticky2.observe(stickyElement2);
+});

@@ -419,7 +419,7 @@
       {
         "type": "checkbox",
         "id": "countdown-label-collection-enabled",
-        "label": "Enable countdown sale as label in collection",
+        "label": "Enable Sale Label on Mobile",
         "default": true
       },
       {
@@ -486,30 +486,6 @@
         "info": "Use %% to show actual discount"
       },
       {
-        "type": "checkbox",
-        "id": "sale-msg-starter",
-        "label": "Display custom Badge on Starter Bundle",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "starter-bundle-badge",
-        "label": "Starter Bundle Message",
-        "info": "Insert here the custom starter bundle badge message"
-      },
-      {
-        "type": "text",
-        "id": "sale-badge-text-starter",
-        "label": "Starter Bundle Text",
-        "info": "Insert here the custom starter promo message"
-      },
-      {
-        "type": "color",
-        "id": "starter__customizer-badge",
-        "label": "Background of starter bundle",
-        "default": "#f7f177"
-      },
-      {
         "type": "header",
         "content": "Colors"
       },
@@ -524,6 +500,39 @@
         "id": "sale-badge-color",
         "label": "Text",
         "default": "#000"
+      },
+      {
+        "type": "header",
+        "content": "Display custom Badge on Starter Bundle"
+      },
+      {
+        "type": "checkbox",
+        "id": "sale-msg-starter",
+        "label": "Display custom Badge",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-tag-bundle",
+        "label": "Eligible products Bundle tag"
+      },
+      {
+        "type": "text",
+        "id": "starter-bundle-badge",
+        "label": "Starter Bundle Message",
+        "info": "Custom Sale Label Text"
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-text-starter",
+        "label": "Starter Bundle Text",
+        "info": "Custom Sale Bubble Text"
+      },
+      {
+        "type": "color",
+        "id": "starter__customizer-badge",
+        "label": "Background of starter bundle",
+        "default": "#f7f177"
       }
     ]
   },

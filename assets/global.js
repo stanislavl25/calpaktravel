@@ -639,6 +639,7 @@ function activateProductUnit(target) {
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
+            [...target.querySelectorAll('.splash')].map(splash => splash.classList.remove('splash'))
             target.classList.add('product-unit--loaded');
             if(window.debug) console.log('Done product', handle);
             resolve(true);
@@ -879,10 +880,17 @@ function activateCart() {
 ///////////////////////// TIMERS ///////////////////////////
 function updateTimeouts(countdown_ticks) {
     for(let i = 0; i < countdown_ticks.length; i++) {
+        //console.log('testing')
+        //console.log(countdown_ticks[i]);
         let time_left = countdown_ticks[i].getAttribute('data-time');
-
-        time_left--;
-        countdown_ticks[i].setAttribute('data-time', time_left);
+        if (!time_left) {
+            time_left = countdown_ticks[i].getAttribute('data-time-left');
+            time_left--;
+            countdown_ticks[i].setAttribute('data-time-left', time_left);
+        } else {
+            time_left--;
+            countdown_ticks[i].setAttribute('data-time', time_left);
+        }
 
         if(time_left < 0) {
             return;
@@ -980,7 +988,6 @@ window.addEventListener("load", () => {
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
-
 //quick add function
     const loadQuickAdd = () => {
     document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));

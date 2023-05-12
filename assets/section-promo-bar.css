@@ -35,7 +35,7 @@ section.promo-bar:after {
 section.promo-bar .countdown-timer {
     display: inline-flex;
     margin-left: 5px;
-    width: 64px
+    width: 75px
 }
 
 section.promo-bar .countdown-timer span {
@@ -151,7 +151,7 @@ section.promo-bar div.promo-bar-text p {
 section.promo-bar div.promo-bar-text a {
     border-bottom: 1px solid;
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
 }
 
 @media screen and (max-width: 699.9px) {
