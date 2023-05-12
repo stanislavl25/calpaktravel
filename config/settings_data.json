@@ -764,7 +764,7 @@
         "settings": {
           "show": "everywhere",
           "timeout": 3,
-          "holiday_banner": true,
+          "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
           "holiday-banner-color": "#000000",
           "countdown-active": true,
