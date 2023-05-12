@@ -558,7 +558,7 @@
               "link": "shopify:\/\/collections\/all",
               "media-title": "",
               "description": "",
-              "button-text": "Shop All",
+              "button-text": "Buy 1 get 1 free",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
@@ -661,7 +661,6 @@
         "blocks": {
           "12991d47-4af3-4f34-9881-9386bc217d60": {
             "type": "gwp-product",
-            "disabled": true,
             "settings": {
               "product": "car-organizer",
               "image": "shopify:\/\/shop_images\/COMPAKT-SMALL-GARMENT-BAG-ORCHID-LIFESTYLE1.jpg",
@@ -678,7 +677,6 @@
           },
           "3f948b59-6e03-4691-b1b4-bdfc944cf13c": {
             "type": "gwp-product",
-            "disabled": true,
             "settings": {
               "product": "silk-travel-set",
               "image": "shopify:\/\/shop_images\/COMPAKT-ZIPPERED-POUCH-SET-PINK-GRID-LIFESTYLE1.jpg",
