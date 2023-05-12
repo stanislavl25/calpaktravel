@@ -350,6 +350,24 @@
           "type": "description",
           "settings": {
           }
+        },
+        "49d95797-ef8e-490d-9e3f-59d505c32987": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": true,
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2236_1.jpg",
+            "title": "asdasdasd",
+            "text": "<p>asdasdasd<\/p>",
+            "button-text": "asdasdasd",
+            "button-url": "",
+            "live-show-id": "TEvfQuz8ZlwQb2Gnv1TU"
+          }
         }
       },
       "block_order": [
@@ -370,7 +388,8 @@
         "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
-        "460a526f-69ed-4d68-89c4-1b9152dcadf7"
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7",
+        "49d95797-ef8e-490d-9e3f-59d505c32987"
       ],
       "settings": {
         "zoom": false,
