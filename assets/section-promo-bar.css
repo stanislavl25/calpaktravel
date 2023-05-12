@@ -81,20 +81,20 @@ section.promo-bar.promo-holiday-banner .promo-bar-text a {
 
 section.promo-bar.promo-holiday-banner .promo-bar-text p {
     margin: 0;
-    display: inline
+    display: inline;
+    font-size: 16px;
 }
 
 section.promo-bar.promo-holiday-banner .promo-bar-text::before {
     content: '+';
     font-size: 20px;
     margin-right: 10px;
-    vertical-align: middle
+    vertical-align: unset
 }
 
 @media screen and (max-width: 900px) {
     section.promo-bar.promo-holiday-banner .promo-bar-text::before {
-        margin-right: 0;
-        margin-left: -5px
+        margin-right: 5px;
     }
 }
 
@@ -130,8 +130,10 @@ section.promo-bar>a:focus {
 }
 
 section.promo-bar div.promo-bar-text {
-    display: block;
-    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
     line-height: 21px;
     padding: 10px 0;
     letter-spacing: 0.05em;
