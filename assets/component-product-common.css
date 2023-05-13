@@ -224,9 +224,20 @@
 }
 
 .color-swatch--first {
-    order: -1;
+    order:-5;
 }
-
+.color-swatch.color_index__0{
+    order:-4;
+}
+.color-swatch.color_index__1{
+    order:-3;
+}
+.color-swatch.color_index__2{
+    order:-2;
+}
+.color-swatch.color_index__3{
+    order:-1;
+}
 
 .product-label--disclaimer {
     color: var(--product-disclaimer-text);
