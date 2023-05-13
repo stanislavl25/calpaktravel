@@ -748,7 +748,7 @@ p.pdp__stock-variant {
         margin: 0;
     }
 
-    .pdp__info .product-label--flash {
+    .pdp__info .shopify-product-form > .product-label--flash {
         order: -1;
     }
 
