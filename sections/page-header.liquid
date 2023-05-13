@@ -1,4 +1,4 @@
-<div class="page__header">
+<div class="page__header {{ section.settings.display }}">
     <h1 class="page__title page__title--{{ section.settings.title-size }}">
         {%- if section.settings.title != blank -%}
             {{- section.settings.title | escape -}}
@@ -36,6 +36,31 @@
                 "id": "title",
                 "label": "Title"
             },
+            {
+            "type": "select",
+            "id": "display",
+            "label": "Display rules",
+            "options": [
+                {
+                "value": "only-desktop",
+                "label": "Only Desktop"
+                },
+                {
+                "value": "only-mobile",
+                "label": "Only Mobile"
+                },
+                {
+                "value": "both",
+                "label": "Display on both"
+                },
+                {
+                "value": "hidden",
+                "label": "Hide on both"
+                }
+            ],
+            "default": "both"
+            },
+
             {
                 "type": "select",
                 "id": "title-size",

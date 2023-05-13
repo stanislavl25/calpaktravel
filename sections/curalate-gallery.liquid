@@ -1,22 +1,66 @@
 {{ 'section-curalate.css' | asset_url | stylesheet_tag }}
-
-<header class="curalate-gallery__header">
+<style>   
+#shopify-section-template--{{section.id}}{
+    display:none;
+}
+{% if section.settings.collection_list != empty %}
+    {% for collection_item in section.settings.collection_list %}
+        .shopify-section--curalate:has(.{{ collection_item.handle}}){
+        display:flex;
+    }
+    {% endfor %}
+{% else %}
+.shopify-section--curalate:has(.curalate-gallery_embed){
+    display:flex!important;
+}
+{% endif %}
+</style>
+<header class="curalate-gallery__header gallery--{{section.id}} {{collection-handle}}">
     <aside>
-        <h2 class="curalate-gallery__title">Travel looks good on you.</h2>
-        <div class="curalate-gallery__subtitle">Tag your adventures <a href="https://www.instagram.com/calpak" target="blank">@calpak</a> <a href="https://www.instagram.com/explore/tags/calpaktravel/" target="_blank">#calpaktravel</a>.</div>
+        {% if section.settings.title %}<h2 class="curalate-gallery__title">{{section.settings.title}}</h2>{% endif %}
+        {% if section.settings.subtitle %}<div class="curalate-gallery__subtitle">{{section.settings.subtitle}}</div>{% endif %}
     </aside>
     {% comment %} <aside>
         <a class="curalate-gallery__cta" href="https://www.calpaktravel.com/pages/tag-your-adventures">Shop Gallery</a>
     </aside> {% endcomment %}
 </header>
+{% if template == 'collection'%}
+<div class="curalate-gallery_embed" data-crl8-container-id="gallery-zfEKaK3p"></div>
+{% else %}
 <div class="curalate-gallery-container" crl8-container-id="product" crl8-filter="productId:'{{ product.selected_or_first_available_variant.sku }}'"></div>
+{% endif %}
 
 {% schema %}
     {
         "name": "Curalate Gallery",
         "class": "shopify-section--curalate",
         "settings": [
-        
+            {
+            "type": "text",
+            "id": "gallery_id",
+            "label": "Curalate gallery ID",
+            "default": "gallery-zfEKaK3p",
+            "info": "The gallery ID can be found in after the attribute data-crl8-container-id in the div embed code snippet."
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Travel looks good on you."
+              },
+              {
+                "type": "textarea",
+                "id": "subtitle",
+                "label": "Subheading",
+                "default": "Tag your adventures @calpak #calpaktravel."
+              },
+              {
+                "type": "collection_list",
+                "id": "collection_list",
+                "label": "Collections to display on",
+                "limit": 50,
+                "info": "if no collections are selected, it will be displayed sitewide"
+              }             
         ],
         "presets": [
             {

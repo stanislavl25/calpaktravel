@@ -228,6 +228,10 @@
     display: none;
 }
 
+.qv__body .pdp__submit-container {
+    margin-top: -12px;
+}
+
 .qv__body .product-label--badge {
     right: calc(2 * var(--gap));
     top: calc(2 * var(--gap));
@@ -253,8 +257,8 @@
         overflow-y: auto;
     }
 
-    .qv__body .product-label--flash {
-        margin-top: -20px;
+    .qv__body .pdp__submit-container {
+        margin-top: 0;
     }
 
     .qv__body-inner {

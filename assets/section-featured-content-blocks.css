@@ -82,7 +82,9 @@
     height: 100%;
     object-fit: cover;
 }
-
+.modular-block, .modular-section__wrap {
+   display: none;
+}
 @media (min-width: 901px) {
     .content-blocks:not(.content-blocks--gap) .content-block:first-child .content-block__media {
         border-radius: 9px 0 0 9px;

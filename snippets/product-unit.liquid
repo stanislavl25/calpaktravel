@@ -49,7 +49,7 @@
             assign current_variant = product.selected_or_first_available_variant
         endif
 
-        if early_access == 'all' or early_access == 'only'
+        if early_access == 'only'
             assign earlyAccessVariantFound = false
             for var in product.variants
                 assign varOpt1 = var.option1 | handleize
@@ -57,21 +57,16 @@
                     continue
                 endif
                 if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
-                    if early_access == 'only'
-                        assign current_variant = var
-                    endif
+                    assign current_variant = var
                     assign earlyAccessVariantFound = true
                     break
                 endif
             endfor
-        endif
 
-        if early_access == 'only' and earlyAccessVariantFound == false
-            assign cancelDisplay = true
-        endif
+            unless earlyAccessVariantFound
+                assign cancelDisplay = true
 
-        if early_access == 'all' and earlyAccessVariantFound == false
-            assign early_access = false
+            endunless
         endif
     endif
 
@@ -86,7 +81,7 @@
     endif
 
     assign unit_url = product.url | append: '/'
-    if early_access == 'only' or early_access == 'all'
+    if current_variant.metafields.custom.early_access and product.metafields.custom.early_access
         assign unit_url = unit_url | append: 'early-access-'
     endif
     assign unit_url = unit_url | append: opt1
@@ -106,9 +101,26 @@
             endif
         endfor
     endif
+
+    if settings.sale-badge-tag == blank
+            assign saleBadge = true
+        else
+            assign saleBadge = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.sale-badge-tag == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign saleBadge = true
+                    else
+                        assign saleBadge = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        endif
 -%}
-{%- unless cancelDisplay -%}
+
 <div
+    id="product-card__{{index}}"
     data-suffix="{{ product.template_suffix }}"
     data-handle="{{ product.handle }}"
     data-id="{{ product.id }}"
@@ -122,11 +134,11 @@
         data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-    class="product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
-    >
-    <div class="product-unit__image-wrapper">
+        class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}"
+    >    
+    <div class="product-unit__image-wrapper splash">
         {%- if quick_view == true -%}
-            <a class="quick-view__link quick-view__link--circle" href="{{ unit_url }}" title="Quick View">
+            <a class="quick-view__link quick-view__link--circle" href="{{ product.url }}" title="Quick View">
                 <img alt="Quick View" src="{{ 'quick-view-cross.svg' | asset_url }}" loading="lazy">
             </a>
         {%- endif -%}
@@ -179,7 +191,7 @@
             {%- endif -%}
         {%- endfor -%}
 
-        <a href="{{ unit_url }}" class="product-unit__image product-link">
+        <a href="{{ product.url }}" class="product-unit__image product-link">
             {%- liquid
                 if img_lazy == blank and img_lazy != false
                     assign img_lazy = true
@@ -190,11 +202,15 @@
                 if img_preload == blank
                     assign img_preload = false
                 endif
-                
-                if current_variant.featured_image != blank
-                    assign img = current_variant.featured_image
-                else
-                    assign img = product.featured_image
+                assign hover_image_url = current_variant.metafields.custom.hover_image | img_url
+                if use_lifestyle_images == false or hover_image_url == blank
+                    if current_variant.featured_image != blank
+                        assign img = current_variant.featured_image
+                    else
+                        assign img = product.featured_image
+                    endif
+                else 
+                    assign img = current_variant.metafields.custom.hover_image
                 endif
 
                 render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: sizes
@@ -209,7 +225,7 @@
     {%- endif -%}
 
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
-        <a href="{{ unit_url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
+        <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
     </div>
 
     {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
@@ -249,4 +265,3 @@
     </div>
     {%- endif -%}
 </div>
-{%- endunless -%}
