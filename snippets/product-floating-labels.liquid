@@ -82,13 +82,13 @@
                         {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
                     {% else %}
                         product-label--badge-collection-page
-                        {% if product.handle == "starter-bundle"%}    
+                        {% if product.tags contains 'sale-bubble' and settings.sale-badge-tag-bundle contains 'sale-bubble' and settings.sale-msg-starter !=false %}    
                         starter-customize custom-dash
                         {% endif %}
                     {% endif %}
                 "
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %} {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}>
-                {% unless product.handle contains "starter-bundle" and template contains 'collection'%}  
+                {% unless product.tags contains 'sale-bubble' and settings.sale-badge-tag-bundle contains 'sale-bubble' and template contains 'collection' and settings.sale-msg-starter !=false%}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                   {%  else %}
                 
@@ -100,7 +100,7 @@
                     .starter-customize {
                         background-color: {{ settings.starter__customizer-badge }} !important;
                         border: 1px dashed black !important;
-                        color: #000 !important;
+                        color: {{ settings.starter__customizer-badge-text }} !important;
                     }
                 </style>
             {% endif %}
@@ -123,7 +123,7 @@
     {%- endif -%}
 {%- endif -%}
 
-<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter!=false  %} promo-starter-label{%endif%}">
+<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter !=false and product.tags contains 'sale-bubble' %} promo-starter-label{%endif%}">
     {%- if location != 'pdp' -%}
 
         {%- liquid
@@ -221,8 +221,8 @@
         {%- endif -%}
 
     {%- endif -%}
-    {%- if settings.sale-msg-starter -%}
-        {% if product.handle == "starter-bundle" and template contains 'collection' %}
+    {%- if settings.sale-msg-starter !=false -%}
+        {% if  product.tags contains 'sale-bubble' and settings.sale-badge-tag-bundle contains 'sale-bubble' and template contains 'collection' %}
             <div class="product-label--promo starter-label">
                 {{settings.starter-bundle-badge}}
             </div>
