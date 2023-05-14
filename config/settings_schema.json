@@ -503,18 +503,18 @@
       },
       {
         "type": "header",
-        "content": "Display custom Badge on Starter Bundle"
+        "content": "Display custom Sale Badge"
       },
       {
         "type": "checkbox",
         "id": "sale-msg-starter",
-        "label": "Display custom Badge",
+        "label": "Display custom Sale Badge",
         "default": true
       },
       {
         "type": "text",
         "id": "sale-badge-tag-bundle",
-        "label": "Eligible products Bundle tag"
+        "label": "Eligible products tag"
       },
       {
         "type": "text",
@@ -531,7 +531,7 @@
       {
         "type": "color",
         "id": "starter__customizer-badge",
-        "label": "Background of starter bundle",
+        "label": "Background",
         "default": "#f7f177"
       }
     ]
