@@ -519,20 +519,24 @@
       {
         "type": "text",
         "id": "starter-bundle-badge",
-        "label": "Starter Bundle Message",
-        "info": "Custom Sale Label Text"
+        "label": "Sale Label Text"
       },
       {
         "type": "text",
         "id": "sale-badge-text-starter",
-        "label": "Starter Bundle Text",
-        "info": "Custom Sale Bubble Text"
+        "label": "Sale bubble Text"
       },
       {
         "type": "color",
         "id": "starter__customizer-badge",
         "label": "Background",
         "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "starter__customizer-badge-text",
+        "label": "Color",
+        "default": "#000"
       }
     ]
   },
