@@ -503,12 +503,12 @@
       },
       {
         "type": "header",
-        "content": "Display custom Sale Badge"
+        "content": "Display Custom Sale Badge"
       },
       {
         "type": "checkbox",
         "id": "sale-msg-starter",
-        "label": "Display custom Sale Badge",
+        "label": "Display Custom Sale Badge",
         "default": true
       },
       {
@@ -524,7 +524,7 @@
       {
         "type": "text",
         "id": "sale-badge-text-starter",
-        "label": "Sale bubble Text"
+        "label": "Sale Bubble Text"
       },
       {
         "type": "color",
