@@ -41,6 +41,7 @@
     justify-content: center;
     z-index: 5;
     font-size: 21px;
+    display: flex!important;
 }
 .product-label--badge.product-label--badge-collection-page {
     right: 11.01px;
