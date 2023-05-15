@@ -676,7 +676,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>EVERYWHERE  ((countdown))<\/p>",
+              "content": "<p>Up to 45% OFF Luggage<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": "#000000"
@@ -684,6 +684,7 @@
           },
           "37840dc1-0e40-46cc-8659-8d9469ae6df5": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": true,
@@ -698,6 +699,7 @@
           },
           "6d5ada61-5422-4ddd-8431-83d12e7f908d": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": false,
@@ -712,6 +714,7 @@
           },
           "9fa415be-78ed-4366-b763-46ea0fa97166": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": false,
@@ -726,6 +729,7 @@
           },
           "1aa906b3-b5a8-4cb9-bd30-dc27fec6b4d9": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": false,
@@ -740,6 +744,7 @@
           },
           "bb311c67-8727-4ff8-b7fe-da9334e2f39c": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": false,
               "homepage": false,
