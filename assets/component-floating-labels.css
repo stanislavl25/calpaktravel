@@ -150,7 +150,7 @@ body .floating-labels .product-label--extra-sale {
         margin-right: 0px;
     }
     .product-label--badge.product-label--badge-collection-page {
-        display: none;
+        display: none!important;
     }
     .floating-labels {
         flex-direction: column;
