@@ -475,7 +475,6 @@
     },
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
       "type": "memorial-day-sale-promo-banner",
-      "disabled": true,
       "settings": {
         "countdown-enabled": true,
         "countdown-sale-text": "Sale Ends",
@@ -485,7 +484,7 @@
         "countdown-unwanted-collections": [
           "bags"
         ],
-        "countdown-sale-accent": "#16ba6b",
+        "countdown-sale-accent": "#46da81",
         "countdown-sale-text-col": "#000000"
       }
     },
