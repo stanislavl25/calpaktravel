@@ -678,7 +678,7 @@
               "other": false,
               "content": "<p>EVERYWHERE  ((countdown))<\/p>",
               "url": "shopify:\/\/collections\/sale",
-              "background": "#6aabb6",
+              "background": "#f7f177",
               "text-color": "#000000"
             }
           },
@@ -765,7 +765,7 @@
           "show": "everywhere",
           "timeout": 3,
           "holiday_banner": false,
-          "holiday-banner-background": "#eae1cf",
+          "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "always",
