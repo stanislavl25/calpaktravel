@@ -676,7 +676,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Up to 45% OFF Luggage<\/p>",
+              "content": "<p>Up to 45% OFF Luggage ((countdown))<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": "#000000"
@@ -774,7 +774,7 @@
           "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "always",
-          "countdown-to": "May 12, 2023 6:00pm"
+          "countdown-to": "May 16, 2023 6:00pm"
         }
       }
     },
