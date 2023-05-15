@@ -452,13 +452,16 @@
         "bold-text-background": "#ffffff",
         "title-above": "Memorial Day Sale",
         "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day shipping over $300.<\/p>",
-        "hide": false,
+        "hide": true,
         "product_list": [
 
         ],
         "collection_list": [
-          "sale",
-          "luggage"
+          "luggage",
+          "all-products",
+          "bags",
+          "organizers",
+          "accessories"
         ],
         "section-id": "",
         "cta_link": "wrap",
@@ -472,6 +475,7 @@
     },
     "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
       "type": "memorial-day-sale-promo-banner",
+      "disabled": true,
       "settings": {
         "countdown-enabled": true,
         "countdown-sale-text": "Sale Ends",
