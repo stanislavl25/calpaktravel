@@ -140,6 +140,7 @@ async function pdpFormSubmit(productForm, showCart = true) {
 
     addToCart(variant_id, 1, (data) => {
             updateCart(data);
+            console.log("SE AGREGA");
             if(showCart) {
                 openCart();
             } else {
@@ -347,7 +348,7 @@ window.addEventListener("load", () => {
         const productForm = document.querySelector('.shopify-product-form');
         if(productForm) productForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            pdpFormSubmit(productForm);
+            pdpFormSubmit(productForm, true);
         });
 
         bindWaitlist(pdpGrid);
