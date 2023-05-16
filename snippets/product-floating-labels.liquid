@@ -29,27 +29,10 @@
                 assign discount = '<span class="dscnt"></span>'
             endif
         -%}
-        {% if settings.badge_display == 'both' %}
-            <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
-                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
-            </div>
-        {% elsif settings.badge_display == 'product' %}
-            {% if template contains 'product' %} 
-                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
-                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
-                </div>
-            {% endif %}
-        {% elsif settings.badge_display == 'collection' %}
-            {% if template contains 'collection' %} 
-                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
-                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
-                </div>
-            {% endif %}
-        {% endif %}
-        
+    <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+        {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
+        {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+    </div>
     {%- endif -%}
 {%- endif -%}
 

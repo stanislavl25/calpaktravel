@@ -391,26 +391,6 @@
         "default": true
       },
       {
-        "type": "select",
-        "id": "badge_display",
-        "label": "Where to display the badge",
-        "options": [
-          {
-            "value": "product",
-            "label": "Product page"
-          },
-          {
-            "value": "collection",
-            "label": "Collection"
-          },
-          {
-            "value": "both",
-            "label": "Both (collection and product)"
-          }
-        ],
-        "default": "both"
-      },
-      {
         "type": "text",
         "id": "sale-badge-tag",
         "label": "Eligible products tag"

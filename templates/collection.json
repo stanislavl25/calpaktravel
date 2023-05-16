@@ -467,7 +467,7 @@
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "display": "only-mobile",
         "title-size": "medium",
-        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
+        "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
         "button-text": "",
         "button-link": ""
       }

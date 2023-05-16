@@ -1,265 +1,222 @@
 {%- liquid
-    if product_variant == blank
-        assign product_variant = product.selected_or_first_available_variant
-    endif
+  if product_variant == blank
+    assign product_variant = product.selected_or_first_available_variant
+  endif
 -%}
-{
-    "@context":"http://schema.org/",
-    "@type":"Product",
+{ "@context":"http://schema.org/", "@type":"Product",
 
-    {% if settings.remove-words-from-titles %}
-        "name": "{{ product.title | replace: ' - Jade', '' | replace: ' - Final', '' | replace: ' - FW', '' | strip_html | escape  }}",
+{% if settings['remove-words-from-titles'] %}
+  "name": "
+  {{- product.title | replace: ' - Jade', '' | replace: ' - Final', '' | replace: ' - FW', '' | strip_html | escape -}}
+  ",
+{% else %}
+  "name": "{{ product.title | strip_html | escape }}",
+{% endif %}
+"url": "{{ product.url }}/{{ product_variant.option1 | handleize }}", "image": "
+{{- product_variant.image | img_url: 'master' -}}
+", "sku": "{{ product_variant.sku }}", "weight": "{{ product_variant.weight | weight_with_unit }}",
+
+"productID": "{{ product.id }}", "description":"
+{{- product.description | strip_html | strip | strip_newlines | replace: '"', '\"' -}}
+",
+
+"brand":{ "@type": "Thing", "name": "
+{%- if product.vendor != blank %}{{ product.vendor }}{% else %}{{ shop.name }}{% endif -%}
+" }
+
+{% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+  ,"aggregateRating": { "@type": "AggregateRating", "ratingValue": "
+  {{- product.metafields.okendo.summaryData.reviewAverageValue -}}
+  ", "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}" }
+{% elsif product.metafields.okendo.ReviewCount > 0 %}
+  ,"aggregateRating": { "@type": "AggregateRating", "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+  "ratingCount": "{{ product.metafields.okendo.ReviewCount }}" }
+{% endif %}
+,
+
+{% if aggregateProduct == blank %}
+  "offers": [
+  {% if product_variant != blank %}
+    { "@type":"Offer", "priceCurrency":"USD", "name": "{{ product.title | strip_html | escape }} -
+    {{ product_variant.title | escape }}", "price":"{{ product_variant.price | money_without_currency }}",
+    "availability": "
+    {%- if product_variant.available %}http://schema.org/InStock{% else %}http://schema.org/OutOfStock{% endif -%}
+    ", "itemCondition":"http://schema.org/NewCondition", "sku":"{{ product_variant.sku }}",
+    {% if product.options_with_values[0].values.size == 1
+      and product.options_with_values[1] != blank
+      and product.options_with_values[1].values.size > 1
+    %}
+      "url":"{{ product.url }}/{{ product_variant.option2 | handleize }}",
     {% else %}
-        "name": "{{ product.title | strip_html | escape }}",
+      "url":"{{ product.url }}/{{ product_variant.option1 | handleize }}",
     {% endif %}
-    "url": "{{ product.url }}/{{ product_variant.option1 | handleize }}",
-    "image": "{{ product_variant.image | img_url: 'master' }}",
-    "sku": "{{ product_variant.sku }}",
-    "weight": "{{ product_variant.weight | weight_with_unit }}",
+    "priceValidUntil": "{{ 'now' | date: '%s' | plus: 86400 | date: '%F' }}", "seller":{ "@type":"Store", "name":"
+    {{- shop.name -}}
+    ", "image": "{{ logo }}", "priceRange": "$$$", "address": { "@type": "PostalAddress", "streetAddress": "
+    {{- shop.address.street -}}
+    ", "addressLocality": "{{ shop.address.city }}", "addressRegion": "{{ shop.address.province }}", "postalCode": "
+    {{- shop.address.zip -}}
+    ", "addressCountry": "{{ shop.address.country }}" }, "telephone": "{{ shop.phone }}" } }
+  {% endif %}
+  {%- liquid
+    assign hidden = ''
+    assign hidden_array = false
+    assign price_min = false
+    assign price_compare_min = false
+    assign price_max = false
+    assign price_compare_max = false
+    assign count = 0
 
-    "productID": "{{ product.id }}",
-    "description":"{{ product.description | strip_html | strip | strip_newlines | replace: '"', '\"' }}",
+    for tag in product.tags
+      assign tg = tag | downcase
 
-    "brand":{
-        "@type": "Thing",
-        "name": "{% if product.vendor != blank %}{{ product.vendor }}{% else %}{{ shop.name }}{% endif %}"
-    }
-
-    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
-    ,"aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ product.metafields.okendo.summaryData.reviewAverageValue }}",
-        "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}"
-    }
-    {% elsif product.metafields.okendo.ReviewCount > 0 %}
-    ,"aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
-        "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
-    }
-    {% endif %}
-    ,
-
-    {% if aggregateProduct == blank %}
-    "offers": [
-        {% if product_variant != blank %}
-        {
-            "@type":"Offer",
-            "priceCurrency":"USD",
-            "name": "{{ product.title | strip_html | escape }} - {{ product_variant.title | escape }}",
-            "price":"{{ product_variant.price | money_without_currency }}",
-            "availability": "{% if product_variant.available %}http://schema.org/InStock{% else %}http://schema.org/OutOfStock{% endif %}",
-            "itemCondition":"http://schema.org/NewCondition",
-            "sku":"{{ product_variant.sku }}",
-            {% if product.options_with_values[0].values.size == 1 and product.options_with_values[1] != blank and product.options_with_values[1].values.size > 1 %}
-            "url":"{{ product.url }}/{{ product_variant.option2 | handleize }}",
-            {% else %}
-            "url":"{{ product.url }}/{{ product_variant.option1 | handleize }}",
-            {% endif %}
-            "priceValidUntil": "{{ "now" | date:'%s' | plus: 86400 | date:"%F" }}",
-            "seller":{
-                "@type":"Store",
-                "name":"{{ shop.name }}",
-                "image": "{{ logo }}",
-                "priceRange": "$$$",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "{{ shop.address.street }}",
-                    "addressLocality": "{{ shop.address.city }}",
-                    "addressRegion": "{{ shop.address.province }}",
-                    "postalCode": "{{ shop.address.zip }}",
-                    "addressCountry": "{{ shop.address.country }}"
-                },
-                "telephone": "{{ shop.phone }}"
-            }
-        }
-        {% endif %}
-        {%- liquid
-            assign hidden = ''
-            assign hidden_array = false
-            assign price_min = false
-            assign price_compare_min = false
-            assign price_max = false
-            assign price_compare_max = false
-            assign count = 0
-
-            for tag in product.tags
-                assign tg = tag | downcase
-
-                if tg contains 'hide:'
-                    assign tg = tg | replace: 'hide:', '' | strip
-                    if hidden != ''
-                        assign hidden = hidden | append: ','
-                    endif
-                    assign hidden = hidden | append: tg
-                    continue
-                endif
-            endfor
-
-            assign hidden_array = hidden | split: ','
-        -%}
-        {%- for prod_variant in product.variants -%}
-            {%- liquid
-                if product_variant.id == prod_variant
-                    continue
-                endif
-
-                assign sanitized_value = prod_variant.option1 | handleize 
-                if hidden_array contains sanitized_value
-                    continue
-                endif
-
-                unless early_access == 'all'
-                    if prod_variant.metafields.custom.early_access and early_access == blank or early_access == false
-                        continue
-                    endif
-
-                    if early_access == 'only' and prod_variant.metafields.custom.early_access != true or prod_variant.metafields.custom.early_access != true
-                        continue
-                    endif
-                endunless
-
-                assign sanitized_value = prod_variant.option2 | handleize
-                if hidden_array contains sanitized_value
-                    continue
-                endif
-            -%}
-            ,
-            {
-                "@type":"Offer",
-                "priceCurrency":"USD",
-                "name": "{{ product.title | strip_html | escape }} - {{ prod_variant.title | escape }}",
-                "price":"{{ prod_variant.price | money_without_currency }}",
-                "availability": "{% if prod_variant.available %}http://schema.org/InStock{% else %}http://schema.org/OutOfStock{% endif %}",
-                "itemCondition":"http://schema.org/NewCondition",
-                "sku":"{{ prod_variant.sku }}",
-                {%- if product.options_with_values[0].values.size == 1 and product.options_with_values[1] != blank and product.options_with_values[1].values.size > 1 -%}
-                "url":"{{ product.url }}/{{ prod_variant.option2 | handleize }}",
-                {%- else -%}
-                "url":"{{ product.url }}/{{ prod_variant.option1 | handleize }}",
-                {%- endif -%}
-                "priceValidUntil": "{{ "now" | date:'%s' | plus: 86400 | date:"%F" }}",
-                "seller":{
-                    "@type":"Store",
-                    "name":"{{ shop.name }}",
-                    "image": "{{ logo }}",
-                    "priceRange": "$$$",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "{{ shop.address.street }}",
-                        "addressLocality": "{{ shop.address.city }}",
-                        "addressRegion": "{{ shop.address.province }}",
-                        "postalCode": "{{ shop.address.zip }}",
-                        "addressCountry": "{{ shop.address.country }}"
-                    },
-                    "telephone": "{{ shop.phone }}"
-                }
-            }
-        {%- endfor -%}
-    ]
-
-    {% else %}
-
-    {%- liquid
-        assign hidden = ''
-        assign hidden_array = false
-        assign early_access = false
-        assign price_min = false
-        assign price_compare_min = false
-        assign price_max = false
-        assign price_compare_max = false
-        assign count = 0
-
-        if template contains 'early-access'
-            assign early_access = true
-        endif
-
-        for tag in product.tags
-            assign tg = tag | downcase
-
-            if tg contains 'hide:'
-                assign tg = tg | replace: 'hide:', '' | strip
-                if hidden != ''
-                    assign hidden = hidden | append: ','
-                endif
-                assign hidden = hidden | append: tg
-                continue
-            endif
-
-            if early_access == false and tg contains 'early-access:'
-                assign tg = tg | replace: 'early-access:', '' | strip | split: ';'
-                for ea_color in tg
-                    if hidden != ''
-                        assign hidden = hidden | append: ','
-                    endif
-                    assign hidden = hidden | append: ea_color
-                endfor
-                continue
-            endif
-        endfor
-
+      if tg contains 'hide:'
+        assign tg = tg | replace: 'hide:', '' | strip
         if hidden != ''
-            assign hidden_array = hidden | split: ','
-            for prod_variant in product.variants
-                assign sanitized_value = prod_variant.option1 | handleize
-                if hidden_array contains sanitized_value
-                    continue
-                endif
-
-                assign sanitized_value = prod_variant.option2 | handleize
-                if hidden_array contains sanitized_value
-                    continue
-                endif
-
-                assign count = count | plus: 1
-
-                if price_compare_min == false or prod_variant.compare_at_price < price_compare_min
-                    assign price_compare_min = prod_variant.compare_at_price
-                endif
-
-                if price_compare_max == false or prod_variant.compare_at_price > price_max
-                    assign price_compare_max = prod_variant.compare_at_price
-                endif
-
-                if price_min == false or prod_variant.price < price_min
-                    assign price_min = prod_variant.price
-                endif
-
-                if price_max == false or prod_variant.price > price_max
-                    assign price_max = prod_variant.price
-                endif
-            endfor
-        else
-            assign count = product.variants.size
-            assign price_min = product.price_min
-            assign price_max = product.price_max
-
-            assign price_compare_min = product.compare_at_price_min
-            assign price_compare_max = product.compare_at_price_max
+          assign hidden = hidden | append: ','
         endif
-    -%}
+        assign hidden = hidden | append: tg
+        continue
+      endif
+    endfor
 
-    "offers": {
-        "@type": "AggregateOffer",
-        "lowPrice": "{{ price_min | money_without_currency }}",
-        "highPrice": "{{ price_max | money_without_currency }}",
-        "priceCurrency": "USD",
-        "offerCount": "{{ count }}",
-        "seller":{
-            "@type":"Store",
-            "name":"{{ shop.name }}",
-            "image": "{{ logo }}",
-            "priceRange": "$$$",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "{{ shop.address.street }}",
-                "addressLocality": "{{ shop.address.city }}",
-                "addressRegion": "{{ shop.address.province }}",
-                "postalCode": "{{ shop.address.zip }}",
-                "addressCountry": "{{ shop.address.country }}"
-            },
-            "telephone": "{{ shop.phone }}"
-        }
-    }
-    {% endif %}
+    assign hidden_array = hidden | split: ','
+  -%}
+  {%- for prod_variant in product.variants -%}
+    {%- liquid
+      if product_variant.id == prod_variant
+        continue
+      endif
+
+      assign sanitized_value = prod_variant.option1 | handleize
+      if hidden_array contains sanitized_value
+        continue
+      endif
+
+      unless early_access == 'all'
+        if prod_variant.metafields.custom.early_access and early_access == blank or early_access == false
+          continue
+        endif
+
+        if early_access == 'only' and prod_variant.metafields.custom.early_access != true or prod_variant.metafields.custom.early_access != true
+          continue
+        endif
+      endunless
+
+      assign sanitized_value = prod_variant.option2 | handleize
+      if hidden_array contains sanitized_value
+        continue
+      endif
+    -%}
+    , { "@type":"Offer", "priceCurrency":"USD", "name": "{{ product.title | strip_html | escape }} -
+    {{ prod_variant.title | escape }}", "price":"{{ prod_variant.price | money_without_currency }}", "availability": "
+    {%- if prod_variant.available %}http://schema.org/InStock{% else %}http://schema.org/OutOfStock{% endif -%}
+    ", "itemCondition":"http://schema.org/NewCondition", "sku":"{{ prod_variant.sku }}",
+    {%- if product.options_with_values[0].values.size == 1
+      and product.options_with_values[1] != blank
+      and product.options_with_values[1].values.size > 1
+    -%}
+      "url":"{{ product.url }}/{{ prod_variant.option2 | handleize }}",
+    {%- else -%}
+      "url":"{{ product.url }}/{{ prod_variant.option1 | handleize }}",
+    {%- endif -%}
+    "priceValidUntil": "{{ 'now' | date: '%s' | plus: 86400 | date: '%F' }}", "seller":{ "@type":"Store", "name":"
+    {{- shop.name -}}
+    ", "image": "{{ logo }}", "priceRange": "$$$", "address": { "@type": "PostalAddress", "streetAddress": "
+    {{- shop.address.street -}}
+    ", "addressLocality": "{{ shop.address.city }}", "addressRegion": "{{ shop.address.province }}", "postalCode": "
+    {{- shop.address.zip -}}
+    ", "addressCountry": "{{ shop.address.country }}" }, "telephone": "{{ shop.phone }}" } }
+  {%- endfor -%}
+  ]
+
+{% else %}
+  {%- liquid
+    assign hidden = ''
+    assign hidden_array = false
+    assign early_access = false
+    assign price_min = false
+    assign price_compare_min = false
+    assign price_max = false
+    assign price_compare_max = false
+    assign count = 0
+
+    if template contains 'early-access'
+      assign early_access = true
+    endif
+
+    for tag in product.tags
+      assign tg = tag | downcase
+
+      if tg contains 'hide:'
+        assign tg = tg | replace: 'hide:', '' | strip
+        if hidden != ''
+          assign hidden = hidden | append: ','
+        endif
+        assign hidden = hidden | append: tg
+        continue
+      endif
+
+      if early_access == false and tg contains 'early-access:'
+        assign tg = tg | replace: 'early-access:', '' | strip | split: ';'
+        for ea_color in tg
+          if hidden != ''
+            assign hidden = hidden | append: ','
+          endif
+          assign hidden = hidden | append: ea_color
+        endfor
+        continue
+      endif
+    endfor
+
+    if hidden != ''
+      assign hidden_array = hidden | split: ','
+      for prod_variant in product.variants
+        assign sanitized_value = prod_variant.option1 | handleize
+        if hidden_array contains sanitized_value
+          continue
+        endif
+
+        assign sanitized_value = prod_variant.option2 | handleize
+        if hidden_array contains sanitized_value
+          continue
+        endif
+
+        assign count = count | plus: 1
+
+        if price_compare_min == false or prod_variant.compare_at_price < price_compare_min
+          assign price_compare_min = prod_variant.compare_at_price
+        endif
+
+        if price_compare_max == false or prod_variant.compare_at_price > price_max
+          assign price_compare_max = prod_variant.compare_at_price
+        endif
+
+        if price_min == false or prod_variant.price < price_min
+          assign price_min = prod_variant.price
+        endif
+
+        if price_max == false or prod_variant.price > price_max
+          assign price_max = prod_variant.price
+        endif
+      endfor
+    else
+      assign count = product.variants.size
+      assign price_min = product.price_min
+      assign price_max = product.price_max
+
+      assign price_compare_min = product.compare_at_price_min
+      assign price_compare_max = product.compare_at_price_max
+    endif
+  -%}
+
+  "offers": { "@type": "AggregateOffer", "lowPrice": "{{ price_min | money_without_currency }}", "highPrice": "
+  {{- price_max | money_without_currency -}}
+  ", "priceCurrency": "USD", "offerCount": "{{ count }}", "seller":{ "@type":"Store", "name":"{{ shop.name }}", "image":
+  "{{ logo }}", "priceRange": "$$$", "address": { "@type": "PostalAddress", "streetAddress": "
+  {{- shop.address.street -}}
+  ", "addressLocality": "{{ shop.address.city }}", "addressRegion": "{{ shop.address.province }}", "postalCode": "
+  {{- shop.address.zip -}}
+  ", "addressCountry": "{{ shop.address.country }}" }, "telephone": "{{ shop.phone }}" } }
+{% endif %}
 }
