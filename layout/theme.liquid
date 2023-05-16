@@ -224,7 +224,9 @@
     <body class="template-{{ template | replace: '.', '-' }}">
 
         {% unless settings.speed_debug %}
-        {% section 'header' %}
+        <div class="header-container">
+            {% section 'promo-bar' %}
+            {% section 'header' %}
 
             {% render 'wishlist-popup' %}
             {% section 'mobile-menu' %}
@@ -239,6 +241,7 @@
                 {% section 'notifications' %}
                 {% section 'header-banner' %}
             </section>
+            </div>
         {% endunless %}
 
 
