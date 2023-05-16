@@ -168,13 +168,9 @@
         "default": "#F00"
       },
       {
-        "type": "header",
-        "content": "No additional discount"
-      },
-      {
         "type": "checkbox",
         "id": "product-disclaimer",
-        "label": "Enable disclaimer text"
+        "label": "Enable product disclaimer text"
       },
       {
         "type": "checkbox",
@@ -227,6 +223,12 @@
         "info": "Use %% to show actual discount"
       },
       {
+        "type": "text",
+        "id": "sale-text-pdp-mixed",
+        "label": "Sale text for PDP with mixed prices",
+        "info": "Use %% to show max discount"
+      },
+      {
         "type": "header",
         "content": "Product card messaging"
       },
@@ -235,6 +237,12 @@
         "id": "sale-text",
         "label": "Sale text for product cards",
         "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "text",
+        "id": "sale-text-col-mixed",
+        "label": "Sale text for cards with mixed prices",
+        "info": "Use %% to show max discount"
       },
       {
         "type": "header",
@@ -285,6 +293,12 @@
         "info": "Use %% to show actual discount"
       },
       {
+        "type": "text",
+        "id": "extra-sale-text-pdp-mixed",
+        "label": "Sale text for PDP with mixed prices",
+        "info": "Use %% to show max discount"
+      },
+      {
         "type": "header",
         "content": "Product card messaging"
       },
@@ -293,6 +307,12 @@
         "id": "extra-sale-text",
         "label": "Sale text for product cards",
         "info": "Use %% to show actual discount"
+      },
+      {
+        "type": "text",
+        "id": "extra-sale-text-col-mixed",
+        "label": "Sale text for cards with mixed prices",
+        "info": "Use %% to show max discount"
       },
       {
         "type": "header",
@@ -479,6 +499,43 @@
         "type": "color",
         "id": "sale-badge-color",
         "label": "Text",
+        "default": "#000"
+      },
+      {
+        "type": "header",
+        "content": "Display Custom Sale Badge"
+      },
+      {
+        "type": "checkbox",
+        "id": "sale-msg-starter",
+        "label": "Display Custom Sale Badge",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-tag-bundle",
+        "label": "Eligible products tag"
+      },
+      {
+        "type": "text",
+        "id": "starter-bundle-badge",
+        "label": "Sale Label Text"
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-text-starter",
+        "label": "Sale Bubble Text"
+      },
+      {
+        "type": "color",
+        "id": "starter__customizer-badge",
+        "label": "Background",
+        "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "starter__customizer-badge-text",
+        "label": "Color",
         "default": "#000"
       }
     ]

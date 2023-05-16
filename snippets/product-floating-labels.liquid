@@ -1,5 +1,8 @@
 {%- liquid
     assign opt1 = current_variant.option1 | handleize
+    assign starter_bundle = collections.all.products | where: 'data-handle', 'starter-bundle'
+    assign starter_true = true
+     assign product_handle = product.handle 
 -%}
 {%- if settings.sale-badge-enabled and location != 'cart' -%}
     {%- liquid
@@ -18,6 +21,42 @@
                 endif
             endfor
         endif
+
+
+        assign text_tilt = false
+        if template contains "collection"
+            assign text_tilt = settings.sale-badge-text-tilt
+        endif
+        case settings.desktop-badge-placement
+            when 'top'
+                assign badge_placement_top_desktop = true
+            when 'bottom'
+                assign badge_placement_bottom_desktop = true
+        endcase
+        case settings.mobile-badge-placement
+            when 'top'
+                assign badge_placement_top_mobile = true
+            when 'bottom'
+                assign badge_placement_bottom_mobile = true
+        endcase
+
+    -%}
+    {%- liquid
+        if settings.sale-badge-tag-bundle == blank
+            assign saleBadge-bundle = true
+        else
+            assign saleBadge-bundle = false
+            for tag in product.tags
+                assign tagSpl = tag | split: ':'
+                if settings.sale-badge-tag-bundle == tagSpl[0]
+                    if tagSpl.size == 1
+                        assign saleBadge-bundle = true
+                    else
+                        assign saleBadge-bundle = tagSpl[1] | downcase | split: ';'
+                    endif
+                endif
+            endfor
+        endif
     -%}
 
     {%- if settings.sale-badge-text != blank and saleBadge != false -%}
@@ -30,20 +69,51 @@
             endif
         -%}
         {% if settings.badge_display == 'both' %}
-            <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
-                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+            <div 
+                class="
+                    product-label
+                    product-label--badge
+                    {% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %} 
+                    {% if text_tilt == true %}product-label--badge-tilt{% endif %}
+                    {% if template contains 'product'%}
+                        {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}
+                        {% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}
+                        {% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}
+                        {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
+                    {% else %}
+                        product-label--badge-collection-page
+                        {% if saleBadge-bundle !=false and settings.sale-msg-starter !=false %}    
+                        starter-customize custom-dash
+                        {% endif %}
+                    {% endif %}
+                "
+                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %} {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}>
+                {% unless saleBadge-bundle !=false and template contains 'collection' and settings.sale-msg-starter !=false%}  
+                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                  {%  else %}
+                
+                    {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
+                {% endunless %}
             </div>
+            {% if settings.starter__customizer-badge != blank %}
+                <style>
+                    .starter-customize {
+                        background-color: {{ settings.starter__customizer-badge }} !important;
+                        border: 1px dashed black !important;
+                        color: {{ settings.starter__customizer-badge-text }} !important;
+                    }
+                </style>
+            {% endif %}
         {% elsif settings.badge_display == 'product' %}
             {% if template contains 'product' %} 
-                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %} {% if text_tilt == true %}product-label--badge-tilt{% endif %} {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}{% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}{% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}{% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %} "
                     {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 </div>
             {% endif %}
         {% elsif settings.badge_display == 'collection' %}
             {% if template contains 'collection' %} 
-                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %}"
+                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %} {% if text_tilt == true %}product-label--badge-tilt{% endif %} {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}{% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}{% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}{% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %} "
                     {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 </div>
@@ -53,7 +123,7 @@
     {%- endif -%}
 {%- endif -%}
 
-<div class="floating-labels">
+<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter !=false and saleBadge-bundle !=false %} promo-starter-label{%endif%}">
     {%- if location != 'pdp' -%}
 
         {%- liquid
@@ -103,24 +173,14 @@
         -%}
 
         {%- if promoMsg != false -%}
-        <div class="product-label product-label--promo{% if promoMsg contains opt1 and promoMsg != true %} product-label--active{% endif %}"
-            {% if promoMsg != true %}data-options="{{ promoMsg | join: ' ' }}"{% endif %}>
-            {%- if settings.sale-msg-highlighted != blank -%}
-                {{- settings.sale-msg-highlighted | escape -}}
-            {%- endif -%}
-        </div>
+            <div class="product-label product-label--promo{% if promoMsg contains opt1 and promoMsg != true %} product-label--active{% endif %}"
+                {% if promoMsg != true %}data-options="{{ promoMsg | join: ' ' }}"{% endif %}>
+                {%- if settings.sale-msg-highlighted != blank -%}
+                    {{- settings.sale-msg-highlighted | escape -}}
+                {%- endif -%}
+            </div>
         {%- endif -%}
     {%- endif -%}
-
-    {%- liquid
-        if location == 'pdp'
-            assign saleMessage = settings.sale-text-pdp
-            assign extraSaleMessage = settings.extra-sale-text-pdp
-        else
-            assign saleMessage = settings.sale-text
-            assign extraSaleMessage = settings.extra-sale-text
-        endif
-    -%}
 
     {%- if settings.sale-enabled -%}
         {%- liquid
@@ -141,7 +201,7 @@
             endif
         -%}
 
-        {%- if saleMessage != blank and sale != false -%}
+        {%- if settings.sale-text-pdp != blank and sale != false -%}
             {%- liquid
                 if current_variant.compare_at_price > current_variant.price
                     assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
@@ -152,12 +212,21 @@
                     assign discounted = false
                 endif
             -%}
-        <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
-            {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
-            {{- saleMessage | escape | replace: '%%', discount -}}
-        </div>
+        
+            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if settings.sale-msg-starter !=false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle !=false  and template contains 'collection' %}    
+        starter-customize{% endif %}{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+                {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
+                {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
+            </div>
         {%- endif -%}
 
+    {%- endif -%}
+    {%- if settings.sale-msg-starter !=false -%}
+        {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle !=false and template contains 'collection' %}
+            <div class="product-label--promo starter-label">
+                {{settings.starter-bundle-badge}}
+            </div>
+        {% endif %}
     {%- endif -%}
 
     {%- if settings.extra-sale-enabled -%}
@@ -179,7 +248,7 @@
             endif
         -%}
 
-        {%- if extraSaleMessage != blank and sale != false -%}
+        {%- if settings.extra-sale-text-pdp != blank and sale != false -%}
             {%- liquid
                 if current_variant.compare_at_price > current_variant.price
                     assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
@@ -192,7 +261,7 @@
             -%}
         <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--extra-sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
             {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
-            {{- extraSaleMessage | escape | replace: '%%', discount -}}
+            {{- settings.extra-sale-text-pdp | escape | replace: '%%', discount -}}
         </div>
         {%- endif -%}
 
