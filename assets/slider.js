@@ -121,6 +121,7 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
     if(!slider) return;
     let wrapper = slider.closest('.slider__wrapper');
     if(!wrapper) return;
+
     const slides = slider.querySelectorAll('.slide');
     let firstSlide = slides[sliderCheckNum];
     if(!firstSlide) firstSlide = slider.querySelector('*');

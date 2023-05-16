@@ -93,12 +93,9 @@ function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeS
                         // getting the variantion selectedAssigned
                         if(quickView) {
                             correctVariantPrice = prod.variants.find((variant) => variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())?.price || prod.variants[0].price;
-                            console.log(document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())
                         } else {
                             correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))?.price || prod.variants[0].price;
-                            console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))
                         }
-                        console.log(correctVariantPrice)
                     } else {
                         correctVariantPrice = prod.variants[0].price
                     }

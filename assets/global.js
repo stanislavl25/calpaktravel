@@ -1054,10 +1054,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 sliderWrapper.setAttribute('data-slide-mob', 3);
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+                
+                
+                console.log('check slide')
                 checkSlider(sliderWrapper.querySelector('.slider'));
             });
         }
-        
+
         loadQuickAdd();
         document.addEventListener("shopify:section:load", loadQuickAdd);
         document.addEventListener("shopify:section:change", loadQuickAdd);
@@ -1073,4 +1076,41 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    const updatingLabelsOnProductUnits = () => {
+        console.log('updatingLabelsOnProductUnits')
+        let featuredSection = document.querySelector('.shopify-section--pdp-featured');
+        [...featuredSection.querySelectorAll('.product-unit')].map(productUnit => {
+            let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active')
+            
+            if (firstSwatch) {
+                variantUpdateProcess(firstSwatch);
+            }
+        });
+    }
+    let loading = false;
+    let updatingLabelsOnProductUnitsIntervalId = setInterval(() => {
+        console.log(`trying updatingLabelsOnProductUnitsIntervalId`)
+        if(document.querySelector('.shopify-section--pdp-featured')) {
+            try {
+                updatingLabelsOnProductUnits()
+                clearInterval(updatingLabelsOnProductUnitsIntervalId);
+            } catch (e) {
+                console.log('variantUpdateProcess not loaded tying again')
+                if(typeof variantUpdateProcess == 'undefined') {
+                    if(loading == false) {
+                        loadScript(scripts.variants);
+                        loading = true;
+                    }
+                }
+            }
+        }
+    }, 1500);
+
+
+    updatingLabelsOnProductUnits();
+    document.addEventListener("shopify:section:load", updatingLabelsOnProductUnits);
+    document.addEventListener("shopify:section:change", updatingLabelsOnProductUnits);
+    document.addEventListener('page:load', updatingLabelsOnProductUnits);
+    document.addEventListener('page:change', updatingLabelsOnProductUnits);
 });

@@ -29,6 +29,7 @@ function updateProductURLs(productContainer, options, multiple = false, earlyAcc
 }
 
 function variantUpdateProcess(target) {
+    console.log(target)
     if(window.location.pathname.includes('product')) {
         changeBadgeAbsolutePosition(); // defined on pdp.js
     }
