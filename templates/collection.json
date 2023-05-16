@@ -14,8 +14,8 @@
 
         ],
         "collection_list": [
+          "all",
           "luggage",
-          "all-products",
           "bags",
           "organizers",
           "accessories"
