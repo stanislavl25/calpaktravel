@@ -278,6 +278,12 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         current_variant = match || backupMatch;
         variantAutoSelected = false;
+
+        const handle = target.getAttribute('data-handle');
+        const productLinks = target.querySelectorAll('.product-link, .quick-view__link');
+        productLinks.forEach(productLink => {
+            productLink.setAttribute('href', `/products/${handle}/${handleize(current_variant.option1)}`);
+        });
     }
 
     if(current_variant === false) for(let i = 0; i < availableVariants.length; i++) {
