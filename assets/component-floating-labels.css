@@ -25,6 +25,9 @@
 }
 
 .product-label--badge {
+    display: none;
+}
+.product-label--badge.product-label--active {
     right: 31px;
     margin-right: 0px;
     position: absolute;
@@ -50,6 +53,17 @@
     width: 74px;
     height: 74px;
     font-size: 14px;
+}
+
+.shopify-section--pdp-featured .product-label--promo {
+    display: none;
+}
+.shopify-section--pdp-featured .product-label--badge.product-label--badge-desktop-top {
+    top: 35px;
+}
+.shopify-section--pdp-featured .product-label--badge.product-label--badge-desktop-bottom {
+    top: calc(437px - 26px);
+
 }
 .product-label--badge.product-label--badge-desktop-top {
     top: 35px;
