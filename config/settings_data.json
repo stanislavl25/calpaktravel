@@ -17,9 +17,13 @@
     "flash-sale-ends": "Apr 18 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
-    "sale-badge-enabled": false,
+    "sale-badge-enabled": true,
     "sale-badge-tag": "",
-    "sale-badge-text": "",
+    "sale-badge-text": "memorial day",
+    "sale-msg-starter": true,
+    "sale-badge-tag-bundle": "sale-bubble",
+    "starter-bundle-badge": "8-Piece Travel Set",
+    "sale-badge-text-starter": "Special Promo",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": false,
     "sale-msg-pdp-only": false,
@@ -724,7 +728,7 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
-          "6d12ab92-9efb-4e55-ae05-a6ad62928584": {
+          "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
             "type": "promo-bar-line",
             "settings": {
               "everywhere": true,
@@ -732,90 +736,30 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Sales<\/p>",
-              "url": "shopify:\/\/collections\/sale",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": false,
-              "collections": true,
-              "pdp": true,
-              "other": false,
               "content": "<p>PDP + Collection ((countdown))<\/p>",
               "url": "",
               "background": "#f7f177",
               "text-color": ""
             }
           },
-          "c193adc9-c52a-4920-83c1-5695d2cf05cd": {
+          "3975ce6e-c442-475f-89a8-a5121d304beb": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": false,
-              "homepage": true,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Homepage<\/p>",
-              "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "e06d82f3-f282-406a-82f1-b8ebc222b4d8": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": false,
-              "collections": true,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Collections<\/p>",
-              "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "1331d539-7e22-4321-9572-c205a64123ae": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": false,
-              "collections": false,
-              "pdp": true,
-              "other": false,
-              "content": "<p>PDPs<\/p>",
-              "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "3bb4fc33-5b81-47d6-973b-59ff3c0834c0": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
+              "everywhere": true,
               "homepage": false,
               "collections": false,
               "pdp": false,
-              "other": true,
-              "content": "<p>Other Pages<\/p>",
-              "url": "",
-              "background": "#F7F177",
+              "other": false,
+              "content": "<p>Collections on Sale<\/p>",
+              "url": "shopify:\/\/collections\/summer-arrivals",
+              "background": "#6aabb6",
               "text-color": ""
             }
           }
         },
         "block_order": [
-          "6d12ab92-9efb-4e55-ae05-a6ad62928584",
           "ed05675b-61f8-4b43-bf63-513c3e6b3269",
-          "c193adc9-c52a-4920-83c1-5695d2cf05cd",
-          "e06d82f3-f282-406a-82f1-b8ebc222b4d8",
-          "1331d539-7e22-4321-9572-c205a64123ae",
-          "3bb4fc33-5b81-47d6-973b-59ff3c0834c0"
+          "3975ce6e-c442-475f-89a8-a5121d304beb"
         ],
         "settings": {
           "show": "everywhere",
