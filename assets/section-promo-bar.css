@@ -2,7 +2,7 @@
     --page: 0;
     transition: transform .3s;
     transform: translateY(calc(-40px * var(--page)));
-  background: #E4DFD5;
+  background: #F7F177;
 }
 
 .promo-bar__cells--back {
@@ -35,6 +35,7 @@ section.promo-bar:after {
 section.promo-bar .countdown-timer {
     display: inline-flex;
     margin-left: 5px;
+    width: 75px
     width: 75px
 }
 
@@ -89,7 +90,8 @@ section.promo-bar.promo-holiday-banner .promo-bar-text::before {
     content: '+';
     font-size: 20px;
     margin-right: 10px;
-    vertical-align: unset
+    vertical-align: unset;
+    margin-top: -5px;
 }
 
 @media screen and (max-width: 900px) {
@@ -148,6 +150,9 @@ section.promo-bar div.promo-bar-text p {
     margin: 0;
     line-height: 1.2em;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 450;
+    letter-spacing: -.03em;
 }
 
 section.promo-bar div.promo-bar-text a {
