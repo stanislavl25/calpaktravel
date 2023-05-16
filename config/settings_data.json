@@ -17,11 +17,11 @@
     "flash-sale-ends": "Apr 18 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
-    "sale-badge-enabled": false,
+    "sale-badge-enabled": true,
     "desktop-badge-placement": "bottom",
     "sale-badge-tag": "memorialdaysale",
     "sale-badge-text": "Memorial Day SALE",
-    "sale-msg-starter": false,
+    "sale-msg-starter": true,
     "sale-badge-tag-bundle": "sale-bubble",
     "starter-bundle-badge": "8-Piece Travel Set",
     "sale-badge-text-starter": "Special Promo",
@@ -729,7 +729,7 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
             "settings": {
               "everywhere": true,
@@ -737,83 +737,23 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Sale ((countdown))<\/p>",
+              "content": "<p>Up to 45% OFF Luggage<\/p>",
               "url": "shopify:\/\/collections\/sale",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
-          "3975ce6e-c442-475f-89a8-a5121d304beb": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": true,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Homepage<\/p>",
-              "url": "",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
-          "ca7ccf9c-d027-44cd-9332-dffbcabb6dc0": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": false,
-              "collections": true,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Collections<\/p>",
-              "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "611abe8e-0b6a-4b5e-bd29-f083572d164b": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": false,
-              "collections": true,
-              "pdp": true,
-              "other": false,
-              "content": "<p>Collections + PDPs<\/p>",
-              "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": false,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": true,
-              "content": "<p>Other pages<\/p>",
-              "url": "",
               "background": "#F7F177",
               "text-color": ""
             }
           }
         },
         "block_order": [
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269",
-          "3975ce6e-c442-475f-89a8-a5121d304beb",
-          "ca7ccf9c-d027-44cd-9332-dffbcabb6dc0",
-          "611abe8e-0b6a-4b5e-bd29-f083572d164b",
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
         ],
         "settings": {
-          "show": "everywhere",
+          "show": "home",
           "timeout": 3,
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
           "holiday-banner-color": "#000000",
-          "countdown-active": true,
+          "countdown-active": false,
           "countdown-show": "always",
           "countdown-to": "May 16 2023, 10:00pm"
         }
