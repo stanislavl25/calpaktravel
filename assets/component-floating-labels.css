@@ -24,11 +24,11 @@
 }
 
 .product-label--badge {
-    top: 35px;
-    right: 0;
+    right: 31px;
+    margin-right: 0px;
     position: absolute;
-    width: 110px;
-    height: 110px;
+    width: 117px;
+    height: 117px;
     border-radius: 50%;
     border: 0;
     background-color: var(--sale-badge-bg);
@@ -40,17 +40,50 @@
     align-items: center;
     justify-content: center;
     z-index: 5;
+    font-size: 21px;
+}
+.product-label--badge.product-label--badge-collection-page {
+    right: 11.01px;
+    bottom: 47.01px;
+    width: 74px;
+    height: 74px;
+    font-size: 14px;
+}
+.product-label--badge.product-label--badge-desktop-top {
+    top: 35px;
+}
+.product-label--badge.product-label--badge-desktop-bottom {
+    top: 553px;
 }
 
 .pdp__gallery-container .product-label--badge {
     margin: var(--gap) var(--gap) 0 0;
 }
 
-.product-unit .product-label--badge {
-    width: 90px;
-    height: 90px;
+.product-unit .product-label--badge.product-label--badge-bottom,
+.product-unit .product-label--badge.product-label--badge-top {
     bottom: 35px;
     top: auto;
+
+    width: 74px;
+    height: 74px;   
+    
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.product-label--badge.product-label--badge-desktop-bottom {
+    right: 31px;
+    margin-right: 0px;
+}
+
+.product-label--badge.product-label--badge-tilt {
+    transform: rotate(17.82deg);
+}
+.product-unit .product-label--badge.product-label--badge-tilt {
+    transform: rotate(17.82deg);
 }
 
 .product-unit:not(.product-unit--na) .product-label--na {
@@ -75,6 +108,15 @@ body .floating-labels .product-label--sale {
     border-color: var(--sale-accent);
     background: var(--sale-background);
 }
+body .floating-labels .product-label--sale .custom-dash {
+    border: 2px dotted black;
+}
+
+body .floating-labels .product-label--extra-sale {
+    color: var(--extra-sale-accent);
+    border-color: var(--extra-sale-accent);
+    background: var(--extra-sale-background);
+}
 
 .floating-labels .product-label--promo {
     color: var(--promo-msg-hgt-t);
@@ -90,15 +132,25 @@ body .floating-labels .product-label--sale {
 
 @media (max-width: 900px) {
     .product-label--badge {
-        width: 90px;
-        height: 90px;
-        top: 0;
+        font-size: 14px;
+        right: 13px;
+        width: 74px;
+        height: 74px;
+        border-radius: 74px;
+        transform: rotate(0deg)!important;
     }
-
-    .product-unit .product-label--badge {
+    .product-label--badge.product-label--badge-mobile-bottom {
+        margin: 0px;
+    }
+    .product-label--badge.product-label--badge-mobile-top {
+        top: 10px;
+        margin-top: 0;
+        right: 10px;
+        margin-right: 0px;
+    }
+    .product-label--badge.product-label--badge-collection-page {
         display: none;
     }
-
     .floating-labels {
         flex-direction: column;
     }

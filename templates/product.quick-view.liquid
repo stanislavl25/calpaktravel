@@ -1,6 +1,66 @@
 {% layout none %}
 {%- liquid
+    assign request_arg = request.path | split: "/"
+    assign option1_arg = false
+    assign option2_arg = false
+    assign early_access = false
+    
+    if request_arg.size == 4
+        assign request_args = request_arg[3] | split: ','
+        if request_arg[3] == 'early-access'
+            if product.metafields.custom.early_access
+                assign early_access = true
+            endif
+        elsif request_arg[3] contains 'early-access-'
+            if product.metafields.custom.early_access
+                assign option1_arg = request_arg[3] | replace: 'early-access-', ''
+                assign early_access = option1_arg
+            endif
+        else
+            assign option1_arg = request_args[0]
+            if request_args.size > 1
+                assign option2_arg = request_args[1]
+            endif
+        endif
+    endif
+
     assign current_variant = product.selected_or_first_available_variant
+
+    if option1_arg == false and early_access
+        for tag in product.tags
+            if tag contains 'ea-group1:'
+                assign tg = tag | split: ':'
+                if tg.size > 2
+                    assign option1_arg = tg | last | split: ";" | first | handleize
+                    break
+                endif
+            elsif tag contains 'ea-group2:'
+                assign tg = tag | split: ':'
+                if tg.size > 2
+                    assign option1_arg = tg | last | split: ";" | first | handleize
+                    break
+                endif
+            endif
+        endfor
+    endif
+
+    if option1_arg != false
+        for variant in product.variants
+            assign var_option1 = variant.option1 | handleize
+            if option2_arg != false
+                assign var_option2 = variant.option2 | handleize
+                if option1_arg == var_option1 and option2_arg == var_option2
+                    assign current_variant = variant
+                    break
+                endif
+            elsif option1_arg == var_option1
+                if variant.metafields.custom.early_access == true or early_access == false
+                    assign current_variant = variant
+                    break
+                endif
+            endif
+        endfor
+    endif
 
     assign featured_collection = false
     if product.metafields.custom.featured_collection != blank
@@ -41,13 +101,16 @@
 
     {% form 'product', product, class: "qv__product shopify-product-form", data-handle: product.handle, data-id: product.id %}
         <script type="text/json" class="qv-meta-json">{% render 'product-meta-json' with product %}</script>
+
+        {% render 'flash-sale-label', current_variant: current_variant %}
+
         <section class="pdp__header">
             <h1 class="pdp__title"><a class="product-link" href="{{- product.url -}}">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a></h1>
 
             {% render 'pdp-meta', current_variant: current_variant %}
         </section>
 
-        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant %}
+        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant, early_access: early_access %}
 
         <section class="pdp__form-labels">
             {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}

@@ -2,12 +2,14 @@
 {
     "preorder": {{ product.metafields.custom.preorder | json }},
     "videoInfo": {% if product.metafields.model.model_height != blank %}{{ "Model Height:" | append: product.metafields.model.model_height | json }}{% elsif product.metafields.video.height != blank %}{{ product.metafields.video.height | append: "" | json }}{% else %}null{% endif %},
+    "earlyAccess": {%- if product.metafields.custom.early_access == true -%}true{%- else -%}false{% endif %},
     "variants": {
         {%- for variant in product.variants -%}
         {%- unless forloop.first -%},{%- endunless -%}
         "{{ variant.id }}": {
             "preorder": {{ variant.metafields.custom.preorder | json }},
             "videoInfo": {{ variant.metafields.video.height | json }},
+            "earlyAccess": {%- if variant.metafields.custom.early_access == true -%}true{%- else -%}false{% endif %},
             "hover": {%- if variant.metafields.custom.hover_image != blank -%}
                 {{ variant.metafields.custom.hover_image | image_url: width: nil | json }}
                 {%- else -%}

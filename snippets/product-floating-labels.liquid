@@ -95,6 +95,16 @@
         {%- endif -%}
     {%- endif -%}
 
+    {%- liquid
+        if location == 'pdp'
+            assign saleMessage = settings.sale-text-pdp
+            assign extraSaleMessage = settings.extra-sale-text-pdp
+        else
+            assign saleMessage = settings.sale-text
+            assign extraSaleMessage = settings.extra-sale-text
+        endif
+    -%}
+
     {%- if settings.sale-enabled -%}
         {%- liquid
             if settings.sale-tag == blank
@@ -114,7 +124,7 @@
             endif
         -%}
 
-        {%- if settings.sale-text-pdp != blank and sale != false -%}
+        {%- if saleMessage != blank and sale != false -%}
             {%- liquid
                 if current_variant.compare_at_price > current_variant.price
                     assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
@@ -127,12 +137,49 @@
             -%}
         <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
             {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
-            {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
+            {{- saleMessage | escape | replace: '%%', discount -}}
         </div>
         {%- endif -%}
 
     {%- endif -%}
 
+    {%- if settings.extra-sale-enabled -%}
+        {%- liquid
+            if settings.extra-sale-tag == blank
+                assign sale = true
+            else
+                assign sale = false
+                for tag in product.tags
+                    assign tagSpl = tag | split: ':'
+                    if settings.extra-sale-tag == tagSpl[0]
+                        if tagSpl.size == 1
+                            assign sale = true
+                        else
+                            assign sale = tagSpl[1] | downcase | split: ';'
+                        endif
+                    endif
+                endfor
+            endif
+        -%}
+
+        {%- if extraSaleMessage != blank and sale != false -%}
+            {%- liquid
+                if current_variant.compare_at_price > current_variant.price
+                    assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
+                    assign discount = '<span class="dscnt">' | append: discount | append: '%' | append: '</span>'
+                    assign discounted = true
+                else
+                    assign discount = '<span class="dscnt"></span>'
+                    assign discounted = false
+                endif
+            -%}
+        <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--extra-sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+            {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
+            {{- extraSaleMessage | escape | replace: '%%', discount -}}
+        </div>
+        {%- endif -%}
+
+    {%- endif -%}
 
     {%- liquid
         assign comingSoon = false
@@ -186,10 +233,14 @@
         </div>
     {%- endif -%}
 
+    
+
+    
+
+        
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
             assign new = false
-            assign best = false
             for col in product.collections
                 if settings.new-arrivals == col and new == false
                     assign new = true
@@ -207,24 +258,25 @@
                     endif
                 endfor
             endif
-
-            for prod in settings.best-sellers.products limit: 20
-                if product.id == prod.id
-                    assign best = true
-                    break
-                endif
-            endfor
         -%}
-        
         {%- if new != false -%}
-        <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
-            {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
-            {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
-        </div>
+            <div class="product-label{% if new contains opt1 and new != true %} product-label--active{% endif %}"
+                {% if new != true %}data-options="{{ new | join: ' ' }}"{% endif %}>
+                {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
+            </div>
         {%- endif -%}
     {%- endunless -%}
-    
-    {%- if best == true -%}
+
+    {% comment %}
+        CHECK THE PRODUCT-GRID.LIQUID  FOR THIS VARIABLE 
+        IT WAS DEFINED THERE BC WE NEEDED TO COUNT THE TIMES OF NUMBER AND RENDER SHOPIFY TAG DONT ALLOW
+
+        PRODUCT-GRID.LIQUID RENDERS PRODUCT-UNIT.LIQUID
+        PRODUCT-UNIT.LIQUID RENDERS PRODUCT=FLOATING-LABELS.LIQUID
+
+    {% endcomment%}
+    {%- if best_seller == true -%}
         <div class="product-label">Bestseller</div>
     {%- endif -%}
+    
 </div>

@@ -1,6 +1,7 @@
 .customer__page--form {
     max-width: 580px;
     margin: 90px auto;
+    position: relative;
 }
 
 .field__error-message.field__error-message--js {

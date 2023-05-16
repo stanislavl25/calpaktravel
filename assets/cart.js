@@ -417,6 +417,7 @@ function openCart() {
     }
 
     if(delayed_checkout_buttons && !document.querySelector('#dynamic-checkout-cart')) document.querySelector('#shopify-section-cart .cart__extra-checkout').innerHTML = delayed_checkout_buttons;
+    console.log("Abrir carrito");
 }
 
 const closeCartLinks = document.querySelectorAll('.close-button--cart, .cart__overlay, .cart__empty-continue-button');
@@ -442,7 +443,7 @@ window.addEventListener("click", async (e) => {
             if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
             data = await checkGWP(data);
 
-            updateCart(data);
+            updateCart(data, true);
         } else {
             updateCart(data, true);
         }
@@ -474,7 +475,7 @@ window.addEventListener("click", async (e) => {
             if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
             data = await checkGWP(data);
 
-            updateCart(data);
+            updateCart(data, true);
         } else {
             updateCart(data, true);
         }

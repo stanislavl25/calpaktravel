@@ -5,11 +5,11 @@
     "favicon": "shopify:\/\/shop_images\/favicon_dc3a819d-7bb4-417a-8564-c3c9166fc5c8.png",
     "best-sellers": "best-sellers",
     "new-arrivals": "new-arrivals",
+    "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
+    "product-disclaimer": true,
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
-    "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
-    "sale-text-col-mixed": "Up to %% off",
     "flash-sale-enabled": false,
     "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
@@ -17,13 +17,15 @@
     "flash-sale-ends": "Mar 8 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
-    "sale-badge-tag": "Sale-Message",
-    "sale-badge-text": "Ending soon!",
+    "sale-badge-enabled": false,
+    "sale-badge-tag": "",
+    "sale-badge-text": "",
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": true,
-    "sale-msg-tag": "Sale-Message",
-    "sale-msg-highlighted": "Special Promo",
-    "sale-msg-message": "",
+    "sale-msg-enabled": false,
+    "sale-msg-pdp-only": false,
+    "sale-msg-tag": "",
+    "sale-msg-highlighted": "Code: MOM15",
+    "sale-msg-message": "Buy 2+ eligible items and get 15% OFF",
     "sale-msg-main-col-text": "#707070",
     "type_body_font": "futura_n4",
     "type_body_font_bolder": "futura_n5",
@@ -42,6 +44,8 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
+    "sale-text-pdp-mixed": "Up to %% off",
+    "sale-text-col-mixed": "Up to %% off",
     "sections": {
       "header": {
         "type": "header",
@@ -49,14 +53,11 @@
           "ffee1719-c9f6-40e7-9c68-523341ac114f": {
             "type": "announcement",
             "settings": {
-              "text": "Check out our SALE, items up to 50% off",
-              "url": "shopify:\/\/collections\/sale",
-              "color_text": "#000000",
-              "color_background": "linear-gradient(180deg, rgba(255, 107, 14, 1), rgba(255, 107, 14, 1) 100%)"
             }
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -72,14 +73,31 @@
               "video-ratio-h": "9"
             }
           },
+          "d354ff31-c668-4b29-8245-34b614309172": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/collections\/summer-arrivals",
+              "block-title": "Explore bags for your sweetest summer yet",
+              "description": "",
+              "button-text": "Shop Summer Arrivals",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Frame_2_3.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
             "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/products\/starter-bundle",
-              "block-title": "",
+              "button-url": "shopify:\/\/collections\/mothers-day",
+              "block-title": "Buy 2 items (or more), get 15% OFF",
               "description": "",
               "button-text": "",
               "link-for-button": false,
@@ -104,13 +122,13 @@
             "settings": {
               "title": "Shop: Luggage Banner",
               "submenu-number": 2,
-              "button-url": "shopify:\/\/collections\/hue-collection",
-              "block-title": "Made for minimalists",
+              "button-url": "shopify:\/\/products\/starter-bundle",
+              "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
               "description": "",
-              "button-text": "Explore Hue Collection",
+              "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Rectangle_3870_1.png",
+              "image": "shopify:\/\/shop_images\/AO2A7863-2.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -162,7 +180,7 @@
               "button-text": "Explore Cosmetic Cases",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Rectangle_3870_3.png",
+              "image": "shopify:\/\/shop_images\/IMG_8941-4.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -205,6 +223,7 @@
           },
           "82ab2924-4e80-4b8c-8516-2e8d226f68f8": {
             "type": "discover-block",
+            "disabled": true,
             "settings": {
               "title": "Discover #1",
               "button-url": "https:\/\/www.calpaktravel.com\/pages\/travel-in-style-which-bag-should-you-bring-to-your-next-destination",
@@ -219,11 +238,27 @@
               "video-ratio-h": "9"
             }
           },
+          "61a72dd4-4cbc-441b-9ad8-8b8436289091": {
+            "type": "discover-block",
+            "settings": {
+              "title": "Discover #1",
+              "button-url": "shopify:\/\/collections\/summer-arrivals",
+              "block-title": "",
+              "description": "",
+              "button-text": "",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Frame_1_23359518-94fa-40a6-9240-15298346b7dd.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
           "c545f895-9e35-454a-91ac-dcb097d5bfb9": {
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Rectangle_3308_f9bb7041-11e7-4981-82b8-54f40f50414a.png",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel",
               "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -231,6 +266,7 @@
           },
           "4709c5e0-9817-40ec-94f6-ceec21bc54fd": {
             "type": "edit",
+            "disabled": true,
             "settings": {
               "title": "Car Organizer",
               "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24294_Hi.jpg",
@@ -238,11 +274,22 @@
               "description": "<p>The Car Organizer makes trips and commutes feel like a breeze.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/the-car-organizer-it-gets-you-there-without-the-mess"
             }
+          },
+          "491b71bb-f040-4310-a675-0e2f56ab7118": {
+            "type": "edit",
+            "settings": {
+              "title": "Packing Cubes",
+              "image": "shopify:\/\/shop_images\/Frame_38_1.png",
+              "edit-title": "Your favorite organizing tool",
+              "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
+            }
           }
         },
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
+          "d354ff31-c668-4b29-8245-34b614309172",
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
@@ -254,11 +301,14 @@
           "22ae6a34-144b-4832-b323-ec83ee28af70",
           "5e44f4d7-ba4d-4286-8d20-b7473cd55aac",
           "82ab2924-4e80-4b8c-8516-2e8d226f68f8",
+          "61a72dd4-4cbc-441b-9ad8-8b8436289091",
           "c545f895-9e35-454a-91ac-dcb097d5bfb9",
-          "4709c5e0-9817-40ec-94f6-ceec21bc54fd"
+          "4709c5e0-9817-40ec-94f6-ceec21bc54fd",
+          "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
+          "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
@@ -590,7 +640,7 @@
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Rectangle_3308_f9bb7041-11e7-4981-82b8-54f40f50414a.png",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel.",
               "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
               "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -599,11 +649,11 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036": {
             "type": "edit",
             "settings": {
-              "title": "Car Organizer",
-              "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24294_Hi.jpg",
-              "edit-title": "It Gets You There Without The Mess",
-              "description": "<p>The Car Organizer makes trips and commutes feel like a breeze.<\/p>",
-              "link": "shopify:\/\/pages\/the-car-organizer-it-gets-you-there-without-the-mess"
+              "title": "Packing Cubes",
+              "image": "shopify:\/\/shop_images\/Frame_38_1.png",
+              "edit-title": "Your favorite organizing tool",
+              "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
+              "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
             }
           }
         },
@@ -619,7 +669,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -641,16 +691,34 @@
               ],
               "gwp-any-ex-gift": false,
               "threshold": 110,
+              "gwp-number": "2"
+            }
+          },
+          "3f948b59-6e03-4691-b1b4-bdfc944cf13c": {
+            "type": "gwp-product",
+            "disabled": true,
+            "settings": {
+              "product": "silk-travel-set",
+              "image": "shopify:\/\/shop_images\/COMPAKT-ZIPPERED-POUCH-SET-PINK-GRID-LIFESTYLE1.jpg",
+              "title": "FREE GIFT",
+              "description": "Included with any purchase in the Compakt Collection",
+              "gwp-collection": "",
+              "gwp-products": [
+
+              ],
+              "gwp-any-ex-gift": true,
+              "threshold": 0,
               "gwp-number": "1"
             }
           }
         },
         "block_order": [
-          "12991d47-4af3-4f34-9881-9386bc217d60"
+          "12991d47-4af3-4f34-9881-9386bc217d60",
+          "3f948b59-6e03-4691-b1b4-bdfc944cf13c"
         ],
         "settings": {
           "enable-gwp": false,
-          "gwp-max-number": "1"
+          "gwp-max-number": "2"
         }
       },
       "checkout-promos": {
@@ -673,6 +741,53 @@
         "settings": {
           "show-shipping-message": false,
           "shipping-message": "<p>Please allow <strong>1-3 additional business days<\/strong> for us to get your order ready to go. Keep in mind we only deliver on business days (aka not on weekends or federal holidays).<\/p>"
+        }
+      },
+      "promo-bar": {
+        "type": "promo-bar",
+        "blocks": {
+          "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>PDP + Collection ((countdown))<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
+          "3975ce6e-c442-475f-89a8-a5121d304beb": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Collections on Sale<\/p>",
+              "url": "shopify:\/\/collections\/summer-arrivals",
+              "background": "#6aabb6",
+              "text-color": ""
+            }
+          }
+        },
+        "block_order": [
+          "ed05675b-61f8-4b43-bf63-513c3e6b3269",
+          "3975ce6e-c442-475f-89a8-a5121d304beb"
+        ],
+        "settings": {
+          "show": "everywhere",
+          "timeout": 3,
+          "holiday_banner": false,
+          "holiday-banner-background": "#eae1cf",
+          "holiday-banner-color": "#000",
+          "countdown-active": true,
+          "countdown-show": "always",
+          "countdown-to": "May 16 2023, 10:00pm"
         }
       }
     },

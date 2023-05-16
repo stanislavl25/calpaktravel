@@ -1,51 +1,51 @@
 {% assign logo = 'https://cdn.shopify.com/s/files/1/0941/4996/files/Logo_Horizontal_092da3cb-8f71-4799-b849-afbccca3ddcc.png' %}
 <script type="application/ld+json">
-[
-    {
-        "@context" : "http://schema.org",
-        "@type": "CollectionPage",
-        "name": "{{ collection.title }}",
-        "url": "{{ collection.url }}",
-        "description": "{{ collection.description | replace: '"', '\"' }}",
-        "image": "{{ collection.image | img_url: 'master' }}"
-    }
-    {% if collection.handle == 'best-sellers' %}
-        {% for product in collection.products limit: 20 %}
-            {% if product.price == 0 %}{% continue %}{% endif%}
-            ,{% render 'schema-product-stub', aggregateProduct: true, product: product %}
-        {% endfor %}
-    {% else %}
-        {% for product in collection.products %}
-            {% if product.price == 0 %}{% continue %}{% endif%}
-            ,{% render 'schema-product-stub', aggregateProduct: true, product: product %}
-        {% endfor %}
-    {% endif %}
-]
+  [
+      {
+          "@context" : "http://schema.org",
+          "@type": "CollectionPage",
+          "name": "{{ collection.title }}",
+          "url": "{{ collection.url }}",
+          "description": "{{ collection.description | replace: '"', '\"' }}",
+          "image": "{{ collection.image | img_url: 'master' }}"
+      }
+      {% if collection.handle == 'best-sellers' %}
+          {% for product in collection.products limit: 20 %}
+              {% if product.price == 0 %}{% continue %}{% endif%}
+              ,{% render 'schema-product-stub', aggregateProduct: true, product: product, early_access: early_access %}
+          {% endfor %}
+      {% else %}
+          {% for product in collection.products %}
+              {% if product.price == 0 %}{% continue %}{% endif%}
+              ,{% render 'schema-product-stub', aggregateProduct: true, product: product, early_access: early_access %}
+          {% endfor %}
+      {% endif %}
+  ]
 </script>
 
 <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                    "@type": "Website",
-                    "@id": "{{ shop.url }}",
-                    "name": "Home"
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                    "@type": "CollectionPage",
-                    "@id":  "{% if collection != blank %}{{ collection.url }}{% else %}{{ page.url }}{% endif %}",
-                    "name": "{% if collection != blank %}{{ collection.title }}{% else %}{{ page.title }}{% endif %}"
-                }
-            }
-        ]
-    }
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Website",
+          "@id": "{{ shop.url }}",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "CollectionPage",
+          "@id": "{% if collection != blank %}{{ collection.url }}{% else %}{{ page.url }}{% endif %}",
+          "name": "{% if collection != blank %}{{ collection.title }}{% else %}{{ page.title }}{% endif %}"
+        }
+      }
+    ]
+  }
 </script>

@@ -1,26 +1,157 @@
 {%- if section.settings.preload -%}
-    {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag: preload: true }}
 {%- else -%}
-    {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag }}
+  {{ 'section-promotion-banner.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-<section id="{{ section.settings.section-id }}" data-id="{{ section.id }}" class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}">
-    {%- if section.settings.title-above != blank -%}
-        <h2 class="promotion-banner__title">{{- section.settings.title-above | escape -}}</h2>
+{% if template == 'product' %}
+  {% for product_item in section.settings.product_list %}
+    {% if product_item.handle == product.handle %}
+      <style>
+        .promotion-banner__section[data-id="{{ section.id }}"] {
+            display:flex;
+        }
+      </style>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if template == 'collection' %}
+  {% for collection_item in section.settings.collection_list %}
+    {% if collection_item.handle == collection.handle %}
+      <style>
+        .promotion-banner__section[data-id='{{ section.id }}'] {
+          display: flex;
+        }
+      </style>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if section.settings.cta_link == 'none' %}
+  <section
+    id="{{ section.settings.section-id }}"
+    data-id="{{ section.id }}"
+    class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}"
+  >
+    {%- if section.settings['title-above'] != blank -%}
+      <h2 class="promotion-banner__title">{{- section.settings['title-above'] | escape -}}</h2>
     {%- endif -%}
     <div class="promotion-banner__content">
-        {{- section.settings.main-text -}}
+      {{- section.settings['main-text'] -}}
     </div>
-</section>
+    {% if section.settings.terms_text %}
+      <a
+        title="click to go to to terms and conditions"
+        aria-label="click to go to terms and conditions"
+        href="{{ section.settings.terms_url }}"
+        target="_blank"
+        class="promotion-banner__terms"
+      >
+        {{- section.settings.terms_text -}}
+      </a>
+    {% endif %}
+  </section>
+{% elsif section.settings.cta_link == 'wrap' %}
+  <a class="promotion-banner__link" href="{{ section.settings.cta_url }}">
+    <section
+      id="{{ section.settings.section-id }}"
+      data-id="{{ section.id }}"
+      class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}"
+    >
+      {%- if section.settings['title-above'] != blank -%}
+        <h2 class="promotion-banner__title">{{- section.settings['title-above'] | escape -}}</h2>
+      {%- endif -%}
+      <div class="promotion-banner__content">
+        {{- section.settings['main-text'] -}}
+      </div>
+      {% if section.settings.terms_text %}
+        <a
+          title="click to go to to terms and conditions"
+          aria-label="click to go to terms and conditions"
+          href="{{ section.settings.terms_url }}"
+          target="_blank"
+          class="promotion-banner__terms"
+        >
+          {{- section.settings.terms_text -}}
+        </a>
+      {% endif %}
+    </section>
+  </a>
+{% elsif section.settings.cta_link == 'cta' %}
+  <section
+    id="{{ section.settings.section-id }}"
+    data-id="{{ section.id }}"
+    class="promotion-banner__section{% if section.settings.hide %} promotion-banner__section--hidden{% endif %}"
+  >
+    {%- if section.settings['title-above'] != blank -%}
+      <h2 class="promotion-banner__title">{{- section.settings['title-above'] | escape -}}</h2>
+    {%- endif -%}
+    <div class="promotion-banner__content">
+      {{- section.settings['main-text'] -}}
+    </div>
+    {% if section.settings.terms_text %}
+      <a
+        title="click to go to to terms and conditions"
+        aria-label="click to go to terms and conditions"
+        href="{{ section.settings.terms_url }}"
+        target="_blank"
+        class="promotion-banner__terms"
+      >
+        {{- section.settings.terms_text -}}
+      </a>
+    {% endif %}
+    <a
+      class="button button--secondary promotion-banner__cta"
+      style="
+        background: {{ section.settings.cta_background }};
+        color: {{ section.settings.cta_color }};
+      "
+      href="{{ section.settings.cta_url }}"
+      title="click to go to promotion"
+      aria-label="click to go to promotion"
+      ><span>{{ section.settings.cta_text }}</span></a
+    >
+  </section>
+{% endif %}
 
 <style>
-    .promotion-banner__section[data-id="{{ section.id }}"] {
-        --background: {{ section.settings.background }};
-        --color: {{ section.settings.text-color }};
-        --bold-bg: {{ section.settings.bold-text-background }};
-    }
+  html {
+  scroll-behavior: smooth;
+  }
+  .promotion-banner__section[data-id="{{ section.id }}"] {
+      --background: {{ section.settings.background }};
+      --color: {{ section.settings.text-color }};
+      --bold-bg: {{ section.settings.bold-text-background }};
+  }
 </style>
-
+<script>
+  {% if section.settings.cta_link == 'cta' %}
+  let currentUrl = window.location.href;
+  const ctaBtn = document.querySelectorAll('.promotion-banner__cta');
+  [].map.call(ctaBtn, function(el) {
+      el.addEventListener('click', function(e){
+          e.preventDefault();
+          let ctaUrl = el.getAttribute('href');
+          if(currentUrl.indexOf('collection') > -1){
+          const element = document.querySelector('.shopify-section--product-grid');
+          const headerOffset = 150;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          if(currentUrl.indexOf(ctaUrl) > -1){
+              window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth"
+              });
+          } else {
+              window.location.href = ctaUrl;
+          }
+      } else {
+          window.location.href = ctaUrl;
+      }
+      });
+  });
+  {% endif %}
+</script>
 {% schema %}
     {
         "name": "Promotional Banner",
@@ -71,7 +202,74 @@
                 "type": "text",
                 "id": "section-id",
                 "label": "Section ID",
+<<<<<<< HEAD
+                "info": "Used to target this section with Google Optimize. Use a unique identifier, do not leave this blank."
+            },
+            {
+                "type":"header",
+                "content": "Link and CTA settings"
+            },
+            {
+                "type": "select",
+                "id": "cta_link",
+                "label": "Banner link type",
+                "options": [
+                    {
+                        "value": "wrap",
+                        "label": "Whole banner"
+                    },
+                    {
+                        "value": "cta",
+                        "label": "Use CTA"
+                    },
+                    {
+                        "value": "none",
+                        "label": "None"
+                    }
+                ],
+                "default": "none"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "Link url"
+            },
+            {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA label",
+            "default": "Click here"
+            },
+            {
+                "type": "color",
+                "id": "cta_color",
+                "label": "CTA text color",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "cta_background",
+                "label": "CTA background",
+                "default": "#fff"
+            },
+            {
+                "type":"header",
+                "content": "Terms and conditions"
+            },
+            {
+                "type": "text",
+                "id": "terms_text",
+                "label": "Terms text",
+                "default": "Terms and conditions apply"
+            },
+            {
+                "type": "url",
+                "id": "terms_url",
+                "label": "Terms url",
+                "info": "Will open in a new tab by default"
+=======
                 "info": "Used to target this section with Google Optimize. Use a unique identifier"
+>>>>>>> SC/gamification-bar
             }
         ],
         "presets": [

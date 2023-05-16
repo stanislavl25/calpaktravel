@@ -5,13 +5,15 @@
       "blocks": {
         "87e06f3e-6771-4bd6-b068-d22989c0b666": {
           "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
         "87e06f3e-6771-4bd6-b068-d22989c0b666"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "faq": {
       "type": "wonderment-faq",
@@ -147,6 +149,24 @@
         "fairing-padding": 25
       }
     },
+    "58293d19-3672-4467-b344-458b29446b31": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "title": "You earned points on this purchase!",
+        "text": "<p>Log in or sign up to see how many points you received.<\/p>",
+        "button-text": "Log In",
+        "button-behavior": "link",
+        "scroll-to": 3,
+        "link": "https:\/\/www.calpaktravel.com\/account\/login",
+        "link-for-button": true,
+        "height": "content",
+        "height-percent": 50,
+        "text-alignment": "center",
+        "text-color-scheme": "black",
+        "background": "#e4dfd5"
+      }
+    },
     "e1a88b84-9af4-4c4e-b72b-41478cc6a177": {
       "type": "featured-collections",
       "blocks": {
@@ -191,6 +211,7 @@
     "products",
     "rebuy",
     "fairing",
+    "58293d19-3672-4467-b344-458b29446b31",
     "e1a88b84-9af4-4c4e-b72b-41478cc6a177"
   ]
 }

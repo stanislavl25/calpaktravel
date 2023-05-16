@@ -1,4 +1,4 @@
-<div class="collection-filters" aria-expanded="false" id="collection-filters">
+<div class="collection-filters {%if banner == true %}collection-filters-banner{% else %}collection-filters-not-banner{% endif%}" aria-expanded="false" id="collection-filters">
     {% comment %} <button class="filter__reset">Clear All</button> {% endcomment %}
     <nav class="active-filters-nav">
         <button aria-controls="collection-filters" aria-label="Activate product sort" class="filter__activator filter__activator--sort">
@@ -14,19 +14,19 @@
             <legend class="collection-filter__title">Sort by <i></i></legend>
             <ul class="list-unstyled">
                 <li>
-                    <label><input data-title="Featured" value="featured" checked="checked" type="radio" name="sort"> Featured</labe>
+                    <label><input data-title="Featured" value="featured" checked="checked" type="radio" name="sort"> Featured</label>
                 </li>
                 <li>
-                    <label><input data-title="Newest" value="new" type="radio" name="sort"> Newest</labe>
+                    <label><input data-title="Newest" value="new" type="radio" name="sort"> Newest</label>
                 </li>
                 <li>
-                    <label><input data-title="Best Selling" value="best" type="radio" name="sort"> Best Selling</labe>
+                    <label><input data-title="Best Selling" value="best" type="radio" name="sort"> Best Selling</label>
                 </li>
                 <li>
-                    <label><input data-title="Price <span class='hide-small'>high - low</span> <span class='hide-large'>$$$ to $</span>" value="price-desc" type="radio" name="sort"> Price high - low</labe>
+                    <label><input data-title="Price <span class='hide-small'>high - low</span> <span class='hide-large'>$$$ to $</span>" value="price-desc" type="radio" name="sort"> Price $$$ to $</label>
                 </li>
                 <li>
-                    <label><input data-title="Price <span class='hide-small'>low - high</span> <span class='hide-large'>$ to $$$</span>" value="price-asc" type="radio" name="sort"> Price low - high</labe>
+                    <label><input data-title="Price <span class='hide-small'>low - high</span> <span class='hide-large'>$ to $$$</span>" value="price-asc" type="radio" name="sort"> Price $ to $$$</label>
                 </li>
             </ul>
         </fieldset>

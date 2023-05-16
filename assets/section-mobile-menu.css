@@ -163,7 +163,7 @@
     line-height: 42px;
 }
 
-.slide-menu-item > a:only-child {
+.slide-menu-item:not(.slide-menu-item--single) > a:only-child {
     line-height: 30px;
     font-size: 16px;
     height: auto;
@@ -231,7 +231,7 @@
 }
 
 .slide-menu-item--push-bottom {
-    margin-top: auto;
+    margin-top: 1rem;
 }
 
 .slide-menu__icon-link {
@@ -296,6 +296,8 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
+    padding: 0rem 0.6rem;
+    text-align: center;
 }
 
 .slide-menu-item--media {

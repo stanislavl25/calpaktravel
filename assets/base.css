@@ -6,6 +6,14 @@
     --section-gap: 54px;
 }
 
+.d-none {
+    display: none!important;
+}
+
+.visibility-hidden {
+    visibility: hidden!important;
+}
+
 body {
     margin: 0;
 }
@@ -242,12 +250,16 @@ div.swym-inject,
 .hide {
     display: none !important;
 }
-
+.quick-view__link.hide{
+    display: inline-block !important;
+}
 .ratio-container {
     position: relative;
     padding-top: 50%;
 }
-
+.product-unit__image > img:last-child{
+    opacity: 0;
+}
 .ratio-container > img {
     position: absolute;
     top: 0;
@@ -356,6 +368,9 @@ div.swym-inject,
 .button--secondary {
     --button-bg: #fff;
     --button-clr: #000;
+}
+.button-img-block {
+    cursor: pointer;
 }
 
 .button--outline {
@@ -523,7 +538,23 @@ div.swym-inject,
     text-align: center;
     padding: 0 var(--gap);
 }
-
+.page__header.only-desktop {
+        display: flex;
+    }
+    .page__header.only-mobile {
+            display: none;
+    }
+@media screen and (max-width: 900px) {
+    .page__header.only-desktop {
+        display: none;
+    }
+    .page__header.only-mobile {
+            display: flex;
+    }
+}
+.page__header.hidden{
+    display: none;
+}
 .page__header-button {
     margin-top: var(--gap);
     display: flex;
@@ -716,3 +747,49 @@ body.swym-modal-active:not(.modal-open) {
         font-size: 18px;
     }
 }
+
+@media (max-width: 400px) {
+    /* CSS styles for screens less than 400px wide */
+    .collection-filter__activators button.filter__activator {
+        font-size: 0.8rem;
+    }
+    .collection-view {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 325px) {
+    /* CSS styles for screens less than 325px wide */
+    .collection-filter__activators button.filter__activator {
+        font-size: 0.55rem;
+    }
+    .collection-view {
+        font-size: 0.55rem;
+    }
+
+}
+.display-none {
+    display: none!important;
+}
+.only-mobile{
+        display: block!important;
+    }
+.only-desktop{
+    display: none!important;
+}
+@media (min-width: 649px) {
+    .only-mobile{
+        display: none!important;
+    }
+    .only-desktop{
+        display: block!important;
+    }
+}
+/*hide bazar voice*/
+#crl8-gallery-zfEKaK3p-carousel a[aria-label="Powered by Bazaarvoice - Opens in new tab"],
+#crl8-gallery-zfEKaK3p-carousel a[aria-label="Powered by Bazaarvoice - Opens in new tab"] {
+    display: none;
+}
+.product-unit__colors--quickadd {
+    margin-top: auto;
+}
+

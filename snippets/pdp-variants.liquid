@@ -1,140 +1,166 @@
 {%- assign product_type = product.type | downcase -%}
 
-<section class="pdp__variants">
-    {% comment %} //// SIZES/QTY/ETC //// {% endcomment %}
-    {%- for option in product.options_with_values -%}   
-        {%- assign optionLow = option.name | downcase -%}
+<section
+  class="pdp__variants"
+  {% if early_access != blank %}
+    data-early-access="{{ early_access }}"
+  {% endif %}
+>
+  {% comment %} //// SIZES/QTY/ETC //// {% endcomment %}
+  {%- for option in product.options_with_values -%}
+    {%- assign optionLow = option.name | downcase -%}
 
-        {%- if optionLow != 'color' -%}
-        {%- liquid
-            assign group1 = false
-            assign group2 = false
-            for tag in product.tags
-                assign splt = tag | split: ':' 
-                if splt.size > 1
-                    if splt[0] == 'group-size1'
-                        assign group1 = splt
-                    elsif splt[0] == 'group-size2'
-                        assign group2 = splt
-                    endif
+    {%- if optionLow != 'color' -%}
+      {%- liquid
+        assign group1 = false
+        assign group2 = false
+        for tag in product.tags
+          assign splt = tag | split: ':'
+          if splt.size > 1
+            if splt[0] == 'group-size1'
+              assign group1 = splt
+            elsif splt[0] == 'group-size2'
+              assign group2 = splt
+            endif
+          endif
+        endfor
+
+        assign optionN = 'option' | append: option.position
+      -%}
+
+      <div
+        class="pdp__variant-buttons{% if group1 != false and group2 != false %} pdp__variant-buttons--grouped{% endif %}"
+        data-count="{{ option.values.size }}"
+        data-position="{{ option.position }}"
+      >
+        {% if group1 != false and group2 != false %}
+          {%- liquid
+            if group1.size > 2
+              assign group1Items = group1[2] | split: ';'
+            else
+              assign group1Items = false
+            endif
+
+            if group2.size > 2
+              assign group2Items = group2[2] | split: ';'
+            else
+              assign group2Items = false
+            endif
+          -%}
+
+          <div class="pdp__variant-buttons-title">{{- group1[1] | escape -}}</div>
+          <div class="pdp__variant-list">
+            {%- for value in option.values -%}
+              {%- liquid
+                assign val = value | handleize
+                assign go = false
+
+                if group1Items == false
+                  unless group2Items contains val
+                    assign go = true
+                  endunless
+                else
+                  if group1Items contains val
+                    assign go = true
+                  endif
                 endif
-            endfor
+                assign variant_object_by_option = product.variants | where: optionN, value | first
+              -%}
 
-            assign optionN = 'option' | append: option.position
-        -%}
+              {%- if go -%}
+                <button
+                  data-value="{{- val -}}"
+                  class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}"
+                >
+                  <span>{{- value | escape -}}</span>
+                </button>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
 
-        <div class="pdp__variant-buttons{% if group1 != false and group2 != false %} pdp__variant-buttons--grouped{% endif %}" data-count="{{ option.values.size }}" data-position="{{ option.position }}">
-            {% if group1 != false and group2 != false %}
-                {%- liquid
-                    if group1.size > 2
-                        assign group1Items = group1[2] | split: ';'
-                    else
-                        assign group1Items = false
-                    endif
+          <div class="pdp__variant-buttons-title">{{- group2[1] | escape -}}</div>
+          <div class="pdp__variant-list">
+            {%- for value in option.values -%}
+              {%- liquid
+                assign val = value | handleize
+                assign go = false
 
-                    if group2.size > 2
-                        assign group2Items = group2[2] | split: ';'
-                    else
-                        assign group2Items = false
-                    endif
-                -%}
+                if group2Items == false
+                  unless group1Items contains val
+                    assign go = true
+                  endunless
+                else
+                  if group2Items contains val
+                    assign go = true
+                  endif
+                endif
+                assign variant_object_by_option = product.variants | where: optionN, value | first
+              -%}
 
-                <div class="pdp__variant-buttons-title">{{- group1[1] | escape -}}</div>
-                <div class="pdp__variant-list">
-                    {%- for value in option.values -%}
-                        {%- liquid
-                            assign val = value | handleize
-                            assign go = false
-
-                            if group1Items == false
-                                unless group2Items contains val
-                                    assign go = true
-                                endunless
-                            else
-                                if group1Items contains val
-                                    assign go = true
-                                endif
-                            endif
-                        -%}
-                        {%- if go -%}
-                            <button data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></button>
-                        {%- endif-%}
-                    {%- endfor -%}
-                </div>
-
-                <div class="pdp__variant-buttons-title">{{- group2[1] | escape -}}</div>
-                <div class="pdp__variant-list">
-                    {%- for value in option.values -%}
-                        {%- liquid
-                            assign val = value | handleize
-                            assign go = false
-
-                            if group2Items == false
-                                unless group1Items contains val
-                                    assign go = true
-                                endunless
-                            else
-                                if group2Items contains val
-                                    assign go = true
-                                endif
-                            endif
-                        -%}
-                        {%- if go -%}
-                            <button data-value="{{- val -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></button>
-                        {%- endif-%}
-                    {%- endfor -%}
-                </div>
-            {%- else -%}
-                <div class="pdp__variant-buttons-title">{{- option.name | escape -}}</div>
-                <div class="pdp__variant-list">
-                    {%- for value in option.values -%}
-                        <button data-value="{{- value | handleize -}}" class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}"><span>{{- value | escape -}}</span></button>
-                    {%- endfor -%}
-                </div>
-            {%- endif -%}
-        </div>
-
-        {%- endif-%}
-    {%- endfor -%}
-
-    {% comment %} //// COLORS //// {% endcomment %}
-    {%- for option in product.options_with_values -%}   
-        {%- assign optionLow = option.name | downcase -%}
-        {%- assign optionN = 'option' | append: option.position -%}
-
-        {%- if optionLow == 'color' -%}
-
-            <div class="pdp__variant-color" data-count="{{ option.values.size }}" data-position="{{ option.position }}">
-                <div class="pdp__variants-selected">
-                    <div class="pdp__variants-spacer">
-                        {%- for variant in product.variants -%}
-                        <i>{{- variant[optionN] | downcase -}}</i>
-                        {%- endfor -%}
-                    </div>
-                    <label>Selected Color</label>
-                    <span class="pdp__selected-variant">
-                        {{ current_variant[optionN] | downcase }}
-                    </span>
-                    <span class="tooltip">i<span class="tooltip__message">Color may vary due to lighting on images</span></span>
-                </div>
-
-                <div class="pdp__swatches-groups swatches-container"></div>
-            </div>
-
+              {%- if go -%}
+                <button
+                  data-value="{{- val -}}"
+                  class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}"
+                >
+                  <span>{{- value | escape -}}</span>
+                </button>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+          <div class="pdp__variant-buttons-title">{{- option.name | escape -}}</div>
+          <div class="pdp__variant-list">
+            {%- for value in option.values -%}
+              <button
+                data-value="{{- value | handleize -}}"
+                class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% if variant_object_by_option.available %} product-option--na{% endif %}"
+              >
+                <span>{{- value | escape -}}</span>
+              </button>
+            {%- endfor -%}
+          </div>
         {%- endif -%}
-    {%- endfor -%}
-
-    {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
-    {%- if product_type contains 'luggage' and featured_collection != false -%}
-    <div class="pdp__variant-type" data-collection="{{- featured_collection.handle -}}">
-        <div class="select__wrapper select__wrapper--pdp-type">
-            <select>
-                <option>{%- if current_product_group_type != false -%}
-                    {{ current_product_group_type }} - {{ current_variant.price | money_without_trailing_zeros }}
-                    {%- endif -%}
-                </option>
-            </select>
-        </div>
-    </div>
+      </div>
     {%- endif -%}
+  {%- endfor -%}
+
+  {% comment %} //// COLORS //// {% endcomment %}
+  {%- for option in product.options_with_values -%}
+    {%- assign optionLow = option.name | downcase -%}
+    {%- assign optionN = 'option' | append: option.position -%}
+
+    {%- if optionLow == 'color' -%}
+      <div class="pdp__variant-color" data-count="{{ option.values.size }}" data-position="{{ option.position }}">
+        <div class="pdp__variants-selected">
+          <div class="pdp__variants-spacer">
+            {%- for variant in product.variants -%}
+              <i>{{- variant[optionN] | downcase -}}</i>
+            {%- endfor -%}
+          </div>
+          <label>Selected Color</label>
+          <span class="pdp__selected-variant">
+            {{ current_variant[optionN] | downcase }}
+          </span>
+          <span class="tooltip">i<span class="tooltip__message">Color may vary due to lighting on images</span></span>
+        </div>
+
+        <div class="pdp__swatches-groups swatches-container"></div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
+  {%- if product_type contains 'luggage' and featured_collection != false -%}
+    <div class="pdp__variant-type" data-collection="{{- featured_collection.handle -}}">
+      <div class="select__wrapper select__wrapper--pdp-type">
+        <select>
+          <option>
+            {%- if current_product_group_type != false -%}
+              {{ current_product_group_type }} - {{ current_variant.price | money_without_trailing_zeros }}
+            {%- endif -%}
+          </option>
+        </select>
+      </div>
+    </div>
+  {%- endif -%}
 </section>

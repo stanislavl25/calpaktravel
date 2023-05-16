@@ -1,3 +1,28 @@
+.display-none {
+    display: none!important;
+}
+.variation-type-set {
+    margin: 0;
+    color: var(--gray);
+    text-decoration: italic;
+    font-style: italic;
+}
+.pdp__form-labels .inlcudes-on-set {
+    margin-top: -52px;
+}
+@media screen and (max-width:900px){
+.pdp__form-labels .inlcudes-on-set {
+    margin-top: -20px;
+}
+}
+.pdp__form-labels .inlcudes-on-set.seen {
+    margin-bottom: 20px;
+}
+
+.pdp__form-labels .inlcudes-on-set.unseen {
+    margin-bottom: 40px;
+}
+
 .shopify-section--single-product {
     padding: 0 var(--gap);
     margin-top: var(--gap);
@@ -268,25 +293,25 @@
     color: var(--sale-price-color);
 }
 
+.extra-sale-active .pdp__price s + b {
+    color: var(--extra-sale-price-color);
+}
+
 .pdp__price-inner {
     display: flex;
     gap: 5px;
 }
 
 .pdp__feat-col,
-.pdp__reviews {
+.pdp__reviews-cont {
     grid-column: 1;
 }
 
 .pdp__reviews {
-    display: flex;
+    display: inline-flex;
     gap: 5px;
     align-items: center;
     text-decoration: inherit;
-}
-
-.pdp__submit-container {
-    margin-top: -18px;
 }
 
 .pdp__submit {
@@ -488,6 +513,11 @@
     display: contents;
 }
 
+.qv__body .pdp__form-labels .product-label,
+.pdp__info .pdp__form-labels .product-label {
+    margin-bottom: calc(-1 * var(--gap));
+}
+
 .pdp__description {
     display: flex;
     flex-direction: column;
@@ -580,10 +610,6 @@
     opacity: 1;
 }
 
-.pdp__form-labels .product-label {
-    margin: -18px 0 0;
-}
-
 .klaviyo-bis-trigger {
     display: none !important;
 }
@@ -651,6 +677,10 @@
     font-size: 13px;
 }
 
+.variant_data {
+    display: none;
+}
+
 @media (max-width: 1180px) {
     .pdp__grid {
         gap: 35px;
@@ -694,11 +724,12 @@
         margin: 0;
     }
 
-    .product-label--flash {
+    .pdp__info .shopify-product-form > .product-label--flash {
         order: -1;
     }
 
-    .pdp__form-labels .product-label {
+    .qv__body .pdp__form-labels .product-label,
+    .pdp__info .pdp__form-labels .product-label {
         margin: 0;
     }
 
@@ -714,8 +745,10 @@
         top: auto;
         gap: 0 19px;
         justify-content: flex-start;
-        height: 22px;
-        overflow: hidden;
+        height: 35px;
+        overflow: scroll;
+        flex-wrap:nowrap;
+
     }
 
     .pdp__grid {
@@ -756,6 +789,10 @@
     .pdp__variant-buttons:not(.pdp__variant-buttons--grouped):not([data-count="1"]):not([data-count="2"]):not([data-count="3"]):not([data-count="4"]) .pdp__variant-list {
         grid-template-columns: repeat(auto-fit,minmax(80px,1fr))
     }
+
+    /* .pdp__info .pdp__form-labels .product-label:first-child {
+        margin-bottom: -8px;
+    } */
 }
 
 @media (max-width: 650px) {
