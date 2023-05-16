@@ -8,6 +8,7 @@
     left: var(--gap);
     z-index: 5;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .floating-labels .product-label {
