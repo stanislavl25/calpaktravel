@@ -736,8 +736,8 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>PDP + Collection ((countdown))<\/p>",
-              "url": "",
+              "content": "<p>Sale ((countdown))<\/p>",
+              "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -745,21 +745,66 @@
           "3975ce6e-c442-475f-89a8-a5121d304beb": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": true,
-              "homepage": false,
+              "everywhere": false,
+              "homepage": true,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Collections on Sale<\/p>",
-              "url": "shopify:\/\/collections\/summer-arrivals",
+              "content": "<p>Homepage<\/p>",
+              "url": "",
               "background": "#6aabb6",
+              "text-color": ""
+            }
+          },
+          "ca7ccf9c-d027-44cd-9332-dffbcabb6dc0": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Collections<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
+          "611abe8e-0b6a-4b5e-bd29-f083572d164b": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": true,
+              "other": false,
+              "content": "<p>Collections + PDPs<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": true,
+              "content": "<p>Other pages<\/p>",
+              "url": "",
+              "background": "#F7F177",
               "text-color": ""
             }
           }
         },
         "block_order": [
           "ed05675b-61f8-4b43-bf63-513c3e6b3269",
-          "3975ce6e-c442-475f-89a8-a5121d304beb"
+          "3975ce6e-c442-475f-89a8-a5121d304beb",
+          "ca7ccf9c-d027-44cd-9332-dffbcabb6dc0",
+          "611abe8e-0b6a-4b5e-bd29-f083572d164b",
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
         ],
         "settings": {
           "show": "everywhere",
