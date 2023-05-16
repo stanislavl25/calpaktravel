@@ -570,6 +570,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
+        const component = target.querySelector('.product-unit__select--seleted');    
+        const atcBtn = target.querySelector('.product-unit__button');
 
         for (const size in sizes) {
             if(size == '_count') continue;
@@ -603,6 +605,29 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             sizesContainer.appendChild(el);
             
         }
+        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+         target.querySelector('.product-unit__image-wrapper').addEventListener('mouseover', (e) => {
+            component.classList.add('hovered');
+        });
+        target.querySelector('.product-unit__image-wrapper').addEventListener('mouseout', (e) => {
+            if(!component.classList.contains('focused')){
+                component.classList.remove('hovered');
+            }
+        });
+        component.addEventListener('click', (e) => {
+            component.classList.toggle('focused');
+        });
+        atcBtn.addEventListener('click', (e) => {
+            component.classList.add('focused');
+            console.log('clicked once');
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+            atcBtn.classList.add('ready');
+        },{once: true});
+        
+        const sizeSwatches = target.querySelectorAll('.size-swatch');
+        sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+            component.classList.remove('focused');
+        }));
 
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
