@@ -289,6 +289,15 @@
               "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
             }
+          },
+          "2e13f6c1-a922-40fd-bb41-096d12069e0e": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "",
+              "submenu-number": 1,
+              "collection": "",
+              "block-title": ""
+            }
           }
         },
         "block_order": [
@@ -309,10 +318,11 @@
           "61a72dd4-4cbc-441b-9ad8-8b8436289091",
           "c545f895-9e35-454a-91ac-dcb097d5bfb9",
           "4709c5e0-9817-40ec-94f6-ceec21bc54fd",
-          "491b71bb-f040-4310-a675-0e2f56ab7118"
+          "491b71bb-f040-4310-a675-0e2f56ab7118",
+          "2e13f6c1-a922-40fd-bb41-096d12069e0e"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
@@ -652,7 +662,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -739,7 +749,7 @@
               "other": false,
               "content": "<p>Up to 45% OFF Luggage<\/p>",
               "url": "shopify:\/\/collections\/sale",
-              "background": "#F7F177",
+              "background": "#f7f177",
               "text-color": ""
             }
           }
