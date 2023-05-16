@@ -565,6 +565,12 @@
 }
 
 @media (max-width: 900px) {
+    .product-unit--quickadd .product-unit__select--seleted {
+        padding: 8px 30px 8px 10px;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+    }
     .product-unit__swatches-container {
         opacity: 1;
     }

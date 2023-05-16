@@ -556,7 +556,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                             }
                             match++;
                         }
-                        
+
                     }
                 }
                 
@@ -612,10 +612,10 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             
         }
         atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
-         target.querySelector('.product-unit__image-wrapper').addEventListener('mouseover', (e) => {
+         target.addEventListener('mouseover', (e) => {
             component.classList.add('hovered');
         });
-        target.querySelector('.product-unit__image-wrapper').addEventListener('mouseout', (e) => {
+        target.addEventListener('mouseout', (e) => {
             if(!component.classList.contains('focused')){
                 component.classList.remove('hovered');
             }
@@ -625,10 +625,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         });
         atcBtn.addEventListener('click', (e) => {
             component.classList.add('focused');
-            console.log('clicked once');
             atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
             atcBtn.classList.add('ready');
-        },{once: true});
+        });
         
         const sizeSwatches = target.querySelectorAll('.size-swatch');
         sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
