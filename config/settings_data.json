@@ -17,7 +17,7 @@
     "flash-sale-ends": "Apr 18 2023, 2:45pm",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
-    "sale-badge-enabled": false,
+    "sale-badge-enabled": true,
     "sale-badge-tag": "memorialdaysale",
     "sale-badge-text": "Memorial Day SALE",
     "sale-msg-code": "FREEMINI",
