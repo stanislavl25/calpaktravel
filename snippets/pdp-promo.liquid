@@ -161,7 +161,40 @@
             </div>
         {%- when 'image-banner' -%}
             <div class="pdp-promo__media">
+
+                {%- if block.settings.live-show-id != blank -%}
+                {%- if liveShowShown == false -%}
+                    <script>
+                    (function() {
+                        if (!window.initBambuserLiveShopping){
+                            window.initBambuserLiveShopping = function(item) { window.initBambuserLiveShopping.queue.push(item) }; window.initBambuserLiveShopping.queue = [];
+                            var scriptNode = document.createElement('script');
+                            scriptNode['src'] = 'https://lcx-embed.bambuser.com/powered-by-bambuser-theme/embed.js';
+                            document.body.appendChild(scriptNode);
+                        }
+                    })();
+                    </script> 
+                {%- endif -%}
+                {%- assign liveShowShown = true -%}
+                <a class="button-img-block" data-live="{{ block.settings.live-show-id }}">
                 {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+                </a>
+                <script>
+                    (function() {
+                        window.initBambuserLiveShopping({
+                            showId: '{{ block.settings.live-show-id }}',
+                            node: document.querySelector('.button-img-block[data-live="{{ block.settings.live-show-id }}"]'),
+                            type: "overlay",
+                        });
+                    })();
+                </script>
+            {%- else -%}
+                <a href="{{ block.settings.button-url }}">
+                 {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+                </a>
+            {%- endif -%}
+
+
             </div>
             <div class="pdp-promo__text-block">
                 {%- if block.settings.title != blank -%}
