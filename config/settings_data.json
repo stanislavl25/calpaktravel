@@ -727,42 +727,27 @@
           "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": true,
+              "everywhere": false,
               "homepage": false,
-              "collections": false,
-              "pdp": false,
+              "collections": true,
+              "pdp": true,
               "other": false,
               "content": "<p>PDP + Collection ((countdown))<\/p>",
               "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "3975ce6e-c442-475f-89a8-a5121d304beb": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Collections on Sale<\/p>",
-              "url": "shopify:\/\/collections\/summer-arrivals",
-              "background": "#6aabb6",
+              "background": "#f7f177",
               "text-color": ""
             }
           }
         },
         "block_order": [
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269",
-          "3975ce6e-c442-475f-89a8-a5121d304beb"
+          "ed05675b-61f8-4b43-bf63-513c3e6b3269"
         ],
         "settings": {
           "show": "everywhere",
           "timeout": 3,
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
-          "holiday-banner-color": "#000",
+          "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "always",
           "countdown-to": "May 16 2023, 10:00pm"
