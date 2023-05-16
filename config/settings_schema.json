@@ -391,6 +391,50 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "sale-badge-text-tilt",
+        "label": "Text Tilt",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "countdown-label-collection-enabled",
+        "label": "Enable countdown sale as label in collection",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "desktop-badge-placement",
+        "label": "Desktop Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
+        "type": "select",
+        "id": "mobile-badge-placement",
+        "label": "Mobile Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
         "type": "select",
         "id": "badge_display",
         "label": "Where to display the badge",
@@ -435,6 +479,43 @@
         "type": "color",
         "id": "sale-badge-color",
         "label": "Text",
+        "default": "#000"
+      },
+      {
+        "type": "header",
+        "content": "Display Custom Sale Badge"
+      },
+      {
+        "type": "checkbox",
+        "id": "sale-msg-starter",
+        "label": "Display Custom Sale Badge",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-tag-bundle",
+        "label": "Eligible products tag"
+      },
+      {
+        "type": "text",
+        "id": "starter-bundle-badge",
+        "label": "Sale Label Text"
+      },
+      {
+        "type": "text",
+        "id": "sale-badge-text-starter",
+        "label": "Sale Bubble Text"
+      },
+      {
+        "type": "color",
+        "id": "starter__customizer-badge",
+        "label": "Background",
+        "default": "#f7f177"
+      },
+      {
+        "type": "color",
+        "id": "starter__customizer-badge-text",
+        "label": "Color",
         "default": "#000"
       }
     ]
