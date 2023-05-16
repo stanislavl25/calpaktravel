@@ -440,6 +440,7 @@
     },
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Ambeur Collection",
         "description": "",
@@ -475,37 +476,32 @@
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
-      "disabled": true,
       "settings": {
-        "title": "Explore Our Bestselling Terra Collection",
+        "title": "Explore Our Summer Arrivals",
         "description": "",
         "quick-view": true,
         "product-labels": true,
-        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1305_de157396-b3a1-4d4d-a64b-2df3fd32e39c.jpg",
+        "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2399-2.jpg",
         "video": "",
-        "image-mobile": "shopify:\/\/shop_images\/TERRA-SLING-BAG_AMETHYST-LIFESTYLE1.jpg",
-        "media-link": "shopify:\/\/collections\/best-sellers",
-        "pictured-product": "terra-sling-bag",
+        "media-link": "shopify:\/\/collections\/summer-arrivals",
+        "pictured-product": "luka-duffel",
         "pictured-product-quick-view": false,
         "pictured-product-override": "",
-        "pictured-product-title": "Terra Sling Bag",
+        "pictured-product-title": "",
         "button-text": "Shop Now",
         "button-quick-view": true,
-        "button-link": "https:\/\/www.calpaktravel.com\/products\/terra-sling-bag\/amethyst",
+        "button-link": "shopify:\/\/collections\/summer-arrivals",
         "background": "#ff6b0e",
         "text-color": "#000000",
         "accent-color": "#000000",
         "pictured-product-display": "top",
-        "featured-collection": "backpacks",
-        "collection-limit": 5,
-        "show-view-all": true,
+        "featured-collection": "summer-arrivals",
+        "collection-limit": 6,
+        "show-view-all": false,
         "product_list": [
-          "terra-26l-backpack-duffel",
-          "terra-carry-on-luggage",
-          "terra-sling-bag",
-          "terra-hanging-toiletry-bag"
+
         ],
-        "columns": "2"
+        "columns": "3"
       }
     },
     "b12b4161-2d41-4027-a740-a9f3f7ced561": {
