@@ -2,7 +2,7 @@
     --page: 0;
     transition: transform .3s;
     transform: translateY(calc(-40px * var(--page)));
-  background: #E4DFD5;
+  background: #F7F177;
 }
 
 .promo-bar__cells--back {

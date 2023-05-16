@@ -95,7 +95,7 @@
                     endif
                 -%}
                 <div
-                    style="background: {{ block.settings.background }};{% if block.settings.background != blank %}background: {{ block.settings.background }};{% endif %}{% if block.settings.text-color != blank %}color: {{ block.settings.text-color }};{% endif %}" 
+                    style="{% if block.settings.background != blank %}background: {{ block.settings.background }};{% endif %}{% if block.settings.text-color != blank %}color: {{ block.settings.text-color }};{% endif %}" 
                     class="promo-bar-text-cell{% if block.settings.content contains '((flash-sale))' %} promo-bar-text-cell--flash-sale{% endif %}">
                     <div class="promo-bar-text">
                         {% if block.settings.url != blank %}
@@ -306,6 +306,7 @@
                 {
                     "type": "color",
                     "id": "background",
+                    "default": "#F7F177",
                     "label": "Background",
                     "info": "Leave blank to use global values"
                 },
