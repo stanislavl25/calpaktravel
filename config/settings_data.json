@@ -737,10 +737,25 @@
               "background": "#f7f177",
               "text-color": ""
             }
+          },
+          "6d12ab92-9efb-4e55-ae05-a6ad62928584": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Free shipping over $75<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
           }
         },
         "block_order": [
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269"
+          "ed05675b-61f8-4b43-bf63-513c3e6b3269",
+          "6d12ab92-9efb-4e55-ae05-a6ad62928584"
         ],
         "settings": {
           "show": "everywhere",
