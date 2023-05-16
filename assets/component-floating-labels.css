@@ -41,10 +41,11 @@
     justify-content: center;
     z-index: 5;
     font-size: 21px;
+    display: flex!important;
 }
 .product-label--badge.product-label--badge-collection-page {
     right: 11.01px;
-    bottom: 47.01px;
+    bottom: 11.01px;
     width: 74px;
     height: 74px;
     font-size: 14px;
@@ -149,7 +150,7 @@ body .floating-labels .product-label--extra-sale {
         margin-right: 0px;
     }
     .product-label--badge.product-label--badge-collection-page {
-        display: none;
+        display: none!important;
     }
     .floating-labels {
         flex-direction: column;

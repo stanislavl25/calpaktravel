@@ -139,7 +139,7 @@
     animation-direction: normal;
     animation-timing-function: ease-in;
     animation-fill-mode: backwards;
-    opacity: 0;
+    /*opacity: 1;*/
 }
 .product-unit__image .img-hover {
     opacity: 0;
@@ -224,9 +224,20 @@
 }
 
 .color-swatch--first {
-    order: -1;
+    order:-5;
 }
-
+.color-swatch.color_index__0{
+    order:-4;
+}
+.color-swatch.color_index__1{
+    order:-3;
+}
+.color-swatch.color_index__2{
+    order:-2;
+}
+.color-swatch.color_index__3{
+    order:-1;
+}
 
 .product-label--disclaimer {
     color: var(--product-disclaimer-text);
@@ -236,6 +247,7 @@
 .product-label--final:not([data-options]) + .product-label--disclaimer--no-final {
     display: none;
 }
+
 
 
 div.product-label.product.label--memorial-day {

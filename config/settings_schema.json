@@ -391,6 +391,50 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "sale-badge-text-tilt",
+        "label": "Text Tilt",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "countdown-label-collection-enabled",
+        "label": "Enable Sale Label on Mobile",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "desktop-badge-placement",
+        "label": "Desktop Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
+        "type": "select",
+        "id": "mobile-badge-placement",
+        "label": "Mobile Badge Placement",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          }
+        ],
+        "default": "top"
+      },
+      {
         "type": "select",
         "id": "badge_display",
         "label": "Where to display the badge",

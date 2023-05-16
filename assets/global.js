@@ -538,9 +538,28 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(colors[color].selected === true) {
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
-            if(!variantAutoSelected) el.classList.add('color-swatch--first');
+            if(!variantAutoSelected) el.classList.add('color-swatch--first');          
         }
-
+        let match = 0;
+        const productTags = product.tags;
+                for (let i = 0; i < productTags.length; i++) {
+                    const collectionUrl = window.location.href;
+                        const collectionUrlSplit = collectionUrl.replace('https://www.calpaktravel.com/collections/', '');
+                        const tagBuilder = 'first:' + collectionUrlSplit + ':' ;
+                        const tagColors = productTags[i].replace(tagBuilder, '');
+                        const tagColorsSplit = tagColors.split(';');
+                    if (productTags[i].indexOf(tagBuilder) > -1) {
+                        for (let i = 0; i < tagColorsSplit.length; i++){
+                            if(color == tagColorsSplit[i]){
+                                console.log(product.title);
+                                el.classList.add('color_index__' + match.toString());
+                            }
+                            match++;
+                        }
+                        
+                    }
+                }
+                
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
@@ -557,6 +576,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
+        const component = target.querySelector('.product-unit__select--seleted');    
+        const atcBtn = target.querySelector('.product-unit__button');
 
         for (const size in sizes) {
             if(size == '_count') continue;
@@ -590,6 +611,29 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             sizesContainer.appendChild(el);
             
         }
+        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+         target.querySelector('.product-unit__image-wrapper').addEventListener('mouseover', (e) => {
+            component.classList.add('hovered');
+        });
+        target.querySelector('.product-unit__image-wrapper').addEventListener('mouseout', (e) => {
+            if(!component.classList.contains('focused')){
+                component.classList.remove('hovered');
+            }
+        });
+        component.addEventListener('click', (e) => {
+            component.classList.toggle('focused');
+        });
+        atcBtn.addEventListener('click', (e) => {
+            component.classList.add('focused');
+            console.log('clicked once');
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+            atcBtn.classList.add('ready');
+        },{once: true});
+        
+        const sizeSwatches = target.querySelectorAll('.size-swatch');
+        sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+            component.classList.remove('focused');
+        }));
 
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
