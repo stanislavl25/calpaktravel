@@ -254,7 +254,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         availableVariants.push(product.variants[i]);
     }
     
-    if(isProductUnit && init1 !== false) {
+    if(isProductUnit && isset(init1) && init1 !== false) {
         init1 = handleize(init1);
 
         let match = false,
