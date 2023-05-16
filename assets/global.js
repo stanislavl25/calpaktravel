@@ -254,7 +254,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         availableVariants.push(product.variants[i]);
     }
     
-    if(init1 !== false) {
+    if(isProductUnit && init1 !== false) {
         init1 = handleize(init1);
 
         let match = false,
@@ -880,8 +880,6 @@ function activateCart() {
 ///////////////////////// TIMERS ///////////////////////////
 function updateTimeouts(countdown_ticks) {
     for(let i = 0; i < countdown_ticks.length; i++) {
-        console.log('testing')
-        console.log(countdown_ticks[i]);
         let time_left = countdown_ticks[i].getAttribute('data-time');
         if (!time_left) {
             time_left = countdown_ticks[i].getAttribute('data-time-left');
@@ -988,39 +986,41 @@ window.addEventListener("load", () => {
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
-//quick add function
-    const loadQuickAdd = () => {
-    document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
-    document.querySelector('.product-grid').classList.add('product-grid--gap');
-    document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
-    document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
-        colors.classList.add('product-unit__colors--all', 'slide');
-        colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
-    });
-    document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
-    document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
-    swatches.classList.add('slider');
-    const sliderWrapper = swatches.parentNode;
-    sliderWrapper.setAttribute('data-slide', 4);
-    sliderWrapper.setAttribute('data-slide-mob', 3);
-    sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
-    sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
-    checkSlider(sliderWrapper.querySelector('.slider'));
-});
-}
-loadQuickAdd();
-document.addEventListener("shopify:section:load", loadQuickAdd);
-document.addEventListener("shopify:section:change", loadQuickAdd);
-document.addEventListener('page:load', loadQuickAdd);
-document.addEventListener('page:change', loadQuickAdd);
-    
-const subcategoryLinks = document.querySelectorAll('a.filter__collection');
-[].map.call(subcategoryLinks, (subcategoryLink) => {
-    subcategoryLink.addEventListener('click', (e) => {
-        setTimeout( function() {
-            loadQuickAdd();
-        }, 2000);       
-    });
-});
-    
+    if(document.querySelector('.product-grid')) { // !!!
+        //quick add function
+        const loadQuickAdd = () => {
+            document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
+            document.querySelector('.product-grid').classList.add('product-grid--gap');
+            document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
+            document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
+                colors.classList.add('product-unit__colors--all', 'slide');
+                colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
+            });
+            document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
+            document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
+                swatches.classList.add('slider');
+                const sliderWrapper = swatches.parentNode;
+                sliderWrapper.setAttribute('data-slide', 4);
+                sliderWrapper.setAttribute('data-slide-mob', 3);
+                sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
+                sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+                checkSlider(sliderWrapper.querySelector('.slider'));
+            });
+        }
+        
+        loadQuickAdd();
+        document.addEventListener("shopify:section:load", loadQuickAdd);
+        document.addEventListener("shopify:section:change", loadQuickAdd);
+        document.addEventListener('page:load', loadQuickAdd);
+        document.addEventListener('page:change', loadQuickAdd);
+        
+        const subcategoryLinks = document.querySelectorAll('a.filter__collection');
+        [].map.call(subcategoryLinks, (subcategoryLink) => {
+            subcategoryLink.addEventListener('click', (e) => {
+                setTimeout( function() {
+                    loadQuickAdd();
+                }, 2000);       
+            });
+        });
+    }
 });
