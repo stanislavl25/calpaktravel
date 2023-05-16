@@ -1,5 +1,70 @@
 {
   "sections": {
+    "9a46d065-1a77-4b95-ba73-e9bf4d14e72a": {
+      "type": "hero",
+      "blocks": {
+        "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
+          "type": "text-block",
+          "settings": {
+            "title": "Up to 45% OFF for Memorial Day",
+            "description": "<p>Upgrade your luggage game with top-sellers, plus free 2-day shipping with orders $300+<\/p>",
+            "main-link": "shopify:\/\/collections\/sale",
+            "button-text": "Shop Now",
+            "add-link-to-button-only": true,
+            "secondary-button-text": "",
+            "secondary-button-url": "",
+            "show-screens": "all",
+            "show-condition": "always",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        },
+        "a17da66f-28b0-45ff-8e34-f875358fe7d4": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1074_1-4_26e1e64a-2241-4e6c-a3b8-1feeb6c8766a.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/sale",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "desktop",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_3d46e056-2998-464a-9479-4cbb6849d6d5.jpg",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/sale",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9",
+        "a17da66f-28b0-45ff-8e34-f875358fe7d4",
+        "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271"
+      ],
+      "settings": {
+        "hero-height": "auto",
+        "height-limit": 80,
+        "enable-sticky-promo": false,
+        "promo-text": "",
+        "promo-link": "",
+        "close-color-scheme": "white"
+      }
+    },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
       "disabled": true,
@@ -108,6 +173,7 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
@@ -245,7 +311,8 @@
           "settings": {
             "collection": "best-sellers",
             "title": "Bestsellers",
-            "hide-form-labels": true
+            "hide-form-labels": true,
+            "dont-hide-flash-sale": true
           }
         },
         "02f79c4f-6737-4220-a31c-992d094df8ee": {
@@ -253,7 +320,8 @@
           "settings": {
             "collection": "new-arrivals",
             "title": "New In",
-            "hide-form-labels": true
+            "hide-form-labels": true,
+            "dont-hide-flash-sale": true
           }
         },
         "97749904-2195-42da-9b4e-7a6f7995c1ca": {
@@ -261,7 +329,8 @@
           "settings": {
             "collection": "sale",
             "title": "On SALE",
-            "hide-form-labels": true
+            "hide-form-labels": true,
+            "dont-hide-flash-sale": true
           }
         }
       },
@@ -506,6 +575,7 @@
     }
   },
   "order": [
+    "9a46d065-1a77-4b95-ba73-e9bf4d14e72a",
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
     "c77438d3-e596-410d-9341-7eea51a24a37",
