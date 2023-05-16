@@ -63,7 +63,7 @@
                     {%- assign floatingLabels = nil -%}
                 {%- endif -%}
                 {%- for product in collection.products limit: 20 -%}
-                    {%- render 'product-unit' with product, in_collection: collection, wishlist: true, class: 'slide', quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels -%}
+                    {%- render 'product-unit' with product, in_collection: collection, wishlist: true, class: 'slide', quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels, overrideFlashSale: block.settings.dont-hide-flash-sale -%}
                 {%- endfor -%}
             </div>
         </div>
@@ -103,6 +103,12 @@
                         "id": "hide-form-labels",
                         "label": "Hide labels under product title",
                         "default": false
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "dont-hide-flash-sale",
+                        "label": "Don't hide flash sale",
+                        "default": true
                     }
                 ]
             }

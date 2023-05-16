@@ -13,7 +13,7 @@
                     if tagSpl.size == 1
                         assign flashSale = true
                     else
-                        assign flashSale = tagSpl[1] | split: ';'
+                        assign flashSale = tagSpl[1] | downcase | split: ';'
                     endif
                 endif
             endfor
