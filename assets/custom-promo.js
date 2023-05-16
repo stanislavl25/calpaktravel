@@ -1,3 +1,4 @@
+"use strict";
 
 let promoBarCells = document.querySelectorAll('.promo-bar-text-cell');
 let index = 0;
@@ -73,32 +74,32 @@ const observer = new MutationObserver((mutations) => {
 observer.observe(body, { attributes: true });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const navbar = document.querySelector('.header-container');
-  const stickyElement = document.querySelector('.collection-filters__section');
-  const stickyElement2 = document.querySelector('.pdp__floating-submit');
+    const navbar = document.querySelector('.header-container');
+    const stickyElement = document.querySelector('.collection-filters__section');
+    const stickyElement2 = document.querySelector('.pdp__floating-submit');
 
-  const observernav = new ResizeObserver(entries => {
-    for (let entry of entries) {
-      if (entry.target === navbar) {
-        const navbarHeight = navbar.offsetHeight;
-        stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
-      }
-    }
-  });
-
-  const observerSticky2 = new ResizeObserver(entries => {
-    for (let entry of entries) {
-      if (entry.target === stickyElement2) {
-        const navbarHeight = navbar.offsetHeight;
-        if (window.innerWidth <= 900) {
-            stickyElement2.style.top = 'auto';
-          } else {
-            stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+    const observernav = new ResizeObserver(entries => {
+        for (let entry of entries) {
+        if (entry.target === navbar) {
+            const navbarHeight = navbar.offsetHeight;
+            stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
         }
-      }
-    }
-  });
+        }
+    });
 
-  observernav.observe(navbar);
-  observerSticky2.observe(stickyElement2);
+    const observerSticky2 = new ResizeObserver(entries => {
+        for (let entry of entries) {
+        if (entry.target === stickyElement2) {
+            const navbarHeight = navbar.offsetHeight;
+            if (window.innerWidth <= 900) {
+                stickyElement2.style.top = 'auto';
+            } else {
+                stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+            }
+        }
+        }
+    });
+
+    if(stickyElement) observernav.observe(navbar);
+    if(stickyElement2) observerSticky2.observe(stickyElement2);
 });
