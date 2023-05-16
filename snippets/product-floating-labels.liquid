@@ -69,6 +69,30 @@
             endif
         -%}
         {% if settings.badge_display == 'both' %}
+            <script>
+                {% if product_handle == 'hue-mini-carry-on-luggage' %}
+                    console.log('TESTING FILTER BADGES')
+                    console.log('{{product_handle}}')
+                    console.log('{{saleBadge}}')
+                    console.log('{{opt1}}')
+
+                    {% if saleBadge contains opt1 and saleBadge != true %}
+                        console.log('saleBadge contains opt1 and saleBadge != true => TRUE')
+                    {% else %}
+                        console.log('saleBadge contains opt1 and saleBadge != true => FALSE')
+                    {% endif %}
+                    {% if saleBadge contains opt1 %}
+                        console.log('saleBadge contains opt1 TRUE')
+                    {% else %}
+                        console.log('saleBadge contains opt1 FALSE')
+                    {% endif %}
+                    {% if saleBadge != true %}
+                        console.log('saleBadge != true => TRUE')
+                    {% else %}
+                        console.log('saleBadge != true => FALSE')
+                    {% endif %}
+                {% endif %}
+            </script>
             <div 
                 class="
                     product-label
@@ -82,16 +106,15 @@
                         {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
                     {% else %}
                         product-label--badge-collection-page
-                        {% if saleBadge-bundle !=false and settings.sale-msg-starter !=false %}    
+                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
                         starter-customize custom-dash
                         {% endif %}
                     {% endif %}
                 "
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %} {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}>
-                {% unless saleBadge-bundle !=false and template contains 'collection' and settings.sale-msg-starter !=false%}  
+                {% unless saleBadge-bundle != false and template contains 'collection' and settings.sale-msg-starter != false%}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
-                  {%  else %}
-                
+                {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
                 {% endunless %}
             </div>
@@ -123,7 +146,7 @@
     {%- endif -%}
 {%- endif -%}
 
-<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter !=false and saleBadge-bundle !=false %} promo-starter-label{%endif%}">
+<div class="floating-labels {% if template contains 'collection' and settings.sale-msg-starter != false and saleBadge-bundle != false %} promo-starter-label{%endif%}">
     {%- if location != 'pdp' -%}
 
         {%- liquid
@@ -213,7 +236,7 @@
                 endif
             -%}
         
-            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if settings.sale-msg-starter !=false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle !=false  and template contains 'collection' %}    
+            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
         starter-customize{% endif %}{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
                 {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
                 {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
@@ -221,8 +244,8 @@
         {%- endif -%}
 
     {%- endif -%}
-    {%- if settings.sale-msg-starter !=false -%}
-        {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle !=false and template contains 'collection' %}
+    {%- if settings.sale-msg-starter != false -%}
+        {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false and template contains 'collection' %}
             <div class="product-label--promo starter-label">
                 {{settings.starter-bundle-badge}}
             </div>
