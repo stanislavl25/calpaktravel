@@ -724,6 +724,20 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
+          "6d12ab92-9efb-4e55-ae05-a6ad62928584": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Sales<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
           "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
             "type": "promo-bar-line",
             "settings": {
@@ -738,15 +752,57 @@
               "text-color": ""
             }
           },
-          "6d12ab92-9efb-4e55-ae05-a6ad62928584": {
+          "c193adc9-c52a-4920-83c1-5695d2cf05cd": {
             "type": "promo-bar-line",
             "settings": {
-              "everywhere": true,
-              "homepage": false,
+              "everywhere": false,
+              "homepage": true,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Free shipping over $75<\/p>",
+              "content": "<p>Homepage<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
+          "e06d82f3-f282-406a-82f1-b8ebc222b4d8": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": true,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Collections<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
+          "1331d539-7e22-4321-9572-c205a64123ae": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": true,
+              "other": false,
+              "content": "<p>PDPs<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
+          },
+          "3bb4fc33-5b81-47d6-973b-59ff3c0834c0": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": false,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": true,
+              "content": "<p>Other Pages<\/p>",
               "url": "",
               "background": "#F7F177",
               "text-color": ""
@@ -754,8 +810,12 @@
           }
         },
         "block_order": [
+          "6d12ab92-9efb-4e55-ae05-a6ad62928584",
           "ed05675b-61f8-4b43-bf63-513c3e6b3269",
-          "6d12ab92-9efb-4e55-ae05-a6ad62928584"
+          "c193adc9-c52a-4920-83c1-5695d2cf05cd",
+          "e06d82f3-f282-406a-82f1-b8ebc222b4d8",
+          "1331d539-7e22-4321-9572-c205a64123ae",
+          "3bb4fc33-5b81-47d6-973b-59ff3c0834c0"
         ],
         "settings": {
           "show": "everywhere",
