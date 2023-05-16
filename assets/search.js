@@ -389,7 +389,7 @@ function fillSearchProducts(results, container, search, color_search, ambiguity,
             // If nothing found -- ignore search and look for COLOR terms only
             if(products_found == 0) products_found = searchProductsForMatches(products, [], color_search, ambiguity, or, sale, products_target);
         }
-        console.log(products_found);
+
         if(products_found == 0) container.setAttribute('data-status', 'empty');
         else {
             const searchNums = container.querySelectorAll('.search-num');
@@ -410,10 +410,8 @@ function fillSearchResults(results, container) {
 
         for(let i = 0; i < collections.length; i++) {
             let collection = collections[i];
-            
-
             if(collection.body.indexOf('hide in search') > -1 || collection.title.toLowerCase().indexOf('early access') > -1) continue;
-            
+
             collectionsFound++;
 
             let newItem = document.createElement('a');
@@ -421,10 +419,11 @@ function fillSearchResults(results, container) {
             newItem.setAttribute('href', collection.url);
 
             let img = '';
-                if(collection.featured_image != null && typeof collection.featured_image != 'undefined' && collection.featured_image.url != null) {
-                    img = getImage(collection.featured_image.url, '300px', collection.title);
-                }
-            newItem.innerHTML = `<div class="search__card-image ${collection.handle}">${img}</div>
+            if(collection.featured_image != null && typeof collection.featured_image != 'undefined' && collection.featured_image.url != null) {
+                img = getImage(collection.featured_image.url, '300px', collection.title);
+            }
+
+            newItem.innerHTML = `<div class="search__card-image">${img}</div>
             <div class="search__card-title">${collection.title}</div>`;
 
             collectionsTargetGrid.appendChild(newItem);
@@ -536,7 +535,6 @@ function getAllProducts() {
 
 function fillCollectionSearch(handle, container) {
     fetch(`/collections/${handle}/products.json`).then(response => response.json()).then(data => {
-        console.log(data.products);
         if(data.products != null && typeof data.products != 'undefined') {
             if(data.products.length > 0) {
                 const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
