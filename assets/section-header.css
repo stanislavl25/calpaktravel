@@ -3,10 +3,11 @@ body.modal-open {
     overflow: hidden;
 }
 
-.shopify-section--header {
+.header-container {
     position: sticky;
+    width: 100%;
+    z-index: 100;
     top: 0;
-    z-index: 50;
 }
 
 .shopify-section--header[data-status="hidden"] .site-header {
