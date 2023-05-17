@@ -257,9 +257,9 @@ div.swym-inject,
     position: relative;
     padding-top: 50%;
 }
-.product-unit__image > img:last-child{
+/*product-unit__image > img:last-child{
     opacity: 0;
-}
+}*/
 .ratio-container > img {
     position: absolute;
     top: 0;
@@ -406,7 +406,27 @@ div.swym-inject,
 .button:hover > span {
     transform: translateY(-5px);
 }
-
+@media screen and (max-width:649px) {
+    .product-unit__button.ready > button > div, .product-unit__button.ready > button > span {
+    animation-name: btnready;
+    animation-duration: 500ms;
+    animation-delay: 500ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-in;
+}
+}
+@keyframes btnready {
+    0%{
+        transform: translateY(-.125em);
+    }
+    50%{
+        transform: translateY(-5px);
+    }
+    100%{
+        transform: translateY(-.125em);
+    }
+}
 .adding-to-cart .button--add-to-cart {
     opacity: 0.5;
     pointer-events: none;

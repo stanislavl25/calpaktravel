@@ -540,9 +540,28 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(colors[color].selected === true) {
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
-            if(!variantAutoSelected) el.classList.add('color-swatch--first');
+            if(!variantAutoSelected) el.classList.add('color-swatch--first');          
         }
+        let match = 0;
+        const productTags = product.tags;
+                for (let i = 0; i < productTags.length; i++) {
+                    const collectionUrl = window.location.href;
+                        const collectionUrlSplit = collectionUrl.replace('https://www.calpaktravel.com/collections/', '');
+                        const tagBuilder = 'first:' + collectionUrlSplit + ':' ;
+                        const tagColors = productTags[i].replace(tagBuilder, '');
+                        const tagColorsSplit = tagColors.split(';');
+                    if (productTags[i].indexOf(tagBuilder) > -1) {
+                        for (let i = 0; i < tagColorsSplit.length; i++){
+                            if(color == tagColorsSplit[i]){
+                                console.log(product.title);
+                                el.classList.add('color_index__' + match.toString());
+                            }
+                            match++;
+                        }
 
+                    }
+                }
+                
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
@@ -559,6 +578,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
+        const component = target.querySelector('.product-unit__select--seleted');    
+        const atcBtn = target.querySelector('.product-unit__button');
 
         for (const size in sizes) {
             if(size == '_count') continue;
@@ -592,6 +613,28 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             sizesContainer.appendChild(el);
             
         }
+        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+         target.addEventListener('mouseover', (e) => {
+            component.classList.add('hovered');
+        });
+        target.addEventListener('mouseout', (e) => {
+            if(!component.classList.contains('focused')){
+                component.classList.remove('hovered');
+            }
+        });
+        component.addEventListener('click', (e) => {
+            component.classList.toggle('focused');
+        });
+        atcBtn.addEventListener('click', (e) => {
+            component.classList.add('focused');
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+            atcBtn.classList.add('ready');
+        });
+        
+        const sizeSwatches = target.querySelectorAll('.size-swatch');
+        sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+            component.classList.remove('focused');
+        }));
 
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
@@ -1004,10 +1047,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 sliderWrapper.setAttribute('data-slide-mob', 3);
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+                
+                
+                console.log('check slide')
                 checkSlider(sliderWrapper.querySelector('.slider'));
             });
         }
-        
+
         loadQuickAdd();
         document.addEventListener("shopify:section:load", loadQuickAdd);
         document.addEventListener("shopify:section:change", loadQuickAdd);
@@ -1022,5 +1068,74 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 2000);       
             });
         });
+    }
+
+    if(window.location.pathname.includes('product')) {
+        const processSection = (selector) => {
+            const section = document.querySelector(selector);
+            if (section) {
+                Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
+                    const firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+                    if (firstSwatch) {
+                        variantUpdateProcess(firstSwatch);
+                    }
+                });
+            }
+        };
+        
+        const initializeSections = () => {
+            const sections = [
+                '.shopify-section--pdp-featured',
+                '.pdp__upsell'
+            ];
+        
+            sections.map(section => processSection(section));
+        };
+        
+        let scriptLoaded = false;
+        const tryUpdateProcessTheProductUnits = (intervalId = false) => {
+            console.log('Trying updateProcessTheProductUnits');
+            try {
+                initializeSections();
+                if(intervalId && typeof variantUpdateProcess != 'undefined') {
+                    console.log('variantUpdateProcess loaded');
+                    console.log('clearing interval');
+                    clearInterval(intervalId);
+                }
+            } catch (e) {
+                if(typeof variantUpdateProcess == 'undefined') {
+                    console.log('variantUpdateProcess not loaded yet');
+                    if (!scriptLoaded) {
+                        loadScript(scripts.variants);
+                        scriptLoaded = true;
+                    }
+                } else {
+                    console.error(e);
+                }
+            }
+        }
+        const keepTryingUpdateProcessTheProductUnits = () => {
+            let intervalId = setInterval(() => {
+                console.log(intervalId)
+                tryUpdateProcessTheProductUnits(intervalId);
+            }, 1000);
+        }
+
+        keepTryingUpdateProcessTheProductUnits()
+
+        let lastScroll = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            let scrolled = false
+            if (!scrolled) {
+                scrolled = true;
+                setTimeout(() => { scrolled = false } ,500)
+                tryUpdateProcessTheProductUnits();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('shopify:section:load', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
     }
 });

@@ -568,6 +568,37 @@
         "text-color-scheme": "white",
         "background": "#ff6b0e"
       }
+    },
+    "0289f3f5-735e-4226-94a8-b23cd4ee6569": {
+      "type": "sticky-promo",
+      "settings": {
+        "product_list": [
+          "ambeur-2-piece-luggage-set"
+        ],
+        "collection_list": [
+          "trnk-collection"
+        ],
+        "promo-image": "shopify:\/\/shop_images\/6F6A9412_1.jpg",
+        "promo-text": "Promo text",
+        "background-color": "#ff6b0e",
+        "promo-link": "",
+        "close-color-scheme": "black"
+      }
+    },
+    "3655ee82-744b-460a-903e-46737e577fe6": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "countdown-enabled": true,
+        "countdown-sale-text": "Memorial day SALE",
+        "countdown-sale-starts": "May 11 2023, 6:00pm",
+        "countdown-sale-ends": "May 12 2023, 6:00pm",
+        "countdown-sale-countdown": "48",
+        "countdown-unwanted-collections": [
+
+        ],
+        "countdown-sale-accent": "#f00",
+        "countdown-sale-text-col": "#fff"
+      }
     }
   },
   "order": [

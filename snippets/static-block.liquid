@@ -5,6 +5,7 @@
             const link = card.querySelector('.product-unit__image');
             const imgs = card.querySelectorAll('.product-unit__image img');
             const imgHover = card.querySelectorAll('img.img-hover');
+            const sizeSelect = card.querySelector('.product-unit__size-component');
             let swatches = card.querySelectorAll('.product-unit__swatches-container');
             if (swatches.length < 1) {
                 swatches = card.querySelectorAll('.product-unit__swatches-container');
@@ -31,6 +32,9 @@
                                                     });
                                                 });
                                             })
+                                            sizeSelect.addEventListener('change', function(e) {
+                                                card.querySelector('.product-unit__image > img').style.opacity = 1;
+                                            });
                                         } catch (e) {
                                             console.error(e)
                                             console.error('Swatches didnt load yet')
