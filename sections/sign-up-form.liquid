@@ -65,12 +65,11 @@ fbq('track', 'PageView');
                     {% endif %}
                 </div>
             {% when 'form' %}
-                <div class="sign-up__form" style="display:flex; flex-direction:column; justify-content:{{block.settings.vertical_alignment}};">
-                    {% if block.settings.form_type == 'klaviyo' %}
-                        <div class="klaviyo-form-{{ block.settings.klaviyo_id }}"></div>
-                    {% else %}
-                        <iframe src="{{ block.settings.iframe-url }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                    {% endif %}                  
+                <div class="sign-up__form">
+                    {% if block.settings.iframe-url != blank %}
+                    <iframe src="{{ block.settings.iframe-url }}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    {% endif %}
+
                     <style>
                         {% if block.settings.height != blank %}
                         .section-{{ section.id }} .sign-up__form {
@@ -281,32 +280,9 @@ fbq('track', 'PageView');
                 "name": "Form",
                 "settings": [
                     {
-                    "type": "select",
-                    "id": "form_type",
-                    "label": "Choose the form type",
-                    "options": [
-                        {
-                        "value": "klaviyo",
-                        "label": "Klaviyo"
-                        },
-                        {
-                        "value": "iframe",
-                        "label": "Iframe"
-                        }
-                    ],
-                    "default": "iframe",
-                    "info": "This will define which form to display, add the form data below."
-                    },
-                    {
                         "type": "text",
                         "id": "iframe-url",
-                        "label": "Iframe URL"
-                    },
-                    {
-                    "type": "text",
-                    "id": "klaviyo_id",
-                    "label": "Klaviyo Form ID",
-                    "info": "Insert here your Klaviyo ID. Sample: VffeY9"
+                        "label": "iframe URL"
                     },
                     {
                         "type": "text",
@@ -317,26 +293,6 @@ fbq('track', 'PageView');
                         "type": "text",
                         "id": "height-mobile",
                         "label": "Height in pixels for mobile"
-                    },
-                    {
-                    "type": "select",
-                    "id": "vertical_alignment",
-                    "label": "Vertical alignment",
-                    "options": [
-                        {
-                        "value": "flex-start",
-                        "label": "Top"
-                        },
-                        {
-                        "value": "center",
-                        "label": "Center"
-                        },
-                        {
-                        "value": "flex-end",
-                        "label": "Bottom"
-                        }
-                    ],
-                    "default": "center"
                     }
                 ]
             }
