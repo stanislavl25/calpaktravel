@@ -1070,7 +1070,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if(window.location.pathname.includes('product')) {
         const processSection = (selector) => {
             const section = document.querySelector(selector);
             if (section) {
@@ -1086,7 +1085,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const initializeSections = () => {
             const sections = [
                 '.shopify-section--pdp-featured',
-                '.pdp__upsell'
+                '.pdp__upsell',
+                '.product-grid'
             ];
         
             sections.map(section => processSection(section));
@@ -1137,5 +1137,4 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
-    }
 });
