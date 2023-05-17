@@ -23,7 +23,7 @@
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": true,
     "countdown-label-collection-enabled": false,
-    "desktop-badge-placement": "bottom",
+    "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
     "sale-badge-tag": "memorialdaysale",
