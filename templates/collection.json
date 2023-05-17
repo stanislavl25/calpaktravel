@@ -467,7 +467,7 @@
       "type": "page-header",
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "display": "only-mobile",
+        "display": "both",
         "title-size": "medium",
         "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
