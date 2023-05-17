@@ -26,7 +26,7 @@
     "desktop-badge-placement": "bottom",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "Final Sale",
+    "sale-badge-tag": "memorialdaysale",
     "sale-badge-text": "Memorial Day Sale",
     "sale-badge-bg": "#46da81",
     "sale-msg-starter": true,
