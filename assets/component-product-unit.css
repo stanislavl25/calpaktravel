@@ -478,6 +478,8 @@
 
 .product-unit--quickadd .product-unit__size-component input:checked ~ div {
     display: block;
+    overflow: scroll;
+    max-height: 75%;
 }
 
 .product-unit--quickadd .product-unit__size-component input:checked ~ label::before {
@@ -562,6 +564,14 @@
 
 .product-unit .floating-labels .product-label {
     margin-top: 0;
+}
+@media (max-width: 1120px) {
+    .product-unit--quickadd .product-unit__select--seleted {
+        padding: 8px 30px 8px 10px;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+    }
 }
 
 @media (max-width: 900px) {

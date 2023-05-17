@@ -33,7 +33,10 @@
                                                 });
                                             })
                                             sizeSelect.addEventListener('change', function(e) {
-                                                card.querySelector('.product-unit__image > img').style.opacity = 1;
+                                                
+                                                [].map.call(imgs, function(img) {
+                                                    img.classList.remove('f-loaded');
+                                                });
                                             });
                                         } catch (e) {
                                             console.error(e)
@@ -54,7 +57,13 @@
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
-                                        })
+                                        });
+                                        sizeSelect.addEventListener('change', function(e) {
+                                            
+                                            [].map.call(imgs, function(img) {
+                                                img.classList.remove('f-loaded');
+                                            });
+                                        });
                                     } catch (e) {
                                         console.error('Swatches didnt load yet')
                                     }
@@ -92,6 +101,12 @@
                                                     });
                                                 });
                                             })
+                                            sizeSelect.addEventListener('change', function(e) {
+                                                
+                                                [].map.call(imgs, function(img) {
+                                                    img.classList.remove('f-loaded');
+                                                });
+                                            });
                                         } catch (e) {
                                             console.error('Swatches didnt load yet')
                                         }
@@ -111,7 +126,13 @@
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
-                                        })
+                                        });
+                                        sizeSelect.addEventListener('change', function(e) {
+                                            
+                                            [].map.call(imgs, function(img) {
+                                                img.classList.remove('f-loaded');
+                                            });
+                                        });
                                     } catch (e) {
                                         console.error('Swatches didnt load yet')
                                     }
