@@ -333,7 +333,7 @@
     display: none;
 }
 .cart__upsell-items .product-unit__button {
-    display: block;
+    display: none;
 }
 
 .product-unit__button--active {
@@ -443,7 +443,7 @@
 .product-unit--quickadd .product-unit__select--seleted {
     position: absolute;
     z-index: 9;
-    bottom: 0;
+    bottom: -90px;
     border: 1px solid #000000;
     border-radius: 9px;
     width: calc(100% - 32px);
@@ -459,6 +459,13 @@
     display: flex;
     justify-content: space-between;
     padding-right: 40px;
+    transition: all 0.3s ease;
+}
+.product-unit--quickadd .product-unit__select--seleted.hovered{
+    bottom:0px;
+}
+.product-unit--quickadd .product-unit__select--seleted.focused{
+    bottom:0px;
 }
 
 .product-unit--quickadd .product-unit__size-component { 

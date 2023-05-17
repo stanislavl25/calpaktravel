@@ -254,7 +254,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         availableVariants.push(product.variants[i]);
     }
     
-    if(init1 !== false) {
+    if(isProductUnit && isset(init1) && init1 !== false) {
         init1 = handleize(init1);
 
         let match = false,
@@ -278,6 +278,12 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         current_variant = match || backupMatch;
         variantAutoSelected = false;
+
+        const handle = target.getAttribute('data-handle');
+        const productLinks = target.querySelectorAll('.product-link, .quick-view__link');
+        productLinks.forEach(productLink => {
+            productLink.setAttribute('href', `/products/${handle}/${handleize(current_variant.option1)}`);
+        });
     }
 
     if(current_variant === false) for(let i = 0; i < availableVariants.length; i++) {
@@ -532,9 +538,28 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(colors[color].selected === true) {
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
-            if(!variantAutoSelected) el.classList.add('color-swatch--first');
+            if(!variantAutoSelected) el.classList.add('color-swatch--first');          
         }
-
+        let match = 0;
+        const productTags = product.tags;
+                for (let i = 0; i < productTags.length; i++) {
+                    const collectionUrl = window.location.href;
+                        const collectionUrlSplit = collectionUrl.replace('https://www.calpaktravel.com/collections/', '');
+                        const tagBuilder = 'first:' + collectionUrlSplit + ':' ;
+                        const tagColors = productTags[i].replace(tagBuilder, '');
+                        const tagColorsSplit = tagColors.split(';');
+                    if (productTags[i].indexOf(tagBuilder) > -1) {
+                        for (let i = 0; i < tagColorsSplit.length; i++){
+                            if(color == tagColorsSplit[i]){
+                                console.log(product.title);
+                                el.classList.add('color_index__' + match.toString());
+                            }
+                            match++;
+                        }
+                        
+                    }
+                }
+                
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
@@ -551,6 +576,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
+        const component = target.querySelector('.product-unit__select--seleted');    
+        const atcBtn = target.querySelector('.product-unit__button');
 
         for (const size in sizes) {
             if(size == '_count') continue;
@@ -584,6 +611,29 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             sizesContainer.appendChild(el);
             
         }
+        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+         target.querySelector('.product-unit__image-wrapper').addEventListener('mouseover', (e) => {
+            component.classList.add('hovered');
+        });
+        target.querySelector('.product-unit__image-wrapper').addEventListener('mouseout', (e) => {
+            if(!component.classList.contains('focused')){
+                component.classList.remove('hovered');
+            }
+        });
+        component.addEventListener('click', (e) => {
+            component.classList.toggle('focused');
+        });
+        atcBtn.addEventListener('click', (e) => {
+            component.classList.add('focused');
+            console.log('clicked once');
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+            atcBtn.classList.add('ready');
+        },{once: true});
+        
+        const sizeSwatches = target.querySelectorAll('.size-swatch');
+        sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+            component.classList.remove('focused');
+        }));
 
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
@@ -880,8 +930,6 @@ function activateCart() {
 ///////////////////////// TIMERS ///////////////////////////
 function updateTimeouts(countdown_ticks) {
     for(let i = 0; i < countdown_ticks.length; i++) {
-        console.log('testing')
-        console.log(countdown_ticks[i]);
         let time_left = countdown_ticks[i].getAttribute('data-time');
         if (!time_left) {
             time_left = countdown_ticks[i].getAttribute('data-time-left');
@@ -988,39 +1036,83 @@ window.addEventListener("load", () => {
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
-//quick add function
-    const loadQuickAdd = () => {
-    document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
-    document.querySelector('.product-grid').classList.add('product-grid--gap');
-    document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
-    document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
-        colors.classList.add('product-unit__colors--all', 'slide');
-        colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
-    });
-    document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
-    document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
-    swatches.classList.add('slider');
-    const sliderWrapper = swatches.parentNode;
-    sliderWrapper.setAttribute('data-slide', 4);
-    sliderWrapper.setAttribute('data-slide-mob', 3);
-    sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
-    sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
-    checkSlider(sliderWrapper.querySelector('.slider'));
-});
-}
-loadQuickAdd();
-document.addEventListener("shopify:section:load", loadQuickAdd);
-document.addEventListener("shopify:section:change", loadQuickAdd);
-document.addEventListener('page:load', loadQuickAdd);
-document.addEventListener('page:change', loadQuickAdd);
-    
-const subcategoryLinks = document.querySelectorAll('a.filter__collection');
-[].map.call(subcategoryLinks, (subcategoryLink) => {
-    subcategoryLink.addEventListener('click', (e) => {
-        setTimeout( function() {
-            loadQuickAdd();
-        }, 2000);       
-    });
-});
-    
+    if(document.querySelector('.product-grid')) { // !!!
+        //quick add function
+        const loadQuickAdd = () => {
+            document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
+            document.querySelector('.product-grid').classList.add('product-grid--gap');
+            document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
+            document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
+                colors.classList.add('product-unit__colors--all', 'slide');
+                colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
+            });
+            document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
+            document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
+                swatches.classList.add('slider');
+                const sliderWrapper = swatches.parentNode;
+                sliderWrapper.setAttribute('data-slide', 4);
+                sliderWrapper.setAttribute('data-slide-mob', 3);
+                sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
+                sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+                
+                
+                console.log('check slide')
+                checkSlider(sliderWrapper.querySelector('.slider'));
+            });
+        }
+
+        loadQuickAdd();
+        document.addEventListener("shopify:section:load", loadQuickAdd);
+        document.addEventListener("shopify:section:change", loadQuickAdd);
+        document.addEventListener('page:load', loadQuickAdd);
+        document.addEventListener('page:change', loadQuickAdd);
+        
+        const subcategoryLinks = document.querySelectorAll('a.filter__collection');
+        [].map.call(subcategoryLinks, (subcategoryLink) => {
+            subcategoryLink.addEventListener('click', (e) => {
+                setTimeout( function() {
+                    loadQuickAdd();
+                }, 2000);       
+            });
+        });
+    }
+
+    if(window.location.pathname.includes('product')) {
+        const updatingLabelsOnProductUnits = () => {
+            console.log('updatingLabelsOnProductUnits')
+            let featuredSection = document.querySelector('.shopify-section--pdp-featured');
+            [...featuredSection.querySelectorAll('.product-unit')].map(productUnit => {
+                let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active')
+                
+                if (firstSwatch) {
+                    variantUpdateProcess(firstSwatch);
+                }
+            });
+        }
+        let loading = false;
+        let updatingLabelsOnProductUnitsIntervalId = setInterval(() => {
+            console.log(`trying updatingLabelsOnProductUnitsIntervalId`)
+            if(document.querySelector('.shopify-section--pdp-featured')) {
+                try {
+                    updatingLabelsOnProductUnits()
+                    clearInterval(updatingLabelsOnProductUnitsIntervalId);
+                } catch (e) {
+                    console.log('variantUpdateProcess not loaded tying again')
+                    if(typeof variantUpdateProcess == 'undefined') {
+                        if(loading == false) {
+                            loadScript(scripts.variants);
+                            loading = true;
+                        }
+                    }
+                }
+            }
+        }, 1500);
+
+
+        updatingLabelsOnProductUnits();
+        document.addEventListener("shopify:section:load", updatingLabelsOnProductUnits);
+        document.addEventListener("shopify:section:change", updatingLabelsOnProductUnits);
+        document.addEventListener('page:load', updatingLabelsOnProductUnits);
+        document.addEventListener('page:change', updatingLabelsOnProductUnits);
+    }
 });

@@ -29,6 +29,10 @@ function updateProductURLs(productContainer, options, multiple = false, earlyAcc
 }
 
 function variantUpdateProcess(target) {
+    console.log(target)
+    if(window.location.pathname.includes('product')) {
+        changeBadgeAbsolutePosition(); // defined on pdp.js
+    }
     const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
     const productContainer = target.closest('.product-unit, .shopify-product-form');
     

@@ -224,7 +224,9 @@
     <body class="template-{{ template | replace: '.', '-' }}">
 
         {% unless settings.speed_debug %}
-        {% section 'header' %}
+        <div class="header-container">
+            {% section 'promo-bar' %}
+            {% section 'header' %}
 
             {% render 'wishlist-popup' %}
             {% section 'mobile-menu' %}
@@ -239,6 +241,7 @@
                 {% section 'notifications' %}
                 {% section 'header-banner' %}
             </section>
+            </div>
         {% endunless %}
 
 
@@ -308,6 +311,49 @@ for (var i = 0; i < atcButtons.length; i++) {
     })
 }
 });
-</script>
+</script>=
+
+{% if settings.countdown-label-collection-enabled and template contains 'collection'%}
+    <script>
+        const addLabelToCollectionProductUnit = e => {
+            if(document.querySelector('html').clientWidth < 900) {
+              console.log('addLabelToCollectionProductUnit')
+                if([...document.querySelectorAll('.countdown-sale-badge-label')].length < 1) {
+                    
+                    let products = document.querySelectorAll('.product-unit.product-unit--add-sale-badge');
+                    [...products].map((productUnit, index) => {
+                        let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
+                        let newLabel = document.createElement('p');
+
+                        newLabel.setAttribute('class', 'countdown-sale-badge-label');        
+                        newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
+                        newLabel.appendChild(newLabelText);
+                        
+                        let intervalId = setInterval( () => {
+                            console.log('trying add sale badge wrapper');
+                            if(productUnit.querySelector('.sale-badge-wrapper')) {
+                                clearInterval(intervalId);
+                                if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.countdown-sale-badge-label')].length < 1) {
+                                    productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
+                                }
+                            }
+                        }, 1500);
+                    });
+                }
+            } else {
+                [...document.querySelectorAll('.countdown-sale-badge-label')].map(countdownSaleBadgeLabel => countdownSaleBadgeLabel.parentNode.removeChild(countdownSaleBadgeLabel));
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", addLabelToCollectionProductUnit);
+        window.addEventListener("resize", addLabelToCollectionProductUnit);
+        document.addEventListener("shopify:section:load", addLabelToCollectionProductUnit);
+        try {
+            addLabelToCollectionProductUnit();
+        } catch(e) {
+            setTimeout(addLabelToCollectionProductUnit, 1000);
+        }
+    </script>
+{% endif %}
 </body>
 </html>
