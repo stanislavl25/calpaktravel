@@ -1,38 +1,27 @@
 "use strict";
 
-const showPasses = document.querySelectorAll('.show-password');
-showPasses.forEach(showPass => showPass.addEventListener('click', function() {
-    const inpt = this.parentNode.querySelector('input');
-    if(inpt.type === 'password') {
-        inpt.type = 'text';
-        this.querySelector('.show-password__cta').innerHTML = 'Hide';
-    } else {
-        inpt.type = 'password';
-        this.querySelector('.show-password__cta').innerHTML = 'View';
-    }
-}));
-
 let saveAttr = false;
-const validatedForms = document.querySelectorAll('#customer_login, #create_customer, .customer__forgot-pass form');
-validatedForms.forEach(validatedForm => validatedForm.addEventListener('submit', function(e) {
-    const form = this;
-    const fields = form.querySelectorAll('.field--validated');
+const newCustomerForm = document.querySelector('#create_customer');
+if(newCustomerForm) newCustomerForm.addEventListener('submit', function(e) {
 
-    let errorsFound = false;
-    fields.forEach(field => {
-        const input = field.querySelector('input');
-        if(input.value.trim() == '') {
-            field.classList.add('field--invalid');
-            errorsFound = true;
-        } else field.classList.remove('field--invalid');
-    });
-
-    if(errorsFound) {
+    let firstnameEl = newCustomerForm.querySelector('#FirstName');
+    let lastnameEl = newCustomerForm.querySelector('#LastName');
+    let firstname = firstnameEl.value.trim();
+    let lastname = lastnameEl.value.trim();
+    if(firstname == '' || lastname == '') {
         e.preventDefault();
-        saveAttr = form.getAttribute('onsubmit');
-        form.setAttribute('onsubmit', 'return false');
+        saveAttr = newCustomerForm.getAttribute('onsubmit');
+        newCustomerForm.setAttribute('onsubmit', 'return false');
     } else {
-        if(saveAttr !== false) form.setAttribute('onsubmit', saveAttr);
+        if(saveAttr !== false) newCustomerForm.setAttribute('onsubmit', saveAttr);
         return true;
     }
-}));
+        
+    if(firstname == '') {
+        firstnameEl.parentNode.querySelector('.field__error-message--js').classList.add('field__error-message--active');
+    } else firstnameEl.parentNode.querySelector('.field__error-message--js').classList.remove('field__error-message--active');
+
+    if(lastname == '') {
+        lastnameEl.parentNode.querySelector('.field__error-message--js').classList.add('field__error-message--active');
+    } else lastnameEl.parentNode.querySelector('.field__error-message--js').classList.remove('field__error-message--active');
+});

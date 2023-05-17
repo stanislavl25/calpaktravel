@@ -1,91 +1,116 @@
 <div class="collection-categories__wrapper slider__wrapper">
-    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
-    {%- liquid
-        assign filter = false
-        assign selectedParent = 0
-        assign selectedInside = 0
-        assign parentCategoryNum = 0
+  <button
+    aria-label="Show previous slide"
+    class="slider__control button-tri-left slider__control--prev"
+    title="Previous"
+  ></button>
+  <button
+    aria-label="Show next slide"
+    class="slider__control button-tri-right slider__control--next"
+    title="Next"
+  ></button>
+  {%- liquid
+    assign filter = false
+    assign selectedParent = 0
+    assign selectedInside = 0
+    assign parentCategoryNum = 0
+    assign subcategoryNum = 0
+    assign subcategoryCount = 0
+    assign showSub = false
+    for block in section.blocks
+      if block.type == 'category'
+        assign parentCategoryNum = parentCategoryNum | plus: 1
         assign subcategoryNum = 0
-        assign subcategoryCount = 0
-        assign showSub = false
-        for block in section.blocks
-            if block.type == 'category'
-                assign parentCategoryNum = parentCategoryNum | plus: 1
-                assign subcategoryNum = 0
-                if block.settings.selected and filter
-                    assign selectedParent = parentCategoryNum
-                    continue
-                elsif filter == false and block.settings.collection.handle == collection.handle
-                    assign selectedParent = parentCategoryNum
-                    continue
-                endif
-            else
-                assign subcategoryNum = subcategoryNum | plus: 1
-                if block.settings.collection.handle == collection.handle and filter == false
-                    assign selectedParent = parentCategoryNum
-                    assign selectedInside = subcategoryNum
-                endif
-                if selectedParent == parentCategoryNum
-                    assign subcategoryCount = subcategoryCount | plus: 1
-                endif
-            endif
-        endfor
-
-        if subcategoryCount > 0 and filter == false 
-            assign showSub = true
+        if block.settings.selected and filter
+          assign selectedParent = parentCategoryNum
+          continue
+        elsif filter == false and block.settings.collection.handle == collection.handle
+          assign selectedParent = parentCategoryNum
+          continue
         endif
+      else
+        assign subcategoryNum = subcategoryNum | plus: 1
+        if block.settings.collection.handle == collection.handle and filter == false
+          assign selectedParent = parentCategoryNum
+          assign selectedInside = subcategoryNum
+        endif
+        if selectedParent == parentCategoryNum
+          assign subcategoryCount = subcategoryCount | plus: 1
+        endif
+      endif
+    endfor
 
-        assign text_only = section.settings.text-only
-        if collection.handle == 'all'
-            assign text_only = true
-        endif 
-    -%}
-    <section class="filter__collections{% if radio_only %} filter__collection--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %}{% if selectedInside > 0 %} filter__collections--focus{% endif %} slider slider--scrollbar">
-        {%- assign num = 0 -%}
+    if subcategoryCount > 0 and filter == false
+      assign showSub = true
+    endif
+
+    assign text_only = section.settings['text-only']
+    if collection.handle == 'all'
+      assign text_only = true
+    endif
+  -%}
+  <section class="filter__collections{% if radio_only %} filter__collection--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %}{% if selectedInside > 0 %} filter__collections--focus{% endif %} slider slider--scrollbar">
+    {%- assign num = 0 -%}
+    {%- assign numInside = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'category' -%}
+        {%- assign num = num | plus: 1 -%}
         {%- assign numInside = 0 -%}
-        {%- for block in section.blocks -%}            
-            {%- if block.type == 'category' -%}
-                {%- assign num = num | plus: 1 -%}
-                {%- assign numInside = 0 -%}
-                {% assign radio_only = block.settings.radio_only %}
-                {%- continue -%}
-            {%- else -%}
-                {%- assign numInside = numInside | plus: 1 -%}
-            {%- endif -%}
-        <a href="{% if block.settings.collection != blank %}{{ block.settings.collection.url }}{% else %}{{ collection.url }}{% endif %}" data-group="{{ num }}"
-            class="filter__collection{% if radio_only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected filter__collection--selected-init{% endif %}"
-            {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
+        {% assign radio_only = block.settings.radio_only %}
+        {%- continue -%}
+      {%- else -%}
+        {%- assign numInside = numInside | plus: 1 -%}
+      {%- endif -%}
+      <a
+        href="{% if block.settings.collection != blank %}{{ block.settings.collection.url }}{% else %}{{ collection.url }}{% endif %}"
+        data-group="{{ num }}"
+        class="filter__collection{% if radio_only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected filter__collection--selected-init{% endif %}"
+        {% if block.settings.product_list != blank %}
+          data-products="
+            {%- for product in block.settings.product_list -%}
                 {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
-            {%- endfor -%}"
-            {% elsif block.settings.collection != blank %}data-collection="{{ block.settings.collection.handle }}"{% endif %}
-        >
-            {%- unless radio_only -%}
-            <div class="filter__collection-image">
-                {%- liquid
-                    assign lazy = true
-                    assign preload = false
-                    if selected == num
-                        assign lazy = false
-                        assign preload = true
-                    endif
-                -%}
-                {%- if block.settings.image != blank -%}
-                    {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 25vw, 200px', preload: preload, lazy: lazy, no_wrapper: true -%}
-                {%- elsif block.settings.collection.image != blank and block.settings.collection != blank -%}
-                    {%- render 'image' with block.settings.collection.image, sizes: '(min-width: 901px) 25vw, 200px', preload: preload, lazy: lazy, no_wrapper: true -%}
-                {%- endif -%}
-            </div>
-            {% endunless %}
-
-            <h2 class="filter__collection-title">
-                {{- block.settings.title | escape -}}
-            </h2>
-
-            {%- if block.settings.description != blank and radio_only == false -%}
-            <div class="filter__collection-desc">{{- block.settings.description -}}</div>
+            {%- endfor -%}
+          "
+        {% elsif block.settings.collection != blank %}
+          data-collection="{{ block.settings.collection.handle }}"
+        {% endif %}
+      >
+        {%- unless radio_only -%}
+          <div class="filter__collection-image">
+            {%- liquid
+              assign lazy = true
+              assign preload = false
+              if selected == num
+                assign lazy = false
+                assign preload = true
+              endif
+            -%}
+            {%- if block.settings.image != blank -%}
+              {%- render 'image' with block.settings.image,
+                sizes: '(min-width: 901px) 25vw, 200px',
+                preload: preload,
+                lazy: lazy,
+                no_wrapper: true
+              -%}
+            {%- elsif block.settings.collection.image != blank and block.settings.collection != blank -%}
+              {%- render 'image' with block.settings.collection.image,
+                sizes: '(min-width: 901px) 25vw, 200px',
+                preload: preload,
+                lazy: lazy,
+                no_wrapper: true
+              -%}
             {%- endif -%}
-        </a>
-        {%- endfor -%}
-    </section>
+          </div>
+        {% endunless %}
+
+        <h2 class="filter__collection-title">
+          {{- block.settings.title | escape -}}
+        </h2>
+
+        {%- if block.settings.description != blank and radio_only == false -%}
+          <div class="filter__collection-desc">{{- block.settings.description -}}</div>
+        {%- endif -%}
+      </a>
+    {%- endfor -%}
+  </section>
 </div>

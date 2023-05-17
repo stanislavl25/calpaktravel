@@ -513,9 +513,11 @@
     display: contents;
 }
 
-.qv__body .pdp__form-labels .product-label,
 .pdp__info .pdp__form-labels .product-label {
     margin-bottom: calc(-1 * var(--gap));
+}
+.qv__body .pdp__form-labels .product-label{
+    margin-bottom: calc(-1 * var(--gap) + 10px);
 }
 
 .pdp__description {

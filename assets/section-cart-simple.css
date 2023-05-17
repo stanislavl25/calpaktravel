@@ -32,7 +32,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 765px;
+    width: 720px;
     height: 100%;
     background: #fff;
     border-radius: 9px 0 0 9px;
@@ -157,17 +157,8 @@
     flex: 0 0 auto;
 }
 
-.cart__header {
-    background: #f9f9f9;
-    margin-bottom: 23px;
-}
-
-.cart__gamification {
+.cart__free-shipping {
     padding: var(--gap);
-    position: relative;
-    margin-bottom: 5px;
-    max-width: 450px;
-    margin: auto;
 }
 
 .cart__shipping-free {
@@ -219,7 +210,7 @@
 }
 
 .cart__items-title {
-    font-size: 14px;
+    font-size: 1em;
     line-height: 1.25em;
     margin: 0;
 }
@@ -235,30 +226,6 @@
     gap: var(--gap);
     transition: opacity 0.3s;
 }
-
-.cart__item--gift {
-    order: 999;
-}
-
-.cart__item--gift .cart__item-price-row,
-.cart__item--gift .cart__item-wishlist,
-.cart__item--gift .cart__item-remove,
-.cart__item--gift .product-unit__image {
-    display: none;
-}
-
-.cart__item--gift .product-unit__colors--all {
-    position: relative;
-    margin: 3px 0 0;
-    left: 0;
-    top: 0;
-    right: auto;
-}
-
-.cart__item--gift .product-unit__colors--all .product-unit__swatches-container {
-    max-width: 170px;
-}
-
 
 .cart__item--gwp {
     border-radius: 9px;
@@ -289,7 +256,6 @@
 }
 
 .cart__item-image::before {
-    border-radius: 8px;
     content: '';
     width: 31px;
     height: 31px;
@@ -309,15 +275,6 @@
     flex: 1;
     align-self: flex-start;
     line-height: 1.5em;
-}
-
-.cart__item-gift-badge {
-    background: #F7F177;
-    border-radius: 6px;
-    padding: 0 6px;
-    display: inline-block;
-    margin-bottom: 8px;
-    font-size: 17px;
 }
 
 .cart__item-title {
@@ -462,92 +419,46 @@
     height: 60px;
 }
 
-.cart__gamification-progress {
+.cart__free-shipping-progress {
+    border: 1px dashed #aeaeae;
     padding: 9px;
     border-radius: 30px;
 }
 
-.cart__gamification-indicator {
-    border: 0;
-    height: 8px;
+.cart__free-shipping-indicator {
+    border: 1px solid #000;
+    height: 9px;
     border-radius: 30px;
     position: relative;
-    background-color: #EAE9E1;
-    --gamification-progress: 0;
+    overflow: hidden;
+    --shipping-progress: 0;
 }
 
-.cart__gamification-indicator::before {
+.cart__free-shipping-indicator::before {
     background: var(--yellow);
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    border: 1px solid #000;
-    border-radius: 8px;
-    width: var(--gamification-progress);
-    max-width: 100%;
+    border-right: 1px solid #000;
+    width: var(--shipping-progress);
     box-sizing: content-box;
     transition: width 0.3s;
 }
 
-.cart__gamification-goals {
-    position: absolute;
-    width: calc(100% - 36px);
-    display: flex;
-    margin-top: -14px;
-}
-
-.cart__gamification-goal {
-    position: absolute;
-    background-color: #fff;
-    border: 1px dashed #000000;
-    border-radius: 50%;
-    padding: 3.5px;
-    transform: translateY(-50%);
-}
-
-.cart__gamification-goal:last-child {
-    margin-left: -37px;
-}
-
-.cart__gamification-icon {
-    margin: 0;
-    padding: 0;
-    width: 32px;
-    height: 31px;
-    background: #EAE9E1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.cart__gamification-icon--reached {
-    background: #F7F177;
-}
-
-.cart__gamification-msg {
+.cart__free-shipping-msg {
     margin-bottom: 14px;
-    line-height: 1.5em;
+    line-height: 1em;
 }
 
-.cart__gam-verbose {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 18px;
+.cart__free-ship-progress,
+.cart__free-ship-success {
+    display: none;
 }
 
-.cart__gam-progress,
-.cart__gam-success {
-    display: none !important;
-    text-align: center;
-    margin-bottom: 18px;
-    font-size: 14px;
-}
-
-[data-status="progress"] .cart__gam-progress,
-[data-status="success"] .cart__gam-success {
+[data-status="progress"] .cart__free-ship-progress,
+[data-status="success"] .cart__free-ship-success {
     display: block;
 }
 
@@ -724,10 +635,6 @@
 }
 
 @media (max-width: 900px) {
-    .cart__gamification-goal:last-child {
-        margin-left: -27px;
-    }
-
     .cart__body-top {
         padding: 0;
     }
@@ -812,11 +719,11 @@
         padding: var(--gap);
     }
 
-    .cart__gamification-indicator {
-        height: 8px;
+    .cart__free-shipping-indicator {
+        height: 7px;
     }
 
-    .cart__gamification-progress {
+    .cart__free-shipping-progress {
         padding: 6px;
     }
 

@@ -1,0 +1,15 @@
+{% layout none %}
+{
+    "products": [
+        {%- paginate collection.products by 200 -%}
+            {%- for product in collection.products -%}
+                {%- unless forloop.first -%},{%- endunless -%}
+                {
+                    "id": {{ product.id | json }}
+                }
+            {%- endfor -%}
+        {%- endpaginate -%}
+    ],
+    "heading": {%- if collection.metafields.custom.collection_heading != blank -%}{{- collection.metafields.custom.collection_heading | json -}}{%- else -%}{{- collection.title | json -}}{%- endif -%},
+    "description": {%- if collection.metafields.custom.collection_description != blank -%}{{- collection.metafields.custom.collection_description | json -}}{%- else -%}false{%- endif -%}
+}
