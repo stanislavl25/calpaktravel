@@ -1,5 +1,55 @@
 "use strict";
 
+const processSection = (selector) => {
+    const section = document.querySelector(selector);
+    if (section) {
+        Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
+            const firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+            if (firstSwatch) {
+                variantUpdateProcess(firstSwatch);
+            }
+        });
+    }
+};
+
+const initializeSections = () => {
+    const sections = [
+        '.shopify-section--pdp-featured',
+        '.pdp__upsell'
+    ];
+
+    sections.map(section => processSection(section));
+};
+
+let scriptLoaded = false;
+const tryUpdateProcessTheProductUnits = (intervalId = false) => {
+    console.log('Trying updateProcessTheProductUnits');
+    try {
+        initializeSections();
+        if(intervalId && typeof variantUpdateProcess != 'undefined') {
+            console.log('variantUpdateProcess loaded');
+            console.log('clearing interval');
+            clearInterval(intervalId);
+        }
+    } catch (e) {
+        if(typeof variantUpdateProcess == 'undefined') {
+            console.log('variantUpdateProcess not loaded yet');
+            if (!scriptLoaded) {
+                loadScript(scripts.variants);
+                scriptLoaded = true;
+            }
+        } else {
+            console.error(e);
+        }
+    }
+}
+const keepTryingUpdateProcessTheProductUnits = () => {
+    let intervalId = setInterval(() => {
+        console.log(intervalId)
+        tryUpdateProcessTheProductUnits(intervalId);
+    }, 1000);
+}
+
 window.addEventListener("click", (e) => {
     if(e.target.classList.contains('slider__control')) {
         e.preventDefault();
@@ -55,10 +105,17 @@ window.addEventListener("click", (e) => {
             wrapper.classList.remove('slider__wrapper--end');
         } else wrapper.classList.remove('slider__wrapper--start');
     }
+    
+    setTimeout(() => {
+        console.log('trying update process via slide move')
+        tryUpdateProcessTheProductUnits();
+    }, 500)
+    
 });
 
 function moveToSlide(slider, currentPage = 0, sliderCheckNum = 0) {
     // if(currentPage > 0) currentPage--;
+    
     let wrapper = slider.closest('.slider__wrapper');
     let gap = 0;
     if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));

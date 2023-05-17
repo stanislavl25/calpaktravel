@@ -58,6 +58,13 @@
 .shopify-section--pdp-featured .product-label--promo {
     display: none;
 }
+.pdp__upsell .product-label--badge.product-label--badge-desktop-top {
+    top: 35px;
+}
+.pdp__upsell .product-label--badge.product-label--badge-desktop-bottom {
+    top: calc(408px - 26px);
+
+}
 .shopify-section--pdp-featured .product-label--badge.product-label--badge-desktop-top {
     top: 35px;
 }
