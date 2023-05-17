@@ -4,7 +4,7 @@
     assign starter_true = true
      assign product_handle = product.handle 
 -%}
-{%- if settings.sale-badge-enabled and location != 'cart' -%}
+{%- if settings.sale-badge-enabled -%}
     {%- liquid
         if settings.sale-badge-tag == blank
             assign saleBadge = true
@@ -24,7 +24,7 @@
 
 
         assign text_tilt = false
-        if template contains "collection"
+        if template contains "collection" or "product"
             assign text_tilt = settings.sale-badge-text-tilt
         endif
         case settings.desktop-badge-placement
@@ -69,30 +69,6 @@
             endif
         -%}
         {% if settings.badge_display == 'both' %}
-            <script>
-                {% if product_handle == 'hue-mini-carry-on-luggage' %}
-                    console.log('TESTING FILTER BADGES')
-                    console.log('{{product_handle}}')
-                    console.log('{{saleBadge}}')
-                    console.log('{{opt1}}')
-
-                    {% if saleBadge contains opt1 and saleBadge != true %}
-                        console.log('saleBadge contains opt1 and saleBadge != true => TRUE')
-                    {% else %}
-                        console.log('saleBadge contains opt1 and saleBadge != true => FALSE')
-                    {% endif %}
-                    {% if saleBadge contains opt1 %}
-                        console.log('saleBadge contains opt1 TRUE')
-                    {% else %}
-                        console.log('saleBadge contains opt1 FALSE')
-                    {% endif %}
-                    {% if saleBadge != true %}
-                        console.log('saleBadge != true => TRUE')
-                    {% else %}
-                        console.log('saleBadge != true => FALSE')
-                    {% endif %}
-                {% endif %}
-            </script>
             <div 
                 class="
                     product-label

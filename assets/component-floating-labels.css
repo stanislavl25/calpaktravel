@@ -101,7 +101,19 @@
     right: 31px;
     margin-right: 0px;
 }
-
+.cart__upsell .product-label--badge.product-label--active--other,
+.pdp__upsell .product-label--badge.product-label--active--other,
+.shopify-section--pdp-featured .product-label--badge.product-label--active--other,
+.cart__upsell .product-label--badge.product-label--active,
+.pdp__upsell .product-label--badge.product-label--active, 
+.shopify-section--pdp-featured .product-label--badge.product-label--active{
+    top: auto;
+    right: 11.01px;
+    bottom: 51.01px;
+    width: 74px;
+    height: 74px;
+    font-size: 14px;
+}
 .product-label--badge.product-label--badge-tilt {
     transform: rotate(17.82deg);
 }
