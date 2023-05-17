@@ -27,7 +27,8 @@
 .product-label--badge {
     display: none;
 }
-.product-label--badge.product-label--active {
+.product-label--badge.product-label--active, 
+.product-label--badge.badge-active {
     right: 31px;
     margin-right: 0px;
     position: absolute;
