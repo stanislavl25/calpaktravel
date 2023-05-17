@@ -1078,41 +1078,71 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if(window.location.pathname.includes('product')) {
-        const updatingLabelsOnProductUnits = () => {
-            console.log('updatingLabelsOnProductUnits')
-            let featuredSection = document.querySelector('.shopify-section--pdp-featured');
-            [...featuredSection.querySelectorAll('.product-unit')].map(productUnit => {
-                let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active')
-                
-                if (firstSwatch) {
-                    variantUpdateProcess(firstSwatch);
-                }
-            });
-        }
-        let loading = false;
-        let updatingLabelsOnProductUnitsIntervalId = setInterval(() => {
-            console.log(`trying updatingLabelsOnProductUnitsIntervalId`)
-            if(document.querySelector('.shopify-section--pdp-featured')) {
-                try {
-                    updatingLabelsOnProductUnits()
-                    clearInterval(updatingLabelsOnProductUnitsIntervalId);
-                } catch (e) {
-                    console.log('variantUpdateProcess not loaded tying again')
-                    if(typeof variantUpdateProcess == 'undefined') {
-                        if(loading == false) {
-                            loadScript(scripts.variants);
-                            loading = true;
-                        }
+        const processSection = (selector) => {
+            const section = document.querySelector(selector);
+            if (section) {
+                Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
+                    const firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+                    if (firstSwatch) {
+                        variantUpdateProcess(firstSwatch);
                     }
+                });
+            }
+        };
+        
+        const initializeSections = () => {
+            const sections = [
+                '.shopify-section--pdp-featured',
+                '.pdp__upsell'
+            ];
+        
+            sections.map(section => processSection(section));
+        };
+        
+        let scriptLoaded = false;
+        const tryUpdateProcessTheProductUnits = (intervalId = false) => {
+            console.log('Trying updateProcessTheProductUnits');
+            try {
+                initializeSections();
+                if(intervalId && typeof variantUpdateProcess != 'undefined') {
+                    console.log('variantUpdateProcess loaded');
+                    console.log('clearing interval');
+                    clearInterval(intervalId);
+                }
+            } catch (e) {
+                if(typeof variantUpdateProcess == 'undefined') {
+                    console.log('variantUpdateProcess not loaded yet');
+                    if (!scriptLoaded) {
+                        loadScript(scripts.variants);
+                        scriptLoaded = true;
+                    }
+                } else {
+                    console.error(e);
                 }
             }
-        }, 1500);
+        }
+        const keepTryingUpdateProcessTheProductUnits = () => {
+            let intervalId = setInterval(() => {
+                console.log(intervalId)
+                tryUpdateProcessTheProductUnits(intervalId);
+            }, 1000);
+        }
 
+        keepTryingUpdateProcessTheProductUnits()
 
-        updatingLabelsOnProductUnits();
-        document.addEventListener("shopify:section:load", updatingLabelsOnProductUnits);
-        document.addEventListener("shopify:section:change", updatingLabelsOnProductUnits);
-        document.addEventListener('page:load', updatingLabelsOnProductUnits);
-        document.addEventListener('page:change', updatingLabelsOnProductUnits);
+        let lastScroll = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            let scrolled = false
+            if (!scrolled) {
+                scrolled = true;
+                setTimeout(() => { scrolled = false } ,500)
+                tryUpdateProcessTheProductUnits();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('shopify:section:load', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
     }
 });
