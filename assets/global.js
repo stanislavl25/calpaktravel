@@ -164,6 +164,13 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
 
     const tab = tabsContainer.querySelector(`.tabs__content[data-index="${index}"]`);
     if(tab) tab.classList.add('tabs__content--active');
+
+    keepTryingUpdateProcessTheProductUnits();
+    console.log('waiting for swatches to load')
+    setTimeout(() => {
+        console.log('wait for swatches to loead is over trying again')
+        tryUpdateProcessTheProductUnits();
+    }, 3000);
 });
 
 /////////////////////// END TABS /////////////////////////
@@ -1070,11 +1077,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-        const processSection = (selector) => {
+
+
+    /**
+     * 
+     * FOR EVERY MODIFICATION IN HERE MAKE SURE TO UPDATE THE SAME FUNCTIONS ON assets/slider.js
+     */
+        const processSection = ({selector, differentSwatches}) => {
             const section = document.querySelector(selector);
             if (section) {
                 Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
-                    const firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+                    let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+                    if (differentSwatches) {
+                        firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch--active');
+                    } 
                     if (firstSwatch) {
                         variantUpdateProcess(firstSwatch);
                     }
@@ -1084,9 +1100,11 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const initializeSections = () => {
             const sections = [
-                '.shopify-section--pdp-featured',
-                '.pdp__upsell',
-                '.product-grid'
+                { selector: '.shopify-section--pdp-featured', differentSwatches: false },
+                { selector: '.pdp__upsell', differentSwatches: false },
+                { selector: '.product-grid', differentSwatches: false },
+                { selector: '.featured-col__lists', differentSwatches: false },
+                { selector: '.shopify-section--featured-collections', differentSwatches: true }
             ];
         
             sections.map(section => processSection(section));

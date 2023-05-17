@@ -92,7 +92,7 @@
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                 {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
             >
-                {% unless saleBadge-bundle != false and template contains 'collection' and settings.sale-msg-starter != false%}  
+                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false%}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
@@ -109,17 +109,83 @@
             {% endif %}
         {% elsif settings.badge_display == 'product' %}
             {% if template contains 'product' %} 
-                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %} {% if text_tilt == true %}product-label--badge-tilt{% endif %} {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}{% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}{% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}{% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %} "
-                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                <div 
+                    class="
+                        product-label
+                        product-label--badge
+                        {% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %} 
+                        {% if saleBadge == true %} product-label--active badge-active{% endif %} 
+                        {% if text_tilt == true %}product-label--badge-tilt{% endif %}
+                        {% if template contains 'product'%}
+                            {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}
+                            {% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}
+                            {% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}
+                            {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
+                        {% else %}
+                            product-label--badge-collection-page
+                            {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                            starter-customize custom-dash
+                            {% endif %}
+                        {% endif %}
+                    "
+                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
+                    {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
+                >
+                    {% unless saleBadge-bundle != false and settings.sale-msg-starter != false%}  
+                        {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                    {%  else %}
+                        {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
+                    {% endunless %}
                 </div>
+                {% if settings.starter__customizer-badge != blank %}
+                    <style>
+                        .starter-customize {
+                            background-color: {{ settings.starter__customizer-badge }} !important;
+                            border: 1px dashed black !important;
+                            color: {{ settings.starter__customizer-badge-text }} !important;
+                        }
+                    </style>
+                {% endif %}
             {% endif %}
         {% elsif settings.badge_display == 'collection' %}
             {% if template contains 'collection' %} 
-                <div class="product-label product-label--badge{% if saleBadge contains opt1 and saleBadge != true %} product-label--active{% endif %} {% if text_tilt == true %}product-label--badge-tilt{% endif %} {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}{% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}{% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}{% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %} "
-                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}>
-                    {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                <div 
+                    class="
+                        product-label
+                        product-label--badge
+                        {% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %} 
+                        {% if saleBadge == true %} product-label--active badge-active{% endif %} 
+                        {% if text_tilt == true %}product-label--badge-tilt{% endif %}
+                        {% if template contains 'product'%}
+                            {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}
+                            {% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}
+                            {% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}
+                            {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
+                        {% else %}
+                            product-label--badge-collection-page
+                            {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                            starter-customize custom-dash
+                            {% endif %}
+                        {% endif %}
+                    "
+                    {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
+                    {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
+                >
+                    {% unless saleBadge-bundle != false and template contains 'collection' and settings.sale-msg-starter != false%}  
+                        {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
+                    {%  else %}
+                        {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
+                    {% endunless %}
                 </div>
+                {% if settings.starter__customizer-badge != blank %}
+                    <style>
+                        .starter-customize {
+                            background-color: {{ settings.starter__customizer-badge }} !important;
+                            border: 1px dashed black !important;
+                            color: {{ settings.starter__customizer-badge-text }} !important;
+                        }
+                    </style>
+                {% endif %}
             {% endif %}
         {% endif %}
         

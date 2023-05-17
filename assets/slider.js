@@ -1,10 +1,13 @@
 "use strict";
 
-const processSection = (selector) => {
+const processSection = ({selector, differentSwatches}) => {
     const section = document.querySelector(selector);
     if (section) {
         Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
-            const firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+            let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+            if (differentSwatches) {
+                firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch--active');
+            } 
             if (firstSwatch) {
                 variantUpdateProcess(firstSwatch);
             }
@@ -14,8 +17,11 @@ const processSection = (selector) => {
 
 const initializeSections = () => {
     const sections = [
-        '.shopify-section--pdp-featured',
-        '.pdp__upsell'
+        { selector: '.shopify-section--pdp-featured', differentSwatches: false },
+        { selector: '.pdp__upsell', differentSwatches: false },
+        { selector: '.product-grid', differentSwatches: false },
+        { selector: '.featured-col__lists', differentSwatches: false },
+        { selector: '.shopify-section--featured-collections', differentSwatches: true }
     ];
 
     sections.map(section => processSection(section));
