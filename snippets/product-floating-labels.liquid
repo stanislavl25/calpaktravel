@@ -84,7 +84,7 @@
                         {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
                     {% else %}
                         product-label--badge-collection-page
-                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}    
                         starter-customize custom-dash
                         {% endif %}
                     {% endif %}
