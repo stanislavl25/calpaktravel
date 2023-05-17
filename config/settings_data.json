@@ -10,22 +10,23 @@
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
     "sale-text": "%% off",
-    "flash-sale-enabled": false,
-    "flash-sale-tag": "Final Sale",
+    "flash-sale-enabled": true,
+    "flash-sale-tag": "memorialdaysale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "Mar 4 2023, 6am",
-    "flash-sale-ends": "Mar 8 2023, 2:45pm",
-    "flash-sale-countdown": "48",
+    "flash-sale-starts": "May 14 2023, 10:00AM",
+    "flash-sale-ends": "May 17 2023, 11:00AM",
+    "flash-sale-countdown": "24",
     "flash-sale-accent": "#ff0000",
-    "sale-badge-enabled": false,
-    "sale-badge-tag": "",
-    "sale-badge-text": "",
+    "sale-badge-enabled": true,
+    "sale-badge-tag": "memorialdaysale",
+    "sale-badge-text": "Memorial Day SALE",
+    "sale-badge-bg": "#46da81",
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": false,
-    "sale-msg-pdp-only": false,
+    "sale-msg-enabled": true,
+    "sale-msg-pdp-only": true,
     "sale-msg-tag": "",
-    "sale-msg-highlighted": "Code: MOM15",
-    "sale-msg-message": "Buy 2+ eligible items and get 15% OFF",
+    "sale-msg-highlighted": "Get Free 2-Day Shipping",
+    "sale-msg-message": "Expedited shipping for orders over $300+",
     "sale-msg-main-col-text": "#707070",
     "type_body_font": "futura_n4",
     "type_body_font_bolder": "futura_n5",
@@ -44,6 +45,11 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
+    "desktop-badge-placement": "bottom",
+    "sale-msg-starter": true,
+    "sale-badge-tag-bundle": "sale-bubble",
+    "starter-bundle-badge": "8-Piece Travel Set",
+    "sale-badge-text-starter": "Special Promo",
     "sale-text-pdp-mixed": "Up to %% off",
     "sale-text-col-mixed": "Up to %% off",
     "sections": {
@@ -73,8 +79,26 @@
               "video-ratio-h": "9"
             }
           },
+          "66117e8e-72a2-4c4a-9251-d53677ed9255": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/collections\/sale",
+              "block-title": "Memorial Day Sale",
+              "description": "<p>Get Up to 45% OFF Luggage & FREE 2-day shipping with orders $300+!<\/p>",
+              "button-text": "Shop Now",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1108-4.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
           "d354ff31-c668-4b29-8245-34b614309172": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -289,6 +313,7 @@
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
+          "66117e8e-72a2-4c4a-9251-d53677ed9255",
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
@@ -307,7 +332,7 @@
           "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
@@ -552,22 +577,22 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
               "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/Shop_All.jpg",
-              "link": "shopify:\/\/collections\/all",
+              "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-5.jpg",
+              "link": "shopify:\/\/collections\/sale",
               "media-title": "",
               "description": "",
-              "button-text": "Shop All",
+              "button-text": "Up to 45% OFF Luggage",
               "link-for-button": true,
               "text-color-scheme": "white"
             }
           },
           "97742501-521b-4ea2-a166-533c5387df96": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -669,7 +694,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -746,7 +771,7 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269": {
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
             "settings": {
               "everywhere": true,
@@ -754,38 +779,23 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>PDP + Collection ((countdown))<\/p>",
-              "url": "",
-              "background": "#F7F177",
-              "text-color": ""
-            }
-          },
-          "3975ce6e-c442-475f-89a8-a5121d304beb": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Collections on Sale<\/p>",
-              "url": "shopify:\/\/collections\/summer-arrivals",
-              "background": "#6aabb6",
+              "content": "<p>Up to 45% OFF Luggage<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#f7f177",
               "text-color": ""
             }
           }
         },
         "block_order": [
-          "ed05675b-61f8-4b43-bf63-513c3e6b3269",
-          "3975ce6e-c442-475f-89a8-a5121d304beb"
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
         ],
         "settings": {
-          "show": "everywhere",
+          "show": "home",
           "timeout": 3,
           "holiday_banner": false,
           "holiday-banner-background": "#eae1cf",
-          "holiday-banner-color": "#000",
-          "countdown-active": true,
+          "holiday-banner-color": "#000000",
+          "countdown-active": false,
           "countdown-show": "always",
           "countdown-to": "May 16 2023, 10:00pm"
         }
