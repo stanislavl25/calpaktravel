@@ -539,8 +539,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
 
-    targetElement.insertAdjacentElement("afterend", shippingInfoElement);
     targetElement.insertAdjacentElement("afterend", shippingMessageElement);
+    targetElement.insertAdjacentElement("afterend", shippingInfoElement);
+    
   }
 
   function formatDate(date) {
