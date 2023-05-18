@@ -320,8 +320,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(colorIndex === 0) colorOption = opt1;
         else if(colorIndex === 1 && opt2 != false) colorOption = opt2;
 
-        let selected = current_variant.id == variant.id,
-            available = variant.available;
+        let selected = current_variant.id == variant.id
+        let available = variant.available;
 
         if(colorOption !== false) {
 
@@ -334,6 +334,31 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 if(opt2 != false) url = `${shopUrl}/products/${handle}/${colorOption},${handleize(current_variant.option2)}`;
                 else url = urlOpt1;
                 
+
+                if (handle == 'womens-cropped-jersey-t-shirt-fw') {
+                    if (colorOption == 'rust') {
+                        console.log('douglas color 1')
+                        console.log({
+                            available: available,
+                            selected: selected,
+                            title: variant.option1,
+                            first_variant_id: variant.id,
+                            urlOpt1: urlOpt1,
+                            url: url
+                        })
+                        console.log('-----------------------')
+                    }
+                }
+            
+                if(available === false) {
+                    setTimeout(
+                        () => {
+                            target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
+                            console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
+                        }, 1000
+                    )
+                }
+
                 colors[colorOption] = {
                     available: available,
                     selected: selected,
@@ -491,7 +516,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
                     let img = '';
                     if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
-
                     swatchesElements[pushGroupIndex] += `<a
                         href="${shopUrl}/products/${product.handle}/${varHandle}"
                         data-value="${varHandle}"
@@ -568,8 +592,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
                     }
                 }
-                
-        if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
+
+        if(colors[color].available === false && colors[color].selected === true) {
+            target.classList.add('product-unit--na');
+            
+        }
 
         if(colors_img.indexOf(color) > -1) {
             el.innerHTML = `<img src='${filesUrl.replace('file.svg', `${color}.png`)}'>`;
@@ -587,7 +614,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         const sizesContainer = selects.querySelector('.sizes-container');
         const component = target.querySelector('.product-unit__select--seleted');    
         const atcBtn = target.querySelector('.product-unit__button');
-
+        
         for (const size in sizes) {
             if(size == '_count') continue;
     
@@ -604,7 +631,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 el.classList.add('selected');
                 target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
             }
-
+            
             if(sizes[size].available === false) el.classList.add('product-option--na');
     
             if(sizes[size].selected === true) {
