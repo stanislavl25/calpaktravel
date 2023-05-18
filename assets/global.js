@@ -182,7 +182,6 @@ stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.clo
 
 function setProductData(product, meta, target, current_variant_id = false, init1 = false) {
     const isProductUnit = target.classList.contains('product-unit');
-    console.log(product);
     const handle = product.handle;
     let tags = product.tags;
     if(typeof tags == 'string') tags = tags.split(', ');
@@ -405,7 +404,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
 
         let img = false;
-        let created = false;     
+        let created = false;
         if(variant.featured_image) {
             img = variant.featured_image.src;
             created = Math.floor(new Date(variant.featured_image.created_at).getTime() / 1000);
