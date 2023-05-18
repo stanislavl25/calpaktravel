@@ -136,7 +136,7 @@ if(Shopify.Checkout.step == "shipping_method") {
     
     targetElement.insertAdjacentElement("afterend", shippingMessageElement);
     targetElement.insertAdjacentElement("afterend", shippingInfoElement);
-  }, 200); // Change the delay (in milliseconds) as needed
+  }, 50); // Change the delay (in milliseconds) as needed
 }
 
 
