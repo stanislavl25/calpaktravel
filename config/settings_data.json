@@ -25,7 +25,7 @@
     "countdown-label-collection-enabled": true,
     "desktop-badge-placement": "bottom",
     "mobile-badge-placement": "top",
-    "badge_display": "both",
+    "badge_display": "collection",
     "sale-badge-tag": "memorialdaysale",
     "sale-badge-text": "Memorial Day Sale",
     "sale-badge-bg": "#46da81",
