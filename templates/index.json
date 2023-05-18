@@ -55,8 +55,8 @@
         "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271"
       ],
       "settings": {
-        "hero-height": "auto",
-        "height-limit": 80,
+        "hero-height": "limited",
+        "height-limit": 100,
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
