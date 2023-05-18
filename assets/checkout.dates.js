@@ -97,13 +97,23 @@ if(Shopify.Checkout.step == "shipping_method") {
             label3.innerHTML += `<div style="color:#666">Estimated 1 business day</div><div style="margin-top: 8px;">${overnightString}</div>`;
         }
     }
-  function displayShippingMessage() {
+function displayShippingMessage() {
   setTimeout(() => {
     const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
     expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
 
     const now = new Date();
     const estimatedArrival = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
+    const dayOfWeek = estimatedArrival.getDay();
+
+    if (dayOfWeek === 0) {
+      // Sunday, add one day
+      estimatedArrival.setDate(estimatedArrival.getDate() + 1);
+    } else if (dayOfWeek === 6) {
+      // Saturday, add two days
+      estimatedArrival.setDate(estimatedArrival.getDate() + 2);
+    }
+
     const formattedEstimatedArrival = `${estimatedArrival.getMonth() + 1}/${estimatedArrival.getDate()}`;
     const isAfter12pmPT = now.getHours() >= 19; // 19 is 12 PM PT in 24-hour format
 
@@ -127,6 +137,8 @@ if(Shopify.Checkout.step == "shipping_method") {
     targetElement.insertAdjacentElement("afterend", shippingMessageElement);
     targetElement.insertAdjacentElement("afterend", shippingInfoElement);
   }, 200); // Change the delay (in milliseconds) as needed
+}
+
 }
 
 document.addEventListener('page:load', function() {
