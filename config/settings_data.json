@@ -460,7 +460,7 @@
           "4afeadca-d194-49cf-8d3e-a8525e8c1ad3": {
             "type": "notification",
             "settings": {
-              "text": "<p>Memorial Day Sale: Up to 45% off luggage.<\/p>",
+              "text": "<p><a href=\"\/collections\/sale\" title=\"Sale\">Memorial Day Sale<\/a>: up to 45% off luggage.<\/p>",
               "only-for-guests": false
             }
           }
