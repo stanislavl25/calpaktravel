@@ -22,7 +22,7 @@
     "flash-sale-text-col": "#FFF",
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": true,
-    "countdown-label-collection-enabled": true,
+    "countdown-label-collection-enabled": false,
     "desktop-badge-placement": "bottom",
     "mobile-badge-placement": "top",
     "badge_display": "collection",
