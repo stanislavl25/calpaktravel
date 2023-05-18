@@ -116,6 +116,14 @@
     height: 74px;
     font-size: 14px;
 }
+@media screen and (max-width:649px) {
+.cart__upsell .product-label--badge.badge-active,
+.pdp__upsell .product-label--badge.badge-active, 
+.shopify-section--pdp-featured .product-label--badge.badge-active{
+    display: none!important;
+}
+    
+}
 .product-label--badge.product-label--badge-tilt {
     transform: rotate(17.82deg);
 }
