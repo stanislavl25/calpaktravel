@@ -506,38 +506,36 @@ window.addEventListener("load", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    function displayShippingMessage() {
-      const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
-      expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
-  
-      const now = new Date();
-      const estimatedArrival = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
-      const formattedEstimatedArrival = `${estimatedArrival.getMonth() + 1}/${estimatedArrival.getDate()}`;
-      const isAfter12pmPT = now.getHours() >= 19; // 19 is 12 PM PT in 24-hour format
-  
-      let message;
-      if (isAfter12pmPT) {
-        message = `Order submitted after 12 PM PT on ${now.getMonth() + 1}/${now.getDate()} estimated arrival by ${formattedEstimatedArrival}`;
-      } else {
-        message = `Order submitted before 12 PM PT on ${now.getMonth() + 1}/${now.getDate()} estimated arrival by ${formattedEstimatedArrival}`;
-      }
-  
-      const shippingMessageElement = document.createElement("span");
-      shippingMessageElement.innerText = message;
-      shippingMessageElement.classList.add("shipping-custom-msg");
-  
-      const shippingInfoElement = document.createElement("span");
-      shippingInfoElement.innerText = "Enjoy free 2-day shipping";
-      shippingInfoElement.classList.add("shipping-info");
-  
-      const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
-  
-      
-      targetElement.insertAdjacentElement("afterend", shippingMessageElement);
-      targetElement.insertAdjacentElement("afterend", shippingInfoElement);
-    }
-  
-    displayShippingMessage();
-  });
+function displayShippingMessage() {
+  const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+  expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
+
+  const now = new Date();
+  const estimatedArrival = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
+  const formattedEstimatedArrival = `${estimatedArrival.getMonth() + 1}/${estimatedArrival.getDate()}`;
+  const isAfter12pmPT = now.getHours() >= 19; // 19 is 12 PM PT in 24-hour format
+
+  let message;
+  if (isAfter12pmPT) {
+    message = `Order submitted after 12 PM PT on ${now.getMonth() + 1}/${now.getDate()} estimated arrival by ${formattedEstimatedArrival}`;
+  } else {
+    message = `Order submitted before 12 PM PT on ${now.getMonth() + 1}/${now.getDate()} estimated arrival by ${formattedEstimatedArrival}`;
+  }
+
+  const shippingMessageElement = document.createElement("span");
+  shippingMessageElement.innerText = message;
+  shippingMessageElement.classList.add("shipping-custom-msg");
+
+  const shippingInfoElement = document.createElement("span");
+  shippingInfoElement.innerText = "Enjoy free 2-day shipping";
+  shippingInfoElement.classList.add("shipping-info");
+
+  const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
+
+  targetElement.insertAdjacentElement("afterend", shippingMessageElement);
+  targetElement.insertAdjacentElement("afterend", shippingInfoElement);
+}
+
+document.addEventListener("DOMContentLoaded", displayShippingMessage);
+window.addEventListener("load", displayShippingMessage);
   
