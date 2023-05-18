@@ -690,6 +690,19 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             swatchesContainer.appendChild(extra_colors);
         }
     }
+    /* Join Waitlist label - update URL */
+    const colorSwatches = target.querySelectorAll('.product-unit__swatches .color-swatch');
+    [].map.call(colorSwatches, (colorSwatch) => {
+    colorSwatch.addEventListener('click', (e) => {
+        if(e.target.classList.contains('product-option--na')) {
+            const swatchUrl = e.target.getAttribute('href');
+            const labelWaitlist = target.querySelector('.product-label.product-label--na a');
+            if(labelWaitlist) {
+                labelWaitlist.setAttribute('href', swatchUrl);
+            }
+            }
+        });
+    });
 }
 
 function activateProductUnit(target) {
