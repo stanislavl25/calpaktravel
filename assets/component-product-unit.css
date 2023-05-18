@@ -402,7 +402,7 @@
     position: absolute;
     z-index: 11;
     display: none;
-    width: calc(100% - 32px);
+    width: 100%;
     margin: auto;
     left: 0;
     right: 0;
@@ -461,11 +461,19 @@
     padding-right: 40px;
     transition: all 0.3s ease;
 }
-.product-unit--quickadd .product-unit__select--seleted.hovered{
+.product-unit--quickadd .product-unit__size-component input:checked~label.product-unit__select--seleted{
     bottom:0px;
 }
-.product-unit--quickadd .product-unit__select--seleted.focused{
+.product-unit--quickadd:hover .product-unit__size-component input~label.product-unit__select--seleted{
     bottom:0px;
+}
+@media screen and (max-width:649px){
+    .product-unit--quickadd .product-unit__select--seleted.hovered{
+        bottom:0px;
+    }
+    .product-unit--quickadd .product-unit__select--seleted.focused{
+        bottom:0px;
+    }
 }
 
 .product-unit--quickadd .product-unit__size-component { 
@@ -478,8 +486,19 @@
 
 .product-unit--quickadd .product-unit__size-component input:checked ~ div {
     display: block;
-    overflow: scroll;
+    overflow-y: scroll;
     max-height: 75%;
+}
+.product-unit--quickadd .product-unit__size-component input:checked ~ div::-webkit-scrollbar {
+    width: 1px; 
+}
+
+.product-unit--quickadd .product-unit__size-component input:checked ~ div::-webkit-scrollbar-thumb {
+    background-color: #000; 
+}
+.product-unit--quickadd .product-unit__size-component input:checked ~ div::-webkit-scrollbar-track {
+    background-color: transparent; 
+    border-right:1px solid #AEAEAE ;
 }
 
 .product-unit--quickadd .product-unit__size-component input:checked ~ label::before {

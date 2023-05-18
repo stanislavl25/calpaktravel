@@ -355,7 +355,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     setTimeout(
                         () => {
                             target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
-                            console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
+                            //console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
                         }, 1000
                     )
                 }
@@ -626,7 +626,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             sizesContainer.appendChild(el);
             
         }
-        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+        if (window.innerWidth < 900){
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
          target.addEventListener('mouseover', (e) => {
             component.classList.add('hovered');
         });
@@ -648,6 +649,26 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
             component.classList.remove('focused');
         }));
+        } else {
+            const checkSelected = target.querySelector('.product-unit--quickadd .product-unit__size-component label');
+            target.addEventListener('mouseover', (e) => {
+                component.classList.add('hovered');
+            });
+            const checkboxes = document.querySelectorAll('.product-unit--quickadd .product-unit__size-component input');
+
+            checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                checkboxes.forEach((otherCheckbox) => {
+                    if (otherCheckbox !== e.target) {
+                    otherCheckbox.checked = false;
+                    }
+                });
+                }
+            });
+            });
+
+        }
 
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
