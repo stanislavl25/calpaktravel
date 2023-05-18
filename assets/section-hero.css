@@ -131,7 +131,9 @@
 .hero__block-content .button {
     margin-top: 35px;
 }
-
+.hero__block-description {
+    font-size: 18px;
+}
 .template-page-vit-rewards .hero__block-description {
     font-size: 18px;
     margin-top: 10px;
