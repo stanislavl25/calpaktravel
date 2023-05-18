@@ -420,15 +420,37 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3": {
+            "type": "notification",
+            "settings": {
+              "text": "<p><a href=\"\/collections\/sale\" title=\"Sale\">Memorial Day Sale<\/a>: up to 45% off luggage.<\/p>",
+              "only-for-guests": false
+            }
+          },
+          "66440c26-ad60-4648-a563-4816dc76f530": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Orders $300 and over get free 2-day express shipping.<\/p>",
+              "only-for-guests": false
+            }
+          },
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
             "settings": {
-              "text": "<p>Orders $75 and over get free shipping<\/p>",
+              "text": "<p>Orders $75 and over get free standard shipping.<\/p>",
               "only-for-guests": false
+            }
+          },
+          "e43ed852-3a63-40ae-bb57-bbe85071c91e": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Start earning on every purchase as a VIT Rewards Member. <a href=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\" title=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\">Sign up<\/a><\/p>",
+              "only-for-guests": true
             }
           },
           "91c42567-a70f-469a-9cec-9f14f8d69477": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Enjoy 10% OFF your first order. <a href=\"\/pages\/sign-up-page\" title=\"Sign-Up\">Subscribe now<\/a><\/p>",
               "only-for-guests": true
@@ -441,20 +463,15 @@
               "text": "<p>Join us for a • Live Shopping event 3\/2 at 12 pm PT to get 45% off the Starter Bundle. <a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\">Get notified<\/a><\/p>",
               "only-for-guests": false
             }
-          },
-          "e43ed852-3a63-40ae-bb57-bbe85071c91e": {
-            "type": "notification",
-            "settings": {
-              "text": "<p>Start earning on every purchase as a VIT Rewards Member. <a href=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\" title=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\">Sign up<\/a><\/p>",
-              "only-for-guests": true
-            }
           }
         },
         "block_order": [
+          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3",
+          "66440c26-ad60-4648-a563-4816dc76f530",
           "58c64c20-f997-4806-98c1-48dbdac32ff7",
+          "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
-          "40c7a72f-b224-4b2d-b9c8-f1659004f76d",
-          "e43ed852-3a63-40ae-bb57-bbe85071c91e"
+          "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
         "settings": {
         }
