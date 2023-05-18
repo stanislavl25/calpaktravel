@@ -166,9 +166,9 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
     if(tab) tab.classList.add('tabs__content--active');
 
     keepTryingUpdateProcessTheProductUnits();
-    console.log('waiting for swatches to load')
+    //console.log('waiting for swatches to load')
     setTimeout(() => {
-        console.log('wait for swatches to loead is over trying again')
+        //console.log('wait for swatches to loead is over trying again')
         tryUpdateProcessTheProductUnits();
     }, 3000);
 });
@@ -305,10 +305,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if(current_variant === false) current_variant = availableVariants[0];
 
     let hasMultipleSizes = false;
+    
     availableVariants.forEach(variant => {
         const opt1 = handleize(variant.option1);
         let opt2 = false;
-
+        
         if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
         
         // if(opt2 !== false && hasMultipleSizes !== true) {
@@ -565,7 +566,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
         el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
-
+        
         if(colors[color].available === false) el.classList.add('product-option--na');
 
         if(colors[color].selected === true) {
@@ -1060,6 +1061,7 @@ window.addEventListener("load", () => {
         let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
         footerLink.setAttribute('id', 'menu-footer-' + idString);
     });
+    
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
@@ -1139,17 +1141,17 @@ document.addEventListener('DOMContentLoaded', function () {
         
         let scriptLoaded = false;
         const tryUpdateProcessTheProductUnits = (intervalId = false) => {
-            console.log('Trying updateProcessTheProductUnits');
+            //console.log('Trying updateProcessTheProductUnits');
             try {
                 initializeSections();
                 if(intervalId && typeof variantUpdateProcess != 'undefined') {
-                    console.log('variantUpdateProcess loaded');
-                    console.log('clearing interval');
+                    //console.log('variantUpdateProcess loaded');
+                    //console.log('clearing interval');
                     clearInterval(intervalId);
                 }
             } catch (e) {
                 if(typeof variantUpdateProcess == 'undefined') {
-                    console.log('variantUpdateProcess not loaded yet');
+                    //console.log('variantUpdateProcess not loaded yet');
                     if (!scriptLoaded) {
                         loadScript(scripts.variants);
                         scriptLoaded = true;

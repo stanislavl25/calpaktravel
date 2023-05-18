@@ -261,8 +261,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     let verboseTemplate = '';
     if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
         for(let x in goalsVerbose) {
-        
-            let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get`;
+            let prefix = x == 0 ? `You are $${goalsVerbose[x].value.toFixed(2)} away from` : `Add $${goalsVerbose[x].value.toFixed(2)} to get`;
             if (goalsVerbose[x].status == 'complete') {
                 verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
 
@@ -271,7 +270,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
             }
         }
     } else {
-        verboseTemplate = `You are $${goalsVerbose[0].value} away from <b>${goalsVerbose[0].goal}</b>!`;
+        verboseTemplate = `You are $${goalsVerbose[0].value.toFixed(2)} away from <b>${goalsVerbose[0].goal}</b>!`;
     }
 
     document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;

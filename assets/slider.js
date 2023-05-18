@@ -29,12 +29,12 @@ const initializeSections = () => {
 
 let scriptLoaded = false;
 const tryUpdateProcessTheProductUnits = (intervalId = false) => {
-    console.log('Trying updateProcessTheProductUnits');
+    //console.log('Trying updateProcessTheProductUnits');
     try {
         initializeSections();
         if(intervalId && typeof variantUpdateProcess != 'undefined') {
-            console.log('variantUpdateProcess loaded');
-            console.log('clearing interval');
+            //console.log('variantUpdateProcess loaded');
+            //console.log('clearing interval');
             clearInterval(intervalId);
         }
     } catch (e) {
