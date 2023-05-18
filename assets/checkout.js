@@ -505,3 +505,52 @@ window.addEventListener("load", () => {
         document.body.classList.add('enable-notice');
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  function displayShippingMessage() {
+    const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+    expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
+
+    const now = new Date();
+    let estimatedArrival = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
+    const isAfter12pmPT = now.getHours() >= 12 && now.getHours() < 19; // 12 PM to 7 PM PT in 24-hour format
+
+    // Adjust estimated arrival if it falls on a weekend
+    if (estimatedArrival.getDay() === 6) { // Saturday
+      estimatedArrival = new Date(estimatedArrival.getTime() + (2 * 24 * 60 * 60 * 1000)); // Add 2 more days for Monday delivery
+    } else if (estimatedArrival.getDay() === 0) { // Sunday
+      estimatedArrival = new Date(estimatedArrival.getTime() + (1 * 24 * 60 * 60 * 1000)); // Add 1 more day for Monday delivery
+    }
+
+    let message;
+    if (isAfter12pmPT) {
+      message = `Order submitted after 12 PM PT estimated arrival by ${formatDate(estimatedArrival)}`;
+    } else {
+      message = `Order submitted before 12 PM PT estimated arrival by ${formatDate(estimatedArrival)}`;
+    }
+
+    const shippingMessageElement = document.createElement("span");
+    shippingMessageElement.innerText = message;
+    shippingMessageElement.classList.add("shipping-custom-msg");
+
+    const shippingInfoElement = document.createElement("span");
+    shippingInfoElement.innerText = "Enjoy free 2-day shipping";
+    shippingInfoElement.classList.add("shipping-info");
+
+    const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
+
+    targetElement.insertAdjacentElement("afterend", shippingMessageElement);
+    targetElement.insertAdjacentElement("afterend", shippingInfoElement);
+    
+  }
+
+  function formatDate(date) {
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    return `${month}/${day}`;
+  }
+
+  displayShippingMessage();
+});
+
+  
