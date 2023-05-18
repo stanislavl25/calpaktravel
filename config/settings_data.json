@@ -456,6 +456,13 @@
               "text": "<p>Join us for a • Live Shopping event 3\/2 at 12 pm PT to get 45% off the Starter Bundle. <a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\">Get notified<\/a><\/p>",
               "only-for-guests": false
             }
+          },
+          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Memorial Day Sale: Up to 45% off luggage.<\/p>",
+              "only-for-guests": false
+            }
           }
         },
         "block_order": [
@@ -463,7 +470,8 @@
           "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
-          "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
+          "40c7a72f-b224-4b2d-b9c8-f1659004f76d",
+          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3"
         ],
         "settings": {
         }
