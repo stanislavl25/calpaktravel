@@ -199,7 +199,7 @@ body .floating-labels .product-label--extra-sale {
         right: 10px;
         margin-right: 0px;
     }
-    .product-label--badge.product-label--badge-collection-page {
+    .product-label--badge.product-label--badge-collection-page:not(.bagde-active) {
         display: none!important;
     }
     .floating-labels {

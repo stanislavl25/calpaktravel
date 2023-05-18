@@ -111,7 +111,7 @@
                 if settings.sale-badge-tag == tagSpl[0]
                     if tagSpl.size == 1
                         assign saleBadge = true
-                    else
+                    else init_option1
                         assign saleBadge = tagSpl[1] | downcase | split: ';'
                     endif
                 endif
