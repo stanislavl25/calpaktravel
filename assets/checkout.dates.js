@@ -97,7 +97,7 @@ if(Shopify.Checkout.step == "shipping_method") {
             label3.innerHTML += `<div style="color:#666">Estimated 1 business day</div><div style="margin-top: 8px;">${overnightString}</div>`;
         }
     }
-function displayShippingMessage() {
+ function displayShippingMessage() {
   setTimeout(() => {
     const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
     expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
@@ -139,7 +139,6 @@ function displayShippingMessage() {
   }, 200); // Change the delay (in milliseconds) as needed
 }
 
-}
 
 document.addEventListener('page:load', function() {
   displayShippingMessage();
