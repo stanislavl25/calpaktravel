@@ -509,9 +509,6 @@ if(Shopify.Checkout.step == "shipping_method") {
   function displayShippingMessage() {
     const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
     expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
-  function displayShippingMessage() {
-    const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
-    expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
   
     const now = new Date();
     const estimatedArrival = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
