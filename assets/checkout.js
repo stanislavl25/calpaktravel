@@ -509,6 +509,9 @@ window.addEventListener("load", () => {
 function displayShippingMessage() {
   const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
   expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
+function displayShippingMessage() {
+  const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+  expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
 
   const now = new Date();
   const estimatedArrival = new Date(now.getTime() + (2 * 24 * 60 * 60 * 1000));
@@ -536,19 +539,19 @@ function displayShippingMessage() {
   targetElement.insertAdjacentElement("afterend", shippingInfoElement);
 }
 
-function observeExpressLabelElement() {
-  const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
-  if (expressLabelElement) {
+function observeShippingMethodsFieldset() {
+  const shippingMethodsFieldset = document.querySelector('fieldset.content-box[data-shipping-methods=""]');
+  if (shippingMethodsFieldset) {
     displayShippingMessage();
   } else {
     const observer = new MutationObserver(mutationsList => {
       for (const mutation of mutationsList) {
         if (mutation.addedNodes && mutation.addedNodes.length > 0) {
           const addedNodes = Array.from(mutation.addedNodes);
-          const containsExpressLabel = addedNodes.some(node => {
-            return node.matches && node.matches('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+          const containsShippingMethodsFieldset = addedNodes.some(node => {
+            return node.matches && node.matches('fieldset.content-box[data-shipping-methods=""]');
           });
-          if (containsExpressLabel) {
+          if (containsShippingMethodsFieldset) {
             observer.disconnect();
             displayShippingMessage();
             break;
@@ -561,4 +564,4 @@ function observeExpressLabelElement() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", observeExpressLabelElement);
+document.addEventListener("DOMContentLoaded", observeShippingMethodsFieldset);
