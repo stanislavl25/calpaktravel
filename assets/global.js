@@ -572,32 +572,10 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(colors[color].selected === true) {
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
-            if(!variantAutoSelected) el.classList.add('color-swatch--first');          
+            if(!variantAutoSelected) el.classList.add('color-swatch--first');
         }
-        let match = 0;
-        const productTags = product.tags;
-                for (let i = 0; i < productTags.length; i++) {
-                    const collectionUrl = window.location.href;
-                        const collectionUrlSplit = collectionUrl.replace('https://www.calpaktravel.com/collections/', '');
-                        const tagBuilder = 'first:' + collectionUrlSplit + ':' ;
-                        const tagColors = productTags[i].replace(tagBuilder, '');
-                        const tagColorsSplit = tagColors.split(';');
-                    if (productTags[i].indexOf(tagBuilder) > -1) {
-                        for (let i = 0; i < tagColorsSplit.length; i++){
-                            if(color == tagColorsSplit[i]){
-                                console.log(product.title);
-                                el.classList.add('color_index__' + match.toString());
-                            }
-                            match++;
-                        }
 
-                    }
-                }
-
-        if(colors[color].available === false && colors[color].selected === true) {
-            target.classList.add('product-unit--na');
-            
-        }
+        if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
             el.innerHTML = `<img src='${filesUrl.replace('file.svg', `${color}.png`)}'>`;
