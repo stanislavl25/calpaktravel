@@ -536,5 +536,5 @@ function displayShippingMessage() {
   targetElement.insertAdjacentElement("afterend", shippingInfoElement);
 }
 
-window.addEventListener("load", displayShippingMessage);
+document.addEventListener("DOMContentLoaded", displayShippingMessage);
   
