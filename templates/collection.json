@@ -9,7 +9,7 @@
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
         "title-above": "Memorial Day Sale",
-        "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day shipping over $300.<\/p>",
+        "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day express shipping over $300.<\/p>",
         "hide": true,
         "section-id": "",
         "cta_link": "wrap",
@@ -17,6 +17,32 @@
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "terms_text": "Terms & Conditions",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
+    "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000",
+        "bold-text-background": "#fff",
+        "title-above": "Memorial Day Sale",
+        "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day express shipping over $300.<\/p>",
+        "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+          "sale"
+        ],
+        "section-id": "",
+        "cta_link": "none",
+        "cta_url": "",
+        "cta_text": "",
+        "cta_color": "#000",
+        "cta_background": "#fff",
         "terms_text": "Terms & Conditions",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
@@ -458,7 +484,7 @@
       "type": "page-header",
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "display": "only-mobile",
+        "display": "both",
         "title-size": "medium",
         "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
         "button-text": "",
@@ -856,6 +882,8 @@
     }
   },
   "order": [
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
+    "c727b9a1-55c2-4d1d-8db0-a0cc8546616e",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",

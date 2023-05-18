@@ -263,7 +263,7 @@
     }
 
     .slider--mobile-scrollbar {
-        padding-bottom: 15px;
+        padding-bottom: 5px;
     }
 
     /* @-moz-document url-prefix() {
