@@ -802,9 +802,9 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>EVERYWHERE  ((countdown))<\/p>",
+              "content": "<p>Up to 45% OFF Luggage<\/p>",
               "url": "shopify:\/\/collections\/sale",
-              "background": "#6aabb6",
+              "background": "#f7f177",
               "text-color": "#000000"
             }
           }
@@ -813,7 +813,7 @@
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
         ],
         "settings": {
-          "show": "home",
+          "show": "everywhere",
           "timeout": 3,
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
