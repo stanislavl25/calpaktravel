@@ -6,7 +6,7 @@ body.modal-open {
 .header-container {
     position: sticky;
     width: 100%;
-    z-index: 100;
+    z-index: 54;
     top: 0;
 }
 
