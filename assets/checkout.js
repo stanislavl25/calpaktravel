@@ -531,10 +531,34 @@ function displayShippingMessage() {
   shippingInfoElement.classList.add("shipping-info");
 
   const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
-
+  
   targetElement.insertAdjacentElement("afterend", shippingMessageElement);
   targetElement.insertAdjacentElement("afterend", shippingInfoElement);
 }
 
-document.addEventListener("DOMContentLoaded", displayShippingMessage);
+function observeExpressLabelElement() {
+  const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+  if (expressLabelElement) {
+    displayShippingMessage();
+  } else {
+    const observer = new MutationObserver(mutationsList => {
+      for (const mutation of mutationsList) {
+        if (mutation.addedNodes && mutation.addedNodes.length > 0) {
+          const addedNodes = Array.from(mutation.addedNodes);
+          const containsExpressLabel = addedNodes.some(node => {
+            return node.matches && node.matches('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+          });
+          if (containsExpressLabel) {
+            observer.disconnect();
+            displayShippingMessage();
+            break;
+          }
+        }
+      }
+    });
   
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", observeExpressLabelElement);
