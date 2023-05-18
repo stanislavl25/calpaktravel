@@ -430,7 +430,7 @@
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
             "settings": {
-              "text": "<p>Orders $75 and over get free standard shipping<\/p>",
+              "text": "<p>Orders $75 and over get free standard shipping.<\/p>",
               "only-for-guests": false
             }
           },
