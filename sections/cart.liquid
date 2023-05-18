@@ -1,229 +1,376 @@
 <div class="cart__container{% if cart.item_count == 0 %} cart__container--empty{% endif %}">
-    <div class="cart__overlay"></div>
-    <div class="cart__body">
-        <a class="close-button close-button--cart" title="Close"></a>
-        {% render 'cart-empty', continue: section.settings.continue-shopping %}
-        
-        {%- liquid
-            assign free_shipping = settings.free-shipping | times: 100
+  <div class="cart__overlay"></div>
+  <div class="cart__body">
+    <a class="close-button close-button--cart" title="Close"></a>
+    {% render 'cart-empty', continue: section.settings['continue-shopping'] %}
 
-            if cart.requires_shipping
-                if free_shipping == 0
-                    assign free_shipping_progress = 100
-                else
-                    assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
-                    if free_shipping_progress > 100
-                        assign free_shipping_progress = 100
-                    endif
-                endif
-            else
-                assign free_shipping_progress = 100
-            endif
-            
-            assign totalPrice = cart.total_price
-            if free_shipping_progress < 100
-                assign totalPrice = totalPrice | plus: 795
-            endif
+    {%- liquid
+      assign free_shipping = settings['free-shipping'] | times: 100
 
-        -%}
+      if cart.requires_shipping
+        if free_shipping == 0
+          assign gamification_progress = 100
+        else
+          assign gamification_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+          if gamification_progress > 100
+            assign gamification_progress = 100
+          endif
+        endif
+      else
+        assign gamification_progress = 100
+      endif
 
-        <div class="cart__header" data-status="{%- if free_shipping_progress == 100 -%}
-                    success
-                {%- else -%}
-                    progress
-                {%- endif -%}">
-            {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
+      assign totalPrice = cart.total_price
+      if gamification_progress < 100
+        assign totalPrice = totalPrice | plus: 795
+      endif
+    -%}
 
-            {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
+    {%- liquid
+      assign progress_limit = section.settings.max_value | times: 100
+      assign total_price = cart.total_price
+      assign gamification_progress = total_price | times: 100 | divided_by: progress_limit
+    -%}
 
-            {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
+    <div
+      class="cart__header"
+      data-status="
+        {%- if gamification_progress == 100 -%}
+            success
+        {%- else -%}
+            progress
+        {%- endif -%}
+      "
+    >
+      {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
-            {%- if settings.enable-save-for-later -%}
-            <div class="cart__wishlist-notification">
-                {%- if settings.save-for-later-img -%}
-                <div class="cart__wishlist-item-image"></div>
-                {%- endif -%}
-                <div class="cart__wishlist-item-title"></div>
-                <button type="button" class="cart__undo-wishlist" title="Move the item back to cart">Undo</button>
-            </div>
-            {%- endif -%}
+      {%- comment -%}
+        {% render 'cart-free-shipping', gamification_progress: gamification_progress, free_shipping: free_shipping %}
+      {%- endcomment -%}
+      <div class="cart__gamification">
+        <div class="cart__gamification-msg">
+          <div class="cart__gam-verbose"></div>
+          <div class="cart__gam-progress">
+            You're only
+            <span class="shipping-value">
+              {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros -}}
+            </span>
+            away from free shipping!
+          </div>
+          <div class="cart__gam-success">Congrats, you get free shipping!</div>
         </div>
-
-        <div class="cart__body-mobile-main">
-            <div class="cart__body-main">
-
-                <div class="cart__body-top">
-                    <div class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</div>
-
-                    <div class="cart__items-container">
-                        <div class="cart__items">
-                            {%- render 'cart-item' for cart.items -%}
-                        </div>
-                    </div>
-                    
-                    {% render 'cart-promo', blocks: section.blocks, position: 'under-products' %}
-                </div>
-
-
-                <div class="cart__body-bottom">
-                    {%- if customer == blank -%}
-                    <div class="cart__rewards"><a href="{{ routes.account_url }}">Sign in</a> to see your rewards</div>
-                    {%- endif -%}
-                    <dl class="cart__total-row cart__total-row--subtotal">
-                        <dt class="cart__total-name">Subtotal</dt>
-                        <dd class="cart__total-value">{{- cart.items_subtotal_price | money_without_trailing_zeros -}}</dd>
-                    </dl>
-                    <dl class="cart__total-row cart__total-row--shipping">
-                        <dt class="cart__total-name">Shipping</dt>
-                        <dd class="cart__total-value">
-                            <span class="cart__shipping-price">$7.95</span>
-                            <span class="cart__shipping-free">FREE</span>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
-
-            <div class="cart__upsell slider__wrapper" data-slide="4" data-slide-mob="2">
-                <div class="cart__upsell-title">{{- section.settings.featured-title | escape -}}</div>
-                <nav class="slider__nav">
-                    <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
-                    <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
-                </nav>
-                <div class="cart__upsell-items slider slider--scrollbar slider--vertical-on-desktop">
-                    {% comment %} {%- for i in (1..5) -%}
-                        {%- render 'product-unit-placeholder', class: "slide", add_to_cart: true -%}
-                    {%- endfor -%} {% endcomment %}
-                    {%- if section.settings.product_list != blank -%}
-                        {%- for product in section.settings.product_list -%}
-                            {%- unless product.available -%}{%- continue -%}{% endunless %}
-                            {%- render 'product-unit' with product, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
-                        {%- endfor -%}
-                    {%- elsif section.settings.collection != blank -%}
-                        {%- for product in section.settings.collection.products -%}
-                            {%- unless product.available and product.price_min <= 10000 -%}{%- continue -%}{% endunless %}
-                            {%- render 'product-unit' with product, in_collection: section.settings.collection, class: "slide product-unit--only-available", all_colors: true, add_to_cart: true, location: 'cart', sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
-                        {%- endfor -%}
-                    {%- endif -%}
-                </div>
-            </div>
+        <div class="cart__gamification-progress">
+          <div
+            class="cart__gamification-indicator"
+            style="--gamification-progress: {{ gamification_progress }}%;"
+          ></div>
         </div>
+        <div class="cart__gamification-goals"></div>
+      </div>
 
-        <div class="cart__footer">
-            <div class="cart__footer-total">
-                <dl class="cart__total-row cart__total-row--total">
-                    <dt class="cart__total-name">Estimated Total</dt>
-                    <dd class="cart__total-value">
-                        {{- totalPrice | money_without_trailing_zeros -}}
-                    </dd>
-                </dl>
-                <div class="cart__4-payments{% if totalPrice <= 5000 %} cart__4-payments--limit{% endif %}">
-                    <span>4 easy payments
-                        <span class="spc__msg-amnt">
-                            of <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span> with
-                        </span>
-                        <span class="spc__msg-limit">on orders over $50 with</span>
-                    </span>
-                    {% render 'icon-shop-pay' %}
-                </div>
-            </div>
-            <a href="{% if customer == blank %}{{ routes.account_login_url }}/checkout{% else %}/checkout{% endif %}" class="button button--checkout"><span>Checkout</span></a>
-            <div class="cart__extra-checkout">
-                <script> const delayed_checkout_buttons = '{{ content_for_additional_checkout_buttons }}'; </script>
-            </div>
+      {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
+
+      {%- if settings['enable-save-for-later'] -%}
+        <div class="cart__wishlist-notification">
+          {%- if settings['save-for-later-img'] -%}
+            <div class="cart__wishlist-item-image"></div>
+          {%- endif -%}
+          <div class="cart__wishlist-item-title"></div>
+          <button type="button" class="cart__undo-wishlist" title="Move the item back to cart">Undo</button>
         </div>
+      {%- endif -%}
     </div>
+
+    <div class="cart__body-mobile-main">
+      <div class="cart__body-main">
+        <div class="cart__body-top">
+          <div class="cart__items-title">
+            Your items (<span class="cart__count">{{ cart.item_count }}</span>)
+          </div>
+
+          <div class="cart__items-container">
+            <pre class="hide">
+                
+                {{ cart.items[0].product.metafields.custom.pairs_cart_upsell }}
+            </pre>
+            <div class="cart__items">
+              {%- render 'cart-item' for cart.items -%}
+            </div>
+          </div>
+
+          {% render 'cart-promo', blocks: section.blocks, position: 'under-products' %}
+        </div>
+
+        <div class="cart__body-bottom">
+          {%- if customer == blank -%}
+            <div class="cart__rewards"><a href="{{ routes.account_url }}">Sign in</a> to see your rewards</div>
+          {%- endif -%}
+          <dl class="cart__total-row cart__total-row--subtotal">
+            <dt class="cart__total-name">Subtotal</dt>
+            <dd class="cart__total-value">{{- cart.items_subtotal_price | money_without_trailing_zeros -}}</dd>
+          </dl>
+          <dl class="cart__total-row cart__total-row--shipping">
+            <dt class="cart__total-name">Shipping</dt>
+            <dd class="cart__total-value">
+              <span class="cart__shipping-price">$7.95</span>
+              <span class="cart__shipping-free">FREE</span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="cart__upsell slider__wrapper" data-slide="4" data-slide-mob="2">
+        <div class="cart__upsell-title">{{- section.settings['featured-title'] | escape -}}</div>
+        <nav class="slider__nav">
+          <button
+            aria-label="Show previous slide"
+            class="slider__control tri-left slider__control--prev"
+            title="Previous"
+          ></button>
+          <button
+            aria-label="Show next slide"
+            class="slider__control tri-right slider__control--next"
+            title="Next"
+          ></button>
+        </nav>
+        <div class="cart__upsell-items slider slider--scrollbar slider--vertical-on-desktop">
+          {% comment %}
+            {%- for i in (1..5) -%}
+                {%- render 'product-unit-placeholder', class: "slide", add_to_cart: true -%}
+            {%- endfor -%}
+          {% endcomment %}
+          {%- if section.settings.product_list != blank -%}
+            {%- for product in section.settings.product_list -%}
+              {%- unless product.available -%}{%- continue -%}{% endunless %}
+              {%- render 'product-unit' with product,
+                class: 'slide product-unit--only-available',
+                all_colors: true,
+                add_to_cart: true,
+                location: 'cart',
+                sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw'
+              -%}
+            {%- endfor -%}
+          {%- elsif section.settings.collection != blank -%}
+            {%- for product in section.settings.collection.products -%}
+              {%- unless product.available and product.price_min <= 10000 -%}{%- continue -%}{% endunless %}
+              {%- render 'product-unit' with product,
+                in_collection: section.settings.collection,
+                class: 'slide product-unit--only-available',
+                all_colors: true,
+                add_to_cart: true,
+                location: 'cart',
+                sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw'
+              -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="cart__footer">
+      <div class="cart__footer-total">
+        <dl class="cart__total-row cart__total-row--total">
+          <dt class="cart__total-name">Estimated Total</dt>
+          <dd class="cart__total-value">
+            {{- totalPrice | money_without_trailing_zeros -}}
+          </dd>
+        </dl>
+        <div class="cart__4-payments{% if totalPrice <= 5000 %} cart__4-payments--limit{% endif %}">
+          <span
+            >4 easy payments
+            <span class="spc__msg-amnt">
+              of
+              <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span>
+              with
+            </span>
+            <span class="spc__msg-limit">on orders over $50 with</span>
+          </span>
+          {% render 'icon-shop-pay' %}
+        </div>
+      </div>
+      <a
+        href="{% if customer == blank %}{{ routes.account_login_url }}/checkout{% else %}/checkout{% endif %}"
+        class="button button--checkout"
+        ><span>Checkout</span></a
+      >
+      <div class="cart__extra-checkout">
+        <script>
+          const delayed_checkout_buttons = '{{ content_for_additional_checkout_buttons }}';
+        </script>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
+    window.settings["cartGamification"] = {
+        subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
+        wrapper: '.cart__gamification-goals',
+        limit: {{ section.settings.max_value }},
+        goals: [
+            {%- for block in section.blocks -%}
+                {% if block.type == 'gamification-goal' %}
+                {
+                    title: '{{ block.settings.title }}',
+                    value: {{ block.settings.value }},
+                    icon: `{{ block.settings.icon }}`,
+                    product: '{{ block.settings.gift.selected_or_first_available_variant.id }}'
+                }{%- unless forloop.last == true -%},{%- endunless -%}
+                {% endif %}
+            {%- endfor -%}
+        ]
+    };
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 {% schema %}
+{
+  "name": "Cart",
+  "class": "shopify-section--cart",
+  "settings": [
     {
-        "name": "Cart",
-        "class": "shopify-section--cart",
-        "settings": [
-            {
-                "type": "text",
-                "id": "featured-title",
-                "label": "Featured products title",
-                "default": "More for you"
-            },
-            {
-                "type": "collection",
-                "id": "collection",
-                "label": "Featured collection"
-            },
-            {
-                "type": "product_list",
-                "id": "product_list",
-                "label": "Featured products",
-                "info": "Overrides featured collection"
-            },
-            {
-                "type": "text",
-                "id": "empty_cart_message",
-                "label": "Empty cart message",
-                "default": "Whoops, you haven't packed yet!"
-            },
-            {
-                "type": "url",
-                "id": "continue-shopping",
-                "label": "Continue Shopping link"
-            },
-            {
-                "type": "range",
-                "id": "wishlist-timeout",
-                "min": 1,
-                "max": 10,
-                "step": 1,
-                "unit": "sec",
-                "label": "Add to wishlist message timeout",
-                "default": 5
-            }
-        ],
-        "blocks": [
-            {
-                "type": "announcement",
-                "name": "Announcement",
-                "settings": [
-                    {
-                        "type": "select",
-                        "id": "position",
-                        "label": "Position",
-                        "options": [
-                            {
-                                "value": "top",
-                                "label": "On the top"
-                            },
-                            {
-                                "value": "above-products",
-                                "label": "Above products"
-                            },
-                            {
-                                "value": "under-products",
-                                "label": "Under products"
-                            }
-                        ],
-                        "default": "top"
-                    },
-                    {
-                        "type": "text",
-                        "id": "title",
-                        "label": "Title"
-                    },
-                    {
-                        "type": "richtext",
-                        "id": "text",
-                        "label": "Text"
-                    },
-                    {
-                        "type": "image_picker",
-                        "id": "image",
-                        "label": "Image"
-                    }
-                ]
-            }
-        ]
+      "type": "text",
+      "id": "featured-title",
+      "label": "Featured products title",
+      "default": "More for you"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Featured collection"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Featured products",
+      "info": "Overrides featured collection"
+    },
+    {
+      "type": "url",
+      "id": "continue-shopping",
+      "label": "Continue Shopping link"
+    },
+    {
+      "type": "range",
+      "id": "wishlist-timeout",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "sec",
+      "label": "Add to wishlist message timeout",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Gamification"
+    },
+    {
+      "type": "number",
+      "id": "max_value",
+      "label": "Gamification max value"
     }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Position",
+          "options": [
+            {
+              "value": "top",
+              "label": "On the top"
+            },
+            {
+              "value": "above-products",
+              "label": "Above products"
+            },
+            {
+              "value": "under-products",
+              "label": "Under products"
+            }
+          ],
+          "default": "top"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "gamification-goal",
+      "name": "Gamification goal",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Copy"
+        },
+        {
+          "type": "number",
+          "id": "value",
+          "label": "Reach at..."
+        },
+        {
+          "type": "textarea",
+          "id": "icon",
+          "label": "SVG icon"
+        },
+        {
+          "type": "header",
+          "content": "Add items to cart"
+        },
+        {
+          "type": "product",
+          "id": "gift",
+          "label": "Gift"
+        },
+        {
+          "type": "text",
+          "id": "default_variant",
+          "label": "Default variant ID"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

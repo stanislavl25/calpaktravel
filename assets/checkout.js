@@ -506,6 +506,7 @@ window.addEventListener("load", () => {
     }
 });
 
+
 document.addEventListener("DOMContentLoaded", function() {
   function displayShippingMessage() {
     const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
@@ -554,3 +555,4 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
   
+

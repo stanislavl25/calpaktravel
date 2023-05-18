@@ -1,102 +1,115 @@
 {% assign error_notice = false %}
 {% if customer %}
-    <h2 class="field__meassage-notice" aria-label="form alert message">Hi {{ customer.first_name }}! Your account has been successfully created. <a href="{{ routes.account_url }}">Click here to enter.</a></h2>
-    {% assign error_notice = true %}
+  <h2 class="field__meassage-notice" aria-label="form alert message">
+    Hi {{ customer.first_name }}! Your account has been successfully created.
+    <a href="{{ routes.account_url }}">Click here to enter.</a>
+  </h2>
+  {% assign error_notice = true %}
 {% endif %}
 {% form 'create_customer', novalidate: 'novalidate' %}
-<input id="form-register__redirect" type="hidden" name="return_to" value="{{ routes.account_register_url }}">
-        {% assign classic_account = false %}
-        {% for error in form.errors %}
-            {% if error == 'form' %}
-                {% if form.errors.messages[error] contains 'activation link'%}
-                    {% assign error_notice = true %}
-                    <div class="field__meassage-notice" aria-label="form alert message">{{ settings.form-alert-non-classic }}</div>
-                {% else %}    
-                    {% assign classic_account = true %}
-                    {% assign error_notice = true %}
-                    <div class="field__meassage-notice" aria-label="form alert message"><span class="spinner">{{ settings.form-alert-classic }}</span></div>
-                {% endif %}                  
-            {% endif %}
-        {% endfor %}
-        {%- if form.posted_successfully? -%}
-            <div class="customer__page-cta customer__page-cta--success">
-                {%- if section.settings.after-reg-title != blank -%}
-                <h3 class="cta-success__title">{{ section.settings.after-reg-title }}</h3>
-                {%- endif -%}
-                {{ section.settings.after-reg-text }}
+  <input id="form-register__redirect" type="hidden" name="return_to" value="{{ routes.account_register_url }}">
+  {% assign classic_account = false %}
+  {% for error in form.errors %}
+    {% if error == 'form' %}
+      {% if form.errors.messages[error] contains 'activation link' %}
+        {% assign error_notice = true %}
+        <div class="field__meassage-notice" aria-label="form alert message">
+          {{ settings['form-alert-non-classic'] }}
+        </div>
+      {% else %}
+        {% assign classic_account = true %}
+        {% assign error_notice = true %}
+        <div class="field__meassage-notice" aria-label="form alert message">
+          <span class="spinner">{{ settings['form-alert-classic'] }}</span>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {%- if form.posted_successfully? -%}
+    <div class="customer__page-cta customer__page-cta--success">
+      {%- if section.settings['after-reg-title'] != blank -%}
+        <h3 class="cta-success__title">{{ section.settings['after-reg-title'] }}</h3>
+      {%- endif -%}
+      {{ section.settings['after-reg-text'] }}
 
-                {% if section.settings.after-reg-button != blank %}
-                <div>
-                    <a class="button" href="{{ section.settings.after-reg-button-url }}">
-                        <span>{{ section.settings.after-reg-button | escape }}</span>
-                    </a>
-                </div>
-                {% endif %}
+      {% if section.settings['after-reg-button'] != blank %}
+        <div>
+          <a class="button" href="{{ section.settings.after-reg-button-url }}">
+            <span>{{ section.settings['after-reg-button'] | escape }}</span>
+          </a>
+        </div>
+      {% endif %}
 
-                {% if section.settings.after-reg-after-button != blank %}
-                    <div class="reg-after-button">{{ section.settings.after-reg-after-button }}</div>
-                {% endif %}
-            </div>
-        {%- else -%}
+      {% if section.settings['after-reg-after-button'] != blank %}
+        <div class="reg-after-button">{{ section.settings['after-reg-after-button'] }}</div>
+      {% endif %}
+    </div>
+  {%- else -%}
+    <section class="field__list {% if error_notice == true %}hidden__register-form{% endif %}">
+      <div class="field field--validated field--required">
+        <label for="FirstName">First name</label>
+        <input
+          type="text"
+          name="customer[first_name]"
+          id="FirstName"
+          class="field__input"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          autocomplete="given-name"
+          autofocus
+          autocapitalize="words"
+        >
+        <div class="field__error-message field__error-message--js">Please enter your first name</div>
+      </div>
 
-        <section class="field__list {% if error_notice == true %}hidden__register-form{% endif %}">
-            <div class="field field--validated field--required">
-                <label for="FirstName">First name</label>
-                <input
-                    type="text"
-                    name="customer[first_name]"
-                    id="FirstName"
-                    class="field__input"
-                    {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
-                    autocomplete="given-name"
-                    autofocus
-                    autocapitalize="words"
-                >
-                <div class="field__error-message field__error-message--js">Please enter your first name</div>
-            </div>
+      <div class="field field--required">
+        <label for="LastName">Last name</label>
+        <input
+          type="text"
+          class="field__input"
+          name="customer[last_name]"
+          id="LastName"
+          {% if form.first_name %}
+            value="{{ form.last_name }}"
+          {% endif %}
+          autocomplete="family-name"
+          autofocus
+          autocapitalize="words"
+        >
+        <div class="field__error-message field__error-message--js">Please enter your last name</div>
+      </div>
 
-            <div class="field field--validated field--required">
-                <label for="LastName">Last name</label>
-                <input
-                    type="text"
-                    class="field__input"
-                    name="customer[last_name]"
-                    id="LastName"
-                    {% if form.first_name %}value="{{ form.last_name }}"{% endif %}
-                    autocomplete="family-name"
-                    autofocus
-                    autocapitalize="words"
-                >
-                <div class="field__error-message field__error-message--js">Please enter your last name</div>
-            </div>
-
-            <div class="field field--validated field--email field--required">
-                <label for="CustomerEmail">
-                    Email
-                </label>
-                <input
-                    type="email"
-                    class="field__input"
-                    name="customer[email]"
-                    id="CustomerEmail"
-                    required="required"
-                    autocomplete="email"
-                    aria-required="true"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                    {% if form.email %} value="{{ form.email }}"{% endif %}
-                    {% if form.errors contains 'email' %}
-                        aria-invalid="true"
-                        aria-describedby="RegisterForm-email-error"
-                    {% endif %}>
-                {%- if form.errors contains 'email' -%}
-                <div class="field__error-message">Please enter your email address</div>
-                {%- elsif form.errors contains 'form' -%}
-                <div class="field__error-message {% if classic_account == false %}hidden__register-form{% endif %}">{{ form.errors.messages['form'] }}</div>
-                {%- endif -%}
-            </div>
-    {% comment %} 
+      <div class="field field--required">
+        <label for="CustomerEmail"> Email </label>
+        <input
+          type="email"
+          class="field__input"
+          name="customer[email]"
+          id="CustomerEmail"
+          required="required"
+          autocomplete="email"
+          aria-required="true"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          {% if form.email %}
+            value="{{ form.email }}"
+          {% endif %}
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-email-error"
+          {% endif %}
+        >
+        {%- if form.errors contains 'email' -%}
+          <div class="field__error-message">Please enter your email address</div>
+        {%- elsif form.errors contains 'form' -%}
+          <div class="field__error-message {% if classic_account == false %}hidden__register-form{% endif %}">
+            {{ form.errors.messages.form }}
+          </div>
+        {%- endif -%}
+      </div>
+      {% comment %}
                 {%- if form.errors contains 'email' -%}
         <span id="RegisterForm-email-error" class="form__message">
             <svg aria-hidden="true" focusable="false">
@@ -104,75 +117,76 @@
             </svg>
             {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
         </span>
-        {%- endif -%} {% endcomment %}
+        {%- endif -%}
+      {% endcomment %}
 
-            <div class="field field--validated field--password field--required">
-                <label for="CustomerPassword">
-                    Password
-                </label>       
-                <input
-                    class="field__input"
-                    type="password"
-                    value=""
-                    aria-required="true"
-                    required="required"
-                    name="customer[password]"
-                    id="CustomerPassword"
-                    {% if form.errors contains 'password' %}
-                        aria-invalid="true"
-                        aria-describedby="RegisterForm-password-error"
-                    {% endif %}>
-                {%- if form.errors contains 'password' -%}
-                <div class="field__error-message">Please enter a secure password</div>
-                {%- endif -%}
-            </div>
+      <div class="field field--required">
+        <label for="CustomerPassword"> Password </label>
+        <input
+          class="field__input"
+          type="password"
+          value=""
+          aria-required="true"
+          required="required"
+          name="customer[password]"
+          id="CustomerPassword"
+          {% if form.errors contains 'password' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-password-error"
+          {% endif %}
+        >
+        {%- if form.errors contains 'password' -%}
+          <div class="field__error-message">Please enter a secure password</div>
+        {%- endif -%}
+      </div>
 
-            <div class="field field--checkbox">
-                <input type="hidden" name="customer[accepts_marketing]" value="false">
-                <input type="checkbox" name="customer[accepts_marketing]" value="true" id="reg-subscribe" checked="checked">
-                <label for="reg-subscribe">I want to be first to find out about exclusive offers and the latest arrivals.</label>
-            </div>
-        </section>
+      <div class="field field--checkbox">
+        <input type="hidden" name="customer[accepts_marketing]" value="false">
+        <input type="checkbox" name="customer[accepts_marketing]" value="true" id="reg-subscribe" checked="checked">
+        <label for="reg-subscribe"
+          >I want to be first to find out about exclusive offers and the latest arrivals.</label
+        >
+      </div>
+    </section>
 
-        <div class="form__submit {% if error_notice == true %}hidden__register-form{% endif %}">
-            <button id="btnRegister" aria-label="Register an account" type="submit" class="button">
-                <span>Register</span>
-            </button>
-        </div>
+    <div class="form__submit {% if error_notice == true %}hidden__register-form{% endif %}">
+      <button id="btnRegister" aria-label="Register an account" type="submit" class="button">
+        <span>Register</span>
+      </button>
+    </div>
 
-        <div class="form-disclaimer {% if error_notice == true %}hidden__register-form{% endif %}">By providing your email address you agree to our
-            <a href="/policies/privacy-policy" target="_blank">privacy policy</a> and
-            <a href="/policies/terms-of-service" target="_blank">terms &amp; conditions</a>.
-        </div>
-    {% endif %}
+    <div class="form-disclaimer {% if error_notice == true %}hidden__register-form{% endif %}">
+      By providing your email address you agree to our
+      <a href="/policies/privacy-policy" target="_blank">privacy policy</a> and
+      <a href="/policies/terms-of-service" target="_blank">terms &amp; conditions</a>.
+    </div>
+  {% endif %}
 {% endform %}
 <script>
-    window.onload = () => {
-        const classicAccount = '{{ classic_account }}';
-        if(classicAccount == 'true'){
-            let emailCookieValue;
-            const getCookie = function (name) {
-                var value = '; ' + document.cookie;
-                var parts = value.split('; ' + name + '=');
-                if (parts.length == 2) return parts.pop().split(';').shift();
-            };
-            emailCookieValue = getCookie('emailRegister');
-            if(emailCookieValue) {
-                
-                setTimeout(() => {
-                    window.location.replace("/account/login");
-                }, "5000");
-            }
-        }
-        
-        document.querySelector('#btnRegister').addEventListener('click', () => {
-                const emailValue = document.querySelector("#CustomerEmail").value;
-                if(emailValue) {
-                    let now = new Date();
-                    now.setTime(now.getTime()+(10*60*1000));
-                    document.cookie = `emailRegister=${emailValue}; expires="${now.toUTCString()}"; path=/;`;
-                }
-        });
-    
-    };
+  window.onload = () => {
+    const classicAccount = '{{ classic_account }}';
+    if (classicAccount == 'true') {
+      let emailCookieValue;
+      const getCookie = function (name) {
+        var value = '; ' + document.cookie;
+        var parts = value.split('; ' + name + '=');
+        if (parts.length == 2) return parts.pop().split(';').shift();
+      };
+      emailCookieValue = getCookie('emailRegister');
+      if (emailCookieValue) {
+        setTimeout(() => {
+          window.location.replace('/account/login');
+        }, '5000');
+      }
+    }
+
+    document.querySelector('#btnRegister').addEventListener('click', () => {
+      const emailValue = document.querySelector('#CustomerEmail').value;
+      if (emailValue) {
+        let now = new Date();
+        now.setTime(now.getTime() + 10 * 60 * 1000);
+        document.cookie = `emailRegister=${emailValue}; expires="${now.toUTCString()}"; path=/;`;
+      }
+    });
+  };
 </script>

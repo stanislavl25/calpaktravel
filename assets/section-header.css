@@ -74,7 +74,7 @@ body.modal-open {
 .site-header__nav:first-child {
     border-radius: 0 0 9px 0;
     padding: 0 var(--gap);
-    z-index: 2;
+    z-index: 3;
 }
 
 .site-header__nav .site-header__menu-item a {

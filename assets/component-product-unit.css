@@ -402,7 +402,7 @@
     position: absolute;
     z-index: 11;
     display: none;
-    width: calc(100% - 32px);
+    width: 100%;
     margin: auto;
     left: 0;
     right: 0;
@@ -443,7 +443,7 @@
 .product-unit--quickadd .product-unit__select--seleted {
     position: absolute;
     z-index: 9;
-    bottom: 0;
+    bottom: -90px;
     border: 1px solid #000000;
     border-radius: 9px;
     width: calc(100% - 32px);
@@ -459,6 +459,21 @@
     display: flex;
     justify-content: space-between;
     padding-right: 40px;
+    transition: all 0.3s ease;
+}
+.product-unit--quickadd .product-unit__size-component input:checked~label.product-unit__select--seleted{
+    bottom:0px;
+}
+.product-unit--quickadd:hover .product-unit__size-component input~label.product-unit__select--seleted{
+    bottom:0px;
+}
+@media screen and (max-width:649px){
+    .product-unit--quickadd .product-unit__select--seleted.hovered{
+        bottom:0px;
+    }
+    .product-unit--quickadd .product-unit__select--seleted.focused{
+        bottom:0px;
+    }
 }
 
 .product-unit--quickadd .product-unit__size-component { 
@@ -471,6 +486,19 @@
 
 .product-unit--quickadd .product-unit__size-component input:checked ~ div {
     display: block;
+    overflow-y: scroll;
+    max-height: 75%;
+}
+.product-unit--quickadd .product-unit__size-component input:checked ~ div::-webkit-scrollbar {
+    width: 1px; 
+}
+
+.product-unit--quickadd .product-unit__size-component input:checked ~ div::-webkit-scrollbar-thumb {
+    background-color: #000; 
+}
+.product-unit--quickadd .product-unit__size-component input:checked ~ div::-webkit-scrollbar-track {
+    background-color: transparent; 
+    border-right:1px solid #AEAEAE ;
 }
 
 .product-unit--quickadd .product-unit__size-component input:checked ~ label::before {
@@ -556,8 +584,22 @@
 .product-unit .floating-labels .product-label {
     margin-top: 0;
 }
+@media (max-width: 1120px) {
+    .product-unit--quickadd .product-unit__select--seleted {
+        padding: 8px 30px 8px 10px;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+    }
+}
 
 @media (max-width: 900px) {
+    .product-unit--quickadd .product-unit__select--seleted {
+        padding: 8px 30px 8px 10px;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+    }
     .product-unit__swatches-container {
         opacity: 1;
     }

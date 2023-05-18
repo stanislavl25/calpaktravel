@@ -164,6 +164,13 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
 
     const tab = tabsContainer.querySelector(`.tabs__content[data-index="${index}"]`);
     if(tab) tab.classList.add('tabs__content--active');
+
+    keepTryingUpdateProcessTheProductUnits();
+    //console.log('waiting for swatches to load')
+    setTimeout(() => {
+        //console.log('wait for swatches to loead is over trying again')
+        tryUpdateProcessTheProductUnits();
+    }, 3000);
 });
 
 /////////////////////// END TABS /////////////////////////
@@ -298,10 +305,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if(current_variant === false) current_variant = availableVariants[0];
 
     let hasMultipleSizes = false;
+    
     availableVariants.forEach(variant => {
         const opt1 = handleize(variant.option1);
         let opt2 = false;
-
+        
         if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
         
         // if(opt2 !== false && hasMultipleSizes !== true) {
@@ -313,8 +321,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(colorIndex === 0) colorOption = opt1;
         else if(colorIndex === 1 && opt2 != false) colorOption = opt2;
 
-        let selected = current_variant.id == variant.id,
-            available = variant.available;
+        let selected = current_variant.id == variant.id
+        let available = variant.available;
 
         if(colorOption !== false) {
 
@@ -327,10 +335,36 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 if(opt2 != false) url = `${shopUrl}/products/${handle}/${colorOption},${handleize(current_variant.option2)}`;
                 else url = urlOpt1;
                 
+
+                if (handle == 'womens-cropped-jersey-t-shirt-fw') {
+                    if (colorOption == 'rust') {
+                        console.log('douglas color 1')
+                        console.log({
+                            available: available,
+                            selected: selected,
+                            title: variant.option1,
+                            first_variant_id: variant.id,
+                            urlOpt1: urlOpt1,
+                            url: url
+                        })
+                        console.log('-----------------------')
+                    }
+                }
+            
+                if(available === false) {
+                    setTimeout(
+                        () => {
+                            target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
+                            //console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
+                        }, 1000
+                    )
+                }
+
                 colors[colorOption] = {
                     available: available,
                     selected: selected,
                     title: variant.option1,
+                    first_variant_id: variant.id,
                     urlOpt1: urlOpt1,
                     url: url
                 };
@@ -483,7 +517,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
                     let img = '';
                     if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
-
                     swatchesElements[pushGroupIndex] += `<a
                         href="${shopUrl}/products/${product.handle}/${varHandle}"
                         data-value="${varHandle}"
@@ -532,7 +565,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.classList.add('color-' + color);
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
-
+        el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
+        
         if(colors[color].available === false) el.classList.add('product-option--na');
 
         if(colors[color].selected === true) {
@@ -557,7 +591,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
-
+        const component = target.querySelector('.product-unit__select--seleted');    
+        const atcBtn = target.querySelector('.product-unit__button');
+        
         for (const size in sizes) {
             if(size == '_count') continue;
     
@@ -574,7 +610,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 el.classList.add('selected');
                 target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
             }
-
+            
             if(sizes[size].available === false) el.classList.add('product-option--na');
     
             if(sizes[size].selected === true) {
@@ -589,6 +625,49 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
             sizesContainer.appendChild(el);
             
+        }
+        if (window.innerWidth < 900){
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+         target.addEventListener('mouseover', (e) => {
+            component.classList.add('hovered');
+        });
+        target.addEventListener('mouseout', (e) => {
+            if(!component.classList.contains('focused')){
+                component.classList.remove('hovered');
+            }
+        });
+        component.addEventListener('click', (e) => {
+            component.classList.toggle('focused');
+        });
+        atcBtn.addEventListener('click', (e) => {
+            component.classList.add('focused');
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+            atcBtn.classList.add('ready');
+        });
+        
+        const sizeSwatches = target.querySelectorAll('.size-swatch');
+        sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+            component.classList.remove('focused');
+        }));
+        } else {
+            const checkSelected = target.querySelector('.product-unit--quickadd .product-unit__size-component label');
+            target.addEventListener('mouseover', (e) => {
+                component.classList.add('hovered');
+            });
+            const checkboxes = document.querySelectorAll('.product-unit--quickadd .product-unit__size-component input');
+
+            checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                checkboxes.forEach((otherCheckbox) => {
+                    if (otherCheckbox !== e.target) {
+                    otherCheckbox.checked = false;
+                    }
+                });
+                }
+            });
+            });
+
         }
 
         if (sizes._count <= 1) {
@@ -632,6 +711,19 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             swatchesContainer.appendChild(extra_colors);
         }
     }
+    /* Join Waitlist label - update URL */
+    const colorSwatches = target.querySelectorAll('.product-unit__swatches .color-swatch');
+    [].map.call(colorSwatches, (colorSwatch) => {
+    colorSwatch.addEventListener('click', (e) => {
+        if(e.target.classList.contains('product-option--na')) {
+            const swatchUrl = e.target.getAttribute('href');
+            const labelWaitlist = target.querySelector('.product-label.product-label--na a');
+            if(labelWaitlist) {
+                labelWaitlist.setAttribute('href', swatchUrl);
+            }
+            }
+        });
+    });
 }
 
 function activateProductUnit(target) {
@@ -641,7 +733,7 @@ function activateProductUnit(target) {
     if(window.debug) console.log('Init product', handle);
     
     return new Promise((resolve, reject) => {
-        fetch('/products/' + handle + '?view=async')
+        fetch('/products/' + handle + '?view=json')
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
@@ -737,6 +829,7 @@ window.addEventListener("click", async (e) => {
 
         addToCart(variant_id, 1, (data) => {
             updateCart(data);
+            console.log("SE ABRE");
             openCart();
 
             if(prnt && prnt.classList.contains('adding-to-cart')) {
@@ -827,15 +920,6 @@ window.addEventListener("load", () => {
         });
     }, {threshold: 0, rootMargin: '0px'});
 
-    const scrollingButtons = document.querySelectorAll(".button[data-scroll-to]");
-    scrollingButtons.forEach(scrollingButton => scrollingButton.addEventListener('click', e => {
-        const target = Number(scrollingButton.getAttribute('data-scroll-to'));
-        if(isNaN(target)) return false;
-        
-        const sections = document.querySelectorAll('#MainContent .shopify-section');
-        if(typeof sections[target - 1] == 'undefined') return false;
-        sections[target - 1].scrollIntoView({behavior: 'smooth'});
-    }));
     
     const productUnits = document.querySelectorAll(".product-unit");
     productUnits.forEach( productUnit => productUnitsObserver.observe(productUnit) );
@@ -871,7 +955,7 @@ const bagLink = document.querySelector('.open-cart-link');
 if(bagLink) bagLink.addEventListener('click', async function(e){
     e.preventDefault();
     if(typeof openCart == 'undefined') await activateCart();
-    
+    console.log("SE ABRE 2");
     openCart();
 });
 
@@ -989,6 +1073,7 @@ window.addEventListener("load", () => {
         let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
         footerLink.setAttribute('id', 'menu-footer-' + idString);
     });
+    
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
@@ -1010,10 +1095,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 sliderWrapper.setAttribute('data-slide-mob', 3);
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
+                
+                
+                console.log('check slide')
                 checkSlider(sliderWrapper.querySelector('.slider'));
             });
         }
-        
+
         loadQuickAdd();
         document.addEventListener("shopify:section:load", loadQuickAdd);
         document.addEventListener("shopify:section:change", loadQuickAdd);
@@ -1029,4 +1117,83 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+
+
+    /**
+     * 
+     * FOR EVERY MODIFICATION IN HERE MAKE SURE TO UPDATE THE SAME FUNCTIONS ON assets/slider.js
+     */
+        const processSection = ({selector, differentSwatches}) => {
+            const section = document.querySelector(selector);
+            if (section) {
+                Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
+                    let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+                    if (differentSwatches) {
+                        firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch--active');
+                    } 
+                    if (firstSwatch) {
+                        variantUpdateProcess(firstSwatch);
+                    }
+                });
+            }
+        };
+        
+        const initializeSections = () => {
+            const sections = [
+                { selector: '.shopify-section--pdp-featured', differentSwatches: false },
+                { selector: '.pdp__upsell', differentSwatches: false },
+                { selector: '.product-grid', differentSwatches: false },
+                { selector: '.featured-col__lists', differentSwatches: false },
+                { selector: '.shopify-section--featured-collections', differentSwatches: true }
+            ];
+        
+            sections.map(section => processSection(section));
+        };
+        
+        let scriptLoaded = false;
+        const tryUpdateProcessTheProductUnits = (intervalId = false) => {
+            //console.log('Trying updateProcessTheProductUnits');
+            try {
+                initializeSections();
+                if(intervalId && typeof variantUpdateProcess != 'undefined') {
+                    //console.log('variantUpdateProcess loaded');
+                    //console.log('clearing interval');
+                    clearInterval(intervalId);
+                }
+            } catch (e) {
+                if(typeof variantUpdateProcess == 'undefined') {
+                    //console.log('variantUpdateProcess not loaded yet');
+                    if (!scriptLoaded) {
+                        loadScript(scripts.variants);
+                        scriptLoaded = true;
+                    }
+                } else {
+                    console.error(e);
+                }
+            }
+        }
+        const keepTryingUpdateProcessTheProductUnits = () => {
+            let intervalId = setInterval(() => {
+                console.log(intervalId)
+                tryUpdateProcessTheProductUnits(intervalId);
+            }, 1000);
+        }
+
+        keepTryingUpdateProcessTheProductUnits()
+
+        let lastScroll = window.pageYOffset;
+        window.addEventListener('scroll', () => {
+            let scrolled = false
+            if (!scrolled) {
+                scrolled = true;
+                setTimeout(() => { scrolled = false } ,500)
+                tryUpdateProcessTheProductUnits();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('shopify:section:load', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
+        document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
 });

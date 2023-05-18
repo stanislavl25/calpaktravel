@@ -33,12 +33,7 @@
         {%- endif -%}
 
         {%- if section.settings.button-text != blank -%}
-        
-            {%- if section.settings.button-behavior == 'scroll' -%}
-                <button type="button" class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" data-scroll-to="{{ section.settings.scroll-to }}">
-                    <span>{{- section.settings.button-text | escape -}}</span>
-                </button>
-            {%- elsif section.settings.link-for-button -%}
+            {%- if section.settings.link-for-button -%}
                 <a
                     href="{{ section.settings.link }}"
                     class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
@@ -100,31 +95,6 @@
                 "type": "text",
                 "id": "button-text",
                 "label": "Button Text"
-            },
-            {
-                "type": "select",
-                "id": "button-behavior",
-                "label": "Button behavior",
-                "options": [
-                    {
-                        "value": "link",
-                        "label": "Follow link"
-                    },
-                    {
-                        "value": "scroll",
-                        "label": "Scroll to section"
-                    }
-                ],
-                "default": "link"
-            },
-            {
-                "type": "range",
-                "id": "scroll-to",
-                "min": 1,
-                "max": 15,
-                "step": 1,
-                "default": 3,
-                "label": "Scroll to section #"
             },
             {
                 "type": "url",

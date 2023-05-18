@@ -29,6 +29,9 @@ function updateProductURLs(productContainer, options, multiple = false, earlyAcc
 }
 
 function variantUpdateProcess(target) {
+    if(window.location.pathname.includes('product')) {
+        changeBadgeAbsolutePosition(); // defined on pdp.js
+    }
     const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
     const productContainer = target.closest('.product-unit, .shopify-product-form');
     
@@ -131,7 +134,9 @@ function variantUpdateProcess(target) {
         if(option.getAttribute('data-available') == 'false') productContainer.classList.add('product-unit--na');
         else productContainer.classList.remove('product-unit--na');
         
+        try {
         productContainer.querySelector('.product-unit__price').innerHTML = formatedPrice;
+        } catch {}
         
         const pdpDscnts = productContainer.querySelectorAll('.dscnt');
         if(cprice) {

@@ -1,57 +1,65 @@
 {%- liquid
-    assign upsell_items = false
-    assign set = false
-    if product.metafields.custom.pairs_well_with != blank
-        assign upsell_items = product.metafields.custom.pairs_well_with.value
-    else
-        for tag in product.tags
-            assign tg = tag | downcase
-            if tg contains "set:"
-                assign set = tg | replace: 'set:' | split: ';'
-                break
-            endif
-        endfor
-    endif
+  assign upsell_items = false
+  assign set = false
+  if product.metafields.custom.pairs_cart_upsell != blank
+    assign upsell_items = product.metafields.custom.pairs_cart_upsell.value
+  else
+    for tag in product.tags
+      assign tg = tag | downcase
+      if tg contains 'set:'
+        assign set = tg | replace: 'set:' | split: ';'
+        break
+      endif
+    endfor
+  endif
 
-    assign opt1 = current_variant.option1 | handleize
+  assign opt1 = current_variant.option1 | handleize
 -%}
 
 <noscript>
-<style>
-body .pdp__upsell .product-unit:not(.product-unit--loaded) .product-unit__image img {
-    display: block;
-}
-</style>
+  <style>
+    body .pdp__upsell .product-unit:not(.product-unit--loaded) .product-unit__image img {
+      display: block;
+    }
+  </style>
 </noscript>
 
 {%- if set != false or upsell_items != false -%}
-<section class="pdp__upsell slider__wrapper slider__wrapper--buttons-side" data-slide="2">
+  <section class="pdp__upsell slider__wrapper slider__wrapper--buttons-side" data-slide="2">
     {{ 'component-upsell.css' | asset_url | stylesheet_tag }}
-    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+    <button
+      aria-label="Show previous slide"
+      class="slider__control button-tri-left slider__control--prev"
+      title="Previous"
+    ></button>
+    <button
+      aria-label="Show next slide"
+      class="slider__control button-tri-right slider__control--next"
+      title="Next"
+    ></button>
 
     {%- if title != blank -%}
-        <div class="pdp__upsell-title">{{- title | escape -}}</div>
+      <div class="pdp__upsell-title">{{- title | escape -}}</div>
     {%- endif -%}
-    
+
     <div class="slider slider--scrollbar">
-        {%- liquid
-            if upsell_items != false
-                for upsell_item in upsell_items
-                    if upsell_item.handle != blank and upsell_item != blank
-                        render 'product-unit' with upsell_item, wishlist: true, class: "slide", quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
-                    endif
-                endfor
-            else
-                for set_product in set
-                    assign set_product = set_product | split: ':' | first
-                    assign prod = all_products[set_product]
-                    if prod.handle != blank and prod != blank
-                        render 'product-unit' with prod, wishlist: true, class: "slide", quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
-                    endif
-                endfor
+      {%- liquid
+        if upsell_items != false
+          for upsell_item in upsell_items
+            if upsell_item.handle != blank and upsell_item != blank
+              render 'product-unit' with upsell_item, wishlist: true, class: 'slide', quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
             endif
-        -%}
+          endfor
+        else
+          for set_product in set
+            assign set_product = set_product | split: ':' | first
+            assign prod = all_products[set_product]
+            if prod.handle != blank and prod != blank
+              render 'product-unit' with prod, wishlist: true, class: 'slide', quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
+            endif
+          endfor
+        endif
+      -%}
     </div>
-</section>
+  </section>
 {%- endif -%}

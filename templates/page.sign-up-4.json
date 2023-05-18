@@ -18,12 +18,9 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "form_type": "iframe",
-            "iframe-url": "https:\/\/manage.kmail-lists.com\/subscriptions\/subscribe?a=M38Kem&g=QR3LpA",
-            "klaviyo_id": "",
-            "height": "600",
-            "height-mobile": "600",
-            "vertical_alignment": "center"
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/cAT\/landing-page",
+            "height": "800",
+            "height-mobile": "600"
           }
         }
       },

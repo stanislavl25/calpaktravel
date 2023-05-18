@@ -93,12 +93,9 @@ function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeS
                         // getting the variantion selectedAssigned
                         if(quickView) {
                             correctVariantPrice = prod.variants.find((variant) => variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())?.price || prod.variants[0].price;
-                            console.log(document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())
                         } else {
                             correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))?.price || prod.variants[0].price;
-                            console.log(window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))
                         }
-                        console.log(correctVariantPrice)
                     } else {
                         correctVariantPrice = prod.variants[0].price
                     }
@@ -137,7 +134,7 @@ function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeS
     });
 }
 
-async function pdpFormSubmit(productForm, quickView = false) {
+async function pdpFormSubmit(productForm, showCart = true) {
     const container = productForm.closest('.pdp__grid, .qv__body');
 
     if(container.getAttribute('data-status') == 'sold-out') return;
@@ -150,7 +147,8 @@ async function pdpFormSubmit(productForm, quickView = false) {
 
     addToCart(variant_id, 1, (data) => {
             updateCart(data);
-            if(!quickView) {
+            console.log("SE AGREGA");
+            if(showCart) {
                 openCart();
             } else {
                 productForm.querySelector('.pdp__submit').classList.add('pdp__submit--added');
@@ -302,8 +300,7 @@ window.addEventListener("load", () => {
         let variantTypeEl = document.querySelector('.pdp__variant-type');
         if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
 
-        const screenWidth  = window.matchMedia( '(min-width: 800px)' );
-        const pdpSubmitSection = document.querySelector( screenWidth.matches ? '.pdp__variants' : '.pdp__submit-container');
+        const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
         if(floatingPDPSubmit && pdpSubmitSection) {
             let observer = new IntersectionObserver(function(entries){
@@ -358,7 +355,7 @@ window.addEventListener("load", () => {
         const productForm = document.querySelector('.shopify-product-form');
         if(productForm) productForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            pdpFormSubmit(productForm);
+            pdpFormSubmit(productForm, true);
         });
 
         bindWaitlist(pdpGrid);
@@ -614,3 +611,35 @@ function pdpHandleDescriptions(pdpInfo, option) {
     const toActivate = pdpInfo.querySelectorAll(`[data-variant="${option.value}"]`);
     toActivate.forEach(toAct => toAct.setAttribute('data-current', ''));
 }
+const changeBadgeAbsolutePosition = e => {
+    if(window.location.pathname.includes('product')) {
+        if(window.innerWidth < 900) {
+            let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
+            let badge = document.querySelector('.pdp__gallery-container .product-label--badge-mobile-bottom');
+            if(badge) {
+                badge.style.marginTop = `0px`; 
+                badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
+            } else {
+                badge = document.querySelector('.pdp__gallery-container .product-label--badge');
+                badge.style.marginTop = ``; 
+                badge.style.top = ``; 
+            }
+        } else {
+            let first_media = document.querySelector('.pdp__gallery-container .pdp__media--wide');
+            let badge = document.querySelector('.pdp__gallery-container .product-label--badge-desktop-bottom');
+            if(badge) {
+                badge.style.marginTop = `0px`; 
+                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 26}px`; 
+            } else {
+                badge = document.querySelector('.pdp__gallery-container .product-label--badge');
+                if (badge) {
+                    badge.style.marginTop = ``; 
+                    badge.style.top = ``; 
+                }
+            }
+        }
+    }
+};
+document.addEventListener("DOMContentLoaded", changeBadgeAbsolutePosition);
+window.addEventListener("resize", changeBadgeAbsolutePosition);
+changeBadgeAbsolutePosition()
