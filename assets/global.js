@@ -334,27 +334,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 if(opt2 != false) url = `${shopUrl}/products/${handle}/${colorOption},${handleize(current_variant.option2)}`;
                 else url = urlOpt1;
                 
-
-                if (handle == 'womens-cropped-jersey-t-shirt-fw') {
-                    if (colorOption == 'rust') {
-                        console.log('douglas color 1')
-                        console.log({
-                            available: available,
-                            selected: selected,
-                            title: variant.option1,
-                            first_variant_id: variant.id,
-                            urlOpt1: urlOpt1,
-                            url: url
-                        })
-                        console.log('-----------------------')
-                    }
-                }
             
                 if(available === false) {
                     setTimeout(
                         () => {
                             target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
-                            console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
                         }, 1000
                     )
                 }
