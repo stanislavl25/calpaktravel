@@ -76,7 +76,7 @@ if(Shopify.Checkout.step == "shipping_method") {
         let expeditedString = `Order submitted ${beforeAfter} 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} estimated arrival by ${expeditedDate.getMonth() + 1}/${expeditedDate.getDate()}`;
         let overnightString = `Order submitted ${beforeAfter} 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} estimated arrival by ${overnightDate.getMonth() + 1}/${overnightDate.getDate()}`;
 
-        const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
+        let targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
         if (targetElement) {
           const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
           expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
