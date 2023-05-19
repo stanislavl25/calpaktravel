@@ -306,7 +306,7 @@
             "collection": "best-sellers",
             "title": "Bestsellers",
             "hide-form-labels": true,
-            "dont-hide-flash-sale": true
+            "dont-hide-flash-sale": false
           }
         },
         "02f79c4f-6737-4220-a31c-992d094df8ee": {
@@ -315,7 +315,7 @@
             "collection": "new-arrivals",
             "title": "New In",
             "hide-form-labels": true,
-            "dont-hide-flash-sale": true
+            "dont-hide-flash-sale": false
           }
         },
         "97749904-2195-42da-9b4e-7a6f7995c1ca": {
@@ -324,7 +324,7 @@
             "collection": "sale",
             "title": "On SALE",
             "hide-form-labels": true,
-            "dont-hide-flash-sale": true
+            "dont-hide-flash-sale": false
           }
         }
       },
