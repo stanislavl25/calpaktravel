@@ -78,8 +78,8 @@ if(Shopify.Checkout.step == "shipping_method") {
 
         const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
         if (targetElement) {
-          label2 = label2.closest('.content-box__row');
-          label2.innerHTML += `<div style="color:#666">Enjoy Free 2-day Shipping</div><div style="margin-top: 8px;">${expeditedString}</div>`;
+          targetElement = label2.closest('.content-box__row');
+          targetElement.innerHTML += `<div style="color:#666">Enjoy Free 2-day Shipping</div><div style="margin-top: 8px;">${expeditedString}</div>`;
         }
 
         let label1 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title~='Ground']");
