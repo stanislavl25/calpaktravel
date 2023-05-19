@@ -4,6 +4,7 @@
       "type": "page-header",
       "settings": {
         "title": "Packing Cubes: Your Favorite Organizing Tool",
+        "display": "both",
         "title-size": "medium",
         "text": "<p>Packing cubes are the #1 tool for travel organization— Not only do they make the packing experience more satisfying, they make your journeys more enjoyable. Meet your new traveling chest of drawers!<\/p>",
         "button-text": "",
@@ -31,6 +32,7 @@
       "type": "page-header",
       "settings": {
         "title": "If you're new to packing cubes, try these:",
+        "display": "both",
         "title-size": "medium",
         "text": "",
         "button-text": "",
@@ -75,6 +77,7 @@
       "type": "page-header",
       "settings": {
         "title": "If you're trying to fit everything into a carry-on, try the:",
+        "display": "both",
         "title-size": "medium",
         "text": "",
         "button-text": "",
@@ -119,6 +122,7 @@
       "type": "page-header",
       "settings": {
         "title": "If you're looking for an upgrade, try the:",
+        "display": "both",
         "title-size": "medium",
         "text": "",
         "button-text": "",
@@ -161,6 +165,7 @@
     },
     "8593a62e-3226-4f81-9f1a-f000bafad6e6": {
       "type": "text-and-media",
+      "disabled": true,
       "blocks": {
         "1c962607-332e-4425-8443-88d18ce28774": {
           "type": "text",
