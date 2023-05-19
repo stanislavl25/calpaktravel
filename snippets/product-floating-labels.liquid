@@ -92,7 +92,7 @@
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                 {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
             >
-                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false%}  
+                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
@@ -131,7 +131,7 @@
                     {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                     {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
                 >
-                    {% unless saleBadge-bundle != false and settings.sale-msg-starter != false%}  
+                    {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}  
                         {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                     {%  else %}
                         {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}

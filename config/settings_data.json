@@ -35,10 +35,11 @@
     "sale-badge-text-starter": "Special Promo",
     "starter__customizer-badge": "#f7f177",
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": false,
-    "sale-msg-tag": "sale-bubble",
-    "sale-msg-highlighted": "Mother's Day",
-    "sale-msg-message": "Buy 2+ eligible products and get 15% OFF using code MOSTLOVED.",
+    "sale-msg-enabled": true,
+    "sale-msg-pdp-only": true,
+    "sale-msg-tag": "allproducts",
+    "sale-msg-highlighted": "Get Free 2-Day Express Shipping",
+    "sale-msg-message": "for orders over $300+",
     "sale-msg-main-col-text": "#707070",
     "type_body_font": "futura_n4",
     "type_body_font_bolder": "futura_n5",
@@ -91,7 +92,7 @@
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/sale",
               "block-title": "Memorial Day Sale",
-              "description": "<p>Get Up to 45% OFF Luggage & FREE 2-day shipping with orders $300+!<\/p>",
+              "description": "<p>Get Up to 45% OFF Luggage & FREE 2-day express shipping with orders $300+!<\/p>",
               "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
@@ -502,6 +503,7 @@
           },
           "9f9e8c87-cffd-4e03-9559-9a2c871d6feb": {
             "type": "gamification-goal",
+            "disabled": true,
             "settings": {
               "title": "free standard shipping",
               "value": 75,
@@ -512,6 +514,7 @@
           },
           "3c2d598b-166b-4145-8070-c596c23b0b02": {
             "type": "gamification-goal",
+            "disabled": true,
             "settings": {
               "title": "2-day free express shipping",
               "value": 300,

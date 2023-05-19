@@ -166,9 +166,9 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
     if(tab) tab.classList.add('tabs__content--active');
 
     keepTryingUpdateProcessTheProductUnits();
-    console.log('waiting for swatches to load')
+    //console.log('waiting for swatches to load')
     setTimeout(() => {
-        console.log('wait for swatches to loead is over trying again')
+        //console.log('wait for swatches to loead is over trying again')
         tryUpdateProcessTheProductUnits();
     }, 3000);
 });
@@ -305,10 +305,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if(current_variant === false) current_variant = availableVariants[0];
 
     let hasMultipleSizes = false;
+    
     availableVariants.forEach(variant => {
         const opt1 = handleize(variant.option1);
         let opt2 = false;
-
+        
         if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
         
         // if(opt2 !== false && hasMultipleSizes !== true) {
@@ -549,38 +550,16 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
         el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
-
+        
         if(colors[color].available === false) el.classList.add('product-option--na');
 
         if(colors[color].selected === true) {
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
-            if(!variantAutoSelected) el.classList.add('color-swatch--first');          
+            if(!variantAutoSelected) el.classList.add('color-swatch--first');
         }
-        let match = 0;
-        const productTags = product.tags;
-                for (let i = 0; i < productTags.length; i++) {
-                    const collectionUrl = window.location.href;
-                        const collectionUrlSplit = collectionUrl.replace('https://www.calpaktravel.com/collections/', '');
-                        const tagBuilder = 'first:' + collectionUrlSplit + ':' ;
-                        const tagColors = productTags[i].replace(tagBuilder, '');
-                        const tagColorsSplit = tagColors.split(';');
-                    if (productTags[i].indexOf(tagBuilder) > -1) {
-                        for (let i = 0; i < tagColorsSplit.length; i++){
-                            if(color == tagColorsSplit[i]){
-                                console.log(product.title);
-                                el.classList.add('color_index__' + match.toString());
-                            }
-                            match++;
-                        }
 
-                    }
-                }
-
-        if(colors[color].available === false && colors[color].selected === true) {
-            target.classList.add('product-unit--na');
-            
-        }
+        if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
             el.innerHTML = `<img src='${filesUrl.replace('file.svg', `${color}.png`)}'>`;
@@ -631,7 +610,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             sizesContainer.appendChild(el);
             
         }
-        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+        if (window.innerWidth < 900){
+            atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
          target.addEventListener('mouseover', (e) => {
             component.classList.add('hovered');
         });
@@ -653,6 +633,26 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
             component.classList.remove('focused');
         }));
+        } else {
+            const checkSelected = target.querySelector('.product-unit--quickadd .product-unit__size-component label');
+            target.addEventListener('mouseover', (e) => {
+                component.classList.add('hovered');
+            });
+            const checkboxes = document.querySelectorAll('.product-unit--quickadd .product-unit__size-component input');
+
+            checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                checkboxes.forEach((otherCheckbox) => {
+                    if (otherCheckbox !== e.target) {
+                    otherCheckbox.checked = false;
+                    }
+                });
+                }
+            });
+            });
+
+        }
 
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
@@ -695,6 +695,19 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             swatchesContainer.appendChild(extra_colors);
         }
     }
+    /* Join Waitlist label - update URL */
+    const colorSwatches = target.querySelectorAll('.product-unit__swatches .color-swatch');
+    [].map.call(colorSwatches, (colorSwatch) => {
+    colorSwatch.addEventListener('click', (e) => {
+        if(e.target.classList.contains('product-option--na')) {
+            const swatchUrl = e.target.getAttribute('href');
+            const labelWaitlist = target.querySelector('.product-label.product-label--na a');
+            if(labelWaitlist) {
+                labelWaitlist.setAttribute('href', swatchUrl);
+            }
+            }
+        });
+    });
 }
 
 function activateProductUnit(target) {
@@ -1044,6 +1057,7 @@ window.addEventListener("load", () => {
         let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
         footerLink.setAttribute('id', 'menu-footer-' + idString);
     });
+    
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
@@ -1123,17 +1137,17 @@ document.addEventListener('DOMContentLoaded', function () {
         
         let scriptLoaded = false;
         const tryUpdateProcessTheProductUnits = (intervalId = false) => {
-            console.log('Trying updateProcessTheProductUnits');
+            //console.log('Trying updateProcessTheProductUnits');
             try {
                 initializeSections();
                 if(intervalId && typeof variantUpdateProcess != 'undefined') {
-                    console.log('variantUpdateProcess loaded');
-                    console.log('clearing interval');
+                    //console.log('variantUpdateProcess loaded');
+                    //console.log('clearing interval');
                     clearInterval(intervalId);
                 }
             } catch (e) {
                 if(typeof variantUpdateProcess == 'undefined') {
-                    console.log('variantUpdateProcess not loaded yet');
+                    //console.log('variantUpdateProcess not loaded yet');
                     if (!scriptLoaded) {
                         loadScript(scripts.variants);
                         scriptLoaded = true;

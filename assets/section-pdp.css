@@ -730,6 +730,10 @@
         order: -1;
     }
 
+    .qv__body .product-label--flash {
+        margin-top: -10px;
+    }
+
     .qv__body .pdp__form-labels .product-label,
     .pdp__info .pdp__form-labels .product-label {
         margin: 0;
