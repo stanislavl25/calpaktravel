@@ -78,7 +78,9 @@ if(Shopify.Checkout.step == "shipping_method") {
 
         const targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
         if (targetElement) {
-          targetElement = label2.closest('.content-box__row');
+          const expressLabelElement = document.querySelector('span.radio__label__primary[data-shipping-method-label-title="Express"]');
+          expressLabelElement.textContent = "Free Express Shipping for $300+ Orders";
+          targetElement = targetElement.closest('.content-box__row');
           targetElement.innerHTML += `<div style="color:#666">Enjoy Free 2-day Shipping</div><div style="margin-top: 8px;">${expeditedString}</div>`;
         }
 
