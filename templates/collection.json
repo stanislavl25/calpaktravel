@@ -597,8 +597,8 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 5,
-            "column": 3,
+            "row": 3,
+            "column": 5,
             "col_span": 1,
             "mobile_row": 6,
             "column_mobile": 1,
