@@ -1,7 +1,7 @@
 {%- assign menu = slide-menu -%}
 <div class="slide-menu__outer">
     <div class="slide-menu__container">
-        <ul class="slide-menu" data-level="0">
+        <ul class="slide-menu" data-level="0" role="tabpanel" >
 
             {%- liquid
                 for block in section.blocks
@@ -12,16 +12,16 @@
             -%}
 
             {% for link in linklists[menu].links %}
-            <li class="slide-menu-item{% if link.links.size > 0 %} slide-menu-item--has-sub {% else %} slide-menu-item--single{% endif %}">
+            <li class="slide-menu-item{% if link.links.size > 0 %} slide-menu-item--has-sub {% else %} slide-menu-item--single{% endif %}" role="tab">
                 <a href="{{ link.url }}">{{ link.title | escape }}</a>
                 {% if link.links.size > 0 %}
                 <button aria-label="Show submenu" class="slide-menu__sub-button"></button>
-                <ul class="slide-menu" data-level="1">
-                    <li class="slide-menu-item slide-menu-item--back">
+                <ul class="slide-menu" data-level="1" role="tabpanel" role="tabpanel">
+                    <li class="slide-menu-item slide-menu-item--back" role="tab">
                         {{ link.title | escape }}
                     </li>
                     {% for sublink in link.links %}
-                    <li class="slide-menu-item{% if sublink.links.size > 0 %} slide-menu-item--has-sub{% endif %}">
+                    <li class="slide-menu-item{% if sublink.links.size > 0 %} slide-menu-item--has-sub{% endif %}" role="tab">
                         <a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>
                         {% if sublink.links.size > 0 %}
                         <button aria-label="Show submenu" class="slide-menu__sub-button"></button>
@@ -30,7 +30,7 @@
                                 {{ sublink.title | escape }}
                             </li>
                             {% for subsublink in sublink.links %}
-                            <li class="slide-menu-item">
+                            <li class="slide-menu-item" role="tab">
                                 <a href="{{ subsublink.url }}">{{ subsublink.title | escape }}</a>
                             </li>
                             {% endfor %}
