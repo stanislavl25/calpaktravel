@@ -29,19 +29,6 @@
             "filter-in-parent": false
           }
         },
-        "5b2cae53-fc46-4a78-b184-1cf560415309": {
-          "type": "filter",
-          "settings": {
-            "heading": "-> Summer Arrivals",
-            "title": "Summer Arrivals",
-            "collection": "summer-arrivals-1",
-            "product_list": [
-
-            ],
-            "description": "",
-            "filter-in-parent": false
-          }
-        },
         "c8f3773f-80e6-466d-9317-43d1bb1e948e": {
           "type": "filter",
           "disabled": true,
@@ -409,7 +396,6 @@
       "block_order": [
         "597a3a7d-e342-4ec9-8cca-f98e586237d1",
         "aa5cbd40-97cf-44c3-97b3-4f0397167dce",
-        "5b2cae53-fc46-4a78-b184-1cf560415309",
         "c8f3773f-80e6-466d-9317-43d1bb1e948e",
         "70b2154d-2620-4583-ab2f-871333b645be",
         "645f5714-be29-44a4-9a15-aab469ecb101",
