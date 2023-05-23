@@ -182,7 +182,6 @@ stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.clo
 
 function setProductData(product, meta, target, current_variant_id = false, init1 = false) {
     const isProductUnit = target.classList.contains('product-unit');
-
     const handle = product.handle;
     let tags = product.tags;
     if(typeof tags == 'string') tags = tags.split(', ');
@@ -334,14 +333,15 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 let url;
                 if(opt2 != false) url = `${shopUrl}/products/${handle}/${colorOption},${handleize(current_variant.option2)}`;
                 else url = urlOpt1;
-                
-            
-                if(available === false) {
-                    setTimeout(
-                        () => {
-                            target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
-                        }, 1000
-                    )
+                if(window.location.pathname.includes('collections')){
+                    if(available === false) {
+                        setTimeout(
+                            () => {
+                                target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
+                                //console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
+                            }, 1000
+                        )
+                    }
                 }
 
                 colors[colorOption] = {
@@ -713,7 +713,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 function activateProductUnit(target) {
     if(target.classList.contains('product-unit--loaded')) return;
     const handle = target.getAttribute('data-handle');
-    
+
     if(window.debug) console.log('Init product', handle);
     
     return new Promise((resolve, reject) => {
@@ -721,7 +721,7 @@ function activateProductUnit(target) {
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
-            [...target.querySelectorAll('.splash')].map(splash => splash.classList.remove('splash'))
+            [...target.querySelectorAll('.splash')].map(splash => splash.classList.remove('splash'));
             target.classList.add('product-unit--loaded');
             if(window.debug) console.log('Done product', handle);
             resolve(true);

@@ -53,54 +53,6 @@
         font-weight: 400;
     }
 
-    .product-unit p.countdown-sale-badge-label {
-        display: none;
-    }
-    @media (max-width: 900px) {
-        div.product-label.product-label--countdown {
-            height: 53px;
-            width: calc(100% - 24px);
-            padding-top: 7px;
-            padding-bottom: 8px;
-            {% if template == 'collection' %}
-                margin-bottom: -17px;
-                margin-top: 29px;
-            {% endif %}
-        }
-        
-        div.product-label.product-label--countdown label {
-            margin-left: 2px;
-        }
-
-        
-        div.product-label.product-label--countdown .countdown-timer,
-        div.product-label.product-label--countdown .countdown-timer span,
-        div.product-label.product-label--countdown label {
-            font-size: 30px;
-            line-height: 38px;
-            text-align: center;
-        }
-        .product-unit p.countdown-sale-badge-label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 132px;
-            height: 22px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 18px;
-            background-color: {{ settings.sale-badge-bg }};
-            color: {{ settings.sale-badge-color }};
-            padding-inline: 6px 6px;
-            padding-block: 6px;
-            margin-top: 8px;
-            margin-bottom: 0px;
-        }
-        .product-label.product-label--badge.product-label--badge-tilt.product-label--badge-collection-page {
-            display: none;
-        }
-    }
 </style>
 {%schema%}
     {

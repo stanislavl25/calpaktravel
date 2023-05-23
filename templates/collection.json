@@ -1,5 +1,58 @@
 {
   "sections": {
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "LIMITED TIME",
+        "main-text": "<p>Up to 45% off All Luggage While Supplies Last<\/p>",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/sale",
+        "cta_text": "Shop Now",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Prices as marked. Terms & Conditions apply.",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
+    "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
+      "type": "promotion-banner",
+      "disabled": true,
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "title-above": "Memorial Day Sale",
+        "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day express shipping over $300.<\/p>",
+        "hide": true,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "cta_link": "none",
+        "cta_url": "",
+        "cta_text": "",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "terms_text": "Terms & Conditions",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
     "collection-filter": {
       "type": "collection-filter",
       "blocks": {
@@ -439,45 +492,9 @@
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
         "display": "only-mobile",
         "title-size": "medium",
-        "text": "{{ collection.metafields.custom.collection_description | metafield_tag }}",
+        "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
         "button-link": ""
-      }
-    },
-    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
-      "type": "promotion-banner",
-      "disabled": true,
-      "settings": {
-        "preload": true,
-        "background": "#f7f177",
-        "text-color": "#000000",
-        "bold-text-background": "#ffffff",
-        "title-above": "Memorial Day Sale",
-        "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day shipping over $300.<\/p>",
-        "hide": true,
-        "section-id": "",
-        "cta_link": "wrap",
-        "cta_url": "shopify:\/\/collections\/mothers-day",
-        "cta_text": "Click here",
-        "cta_color": "#000000",
-        "cta_background": "#ffffff",
-        "terms_text": "Terms & Conditions",
-        "terms_url": "shopify:\/\/pages\/promotion-terms"
-      }
-    },
-    "97047c8c-df3a-4c5b-b36b-25faeea73ff1": {
-      "type": "memorial-day-sale-promo-banner",
-      "settings": {
-        "countdown-enabled": true,
-        "countdown-sale-text": "Sale Ends",
-        "countdown-sale-starts": "May 10, 2023 10AM",
-        "countdown-sale-ends": "May 17, 2023 10AM",
-        "countdown-sale-countdown": "24",
-        "countdown-unwanted-collections": [
-          "bags"
-        ],
-        "countdown-sale-accent": "#46da81",
-        "countdown-sale-text-col": "#000000"
       }
     },
     "product-grid-section-id": {
@@ -567,13 +584,35 @@
             "index": 3,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
+            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027.mp4",
             "enable_static_for_mobile": false,
             "static_media_type_mobile": "image"
           }
         },
+        "5a135156-ce8b-442d-a624-b2d324e911c8": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 3,
+            "column": 3,
+            "col_span": 3,
+            "mobile_row": 3,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "luka-duffel",
+              "luka-large-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2333.jpg"
+          }
+        },
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "mobile",
@@ -596,10 +635,10 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "both",
-            "row": 3,
-            "column": 5,
-            "col_span": 1,
+            "display": "desktop",
+            "row": 4,
+            "column": 1,
+            "col_span": 3,
             "mobile_row": 6,
             "column_mobile": 1,
             "col_span_mobile": 2,
@@ -654,7 +693,7 @@
             "row": 4,
             "column": 5,
             "col_span": 1,
-            "mobile_row": 9,
+            "mobile_row": 8,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
@@ -683,7 +722,7 @@
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Tech Organizer",
-            "index": 15,
+            "index": 17,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
@@ -697,7 +736,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 5,
+            "row": 6,
             "column": 4,
             "col_span": 2,
             "mobile_row": 1,
@@ -717,7 +756,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 6,
+            "row": 7,
             "column": 1,
             "col_span": 2,
             "mobile_row": 13,
@@ -761,7 +800,7 @@
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
-            "index": 17,
+            "index": 19,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
@@ -774,8 +813,8 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "both",
-            "row": 8,
+            "display": "desktop",
+            "row": 9,
             "column": 2,
             "col_span": 1,
             "mobile_row": 18,
@@ -785,9 +824,9 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "stevyn-duffel"
             ],
-            "image": "shopify:\/\/shop_images\/image_189.png"
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0321-2.jpg"
           }
         },
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3": {
@@ -817,6 +856,7 @@
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
+        "5a135156-ce8b-442d-a624-b2d324e911c8",
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
         "00502ff4-5f0b-4184-8f85-af5354461ebd",
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
@@ -858,8 +898,6 @@
   "order": [
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
-    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
-    "97047c8c-df3a-4c5b-b36b-25faeea73ff1",
     "product-grid-section-id",
     "c21deb88-82ba-42cd-8b8a-9516d11e23cf"
   ]

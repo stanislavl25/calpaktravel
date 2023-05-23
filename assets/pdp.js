@@ -621,8 +621,11 @@ const changeBadgeAbsolutePosition = e => {
                 badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
             } else {
                 badge = document.querySelector('.pdp__gallery-container .product-label--badge');
-                badge.style.marginTop = ``; 
-                badge.style.top = ``; 
+                if (badge) {
+                    badge.style.marginTop = ``; 
+                    badge.style.top = ``; 
+                }
+                
             }
         } else {
             let first_media = document.querySelector('.pdp__gallery-container .pdp__media--wide');
