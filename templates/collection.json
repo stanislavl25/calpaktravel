@@ -813,11 +813,11 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "both",
+            "display": "desktop",
             "row": 9,
             "column": 2,
             "col_span": 2,
-            "mobile_row": 17,
+            "mobile_row": 18,
             "column_mobile": 2,
             "col_span_mobile": 1,
             "target_link": "",
