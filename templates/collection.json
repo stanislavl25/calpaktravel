@@ -74,7 +74,7 @@
           "settings": {
             "heading": "-> Summer Arrivals",
             "title": "Summer Arrivals",
-            "collection": "summer-arrivals",
+            "collection": "summer-arrivals-1",
             "product_list": [
 
             ],
@@ -490,7 +490,7 @@
       "type": "page-header",
       "settings": {
         "title": "{{ collection.metafields.custom.collection_heading.value }}",
-        "display": "both",
+        "display": "only-mobile",
         "title-size": "medium",
         "text": "<p>{{ collection.metafields.custom.collection_description | metafield_tag }}<\/p>",
         "button-text": "",
@@ -581,7 +581,7 @@
           "type": "static",
           "settings": {
             "heading": "Video: Luka Large Duffel",
-            "index": 1,
+            "index": 3,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
             "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027.mp4",
@@ -619,7 +619,7 @@
             "row": 1,
             "column": 2,
             "col_span": 1,
-            "mobile_row": 3,
+            "mobile_row": 4,
             "column_mobile": 1,
             "col_span_mobile": 1,
             "target_link": "",
@@ -656,7 +656,7 @@
           "type": "static",
           "settings": {
             "heading": "Mobile: Luka Belt Bag",
-            "index": 5,
+            "index": 7,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
             "enable_static_for_mobile": true,
@@ -896,8 +896,6 @@
     }
   },
   "order": [
-    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
-    "c727b9a1-55c2-4d1d-8db0-a0cc8546616e",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "product-grid-section-id",
