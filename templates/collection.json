@@ -604,7 +604,8 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "luka-duffel",
+              "luka-large-duffel"
             ],
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2333.jpg"
           }
@@ -634,7 +635,7 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "both",
+            "display": "desktop",
             "row": 4,
             "column": 1,
             "col_span": 3,
