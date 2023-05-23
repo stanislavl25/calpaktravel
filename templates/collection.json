@@ -816,7 +816,7 @@
             "display": "desktop",
             "row": 9,
             "column": 2,
-            "col_span": 2,
+            "col_span": 1,
             "mobile_row": 18,
             "column_mobile": 2,
             "col_span_mobile": 1,
@@ -824,7 +824,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "stevyn-duffel"
             ],
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0321-2.jpg"
           }
