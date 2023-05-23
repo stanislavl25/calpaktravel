@@ -593,11 +593,11 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "desktop",
+            "display": "both",
             "row": 3,
             "column": 3,
             "col_span": 3,
-            "mobile_row": 1,
+            "mobile_row": 3,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
