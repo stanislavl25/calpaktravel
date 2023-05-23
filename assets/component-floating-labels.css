@@ -59,6 +59,9 @@
 .shopify-section--pdp-featured .product-label--promo {
     display: none;
 }
+.slider .product-label--badge.product-label--badge-collection-page {
+    display: none !important;
+}
 
 .shopify-section--pdp-featured .product-label--badge.product-label--badge-desktop-top,
 .product-label--badge.product-label--badge-desktop-top,
