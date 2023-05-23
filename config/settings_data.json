@@ -520,7 +520,6 @@
           },
           "9f9e8c87-cffd-4e03-9559-9a2c871d6feb": {
             "type": "gamification-goal",
-            "disabled": true,
             "settings": {
               "title": "free standard shipping",
               "value": 75,
