@@ -26,15 +26,6 @@ if(slideMenuLinks.length > 0) slideMenuLinks.forEach(slideMenuLink => slideMenuL
     }
 }));
 
-// Find the tab panel element
-const tabPanel = document.querySelector('[role="tabpanel"]');
-
-// Get the ID of the associated tab element
-const tabId = tabPanel.getAttribute('aria-controls');
-
-// Set the aria-labelledby attribute to the ID of the associated tab
-tabPanel.setAttribute('aria-labelledby', tabId);
-
 const mobileMenuBackLinks = document.querySelectorAll('.slide-menu-item--back');
 if(mobileMenuBackLinks.length > 0) mobileMenuBackLinks.forEach(mobileMenuBackLink => mobileMenuBackLink.addEventListener('click', function(e) {
     e.preventDefault();
