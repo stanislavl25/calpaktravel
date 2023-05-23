@@ -833,11 +833,11 @@
           "type": "module",
           "settings": {
             "pictured_link": true,
-            "display": "desktop",
+            "display": "both",
             "row": 9,
             "column": 2,
             "col_span": 1,
-            "mobile_row": 18,
+            "mobile_row": 17,
             "column_mobile": 2,
             "col_span_mobile": 1,
             "target_link": "",
