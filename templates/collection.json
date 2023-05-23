@@ -581,10 +581,10 @@
           "type": "static",
           "settings": {
             "heading": "Video: Luka Large Duffel",
-            "index": 1,
+            "index": 3,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027.mp4",
+            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
             "enable_static_for_mobile": false,
             "static_media_type_mobile": "image"
           }
@@ -595,7 +595,7 @@
             "pictured_link": true,
             "display": "both",
             "row": 3,
-            "column": 3,
+            "column": 1,
             "col_span": 3,
             "mobile_row": 3,
             "column_mobile": 1,
@@ -637,7 +637,7 @@
             "pictured_link": true,
             "display": "desktop",
             "row": 4,
-            "column": 1,
+            "column": 3,
             "col_span": 3,
             "mobile_row": 6,
             "column_mobile": 1,
