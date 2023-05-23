@@ -581,10 +581,10 @@
           "type": "static",
           "settings": {
             "heading": "Video: Luka Large Duffel",
-            "index": 3,
+            "index": 1,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
+            "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027.mp4",
             "enable_static_for_mobile": false,
             "static_media_type_mobile": "image"
           }
