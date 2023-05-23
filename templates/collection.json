@@ -581,7 +581,7 @@
           "type": "static",
           "settings": {
             "heading": "Video: Luka Large Duffel",
-            "index": 1,
+            "index": 3,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
             "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027_1.mp4",
@@ -589,8 +589,29 @@
             "static_media_type_mobile": "image"
           }
         },
+        "5a135156-ce8b-442d-a624-b2d324e911c8": {
+          "type": "module",
+          "disabled": true,
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 1,
+            "column": 1,
+            "col_span": 3,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ]
+          }
+        },
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "mobile",
@@ -614,9 +635,9 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 3,
-            "column": 3,
-            "col_span": 3,
+            "row": 4,
+            "column": 1,
+            "col_span": 2,
             "mobile_row": 6,
             "column_mobile": 1,
             "col_span_mobile": 2,
@@ -834,6 +855,7 @@
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
+        "5a135156-ce8b-442d-a624-b2d324e911c8",
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
         "00502ff4-5f0b-4184-8f85-af5354461ebd",
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
