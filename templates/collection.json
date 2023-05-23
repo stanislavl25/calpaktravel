@@ -755,7 +755,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 6,
+            "row": 7,
             "column": 1,
             "col_span": 2,
             "mobile_row": 12,
@@ -813,9 +813,9 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 8,
+            "row": 9,
             "column": 2,
-            "col_span": 1,
+            "col_span": 2,
             "mobile_row": 17,
             "column_mobile": 2,
             "col_span_mobile": 1,
@@ -825,7 +825,7 @@
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/image_189.png"
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0321-2.jpg"
           }
         },
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3": {
