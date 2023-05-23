@@ -111,7 +111,7 @@
                 if settings.sale-badge-tag == tagSpl[0]
                     if tagSpl.size == 1
                         assign saleBadge = true
-                    else
+                    else init_option1
                         assign saleBadge = tagSpl[1] | downcase | split: ';'
                     endif
                 endif
@@ -202,14 +202,14 @@
                 if img_preload == blank
                     assign img_preload = false
                 endif
-                assign hover_image_url = current_variant.metafields.custom.hover_image | img_url
-                if use_lifestyle_images == false or hover_image_url == blank
+                
+                if current_variant.metafields.custom.hover_image == blank
                     if current_variant.featured_image != blank
                         assign img = current_variant.featured_image
                     else
                         assign img = product.featured_image
                     endif
-                else 
+                else
                     assign img = current_variant.metafields.custom.hover_image
                 endif
 
