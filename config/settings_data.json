@@ -87,7 +87,6 @@
           },
           "66117e8e-72a2-4c4a-9251-d53677ed9255": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -123,6 +122,7 @@
           },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -132,7 +132,7 @@
               "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-4.jpg",
+              "image": "shopify:\/\/shop_images\/Group_3545.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -616,7 +616,7 @@
               "title": "Shop: All",
               "menu": "shop",
               "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-5.jpg",
+              "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-4.jpg",
               "link": "shopify:\/\/collections\/sale",
               "media-title": "",
               "description": "",
