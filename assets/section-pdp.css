@@ -523,6 +523,29 @@ p.pdp__stock-variant {
     margin: 0;
 }
 
+.pdp__stock--active {
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    font-size: 14px;
+}
+
+p.pdp__stock-variant {
+    margin: 0;
+    background: #EAE9E1;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    width: 77px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdp__stock--active p {
+    margin: 0;
+}
+
 .pdp__payments {
     position: relative;
     z-index: 1;
