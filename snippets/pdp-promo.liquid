@@ -66,7 +66,7 @@
         </div>
     {%- endif -%}
 
-    <div class="pdp-promo">
+<div class="pdp-promo {% if block.settings.upsell-background !=blank %} upsell-background {% endif %} {% if block.settings.border-dash !=false %}custom-dash {% endif %}">
     {%- case block.type -%}
         {%- when 'upsell-banner' -%}
             {%- liquid
@@ -254,4 +254,18 @@
     {%- endcase -%}
     </div>
 </section>
+{% if block.settings.upsell-background !=blank%} 
+    <style>
+        .upsell-background {
+            background-color: {{ block.settings.upsell-background }};
+        }
+    </style>
+{% endif %}
+{% if block.settings.border-dash !=false %}
+    <style>
+        .custom-dash {
+            border: 1px dashed #000;
+        }
+    </style>
+{% endif %}
 {%- endif -%}
