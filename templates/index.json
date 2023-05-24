@@ -155,7 +155,7 @@
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd"
       ],
       "settings": {
-        "hero-height": "auto",
+        "hero-height": "limited",
         "height-limit": 100,
         "enable-sticky-promo": false,
         "promo-image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-2_1_be6bcc3f-a990-4877-85a4-f7a4bb03d52d.png",
