@@ -252,6 +252,16 @@
         {%- endif -%}
     {%- endif -%}
 
+    {%- liquid
+        if location == 'pdp'
+            assign saleMessage = settings.sale-text-pdp
+            assign extraSaleMessage = settings.extra-sale-text-pdp
+        else
+            assign saleMessage = settings.sale-text
+            assign extraSaleMessage = settings.extra-sale-text
+        endif
+    -%}
+
     {%- if settings.sale-enabled -%}
         {%- liquid
             if settings.sale-tag == blank
@@ -271,7 +281,7 @@
             endif
         -%}
 
-        {%- if settings.sale-text-pdp != blank and sale != false -%}
+        {%- if saleMessage != blank and sale != false -%}
             {%- liquid
                 if current_variant.compare_at_price > current_variant.price
                     assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
@@ -286,7 +296,7 @@
             <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
         starter-customize{% endif %}{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
                 {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
-                {{- settings.sale-text-pdp | escape | replace: '%%', discount -}}
+                {{- saleMessage | escape | replace: '%%', discount -}}
             </div>
         {%- endif -%}
 
@@ -318,7 +328,7 @@
             endif
         -%}
 
-        {%- if settings.extra-sale-text-pdp != blank and sale != false -%}
+        {%- if extraSaleMessage != blank and sale != false -%}
             {%- liquid
                 if current_variant.compare_at_price > current_variant.price
                     assign discount = current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price
@@ -331,7 +341,7 @@
             -%}
         <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--extra-sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
             {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
-            {{- settings.extra-sale-text-pdp | escape | replace: '%%', discount -}}
+            {{- extraSaleMessage | escape | replace: '%%', discount -}}
         </div>
         {%- endif -%}
 
