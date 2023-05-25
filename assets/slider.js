@@ -1,5 +1,61 @@
 "use strict";
 
+const processSection = ({selector, differentSwatches}) => {
+    const section = document.querySelector(selector);
+    if (section) {
+        Array.from(section.querySelectorAll('.product-unit')).map((productUnit) => {
+            let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
+            if (differentSwatches) {
+                firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch--active');
+            } 
+            if (firstSwatch) {
+                variantUpdateProcess(firstSwatch);
+            }
+        });
+    }
+};
+
+const initializeSections = () => {
+    const sections = [
+        { selector: '.shopify-section--pdp-featured', differentSwatches: false },
+        { selector: '.pdp__upsell', differentSwatches: false },
+        { selector: '.product-grid', differentSwatches: false },
+        { selector: '.featured-col__lists', differentSwatches: false },
+        { selector: '.shopify-section--featured-collections', differentSwatches: true }
+    ];
+
+    sections.map(section => processSection(section));
+};
+
+let scriptLoaded = false;
+const tryUpdateProcessTheProductUnits = (intervalId = false) => {
+    //console.log('Trying updateProcessTheProductUnits');
+    try {
+        initializeSections();
+        if(intervalId && typeof variantUpdateProcess != 'undefined') {
+            //console.log('variantUpdateProcess loaded');
+            //console.log('clearing interval');
+            clearInterval(intervalId);
+        }
+    } catch (e) {
+        if(typeof variantUpdateProcess == 'undefined') {
+            console.log('variantUpdateProcess not loaded yet');
+            if (!scriptLoaded) {
+                loadScript(scripts.variants);
+                scriptLoaded = true;
+            }
+        } else {
+            console.error(e);
+        }
+    }
+}
+const keepTryingUpdateProcessTheProductUnits = () => {
+    let intervalId = setInterval(() => {
+        console.log(intervalId)
+        tryUpdateProcessTheProductUnits(intervalId);
+    }, 1000);
+}
+
 window.addEventListener("click", (e) => {
     if(e.target.classList.contains('slider__control')) {
         e.preventDefault();
@@ -55,10 +111,17 @@ window.addEventListener("click", (e) => {
             wrapper.classList.remove('slider__wrapper--end');
         } else wrapper.classList.remove('slider__wrapper--start');
     }
+    
+    setTimeout(() => {
+        console.log('trying update process via slide move')
+        tryUpdateProcessTheProductUnits();
+    }, 500)
+    
 });
 
 function moveToSlide(slider, currentPage = 0, sliderCheckNum = 0) {
     // if(currentPage > 0) currentPage--;
+    
     let wrapper = slider.closest('.slider__wrapper');
     let gap = 0;
     if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
@@ -121,6 +184,7 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
     if(!slider) return;
     let wrapper = slider.closest('.slider__wrapper');
     if(!wrapper) return;
+
     const slides = slider.querySelectorAll('.slide');
     let firstSlide = slides[sliderCheckNum];
     if(!firstSlide) firstSlide = slider.querySelector('*');

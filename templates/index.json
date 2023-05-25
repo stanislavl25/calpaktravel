@@ -6,13 +6,11 @@
         "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
           "type": "text-block",
           "settings": {
-            "title": "Up to 45% OFF for Memorial Day",
-            "description": "<p>Upgrade your luggage game with top-sellers, plus free 2-day shipping with orders $300+. <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
+            "title": "Up to 45% OFF Luggage for Memorial Day",
+            "description": "<p>Plus free 2-day shipping with orders $300+.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
             "main-link": "shopify:\/\/collections\/sale",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
-            "secondary-button-text": "",
-            "secondary-button-url": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -23,7 +21,7 @@
         "a17da66f-28b0-45ff-8e34-f875358fe7d4": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1074_1-4_26e1e64a-2241-4e6c-a3b8-1feeb6c8766a.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1074_1-4_2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
@@ -57,8 +55,8 @@
         "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271"
       ],
       "settings": {
-        "hero-height": "auto",
-        "height-limit": 80,
+        "hero-height": "limited",
+        "height-limit": 100,
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
@@ -69,12 +67,28 @@
       "type": "hero",
       "disabled": true,
       "blocks": {
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
+          "type": "text-block",
+          "disabled": true,
+          "settings": {
+            "title": "Get 45% off the Starter Bundle",
+            "description": "<p>Our 8-piece starter set for $299!<\/p>",
+            "main-link": "shopify:\/\/products\/starter-bundle",
+            "button-text": "Shop Now",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "show-condition": "always",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1074_1-4.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-2_2a47ff7f-da68-4946-9805-dc3091fed333.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/luggage",
             "title": "",
@@ -90,7 +104,7 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/luggage",
             "title": "",
@@ -100,24 +114,6 @@
             "show-screens": "all",
             "text-color-scheme": "white",
             "text-alignment": "center"
-          }
-        },
-        "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
-          "type": "text-block",
-          "disabled": true,
-          "settings": {
-            "title": "Get 45% off the Starter Bundle",
-            "description": "<p>Our 8-piece starter set for $299!<\/p>",
-            "main-link": "shopify:\/\/products\/starter-bundle",
-            "button-text": "Shop Now",
-            "add-link-to-button-only": true,
-            "secondary-button-text": "",
-            "secondary-button-url": "",
-            "show-screens": "all",
-            "show-condition": "always",
-            "text-alignment": "center",
-            "text-color-scheme": "black",
-            "background": "#e4dfd5"
           }
         },
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4": {
@@ -155,17 +151,17 @@
         }
       },
       "block_order": [
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197",
-        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
         "3a22db3a-4932-47fa-b343-1aa7d3d2cdf4",
         "3d1c4fe7-43b3-4322-9c5d-0042e99dd6dd"
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 105,
+        "height-limit": 95,
         "enable-sticky-promo": false,
-        "promo-image": "shopify:\/\/shop_images\/CleanDesk-TechPouch.jpg",
+        "promo-image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-2_1_be6bcc3f-a990-4877-85a4-f7a4bb03d52d.png",
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
         "close-color-scheme": "white"
@@ -183,8 +179,6 @@
             "main-link": "shopify:\/\/collections\/summer-arrivals",
             "button-text": "Shop Summer Arrivals",
             "add-link-to-button-only": true,
-            "secondary-button-text": "",
-            "secondary-button-url": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -312,7 +306,7 @@
             "collection": "best-sellers",
             "title": "Bestsellers",
             "hide-form-labels": true,
-            "dont-hide-flash-sale": true
+            "dont-hide-flash-sale": false
           }
         },
         "02f79c4f-6737-4220-a31c-992d094df8ee": {
@@ -321,7 +315,7 @@
             "collection": "new-arrivals",
             "title": "New In",
             "hide-form-labels": true,
-            "dont-hide-flash-sale": true
+            "dont-hide-flash-sale": false
           }
         },
         "97749904-2195-42da-9b4e-7a6f7995c1ca": {
@@ -330,7 +324,7 @@
             "collection": "sale",
             "title": "On SALE",
             "hide-form-labels": true,
-            "dont-hide-flash-sale": true
+            "dont-hide-flash-sale": false
           }
         }
       },
@@ -558,8 +552,6 @@
         "title": "Join the club—get $5 instantly.",
         "text": "<p>Very Important Travelers earn points, get insider rewards, and exclusive early access to sales.<\/p>",
         "button-text": "Become a VIT Now",
-        "button-behavior": "link",
-        "scroll-to": 3,
         "link": "https:\/\/www.calpaktravel.com\/pages\/rewards",
         "link-for-button": true,
         "height": "custom",

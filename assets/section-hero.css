@@ -91,11 +91,8 @@
     margin-bottom: 8px;
 }
 
-.hero__buttons {
+.hero__block-button {
     margin-top: 35px;
-    display: flex;
-    justify-content: center;
-    gap: var(--gap);
 }
 
 .hero__block-content {
@@ -134,7 +131,9 @@
 .hero__block-content .button {
     margin-top: 35px;
 }
-
+.hero__block-description {
+    font-size: 18px;
+}
 .template-page-vit-rewards .hero__block-description {
     font-size: 18px;
     margin-top: 10px;
@@ -156,13 +155,7 @@
         padding-bottom: 30px;
     }
 
-    .hero__buttons {
+    .hero__block-button {
         margin-top: 20px;
-        flex-direction: column;
-    }
-
-    .template-page-vit-rewards .hero__buttons {
-        width: 100%;
-        max-width: 300px;
     }
 }

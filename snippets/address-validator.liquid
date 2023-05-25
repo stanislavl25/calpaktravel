@@ -153,26 +153,14 @@
       } 
       
       function getAddress() { 
-        {% if checkout.requires_shipping == true %}
         var address = {
-                  addres1: $('#checkout_shipping_address_address1').val(),
-                  addres2: $('#checkout_shipping_address_address2').val(),
-                  city: $('#checkout_shipping_address_city').val(),
-                  state: $('#checkout_shipping_address_province').val(),
-                  counrty: $('#checkout_shipping_address_country').val(),
-                  zip: $('#checkout_shipping_address_zip').val(),
-                } 
-        {% else %}
-        var address = {
-          addres1: $('#checkout_billing_address_address1').val(),
-          addres2: $('#checkout_billing_address_address2').val(),
-          city: $('#checkout_billing_address_city').val(),
-          state: $('#checkout_billing_address_province').val(),
-          counrty: $('#checkout_billing_address_country').val(),
-          zip: $('#checkout_billing_address_zip').val(),
+          addres1: $('#checkout_shipping_address_address1').val(),
+          addres2: $('#checkout_shipping_address_address2').val(),
+          city: $('#checkout_shipping_address_city').val(),
+          state: $('#checkout_shipping_address_province').val(),
+          counrty: $('#checkout_shipping_address_country').val(),
+          zip: $('#checkout_shipping_address_zip').val(),
         } 
-        {% endif %}
-        
         return address
       }
 

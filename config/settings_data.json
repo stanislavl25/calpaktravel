@@ -9,23 +9,36 @@
     "product-disclaimer": true,
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
+    "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
-    "flash-sale-enabled": true,
-    "flash-sale-tag": "memorialdaysale",
+    "sale-text-col-mixed": "Up to %% off",
+    "flash-sale-enabled": false,
+    "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "May 14 2023, 10:00AM",
-    "flash-sale-ends": "May 17 2023, 11:00AM",
-    "flash-sale-countdown": "24",
+    "flash-sale-starts": "May 4 2023, 10:00am",
+    "flash-sale-ends": "May 20 2023, 10:00am",
+    "flash-sale-countdown": "48",
     "flash-sale-accent": "#ff0000",
+    "flash-sale-text-col": "#FFF",
     "sale-badge-enabled": true,
+    "sale-badge-text-tilt": true,
+    "countdown-label-collection-enabled": true,
+    "desktop-badge-placement": "bottom",
+    "mobile-badge-placement": "top",
+    "badge_display": "both",
     "sale-badge-tag": "memorialdaysale",
-    "sale-badge-text": "Memorial Day SALE",
+    "sale-badge-text": "Memorial Day Sale",
     "sale-badge-bg": "#46da81",
+    "sale-msg-starter": true,
+    "sale-badge-tag-bundle": "sale-bubble",
+    "starter-bundle-badge": "8-Piece Travel Set",
+    "sale-badge-text-starter": "Special Promo",
+    "starter__customizer-badge": "#f7f177",
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
     "sale-msg-pdp-only": true,
     "sale-msg-tag": "allproducts",
-    "sale-msg-highlighted": "Get Free 2-Day Express Shipping",
+    "sale-msg-highlighted": "Get Free 2-Day Shipping",
     "sale-msg-message": "for orders over $300+",
     "sale-msg-main-col-text": "#707070",
     "type_body_font": "futura_n4",
@@ -45,13 +58,6 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
-    "desktop-badge-placement": "bottom",
-    "sale-msg-starter": true,
-    "sale-badge-tag-bundle": "sale-bubble",
-    "starter-bundle-badge": "8-Piece Travel Set",
-    "sale-badge-text-starter": "Special Promo",
-    "sale-text-pdp-mixed": "Up to %% off",
-    "sale-text-col-mixed": "Up to %% off",
     "sections": {
       "header": {
         "type": "header",
@@ -123,10 +129,10 @@
               "button-url": "shopify:\/\/collections\/mothers-day",
               "block-title": "Buy 2 items (or more), get 15% OFF",
               "description": "",
-              "button-text": "Shop Mother's Day",
+              "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/210818_CALPAK_Holiday_29917_Hi-2.jpg",
+              "image": "shopify:\/\/shop_images\/Group_3545.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -414,15 +420,37 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3": {
+            "type": "notification",
+            "settings": {
+              "text": "<p><a href=\"\/collections\/sale\" title=\"Sale\">Memorial Day Sale<\/a>: up to 45% off luggage.<\/p>",
+              "only-for-guests": false
+            }
+          },
+          "66440c26-ad60-4648-a563-4816dc76f530": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Orders $300 and over get free 2-day express shipping.<\/p>",
+              "only-for-guests": false
+            }
+          },
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
             "settings": {
-              "text": "<p>Orders $75 and over get free shipping<\/p>",
+              "text": "<p>Orders $75 and over get free standard shipping.<\/p>",
               "only-for-guests": false
+            }
+          },
+          "e43ed852-3a63-40ae-bb57-bbe85071c91e": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Start earning on every purchase as a VIT Rewards Member. <a href=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\" title=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\">Sign up<\/a><\/p>",
+              "only-for-guests": true
             }
           },
           "91c42567-a70f-469a-9cec-9f14f8d69477": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Enjoy 10% OFF your first order. <a href=\"\/pages\/sign-up-page\" title=\"Sign-Up\">Subscribe now<\/a><\/p>",
               "only-for-guests": true
@@ -435,20 +463,15 @@
               "text": "<p>Join us for a • Live Shopping event 3\/2 at 12 pm PT to get 45% off the Starter Bundle. <a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=OjOmNxWeJvVRIj5NF1fM\">Get notified<\/a><\/p>",
               "only-for-guests": false
             }
-          },
-          "e43ed852-3a63-40ae-bb57-bbe85071c91e": {
-            "type": "notification",
-            "settings": {
-              "text": "<p>Start earning on every purchase as a VIT Rewards Member. <a href=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\" title=\"https:\/\/www.calpaktravel.com\/account\/register#ref=menu\">Sign up<\/a><\/p>",
-              "only-for-guests": true
-            }
           }
         },
         "block_order": [
+          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3",
+          "66440c26-ad60-4648-a563-4816dc76f530",
           "58c64c20-f997-4806-98c1-48dbdac32ff7",
+          "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
-          "40c7a72f-b224-4b2d-b9c8-f1659004f76d",
-          "e43ed852-3a63-40ae-bb57-bbe85071c91e"
+          "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
         "settings": {
         }
@@ -494,13 +517,47 @@
               "text": "<p>Included with purchase of Product Name<\/p>",
               "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg"
             }
+          },
+          "9f9e8c87-cffd-4e03-9559-9a2c871d6feb": {
+            "type": "gamification-goal",
+            "settings": {
+              "title": "free standard shipping",
+              "value": 75,
+              "icon": "<svg width=\"16\" height=\"18\" viewbox=\"0 0 16 18\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M15.325 4.44223L8.45 0.678171C8.31203 0.602678 8.15728 0.56311 8 0.56311C7.84272 0.56311 7.68797 0.602678 7.55 0.678171L0.675 4.44223C0.527515 4.52293 0.404443 4.6418 0.318676 4.7864C0.232908 4.93099 0.187601 5.09599 0.1875 5.26411V12.736C0.187601 12.9041 0.232908 13.0691 0.318676 13.2137C0.404443 13.3583 0.527515 13.4772 0.675 13.5579L7.55 17.3219C7.68786 17.3978 7.84265 17.4375 8 17.4375C8.15735 17.4375 8.31214 17.3978 8.45 17.3219L15.325 13.5579C15.4725 13.4772 15.5956 13.3583 15.6813 13.2137C15.7671 13.0691 15.8124 12.9041 15.8125 12.736V5.26411C15.8124 5.09599 15.7671 4.93099 15.6813 4.7864C15.5956 4.6418 15.4725 4.52293 15.325 4.44223ZM7.85 1.22661C7.89585 1.20102 7.94749 1.18759 8 1.18759C8.05251 1.18759 8.10415 1.20102 8.15 1.22661L14.9273 4.93755L11.9453 6.56958C11.9312 6.55785 11.916 6.54739 11.9 6.53833L5.025 2.77427L7.85 1.22661ZM8 8.72661L1.07266 4.93755L4.37187 3.13051L11.2992 6.9227L8 8.72661ZM0.975 13.0079C0.925916 12.981 0.884942 12.9415 0.856358 12.8934C0.827773 12.8453 0.812627 12.7904 0.8125 12.7344V5.50708L7.6875 9.26958V16.6844L0.975 13.0079ZM15.025 13.0079L8.3125 16.6797V9.26958L11.4375 7.55942V10.875C11.4375 10.9579 11.4704 11.0374 11.529 11.096C11.5876 11.1546 11.6671 11.1875 11.75 11.1875C11.8329 11.1875 11.9124 11.1546 11.971 11.096C12.0296 11.0374 12.0625 10.9579 12.0625 10.875V7.21723L15.1875 5.50708V12.736C15.1874 12.7919 15.1722 12.8468 15.1436 12.8949C15.1151 12.943 15.0741 12.9826 15.025 13.0094V13.0079Z\" fill=\"black\"><\/path>\n<\/svg>",
+              "gift": "",
+              "default_variant": ""
+            }
+          },
+          "3c2d598b-166b-4145-8070-c596c23b0b02": {
+            "type": "gamification-goal",
+            "disabled": true,
+            "settings": {
+              "title": "2-day free express shipping",
+              "value": 300,
+              "icon": "<svg width=\"22\" height=\"20\" viewbox=\"0 0 22 20\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<g clip-path=\"url(#clip0_1354_3499)\">\n<path d=\"M22.1023 9.25937L21.0086 6.525C20.9388 6.35152 20.8187 6.20288 20.6637 6.09819C20.5088 5.9935 20.3261 5.93754 20.1391 5.9375H17.125V5C17.125 4.91712 17.0921 4.83763 17.0335 4.77903C16.9749 4.72042 16.8954 4.6875 16.8125 4.6875H4.9375C4.68886 4.6875 4.4504 4.78627 4.27459 4.96209C4.09877 5.1379 4 5.37636 4 5.625V14.375C4 14.6236 4.09877 14.8621 4.27459 15.0379C4.4504 15.2137 4.68886 15.3125 4.9375 15.3125H6.52266C6.59813 15.8328 6.85847 16.3085 7.25603 16.6526C7.65358 16.9966 8.16175 17.186 8.6875 17.186C9.21325 17.186 9.72142 16.9966 10.119 16.6526C10.5165 16.3085 10.7769 15.8328 10.8523 15.3125H15.2727C15.3481 15.8328 15.6085 16.3085 16.006 16.6526C16.4036 16.9966 16.9117 17.186 17.4375 17.186C17.9633 17.186 18.4714 16.9966 18.869 16.6526C19.2665 16.3085 19.5269 15.8328 19.6023 15.3125H21.1875C21.4361 15.3125 21.6746 15.2137 21.8504 15.0379C22.0262 14.8621 22.125 14.6236 22.125 14.375V9.375C22.1248 9.33537 22.1172 9.29613 22.1023 9.25937ZM17.125 6.5625H20.1391C20.2016 6.56238 20.2627 6.581 20.3145 6.61595C20.3663 6.65091 20.4064 6.70059 20.4297 6.75859L21.3508 9.0625H17.125V6.5625ZM4.625 5.625C4.625 5.54212 4.65792 5.46263 4.71653 5.40403C4.77513 5.34542 4.85462 5.3125 4.9375 5.3125H16.5V10.9375H4.625V5.625ZM8.6875 16.5625C8.37847 16.5625 8.07637 16.4709 7.81942 16.2992C7.56247 16.1275 7.3622 15.8835 7.24394 15.5979C7.12568 15.3124 7.09473 14.9983 7.15502 14.6952C7.21531 14.3921 7.36413 14.1137 7.58265 13.8951C7.80117 13.6766 8.07958 13.5278 8.38267 13.4675C8.68577 13.4072 8.99993 13.4382 9.28544 13.5564C9.57095 13.6747 9.81498 13.875 9.98667 14.1319C10.1584 14.3889 10.25 14.691 10.25 15C10.25 15.2052 10.2096 15.4084 10.1311 15.5979C10.0525 15.7875 9.93745 15.9598 9.79235 16.1049C9.64726 16.2499 9.47501 16.365 9.28544 16.4436C9.09587 16.5221 8.89269 16.5625 8.6875 16.5625ZM15.2727 14.6875H10.8523C10.7769 14.1672 10.5165 13.6915 10.119 13.3474C9.72142 13.0034 9.21325 12.814 8.6875 12.814C8.16175 12.814 7.65358 13.0034 7.25603 13.3474C6.85847 13.6915 6.59813 14.1672 6.52266 14.6875H4.9375C4.85462 14.6875 4.77513 14.6546 4.71653 14.596C4.65792 14.5374 4.625 14.4579 4.625 14.375V11.5625H16.5V13.0242C16.1744 13.1791 15.892 13.4119 15.6779 13.7021C15.4638 13.9922 15.3246 14.3307 15.2727 14.6875ZM17.4375 16.5625C17.1285 16.5625 16.8264 16.4709 16.5694 16.2992C16.3125 16.1275 16.1122 15.8835 15.9939 15.5979C15.8757 15.3124 15.8447 14.9983 15.905 14.6952C15.9653 14.3921 16.1141 14.1137 16.3326 13.8951C16.5512 13.6766 16.8296 13.5278 17.1327 13.4675C17.4358 13.4072 17.7499 13.4382 18.0354 13.5564C18.321 13.6747 18.565 13.875 18.7367 14.1319C18.9084 14.3889 19 14.691 19 15C19 15.4144 18.8354 15.8118 18.5424 16.1049C18.2493 16.3979 17.8519 16.5625 17.4375 16.5625ZM21.5 14.375C21.5 14.4579 21.4671 14.5374 21.4085 14.596C21.3499 14.6546 21.2704 14.6875 21.1875 14.6875H19.6023C19.5194 14.1134 19.2118 13.5957 18.7473 13.2483C18.2827 12.901 17.6991 12.7523 17.125 12.8352V9.6875H21.5V14.375Z\" fill=\"black\"><\/path>\n<line y1=\"6.7\" x2=\"7\" y2=\"6.7\" stroke=\"black\" stroke-width=\"0.6\"><\/line>\n<line x1=\"1\" y1=\"7.7\" x2=\"7\" y2=\"7.7\" stroke=\"black\" stroke-width=\"0.6\"><\/line>\n<line x1=\"2\" y1=\"8.7\" x2=\"7\" y2=\"8.7\" stroke=\"black\" stroke-width=\"0.6\"><\/line>\n<\/g>\n<defs>\n<clippath id=\"clip0_1354_3499\">\n<rect width=\"22\" height=\"20\" fill=\"white\"><\/rect>\n<\/clippath>\n<\/defs>\n<\/svg>",
+              "gift": "",
+              "default_variant": ""
+            }
+          },
+          "4d96abe4-e24c-48c7-92dc-dbd144417c3e": {
+            "type": "gamification-goal",
+            "settings": {
+              "title": "2-day free express shipping",
+              "value": 300,
+              "icon": "<svg width=\"22\" height=\"20\" viewbox=\"0 0 22 20\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<g clip-path=\"url(#clip0_1354_3499)\">\n<path d=\"M22.1023 9.25937L21.0086 6.525C20.9388 6.35152 20.8187 6.20288 20.6637 6.09819C20.5088 5.9935 20.3261 5.93754 20.1391 5.9375H17.125V5C17.125 4.91712 17.0921 4.83763 17.0335 4.77903C16.9749 4.72042 16.8954 4.6875 16.8125 4.6875H4.9375C4.68886 4.6875 4.4504 4.78627 4.27459 4.96209C4.09877 5.1379 4 5.37636 4 5.625V14.375C4 14.6236 4.09877 14.8621 4.27459 15.0379C4.4504 15.2137 4.68886 15.3125 4.9375 15.3125H6.52266C6.59813 15.8328 6.85847 16.3085 7.25603 16.6526C7.65358 16.9966 8.16175 17.186 8.6875 17.186C9.21325 17.186 9.72142 16.9966 10.119 16.6526C10.5165 16.3085 10.7769 15.8328 10.8523 15.3125H15.2727C15.3481 15.8328 15.6085 16.3085 16.006 16.6526C16.4036 16.9966 16.9117 17.186 17.4375 17.186C17.9633 17.186 18.4714 16.9966 18.869 16.6526C19.2665 16.3085 19.5269 15.8328 19.6023 15.3125H21.1875C21.4361 15.3125 21.6746 15.2137 21.8504 15.0379C22.0262 14.8621 22.125 14.6236 22.125 14.375V9.375C22.1248 9.33537 22.1172 9.29613 22.1023 9.25937ZM17.125 6.5625H20.1391C20.2016 6.56238 20.2627 6.581 20.3145 6.61595C20.3663 6.65091 20.4064 6.70059 20.4297 6.75859L21.3508 9.0625H17.125V6.5625ZM4.625 5.625C4.625 5.54212 4.65792 5.46263 4.71653 5.40403C4.77513 5.34542 4.85462 5.3125 4.9375 5.3125H16.5V10.9375H4.625V5.625ZM8.6875 16.5625C8.37847 16.5625 8.07637 16.4709 7.81942 16.2992C7.56247 16.1275 7.3622 15.8835 7.24394 15.5979C7.12568 15.3124 7.09473 14.9983 7.15502 14.6952C7.21531 14.3921 7.36413 14.1137 7.58265 13.8951C7.80117 13.6766 8.07958 13.5278 8.38267 13.4675C8.68577 13.4072 8.99993 13.4382 9.28544 13.5564C9.57095 13.6747 9.81498 13.875 9.98667 14.1319C10.1584 14.3889 10.25 14.691 10.25 15C10.25 15.2052 10.2096 15.4084 10.1311 15.5979C10.0525 15.7875 9.93745 15.9598 9.79235 16.1049C9.64726 16.2499 9.47501 16.365 9.28544 16.4436C9.09587 16.5221 8.89269 16.5625 8.6875 16.5625ZM15.2727 14.6875H10.8523C10.7769 14.1672 10.5165 13.6915 10.119 13.3474C9.72142 13.0034 9.21325 12.814 8.6875 12.814C8.16175 12.814 7.65358 13.0034 7.25603 13.3474C6.85847 13.6915 6.59813 14.1672 6.52266 14.6875H4.9375C4.85462 14.6875 4.77513 14.6546 4.71653 14.596C4.65792 14.5374 4.625 14.4579 4.625 14.375V11.5625H16.5V13.0242C16.1744 13.1791 15.892 13.4119 15.6779 13.7021C15.4638 13.9922 15.3246 14.3307 15.2727 14.6875ZM17.4375 16.5625C17.1285 16.5625 16.8264 16.4709 16.5694 16.2992C16.3125 16.1275 16.1122 15.8835 15.9939 15.5979C15.8757 15.3124 15.8447 14.9983 15.905 14.6952C15.9653 14.3921 16.1141 14.1137 16.3326 13.8951C16.5512 13.6766 16.8296 13.5278 17.1327 13.4675C17.4358 13.4072 17.7499 13.4382 18.0354 13.5564C18.321 13.6747 18.565 13.875 18.7367 14.1319C18.9084 14.3889 19 14.691 19 15C19 15.4144 18.8354 15.8118 18.5424 16.1049C18.2493 16.3979 17.8519 16.5625 17.4375 16.5625ZM21.5 14.375C21.5 14.4579 21.4671 14.5374 21.4085 14.596C21.3499 14.6546 21.2704 14.6875 21.1875 14.6875H19.6023C19.5194 14.1134 19.2118 13.5957 18.7473 13.2483C18.2827 12.901 17.6991 12.7523 17.125 12.8352V9.6875H21.5V14.375Z\" fill=\"black\"><\/path>\n<line y1=\"6.7\" x2=\"7\" y2=\"6.7\" stroke=\"black\" stroke-width=\"0.6\"><\/line>\n<line x1=\"1\" y1=\"7.7\" x2=\"7\" y2=\"7.7\" stroke=\"black\" stroke-width=\"0.6\"><\/line>\n<line x1=\"2\" y1=\"8.7\" x2=\"7\" y2=\"8.7\" stroke=\"black\" stroke-width=\"0.6\"><\/line>\n<\/g>\n<defs>\n<clippath id=\"clip0_1354_3499\">\n<rect width=\"22\" height=\"20\" fill=\"white\"><\/rect>\n<\/clippath>\n<\/defs>\n<\/svg>",
+              "gift": "",
+              "default_variant": ""
+            }
           }
         },
         "block_order": [
           "8c9ba91f-2777-428f-837a-f7b2b9f8cc50",
           "ed173313-2039-410a-a20a-4f9cdbf1687a",
           "abed212b-11df-41fd-9e54-9a21ddcf1efb",
-          "aa6bc8c0-cf13-4d80-b668-c83b126bdd5c"
+          "aa6bc8c0-cf13-4d80-b668-c83b126bdd5c",
+          "9f9e8c87-cffd-4e03-9559-9a2c871d6feb",
+          "3c2d598b-166b-4145-8070-c596c23b0b02",
+          "4d96abe4-e24c-48c7-92dc-dbd144417c3e"
         ],
         "settings": {
           "featured-title": "More for you",
@@ -508,9 +565,9 @@
           "product_list": [
 
           ],
-          "empty_cart_message": "Whoops, you haven't packed yet!",
           "continue-shopping": "",
-          "wishlist-timeout": 3
+          "wishlist-timeout": 3,
+          "max_value": 300
         }
       },
       "contact-form": {
@@ -579,7 +636,7 @@
               "link": "shopify:\/\/collections\/all",
               "media-title": "",
               "description": "",
-              "button-text": "Shop All",
+              "button-text": "Buy 2+ items, get 15% off",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
@@ -639,13 +696,23 @@
               "text-color-scheme": "white"
             }
           },
+          "657418bd-98df-44f4-9363-2b2a9c4cf77e": {
+            "type": "edit",
+            "settings": {
+              "title": "Summer Arrivals",
+              "image": "shopify:\/\/shop_images\/Frame_2_3_a42ff80d-e9f8-40f8-922a-c746c97a6781.png",
+              "edit-title": "Fresh summer styles are here",
+              "description": "<p>Explore bags for your sweetest summer yet.<\/p>",
+              "link": "shopify:\/\/collections\/summer-arrivals"
+            }
+          },
           "22ba977a-5751-40f1-ab10-64600d42f7d7": {
             "type": "edit",
             "settings": {
               "title": "Duffels",
               "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel.",
-              "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
+              "description": "<p>Our CALPAK duffels shines in its own unique way.<\/p>",
               "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel"
             }
           },
@@ -655,7 +722,7 @@
               "title": "Packing Cubes",
               "image": "shopify:\/\/shop_images\/Frame_38_1.png",
               "edit-title": "Your favorite organizing tool",
-              "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
+              "description": "<p>Packing cubes are the #1 tool for organization.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
             }
           }
@@ -668,6 +735,7 @@
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
           "2780beb4-0ab0-4333-a417-c3bb8c18a553",
           "4552f1b4-22d2-4133-8804-c2cfd261dae7",
+          "657418bd-98df-44f4-9363-2b2a9c4cf77e",
           "22ba977a-5751-40f1-ab10-64600d42f7d7",
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
@@ -688,7 +756,7 @@
               "image": "shopify:\/\/shop_images\/COMPAKT-SMALL-GARMENT-BAG-ORCHID-LIFESTYLE1.jpg",
               "title": "Gift with purchase",
               "description": "Included with any purchase above $110",
-              "gwp-collection": "2-piece-luggage-sets",
+              "gwp-collection": "accessories",
               "gwp-products": [
 
               ],
@@ -760,7 +828,7 @@
               "content": "<p>Up to 45% OFF Luggage<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
-              "text-color": ""
+              "text-color": "#000000"
             }
           }
         },
@@ -768,14 +836,14 @@
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
         ],
         "settings": {
-          "show": "home",
+          "show": "everywhere",
           "timeout": 3,
           "holiday_banner": false,
-          "holiday-banner-background": "#eae1cf",
+          "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
           "countdown-active": false,
           "countdown-show": "always",
-          "countdown-to": "May 16 2023, 10:00pm"
+          "countdown-to": "May 11, 2023 5:40pm"
         }
       }
     },

@@ -1,7 +1,6 @@
 {{ 'section-customer.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-form.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-customer-form.css' | asset_url | stylesheet_tag: preload: true }}
-<script src="{{ 'form-validation.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
     assign request_arg = request.path | split: "/"
@@ -71,6 +70,12 @@
                 <a href="{{ routes.account_register_url }}" class="transparent-button">Register</a>
             </div>
 
+            {%- if recover_success == true -%}
+                <div class="customer__page-cta customer__page-cta--success">
+                    We have sent you an e-mail containing your password reset link and instructions. Follow the link to reset your password.
+                </div>
+            {%- endif -%}
+
             {%- render 'customer-login-form', checkout: checkout -%}
         </div>
     </div>
@@ -83,14 +88,12 @@
         formPage.classList.add('customer__page--recover');
     });
 
-    {% if customer == blank %}
     const forgotLinkCancel = document.querySelector('.forgot-pass__cancel');
     if(forgotLinkCancel && formPage) forgotLinkCancel.addEventListener('click', function(e) {
         e.preventDefault();
         location.hash = '';
         formPage.classList.remove('customer__page--recover');
     });
-    {% endif %}
 
     if(location.hash == '#recover' && formPage) {
         formPage.classList.add('customer__page--recover');

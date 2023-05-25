@@ -8,10 +8,6 @@
     display: none;
 }
 
-.field--invalid .field__error-message.field__error-message--js {
+.field__error-message.field__error-message--js.field__error-message--active {
     display: inline-block;
-}
-
-.field--invalid .field__error-message.field__error-message--js + .field__error-message {
-    display: none;
 }
