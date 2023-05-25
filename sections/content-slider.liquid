@@ -1,7 +1,9 @@
 {{ 'section-content-slider.css' | asset_url | stylesheet_tag }}
 
+<div class="page-anchor"></div>
+
 <section class="content-slider content-slider--{{ section.id }}">
-    <div class="slider__wrapper slider__wrapper--nav">
+    <div class="slider__wrapper slider__wrapper--nav slider__wrapper--content-slider">
         <div class="slider slider-nav content-slider__nav" data-nav-for=".content-slider--{{ section.id }} .content-slider__main">
             {%- for block in section.blocks -%}
             <div class="{% if forloop.first %} slide--selected{% endif %} content-slider__nav-slide slide">{{- block.settings.title | escape -}}</div>

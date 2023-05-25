@@ -141,14 +141,14 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
         slideWidth = firstSlide.offsetWidth;
     }
 
-    let thisIsSafari = isSafari();
+    let animateScroller = isSafari() || wrapper.classList.contains('slider__wrapper--content-slider');
 
     if(!wrapper.classList.contains('slider__wrapper--loaded')) {
         slider.addEventListener('scroll', function() {
             if(sliderThrottle !== false) clearTimeout(sliderThrottle);
             sliderThrottle = setTimeout(() => checkSlider(this, sliderCheckNum, indexFilter), 305);
 
-            if(thisIsSafari) requestAnimationFrame(() => {
+            if(animateScroller) requestAnimationFrame(() => {
                 wrapper.style.setProperty('--scroll-pos', (slider.scrollLeft * 100 / maxScroll) + '%');
             });
         }, {passive: true});
@@ -227,10 +227,6 @@ window.addEventListener("load", () => {
     }, {threshold: 0, rootMargin: '0px'});
 
     sliders.forEach( slider => observer.observe(slider) );
-
-    if(isSafari()) {
-        document.body.classList.add("isSafari");
-    }
 });
 
 function runSlider(slider, autoslide) {
