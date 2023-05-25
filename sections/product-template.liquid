@@ -84,6 +84,7 @@
     endif
 
     assign current_product_group_type = false
+    assign has_more_product_types = false
     assign product_type = product.type | downcase
 
     if featured_collection != false and product_type contains 'luggage'
@@ -95,6 +96,23 @@
                 break
             endif
         endfor
+
+        if current_product_group_type != false and section.settings.hide-single-size
+            for featured_product in featured_collection.products
+                if featured_product.id != product.id
+                    for type in types
+                        if featured_product.title contains type
+                            assign has_more_product_types = true
+                            break
+                        endif
+                    endfor
+
+                    if has_more_product_types == true
+                        break
+                    endif
+                endif
+            endfor
+        endif
     endif
 
     if current_variant.metafields.custom.preorder != blank
@@ -173,7 +191,7 @@
                             {% render 'pdp-meta', current_variant: current_variant %}
                         </section>
                     {%- when 'variants' -%}
-                        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
+                        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
                     {%- when 'flash-sale' -%}
                         {% render 'flash-sale-label', current_variant: current_variant %}
                     {%- when 'product-labels' -%}
@@ -267,6 +285,12 @@
         "name": "Single Product",
         "class": "shopify-section--single-product",
         "settings": [
+            {
+                "type": "checkbox",
+                "id": "hide-single-size",
+                "label": "Hide size selector for luggage with one available size",
+                "default": true
+            },
             {
                 "type": "header",
                 "content": "Gallery"

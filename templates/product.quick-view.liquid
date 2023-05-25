@@ -68,6 +68,7 @@
     endif
 
     assign current_product_group_type = false
+    assign has_more_product_types = false
     assign product_type = product.type | downcase
 
     if featured_collection != false and product_type contains 'luggage'
@@ -79,6 +80,23 @@
                 break
             endif
         endfor
+
+        if current_product_group_type != false
+            for featured_product in featured_collection.products
+                if featured_product.id != product.id
+                    for type in types
+                        if featured_product.title contains type
+                            assign has_more_product_types = true
+                            break
+                        endif
+                    endfor
+
+                    if has_more_product_types == true
+                        break
+                    endif
+                endif
+            endfor
+        endif
     endif
 -%}
 {%- capture html -%}
@@ -110,7 +128,7 @@
             {% render 'pdp-meta', current_variant: current_variant %}
         </section>
 
-        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, current_variant: current_variant, early_access: early_access %}
+        {% render 'pdp-variants', featured_collection: featured_collection, has_more_product_types: has_more_product_types, current_product_group_type: current_product_group_type, current_variant: current_variant, early_access: early_access %}
 
         <section class="pdp__form-labels">
             {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}

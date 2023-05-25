@@ -130,7 +130,7 @@
     {%- endfor -%}
 
     {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
-    {%- if product_type contains 'luggage' and featured_collection != false -%}
+    {%- if product_type contains 'luggage' and featured_collection != false and has_more_product_types == true -%}
     <div class="pdp__variant-type" data-collection="{{- featured_collection.handle -}}">
         <div class="select__wrapper select__wrapper--pdp-type">
             <select>
