@@ -1,5 +1,7 @@
 {{ 'section-text-slider.css' | asset_url | stylesheet_tag }}
 
+<div class="page-anchor"></div>
+
 <div class="text-slider__wrapper slider__wrapper text-slider__wrapper--{{ section.id }}">
     <div class="slider">
         {%- for block in section.blocks -%}

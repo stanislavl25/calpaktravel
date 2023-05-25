@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="{{ 'component-floating-link.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
 
+<div class="page-anchor"></div>
+
 {% if section.settings.heading != blank %}
     <h2 class="content-blocks__title">{{- section.settings.heading | strip_html | escape -}}</h2>
 {% endif %}

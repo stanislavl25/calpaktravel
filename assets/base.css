@@ -634,8 +634,12 @@ div.swym-inject,
 
 .page-anchor {
     position: absolute;
-    top: -42px;
+    top: calc(-42px - var(--gap));
     left: 0;
+}
+
+body:not(.promo-bar-hidden) .page-anchor {
+    top: calc(-84px - var(--gap));
 }
 
 .g-recaptcha {
