@@ -35,7 +35,7 @@
     <div
       class="cart__header"
       data-status="
-        {%- if gamification_progress == 100 -%}
+        {%- if gamification_progress == 100 or free_shipping_progress == 100 -%}
             success
         {%- else -%}
             progress
@@ -47,26 +47,30 @@
       {%- comment -%}
         {% render 'cart-free-shipping', gamification_progress: gamification_progress, free_shipping: free_shipping %}
       {%- endcomment -%}
-      <div class="cart__gamification">
-        <div class="cart__gamification-msg">
-          <div class="cart__gam-verbose"></div>
-          <div class="cart__gam-progress">
-            You're only
-            <span class="shipping-value">
-              {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros -}}
-            </span>
-            away from free shipping!
+      {% if settings.show-cart-gamification == true %}
+        <div class="cart__gamification">
+          <div class="cart__gamification-msg">
+            <div class="cart__gam-verbose"></div>
+            <div class="cart__gam-progress">
+              You're only
+              <span class="shipping-value">
+                {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros -}}
+              </span>
+              away from free shipping!
+            </div>
+            <div class="cart__gam-success">Congrats, you get free shipping!</div>
           </div>
-          <div class="cart__gam-success">Congrats, you get free shipping!</div>
+          <div class="cart__gamification-progress">
+            <div
+              class="cart__gamification-indicator"
+              style="--gamification-progress: {{ gamification_progress }}%;"
+            ></div>
+          </div>
+          <div class="cart__gamification-goals"></div>
         </div>
-        <div class="cart__gamification-progress">
-          <div
-            class="cart__gamification-indicator"
-            style="--gamification-progress: {{ gamification_progress }}%;"
-          ></div>
-        </div>
-        <div class="cart__gamification-goals"></div>
-      </div>
+        {% else %}
+          {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
+      {% endif %}
 
       {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
 

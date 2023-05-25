@@ -42,6 +42,12 @@
         "unit": "$"
       },
       {
+        "type": "checkbox",
+        "id": "show-cart-gamification",
+        "label": "Enable Express Shipping",
+        "default": true
+      },
+      {
         "type": "header",
         "content": "Save for later"
       },

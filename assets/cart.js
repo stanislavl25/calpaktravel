@@ -369,9 +369,11 @@ function updateCart(data, jsonIncluded = false) {
     else cartContainer.classList.remove('cart__container--empty');
 
     setHeaderItemCounter(cart);
-    
-    let freeShipping = setGamificationProgress(cart.items_subtotal_price, cart);
+    let freeShipping;
+    let checkShipping = document.querySelector('.cart__free-shipping')
+    checkShipping ? freeShipping = setFreeShippingProgress(cart) : setGamificationProgress(cart.items_subtotal_price, cart);
 
+    
     let totalPrice = cart.total_price;
     if(!freeShipping) totalPrice += 795;
 
