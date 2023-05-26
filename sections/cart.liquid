@@ -31,6 +31,29 @@
       assign total_price = cart.total_price
       assign gamification_progress = total_price | times: 100 | divided_by: progress_limit
     -%}
+    
+    {% if settings.show-cart-gamification != true %}
+      {%- liquid
+        assign free_shipping = settings.free-shipping | times: 100
+        if cart.requires_shipping
+            if free_shipping == 0
+                assign free_shipping_progress = 100
+            else
+                assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+                if free_shipping_progress > 100
+                    assign free_shipping_progress = 100
+                endif
+            endif
+        else
+            assign free_shipping_progress = 100
+        endif
+        
+        assign totalPrice = cart.total_price
+        if free_shipping_progress < 100
+            assign totalPrice = totalPrice | plus: 795
+        endif
+      -%}
+    {% endif %}
 
     <div
       class="cart__header"
@@ -218,8 +241,9 @@
   
   
   
-  
+
     window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
+    {% if settings.show-cart-gamification == true %}
     window.settings["cartGamification"] = {
         subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
         wrapper: '.cart__gamification-goals',
@@ -237,7 +261,7 @@
             {%- endfor -%}
         ]
     };
-
+          {% endif %}
 
 
 
