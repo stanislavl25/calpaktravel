@@ -536,7 +536,9 @@
     font-size: 16px;
     text-align: center;
     margin-bottom: 18px;
-    padding: 0 25px;
+}
+[data-status="success"] .cart__gam-verbose {
+    padding: 0;
 }
 
 .cart__gam-progress,
@@ -844,6 +846,9 @@
 @media (max-width: 550px) {
     .cart__body {
         border-radius: 0;
+    }
+    .cart__gam-verbose {
+        padding: 0 25px;
     }
 }
 
