@@ -525,6 +525,48 @@
           "type": "description",
           "settings": {
           }
+        },
+        "052ddda6-2930-47fc-ac9f-85a0034d3562": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": true,
+            "heading": "",
+            "product": "ambeur-front-pocket-carry-on-luggage",
+            "title-override": "",
+            "button-text": "",
+            "include-price": false,
+            "button-behaviour": "follow-link",
+            "button-url": "",
+            "border-dash": true,
+            "upsell-background": "#f7f177"
+          }
+        },
+        "cd4cd459-7068-4c2b-9315-a586846dcb92": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": true,
+            "heading": "",
+            "product": "astyll-3-piece-luggage-set",
+            "title-override": "",
+            "button-text": "",
+            "include-price": false,
+            "button-behaviour": "follow-link",
+            "button-url": "",
+            "border-dash": false,
+            "upsell-background": "#e4dfd5"
+          }
         }
       },
       "block_order": [
@@ -546,7 +588,9 @@
         "609ee977-939e-4747-af83-eacb42d0ad15",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
-        "460a526f-69ed-4d68-89c4-1b9152dcadf7"
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7",
+        "052ddda6-2930-47fc-ac9f-85a0034d3562",
+        "cd4cd459-7068-4c2b-9315-a586846dcb92"
       ],
       "settings": {
         "zoom": false,
