@@ -31,11 +31,34 @@
       assign total_price = cart.total_price
       assign gamification_progress = total_price | times: 100 | divided_by: progress_limit
     -%}
+    
+    {% if settings.show-cart-gamification != true %}
+      {%- liquid
+        assign free_shipping = settings.free-shipping | times: 100
+        if cart.requires_shipping
+            if free_shipping == 0
+                assign free_shipping_progress = 100
+            else
+                assign free_shipping_progress = cart.total_price | times: 100 | divided_by: free_shipping | round
+                if free_shipping_progress > 100
+                    assign free_shipping_progress = 100
+                endif
+            endif
+        else
+            assign free_shipping_progress = 100
+        endif
+        
+        assign totalPrice = cart.total_price
+        if free_shipping_progress < 100
+            assign totalPrice = totalPrice | plus: 795
+        endif
+      -%}
+    {% endif %}
 
     <div
       class="cart__header"
       data-status="
-        {%- if gamification_progress == 100 -%}
+        {%- if gamification_progress == 100 or free_shipping_progress == 100 -%}
             success
         {%- else -%}
             progress
@@ -47,26 +70,30 @@
       {%- comment -%}
         {% render 'cart-free-shipping', gamification_progress: gamification_progress, free_shipping: free_shipping %}
       {%- endcomment -%}
-      <div class="cart__gamification">
-        <div class="cart__gamification-msg">
-          <div class="cart__gam-verbose"></div>
-          <div class="cart__gam-progress">
-            You're only
-            <span class="shipping-value">
-              {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros -}}
-            </span>
-            away from free shipping!
+      {% if settings.show-cart-gamification == true %}
+        <div class="cart__gamification">
+          <div class="cart__gamification-msg">
+            <div class="cart__gam-verbose"></div>
+            <div class="cart__gam-progress">
+              You're only
+              <span class="shipping-value">
+                {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros -}}
+              </span>
+              away from free shipping!
+            </div>
+            <div class="cart__gam-success">Congrats, you get free shipping!</div>
           </div>
-          <div class="cart__gam-success">Congrats, you get free shipping!</div>
+          <div class="cart__gamification-progress">
+            <div
+              class="cart__gamification-indicator"
+              style="--gamification-progress: {{ gamification_progress }}%;"
+            ></div>
+          </div>
+          <div class="cart__gamification-goals"></div>
         </div>
-        <div class="cart__gamification-progress">
-          <div
-            class="cart__gamification-indicator"
-            style="--gamification-progress: {{ gamification_progress }}%;"
-          ></div>
-        </div>
-        <div class="cart__gamification-goals"></div>
-      </div>
+        {% else %}
+          {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
+      {% endif %}
 
       {% render 'cart-promo', blocks: section.blocks, position: 'above-products' %}
 
@@ -214,8 +241,9 @@
   
   
   
-  
+
     window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
+    {% if settings.show-cart-gamification == true %}
     window.settings["cartGamification"] = {
         subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
         wrapper: '.cart__gamification-goals',
@@ -233,7 +261,7 @@
             {%- endfor -%}
         ]
     };
-
+          {% endif %}
 
 
 
