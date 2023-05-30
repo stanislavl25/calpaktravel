@@ -5,7 +5,7 @@
     "favicon": "shopify:\/\/shop_images\/favicon_dc3a819d-7bb4-417a-8564-c3c9166fc5c8.png",
     "best-sellers": "best-sellers",
     "new-arrivals": "new-arrivals",
-    "show-cart-gamification": false,
+    "show-cart-gamification": true,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
     "product-disclaimer": true,
     "sale-tag": "postcm-sale",
