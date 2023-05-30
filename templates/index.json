@@ -6,8 +6,8 @@
         "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
           "type": "text-block",
           "settings": {
-            "title": "Up to 45% OFF Luggage for Memorial Day",
-            "description": "<p>Plus free 2-day shipping with orders $300+.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
+            "title": "FINAL HOURS: Get up to 45% off Luggage",
+            "description": "<p>You won't see another sale like this until winter. Don't miss out! <\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
             "main-link": "shopify:\/\/collections\/sale",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
@@ -87,7 +87,6 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-2_2a47ff7f-da68-4946-9805-dc3091fed333.jpg",
             "image-mobile": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/luggage",
@@ -161,7 +160,6 @@
         "hero-height": "limited",
         "height-limit": 95,
         "enable-sticky-promo": false,
-        "promo-image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-2_1_be6bcc3f-a990-4877-85a4-f7a4bb03d52d.png",
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
         "close-color-scheme": "white"
