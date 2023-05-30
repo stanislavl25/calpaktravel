@@ -7,8 +7,8 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Up to 45% off All Luggage While Supplies Last<\/p>",
+        "title-above": "LAST CHANCE",
+        "main-text": "<p>Up to 45% off best-selling luggage — don't miss out!<\/p>",
         "hide": false,
         "product_list": [
 
@@ -19,10 +19,10 @@
         "section-id": "",
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/sale",
-        "cta_text": "Shop Now",
+        "cta_text": "Shop Sale",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "Prices as marked. Terms & Conditions apply.",
+        "terms_text": "Prices as marked. See Terms & Conditions.",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -497,6 +497,21 @@
         "button-link": ""
       }
     },
+    "5d2317b7-1cdb-4bdb-a129-65bf15cbaf07": {
+      "type": "memorial-day-sale-promo-banner",
+      "settings": {
+        "countdown-enabled": true,
+        "countdown-sale-text": "SALE ENDS",
+        "countdown-sale-starts": "May 29 2023, 11:00am",
+        "countdown-sale-ends": "May 31, 2023 11:00am",
+        "countdown-sale-countdown": "24",
+        "countdown-unwanted-collections": [
+
+        ],
+        "countdown-sale-accent": "#46da81",
+        "countdown-sale-text-col": "#000000"
+      }
+    },
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
@@ -921,6 +936,7 @@
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
+    "5d2317b7-1cdb-4bdb-a129-65bf15cbaf07",
     "product-grid-section-id",
     "c21deb88-82ba-42cd-8b8a-9516d11e23cf"
   ]
