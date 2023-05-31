@@ -256,10 +256,11 @@
     {%- endcase -%}
     </div>
 </section>
-{% if block.settings.upsell-background !=blank%} 
+{% if block.settings.upsell-background !=blank %} 
     <style>
         #block-{{ block.id }}.upsell-background {
             background-color: {{ block.settings.upsell-background }};
+            color: {{ block.settings.upsell-text }};
         }
     </style>
 {% endif %}
