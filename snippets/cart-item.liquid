@@ -17,7 +17,7 @@
     {% if item.properties['_preorder'] != blank and item.properties['_preorder'] != false and item.properties['_preorder'] != 'false' %} data-preorder="{{ item.properties['_preorder'] }}"{% endif %}
     >
     <div class="cart__item-image">
-        <a href="{{ item.product.url }}/{{ item.variant.option1 | handleize }}{%- if item.variant.option2 != false and item.variant.option2 != blank -%}/{{ item.variant.option2 | handleize }}{%- endif -%}">
+        <a href="{{ item.product.url }}/{{ item.variant.option1 | handleize }}{%- if item.variant.option2 !=false and item.variant.option1 == 'size' and item.variant.option2 != blank -%}/{{ item.variant.option2 | handleize }}{%- endif -%}">
             {%- liquid
                 if cart_page == true
                     assign sizes = '175px'
