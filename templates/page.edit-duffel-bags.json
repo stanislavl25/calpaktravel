@@ -4,6 +4,7 @@
       "type": "page-header",
       "settings": {
         "title": "Get to know the best duffels for travel.",
+        "display": "both",
         "title-size": "medium",
         "text": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
         "button-text": "",
@@ -231,6 +232,39 @@
         "mobile-layout": "one-line"
       }
     },
+    "1067ae02-5339-4744-b157-8254f698dac3": {
+      "type": "product-showcase",
+      "blocks": {
+        "ae3558c5-0abf-4fe2-82fe-f5c8a2bd7b89": {
+          "type": "image",
+          "settings": {
+          }
+        },
+        "b394e341-bc6d-49a8-9b04-e63ab5852abe": {
+          "type": "product",
+          "settings": {
+            "product": "luka-large-duffel"
+          }
+        },
+        "1aa09430-6423-4007-ad71-50ce6febb20a": {
+          "type": "text",
+          "settings": {
+            "title": "Luka Large Duffel",
+            "description": "<p>The bigger sister to our Luka Duffel—this large version was designed as a lightweight solution for those who like to carry-on just a little bit extra (we're looking at you, overpackers). Created for extended weekends away, you can fit all you need into this gleefully spacious holdall that features 9 pockets and an interior shoe compartment. Plus, it fits perfectly in all overhead bins. More space, no stress.<\/p><p><\/p><p><strong>Features<\/strong><\/p><p><\/p><p>Exterior Pockets:4<br\/>Interior Pockets: 5<br\/>Fits On A Plane: Overhead Bin<br\/>Dimensions: 19\" x 15.5\" x 9.5\"<br\/>Materials: Scratch-resistant polyester<br\/>Extra Perk: Hidden pocket in trolley sleeve<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
+            "button-text": "",
+            "button-link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ae3558c5-0abf-4fe2-82fe-f5c8a2bd7b89",
+        "b394e341-bc6d-49a8-9b04-e63ab5852abe",
+        "1aa09430-6423-4007-ad71-50ce6febb20a"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
       "disabled": true,
@@ -272,6 +306,7 @@
     "0457f328-6f97-47de-a08c-d178e917c6af",
     "f3583065-c645-42a0-ad74-db136b6f5cc1",
     "ae3bfcca-500e-418f-aa5f-400d291c7a15",
+    "1067ae02-5339-4744-b157-8254f698dac3",
     "6d36577b-6bf7-41d0-9fd0-c2663c060865"
   ]
 }
