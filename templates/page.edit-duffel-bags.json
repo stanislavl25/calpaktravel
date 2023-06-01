@@ -4,6 +4,7 @@
       "type": "page-header",
       "settings": {
         "title": "Get to know the best duffels for travel.",
+        "display": "both",
         "title-size": "medium",
         "text": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
         "button-text": "",
@@ -61,21 +62,43 @@
         "mobile-layout": "one-line"
       }
     },
+    "1067ae02-5339-4744-b157-8254f698dac3": {
+      "type": "product-showcase",
+      "blocks": {
+        "ae3558c5-0abf-4fe2-82fe-f5c8a2bd7b89": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LUKA-LARGE-DUFFEL-BLACK-LIFESTYLE1_493d1262-571d-444e-8bec-a5e671cb7d79.jpg"
+          }
+        },
+        "b394e341-bc6d-49a8-9b04-e63ab5852abe": {
+          "type": "product",
+          "settings": {
+            "product": "luka-large-duffel"
+          }
+        },
+        "1aa09430-6423-4007-ad71-50ce6febb20a": {
+          "type": "text",
+          "settings": {
+            "title": "Luka Large Duffel",
+            "description": "<p>The bigger sister to our Luka Duffel—this large version was designed as a lightweight solution for those who like to carry-on just a little bit extra (we're looking at you, overpackers). Created for extended weekends away, you can fit all you need into this gleefully spacious holdall that features 9 pockets and an interior shoe compartment. Plus, it fits perfectly in all overhead bins. More space, no stress.<\/p><p><\/p><p><strong>Features<\/strong><\/p><p><\/p><p>Exterior Pockets:4<br\/>Interior Pockets: 5<br\/>Fits On A Plane: Overhead Bin<br\/>Dimensions: 19\" x 15.5\" x 9.5\"<br\/>Materials: Scratch-resistant polyester<br\/>Extra Perk: Hidden pocket in trolley sleeve<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/luka-large-duffel"
+          }
+        }
+      },
+      "block_order": [
+        "ae3558c5-0abf-4fe2-82fe-f5c8a2bd7b89",
+        "b394e341-bc6d-49a8-9b04-e63ab5852abe",
+        "1aa09430-6423-4007-ad71-50ce6febb20a"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
     "8231e1a7-3793-4b6a-b32c-072bf39321bc": {
       "type": "product-showcase",
       "blocks": {
-        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_175.png"
-          }
-        },
-        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
-          "type": "product",
-          "settings": {
-            "product": "terra-26l-backpack-duffel"
-          }
-        },
         "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
           "type": "text",
           "settings": {
@@ -84,12 +107,24 @@
             "button-text": "Shop Now",
             "button-link": "shopify:\/\/products\/terra-26l-backpack-duffel"
           }
+        },
+        "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
+          "type": "product",
+          "settings": {
+            "product": "terra-26l-backpack-duffel"
+          }
+        },
+        "999f1999-abe3-4175-b42f-0de5ff5d695e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_175.png"
+          }
         }
       },
       "block_order": [
-        "999f1999-abe3-4175-b42f-0de5ff5d695e",
+        "0e83dcef-762d-48a3-8506-b41184fbd8d6",
         "fee484ee-f5df-4901-9f01-e3d59e60b79f",
-        "0e83dcef-762d-48a3-8506-b41184fbd8d6"
+        "999f1999-abe3-4175-b42f-0de5ff5d695e"
       ],
       "settings": {
         "mobile-layout": "one-line"
@@ -98,13 +133,10 @@
     "0f4a73df-c3c1-42f2-856e-92b8221b7065": {
       "type": "product-showcase",
       "blocks": {
-        "ef8c0b8b-95a2-4a2f-9c93-c123ce147ef2": {
-          "type": "text",
+        "85b2c6fa-7320-4f81-8efc-8ef8a47cf959": {
+          "type": "image",
           "settings": {
-            "title": "Compakt Duffel Bag",
-            "description": "<p>Meet the ultra-lightweight, nylon duffel bag that’s foldable and perfect for quick trips out of town or to the gym. This packable duffel bag is large enough to fit all the souvenirs from your travels, and flexible enough to break down and store away discreetly inside its own zippered pouch. Made from durable ripstop nylon, and featuring its own luggage sleeve—this is the perfect over-the-shoulder travel duffel bag to go away with. <\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 4<br\/>Interior Pockets: 0<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 12\" x 8\"<br\/>Materials: Water-resistant durable ripstop nylon<br\/>Extra Perk: Folds into a zippered pocket for compact storage<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
-            "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/compakt-duffel-bag"
+            "image": "shopify:\/\/shop_images\/image_165-1.png"
           }
         },
         "0a8943de-6418-49c8-b19d-b5455d663d83": {
@@ -113,17 +145,20 @@
             "product": "compakt-duffel-bag"
           }
         },
-        "85b2c6fa-7320-4f81-8efc-8ef8a47cf959": {
-          "type": "image",
+        "ef8c0b8b-95a2-4a2f-9c93-c123ce147ef2": {
+          "type": "text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_165-1.png"
+            "title": "Compakt Duffel Bag",
+            "description": "<p>Meet the ultra-lightweight, nylon duffel bag that’s foldable and perfect for quick trips out of town or to the gym. This packable duffel bag is large enough to fit all the souvenirs from your travels, and flexible enough to break down and store away discreetly inside its own zippered pouch. Made from durable ripstop nylon, and featuring its own luggage sleeve—this is the perfect over-the-shoulder travel duffel bag to go away with. <\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 4<br\/>Interior Pockets: 0<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 12\" x 8\"<br\/>Materials: Water-resistant durable ripstop nylon<br\/>Extra Perk: Folds into a zippered pocket for compact storage<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/compakt-duffel-bag"
           }
         }
       },
       "block_order": [
-        "ef8c0b8b-95a2-4a2f-9c93-c123ce147ef2",
+        "85b2c6fa-7320-4f81-8efc-8ef8a47cf959",
         "0a8943de-6418-49c8-b19d-b5455d663d83",
-        "85b2c6fa-7320-4f81-8efc-8ef8a47cf959"
+        "ef8c0b8b-95a2-4a2f-9c93-c123ce147ef2"
       ],
       "settings": {
         "mobile-layout": "one-line"
@@ -132,18 +167,6 @@
     "0457f328-6f97-47de-a08c-d178e917c6af": {
       "type": "product-showcase",
       "blocks": {
-        "9198450a-5d39-4180-860a-ed583abc20a3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_177.png"
-          }
-        },
-        "611b8d2c-a735-4f72-a218-bbf258971931": {
-          "type": "product",
-          "settings": {
-            "product": "stevyn-duffel"
-          }
-        },
         "a8faa15f-c0ac-4b96-84ea-39f131d7ad93": {
           "type": "text",
           "settings": {
@@ -152,12 +175,24 @@
             "button-text": "Shop Now",
             "button-link": "shopify:\/\/products\/stevyn-duffel"
           }
+        },
+        "611b8d2c-a735-4f72-a218-bbf258971931": {
+          "type": "product",
+          "settings": {
+            "product": "stevyn-duffel"
+          }
+        },
+        "9198450a-5d39-4180-860a-ed583abc20a3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_177.png"
+          }
         }
       },
       "block_order": [
-        "9198450a-5d39-4180-860a-ed583abc20a3",
+        "a8faa15f-c0ac-4b96-84ea-39f131d7ad93",
         "611b8d2c-a735-4f72-a218-bbf258971931",
-        "a8faa15f-c0ac-4b96-84ea-39f131d7ad93"
+        "9198450a-5d39-4180-860a-ed583abc20a3"
       ],
       "settings": {
         "mobile-layout": "one-line"
@@ -166,13 +201,10 @@
     "f3583065-c645-42a0-ad74-db136b6f5cc1": {
       "type": "product-showcase",
       "blocks": {
-        "52752383-f19d-4e38-949c-ad7cf3c8d887": {
-          "type": "text",
+        "881dd422-0b05-47bb-99ff-092d234c024b": {
+          "type": "image",
           "settings": {
-            "title": "Hue Laptop Duffel",
-            "description": "<p>Made from this buttery-soft vegan leather, our Hue <strong>minimalist duffel bag <\/strong>is the perfect bag for those who take a ‘less is more’ approach to travel. With a 15\" padded laptop sleeve, a removable accessory pocket, and a secret smartphone pouch, plus plenty of pockets to keep you organized—this duffel wins our vote for best <strong>business travel duffel bag, <\/strong>perfect for days in the office (with a trip to the gym before) or work trips.<\/p><p><\/p><p>Features<\/p><p>Exterior Pockets: 2<br\/>Interior Pockets: 4<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 10\" x 9.5\"<br\/>Materials: Buttery-soft vegan leather<br\/>Extra Perk: Removable accessory pocket<br\/>Padded Laptop Sleeve: Yes<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
-            "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/hue-duffel"
+            "image": "shopify:\/\/shop_images\/image_160.png"
           }
         },
         "7a2c1cce-c531-413d-bf7b-65a8d18d3edc": {
@@ -181,17 +213,20 @@
             "product": "hue-duffel"
           }
         },
-        "881dd422-0b05-47bb-99ff-092d234c024b": {
-          "type": "image",
+        "52752383-f19d-4e38-949c-ad7cf3c8d887": {
+          "type": "text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_160.png"
+            "title": "Hue Laptop Duffel",
+            "description": "<p>Made from this buttery-soft vegan leather, our Hue <strong>minimalist duffel bag <\/strong>is the perfect bag for those who take a ‘less is more’ approach to travel. With a 15\" padded laptop sleeve, a removable accessory pocket, and a secret smartphone pouch, plus plenty of pockets to keep you organized—this duffel wins our vote for best <strong>business travel duffel bag, <\/strong>perfect for days in the office (with a trip to the gym before) or work trips.<\/p><p><\/p><p>Features<\/p><p>Exterior Pockets: 2<br\/>Interior Pockets: 4<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 10\" x 9.5\"<br\/>Materials: Buttery-soft vegan leather<br\/>Extra Perk: Removable accessory pocket<br\/>Padded Laptop Sleeve: Yes<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/hue-duffel"
           }
         }
       },
       "block_order": [
-        "52752383-f19d-4e38-949c-ad7cf3c8d887",
+        "881dd422-0b05-47bb-99ff-092d234c024b",
         "7a2c1cce-c531-413d-bf7b-65a8d18d3edc",
-        "881dd422-0b05-47bb-99ff-092d234c024b"
+        "52752383-f19d-4e38-949c-ad7cf3c8d887"
       ],
       "settings": {
         "mobile-layout": "one-line"
@@ -200,18 +235,6 @@
     "ae3bfcca-500e-418f-aa5f-400d291c7a15": {
       "type": "product-showcase",
       "blocks": {
-        "5f97a1d4-5349-47ac-8075-2294761bbbbe": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_173.png"
-          }
-        },
-        "8deb4852-d011-49d6-bd4f-83740d382b41": {
-          "type": "product",
-          "settings": {
-            "product": "stevyn-rolling-duffel"
-          }
-        },
         "8cb1488b-91b5-4c0a-875d-5370b0dcf8c1": {
           "type": "text",
           "settings": {
@@ -220,12 +243,24 @@
             "button-text": "Shop Now",
             "button-link": "shopify:\/\/products\/stevyn-rolling-duffel"
           }
+        },
+        "8deb4852-d011-49d6-bd4f-83740d382b41": {
+          "type": "product",
+          "settings": {
+            "product": "stevyn-rolling-duffel"
+          }
+        },
+        "5f97a1d4-5349-47ac-8075-2294761bbbbe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_173.png"
+          }
         }
       },
       "block_order": [
-        "5f97a1d4-5349-47ac-8075-2294761bbbbe",
+        "8cb1488b-91b5-4c0a-875d-5370b0dcf8c1",
         "8deb4852-d011-49d6-bd4f-83740d382b41",
-        "8cb1488b-91b5-4c0a-875d-5370b0dcf8c1"
+        "5f97a1d4-5349-47ac-8075-2294761bbbbe"
       ],
       "settings": {
         "mobile-layout": "one-line"
@@ -267,6 +302,7 @@
     "page-header",
     "6a74f1ef-126b-4aad-85ce-71cc958593d7",
     "1f99bbab-9088-4b64-97fc-691a6215dd7d",
+    "1067ae02-5339-4744-b157-8254f698dac3",
     "8231e1a7-3793-4b6a-b32c-072bf39321bc",
     "0f4a73df-c3c1-42f2-856e-92b8221b7065",
     "0457f328-6f97-47de-a08c-d178e917c6af",
