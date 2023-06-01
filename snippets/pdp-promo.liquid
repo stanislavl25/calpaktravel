@@ -256,14 +256,18 @@
     {%- endcase -%}
     </div>
 </section>
-{% if block.settings.upsell-background !=blank %} 
     <style>
         #block-{{ block.id }}.upsell-background {
             background-color: {{ block.settings.upsell-background }};
+            
+        }
+        #block-{{ block.id }}.upsell-background .pdp-promo__price span:first-child {
             color: {{ block.settings.upsell-text }};
         }
+        #block-{{ block.id }}.upsell-background .pdp-promo__price span {
+            color: {{ block.settings.upsell-accent  }};
+        }
     </style>
-{% endif %}
 {% if block.settings.border-dash !=false %}
     <style>
         .custom-dash {
