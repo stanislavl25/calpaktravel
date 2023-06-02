@@ -91,9 +91,9 @@
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "LIMITED TIME: Pick your FREE gift when you shop the 3-Piece Luggage Set",
-              "description": "<p>Get Up to 45% OFF Luggage & FREE 2-day express shipping with orders $300+!<\/p>",
+              "button-url": "shopify:\/\/collections\/3-piece-luggage-sets",
+              "block-title": "LIMITED TIME:",
+              "description": "<p>Pick your FREE gift when you shop the 3-Piece Luggage Set<\/p>",
               "button-text": "Get Your Gift",
               "link-for-button": false,
               "text-color-scheme": "white",
