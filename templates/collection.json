@@ -2,6 +2,7 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -517,6 +518,7 @@
       "blocks": {
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
             "video": "",
