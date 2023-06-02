@@ -831,10 +831,25 @@
               "background": "#f7f177",
               "text-color": "#000000"
             }
+          },
+          "e500ee88-d2ba-4241-b780-073a5e257f6b": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>FREE gift with 3-Piece Luggage Set<\/p>",
+              "url": "shopify:\/\/collections\/3-piece-luggage-sets",
+              "background": "#F7F177",
+              "text-color": ""
+            }
           }
         },
         "block_order": [
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c",
+          "e500ee88-d2ba-4241-b780-073a5e257f6b"
         ],
         "settings": {
           "show": "everywhere",
