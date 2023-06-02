@@ -611,6 +611,21 @@
       "mobile-menu": {
         "type": "mobile-menu",
         "blocks": {
+          "97742501-521b-4ea2-a166-533c5387df96": {
+            "type": "media-block",
+            "settings": {
+              "title": "Shop: All",
+              "menu": "shop",
+              "submenu-number": 0,
+              "image": "shopify:\/\/shop_images\/WEB_SEARCH-COLLECTIONS_In-Stock-And-Ready-To-Ship.png",
+              "link": "shopify:\/\/collections\/all",
+              "media-title": "",
+              "description": "",
+              "button-text": "Shop All",
+              "link-for-button": false,
+              "text-color-scheme": "white"
+            }
+          },
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
             "settings": {
@@ -623,22 +638,6 @@
               "description": "",
               "button-text": "Up to 45% OFF Luggage",
               "link-for-button": true,
-              "text-color-scheme": "white"
-            }
-          },
-          "97742501-521b-4ea2-a166-533c5387df96": {
-            "type": "media-block",
-            "disabled": true,
-            "settings": {
-              "title": "Shop: All",
-              "menu": "shop",
-              "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/WEB_SEARCH-COLLECTIONS_In-Stock-And-Ready-To-Ship.png",
-              "link": "shopify:\/\/collections\/all",
-              "media-title": "",
-              "description": "",
-              "button-text": "Buy 2+ items, get 15% off",
-              "link-for-button": false,
               "text-color-scheme": "white"
             }
           },
@@ -729,8 +728,8 @@
           }
         },
         "block_order": [
-          "adc05d65-da10-4314-9243-585b3e5e1c66",
           "97742501-521b-4ea2-a166-533c5387df96",
+          "adc05d65-da10-4314-9243-585b3e5e1c66",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
           "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
