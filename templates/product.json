@@ -323,31 +323,6 @@
             "upsell-accent": "#000"
           }
         },
-        "0261c742-46ed-46e0-9426-08c82416e93e": {
-          "type": "upsell-banner",
-          "settings": {
-            "product-list": [
-              "ambeur-carry-on-luggage",
-              "ambeur-large-luggage",
-              "ambeur-medium-luggage"
-            ],
-            "collection-list": [
-
-            ],
-            "show-for-all": false,
-            "heading": "Save up to $$ with a 3-piece set",
-            "product": "ambeur-3-piece-luggage-set",
-            "title-override": "",
-            "button-text": "Add Set to Bag",
-            "include-price": false,
-            "button-behaviour": "add-to-cart",
-            "button-url": "",
-            "border-dash": true,
-            "upsell-background": "#f7f177",
-            "upsell-text": "#000",
-            "upsell-accent": "#000"
-          }
-        },
         "a59119dd-3de7-40ba-8531-92996e1e14b0": {
           "type": "upsell-banner",
           "settings": {
@@ -362,6 +337,31 @@
             "show-for-all": false,
             "heading": "Save up to $$ with a 2-piece set",
             "product": "ambeur-2-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set to Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": "",
+            "border-dash": false,
+            "upsell-background": "#e4dfd5",
+            "upsell-text": "#000",
+            "upsell-accent": "#000"
+          }
+        },
+        "0261c742-46ed-46e0-9426-08c82416e93e": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "ambeur-carry-on-luggage",
+              "ambeur-large-luggage",
+              "ambeur-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 3-piece set",
+            "product": "ambeur-3-piece-luggage-set",
             "title-override": "",
             "button-text": "Add Set to Bag",
             "include-price": false,
@@ -552,8 +552,8 @@
         "355dabeb-9c30-46f5-9912-52a97ee1196e",
         "48138d37-8473-4c57-adc6-882525675315",
         "97b58e16-1c05-46d6-a2e9-b83db6d82916",
-        "0261c742-46ed-46e0-9426-08c82416e93e",
         "a59119dd-3de7-40ba-8531-92996e1e14b0",
+        "0261c742-46ed-46e0-9426-08c82416e93e",
         "fd410b66-3632-41fb-9a75-d309019c7a59",
         "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f",
         "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
