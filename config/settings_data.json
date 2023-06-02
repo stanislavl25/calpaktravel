@@ -36,8 +36,8 @@
     "sale-badge-text-starter": "Special Promo",
     "starter__customizer-badge": "#f7f177",
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": true,
-    "sale-msg-pdp-only": true,
+    "sale-msg-enabled": false,
+    "sale-msg-pdp-only": false,
     "sale-msg-tag": "allproducts",
     "sale-msg-highlighted": "Get Free 2-Day Shipping",
     "sale-msg-message": "for orders over $300+",
@@ -423,6 +423,7 @@
         "blocks": {
           "4afeadca-d194-49cf-8d3e-a8525e8c1ad3": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p><a href=\"\/collections\/sale\" title=\"Sale\">Memorial Day Sale<\/a>: up to 45% off luggage.<\/p>",
               "only-for-guests": false
@@ -430,6 +431,7 @@
           },
           "66440c26-ad60-4648-a563-4816dc76f530": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Orders $300 and over get free 2-day express shipping.<\/p>",
               "only-for-guests": false
