@@ -13,21 +13,21 @@
     "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
     "sale-text-col-mixed": "Up to %% off",
-    "flash-sale-enabled": true,
-    "flash-sale-tag": "memorialdaysale",
+    "flash-sale-enabled": false,
+    "flash-sale-tag": "",
     "flash-sale-text": "Sale Ends",
     "flash-sale-starts": "May 29 2023, 11:00am",
     "flash-sale-ends": "May 31 2023, 11:00am",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#46da81",
     "flash-sale-text-col": "#000",
-    "sale-badge-enabled": true,
+    "sale-badge-enabled": false,
     "sale-badge-text-tilt": true,
     "countdown-label-collection-enabled": false,
     "desktop-badge-placement": "bottom",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "memorialdaysale",
+    "sale-badge-tag": "",
     "sale-badge-text": "Memorial Day Sale",
     "sale-badge-bg": "#46da81",
     "sale-msg-starter": true,
@@ -339,7 +339,7 @@
           "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
@@ -741,7 +741,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
