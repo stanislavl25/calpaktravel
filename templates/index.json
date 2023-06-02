@@ -2,9 +2,11 @@
   "sections": {
     "9a46d065-1a77-4b95-ba73-e9bf4d14e72a": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "FREE gift with our 3-Piece Luggage Sets",
             "description": "<p>For a limited time, pick any gift you like (up to $98 value) when you buy a 3-Piece Luggage Set.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
@@ -20,6 +22,7 @@
         },
         "a17da66f-28b0-45ff-8e34-f875358fe7d4": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28168_Hi-2.jpg",
             "image-mobile": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-2.jpg",
@@ -36,6 +39,7 @@
         },
         "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-2.jpg",
             "video": "",
@@ -171,7 +175,6 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "Meet the Luka Large Duffel",
             "description": "<p>Plus, more fresh arrivals in thirst-quenching summer colors. <\/p>",
