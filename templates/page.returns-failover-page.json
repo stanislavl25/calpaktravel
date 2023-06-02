@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "live-shopping-header": {
+      "type": "live-shopping-header",
+      "settings": {
+        "title": "Live Shopping",
+        "description": "<p>Tune in live to shop with the guidance of CALPAK experts, learn more about fan favorite pieces, access exclusive discounts, and more. <\/p>",
+        "buttons": false
+      }
+    },
+    "9b8ba5c1-15b9-49cb-a159-bf6cec38b973": {
+      "type": "text-and-media",
+      "disabled": true,
+      "blocks": {
+        "3ff5e9bf-a7c8-4f92-9e21-57b0d90a3b2d": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1329-BANNER2.jpg",
+            "hide-on-mobile": false
+          }
+        },
+        "67782e8e-e1c7-4f7b-a321-22cc9391bd6e": {
+          "type": "text",
+          "settings": {
+            "title": "1-to-1 Live Shopping",
+            "text": "<p>What to expect from our custom-tailored Virtual Stylist appointments:<br\/>• Receive a 30min stress-free shopping experience where our Stylists are able to show you our products, virtually via Zoom. (Don't worry, you do not have to have your camera on.)<\/p><p>• The 30min time slot is really yours to explore our product line and ask any questions you may have in regard to CALPAK products, sizing, or colorways.<\/p><p>• Your stylist will be able to make product suggestions, based on your needs and style.<\/p><p>• After your appointment, your stylist will follow up via email with a customized cart that will include your CALPAK items of interest. Simply checkout via your preferred payment method. <\/p>",
+            "button-text": "Book Now",
+            "button-url": "#",
+            "hide-on-mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "3ff5e9bf-a7c8-4f92-9e21-57b0d90a3b2d",
+        "67782e8e-e1c7-4f7b-a321-22cc9391bd6e"
+      ],
+      "settings": {
+        "mobile-layout": "stack"
+      }
+    },
+    "e11eed80-3fd8-4940-be81-dbfc004a0246": {
+      "type": "banner",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/477053720-about-us_timeline_1997.png",
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5"
+      }
+    },
+    "14a585b0-b699-48a2-b1e5-c73b07bedf29": {
+      "type": "html",
+      "settings": {
+        "html": "<div data-bambuser-liveshopping-widget=\"channel\" data-channel-id=\"FOK9bx6KgOlMoeMu1Vqs\" data-channel-locale=\"\"><\/div>",
+        "add-padding": true
+      }
+    },
+    "0539ec16-950e-4e3e-893d-62d175874228": {
+      "type": "sign-up-form",
+      "blocks": {
+        "c3c6d8b6-cab2-4ea0-be00-ce19def3d7ee": {
+          "type": "form",
+          "settings": {
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/aJ0\/landing-page",
+            "height": "450",
+            "height-mobile": "600"
+          }
+        }
+      },
+      "block_order": [
+        "c3c6d8b6-cab2-4ea0-be00-ce19def3d7ee"
+      ],
+      "settings": {
+        "background": "",
+        "mobile-layout": "stack"
+      }
+    }
+  },
+  "order": [
+    "live-shopping-header",
+    "9b8ba5c1-15b9-49cb-a159-bf6cec38b973",
+    "e11eed80-3fd8-4940-be81-dbfc004a0246",
+    "14a585b0-b699-48a2-b1e5-c73b07bedf29",
+    "0539ec16-950e-4e3e-893d-62d175874228"
+  ]
+}
