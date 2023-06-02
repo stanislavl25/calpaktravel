@@ -88,14 +88,13 @@
           },
           "66117e8e-72a2-4c4a-9251-d53677ed9255": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/3-piece-luggage-sets",
               "block-title": "LIMITED TIME:",
               "description": "<p>Pick your FREE gift when you shop the 3-Piece Luggage Set<\/p>",
-              "button-text": "Get Your Gift",
+              "button-text": "Shop NOw",
               "link-for-button": false,
               "text-color-scheme": "white",
               "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-3.jpg",
@@ -106,6 +105,7 @@
           },
           "d354ff31-c668-4b29-8245-34b614309172": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
