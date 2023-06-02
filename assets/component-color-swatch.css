@@ -499,6 +499,9 @@ a.color-swatch--active::after {
 .color-speckle {
     --background: #EEE6DF;
 }
+.color-white-sands{
+    --background: #EDE7DE;
+}
 
 
 [data-product-handle="kaya-laptop-backpack"] .color-emerald,
