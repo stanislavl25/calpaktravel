@@ -2,9 +2,11 @@
   "sections": {
     "9a46d065-1a77-4b95-ba73-e9bf4d14e72a": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "FINAL HOURS: Get up to 45% off Luggage",
             "description": "<p>You won't see another sale like this until winter. Don't miss out! <\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
@@ -20,6 +22,7 @@
         },
         "a17da66f-28b0-45ff-8e34-f875358fe7d4": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0281A-18_2.jpg",
             "video": "",
@@ -35,6 +38,7 @@
         },
         "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1055_1-3.jpg",
             "video": "",
@@ -167,7 +171,6 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
