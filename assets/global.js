@@ -1131,7 +1131,17 @@ window.addEventListener("load", () => {
         let idString = footerLink.innerHTML.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-$/, '').replace(/^-/, '');
         footerLink.setAttribute('id', 'menu-footer-' + idString);
     });
-    
+    /* hiding filter subcategories when inactive */
+ if(window.location.pathname.includes('collections')) {
+    setTimeout( function() {
+        const subcategoryLinks = document.querySelectorAll('.collection-categories__wrapper');
+        [].map.call(subcategoryLinks, (subcategoryLink) => {
+            if(!subcategoryLink.classList.contains('slider__wrapper--loaded')) {
+                subcategoryLink.style.display = 'none';
+            }
+        });
+    }, 500);
+ }
 });
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {

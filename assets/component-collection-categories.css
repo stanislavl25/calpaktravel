@@ -165,7 +165,9 @@
     right: var(--gap);
     left: auto;
 }
-
+.collection-categories__wrapper.slider__wrapper--loaded{
+    display: block;
+}
 @media (max-width: 900px) {
     .slider.filter__collections {
         padding: 0.8rem;
