@@ -319,8 +319,8 @@
             "button-url": "",
             "border-dash": false,
             "upsell-background": "#e4dfd5",
-            "upsell-text": "#000",
-            "upsell-accent": "#000"
+            "upsell-text": "#000000",
+            "upsell-accent": "#000000"
           }
         },
         "0261c742-46ed-46e0-9426-08c82416e93e": {
@@ -335,7 +335,7 @@
 
             ],
             "show-for-all": false,
-            "heading": "Save up to $$ with a 3-piece set + Get a FREE Gift",
+            "heading": "Get a FREE Gift + Save up to $$ with a 3-piece set",
             "product": "ambeur-3-piece-luggage-set",
             "title-override": "",
             "button-text": "Add Set to Bag",
