@@ -1,11 +1,12 @@
 <script>
     window.addEventListener("load", function() {
-        const changeTheProductImage_{{ block.settings.index }} = () => {
-            const card = document.querySelector('#product-card__{{ block.settings.index }}');
+        const card = document.querySelector('#product-card__{{ block.settings.index }}');
+        if(!card) return;
             const link = card.querySelector('.product-unit__image');
             const imgs = card.querySelectorAll('.product-unit__image img');
             const imgHover = card.querySelectorAll('img.img-hover');
             const sizeSelect = card.querySelector('.product-unit__size-component');
+        const changeTheProductImage_{{ block.settings.index }} = () => {
             let swatches = card.querySelectorAll('.product-unit__swatches-container');
             if (swatches.length < 1) {
                 swatches = card.querySelectorAll('.product-unit__swatches-container');

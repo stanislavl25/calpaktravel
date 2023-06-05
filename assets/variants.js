@@ -13,6 +13,7 @@ function productUnitUpdateHover(option, productImageContainer, sizes) {
                 hoverImg.setAttribute('sizes', sizes);
                 hoverImg.setAttribute('srcset', lazyloadImageSrcset(hover));
                 hoverImg.classList.add('img-hover');
+                hoverImg.setAttribute('loading', 'eager');
                 productImageContainer.appendChild(hoverImg);
             }
         } else if(hoverImg) hoverImg.remove();
@@ -199,7 +200,7 @@ function variantUpdateProcess(target) {
 
         const qty = option.getAttribute('data-qty');
         const stock = pdpInfo.querySelector('.pdp__stock');
-        if(qty) {
+        if(qty > 0 && qty <= 10) {
             stock.querySelector('span').innerHTML = qty;
             stock.classList.add('pdp__stock--active');
         } else stock.classList.remove('pdp__stock--active');

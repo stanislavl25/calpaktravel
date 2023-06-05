@@ -16,6 +16,12 @@
 
 
 <style>
+    /*.product-grid.product-grid--breakdown .product-unit__image > img:last-child{
+        opacity: 0;
+    }
+    .product-grid.product-grid--breakdown .product-unit__image-wrapper:hover .product-unit__image > img:last-child{
+        opacity: 1;
+    }*/
     .modular-block img, .modular-section img {
         border-radius: 9px;
     }
@@ -171,10 +177,18 @@
     endif
 
     assign sizes = '(min-width: 901px) 20vw, (min-width: 651px) 33.33vw, 50vw'
+
+    assign collectionbreakdown = false
+    assign collectionhandle = collection.handle
+
+    for collection in section.settings.breakdown-collection
+        if collection.handle == collectionhandle
+            assign collectionbreakdown = true
+        endif
+    endfor
 -%}
 
-
-<section class="product-grid {{ collection.handle }}">
+<section class="product-grid {{ collection.handle }} {% if collectionbreakdown == true and section.settings.breakdown-collection != blank %}product-grid--breakdown{% endif %}">
 
     {%- liquid 
         assign limitProducts = 200
@@ -197,11 +211,14 @@
                 if product.tags contains "do not display"
                     continue
                 endif
-                
-                if forloop.index <= 5
+
+
+                if collectionbreakdown == true and section.settings.breakdown-collection != blank
+                        render 'product-unit-single' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
+                elsif forloop.index <= 5
                     render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
                 else
-                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
+                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index  
                 endif
             endfor
         endpaginate
@@ -296,6 +313,16 @@
                 "id": "collection_list",
                 "label": "Collections to display on",
                 "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+            },
+            {
+                "type": "header",
+                "content": "Breakdown variant collections"
+            },
+            {
+                "type": "collection_list",
+                "id": "breakdown-collection",
+                "label": "Collections to display the breakdown variant products",
+                "info": "If no collections are selected, the breakdown variant products will be displayed on all collections." 
             },
             {
                 "type": "range",

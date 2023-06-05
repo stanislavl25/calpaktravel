@@ -397,7 +397,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     if(available === false) {
                         setTimeout(
                             () => {
-                                target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
+                                if(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`)) target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`).classList.add('product-option--na');
                                 //console.log(target.querySelector(`.product-unit__colors--quickadd .product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch[data-value="${colorOption}"]`));
                             }, 1000
                         )
@@ -449,6 +449,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             if(maxPrice === false || variantPrice > maxPrice) maxPrice = variantPrice;
             if(minPrice === false || variantPrice < minPrice) minPrice = variantPrice;
         }
+        //console.log(variant);
+        //console.log(product);
 
         let img = false;
         let created = false;
@@ -458,9 +460,20 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
 
         if(isProductUnit && selected && img){
+
+                //onsole.log(target);
+
             let imgTag = target.querySelector('.product-unit__image img');
             if(!imgTag) target.querySelector('.product-unit__image').innerHTML = '<img style="opacity:1" src="">';
-            target.querySelector('.product-unit__image img').setAttribute('srcset', lazyloadImageSrcset(img));
+            const lazySrcset = target.querySelector('.product-unit__image img');
+            
+            const gridBreakdown = document.querySelector('.product-grid--breakdown');
+            if(gridBreakdown) {
+                const imgBreak = target.querySelector('.product-unit__image img').getAttribute('src');
+                lazySrcset.setAttribute('srcset', lazyloadImageSrcset(imgBreak));
+            } else {
+                lazySrcset.setAttribute('srcset', lazyloadImageSrcset(img));
+            }
 
             if(hover) {
                 let hoverImg = document.createElement('img');
@@ -468,6 +481,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 hoverImg.setAttribute('srcset', lazyloadImageSrcset(hover));
                 hoverImg.setAttribute('sizes', target.querySelector('.product-unit__image img').getAttribute('sizes'));
                 hoverImg.classList.add('img-hover');
+                hoverImg.setAttribute('loading', 'eager');
                 target.querySelector('.product-unit__image').appendChild(hoverImg);
             }
         }
@@ -585,13 +599,15 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         return;
     }
 
-
-    target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
-    target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
+    if(target.querySelector('.product-unit__colors-text i')) target.querySelector('.product-unit__colors-text i').innerHTML = colors._count;
+    if(target.querySelector('.product-unit__colors')) target.querySelector('.product-unit__colors').setAttribute('data-count', colors._count);
 
     const swatches = target.querySelector('.product-unit__swatches');
-    const colorsContainer = swatches.closest('.product-unit__colors');
-    const allColors = colorsContainer.classList.contains('product-unit__colors--all');
+    if(swatches){
+        var colorsContainer = swatches.closest('.product-unit__colors');
+        var allColors = colorsContainer.classList.contains('product-unit__colors--all');
+    }
+    
 
     let currentColor = false;
     for (const color in colors) {
@@ -774,7 +790,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 }
 
 function activateProductUnit(target) {
-    if(target.classList.contains('product-unit--loaded')) return;
+    if(target.classList.contains('product-unit--loaded')){
+        return;
+    }
     const handle = target.getAttribute('data-handle');
 
     if(window.debug) console.log('Init product', handle);
@@ -1243,7 +1261,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         const keepTryingUpdateProcessTheProductUnits = () => {
             let intervalId = setInterval(() => {
-                console.log(intervalId)
+                //console.log(intervalId)
                 tryUpdateProcessTheProductUnits(intervalId);
             }, 1000);
         }

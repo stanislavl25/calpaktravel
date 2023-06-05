@@ -340,9 +340,9 @@
     display: block;
 }
 
-.product-unit:not(.product-unit--loaded) .button--add-to-cart {
+/* .product-unit:not(.product-unit--loaded) .button--add-to-cart {
     opacity: 0;
-}
+} */
 
 .button-msg-adding,
 .button-msg-added,

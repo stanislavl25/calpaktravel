@@ -1,5 +1,6 @@
 config.yml
 config/settings_data.json
+templates/product.json
 .sass-cache/*
 .vscode/settings.json
 .vscode/notes.txt

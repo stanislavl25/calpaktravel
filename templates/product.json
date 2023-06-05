@@ -316,11 +316,28 @@
             "button-text": "Add Set To Bag",
             "include-price": false,
             "button-behaviour": "add-to-cart",
-            "button-url": "",
-            "border-dash": false,
-            "upsell-background": "#e4dfd5",
-            "upsell-text": "#000",
-            "upsell-accent": "#000"
+            "button-url": ""
+          }
+        },
+        "a59119dd-3de7-40ba-8531-92996e1e14b0": {
+          "type": "upsell-banner",
+          "settings": {
+            "product-list": [
+              "ambeur-carry-on-luggage",
+              "ambeur-large-luggage",
+              "ambeur-medium-luggage"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "heading": "Save up to $$ with a 2-piece set",
+            "product": "ambeur-2-piece-luggage-set",
+            "title-override": "",
+            "button-text": "Add Set to Bag",
+            "include-price": false,
+            "button-behaviour": "add-to-cart",
+            "button-url": ""
           }
         },
         "a59119dd-3de7-40ba-8531-92996e1e14b0": {
