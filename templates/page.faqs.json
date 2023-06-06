@@ -353,7 +353,7 @@
           "type": "faq",
           "settings": {
             "title": "Can I return something that is marked as final sale?",
-            "answer": "<p>Items that are marked as final sale are not eligible for returns or exchanges.<\/p>",
+            "answer": "<p>Items that are marked as final sale are eligible for a one-time courtesy exchange but are not eligible for returns.<\/p>",
             "hide": false
           }
         },
