@@ -943,7 +943,9 @@ body.swym-modal-active:not(.modal-open) {
   border-radius: 9px;
   overflow: hidden;
 }
-
+.free-gift__selector .product-unit__image > img:last-child{
+  animation: none!important;
+}
 .free-gift__selector .product-unit__colors--quickadd {
   position: absolute;
   left: 70px;
