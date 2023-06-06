@@ -88,7 +88,6 @@
           },
           "66117e8e-72a2-4c4a-9251-d53677ed9255": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -106,6 +105,7 @@
           },
           "d354ff31-c668-4b29-8245-34b614309172": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -822,6 +822,7 @@
         "blocks": {
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -836,7 +837,6 @@
           },
           "e500ee88-d2ba-4241-b780-073a5e257f6b": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
