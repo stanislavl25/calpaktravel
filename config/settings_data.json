@@ -98,7 +98,7 @@
               "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1108-4.jpg",
+              "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-4.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -340,7 +340,7 @@
           "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
@@ -851,21 +851,6 @@
         "blocks": {
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
-            "disabled": true,
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Up to 45% OFF Luggage ends soon!((countdown))<\/p>",
-              "url": "shopify:\/\/collections\/sale",
-              "background": "#f7f177",
-              "text-color": "#000000"
-            }
-          },
-          "e500ee88-d2ba-4241-b780-073a5e257f6b": {
-            "type": "promo-bar-line",
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -875,7 +860,7 @@
               "content": "<p>FREE gift with 3-Piece Luggage Set<\/p>",
               "url": "shopify:\/\/collections\/3-piece-luggage-sets",
               "background": "#f7f177",
-              "text-color": ""
+              "text-color": "#000000"
             }
           }
         },
