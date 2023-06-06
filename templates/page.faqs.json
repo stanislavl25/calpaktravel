@@ -369,7 +369,7 @@
           "type": "faq",
           "settings": {
             "title": "How do I process an exchange?",
-            "answer": "<p>We're happy to help! Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">here<\/a> to start your exchange.<\/p>",
+            "answer": "<p>We're happy to help! Click <a href=\"https:\/\/www.calpaktravel.com\/apps\/returns\" target=\"_blank\" title=\"CALPAK Returns Page\">here<\/a> to start your exchange.<\/p>",
             "hide": false
           }
         },
