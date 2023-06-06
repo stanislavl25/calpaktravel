@@ -1,5 +1,6 @@
 <script>
     window.addEventListener("load", function() {
+        if(window.location.pathname.includes('3-piece-luggage-sets')) return;
         const card = document.querySelector('#product-card__{{ block.settings.index }}');
         if(!card) return;
             const link = card.querySelector('.product-unit__image');

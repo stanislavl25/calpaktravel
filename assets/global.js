@@ -466,9 +466,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             let imgTag = target.querySelector('.product-unit__image img');
             if(!imgTag) target.querySelector('.product-unit__image').innerHTML = '<img style="opacity:1" src="">';
             const lazySrcset = target.querySelector('.product-unit__image img');
-            
-            const gridBreakdown = document.querySelector('.product-grid--breakdown');
-            if(gridBreakdown) {
+            if(target.parentNode.classList.contains('product-grid--breakdown')) {
                 const imgBreak = target.querySelector('.product-unit__image img').getAttribute('src');
                 lazySrcset.setAttribute('srcset', lazyloadImageSrcset(imgBreak));
             } else {
