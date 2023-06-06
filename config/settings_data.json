@@ -374,7 +374,7 @@
             "type": "link_list",
             "settings": {
               "heading": "Customer Care",
-              "menu": "customer-care-new"
+              "menu": "footer-customer-care-narvar"
             }
           }
         },
