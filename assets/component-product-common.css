@@ -141,6 +141,9 @@
     animation-fill-mode: backwards;
     /*opacity: 1;*/
 }
+.free-gift__selector .product-unit__image > img:last-child{
+    animation: none;
+}
 .product-unit__image .img-hover {
     opacity: 0;
     transition: opacity 0.3s ease;
