@@ -329,7 +329,7 @@
           "type": "faq",
           "settings": {
             "title": "I received this as a gift, can I return it?",
-            "answer": "<p>Absolutely! We accept returns of unused items within 30 days of purchase. You will just need the original order number for reference. Click <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\" target=\"_blank\"><span style=\"text-decoration:underline\">here<\/span><\/a> to start your return.<\/p>",
+            "answer": "<p>Absolutely! We accept returns of unused items within 30 days of purchase. You will just need the original order number for reference. Click <a href=\"https:\/\/www.calpaktravel.com\/apps\/returns\" target=\"_blank\" title=\"CALPAK Returns Page\"><span style=\"text-decoration:underline\">here<\/span><\/a> to start your return.<\/p>",
             "hide": false
           }
         },
@@ -345,7 +345,7 @@
           "type": "faq",
           "settings": {
             "title": "My item arrived damaged. What should I do?",
-            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for advice, or you can start a return through our <a href=\"https:\/\/www.calpaktravel.com\/pages\/returns-and-exchanges\">returns portal<\/a>.<\/p><p><strong>Please note, all order issues must be reported to CALPAK within 30 days of delivery.<\/strong><\/p>",
+            "answer": "<p>We're so sorry to hear that! You can either reach out to <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for advice, or you can start a return through our <a href=\"https:\/\/www.calpaktravel.com\/apps\/returns\" target=\"_blank\" title=\"CALPAK Returns Page\">returns portal<\/a>.<\/p><p><strong>Please note, all order issues must be reported to CALPAK within 30 days of delivery.<\/strong><\/p>",
             "hide": false
           }
         },
