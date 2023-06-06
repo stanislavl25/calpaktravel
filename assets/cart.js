@@ -684,6 +684,8 @@ function updateCart(data, jsonIncluded = false) {
 cartItems.filter(function(item){
     if(item.handle.includes('3-piece-luggage-set')){
         document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--half');
+    } else {
+        document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--half');
     }
 });	
 
