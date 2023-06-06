@@ -93,8 +93,8 @@
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/3-piece-luggage-sets",
-              "block-title": "LIMITED TIME:",
-              "description": "<p>Pick your FREE gift when you shop the 3-Piece Luggage Set<\/p>",
+              "block-title": "LIMITED TIME: Pick your FREE gift when you shop the 3-Piece Luggage Set",
+              "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
@@ -772,7 +772,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
