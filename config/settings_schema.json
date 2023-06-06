@@ -634,6 +634,12 @@
     "settings": [
       {
         "type": "font_picker",
+        "id": "type_light_font",
+        "default": "assistant_n4",
+        "label": "Light font"
+      },
+      {
+        "type": "font_picker",
         "id": "type_body_font",
         "default": "assistant_n4",
         "label": "Main font"

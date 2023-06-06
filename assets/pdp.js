@@ -147,7 +147,7 @@ async function pdpFormSubmit(productForm, showCart = true) {
 
     addToCart(variant_id, 1, (data) => {
             updateCart(data);
-            console.log("SE AGREGA");
+            console.log("Added to cart");
             if(showCart) {
                 openCart();
             } else {

@@ -1,0 +1,33 @@
+{%- liquid
+	assign gift_enable = false
+	for item in cart.items
+		if item.product_id == product_key.id
+			assign gift_enable = true
+		endif
+	endfor 
+-%}
+{% if gift_enable == true %}{% endif %}
+
+<div data-key="{{ product_key.id }}" data-keys="{% for gift_product in product_keys %}{{ gift_product.id }}{%- unless forloop.last == true -%},{%- endunless -%}{% endfor %}" class="free-gift__selector">
+	<div class="free-gift__selector-label">Select Your Free Gift</div>
+	{% for product_gift in products %}
+		<div class="free-gift__selector-product">
+			{%- comment -%}
+			{%- render 'product-unit' 
+				with product_gift, 
+				class: "slide", 
+				sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', 
+				location: 'cart', 
+				wishlsit: section.settings.wishlsit, 
+				all_colors_quickadd: true, all_sizes: true,
+				add_to_cart: true, 
+				quick_view: section.settings.quick-view 
+			-%}
+			{%- endcomment -%}
+
+			{%- render 'product-unit' with product_gift, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: false, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw' -%}
+		</div>
+	{% endfor %}
+</div>
+
+

@@ -905,7 +905,6 @@ window.addEventListener("click", async (e) => {
 
         addToCart(variant_id, 1, (data) => {
             updateCart(data);
-            console.log("SE ABRE");
             openCart();
 
             if(prnt && prnt.classList.contains('adding-to-cart')) {
@@ -1031,7 +1030,6 @@ const bagLink = document.querySelector('.open-cart-link');
 if(bagLink) bagLink.addEventListener('click', async function(e){
     e.preventDefault();
     if(typeof openCart == 'undefined') await activateCart();
-    console.log("SE ABRE 2");
     openCart();
 });
 
