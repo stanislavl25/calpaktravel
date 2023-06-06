@@ -142,7 +142,7 @@
     /*opacity: 1;*/
 }
 .free-gift__selector .product-unit__image > img:last-child{
-    animation: none;
+    animation: none!important;
 }
 .product-unit__image .img-hover {
     opacity: 0;

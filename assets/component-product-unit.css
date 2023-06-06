@@ -333,7 +333,7 @@
     display: none;
 }
 .cart__upsell-items .product-unit__button {
-    display: none;
+    display: block;
 }
 
 .product-unit__button--active {
