@@ -2,7 +2,6 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
