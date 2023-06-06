@@ -119,6 +119,7 @@
         endif
 -%}
 
+{%- unless cancelDisplay -%}
 <div
     id="product-card__{{index}}"
     data-suffix="{{ product.template_suffix }}"
@@ -266,3 +267,4 @@
     </div>
     {%- endif -%}
 </div>
+{% endunless %}
