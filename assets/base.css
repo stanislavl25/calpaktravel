@@ -908,6 +908,7 @@ body.swym-modal-active:not(.modal-open) {
 .free-gift__selector .free-gift__selector-product .product-unit__row {
   line-height: 0;
   justify-content: center;
+  margin-top: auto;
 }
 
 .free-gift__selector .free-gift__selector-product .product-unit__row:after {
@@ -937,6 +938,7 @@ body.swym-modal-active:not(.modal-open) {
 
 .free-gift__selector .free-gift__selector-product .product-unit {
   position: inherit;
+  height: 100%;
 }
 
 .free-gift__selector .free-gift__selector-product .product-unit img {

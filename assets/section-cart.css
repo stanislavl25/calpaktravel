@@ -117,7 +117,7 @@
 
 .close-button--cart {
   position: absolute;
-  top: 0;
+  top: 6px;
   right: 0;
   z-index: 3;
   height: 42px;
@@ -541,6 +541,7 @@
   animation-name: halfway;
   animation-duration: 0.8s;
   animation-timing-function: ease;
+border-radius: 8px;
 }
 .cart__gamification-gifts--reached::before {
   background: #f7f177;
