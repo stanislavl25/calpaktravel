@@ -554,12 +554,21 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 if(hide.indexOf(varHandle) === -1) {
                     let pushGroupIndex = 0;
                     if(
-                        groups.length > 0 && groups[0].length > 1 && 
-                        (groups[0][1].length === 0 || groups[0][1].indexOf(varHandle) === -1) && 
-                        (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1)
+                        groups.length > 1
+                        &&
+                        (
+                            (groups[0].length > 1 && groups[0][1].indexOf(varHandle) === -1)
+                            ||
+                            (groups[0].length === 1 && groups[1].length > 1 && groups[1][1].indexOf(varHandle) > -1)
+                        )
+                        // groups.length > 0 // If there are groups defined
+                        // && groups[0].length > 1 // If there are colors defined in the first group
+                        // && (groups[0][1].length === 0 || groups[0][1].indexOf(varHandle) === -1) // If there are 0 colors defined or the color is listed
+                        // && (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1) // If there are colors in the 1st group or 2nd group is false or 
                     ) {
-                        if(groups.length > 1) pushGroupIndex = 1;
-                        else return;
+                        // if(groups.length > 1) 
+                        pushGroupIndex = 1;
+                        // else return;
                     }
 
                     if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = '';
