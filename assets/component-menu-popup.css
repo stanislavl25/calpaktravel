@@ -212,6 +212,8 @@
     color: #000;
     padding: 8px var(--gap);
     border-radius: 6px;
+    margin: 0rem 1rem;
+    text-align: center;
 }
 
 .media-cell__description {
