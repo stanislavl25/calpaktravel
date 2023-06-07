@@ -110,7 +110,12 @@ menuDeactivators.forEach(menuDeactivator => menuDeactivator.addEventListener('cl
     if(menuPopup) menuPopup.classList.remove('menu-popup--visible');
 
     const header = document.querySelector('.shopify-section--header');
-    setTimeout(() => header.removeAttribute('data-menu'), 500);
+    if (window.innerWidth > 900) {
+        setTimeout(() => header.removeAttribute('data-menu'), 500);
+    } else {
+        header.removeAttribute('data-menu');
+    }
+    
     document.body.classList.remove('modal-open');
 }));
 

@@ -79,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const stickyElement2 = document.querySelector('.pdp__floating-submit')
     const bodyElement = document.querySelector('body');
     const navElement = document.querySelector('.site-header__nav > ul.header__nav--full');
+    const mobileMenuElement = document.querySelector('.mobile-menu .menu-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
 
     const observernav = new ResizeObserver(entries => {
         for (let entry of entries) {
@@ -109,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth <= 900) {
               if (bodyElement.classList.contains('modal-open')) {
                 navElement.style.display = 'flex';
-              } else {
-                navElement.style.display = 'none';    
+              }  else {
+                  navElement.style.display = 'none';
               }
             }
           }
@@ -122,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (bodyElement.classList.contains('modal-open')) {
             navElement.style.display = 'flex';
         } else {
-            navElement.style.display = 'none';
+            navElement.style.display = 'none';   
         }
     }
     
