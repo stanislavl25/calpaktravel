@@ -406,6 +406,7 @@
         },
         "28434334-9c5a-48f8-b177-3f51889eb761": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": "-> Apparel",
             "title": "Apparel",
@@ -420,6 +421,7 @@
         },
         "9259d563-108f-4e2c-8ab1-05c5107d2ad6": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": "-> Merch",
             "title": "Merch",
