@@ -76,7 +76,9 @@ observer.observe(body, { attributes: true });
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.header-container');
     const stickyElement = document.querySelector('.collection-filters__section');
-    const stickyElement2 = document.querySelector('.pdp__floating-submit');
+    const stickyElement2 = document.querySelector('.pdp__floating-submit')
+    const bodyElement = document.querySelector('body');
+    const navElement = document.querySelector('.site-header__nav > ul.header__nav--full');
 
     const observernav = new ResizeObserver(entries => {
         for (let entry of entries) {
@@ -116,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
       
       observer.observe(bodyElement, { attributes: true });      
-    if (window.innerwidth <= 900){
+    if (window.innerWidth <= 900){
         if (bodyElement.classList.contains('modal-open')) {
             navElement.style.display = 'flex';
         } else {
