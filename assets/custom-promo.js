@@ -77,8 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.header-container');
     const stickyElement = document.querySelector('.collection-filters__section');
     const stickyElement2 = document.querySelector('.pdp__floating-submit');
-    const bodyElement = document.querySelector('body');
-    const navElement = document.querySelector('.site-header__nav > ul.header__nav--full');
 
     const observernav = new ResizeObserver(entries => {
         for (let entry of entries) {
@@ -105,23 +103,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                if (bodyElement.classList.contains('modal-open')) {
-                    navElement.style.display = 'flex';
-                } else {
-                    navElement.style.display = 'none';
-                }
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            if (window.innerWidth <= 900) {
+              if (bodyElement.classList.contains('modal-open')) {
+                navElement.style.display = 'flex';
+              } else {
+                navElement.style.display = 'none';    
+              }
             }
+          }
         });
     });
-
-    observer.observe(bodyElement, { attributes: true });
-
-    if (bodyElement.classList.contains('modal-open')) {
-        navElement.style.display = 'block';
-    } else {
-        navElement.style.display = 'none';
+      
+      observer.observe(bodyElement, { attributes: true });      
+    if (window.innerwidth <= 900){
+        if (bodyElement.classList.contains('modal-open')) {
+            navElement.style.display = 'flex';
+        } else {
+            navElement.style.display = 'none';
+        }
     }
+    
 
     if(stickyElement) observernav.observe(navbar);
     if(stickyElement2) observerSticky2.observe(stickyElement2);
