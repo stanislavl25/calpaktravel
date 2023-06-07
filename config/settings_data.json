@@ -27,7 +27,7 @@
     "desktop-badge-placement": "bottom",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "sale-bubble",
+    "sale-badge-tag": "sale-badge",
     "sale-badge-text": "Special Offer",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": true,
