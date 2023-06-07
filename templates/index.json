@@ -45,7 +45,7 @@
             "description": "",
             "button-text": "",
             "add-link-to-button-only": true,
-            "show-screens": "all",
+            "show-screens": "mobile",
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
