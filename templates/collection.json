@@ -771,6 +771,7 @@
         },
         "281ff7c2-bd78-4b8f-8128-9e4e923a4d39": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "mobile",
@@ -817,7 +818,7 @@
             "row": 8,
             "column": 1,
             "col_span": 2,
-            "mobile_row": 12,
+            "mobile_row": 13,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
@@ -875,7 +876,7 @@
             "row": 10,
             "column": 2,
             "col_span": 1,
-            "mobile_row": 17,
+            "mobile_row": 18,
             "column_mobile": 2,
             "col_span_mobile": 1,
             "target_link": "",
