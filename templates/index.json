@@ -437,6 +437,7 @@
     },
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Ambeur Collection",
         "description": "",
@@ -472,7 +473,6 @@
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
-      "disabled": true,
       "settings": {
         "title": "Explore Our Summer Arrivals",
         "description": "",
