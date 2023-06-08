@@ -759,8 +759,8 @@
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
           "type": "static",
           "settings": {
-            "heading": "Desktop\/Mobile: Tech Organizer",
-            "index": 17,
+            "heading": "Desktop: Tech Organizer",
+            "index": 20,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/SUMMER-ARRIVALS-TECH-ORGANIZERS.png",
