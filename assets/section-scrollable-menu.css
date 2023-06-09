@@ -8,6 +8,7 @@
     overflow: scroll;
     overflow-x: visible;
     white-space: nowrap;
+    overflow-y: hidden;
 }
 
 .scrollable-nav-menu__block {
