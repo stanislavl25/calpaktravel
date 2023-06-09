@@ -821,7 +821,9 @@ body.swym-modal-active:not(.modal-open) {
 .product-unit__colors--quickadd {
   margin-top: auto;
 }
-
+#shopify-section-promo-bar {
+  z-index: 3;
+}
 /* Sidecart free gift  */
 
 .free-gift__selector {

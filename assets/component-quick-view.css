@@ -229,7 +229,7 @@
 }
 
 .qv__body .product-label--badge {
-    right: calc(2 * var(--gap));
+    right: calc(3 * var(--gap));
     top: calc(2 * var(--gap));
 }
 

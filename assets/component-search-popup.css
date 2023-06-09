@@ -274,7 +274,7 @@
     .menu-popup__content.search-section {
         flex-direction: column;
         flex-wrap: nowrap;
-        overflow-y: auto;
+        overflow-y: scroll;
         width: 100%;
         flex: 1;
         max-height: none;
@@ -305,6 +305,8 @@
         min-height: 0;
         flex: 0 0 auto;
         height: auto;
+        max-height: fit-content;
+        overflow-y: scroll;
     }
 
     .menu-side {
@@ -353,7 +355,7 @@
     }
 
     .search-section[data-id="results"] .products__grid {
-        overflow-y: auto;
+        overflow-y: scroll;
         flex: 1;
         padding-bottom: 30px;
     }

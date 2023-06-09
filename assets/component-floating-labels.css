@@ -120,6 +120,12 @@
     font-size: 14px;
 }
 @media screen and (max-width:649px) {
+    .product-label--badge.product-label--active, 
+    .product-label--badge.badge-active {
+        width: 74px;
+        height: 74px;
+        font-size: 14px;
+    }
 .cart__upsell .product-label--badge.badge-active,
 .pdp__upsell .product-label--badge.badge-active, 
 .shopify-section--pdp-featured .product-label--badge.badge-active{
