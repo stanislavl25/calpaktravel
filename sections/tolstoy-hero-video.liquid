@@ -61,7 +61,6 @@
   class='tolstoy-hero-video-container'
   role='button'
   id='tolstoy-hero-video-container-{{ publishId }}'
-  onclick="window.open('{{ videoLink }}', {% if isOpenInNewTab %}'_blank'{% else %}'_self'{% endif %});"
 >
   <video
     class='tolstoy-hero-video'
@@ -152,7 +151,7 @@
     const sendEvent = (anonymousId, sessionId) => eventName => {
       try {
         const params = createEvent(eventName, anonymousId, sessionId);
-        fetch("https://api.gotolstoy.com/events/complete-event", {
+        return fetch("https://api.gotolstoy.com/events/complete-event", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -170,8 +169,16 @@
 
     const sendEventWithParams = sendEvent(anonymousId, sessionId);
 
-    const videoTag = document.getElementById("tolstoy-hero-video-{{ publishId }}");
-    videoTag.addEventListener("click", () => sendEventWithParams("clickCta"), { once: true });
+    const videoContainer = document.getElementById("tolstoy-hero-video-container-{{ publishId }}");
+    videoContainer.addEventListener("click", async() => {
+    let videoLink = '{{ videoLink }}';
+    if (!videoLink){
+      return
+    }
+
+   await sendEventWithParams("clickCta")
+   window.open(videoLink, {% if isOpenInNewTab %}'_blank'{% else %}'_self'{% endif %});
+   });
     window.addEventListener("load", () => sendEventWithParams("pageView"), { once: true });
   }
 
