@@ -7,6 +7,9 @@
     text-decoration: italic;
     font-style: italic;
 }
+.variation-type-set.set-of-2, .variation-type-set.set-of-3 {
+    margin-top: 1rem;
+}
 .pdp__form-labels .inlcudes-on-set {
     margin-top: -52px;
 }

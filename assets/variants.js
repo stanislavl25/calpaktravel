@@ -33,7 +33,6 @@ function variantUpdateProcess(target) {
     if(window.location.pathname.includes('product')) {
         changeBadgeAbsolutePosition(); // defined on pdp.js
     }
-    const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
     const productContainer = target.closest('.product-unit, .shopify-product-form');
     
     if(!productContainer) return;
@@ -71,33 +70,6 @@ function variantUpdateProcess(target) {
     if(!option) return;
     select.value = option.value;
 
-    if(includesTextWrapperForLuggageCovers.length > 1) {
-        if(option.getAttribute('data-option2') === "set-of-2") {
-                includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
-                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
-                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.remove('display-none')
-                includesTextWrapperForLuggageCover.classList.remove('unseen')
-                includesTextWrapperForLuggageCover.classList.add('seen')
-            })
-            
-        } else if(option.getAttribute('data-option2') === "set-of-3") {
-            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
-                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
-                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.remove('display-none')
-                includesTextWrapperForLuggageCover.classList.remove('unseen')
-                includesTextWrapperForLuggageCover.classList.add('seen')
-            })
-            
-        } else {
-            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
-                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
-                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
-                includesTextWrapperForLuggageCover.classList.remove('seen')
-                includesTextWrapperForLuggageCover.classList.add('unseen')
-            })
-            
-        }
-    }
 
     const earlyAccessValue = productContainer.getAttribute('data-early-access');
     updateProductURLs(productContainer, options, multiple, earlyAccessValue == 'all' || earlyAccessValue == 'only');

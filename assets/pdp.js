@@ -646,3 +646,41 @@ const changeBadgeAbsolutePosition = e => {
 document.addEventListener("DOMContentLoaded", changeBadgeAbsolutePosition);
 window.addEventListener("resize", changeBadgeAbsolutePosition);
 changeBadgeAbsolutePosition()
+
+window.addEventListener('DOMContentLoaded', () => {
+    const pdpOptions = document.querySelectorAll('.product-option');
+    const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
+    if(pdpOptions){
+        [].map.call(pdpOptions, option => {
+            option.addEventListener('click', () => {
+                const optVal = option.getAttribute('data-value');
+                if(includesTextWrapperForLuggageCovers.length > 1) {
+                    if(optVal === "set-of-2") {
+                        includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                            includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+                            includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.remove('display-none')
+                            includesTextWrapperForLuggageCover.classList.remove('unseen')
+                            includesTextWrapperForLuggageCover.classList.add('seen')
+                        })
+                        
+                    } else if(optVal === "set-of-3") {
+                        includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                            includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
+                            includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.remove('display-none')
+                            includesTextWrapperForLuggageCover.classList.remove('unseen')
+                            includesTextWrapperForLuggageCover.classList.add('seen')
+                        })
+                        
+                    } else {
+                        includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
+                            includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
+                            includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
+                            includesTextWrapperForLuggageCover.classList.remove('seen')
+                            includesTextWrapperForLuggageCover.classList.add('unseen')
+                        })
+                    }
+                }
+            })
+        })
+    }
+});
