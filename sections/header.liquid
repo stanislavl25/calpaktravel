@@ -13,7 +13,28 @@
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 
 <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var startTime = new Date("{{ section.settings['live-start-time'] }}");
+        var endTime = new Date("{{ section.settings['live-end-time'] }}");
+        var liveStatus = "{{ section.settings.live }}";
+        var liveLinkElement = document.querySelector('.header__live-link');
+        
+        function updateLiveLink() {
+            var currentTime = new Date();
+            if(currentTime >= startTime && currentTime <= endTime) {
+                liveLinkElement.classList.add('header__live-link--active');
+            }else if (liveStatus == "false"){
+                liveLinkElement.classList.remove('header__live-link--active');
+            }
+        }
 
+        // Check and update immediately
+        updateLiveLink();
+        // Then keep checking every minute
+        setInterval(updateLiveLink, 30000);
+    });
+</script>
 
 <section class="site-header">
     <nav class="site-header__nav">
@@ -159,10 +180,29 @@
             "info": "Each one on a new line"
         },
         {
+            "type": "header",
+            "content": "Live Shopping"
+        },
+        {
             "type": "checkbox",
             "id": "live",
             "label": "Live Shopping active",
+            "info": "Master control for live icon",
             "default": false
+        },
+        {
+            "type": "text",
+            "id": "live-start-time",
+            "label": "Start Time",
+            "default": "2023-06-10T00:00:00",
+            "info": "Enter the time in the following format: YYYY-MM-DDTHH:MM:SS (PST Time)"
+        },
+        {
+            "type": "text",
+            "id": "live-end-time",
+            "label": "End Time",
+            "default": "2023-06-12T00:00:00",
+            "info": "Enter the time in the following format: YYYY-MM-DDTHH:MM:SS (PST Time)"
         }
     ],
     "blocks": [
