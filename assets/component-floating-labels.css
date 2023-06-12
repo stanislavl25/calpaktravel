@@ -23,6 +23,9 @@
     border-radius: 6px;
     background: #f7f7f7;
 }
+.product-unit--add-sale-badge-bundle .countdown-sale-badge-label  {
+    display: none !important;
+}
 
 .product-label--badge {
     display: none;

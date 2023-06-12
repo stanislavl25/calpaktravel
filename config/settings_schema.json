@@ -513,6 +513,12 @@
         "label": "Sale Bubble Text"
       },
       {
+        "type":  "checkbox",
+        "id": "sale-badge-hide-textog",
+        "label": "Hide original text Sale Badge on custom sale product",
+        "default": false
+      },
+      {
         "type": "color",
         "id": "starter__customizer-badge",
         "label": "Background",
