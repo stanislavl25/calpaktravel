@@ -10,9 +10,7 @@
     "product-disclaimer": true,
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
-    "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
-    "sale-text-col-mixed": "Up to %% off",
     "flash-sale-enabled": false,
     "flash-sale-tag": "memorialdaysale",
     "flash-sale-text": "Sale Ends",
@@ -60,6 +58,8 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
+    "sale-text-pdp-mixed": "Up to %% off",
+    "sale-text-col-mixed": "Up to %% off",
     "sections": {
       "header": {
         "type": "header",
