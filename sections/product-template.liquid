@@ -266,7 +266,15 @@
                         </script>
                         {% endif %}
                     {%- when 'description' -%}
-                        {% render 'pdp-description', current_variant: current_variant %}
+                        {% assign description_title = section.settings.description-title %}
+                        {% assign specifications_title = section.settings.specifications-title %}
+                        {% assign warranty_title = section.settings.warranty-title %}
+                        {% render 'pdp-description', 
+                            description_title: description_title, 
+                            specifications_title: specifications_title,
+                            warranty_title: warranty_title,
+                            current_variant: current_variant 
+                        %}
                     {%- else -%}
                         {% render 'pdp-promo' with block, current_variant: current_variant %}
                 {%- endcase -%}
@@ -331,9 +339,27 @@
                 "content": "Content"
             },
             {
+                "type": "text",
+                "id": "description-title",
+                "label": "Description title",
+                "default": "Description"
+            },
+            {
+                "type": "text",
+                "id": "specifications-title",
+                "label": "Specifications title",
+                "default": "Specifications"
+            },
+            {
                 "type": "richtext",
                 "id": "specifications",
                 "label": "Specifications source"
+            },
+            {
+                "type": "text",
+                "id": "warranty-title",
+                "label": "Warrant title",
+                "default": "Warranty and Return Policy"
             },
             {
                 "type": "richtext",
