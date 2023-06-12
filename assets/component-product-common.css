@@ -172,7 +172,8 @@
 [data-status="sold-out"] .product-label.product-label--promo,
 [data-status="sold-out"] .product-label.product-label--sale,
 [data-status="sold-out"] .product-label.product-label--extra-sale,
-[data-status="sold-out"] .product-label--final {
+[data-status="sold-out"] .product-label--final,
+[data-status="sold-out"] .product-label--disclaimer {
     display: none;
 }
 
