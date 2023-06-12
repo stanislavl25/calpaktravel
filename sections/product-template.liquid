@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ 'component-tooltip.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-pdp-floating-submit.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-waitlist.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
@@ -123,6 +124,11 @@
         assign preorder = false
     endif
 
+    assign description_reviews_split = false
+    if product.metafields.custom.description_reviews != blank
+        assign description_reviews_split = product.metafields.custom.description_reviews | split: ';'
+    endif
+
     assign finalSale = false
     assign soldout = false
     assign extraSale = false
@@ -189,6 +195,9 @@
                             <h1 class="pdp__title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</h1>
 
                             {% render 'pdp-meta', current_variant: current_variant %}
+                            {%- if description_reviews_split -%}
+                                {% render 'pdp-description-reviews', description_reviews_split: description_reviews_split %}
+                            {%- endif -%}
                         </section>
                     {%- when 'variants' -%}
                         {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
@@ -652,3 +661,4 @@
         ]
     }
 {% endschema %}
+<script src="{{ 'pdp-description-reviews.js' | asset_url }}" defer="defer"></script>
