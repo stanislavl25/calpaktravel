@@ -251,7 +251,8 @@
 }
 
 .menu-popup__main .menu > li:not(:first-child) li:last-child {
-    font-weight: var(--font-body-weight-black);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style-italic);
 }
 
 .menu-popup__main::-webkit-scrollbar {
