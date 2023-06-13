@@ -9,6 +9,7 @@
     overflow-x: visible;
     white-space: nowrap;
     overflow-y: hidden;
+    padding-bottom: 4px;
 }
 
 .scrollable-nav-menu__block {
