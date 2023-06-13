@@ -10,10 +10,14 @@
                     {% if block.settings.image != blank %}
                         <img src="{{ block.settings.image | img_url: '800x800' }}" alt="{{ block.settings.title | escape }}">
                     {% else %}
-                        <img src="{{ collection.image | img_url: '800x800' }}" alt="{{ block.settings.title | escape }}">
+                        <img src="{{ collection.image | img_url: '800x800' }}" alt="{{ collection.title | escape }}">
                     {% endif %}
                 </div>
-                <h7>{{ block.settings.title | escape }}</h7>
+                {% if block.settings.title != blank %}
+                    <h7>{{ block.settings.title | escape }}</h7>
+                {% else %}
+                    <h7>{{ collection.title | escape }}</h7>
+                {% endif %}
                 </a>
             </div>
         {% endfor %}
