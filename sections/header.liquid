@@ -12,8 +12,39 @@
 <noscript>{{ 'component-article-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 
-<script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
 
+<script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var liveStatus = "{{ section.settings.live }}";
+        var liveLinkElement = document.querySelector('.header__live-link');
+
+        function getAdjustedDate(dateStr) {
+        var date = new Date(dateStr + ' PDT');
+            date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+            return date;
+        }
+    
+        var startTime = moment.tz("{{ section.settings['live-start-time'] }}", "MMMM DD, YYYY hh:mma", 'America/Los_Angeles').toDate();
+        var endTime = moment.tz("{{ section.settings['live-end-time'] }}", "MMMM DD, YYYY hh:mma", 'America/Los_Angeles').toDate();
+    
+        function updateLiveLink() {
+            var currentTime = new Date();
+            if(liveStatus == "true" && currentTime >= startTime && currentTime <= endTime) {
+              liveLinkElement.classList.add('header__live-link--active');
+            } else {
+              liveLinkElement.classList.remove('header__live-link--active');
+            }
+        }
+        
+        // Check and update immediately
+        updateLiveLink();
+        // Then keep checking every 15 seconds
+        setInterval(updateLiveLink, 15000);
+    });
+</script>
 
 <section class="site-header">
     <nav class="site-header__nav">
@@ -43,7 +74,7 @@
                 <a href="#" class="menu-popup__activator" data-target="discover">Discover</a>
             </li>
             <li class="site-header__menu-item">
-                <a href="/pages/live-shopping" class="header__live-link{% if section.settings.live %} header__live-link--active{% endif %}">Live</a>
+                <a href="/pages/live-shopping" class="header__live-link">Live</a>
             </li>
             <li class="site-header__menu-item">
                 <a href="#" class="header__search-link">
@@ -159,10 +190,27 @@
             "info": "Each one on a new line"
         },
         {
+            "type": "header",
+            "content": "Live Shopping"
+        },
+        {
             "type": "checkbox",
             "id": "live",
             "label": "Live Shopping active",
+            "info": "Master control for live icon",
             "default": false
+        },
+        {
+            "type": "text",
+            "id": "live-start-time",
+            "label": "Live Shopping Start Time",
+            "info": "Format: 'Month DD, YYYY hh:mmam/pm'. All times should be in PDT."
+        },
+        {
+            "type": "text",
+            "id": "live-end-time",
+            "label": "Live Shopping End Time",
+            "info": "Format: 'Month DD, YYYY hh:mmam/pm'. All times should be in PDT."
         }
     ],
     "blocks": [
