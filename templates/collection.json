@@ -875,6 +875,7 @@
         },
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "both",
