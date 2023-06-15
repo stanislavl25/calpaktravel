@@ -762,6 +762,7 @@
         },
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "heading": "Desktop: Tech Organizer",
             "index": 21,
@@ -863,8 +864,8 @@
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
-            "index": 23,
-            "enable_static_for_desktop": true,
+            "index": 28,
+            "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
             "enable_static_for_mobile": true,
