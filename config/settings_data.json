@@ -380,9 +380,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false,
-          "live-start-time": "",
-          "live-end-time": ""
+          "live": true,
+          "live-start-time": "June 15, 2023 4:08PM",
+          "live-end-time": "June 15, 2023 4:10PM"
         }
       },
       "footer": {
