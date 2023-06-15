@@ -595,6 +595,28 @@
             "banner-text-background-color": "#ffffff"
           }
         },
+        "8faf4caf-1276-4186-8468-5d0516de3da7": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 3,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 5,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "terra-26l-backpack-duffel",
+              "terra-hanging-toiletry-bag",
+              "terra-sling-bag"
+            ],
+            "image": "shopify:\/\/shop_images\/TERRA-26L-LAPTOP-BACKPACK-WHITE-SANDS-LIFESTYLE2_c597ca51-368e-436a-9338-bc30ba9e2a86.jpg"
+          }
+        },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
           "settings": {
@@ -609,6 +631,7 @@
         },
         "5a135156-ce8b-442d-a624-b2d324e911c8": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "desktop",
@@ -651,6 +674,7 @@
         },
         "00502ff4-5f0b-4184-8f85-af5354461ebd": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "desktop",
@@ -734,28 +758,6 @@
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "image",
             "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
-          }
-        },
-        "8faf4caf-1276-4186-8468-5d0516de3da7": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "display": "both",
-            "row": 6,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "terra-26l-backpack-duffel",
-              "terra-hanging-toiletry-bag",
-              "terra-sling-bag"
-            ],
-            "image": "shopify:\/\/shop_images\/TERRA-26L-LAPTOP-BACKPACK-WHITE-SANDS-LIFESTYLE2_c597ca51-368e-436a-9338-bc30ba9e2a86.jpg"
           }
         },
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
@@ -915,6 +917,7 @@
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
+        "8faf4caf-1276-4186-8468-5d0516de3da7",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
         "5a135156-ce8b-442d-a624-b2d324e911c8",
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
@@ -923,7 +926,6 @@
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
         "71baa67a-2226-426d-9b84-717bf4a6e1a8",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
-        "8faf4caf-1276-4186-8468-5d0516de3da7",
         "5cc6dafd-9a03-497d-a746-581d39df58db",
         "281ff7c2-bd78-4b8f-8128-9e4e923a4d39",
         "5a9fc48f-6b94-416e-88c7-3325d24efb85",
