@@ -83,7 +83,7 @@
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/3-piece-luggage-sets",
-              "block-title": "LIMITED TIME: Pick your FREE gift when you shop the 3-Piece Luggage Set",
+              "block-title": "",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
@@ -92,6 +92,31 @@
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
+            }
+          },
+          "8a92212a-f9b4-4c7f-b8b5-2b0a08d5f9ad": {
+            "type": "shop-block",
+            "settings": {
+              "title": "test",
+              "submenu-number": 1,
+              "button-url": "",
+              "block-title": "",
+              "description": "",
+              "button-text": "",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "b06f7382-9322-4eb9-bf7e-74884b48c23a": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "",
+              "submenu-number": 1,
+              "collection": "",
+              "block-title": ""
             }
           },
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896": {
@@ -153,7 +178,7 @@
             "settings": {
               "title": "Shop: Featured: Carousel of Best sellers",
               "submenu-number": 1,
-              "collection": "best-sellers",
+              "collection": "3-piece-luggage-sets",
               "block-title": "Explore Our Best Sellers"
             }
           },
@@ -329,6 +354,8 @@
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "66117e8e-72a2-4c4a-9251-d53677ed9255",
+          "8a92212a-f9b4-4c7f-b8b5-2b0a08d5f9ad",
+          "b06f7382-9322-4eb9-bf7e-74884b48c23a",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
