@@ -2,6 +2,7 @@
   "sections": {
     "9a46d065-1a77-4b95-ba73-e9bf4d14e72a": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
           "type": "text-block",
@@ -67,11 +68,9 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "Get 45% off the Starter Bundle",
             "description": "<p>Our 8-piece starter set for $299!<\/p>",
@@ -87,8 +86,8 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
+            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-4.jpg",
             "image-mobile": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/luggage",
@@ -103,7 +102,6 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2.jpg",
             "video": "",
