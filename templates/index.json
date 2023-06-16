@@ -158,7 +158,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 95,
+        "height-limit": 100,
         "enable-sticky-promo": false,
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
