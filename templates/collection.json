@@ -914,24 +914,6 @@
             ],
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2236_1.jpg"
           }
-        },
-        "4052cb4b-da96-491c-a147-1f9e08ded4b0": {
-          "type": "banner",
-          "settings": {
-            "display": "desktop",
-            "collection_list": [
-              "back-to-school"
-            ],
-            "banner-text": "Back to School",
-            "row": "1",
-            "row_mobile": "1",
-            "media-type": "image",
-            "banner-image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION1069.jpg",
-            "banner-media-height": 500,
-            "banner-media-height-mobile": 300,
-            "banner-text-color": "#000",
-            "banner-text-background-color": "#FFF"
-          }
         }
       },
       "block_order": [
@@ -954,8 +936,7 @@
         "26121484-6047-4828-919f-49c8e5363c7d",
         "98bbbe49-ef4a-4acd-9165-232fac007486",
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
-        "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
-        "4052cb4b-da96-491c-a147-1f9e08ded4b0"
+        "de8f3214-ac8f-4182-94ac-268daa3b4dd3"
       ],
       "settings": {
         "wishlist": true,
