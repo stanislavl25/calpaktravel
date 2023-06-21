@@ -53,10 +53,10 @@
         "background": "#ffffff"
       }
     },
-    "page-about-us": {
-      "type": "page-about-us",
-      "settings": {}
-    },
+    // "page-about-us": {
+    //   "type": "page-about-us",
+    //   "settings": {}
+    // },
     "a64e8714-8090-4b0a-a8d1-f520a82bb4c1": {
       "type": "featured-content-blocks",
       "blocks": {
@@ -286,7 +286,7 @@
   "order": [
     "004e8da5-fa18-482b-9e48-1809383edbea",
     "09d0df49-64b7-45c2-9ef4-3220eed6bb3e",
-    "page-about-us",
+    // "page-about-us",
     "a64e8714-8090-4b0a-a8d1-f520a82bb4c1",
     "58ff044b-14b2-4dbf-99b2-9f436ba0ae34",
     "a6a19d1c-0257-4196-b688-c8fb8af5911e",

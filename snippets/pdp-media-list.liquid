@@ -13,7 +13,6 @@
         assign current_variant = product.selected_or_first_available_variant
     endif
 -%}
-
 {% if current_variant.metafields.custom.featured_images != blank %}
 {% comment %}
     New system with metafields
@@ -100,7 +99,7 @@
 
             if media.alt contains ';'
                 assign alt = media.alt | split: ';'
-
+                assign color = media.alt | split: ';' | last | remove: " " | downcase
                 if alt.size > 1
                     assign mediaAlt = alt | first | strip
                     assign alt = alt | last | strip
@@ -153,7 +152,7 @@
             capture mediaContent
                 case media.media_type
                     when 'image'
-                        render 'image' with media, sizes: sizes, height: '133.333', alt: mediaAlt, zoom: zoom, lazy: lazy, preload: preload
+                        render 'image' with media, sizes: sizes, height: '133.333', alt: mediaAlt, zoom: zoom, lazy: lazy, preload: preload, fancy_box: fancy_box, color: color
                     when 'external_video'
                         echo media | external_video_tag
                         assign isVideo = true
