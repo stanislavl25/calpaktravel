@@ -344,6 +344,16 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if(current_variant === false) current_variant = availableVariants[0];
 
     let hasMultipleSizes = false;
+
+    let productOnSale = true;
+
+    for (let i = 0; i < availableVariants.length; i++) {
+        const variant = availableVariants[i];
+        if (variant.compare_at_price === variant.price || variant.compare_at_price === null) {
+            productOnSale = false;
+            break;
+        }
+    }
     
     availableVariants.forEach(variant => {
         const opt1 = handleize(variant.option1);
@@ -548,6 +558,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             if(swatchesCheck.indexOf(variant.option1) === -1) {
                 swatchesCheck.push(variant.option1);
                 const varHandle = handleize(variant.option1);
+                const varOnSale = (variant.compare_at_price && variant.compare_at_price >= variant.price ? 'true' : 'false')
     
                 if(hide.indexOf(varHandle) === -1) {
                     let pushGroupIndex = 0;
@@ -584,7 +595,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         href="${url}"
                         data-value="${varHandle}"
                         title="${capitalize(variant.option1)}"
-                        class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'}">
+                        class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'} ${varOnSale=="true" && productOnSale==false ?'color-swatch-sale':''}">
                             ` + img + `
                         </a>`;
                 }
