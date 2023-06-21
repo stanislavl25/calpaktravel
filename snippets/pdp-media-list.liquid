@@ -19,6 +19,8 @@
     New system with metafields
 {% endcomment %}
 
+
+
     {%- assign varVideoActive = false -%}
     {% for variant in product.variants %}
         {% for media in variant.metafields.custom.featured_images.value %}
@@ -35,13 +37,15 @@
                             endif
 
                             if variant.id == current_variant.id
+                            
                                 assign lazy = false
                             else
                                 assign lazy = true
                             endif
 
                             if video == false
-                                render 'image' with media, sizes: sizes, height: '133.333', zoom: zoom, lazy: lazy
+                                assign color = alt | split: ';' | last
+                                render 'image' with media, sizes: sizes, height: '133.333', zoom: zoom, lazy: lazy, fancy_box: fancy_box, color: color
                             else
                                 if thumbnails == true
                                     render 'image' with media, sizes: sizes, height: '133.333', class: 'video-link-image', lazy: lazy
@@ -62,6 +66,7 @@
                     assign varVideoActive = true
                 endif
             -%}
+            
             <div data-id="{{ variant.id }}" class="pdp__media{% if thumbnails == true %}-thumb{% endif %}{% if isVideo %} pdp__media--var-video{% endif %}{% if forloop.first %} pdp__media--wide{% endif %}{% if variant.id == current_variant.id %} pdp__media--active slide{% endif %}">
                 {{ mediaContent }}
 
@@ -199,7 +204,7 @@
         -%}
 
         <div
-            data-variants="{{ alt }}"
+            data-variants="{{ alt }}" 
             class="{{ classList }}">
             {{ mediaContent }}
         </div>
@@ -209,3 +214,7 @@
         {% render 'pdp-product-video', current_variant: current_variant, thumbnails: thumbnails, varVideoActive: varVideoActive, alt: alt, sizes: sizes %}
     {%- endif -%}
 {% endif %}
+
+
+
+
