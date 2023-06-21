@@ -63,16 +63,17 @@
       {%- else -%}
         progress
       {%- endif -%}">
-
-      {%- for block in section.blocks -%}
-        {% if block.type == 'gamification-gift' %}
-          {% if block.settings.announcement != blank %}
-            <div class="free-gift__announcement">
-              {{ block.settings.announcement }}
-            </div>
+      {% if settings.show-cart-gamification == true %}
+        {%- for block in section.blocks -%}
+          {% if block.type == 'gamification-gift' %}
+            {% if block.settings.announcement != blank %}
+              <div class="free-gift__announcement">
+                {{ block.settings.announcement }}
+              </div>
+            {% endif %}
           {% endif %}
-        {% endif %}
-      {%- endfor -%}
+        {%- endfor -%}
+      {% endif %}
 
       {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
@@ -86,7 +87,7 @@
             <div class="cart__gam-progress">
               You're only
               <span class="shipping-value">
-                {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros -}}
+                {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros | round -}}
               </span>
               away from free shipping!
             </div>
@@ -122,12 +123,13 @@
     <div class="cart__body-mobile-main">
       <div class="cart__body-main">
         <div class="cart__body-top">
-
-          {%- for block in section.blocks -%}
-            {% if block.type == 'gamification-gift' %}
-              {% render 'cart-free-gift', product_key: block.settings.gift_key, product_keys: block.settings.gift_keys, products: block.settings.gift_available %}
-            {% endif %}
-          {%- endfor -%}
+          {% if settings.show-cart-gamification == true %}
+            {%- for block in section.blocks -%}
+              {% if block.type == 'gamification-gift' %}
+                {% render 'cart-free-gift', product_key: block.settings.gift_key, product_keys: block.settings.gift_keys, products: block.settings.gift_available %}
+              {% endif %}
+            {%- endfor -%}
+          {% endif %}
 
           <div class="cart__items-title">
             Your items (<span class="cart__count">{{ cart.item_count }}</span>)
@@ -262,7 +264,7 @@
               icon: `{{ block.settings.icon }}`,
               product: '{{ block.settings.gift.selected_or_first_available_variant.id }}'
             }{%- unless forloop.last == true -%},{%- endunless -%}{% endif %}
-        {%- endfor -%}],
+        {%- endfor -%}] {% if settings.show-cart-gamification == true %},
       gifts: [{%- for block in section.blocks -%}
           {% if block.type == 'gamification-gift' %}
             {
@@ -274,6 +276,7 @@
             }
             {%- unless forloop.last == true -%},{%- endunless -%}{% endif %}
         {%- endfor -%}]
+      {% endif %}
     };{% endif %}
 </script>
 
