@@ -50,6 +50,13 @@
     z-index: 5;
     font-size: 21px;
 }
+.menu-popup--search.menu-popup--visible .product-label--badge.product-label--active, 
+.product-label--badge.badge-active {
+    width: 74px;
+    height: 74px;
+    padding: 0 10px;
+    font-size: 17px;
+}
 .product-label--badge.product-label--badge-collection-page {
     right: 11.01px;
     bottom: 11.01px;
@@ -127,7 +134,9 @@
         width: 74px;
         height: 74px;
         font-size: 14px;
+        display: none;
     }
+
 .cart__upsell .product-label--badge.badge-active,
 .pdp__upsell .product-label--badge.badge-active, 
 .shopify-section--pdp-featured .product-label--badge.badge-active{
