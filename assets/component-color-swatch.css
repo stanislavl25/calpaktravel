@@ -92,6 +92,21 @@ a.color-swatch--active::after {
     pointer-events: none;
 }
 
+.color-swatch-sale {
+    position: relative;
+}
+
+.color-swatch-sale::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 22px;
+    width: 4px;
+    height: 4px;
+    background-color: red;
+    border-radius: 50%;
+}
+
 .color-swatch img {
     width: 20px;
     height: 20px;

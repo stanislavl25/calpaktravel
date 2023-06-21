@@ -279,6 +279,7 @@
     animation: fadeUp 0.2s ease-in-out;
     opacity: 0;
     display: none;
+    margin-top: 16px;
 }
 
 .pdp__price {
