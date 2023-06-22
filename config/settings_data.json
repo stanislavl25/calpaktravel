@@ -844,7 +844,6 @@
         "blocks": {
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -859,6 +858,7 @@
           },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -895,12 +895,12 @@
         "settings": {
           "show": "everywhere",
           "timeout": 3,
-          "holiday_banner": true,
+          "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "24",
-          "countdown-to": "Jun 23, 2023 10:00am"
+          "countdown-to": "Jun 27, 2023 10:00am"
         }
       }
     },
