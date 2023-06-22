@@ -855,10 +855,25 @@
               "background": "#f7f177",
               "text-color": "#000000"
             }
+          },
+          "44595217-2033-4341-98cf-4fc74fd48e3d": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Up to 60% off on the Travel More Sale<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#F7F177",
+              "text-color": ""
+            }
           }
         },
         "block_order": [
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
+          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c",
+          "44595217-2033-4341-98cf-4fc74fd48e3d"
         ],
         "settings": {
           "show": "everywhere",
