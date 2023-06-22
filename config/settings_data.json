@@ -864,6 +864,21 @@
               "collections": false,
               "pdp": false,
               "other": false,
+              "content": "<p>Early Access Up to 60% off on the Travel More Sale<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
               "content": "<p>Up to 60% off on the Travel More Sale<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#F7F177",
@@ -873,7 +888,8 @@
         },
         "block_order": [
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c",
-          "44595217-2033-4341-98cf-4fc74fd48e3d"
+          "44595217-2033-4341-98cf-4fc74fd48e3d",
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902"
         ],
         "settings": {
           "show": "everywhere",
