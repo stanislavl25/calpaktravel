@@ -864,7 +864,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Early Access Up to 60% off on the Travel More Sale<\/p>",
+              "content": "<p>Early Access to Travel More Sale<\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
@@ -894,12 +894,12 @@
         "settings": {
           "show": "everywhere",
           "timeout": 3,
-          "holiday_banner": false,
+          "holiday_banner": true,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
           "countdown-active": true,
-          "countdown-show": "48",
-          "countdown-to": "May 31, 2023 11:00am"
+          "countdown-show": "24",
+          "countdown-to": "Jun 22, 2023 10:00am"
         }
       }
     },
