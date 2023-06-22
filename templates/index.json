@@ -73,7 +73,7 @@
           "type": "text-block",
           "settings": {
             "title": "Travel More Sale",
-            "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p>",
+            "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
             "main-link": "shopify:\/\/collections\/sale",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
