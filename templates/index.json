@@ -470,6 +470,7 @@
         "description": "",
         "quick-view": true,
         "product-labels": true,
+        "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Marine_0791-2_1.jpg",
         "media-link": "shopify:\/\/collections\/sale",
         "pictured-product": "",
         "pictured-product-quick-view": false,
@@ -484,7 +485,7 @@
         "pictured-product-display": "top",
         "featured-collection": "sale",
         "collection-limit": 6,
-        "show-view-all": true,
+        "show-view-all": false,
         "product_list": [
 
         ],
