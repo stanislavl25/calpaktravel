@@ -68,11 +68,9 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "TRAVEL MORE SALE",
             "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p>",
@@ -88,9 +86,8 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_2129-2.jpg",
+            "image": "shopify:\/\/shop_images\/Frame-6.gif",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
@@ -104,9 +101,8 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-4.jpg",
+            "image": "shopify:\/\/shop_images\/Frame_1-10.png",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
@@ -135,6 +131,7 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
