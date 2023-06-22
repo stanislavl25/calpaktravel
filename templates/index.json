@@ -434,7 +434,6 @@
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
-      "disabled": true,
       "settings": {
         "title": "Explore Our Summer Arrivals",
         "description": "",
@@ -465,6 +464,7 @@
     },
     "1645aa0b-1a41-4be9-906e-35c475633190": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Explore Our Hot Deals",
         "description": "",
