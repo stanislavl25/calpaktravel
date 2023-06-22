@@ -103,7 +103,7 @@
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
           "settings": {
-            "image-mobile": "shopify:\/\/shop_images\/Frame_1-11.png",
+            "image": "shopify:\/\/shop_images\/Frame_1-11.png",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
