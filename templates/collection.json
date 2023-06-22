@@ -2,7 +2,6 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -29,14 +28,15 @@
     },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "EARLY ACCESS TRAVEL MORE SALE",
+        "title-above": "Early Access: Travel More Sale",
         "main-text": "<p>Get up to 60% off best-sellers for a limited-time only.<\/p>",
-        "hide": true,
+        "hide": false,
         "product_list": [
 
         ],
