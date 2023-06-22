@@ -79,6 +79,7 @@
           },
           "66117e8e-72a2-4c4a-9251-d53677ed9255": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -89,6 +90,23 @@
               "link-for-button": false,
               "text-color-scheme": "white",
               "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-4.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/collections\/sale",
+              "block-title": "Save big, travel more— up to 60% off best-sellers NOW.",
+              "description": "",
+              "button-text": "",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/IMG_9868-2-3.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -125,24 +143,6 @@
               "link-for-button": false,
               "text-color-scheme": "white",
               "image": "shopify:\/\/shop_images\/Frame_2_3.png",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
-          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
-            "type": "shop-block",
-            "disabled": true,
-            "settings": {
-              "title": "Shop: Featured",
-              "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/mothers-day",
-              "block-title": "Buy 2 items (or more), get 15% OFF",
-              "description": "",
-              "button-text": "",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Group_3545.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -329,9 +329,9 @@
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "66117e8e-72a2-4c4a-9251-d53677ed9255",
+          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "d354ff31-c668-4b29-8245-34b614309172",
-          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
           "52c25c9a-745f-42c5-8106-d8505dcb22b6",
