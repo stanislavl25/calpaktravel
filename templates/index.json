@@ -434,6 +434,7 @@
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Explore Our Summer Arrivals",
         "description": "",
@@ -456,6 +457,34 @@
         "featured-collection": "summer-arrivals",
         "collection-limit": 6,
         "show-view-all": false,
+        "product_list": [
+
+        ],
+        "columns": "3"
+      }
+    },
+    "1645aa0b-1a41-4be9-906e-35c475633190": {
+      "type": "promo-collection",
+      "settings": {
+        "title": "Explore Our Hot Deals",
+        "description": "",
+        "quick-view": true,
+        "product-labels": true,
+        "media-link": "shopify:\/\/collections\/sale",
+        "pictured-product": "",
+        "pictured-product-quick-view": false,
+        "pictured-product-override": "",
+        "pictured-product-title": "",
+        "button-text": "Shop Now",
+        "button-quick-view": false,
+        "button-link": "shopify:\/\/collections\/sale",
+        "background": "#ff6b0e",
+        "text-color": "#fff",
+        "accent-color": "#fff",
+        "pictured-product-display": "top",
+        "featured-collection": "sale",
+        "collection-limit": 6,
+        "show-view-all": true,
         "product_list": [
 
         ],
@@ -535,6 +564,7 @@
     "951d1a57-9c08-4431-a932-aafbc04369f5",
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
+    "1645aa0b-1a41-4be9-906e-35c475633190",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
     "5a6f5490-2467-4517-8d4e-1b098c285ad9"
   ]
