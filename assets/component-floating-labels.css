@@ -30,6 +30,12 @@
 .product-label--badge {
     display: none;
 }
+.pdp__gallery-container > .product-label--badge.product-label--active, 
+.product-label--badge.badge-active {
+    width: 117px;
+    height: 117px;
+    font-size: 21px;
+}
 .product-label--badge.product-label--active, 
 .product-label--badge.badge-active {
     right: 31px;
@@ -129,12 +135,15 @@
     font-size: 14px;
 }
 @media screen and (max-width:649px) {
-    .product-label--badge.product-label--active, 
+    .menu-popup--search.menu-popup--visible .product-label--badge.product-label--active, .product-label--badge.badge-active {
+        display: none;
+    }
+    .pdp__gallery-container > .product-label--badge.product-label--active, 
     .product-label--badge.badge-active {
         width: 74px;
         height: 74px;
         font-size: 14px;
-        display: none;
+        display: flex;
     }
 
 .cart__upsell .product-label--badge.badge-active,
