@@ -440,6 +440,7 @@
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Explore Our Summer Arrivals",
         "description": "",
@@ -470,16 +471,15 @@
     },
     "1645aa0b-1a41-4be9-906e-35c475633190": {
       "type": "promo-collection",
-      "disabled": true,
       "settings": {
         "title": "Explore Our Hot Deals",
         "description": "",
         "quick-view": true,
         "product-labels": true,
-        "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Marine_0791-2_1.jpg",
+        "image": "shopify:\/\/shop_images\/CalPak6870a-3.jpg",
         "video": "",
         "media-link": "shopify:\/\/collections\/sale",
-        "pictured-product": "",
+        "pictured-product": "terra-26l-backpack-duffel",
         "pictured-product-quick-view": false,
         "pictured-product-override": "",
         "pictured-product-title": "",
@@ -487,8 +487,8 @@
         "button-quick-view": false,
         "button-link": "shopify:\/\/collections\/sale",
         "background": "#ff6b0e",
-        "text-color": "#ffffff",
-        "accent-color": "#ffffff",
+        "text-color": "#000000",
+        "accent-color": "#000000",
         "pictured-product-display": "top",
         "featured-collection": "sale",
         "collection-limit": 6,
