@@ -56,7 +56,8 @@
     z-index: 5;
     font-size: 21px;
 }
-.pdp__gallery-container .product-label.product-label--active {
+.pdp__gallery-container .product-label.product-label--active,
+.pdp__gallery-container .product-label[data-options="false"] {
     display: flex !important;
 }
 .product-label--badge.product-label--badge-collection-page {
