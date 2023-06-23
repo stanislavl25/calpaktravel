@@ -494,7 +494,12 @@
         "collection-limit": 6,
         "show-view-all": false,
         "product_list": [
-
+          "terra-26l-backpack-duffel",
+          "starter-bundle",
+          "haven-laptop-tote-bag",
+          "kaya-laptop-backpack",
+          "luka-mini-belt-bag",
+          "insulated-lunch-bag"
         ],
         "columns": "3"
       }
