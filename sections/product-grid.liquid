@@ -49,7 +49,7 @@
         }
     {% endif %}
     {% if template == 'collection' or 'summer-arrival' %}
-        {% if section.settings.collection_list != empty %}
+        {% comment %} {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
                 .{{ collection_item.handle }} .product-unit__image > .f-loaded {
                     object-position:-1000px!important;
@@ -85,14 +85,13 @@
                 }
             {% endfor %}
         {% else %}
-                .modular-block, .modular-section__wrap, .static-video-desktop
-                .static-video-mobile {
-                   display:flex!important;
-                }
-                .product-unit__image > .f-loaded {
-                    object-position:-1000px!important;
-                }
-        {% endif %}
+        {% endif %} {% endcomment %}
+        .modular-block, .modular-section__wrap, .static-video-desktop, .static-video-mobile {
+            display:flex!important;
+        }
+        .product-unit__image > .f-loaded {
+            object-position:-1000px!important;
+        }
     {% endif %}
     .product-grid {
         row-gap: {{section.settings.row_gap}}px;
@@ -224,17 +223,41 @@
         endpaginate
 
         for block in section.blocks
+
+            assign inCollectionList = false 
+            if block.settings.collection_list_display
+                if block.settings.collection_list_display != empty
+                    assign collection_handle_list = block.settings.collection_list_display | map: "handle" 
+                    for collection_handle in collection_handle_list 
+                        if collection_handle == collection.handle 
+                            assign inCollectionList = true 
+                            break 
+                        endif 
+                    endfor 
+                else 
+                    assign inCollectionList = true 
+                endif
+            endif
+
             case block.type
                 when 'promo'
                     render 'promo-unit' with block
                 when 'module'
-                    render 'modular-block' with block as block, collection: collection
+                    if  inCollectionList 
+                        render 'modular-block' with block as block, collection: collection    
+                    endif
                 when 'modular-section'
-                    render 'modular-section' with block as block, collection: collection
+                    if  inCollectionList 
+                        render 'modular-section' with block as block, collection: collection
+                    endif
                 when 'static'
-                    render 'static-block' with block as block
+                    if  inCollectionList 
+                        render 'static-block' with block as block
+                    endif
                 when 'banner'
-                    render 'banner-image-grid' with block as block
+                    if  inCollectionList 
+                        render 'banner-image-grid' with block as block
+                    endif
             endcase
         endfor
     -%}
@@ -255,6 +278,7 @@
         });
     })
 </script>
+
 {% render 'schema-collection' %}
 
 {% schema %}
@@ -306,16 +330,6 @@
             },
             {
                 "type": "header",
-                "content": "Modular block and section settings"
-            },
-            {
-                "type": "collection_list",
-                "id": "collection_list",
-                "label": "Collections to display on",
-                "info": "If no collections are selected, the modular blocks will be displayed on all collections."
-            },
-            {
-                "type": "header",
                 "content": "Breakdown variant collections"
             },
             {
@@ -340,6 +354,12 @@
                 "type": "static",
                 "name": "Static content",
                 "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
                     {
                         "type": "text",
                         "id": "heading",
@@ -558,6 +578,12 @@
                         "content": "Display rules"
                     },
                     {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
+                    {
                     "type": "checkbox",
                     "id": "pictured_link",
                     "label": "Pictured product link to quick view",
@@ -685,7 +711,13 @@
             {
                 "type": "modular-section",
                 "name": "Modular Section",
-                "settings": [ 
+                "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
                     {
                     "type": "checkbox",
                     "id": "pictured_link",
@@ -743,11 +775,7 @@
                     },                      
                     {
                         "type": "header",
-                        "content": "Left block"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Text"
+                        "content": "Left block settings"
                     },
                     {
                         "type": "text",
@@ -760,17 +788,9 @@
                         "label": "Description"
                     },
                     {
-                        "type": "header",
-                        "content": "Product"
-                    },
-                    {
                         "type": "product_list",
                         "id": "pictured_products",
                         "label": "Pictured Products List"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Media"
                     },
                     {
                         "type": "image_picker",
@@ -778,24 +798,19 @@
                         "label": "Image"
                     },
                     {
-                        "type": "video",
-                        "id": "video_l",
-                        "label": "Video (first block)"
-                      },
-                    {
                         "type": "image_picker",
                         "id": "image_mobile",
                         "label": "Image for mobile"
                     },
                     {
-                        "type": "header",
-                        "content": "_________________________"
+                        "type": "video",
+                        "id": "video_l",
+                        "label": "Video"
                     },
                     {
                         "type": "header",
-                        "content": "Right block"
+                        "content": "Right block settings"
                     },
-
                     {
                         "type": "header",
                         "content": "Text"
@@ -811,17 +826,9 @@
                         "label": "Description"
                     },
                     {
-                        "type": "header",
-                        "content": "Product"
-                    },
-                    {
                         "type": "product_list",
                         "id": "pictured_products_r",
                         "label": "Pictured Products List"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Media"
                     },
                     {
                         "type": "image_picker",
@@ -829,14 +836,14 @@
                         "label": "Image"
                     },
                     {
-                        "type": "video",
-                        "id": "video_r",
-                        "label": "Video (second block)"
-                      },
-                    {
                         "type": "image_picker",
                         "id": "image_mobile_r",
-                        "label": "Image for mobile"
+                        "label": "Mobile Image"
+                    },
+                    {
+                        "type": "video",
+                        "id": "video_r",
+                        "label": "Video"
                     }
                 ]
             },
@@ -844,6 +851,12 @@
                 "type": "banner",
                 "name": "Banner",
                 "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
                     {
                         "type": "header",
                         "content": "Settings"
