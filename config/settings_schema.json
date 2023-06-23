@@ -533,6 +533,23 @@
     ]
   },
   {
+    "name": "Hot Deals Badge",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "hot-deals-badge-enabled",
+        "label": "Hot Deals Badge Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "hot-deals-ends",
+        "label": "End date\/time",
+        "info": "Format: 'Month DD, YYYY hh:mmam/pm'. All times should be in PDT."
+      }
+    ]
+  },
+  {
     "name": "Promo Checkout",
     "settings": [
       {

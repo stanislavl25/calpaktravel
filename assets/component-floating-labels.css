@@ -69,6 +69,28 @@
     display: flex !important;
 }
 
+.hot-deals-badge.product-label--active {
+    right: 31px;
+    margin-right: 0;
+    position: absolute;
+    width: 117px;
+    height: 117px;
+    border-radius: 50%;
+    border: 0;
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 0 5px;
+    line-height: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    font-size: 21px;
+    display: flex!important;
+    top: 35px;
+}
+
 .shopify-section--pdp-featured .product-label--promo {
     display: none;
 }

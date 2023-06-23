@@ -2,7 +2,6 @@
     assign opt1 = current_variant.option1 | handleize
     assign starter_bundle = collections.all.products | where: 'data-handle', 'starter-bundle'
     assign starter_true = true
-     assign product_handle = product.handle 
 -%}
 {%- if settings.sale-badge-enabled -%}
     {%- liquid
@@ -400,10 +399,24 @@
         </div>
     {%- endif -%}
 
+    {%- if settings.hot-deals-badge-enabled -%}
+        {%- liquid
+            assign hotDealsVariants = false
+            for tag in product.tags
+                assign splitted_tag = tag | split: ":"
+                if splitted_tag[0] == 'hot-deals'
+                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+                endif
+            endfor
+        -%}
     
-
-    
-
+        {%- if hotDealsVariants != false -%}
+            <div class="product-label product-label--final hot-deals-badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+                {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+                Hot Deal
+            </div>
+        {%- endif -%}
+    {%- endif -%}
         
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
@@ -445,5 +458,4 @@
     {%- if best_seller == true -%}
         <div class="product-label">Bestseller</div>
     {%- endif -%}
-    
 </div>
