@@ -2,6 +2,7 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -28,7 +29,6 @@
     },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -215,8 +215,8 @@
             "product_list": [
 
             ],
-            "image": "shopify:\/\/shop_images\/3_Piece-1.png",
-            "description": "Carry-On + Medium + Large\nGet FREE Gift",
+            "image": "shopify:\/\/shop_images\/3_Piece_2c255d43-7b5d-400e-8697-6e217366aa6f.webp",
+            "description": "Carry-On + Medium + Large",
             "filter-in-parent": false
           }
         },
