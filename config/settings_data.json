@@ -32,7 +32,7 @@
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "sale-badge",
+    "sale-badge-tag": "Final Sale",
     "sale-badge-text": "Special Offer",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": true,
