@@ -71,13 +71,11 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "Travel More Sale",
+            "title": "Early Access Travel More Sale",
             "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
             "main-link": "shopify:\/\/collections\/sale",
             "button-text": "Shop Now",
@@ -91,7 +89,6 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TMS.gif",
             "image-mobile": "shopify:\/\/shop_images\/Frame_1-11.png",
@@ -108,7 +105,6 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_1-11.png",
             "video": "",
@@ -139,9 +135,11 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Fresh Summer Styles",
             "description": "<p>Explore bags for your sweetest summer yet.<\/p>",
@@ -157,6 +155,7 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION0686-3_038b202f-1c6c-441f-9820-1c5ef895c94c.jpg",
             "video": "",
@@ -172,6 +171,7 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION1069-2.jpg",
             "image-mobile": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION0686-2_3e13481c-59a5-4bb4-884f-e22aabc49b8c.jpg",
@@ -476,9 +476,10 @@
         "description": "",
         "quick-view": true,
         "product-labels": true,
-        "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Marine_0791-2_1.jpg",
+        "image": "shopify:\/\/shop_images\/CalPak6870a-3.jpg",
+        "video": "",
         "media-link": "shopify:\/\/collections\/sale",
-        "pictured-product": "",
+        "pictured-product": "terra-26l-backpack-duffel",
         "pictured-product-quick-view": false,
         "pictured-product-override": "",
         "pictured-product-title": "",
@@ -486,14 +487,19 @@
         "button-quick-view": false,
         "button-link": "shopify:\/\/collections\/sale",
         "background": "#ff6b0e",
-        "text-color": "#fff",
-        "accent-color": "#fff",
+        "text-color": "#000000",
+        "accent-color": "#000000",
         "pictured-product-display": "top",
         "featured-collection": "sale",
         "collection-limit": 6,
         "show-view-all": false,
         "product_list": [
-
+          "terra-26l-backpack-duffel",
+          "starter-bundle",
+          "haven-laptop-tote-bag",
+          "kaya-laptop-backpack",
+          "luka-mini-belt-bag",
+          "insulated-lunch-bag"
         ],
         "columns": "3"
       }

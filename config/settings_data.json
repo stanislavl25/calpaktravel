@@ -32,8 +32,8 @@
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "sale-badge",
-    "sale-badge-text": "Special Offer",
+    "sale-badge-tag": "yellowbadge",
+    "sale-badge-text": "Early Access Sale",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": true,
     "sale-badge-tag-bundle": "sale-bubble",
@@ -79,6 +79,7 @@
           },
           "66117e8e-72a2-4c4a-9251-d53677ed9255": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -96,12 +97,11 @@
           },
           "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "EARLY ACCESS: Save big, travel more— up to 60% off best-sellers NOW.",
+              "block-title": "Early Access: Save big, travel more— up to 60% off best-sellers NOW.",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
@@ -153,8 +153,8 @@
             "settings": {
               "title": "Shop: Featured: Carousel of Best sellers",
               "submenu-number": 1,
-              "collection": "3-piece-luggage-sets",
-              "block-title": "Explore Our Best Sellers"
+              "collection": "sale",
+              "block-title": "Explore Our Travel More Sale"
             }
           },
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
@@ -353,9 +353,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false,
-          "live-start-time": "June 16, 2023 12:37PM",
-          "live-end-time": "June 16, 2023 12:40PM"
+          "live": true,
+          "live-start-time": "June 26, 2023 12:00PM",
+          "live-end-time": "June 26, 2023 1:00PM"
         }
       },
       "footer": {
@@ -637,6 +637,7 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -652,7 +653,6 @@
           },
           "97742501-521b-4ea2-a166-533c5387df96": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -844,6 +844,7 @@
         "blocks": {
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -858,14 +859,13 @@
           },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Early Access to Travel More Sale((countdown))<\/p>",
+              "content": "<p>Early Access to the Travel More Sale((countdown)) <\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""

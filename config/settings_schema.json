@@ -545,7 +545,7 @@
         "type": "text",
         "id": "hot-deals-ends",
         "label": "End date\/time",
-        "info": "Format: 'Month DD, YYYY hh:mmam/pm'. All times should be in PDT."
+        "info": "Format: 'Month DD, YYYY hh:mmam\/pm'. All times should be in PDT."
       }
     ]
   },

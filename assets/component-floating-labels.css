@@ -56,6 +56,9 @@
     z-index: 5;
     font-size: 21px;
 }
+.pdp__grid[data-status="sold-out"] .pdp__gallery-container .product-label[data-options="false"] {
+    display: none !important;
+}
 .pdp__gallery-container .product-label.product-label--active,
 .pdp__gallery-container .product-label[data-options="false"] {
     display: flex !important;
