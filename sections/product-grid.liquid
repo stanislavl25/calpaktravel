@@ -894,6 +894,34 @@
                         "default": "1"
                     },
                     {
+                        "type": "select",
+                        "id": "media-type",
+                        "label": "Cover Media Type",
+                        "options": [
+                            {
+                                "value": "image",
+                                "label": "Image"
+                            },
+                            {
+                                "value": "video",
+                                "label": "Video"
+                            }
+                        ],
+                        "default": "image"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "banner-image",
+                        "label": "Cover Image for Banner",
+                        "info": "Only applies if Image is the Cover Media Type Selected"
+                    },
+                    {
+                        "type": "video",
+                        "id": "banner-video",
+                        "label": "Cover Video for Banner",
+                        "info": "Only applies if Video is the Cover Media Type Selected"
+                    },
+                    {
                         "type": "number",
                         "id": "banner-media-height",
                         "label": "Cover Media Height on Desktop in pixels",
