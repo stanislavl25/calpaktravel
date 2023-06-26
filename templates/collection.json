@@ -587,6 +587,8 @@
             "banner-text": "Summer Arrivals",
             "row": "1",
             "row_mobile": "1",
+            "media-type": "image",
+            "banner-image": "shopify:\/\/shop_images\/Rectangle_3701_4d750e61-3053-4889-9361-8a5c1b3feccc.png",
             "banner-media-height": 500,
             "banner-media-height-mobile": 300,
             "banner-text-color": "#000000",
