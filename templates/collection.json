@@ -933,16 +933,16 @@
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "jewelry-case",
+              "kaya-laptop-backpack",
+              "terra-26l-backpack-duffel",
               "haven-laptop-tote-bag",
               "insulated-lunch-bag",
-              "luka-mini-backpack",
-              "luka-mini-belt-bag",
-              "padded-laptop-sleeve",
-              "terra-26l-backpack-duffel",
               "terra-hanging-toiletry-bag",
-              "kaya-laptop-backpack",
-              "terra-sling-bag"
+              "jewelry-case",
+              "luka-mini-belt-bag",
+              "luka-mini-backpack",
+              "terra-sling-bag",
+              "padded-laptop-sleeve"
             ]
           }
         }
