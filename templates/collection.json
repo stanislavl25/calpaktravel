@@ -579,6 +579,7 @@
         },
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
           "type": "banner",
+          "disabled": true,
           "settings": {
             "display": "desktop",
             "collection_list": [
@@ -600,8 +601,8 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 3,
-            "column": 1,
+            "row": 2,
+            "column": 4,
             "col_span": 2,
             "mobile_row": 5,
             "column_mobile": 1,
@@ -800,7 +801,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 7,
+            "row": 6,
             "column": 4,
             "col_span": 2,
             "mobile_row": 1,
@@ -820,7 +821,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 8,
+            "row": 7,
             "column": 1,
             "col_span": 2,
             "mobile_row": 17,
