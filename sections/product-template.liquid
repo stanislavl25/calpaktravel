@@ -194,10 +194,87 @@
                         <section class="pdp__header">
                             <h1 class="pdp__title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</h1>
 
-                            {% render 'pdp-meta', current_variant: current_variant %}
+
+
+                            <section class="pdp__meta">
+
+                            
+                                {%- if product.metafields.custom.featured_collection != blank -%}
+                                    {%- assign collection = collections[product.metafields.custom.featured_collection] -%}
+                                    <div class="pdp__feat-col">Part of <a href="{{ collection.url }}">{{- collection.title | escape -}}</a></div>
+                                {%- endif -%}
+
+                                <div class="pdp__reviews-cont">
+                                    <a href="{{ product.url }}/reviews" class="pdp__reviews">
+                                        {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+                                            {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+                                        {%- endif -%}
+                                    </a>
+                                </div>
+
+
+
+                                {%- comment -%}Purchased and Views widget{%- endcomment -%}
+                                {%- liquid
+                                    assign enable = false
+                                    for availableproduct in block.settings.available-products
+                                        if product.handle == availableproduct.handle
+                                            assign enable = true
+                                        endif
+                                    endfor
+                                -%}
+                                {% if enable %}
+                                <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
+                                <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+
+                                        const purchased_text = '{purchased} items purchased in the last 24 hours';
+                                        const views_text = '{views} items viewed in the last 24 hours';
+
+                                        window.fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
+                                            method: 'GET',
+                                            redirect: 'follow'
+                                        })
+                                        .then(response => response.json())
+                                        .then(result => {
+        
+                                            const mapObj = {
+                                                '{purchased}': result.data.itemsPurchased,
+                                                '{views}': result.data.itemsViewed,
+                                            };
+
+                                            const purchased_final = purchased_text.replace(/{purchased}|{views}/gi, matched => mapObj[matched]);
+                                            const views_final = views_text.replace(/{purchased}|{views}/gi, matched => mapObj[matched]);
+    
+                                            try { document.querySelector('#pdp__views-counter').innerHTML = views_final; } catch {}
+                                            try { document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final; } catch {}
+
+                                        })
+                                        .catch(error => console.log('error', error));
+                                    });
+                                </script>
+                                {% endif %}
+
+                                <div class="pdp__price">
+                                    <div class="pdp__price-inner">
+                                        {%- if current_variant.compare_at_price > current_variant.price -%}
+                                        <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+                                        {%- endif -%}
+                                        <b>{{- current_variant.price | money_without_trailing_zeros -}}</b>
+                                    </div>
+                                </div>
+                            </section>
+
+                            
+                            
+
+
                             {%- if description_reviews_split -%}
                                 {% render 'pdp-description-reviews', description_reviews_split: description_reviews_split %}
                             {%- endif -%}
+                            
+
                         </section>
                     {%- when 'variants' -%}
                         {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
@@ -212,7 +289,79 @@
                     {%- when 'submit' -%}
                         {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
                         {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
-                        {%- when 'arrival' -%}
+                    {%- when 'purchase-counter' -%}
+                        {%- liquid
+                            assign enable = false
+                            for availableproduct in block.settings.available-products
+                                if product.handle == availableproduct.handle
+                                    assign enable = true
+                                endif
+                            endfor
+                        -%}
+                        {% if enable %}
+                        <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const counter_text    = '{{ block.settings.text }}';
+                                window.fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
+                                    method: 'GET',
+                                    redirect: 'follow'
+                                })
+                                .then(response => response.json())
+                                .then(result => {
+                                    console.log(result);
+
+                                    var mapObj = {
+                                        '{purchased}': result.data.itemsPurchased,
+                                        '{views}': result.data.itemsViewed,
+                                    };
+
+                                    counter_final = counter_text.replace(/{purchased}|{views}/gi, function(matched){
+                                        return mapObj[matched];
+                                    });
+                                    document.querySelector('#pdp__purchased-counter').innerHTML = counter_final;
+                                })
+                                .catch(error => console.log('error', error));
+                            });
+                        </script>
+                        {% endif %}
+                    {%- when 'views-counter' -%}
+                        {%- liquid
+                            assign enable = false
+                            for availableproduct in block.settings.available-products
+                                if product.handle == availableproduct.handle
+                                    assign enable = true
+                                endif
+                            endfor
+                        -%}
+                        {% if enable %}
+                        <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const counter_text    = '{{ block.settings.text }}';
+                                window.fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
+                                    method: 'GET',
+                                    redirect: 'follow'
+                                })
+                                .then(response => response.json())
+                                .then(result => {
+                                    console.log(result);
+
+                                    var mapObj = {
+                                        '{purchased}': result.data.itemsPurchased,
+                                        '{views}': result.data.itemsViewed,
+                                    };
+
+                                    counter_final = counter_text.replace(/{purchased}|{views}/gi, function(matched){
+                                        return mapObj[matched];
+                                    });
+                                    document.querySelector('#pdp__views-counter').innerHTML = counter_final;
+                                })
+                                .catch(error => console.log('error', error));
+                            });
+                        </script>
+                        {% endif %}
+                    {%- when 'arrival' -%}
                         {%- liquid
                             assign enable = false
                             for availableproduct in block.settings.available-products
@@ -379,7 +528,14 @@
             {
                 "type": "title",
                 "name": "Title",
-                "limit": 1
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    }
+                ]
             },
             {
                 "type": "variants",
@@ -412,6 +568,40 @@
             {
                 "type": "arrival",
                 "name": "Estimated arrival",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "text",
+                        "label": "Messgage template"
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "purchase-counter",
+                "name": "Purchase counter",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "text",
+                        "label": "Messgage template"
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "views-counter",
+                "name": "Views counter",
                 "settings": [
                     {
                         "type": "product_list",

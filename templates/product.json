@@ -224,6 +224,13 @@
         "38dd47f4-7ad6-4f58-9949-bd511635652e": {
           "type": "title",
           "settings": {
+            "available-products": [
+              "small-clear-cosmetics-case",
+              "luka-laptop-backpack",
+              "starter-bundle",
+              "medium-clear-cosmetics-case",
+              "tech-organizer"
+            ]
           }
         },
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
