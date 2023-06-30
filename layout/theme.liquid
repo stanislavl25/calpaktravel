@@ -284,6 +284,9 @@
               {% section 'gwp' %}
               {%- if template != 'cart' -%}
                   {% section 'cart' %}
+                  <div style="display: none;">
+                    {% section 'cart-pair-upsell' %}
+                  </div>
               {%- endif -%}
   
               <section class="header__container">
