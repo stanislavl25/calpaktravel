@@ -31,7 +31,7 @@
           "settings": {
             "title": "History",
             "image": "shopify:\/\/shop_images\/477053725-about-us_timeline_2013.png",
-            "section-scroll": 7
+            "section-scroll": 6
           }
         },
         "2cddfbd1-220b-42a6-bd11-4f52f1c92983": {
@@ -55,9 +55,7 @@
         "controls": true,
         "loop": false,
         "video-ratio-w": "256",
-        "video-ratio-h": "135",
-        "show-video-on-mobile": true,
-        "video-mob": ""
+        "video-ratio-h": "135"
       }
     },
     "09d0df49-64b7-45c2-9ef4-3220eed6bb3e": {
@@ -66,8 +64,6 @@
         "title": "CALPAK is a bag company for every day and far away. ",
         "text": "<p>We bring utility and a playful spirit to our unique designs, to help you discover the joy of getting there. <\/p>",
         "button-text": "",
-        "button-behavior": "link",
-        "scroll-to": 3,
         "link": "",
         "link-for-button": false,
         "height": "content",
@@ -152,8 +148,6 @@
         "title": "Going places since 1989, CALPAK exists for those who welcome the unknown, who seek the new, and find joy in the journey.",
         "text": "",
         "button-text": "",
-        "button-behavior": "link",
-        "scroll-to": 3,
         "link": "",
         "link-for-button": false,
         "height": "content",
