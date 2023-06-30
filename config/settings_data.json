@@ -875,7 +875,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Last Chance to get up to 60% off on the Travel More Sale((countdown)) <\/p>",
+              "content": "<p>Last chance! Up tp 60% off on the Travel More Sale((countdown)) <\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
@@ -909,8 +909,8 @@
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
           "countdown-active": false,
-          "countdown-show": "24",
-          "countdown-to": "Jun 27, 2023 10:00am"
+          "countdown-show": "48",
+          "countdown-to": "Jun 30, 2023 10:00am"
         }
       }
     },
