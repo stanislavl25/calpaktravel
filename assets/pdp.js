@@ -649,12 +649,10 @@ const changeBadgeAbsolutePosition = e => {
 
 document.addEventListener("DOMContentLoaded", function () {
     changeBadgeAbsolutePosition()
-    Fancybox.bind('[data-fancybox="gallery"]', {});
     const mediaColors = [...document.querySelectorAll(".pdp__media")]
     const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
-   
     for (let i = 0; i < mediaUniqueColors.length; i++) {
-      const color = mediaUniqueColors[i];
+        const color = mediaUniqueColors[i];
      if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
     }
 });
