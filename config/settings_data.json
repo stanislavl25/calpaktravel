@@ -597,15 +597,6 @@
           "max_value": 75
         }
       },
-      "cart-pair-upsell": {
-        "type": "cart-pair-upsell",
-        "settings": {
-          "collection": "best-sellers",
-          "product_list": [
-
-          ]
-        }
-      },
       "contact-form": {
         "type": "contact-form",
         "settings": {
