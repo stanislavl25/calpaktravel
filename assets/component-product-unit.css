@@ -2,6 +2,11 @@
     display: none!important;
 }
 
+.product-grid .product-label--active img {
+    border: 1px solid red;
+    border-radius: 9px; 
+}
+
 .product-unit {
     position: relative;
     display: flex;

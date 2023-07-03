@@ -237,6 +237,8 @@
                     render 'banner-image-grid' with block as block
                 when 'hot-deals-banner'
                     render 'hot-deals-banner' with block as block
+                when 'hot-deals-banner-sale'
+                    render 'hot-deals-banner-sale' with block as block
             endcase
         endfor
     -%}
@@ -950,6 +952,85 @@
             {
                 "type": "hot-deals-banner",
                 "name": "Hot Deals Banner",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Settings"
+                    },
+                    {
+                        "type": "select",
+                        "id": "display",
+                        "label": "Display rules for banner",
+                        "options": [
+                            {
+                            "value": "desktop",
+                            "label": "Only Desktop"
+                            },
+                            {
+                            "value": "mobile",
+                            "label": "Only Mobile"
+                            },
+                            {
+                            "value": "both",
+                            "label": "Desktop and Mobile"
+                            }
+                        ],
+                        "default": "desktop"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list",
+                        "label": "Collections to display on the banner",
+                        "info": "If no collections are selected, the banner will be displayed on all collections"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop",
+                        "label": "Hot Deals Header Image Desktop"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-mobile",
+                        "label": "Hot Deals Header Image Mobile"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row",
+                        "label": "Row desktop position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row_mobile",
+                        "label": "Row mobile position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-color",
+                        "label": "Central Banner Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-background-color",
+                        "label": "Central Banner Text Background Color",
+                        "default": "#FFF"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Featured Products"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "featured_products",
+                        "label": "Featured Products List"
+                    }
+                ]
+            },
+            {
+                "type": "hot-deals-banner-sale",
+                "name": "Hot Deals Banner Sale",
                 "settings": [
                     {
                         "type": "header",
