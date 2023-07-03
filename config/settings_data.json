@@ -904,6 +904,12 @@
           "countdown-show": "48",
           "countdown-to": "July 7, 2023 11:00am"
         }
+      },
+      "checkout-countdown": {
+        "type": "checkout-countdown",
+        "settings": {
+          "show-countdown-message": true
+        }
       }
     },
     "content_for_index": [
