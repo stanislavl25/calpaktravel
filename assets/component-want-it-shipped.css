@@ -1,9 +1,15 @@
 .want-it-shipped {
     line-height: 170%;
+    font-size: 14px;
+    line-height: 22px;
+    gap: 5px;
 }
 
 .want-it-shipped .order-by-date {
     background: #e7e7e7;
-    padding: 4px 8px;
     border-radius: 6px;
+    padding: 0 8px;
+    white-space: nowrap;
+    align-self: flex-start;
+    font-weight: inherit;
 }
