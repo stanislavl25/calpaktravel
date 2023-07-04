@@ -103,7 +103,7 @@
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "Save big, travel more— up to 60% off best-sellers NOW.",
+              "block-title": "Last Chance: Save big, travel more— up to 60% off best-sellers NOW.",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
@@ -355,9 +355,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false,
-          "live-start-time": "June 26, 2023 12:00PM",
-          "live-end-time": "June 26, 2023 1:00PM"
+          "live": true,
+          "live-start-time": "July 7, 2023 10:00AM",
+          "live-end-time": "July 7, 2023 11:00AM"
         }
       },
       "footer": {
@@ -846,6 +846,7 @@
         "blocks": {
           "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -860,7 +861,6 @@
           },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -900,7 +900,7 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": false,
+          "countdown-active": true,
           "countdown-show": "48",
           "countdown-to": "July 7, 2023 11:00am"
         }
