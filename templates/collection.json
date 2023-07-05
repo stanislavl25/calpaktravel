@@ -34,7 +34,7 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Travel More Sale",
+        "title-above": "Last Chance: Travel More Sale",
         "main-text": "<p>Get up to 60% off best-sellers for a limited-time only.<\/p>",
         "hide": false,
         "product_list": [
@@ -936,15 +936,15 @@
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "kaya-laptop-backpack",
               "terra-26l-backpack-duffel",
+              "kaya-laptop-backpack",
               "haven-laptop-tote-bag",
               "insulated-lunch-bag",
               "terra-hanging-toiletry-bag",
               "jewelry-case",
+              "terra-sling-bag",
               "luka-mini-belt-bag",
               "luka-mini-backpack",
-              "terra-sling-bag",
               "padded-laptop-sleeve"
             ]
           }

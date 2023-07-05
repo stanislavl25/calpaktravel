@@ -8,7 +8,7 @@
     "free-shipping": 75,
     "show-cart-gamification": false,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
-    "product-disclaimer": true,
+    "product-disclaimer": false,
     "product-disclaimer-no-final": true,
     "sale-enabled": true,
     "sale-tag": "postcm-sale",
@@ -18,30 +18,31 @@
     "extra-sale-tag": "",
     "extra-sale-text-pdp": "",
     "extra-sale-text": "",
-    "flash-sale-enabled": false,
-    "flash-sale-tag": "memorialdaysale",
+    "flash-sale-enabled": true,
+    "flash-sale-tag": "travelmore",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "May 29 2023, 11:00am",
-    "flash-sale-ends": "May 31 2023, 11:00am",
+    "flash-sale-starts": "July 5, 2023 11:00am",
+    "flash-sale-ends": "July 7, 2023 11:00am",
     "flash-sale-countdown": "48",
-    "flash-sale-accent": "#46da81",
+    "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": false,
-    "countdown-label-collection-enabled": true,
+    "countdown-label-collection-enabled": false,
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
     "sale-badge-tag": "yellowbadge",
     "sale-badge-text": "Travel More Sale",
     "sale-badge-bg": "#f7f177",
-    "sale-msg-starter": true,
-    "sale-badge-tag-bundle": "sale-bubble",
+    "sale-msg-starter": false,
+    "sale-badge-tag-bundle": "",
     "starter-bundle-badge": "Gift With Purchase",
     "sale-badge-text-starter": "Special Offer",
     "sale-badge-hide-textog": true,
     "starter__customizer-badge": "#f7f177",
     "hot-deals-badge-enabled": false,
+    "hot-deals-ends": "July 7, 2023 11:00am",
     "chk-msg-enabled": false,
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": false,
@@ -103,7 +104,7 @@
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "Save big, travel more— up to 60% off best-sellers NOW.",
+              "block-title": "Last Chance: Save big, travel more— up to 60% off best-sellers NOW.",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
@@ -355,9 +356,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false,
-          "live-start-time": "June 26, 2023 12:00PM",
-          "live-end-time": "June 26, 2023 1:00PM"
+          "live": true,
+          "live-start-time": "July 7, 2023 10:00AM",
+          "live-end-time": "July 7, 2023 11:00AM"
         }
       },
       "footer": {
@@ -846,6 +847,7 @@
         "blocks": {
           "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -860,14 +862,13 @@
           },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Early Access to the Travel More Sale((countdown)) <\/p>",
+              "content": "<p>Last chance to shop the Travel More Sale((countdown)) <\/p>",
               "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
@@ -900,9 +901,15 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": false,
-          "countdown-show": "24",
-          "countdown-to": "Jun 27, 2023 10:00am"
+          "countdown-active": true,
+          "countdown-show": "48",
+          "countdown-to": "July 7, 2023 11:00am"
+        }
+      },
+      "checkout-countdown": {
+        "type": "checkout-countdown",
+        "settings": {
+          "show-countdown-message": true
         }
       }
     },
