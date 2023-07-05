@@ -23,9 +23,18 @@
     border-radius: 6px;
     background: #f7f7f7;
 }
+.product-unit--add-sale-badge-bundle .countdown-sale-badge-label  {
+    display: none !important;
+}
 
 .product-label--badge {
     display: none;
+}
+.pdp__gallery-container > .product-label--badge.product-label--active, 
+.product-label--badge.badge-active {
+    width: 117px;
+    height: 117px;
+    font-size: 21px;
 }
 .product-label--badge.product-label--active, 
 .product-label--badge.badge-active {
@@ -46,7 +55,13 @@
     justify-content: center;
     z-index: 5;
     font-size: 21px;
-    display: flex!important;
+}
+.pdp__grid[data-status="sold-out"] .pdp__gallery-container .product-label[data-options="false"] {
+    display: none !important;
+}
+.pdp__gallery-container .product-label.product-label--active,
+.pdp__gallery-container .product-label[data-options="false"] {
+    display: flex !important;
 }
 .product-label--badge.product-label--badge-collection-page {
     right: 11.01px;
@@ -54,6 +69,29 @@
     width: 74px;
     height: 74px;
     font-size: 14px;
+    display: flex !important;
+}
+
+.hot-deals-badge.product-label--active {
+    right: 31px;
+    margin-right: 0;
+    position: absolute;
+    width: 117px;
+    height: 117px;
+    border-radius: 50%;
+    border: 0;
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 0 5px;
+    line-height: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    font-size: 21px;
+    display: flex!important;
+    top: 35px;
 }
 
 .shopify-section--pdp-featured .product-label--promo {
@@ -120,12 +158,17 @@
     font-size: 14px;
 }
 @media screen and (max-width:649px) {
-    .product-label--badge.product-label--active, 
+    .menu-popup--search.menu-popup--visible .product-label--badge.product-label--active, .product-label--badge.badge-active {
+        display: none;
+    }
+    .pdp__gallery-container > .product-label--badge.product-label--active, 
     .product-label--badge.badge-active {
         width: 74px;
         height: 74px;
         font-size: 14px;
+        display: flex;
     }
+
 .cart__upsell .product-label--badge.badge-active,
 .pdp__upsell .product-label--badge.badge-active, 
 .shopify-section--pdp-featured .product-label--badge.badge-active{

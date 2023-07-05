@@ -111,7 +111,7 @@
 
     {%- if disclaimer != false -%}
     <div class="product-label product-label--disclaimer{% if settings.product-disclaimer-no-final %} product-label--disclaimer--no-final{% endif %}{% if disclaimer contains opt1 and disclaimer != true %} product-label--active{% endif %}"
-        {% if disclaimer != true %}data-options="{{ disclaimer | join: ' ' }}"{% endif %}">
+        {% if disclaimer != true %}data-options="{{ disclaimer | join: ' ' }}"{% endif %}>
         {{- settings.product-disclaimer-text -}}
     </div>
     {%- endif -%}
