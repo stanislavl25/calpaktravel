@@ -281,6 +281,8 @@
                         {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
                     {%- when 'flash-sale' -%}
                         {% render 'flash-sale-label', current_variant: current_variant %}
+                    {%- when 'yotpo-loyalty' -%}
+                        {% render 'yotpo-loyalty-points-banner' %}
                     {%- when 'product-labels' -%}
                         <section class="pdp__form-labels">
                         {% render 'product-form-labels', location: 'pdp', current_variant: current_variant, finalSale: finalSale %}
@@ -551,6 +553,11 @@
             {
                 "type": "flash-sale",
                 "name": "Flash sale label",
+                "limit": 1
+            },
+            {
+                "type": "yotpo-loyalty",
+                "name": "Yotpo Loyalty Banner",
                 "limit": 1
             },
             {
