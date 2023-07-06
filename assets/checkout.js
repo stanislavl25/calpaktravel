@@ -215,6 +215,15 @@ function addGiftNoteField() {
     }
 }
 
+function lookFreeShipping() {
+    const priceBadge = '<span class="free-upgrade">Free Upgrade</span>';
+    try {
+        document.querySelector('[data-shipping-method-label-title="Standard Ground Shipping"]').parentElement.querySelector('.radio__label__accessory span').innerHTML = '<s>$15.00</s>';
+        document.querySelector('[data-shipping-method-label-title="Standard Ground Shipping"]').parentElement.insertAdjacentHTML('beforeend', priceBadge);
+        clearInterval(freeUpgradeInterval);
+    } catch {}
+}
+
 jQuery(document).ready(function($){
     if(Shopify.Checkout.step == 'contact_information') {
         $('.gift-checkbox').click(function() {
@@ -338,6 +347,13 @@ jQuery(document).ready(function($){
                 $(".countdown__checkout span").html('00:00');
             }
         }, 1000);
+    }
+
+    // AB Logic 
+    if(google_optimize && google_optimize.get('cOTsgH-0S1G_D2IxnP4Sdg') === '1' && Shopify.Checkout.step == 'shipping_method'){
+        const freeUpgradeInterval = setInterval(lookFreeShipping, 100);
+        //Temporal Code
+        console.log('Running Experiment: Free Shipping')
     }
 });
 
