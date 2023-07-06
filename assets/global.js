@@ -491,7 +491,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 hoverImg.classList.add('img-hover');
                 hoverImg.setAttribute('loading', 'eager');
                 target.querySelector('.product-unit__image').appendChild(hoverImg);
+                if(target.parentNode.classList.contains('free-gift__selector-product')) {
+                    hoverImg.remove();
+                }
             }
+            
         }
 
         options += `<option

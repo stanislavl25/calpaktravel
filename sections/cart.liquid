@@ -218,6 +218,14 @@
     </div>
 
     <div class="cart__footer">
+      {% if section.settings.courtesy-banner %}
+        <div class="cart__courtesty-banner">
+          <img src="{{ 'courtesy-banner-logo.png' | asset_url }}" alt="Courtesy banner logo">
+          <div class="cart__courtesy-banner-text">
+            <p>One Courtesy Exchange with Free Shipping!</p>
+          </div>
+        </div>
+      {% endif %}
       <div class="cart__footer-total">
         <dl class="cart__total-row cart__total-row--total">
           <dt class="cart__total-name">Estimated Total</dt>
@@ -322,6 +330,15 @@
         "type": "number",
         "id": "max_value",
         "label": "Gamification max value"
+      },
+      {
+        "type": "header",
+        "content": "Courtesy banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "courtesy-banner",
+        "label": "Display courtesy banner"
       }
     ],
     "blocks": [

@@ -722,6 +722,43 @@ p.pdp__stock-variant {
     font-size: 13px;
 }
 
+.pdp__purchased-counter,
+.pdp__views-counter {
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 16px;
+    position: relative;
+    margin: 10px 0 5px;
+}
+
+.pdp__purchased-counter::before,
+.pdp__purchased-counter::after,
+.pdp__views-counter::before,
+.pdp__views-counter::after {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.pdp__purchased-counter::after,
+.pdp__views-counter::after {
+    width: 7px;
+    height: 7px;
+    border: 0;
+    background-color: #000;
+    transform: translate(1.5px, 1.5px);
+}
+
+.pdp__purchased-counter--hidden,
+.pdp__views-counter--hidden {
+    display: none;
+}
+
 .variant_data {
     display: none;
 }

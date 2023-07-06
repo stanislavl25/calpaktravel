@@ -302,6 +302,7 @@ window.addEventListener("load", () => {
 
         const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
+        const signUpSection = document.querySelector('.shopify-section--contact-form');
         if(floatingPDPSubmit && pdpSubmitSection) {
             let observer = new IntersectionObserver(function(entries){
                 entries.forEach(entry => {
@@ -312,6 +313,19 @@ window.addEventListener("load", () => {
             }, {threshold: 0, rootMargin: '0px'});
 
             observer.observe(pdpSubmitSection);
+        }
+        if(signUpSection) {
+            let observer = new IntersectionObserver(function(entries){
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingPDPSubmit.classList.remove('pdp__floating-submit--active');
+                    }
+                    else {
+                        floatingPDPSubmit.classList.add('pdp__floating-submit--active');
+                    }
+                })
+            })
+            observer.observe(signUpSection);
         }
 
         const select = pdpGrid.querySelector('.variant-select');
@@ -649,12 +663,10 @@ const changeBadgeAbsolutePosition = e => {
 
 document.addEventListener("DOMContentLoaded", function () {
     changeBadgeAbsolutePosition()
-    Fancybox.bind('[data-fancybox="gallery"]', {});
     const mediaColors = [...document.querySelectorAll(".pdp__media")]
     const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
-   
     for (let i = 0; i < mediaUniqueColors.length; i++) {
-      const color = mediaUniqueColors[i];
+        const color = mediaUniqueColors[i];
      if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
     }
 });

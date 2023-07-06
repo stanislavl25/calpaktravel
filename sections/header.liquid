@@ -105,7 +105,13 @@
     <nav class="site-header__nav">
         <ul>
             <li class="site-header__menu-item hide-small">
-                <a id="click-desktop-nav-rewards" class="click-desktop-nav-rewards" href="/pages/rewards">Get $5</a>
+                <a id="click-desktop-nav-rewards" class="click-desktop-nav-rewards" href="/pages/rewards">
+                    {%- if customer -%}
+                        Rewards
+                    {%- else -%}
+                        Get $5
+                    {%- endif -%}
+                </a>
             </li>
             <li class="site-header__dropdown subnav__container site-header__menu-item hide-small">
                 <a href="{{ routes.account_url }}" class="subnav__activator">

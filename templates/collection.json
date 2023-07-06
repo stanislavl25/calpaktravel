@@ -34,7 +34,7 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Travel More Sale",
+        "title-above": "Last Chance: Travel More Sale",
         "main-text": "<p>Get up to 60% off best-sellers for a limited-time only.<\/p>",
         "hide": false,
         "product_list": [
@@ -579,6 +579,7 @@
         },
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
           "type": "banner",
+          "disabled": true,
           "settings": {
             "display": "desktop",
             "collection_list": [
@@ -600,7 +601,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 3,
+            "row": 2,
             "column": 1,
             "col_span": 2,
             "mobile_row": 5,
@@ -800,7 +801,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 7,
+            "row": 6,
             "column": 4,
             "col_span": 2,
             "mobile_row": 1,
@@ -820,7 +821,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 8,
+            "row": 7,
             "column": 1,
             "col_span": 2,
             "mobile_row": 17,
@@ -935,15 +936,15 @@
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "kaya-laptop-backpack",
               "terra-26l-backpack-duffel",
+              "kaya-laptop-backpack",
               "haven-laptop-tote-bag",
               "insulated-lunch-bag",
               "terra-hanging-toiletry-bag",
               "jewelry-case",
+              "terra-sling-bag",
               "luka-mini-belt-bag",
               "luka-mini-backpack",
-              "terra-sling-bag",
               "padded-laptop-sleeve"
             ]
           }
