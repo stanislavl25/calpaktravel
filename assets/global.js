@@ -964,7 +964,14 @@ function activateVideoContainer(video) {
             })
             .then(response => response.json())
             .then(response => {
-                video.style.setProperty('--ratio', `${response.width} / ${response.height}`)
+                let videos = document.querySelectorAll(`.video-iframe-container[data-vimeo-id="${vimeoId}"]`);
+                videos.forEach(video => {
+                    video.style.setProperty('--ratio', `${response.width} / ${response.height}`);
+                    if(video.closest('.video-slider__slide')) {
+                        video.parentNode.style.padding = '0';
+                        video.parentNode.style.aspectRatio = `${response.width} / ${response.height}`;
+                    }
+                });
             })
             .catch((error) => {
                 console.error('Error:', error);

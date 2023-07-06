@@ -10,7 +10,7 @@
     display: none;
 }
 
-.video-slider__slide {
+.video-slider__slide .video-container {
     border-radius: 9px;
     overflow: hidden;
 }
