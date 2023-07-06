@@ -243,6 +243,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
     });
 
+    if(isProductUnit && target.hasAttribute('data-single')) collectionLimit = [target.getAttribute('data-single')];
+
     for(let i = 0; i < product.options.length; i++) {
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;

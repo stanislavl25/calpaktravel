@@ -151,6 +151,10 @@
     transition: opacity 0.3s;
 }
 
+.product-unit[data-single] .product-unit__colors {
+    display: none;
+}
+
 .product-unit__colors--all {
     bottom: 12px;
     left: 16px;

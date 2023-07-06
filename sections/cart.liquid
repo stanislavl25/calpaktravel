@@ -258,7 +258,6 @@
 </div>
 
 <script>
-
   window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};{% if settings.show-cart-gamification == true %}
     window.settings["cartGamification"] = {
       subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
@@ -329,7 +328,8 @@
       }, {
         "type": "number",
         "id": "max_value",
-        "label": "Gamification max value"
+        "label": "Gamification max value",
+        "default": 0
       },
       {
         "type": "header",

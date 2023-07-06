@@ -247,6 +247,24 @@
   order: 999;
 }
 
+.cart__item-preorder {
+    background: var(--yellow);
+    color: #000;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 0 8px;
+    line-height: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.cart__item-preorder span {
+    white-space: normal;
+    text-align: right;
+}
+
 .cart__item--gift .cart__item-price-row,
 .cart__item--gift .cart__item-wishlist,
 .cart__item--gift .cart__item-remove,
