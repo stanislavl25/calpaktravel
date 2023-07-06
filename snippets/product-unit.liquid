@@ -1,5 +1,8 @@
 {%- liquid
     assign product = product-unit
+    assign hotDealsTag = false
+    assign hotDealsVariants = false
+
     if product.product != blank
         assign product = product.product
     endif
@@ -13,6 +16,11 @@
             assign limitSearch = in_collection.handle | append: ':'
 
             for tag in product.tags
+                assign splitted_tag = tag | split: ":"
+                if splitted_tag[0] == 'hot-deals'
+                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+                endif
+
                 if tag contains 'hide:'
                     assign val = tag | split: ":" | last
                     unless hide == ''
@@ -132,6 +140,19 @@
                 endif
             endfor
     endif
+
+    if hotDealsTag == true
+        assign now = "now" | date: '%s' | times: 1
+        assign ends = settings.hot-deals-ends | date: '%s' | times: 1
+        assign timeLeft = ends | minus: now
+        assign countdownTimer = false
+
+        if timeLeft < 172800
+            assign countdownTimer = true
+        else if timeLeft < 0
+            assign countdownTimer = false
+        endif
+    endif 
 -%}
 
 {%- unless cancelDisplay -%}
@@ -150,9 +171,9 @@
         data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-        class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %}"
+        class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false %} customBadge-class {% endif %}"
     >    
-    <div class="product-unit__image-wrapper splash">
+    <div class="product-unit__image-wrapper splash {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
         {%- if quick_view == true -%}
             <a class="quick-view__link quick-view__link--circle" href="{{ product.url }}" title="Quick View">
                 <img alt="Quick View" src="{{ 'quick-view-cross.svg' | asset_url }}" loading="lazy">
@@ -207,7 +228,8 @@
             {%- endif -%}
         {%- endfor -%}
 
-        <a href="{{ product.url }}" class="product-unit__image product-link">
+        <a href="{{ product.url }}" class="product-unit__image product-link {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
             {%- liquid
                 if img_lazy == blank and img_lazy != false
                     assign img_lazy = true
@@ -261,6 +283,20 @@
             {%- endif -%}
         </div>
     </div>
+
+    {%- if hotDealsVariants != false -%}
+        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+            Hot Deal
+        </div>
+    {%- endif -%}
+      
+    {%- if settings.hot-deals-badge-enabled == true and countdownTimer == true and hotDealsVariants contains opt1 -%}
+        <div class="product-label hot-deals-countdown-wrapper">
+            <label>Sale ends</label>
+            <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+        </div>
+    {%- endif -%}
 
     {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false

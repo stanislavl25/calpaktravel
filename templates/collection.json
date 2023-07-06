@@ -2,6 +2,7 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -28,15 +29,14 @@
     },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Memorial Day Sale",
-        "main-text": "<p>Up to 45% OFF Luggage, plus FREE 2-day express shipping over $300.<\/p>",
-        "hide": true,
+        "title-above": "Last Chance: Travel More Sale",
+        "main-text": "<p>Get up to 60% off best-sellers for a limited-time only.<\/p>",
+        "hide": false,
         "product_list": [
 
         ],
@@ -44,9 +44,9 @@
 
         ],
         "section-id": "",
-        "cta_link": "none",
-        "cta_url": "",
-        "cta_text": "",
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/sale",
+        "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
         "terms_text": "Terms & Conditions",
@@ -215,8 +215,8 @@
             "product_list": [
 
             ],
-            "image": "shopify:\/\/shop_images\/3_Piece-1.png",
-            "description": "Carry-On + Medium + Large\nGet FREE Gift",
+            "image": "shopify:\/\/shop_images\/3_Piece_2c255d43-7b5d-400e-8697-6e217366aa6f.webp",
+            "description": "Carry-On + Medium + Large",
             "filter-in-parent": false
           }
         },
@@ -579,6 +579,7 @@
         },
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
           "type": "banner",
+          "disabled": true,
           "settings": {
             "display": "desktop",
             "collection_list": [
@@ -595,11 +596,33 @@
             "banner-text-background-color": "#ffffff"
           }
         },
+        "8faf4caf-1276-4186-8468-5d0516de3da7": {
+          "type": "module",
+          "settings": {
+            "pictured_link": true,
+            "display": "both",
+            "row": 2,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 5,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "terra-26l-backpack-duffel",
+              "terra-hanging-toiletry-bag",
+              "terra-sling-bag"
+            ],
+            "image": "shopify:\/\/shop_images\/TERRA-26L-LAPTOP-BACKPACK-WHITE-SANDS-LIFESTYLE2_c597ca51-368e-436a-9338-bc30ba9e2a86.jpg"
+          }
+        },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
           "settings": {
-            "heading": "Video: Luka Large Duffel",
-            "index": 1,
+            "heading": "Video: Luka Carry-On",
+            "index": 9,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
             "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027.mp4",
@@ -609,6 +632,7 @@
         },
         "5a135156-ce8b-442d-a624-b2d324e911c8": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "desktop",
@@ -651,6 +675,7 @@
         },
         "00502ff4-5f0b-4184-8f85-af5354461ebd": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "desktop",
@@ -674,7 +699,7 @@
           "type": "static",
           "settings": {
             "heading": "Mobile: Luka Belt Bag",
-            "index": 5,
+            "index": 13,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
             "enable_static_for_mobile": true,
@@ -711,7 +736,7 @@
             "row": 4,
             "column": 5,
             "col_span": 1,
-            "mobile_row": 7,
+            "mobile_row": 14,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
@@ -727,8 +752,8 @@
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
-            "index": 11,
-            "enable_static_for_desktop": false,
+            "index": 19,
+            "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/image_188.png",
             "enable_static_for_mobile": true,
@@ -736,30 +761,9 @@
             "mobile_static_img": "shopify:\/\/shop_images\/image_188.png"
           }
         },
-        "8faf4caf-1276-4186-8468-5d0516de3da7": {
-          "type": "module",
-          "settings": {
-            "pictured_link": true,
-            "display": "both",
-            "row": 6,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "terra-26l-backpack-duffel",
-              "terra-hanging-toiletry-bag",
-              "terra-sling-bag"
-            ],
-            "image": "shopify:\/\/shop_images\/TERRA-26L-LAPTOP-BACKPACK-WHITE-SANDS-LIFESTYLE2_c597ca51-368e-436a-9338-bc30ba9e2a86.jpg"
-          }
-        },
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "heading": "Desktop: Tech Organizer",
             "index": 21,
@@ -773,6 +777,7 @@
         },
         "281ff7c2-bd78-4b8f-8128-9e4e923a4d39": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "mobile",
@@ -796,7 +801,7 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 7,
+            "row": 6,
             "column": 4,
             "col_span": 2,
             "mobile_row": 1,
@@ -816,10 +821,10 @@
           "settings": {
             "pictured_link": true,
             "display": "both",
-            "row": 8,
+            "row": 7,
             "column": 1,
             "col_span": 2,
-            "mobile_row": 14,
+            "mobile_row": 17,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
@@ -860,8 +865,8 @@
           "type": "static",
           "settings": {
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
-            "index": 23,
-            "enable_static_for_desktop": true,
+            "index": 28,
+            "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg",
             "enable_static_for_mobile": true,
@@ -871,6 +876,7 @@
         },
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "pictured_link": true,
             "display": "both",
@@ -909,12 +915,46 @@
             ],
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2236_1.jpg"
           }
+        },
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33": {
+          "type": "hot-deals-banner",
+          "settings": {
+            "display": "both",
+            "collection_list": [
+              "bags",
+              "all",
+              "luggage",
+              "organizers",
+              "accessories",
+              "sale"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
+            "row": "1",
+            "row_mobile": "1",
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ff0000",
+            "featured_products": [
+              "starter-bundle",
+              "terra-26l-backpack-duffel",
+              "kaya-laptop-backpack",
+              "haven-laptop-tote-bag",
+              "insulated-lunch-bag",
+              "terra-hanging-toiletry-bag",
+              "jewelry-case",
+              "terra-sling-bag",
+              "luka-mini-belt-bag",
+              "luka-mini-backpack",
+              "padded-laptop-sleeve"
+            ]
+          }
         }
       },
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
+        "8faf4caf-1276-4186-8468-5d0516de3da7",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
         "5a135156-ce8b-442d-a624-b2d324e911c8",
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
@@ -923,7 +963,6 @@
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
         "71baa67a-2226-426d-9b84-717bf4a6e1a8",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
-        "8faf4caf-1276-4186-8468-5d0516de3da7",
         "5cc6dafd-9a03-497d-a746-581d39df58db",
         "281ff7c2-bd78-4b8f-8128-9e4e923a4d39",
         "5a9fc48f-6b94-416e-88c7-3325d24efb85",
@@ -931,7 +970,8 @@
         "26121484-6047-4828-919f-49c8e5363c7d",
         "98bbbe49-ef4a-4acd-9165-232fac007486",
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
-        "de8f3214-ac8f-4182-94ac-268daa3b4dd3"
+        "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33"
       ],
       "settings": {
         "wishlist": true,

@@ -44,7 +44,7 @@
       {
         "type": "checkbox",
         "id": "show-cart-gamification",
-        "label": "Enable Express Shipping",
+        "label": "Enable Gift with Purchase",
         "default": true
       },
       {
@@ -515,7 +515,7 @@
       {
         "type": "checkbox",
         "id": "sale-badge-hide-textog",
-        "label": "Hide original text Sale Badge on custom sale product",
+        "label": "Hide Sale Bubble on mobile",
         "default": false
       },
       {
@@ -529,6 +529,23 @@
         "id": "starter__customizer-badge-text",
         "label": "Color",
         "default": "#000"
+      }
+    ]
+  },
+  {
+    "name": "Hot Deals Badge",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "hot-deals-badge-enabled",
+        "label": "Hot Deals Badge Enabled",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "hot-deals-ends",
+        "label": "End date\/time",
+        "info": "Format: 'Month DD, YYYY hh:mmam\/pm'. All times should be in PDT."
       }
     ]
   },

@@ -18,9 +18,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/QZZ\/landing-page",
-            "height": "600",
-            "height-mobile": "600"
+            "form_type": "klaviyo",
+            "iframe-url": "",
+            "klaviyo_id": "Ycfuvm",
+            "vertical_alignment": "center",
+            "height": "300",
+            "height-mobile": "300"
           }
         }
       },

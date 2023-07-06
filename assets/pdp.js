@@ -302,6 +302,7 @@ window.addEventListener("load", () => {
 
         const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
+        const signUpSection = document.querySelector('.shopify-section--contact-form');
         if(floatingPDPSubmit && pdpSubmitSection) {
             let observer = new IntersectionObserver(function(entries){
                 entries.forEach(entry => {
@@ -312,6 +313,19 @@ window.addEventListener("load", () => {
             }, {threshold: 0, rootMargin: '0px'});
 
             observer.observe(pdpSubmitSection);
+        }
+        if(signUpSection) {
+            let observer = new IntersectionObserver(function(entries){
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingPDPSubmit.classList.remove('pdp__floating-submit--active');
+                    }
+                    else {
+                        floatingPDPSubmit.classList.add('pdp__floating-submit--active');
+                    }
+                })
+            })
+            observer.observe(signUpSection);
         }
 
         const select = pdpGrid.querySelector('.variant-select');
@@ -415,6 +429,7 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         let color = option.getAttribute('data-option1');
         newMedia = pdpGallery.querySelectorAll(`.pdp__media[data-variants=""],.pdp__media[data-variants~="${sku}"],.pdp__media[data-variants~="${color}"]`);
         newMediaThumbs = pdpThumbs.querySelectorAll(`.pdp__media-thumb[data-variants=""],.pdp__media-thumb[data-variants~="${sku}"],.pdp__media-thumb[data-variants~="${color}"]`);
+
     } else {
         newMedia = pdpGallery.querySelectorAll(`.pdp__media[data-id=""],.pdp__media[data-id="${option.value}"]`);
         newMediaThumbs = pdpThumbs.querySelectorAll(`.pdp__media-thumb[data-id=""],.pdp__media-thumb[data-id="${option.value}"]`);
@@ -643,7 +658,19 @@ const changeBadgeAbsolutePosition = e => {
         }
     }
 };
-document.addEventListener("DOMContentLoaded", changeBadgeAbsolutePosition);
+
+// fancybox with monolithic color scheme
+
+document.addEventListener("DOMContentLoaded", function () {
+    changeBadgeAbsolutePosition()
+    const mediaColors = [...document.querySelectorAll(".pdp__media")]
+    const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
+    for (let i = 0; i < mediaUniqueColors.length; i++) {
+        const color = mediaUniqueColors[i];
+     if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
+    }
+});
+
 window.addEventListener("resize", changeBadgeAbsolutePosition);
 changeBadgeAbsolutePosition()
 
