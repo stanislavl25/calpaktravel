@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const navbarHeight = navbar.offsetHeight;
             if (window.innerWidth <= 900) {
                 stickyElement2.style.top = 'auto';
-                // stickyElement2.style.top = navbarHeight > 60 ? '42px' : '0';
             } else {
                 stickyElement2.style.top = navbarHeight > 60 ? '80px' : '42px';
             }

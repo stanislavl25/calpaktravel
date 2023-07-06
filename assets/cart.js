@@ -1,4 +1,5 @@
 "use strict";
+let cartShippingGift = document.querySelector('.cart__gamification-gifts');
 
 function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false) {
     if(typeof final_sale == 'undefined') final_sale = false;
@@ -114,9 +115,12 @@ function updateCartItems(items, callback, always) {
 function gamificationInit() {
     const { subtotal, goals, gifts, wrapper, limit } = settings["cartGamification"];
 
-    if (gifts.length) {
-        document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
+    if (cartShippingGift) {
+        if (gifts.length) {
+            document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
+        }
     }
+    
 
     document.querySelector(wrapper).innerHTML = '';
     goals.forEach( item => {
@@ -344,51 +348,51 @@ function setGamificationProducts( gifts ) {
     .then((cart) => {
 
         window.cartItems = cart.items;
-        validateGifts();
+        if (!cartShippingGift) {
+            // Disable gift gamification by cart total
+            if(gifts.length == 0) {
+                
+                // Clean gifts from cart if exists
+                let clean_items = {};
+                const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
 
-        /*
-        // Disable gift gamification by cart total
-        if(gifts.length == 0) {
-            
-            // Clean gifts from cart if exists
-            let clean_items = {};
-            const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
-
-            gifts_in_cart.forEach( gift => {
-                clean_items[gift.id] = 0;
-            });
-
-            if(Object.keys(clean_items).length) {
-                updateCartItems(clean_items, (data) => {
-                    updateCart(data);
+                gifts_in_cart.forEach( gift => {
+                    clean_items[gift.id] = 0;
                 });
-            }
 
-        } else {
-
-            gifts.forEach(gift => {
-                if(!cartItems.find(item => item.properties?._gift == 'true')){
-                    items.push({
-                        id: gift,
-                        quantity: 1,
-                        properties: {
-                            '_gift': 'true'
-                        }
+                if(Object.keys(clean_items).length) {
+                    updateCartItems(clean_items, (data) => {
+                        updateCart(data);
                     });
                 }
-            });
-            
-            if (items.length > 0) {
-                addToCart(items, 1, (data) => {
-                    updateCart(data);
-                    activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
-                });
-            } 
-        }
-        */
 
-        // Free gifts 
-        setFreeGiftsByProduct(cartItems);
+            } else {
+
+                gifts.forEach(gift => {
+                    if(!cartItems.find(item => item.properties?._gift == 'true')){
+                        items.push({
+                            id: gift,
+                            quantity: 1,
+                            properties: {
+                                '_gift': 'true'
+                            }
+                        });
+                    }
+                });
+                
+                if (items.length > 0) {
+                    addToCart(items, 1, (data) => {
+                        updateCart(data);
+                        activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
+                    });
+                } 
+            }
+        } else {
+            validateGifts();
+            // Free gifts 
+            setFreeGiftsByProduct(cartItems);
+        }
+       
     });
 }
 
@@ -468,8 +472,9 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
             }
         }
     } else {
+        const toFixedPrice = goalsVerbose[0].value;
         verboseTemplate =
-          `You are $${goalsVerbose[0].value} away from ${goalsVerbose[0].goal}!`.replace(
+          `You are $${toFixedPrice.toFixed(2)} away from ${goalsVerbose[0].goal}!`.replace(
             "FREE",
             "<b>FREE</b>"
           );
@@ -649,7 +654,7 @@ function updateCartGWPs() {
 function updateCart(data, jsonIncluded = false) {
 
 
-    //document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
+    document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
     let cart;
     if(jsonIncluded) cart = data;
     else cart = JSON.parse(stripHTML(data.sections['cart-json']));
@@ -677,29 +682,32 @@ function updateCart(data, jsonIncluded = false) {
 
     cartContainer.querySelector('.cart__total-row--total .cart__total-value').innerHTML = formatPrice(totalPrice / 100);
 
-    // Reorder cart items
 
-  const cartItems = data.items;
-  const reorderedCartItems = [];
-cartItems.filter(function(item){
-    if(item.handle.includes('3-piece-luggage-set')){
-        document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--half');
-    } else {
-        document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--half');
-    }
-});	
+   if (cartShippingGift) {
+     // Reorder cart items
 
-cartItems.forEach(function(item) {
-
-    if (item.properties?._gift == 'true') {
-      reorderedCartItems.unshift(item);
-    } else {
-      reorderedCartItems.push(item);
-    }
-  });
-
-  data.items = reorderedCartItems;
-document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
+     const cartItems = data.items;
+     const reorderedCartItems = [];
+     cartItems.filter(function(item){
+         if(item.handle.includes('3-piece-luggage-set')){
+             document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--half');
+         } else {
+             document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--half');
+         }
+     });	
+ 
+     cartItems.forEach(function(item) {
+ 
+         if (item.properties?._gift == 'true') {
+         reorderedCartItems.unshift(item);
+         } else {
+         reorderedCartItems.push(item);
+         }
+     });
+ 
+     data.items = reorderedCartItems;
+     document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
+   }
     updateCartGWPs();
 }
 

@@ -5,21 +5,26 @@
     "favicon": "shopify:\/\/shop_images\/favicon_dc3a819d-7bb4-417a-8564-c3c9166fc5c8.png",
     "best-sellers": "best-sellers",
     "new-arrivals": "new-arrivals",
-    "show-cart-gamification": true,
+    "free-shipping": 75,
+    "show-cart-gamification": false,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
-    "product-disclaimer": true,
+    "product-disclaimer": false,
+    "product-disclaimer-no-final": true,
+    "sale-enabled": true,
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
-    "sale-text-pdp-mixed": "Up to %% off",
     "sale-text": "%% off",
-    "sale-text-col-mixed": "Up to %% off",
+    "extra-sale-enabled": false,
+    "extra-sale-tag": "",
+    "extra-sale-text-pdp": "",
+    "extra-sale-text": "",
     "flash-sale-enabled": false,
-    "flash-sale-tag": "memorialdaysale",
+    "flash-sale-tag": "travelmore",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "May 29 2023, 11:00am",
-    "flash-sale-ends": "May 31 2023, 11:00am",
+    "flash-sale-starts": "July 5, 2023 11:00am",
+    "flash-sale-ends": "July 7, 2023 11:00am",
     "flash-sale-countdown": "48",
-    "flash-sale-accent": "#46da81",
+    "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
     "sale-badge-enabled": true,
     "sale-badge-text-tilt": false,
@@ -27,20 +32,24 @@
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "sale-badge",
-    "sale-badge-text": "Special Offer",
+    "sale-badge-tag": "yellowbadge",
+    "sale-badge-text": "Travel More Sale",
     "sale-badge-bg": "#f7f177",
-    "sale-msg-starter": true,
-    "sale-badge-tag-bundle": "sale-bubble",
+    "sale-msg-starter": false,
+    "sale-badge-tag-bundle": "",
     "starter-bundle-badge": "Gift With Purchase",
     "sale-badge-text-starter": "Special Offer",
+    "sale-badge-hide-textog": true,
     "starter__customizer-badge": "#f7f177",
+    "hot-deals-badge-enabled": false,
+    "hot-deals-ends": "July 7, 2023 11:00am",
+    "chk-msg-enabled": false,
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": true,
-    "sale-msg-pdp-only": true,
-    "sale-msg-tag": "sale-bubble",
-    "sale-msg-highlighted": "Gift with Purchase:",
-    "sale-msg-message": "Get a free gift (up to $98 value) with any 3-Piece Luggage Set",
+    "sale-msg-enabled": false,
+    "sale-msg-pdp-only": false,
+    "sale-msg-tag": "",
+    "sale-msg-highlighted": "",
+    "sale-msg-message": "",
     "sale-msg-main-col-text": "#707070",
     "type_light_font": "futura_n3",
     "type_body_font": "futura_n4",
@@ -60,6 +69,8 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
+    "sale-text-pdp-mixed": "Up to %% off",
+    "sale-text-col-mixed": "Up to %% off",
     "sections": {
       "header": {
         "type": "header",
@@ -71,6 +82,7 @@
           },
           "66117e8e-72a2-4c4a-9251-d53677ed9255": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -81,6 +93,23 @@
               "link-for-button": false,
               "text-color-scheme": "white",
               "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-4.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/collections\/sale",
+              "block-title": "Last Chance: Save big, travel more— up to 60% off best-sellers NOW.",
+              "description": "",
+              "button-text": "Shop Now",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/IMG_9868-2-3.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -122,31 +151,13 @@
               "video-ratio-h": "9"
             }
           },
-          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
-            "type": "shop-block",
-            "disabled": true,
-            "settings": {
-              "title": "Shop: Featured",
-              "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/mothers-day",
-              "block-title": "Buy 2 items (or more), get 15% OFF",
-              "description": "",
-              "button-text": "",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Group_3545.png",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
           "9bc35091-f1af-4ade-937e-7abddf8840bc": {
             "type": "featured-collection",
             "settings": {
               "title": "Shop: Featured: Carousel of Best sellers",
               "submenu-number": 1,
-              "collection": "best-sellers",
-              "block-title": "Explore Our Best Sellers"
+              "collection": "sale",
+              "block-title": "Explore Our Travel More Sale"
             }
           },
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
@@ -321,9 +332,9 @@
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "66117e8e-72a2-4c4a-9251-d53677ed9255",
+          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "d354ff31-c668-4b29-8245-34b614309172",
-          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
           "52c25c9a-745f-42c5-8106-d8505dcb22b6",
@@ -345,7 +356,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false
+          "live": true,
+          "live-start-time": "July 7, 2023 10:00AM",
+          "live-end-time": "July 7, 2023 11:00AM"
         }
       },
       "footer": {
@@ -422,20 +435,6 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
-          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3": {
-            "type": "notification",
-            "settings": {
-              "text": "<p><a href=\"\/collections\/sale\" title=\"Sale\">Memorial Day Sale<\/a>: up to 45% off luggage.<\/p>",
-              "only-for-guests": false
-            }
-          },
-          "66440c26-ad60-4648-a563-4816dc76f530": {
-            "type": "notification",
-            "settings": {
-              "text": "<p>Orders $300 and over get free 2-day express shipping.<\/p>",
-              "only-for-guests": false
-            }
-          },
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
             "settings": {
@@ -452,7 +451,6 @@
           },
           "91c42567-a70f-469a-9cec-9f14f8d69477": {
             "type": "notification",
-            "disabled": true,
             "settings": {
               "text": "<p>Enjoy 10% OFF your first order. <a href=\"\/pages\/sign-up-page\" title=\"Sign-Up\">Subscribe now<\/a><\/p>",
               "only-for-guests": true
@@ -468,8 +466,6 @@
           }
         },
         "block_order": [
-          "4afeadca-d194-49cf-8d3e-a8525e8c1ad3",
-          "66440c26-ad60-4648-a563-4816dc76f530",
           "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
@@ -599,7 +595,8 @@
           ],
           "continue-shopping": "",
           "wishlist-timeout": 3,
-          "max_value": 75
+          "max_value": 75,
+          "courtesy-banner": false
         }
       },
       "contact-form": {
@@ -644,6 +641,7 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -659,16 +657,15 @@
           },
           "97742501-521b-4ea2-a166-533c5387df96": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
               "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/WEB_SEARCH-COLLECTIONS_In-Stock-And-Ready-To-Ship.png",
-              "link": "shopify:\/\/collections\/all",
+              "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-5.jpg",
+              "link": "shopify:\/\/collections\/sale",
               "media-title": "",
               "description": "",
-              "button-text": "Buy 2+ items, get 15% off",
+              "button-text": "Shop Travel More Sale",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
@@ -849,8 +846,38 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Up to 60% off on the Travel More Sale<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
+          "44595217-2033-4341-98cf-4fc74fd48e3d": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Last chance to shop the Travel More Sale((countdown)) <\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -865,6 +892,8 @@
           }
         },
         "block_order": [
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902",
+          "44595217-2033-4341-98cf-4fc74fd48e3d",
           "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
         ],
         "settings": {
@@ -875,7 +904,13 @@
           "holiday-banner-color": "#000000",
           "countdown-active": true,
           "countdown-show": "48",
-          "countdown-to": "May 31, 2023 11:00am"
+          "countdown-to": "July 7, 2023 11:00am"
+        }
+      },
+      "checkout-countdown": {
+        "type": "checkout-countdown",
+        "settings": {
+          "show-countdown-message": true
         }
       }
     },
