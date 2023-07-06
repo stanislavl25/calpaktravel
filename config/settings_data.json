@@ -18,7 +18,7 @@
     "extra-sale-tag": "",
     "extra-sale-text-pdp": "",
     "extra-sale-text": "",
-    "flash-sale-enabled": true,
+    "flash-sale-enabled": false,
     "flash-sale-tag": "travelmore",
     "flash-sale-text": "Sale Ends",
     "flash-sale-starts": "July 5, 2023 11:00am",
@@ -595,7 +595,8 @@
           ],
           "continue-shopping": "",
           "wishlist-timeout": 3,
-          "max_value": 75
+          "max_value": 75,
+          "courtesy-banner": false
         }
       },
       "contact-form": {
