@@ -11,7 +11,7 @@
     endif
 -%}
 
-<div class=" hot-deals-banner-wrapper {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
+<div class="hot-deals-banner-wrapper-sale {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
     <div class="hot-deals-banner-text-wrapper">
         <div class="hot-deals-text">
             <div class="hot-deals-text-container-top">
@@ -42,7 +42,7 @@
         margin-top: -32px;
     }
 
-    .hot-deals-banner-wrapper{
+    .hot-deals-banner-wrapper-sale{
         display: flex;
         row-gap: 40px;
         column-gap: 10px;
@@ -53,31 +53,31 @@
         margin-top: {% if settings.hot-deals-ends != blank and countdownTimer == true %}32px{% endif %};
     }
 
-    .hot-deals-banner-wrapper .slider:not([data-slider-on="mobile"]) {
+    .hot-deals-banner-wrapper-sale .slider:not([data-slider-on="mobile"]) {
         gap: 1%;
     }
 
-    .hot-deals-banner-wrapper .product-unit__swatches {
+    .hot-deals-banner-wrapper-sale .product-unit__swatches {
         gap: inherit!important;
     }
 
-    .hot-deals-banner-wrapper .product-unit {
+    .hot-deals-banner-wrapper-sale .product-unit {
         flex: 0 0 24%;
     }
 
-    .hot-deals-banner-wrapper > * {
+    .hot-deals-banner-wrapper-sale > * {
         align-self: flex-start;
         padding: 16px 0;
     }
 
-    .hot-deals-banner-wrapper > *:first-child {
+    .hot-deals-banner-wrapper-sale > *:first-child {
         flex: 0 0 20%;
         background: {{ block.settings.banner-text-background-color }};
         width: 100%;
         height: 100%;
     }
 
-    .hot-deals-banner-wrapper > *:last-child {
+    .hot-deals-banner-wrapper-sale > *:last-child {
         margin-right: 16px;
         flex: 0 0 80%;
         padding-right: 20px;
@@ -87,7 +87,7 @@
         right: 10px;
     }
 
-    .hot-deals-banner-wrapper .hot-deals-badge.product-label--active {
+    .hot-deals-banner-wrapper-sale .hot-deals-badge.product-label--active {
         width: 80px;
         height: 80px;
         font-size: 14px;
@@ -161,7 +161,7 @@
         justify-content: flex-start;
     }
 
-    .hot-deals-banner-wrapper {
+    .hot-deals-banner-wrapper-sale {
         width: 100%;
         display: none;
         align-items: center;
@@ -191,8 +191,8 @@
         color: {{ block.settings.banner-text-color }};
     }
 
-    .hot-deals-banner-wrapper .slider--scrollbar::-webkit-scrollbar-thumb,
-    .hot-deals-banner-wrapper .slider--scrollbar::-webkit-scrollbar {
+    .hot-deals-banner-wrapper-sale .slider--scrollbar::-webkit-scrollbar-thumb,
+    .hot-deals-banner-wrapper-sale .slider--scrollbar::-webkit-scrollbar {
         border-bottom: none!important
     }
 
@@ -233,24 +233,24 @@
     }
     {% if block.settings.collection_list != empty %}
         {% for collection_item in block.settings.collection_list %}
-            .{{ collection_item.handle }}.hot-deals-banner-wrapper{
+            .{{ collection_item.handle }}.hot-deals-banner-wrapper-sale{
                 display: flex;
                 column-gap: 10px;
             }
-        .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.desktop {
+        .{{ collection_item.handle }}.hot-deals-banner-wrapper-sale.banner--{{block.id}}.desktop {
             display: flex;
         }
-        .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.mobile {
+        .{{ collection_item.handle }}.hot-deals-banner-wrapper-sale.banner--{{block.id}}.mobile {
                 display: none;
         }
-        .{{ collection_item.handle }}.hot-deals-banner-wrapper .product-label--active img {
+        .{{ collection_item.handle }}.hot-deals-banner-wrapper-sale .product-label--active img {
             border: none!important;
         }
         @media (max-width: 649px) {
-            .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.desktop {
+            .{{ collection_item.handle }}.hot-deals-banner-wrapper-sale.banner--{{block.id}}.desktop {
                 display: none;
             }
-            .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.mobile {
+            .{{ collection_item.handle }}.hot-deals-banner-wrapper-sale.banner--{{block.id}}.mobile {
                     display: flex;
             }
         }
@@ -268,16 +268,16 @@
             border-radius: 6px;
         }
 
-        .hot-deals-banner-wrapper {
+        .hot-deals-banner-wrapper-sale {
             grid-column: 1 / span 3;
             overflow: visible!important;
         }
 
-        .hot-deals-banner-wrapper .hot-deals-badge.product-label--active {
+        .hot-deals-banner-wrapper-sale .hot-deals-badge.product-label--active {
             display: none!important;
         }
 
-        .hot-deals-banner-wrapper > *:last-child {
+        .hot-deals-banner-wrapper-sale > *:last-child {
             padding-right: 0;
             flex: 0 0 calc(100% - 74px);
         }
@@ -308,17 +308,17 @@
             display: none;
         }
 
-        .hot-deals-banner-wrapper > * {
+        .hot-deals-banner-wrapper-sale > * {
             flex: 0 0 30%;
             padding: 16px 0;
         }
 
-        .hot-deals-banner-wrapper > *:first-child {
+        .hot-deals-banner-wrapper-sale > *:first-child {
             flex: 0 0 64px;
             padding: 0;
         }
 
-        .hot-deals-banner-wrapper .slider:not([data-slider-on="mobile"]) {
+        .hot-deals-banner-wrapper-sale .slider:not([data-slider-on="mobile"]) {
             gap: 2%;
         }
 
@@ -326,7 +326,7 @@
             gap: 0;
         }
 
-        .hot-deals-banner-wrapper .product-unit {
+        .hot-deals-banner-wrapper-sale .product-unit {
             flex: 0 0 60%;
         }
     }
@@ -336,7 +336,7 @@
             grid-column: 1 / span 2;
         }
 
-        .hot-deals-banner-wrapper {
+        .hot-deals-banner-wrapper-sale {
             grid-column: 1 / span 2;
         }
 
@@ -354,7 +354,7 @@
             display: none;
         }
 
-        .hot-deals-banner-wrapper > * {
+        .hot-deals-banner-wrapper-sale > * {
             flex: 0 0 50%;
         }
     }

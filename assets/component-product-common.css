@@ -283,4 +283,8 @@ div.product-label.product.label--memorial-day label {
         height: 25px;
         display: block!important;
     }
+
+    .product-unit__title a {
+        font-size: 14px;
+    }
 }

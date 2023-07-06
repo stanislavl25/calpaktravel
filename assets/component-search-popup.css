@@ -213,6 +213,15 @@
     min-width: 0;
 }
 
+.search-popup__content .hot-deals-badge.product-label--active,
+.cart__empty .hot-deals-badge.product-label--active {
+    width: 74px;
+    height: 74px;
+    font-size: 14px;
+    top: 24px;
+    right: 24px;
+}
+
 @media (max-width: 1727px) {
     .products__grid--flex .product-unit {
         flex: 0 0 calc(25% - var(--gap) * 3 / 4);
@@ -392,4 +401,9 @@
     .search-section .products__grid--flex {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+/* Hide hot deals badge in search */
+.search-section .product-label--active {
+    display: none!important;
 }
