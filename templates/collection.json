@@ -925,10 +925,10 @@
               "all",
               "luggage",
               "organizers",
-              "accessories",
-              "sale"
+              "accessories"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
             "row": "1",
             "row_mobile": "1",
