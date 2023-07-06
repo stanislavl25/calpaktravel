@@ -14,9 +14,9 @@
 <div class="hot-deals-banner-wrapper-sale {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
     <div class="hot-deals-banner-text-wrapper">
         <div class="hot-deals-text">
-            <div class="hot-deals-text-container-top"></div>
-            <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
-            <div class="hot-deals-text-container-bottom"></div>
+            <div class="hot-deals-text-container-top">
+                <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+            </div>
         </div>
     </div>
     
@@ -117,7 +117,7 @@
     }
 
     .hot-deals-text-container-top {
-        height: 40%;
+        height: 100%;
         background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
         background-size: contain;
         background-repeat: no-repeat;
@@ -129,25 +129,23 @@
         font-size: 20px;
     }
 
-    .hot-deals-text-container-bottom {
-        height: 40%;
-        background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-2 | img_url: 'master' }});
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
     .hot-deals-text-container-top,
-    .hot-deals-text .countdown-timer,
-    .hot-deals-text-container-bottom {
+    .hot-deals-text .countdown-timer {
         display: none;
     }
 
     {% if settings.hot-deals-ends != blank and countdownTimer == true %}
         .hot-deals-text-container-top,
-        .hot-deals-text .countdown-timer,
-        .hot-deals-text-container-bottom {
+        .hot-deals-text .countdown-timer {
             display: block;
+        }
+
+        .hot-deals-text .countdown-timer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
         }
     {% else %}
         .hot-deals-text {
@@ -302,8 +300,7 @@
         }
 
         .hot-deals-text-container-top,
-        .hot-deals-text .countdown-timer,
-        .hot-deals-text-container-bottom {
+        .hot-deals-text .countdown-timer {
             display: none;
         }
 
