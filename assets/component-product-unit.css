@@ -113,7 +113,7 @@
 }
 
 .product-slider__title {
-    font-weight: var(--font-body-weight-black);
+    font-weight: var(--font-body-weight);
 }
 
 .product-slider__header .slider__nav {
