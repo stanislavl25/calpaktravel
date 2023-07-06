@@ -1,0 +1,16 @@
+.shopify-section--video-slider {
+    margin: var(--gap);
+}
+
+.slider__wrapper--video-slider {
+    position: relative;
+}
+
+.nav-hero__nav {
+    display: none;
+}
+
+.video-slider__slide {
+    border-radius: 9px;
+    overflow: hidden;
+}
