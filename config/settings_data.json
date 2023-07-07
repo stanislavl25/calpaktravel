@@ -874,11 +874,27 @@
               "background": "#f7f177",
               "text-color": ""
             }
+          },
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Free shipping on all orders $100 or more!<\/p>",
+              "url": "",
+              "background": "#F7F177",
+              "text-color": ""
+            }
           }
         },
         "block_order": [
           "7d3bbce9-7dd8-473d-958c-bf75d4555902",
-          "44595217-2033-4341-98cf-4fc74fd48e3d"
+          "44595217-2033-4341-98cf-4fc74fd48e3d",
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f"
         ],
         "settings": {
           "show": "everywhere",
