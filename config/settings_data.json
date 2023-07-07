@@ -855,8 +855,8 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Up to 60% off on the Travel More Sale<\/p>",
-              "url": "shopify:\/\/collections\/sale",
+              "content": "<p>Free shipping on all orders $75 or more!<\/p>",
+              "url": "",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -874,27 +874,11 @@
               "background": "#f7f177",
               "text-color": ""
             }
-          },
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
-            "type": "promo-bar-line",
-            "disabled": true,
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>FREE gift with 3-Piece Luggage Set<\/p>",
-              "url": "shopify:\/\/collections\/3-piece-luggage-sets",
-              "background": "#f7f177",
-              "text-color": "#000000"
-            }
           }
         },
         "block_order": [
           "7d3bbce9-7dd8-473d-958c-bf75d4555902",
-          "44595217-2033-4341-98cf-4fc74fd48e3d",
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
+          "44595217-2033-4341-98cf-4fc74fd48e3d"
         ],
         "settings": {
           "show": "everywhere",
