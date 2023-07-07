@@ -596,7 +596,7 @@
           "continue-shopping": "",
           "wishlist-timeout": 3,
           "max_value": 75,
-          "courtesy-banner": false
+          "courtesy-banner": true
         }
       },
       "contact-form": {
@@ -886,7 +886,7 @@
               "other": false,
               "content": "<p>Free shipping on all orders $100 or more!<\/p>",
               "url": "",
-              "background": "#F7F177",
+              "background": "#f7f177",
               "text-color": ""
             }
           }
