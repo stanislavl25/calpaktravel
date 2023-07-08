@@ -925,10 +925,10 @@
               "all",
               "luggage",
               "organizers",
-              "accessories",
-              "sale"
+              "accessories"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
             "row": "1",
             "row_mobile": "1",
@@ -946,6 +946,31 @@
               "luka-mini-belt-bag",
               "luka-mini-backpack",
               "padded-laptop-sleeve"
+            ]
+          }
+        },
+        "58884853-bea8-451d-92d2-e9ef1a9f1540": {
+          "type": "hot-deals-banner-sale",
+          "settings": {
+            "display": "both",
+            "collection_list": [
+              "sale"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
+            "row": "1",
+            "row_mobile": "1",
+            "banner-text-color": "#000",
+            "banner-text-background-color": "#ff0000",
+            "featured_products": [
+              "ambeur-medium-luggage",
+              "ambeur-vanity-case",
+              "ambeur-mini-carry-on-luggage",
+              "ambeur-large-luggage",
+              "ambeur-front-pocket-carry-on-luggage",
+              "ambeur-carry-on-luggage",
+              "ambeur-3-piece-luggage-set"
             ]
           }
         }
@@ -971,7 +996,8 @@
         "98bbbe49-ef4a-4acd-9165-232fac007486",
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33"
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33",
+        "58884853-bea8-451d-92d2-e9ef1a9f1540"
       ],
       "settings": {
         "wishlist": true,

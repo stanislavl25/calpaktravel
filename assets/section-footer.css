@@ -49,7 +49,7 @@
 }
 
 .footer__widget-title {
-    font-weight: var(--font-body-weight-bold);
+    font-weight: var(--font-body-weight);
     margin-bottom: 20px;
 }
 

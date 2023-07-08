@@ -141,7 +141,8 @@
             endfor
     endif
 
-    if hotDealsTag == true
+    if settings.hot-deals-ends != blank
+        assign hotDealsTag = true
         assign now = "now" | date: '%s' | times: 1
         assign ends = settings.hot-deals-ends | date: '%s' | times: 1
         assign timeLeft = ends | minus: now
@@ -283,20 +284,13 @@
             {%- endif -%}
         </div>
     </div>
-
-    {%- if hotDealsVariants != false -%}
-        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
-            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
-            Hot Deal
-        </div>
-    {%- endif -%}
       
-    {%- if settings.hot-deals-badge-enabled == true and countdownTimer == true and hotDealsVariants contains opt1 -%}
+    {% comment %} {%- if hotDealsVariants contains opt1 -%}
         <div class="product-label hot-deals-countdown-wrapper">
             <label>Sale ends</label>
             <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
         </div>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
     {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false

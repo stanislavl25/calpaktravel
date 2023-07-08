@@ -2,6 +2,11 @@
     display: none!important;
 }
 
+/* .product-grid .product-label--active img {
+    border: 1px solid red;
+    border-radius: 9px; 
+} */
+
 .product-unit {
     position: relative;
     display: flex;
@@ -108,7 +113,7 @@
 }
 
 .product-slider__title {
-    font-weight: var(--font-body-weight-black);
+    font-weight: var(--font-body-weight);
 }
 
 .product-slider__header .slider__nav {
