@@ -90,39 +90,6 @@ function addProductInfo(item, i) {
         if(price.find('del').length == 0 && isset(current_variant.compare_at_price) && current_variant.compare_at_price > current_variant.price ) {
             price.prepend('<del>' + formatPrice(current_variant.compare_at_price * item.quantity / 100, false) + '</del>');
         }
-
-        for(let j = 0; j < data.tags.length; j++) {
-            if(data.tags[j].indexOf('preorder') > -1) {
-                let pr = data.tags[j].split(':');
-                if(pr[0] == 'preorder') {
-
-                    if(prod.find('.preorder-sign').length == 0) {
-                        if(pr.length == 1) {
-                            let node = document.createElement("p");
-                            node.classList.add("preorder-sign");
-                            node.innerHTML = "Pre-order";
-                            prod.find('.product__description')[0].appendChild(node);
-                        } else if(pr.length == 2) {
-                            let node = document.createElement("p");
-                            node.classList.add("preorder-sign");
-                            node.innerHTML = "Est. ship date: <strong>" + pr[1] + "</strong>";
-                            prod.find('.product__description')[0].appendChild(node);
-                        } else if(pr.length == 3) {
-                            if(handleize(item.variant_options[0]) == pr[1]) {
-                                let node = document.createElement("p");
-                                node.classList.add("preorder-sign");
-                                node.innerHTML = "Est. ship date: <strong>" + pr[2] + "</strong>";
-                                prod.find('.product__description')[0].appendChild(node);
-                            }
-                        }
-                        // document.body.classList.add('no-expedited');
-
-                    }
-                    
-                    break;
-                }
-            }
-        }
     });
 }
 
@@ -184,14 +151,31 @@ function updateCartProducts(items) {
         }
 
 
-        if(item.properties != null && typeof item.properties != 'undefined' && item.properties['_final-sale'] != 'undefined' && (item.properties['_final-sale'] === true || item.properties['_final-sale'] === "true")) {
+        if(item.properties != null && typeof item.properties != 'undefined') {
+            let prod = document.querySelectorAll('.order-summary__section__content .product-table .product')[i];
 
-            if($('.order-summary__section__content .product-table .product').eq(i).find('.final-sale-sign').length == 0) {
-                var node = document.createElement("p");
-                node.classList.add("final-sale-sign");
-                node.innerHTML = "Final sale";
+            if(item.properties['_final-sale'] != 'undefined' && (item.properties['_final-sale'] === true || item.properties['_final-sale'] === "true")) {
 
-                $('.order-summary__section__content .product-table .product').eq(i).find('.product__description')[0].appendChild(node);
+                if(!prod.querySelector('.final-sale-sign')) {
+                    var node = document.createElement("p");
+                    node.classList.add("final-sale-sign");
+                    node.innerHTML = "Final sale";
+
+                    prod.querySelector('.product__description').appendChild(node);
+                }
+            }
+
+            if(item.properties['_preorder'] != 'undefined' && item.properties['_preorder'] && item.properties['_preorder'] !== false && item.properties['_preorder'] !== "false") {
+                if(!prod.querySelector('.preorder-sign')) {
+
+                    var node = document.createElement("p");
+                    node.classList.add("preorder-sign");
+                    node.innerHTML = `Est. ship date: <strong>${item.properties['_preorder']}</strong>`;
+
+                    prod.querySelector('.product__description').appendChild(node);
+
+                    document.body.classList.add('no-expedited');
+                }
             }
         }
 
@@ -229,6 +213,15 @@ function addGiftNoteField() {
     if($('.add-review-block').length && $('.review-block:not(.add-review-block)').length) {
         $('.review-block:not(.add-review-block)').last().after($('.add-review-block').eq(0));
     }
+}
+
+function lookFreeShipping() {
+    const priceBadge = '<span class="free-upgrade">Free Upgrade</span>';
+    try {
+        document.querySelector('[data-shipping-method-label-title="Standard Ground Shipping"]').parentElement.querySelector('.radio__label__accessory span').innerHTML = '<s>$15.00</s>';
+        document.querySelector('[data-shipping-method-label-title="Standard Ground Shipping"]').parentElement.insertAdjacentHTML('beforeend', priceBadge);
+        clearInterval(freeUpgradeInterval);
+    } catch {}
 }
 
 jQuery(document).ready(function($){
@@ -354,6 +347,13 @@ jQuery(document).ready(function($){
                 $(".countdown__checkout span").html('00:00');
             }
         }, 1000);
+    }
+
+    // AB Logic 
+    if(google_optimize && google_optimize.get('cOTsgH-0S1G_D2IxnP4Sdg') === '1' && Shopify.Checkout.step == 'shipping_method'){
+        const freeUpgradeInterval = setInterval(lookFreeShipping, 100);
+        //Temporal Code
+        console.log('Running Experiment: Free Shipping')
     }
 });
 
