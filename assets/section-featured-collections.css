@@ -86,3 +86,8 @@
     font-size: 20px;
   }
 }
+
+/* Hide hot deals badge in nav */
+.shopify-section--featured-collections .product-label--active {
+    display: none!important;
+}

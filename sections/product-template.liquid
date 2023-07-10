@@ -289,6 +289,8 @@
                         </section>
                     {%- when 'shipping-calculator' -%}
                         {% render 'shipping-calculator' %}
+                    {%- when 'want-it-shipped' -%}
+                        {% render 'want-it-shipped' %}
                     {%- when 'submit' -%}
                         {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
                         {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
@@ -881,6 +883,11 @@
                         "label": "Button Link"
                     }
                 ]
+            },
+            {
+                "type": "want-it-shipped",
+                "name": "Want it shipped label",
+                "limit": 1
             }
         ]
     }
