@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="{{ 'component-want-it-shipped.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone-with-data.min.js"></script>
+<script src="{{ 'want-it-shipped.js' | asset_url }}" defer="defer"></script>
+
+<div class="want-it-shipped">
+    <span class="order-by-date"></span>
+    <span>Order within </span>
+    <span class="order-by-timer"></span>
+</div>

@@ -253,6 +253,11 @@
             "text": "<span>Want it delivered {range}?<\/span><b>Order within {time}<\/b>"
           }
         },
+        "a5e30674-2af4-4a47-80b3-3e99df6259cd": {
+          "type": "want-it-shipped",
+          "settings": {
+          }
+        },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
           "type": "submit",
           "settings": {
@@ -278,6 +283,11 @@
             "show-for-all": true,
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0053A-33.jpg",
             "text": "<p>Earn up to <span style=\"text-decoration:underline\">[points]<\/span> points!<\/p>"
+          }
+        },
+        "b9fe6758-af70-4751-a566-9682f8742d4c": {
+          "type": "yotpo-loyalty",
+          "settings": {
           }
         },
         "48138d37-8473-4c57-adc6-882525675315": {
@@ -554,9 +564,11 @@
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
         "3f584821-31db-42cb-941c-f61866a361a0",
         "db84d3cc-deea-45c6-a0ee-81ddf2509239",
+        "a5e30674-2af4-4a47-80b3-3e99df6259cd",
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
         "de1468ed-2f65-4371-be8f-69be7e1dcec6",
         "355dabeb-9c30-46f5-9912-52a97ee1196e",
+        "b9fe6758-af70-4751-a566-9682f8742d4c",
         "48138d37-8473-4c57-adc6-882525675315",
         "97b58e16-1c05-46d6-a2e9-b83db6d82916",
         "a59119dd-3de7-40ba-8531-92996e1e14b0",

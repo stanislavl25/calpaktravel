@@ -58,6 +58,8 @@
     letter-spacing: -0.02em;
     line-height: 1.2em;
     margin-bottom: var(--gap);
+    position: relative;
+    z-index: 4;
 }
 
 @media (min-width: 901px) {

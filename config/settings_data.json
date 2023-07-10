@@ -18,7 +18,7 @@
     "extra-sale-tag": "",
     "extra-sale-text-pdp": "",
     "extra-sale-text": "",
-    "flash-sale-enabled": true,
+    "flash-sale-enabled": false,
     "flash-sale-tag": "travelmore",
     "flash-sale-text": "Sale Ends",
     "flash-sale-starts": "July 5, 2023 11:00am",
@@ -41,7 +41,7 @@
     "sale-badge-text-starter": "Special Offer",
     "sale-badge-hide-textog": true,
     "starter__customizer-badge": "#f7f177",
-    "hot-deals-badge-enabled": false,
+    "hot-deals-badge-enabled": true,
     "hot-deals-ends": "July 7, 2023 11:00am",
     "chk-msg-enabled": false,
     "sale-msg-code": "FREEMINI",
@@ -595,7 +595,8 @@
           ],
           "continue-shopping": "",
           "wishlist-timeout": 3,
-          "max_value": 75
+          "max_value": 75,
+          "courtesy-banner": true
         }
       },
       "contact-form": {
@@ -854,8 +855,8 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Up to 60% off on the Travel More Sale<\/p>",
-              "url": "shopify:\/\/collections\/sale",
+              "content": "<p>Free shipping on all orders $75 or more!<\/p>",
+              "url": "",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -874,7 +875,7 @@
               "text-color": ""
             }
           },
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c": {
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
             "disabled": true,
             "settings": {
@@ -883,17 +884,17 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>FREE gift with 3-Piece Luggage Set<\/p>",
-              "url": "shopify:\/\/collections\/3-piece-luggage-sets",
+              "content": "<p>Free shipping on all orders $100 or more!<\/p>",
+              "url": "",
               "background": "#f7f177",
-              "text-color": "#000000"
+              "text-color": ""
             }
           }
         },
         "block_order": [
           "7d3bbce9-7dd8-473d-958c-bf75d4555902",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
-          "a45d4b5b-4863-42c2-bc85-b8dc06ec383c"
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f"
         ],
         "settings": {
           "show": "everywhere",
