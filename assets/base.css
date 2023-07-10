@@ -1028,6 +1028,7 @@ span.shipping-custom-msg {
 
 .pushowl-simple-toast {
   bottom: 85px!important;
+  z-index: 10!important;
 }
 @media (max-width:900px){
   .pushowl-simple-toast {
