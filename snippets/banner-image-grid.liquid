@@ -110,8 +110,8 @@
             top: unset;
             bottom: 0;
         }
-        {% if block.settings.collection_list != empty %}
-            {% for collection_item in block.settings.collection_list %}
+        {% if block.settings.collection_list_display != empty %}
+            {% for collection_item in block.settings.collection_list_display %}
                 .{{ collection_item.handle }}.collection-image-banner-wrapper{
                     display: flex;
                 }
