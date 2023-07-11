@@ -507,18 +507,7 @@ p.pdp__stock-variant {
     align-items: center;
     justify-content: center;
 }
-.pdp__stock::after {
-    position: absolute;
-    display: block;
-    content: "";
-    top: 10px;
-    right: -9px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: var(--gray);
-    z-index: 1;
-}
+
 .pdp__stock--active p {
     margin: 0;
 }
