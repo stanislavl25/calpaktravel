@@ -1025,3 +1025,13 @@ span.shipping-custom-msg {
 #shopify-section-promo-bar {
     z-index: 3;
 }
+
+.pushowl-simple-toast {
+  bottom: 85px!important;
+  z-index: 10!important;
+}
+@media (max-width:900px){
+  .pushowl-simple-toast {
+    bottom: 125px!important;
+  }
+}
