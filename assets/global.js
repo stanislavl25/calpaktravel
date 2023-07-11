@@ -180,29 +180,7 @@ stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.clo
 
 /////////////////////// PRODUCT UNITS /////////////////////////
 
-// const productBreakdown = document.querySelector('.product-breakdown');
-// // const productColor = productBreakdown.getAttribute('data-color');
-// const productBreakdownColor = document.querySelectorAll('.product-breakdown');
-// productBreakdownColor.forEach(function(element, product){
-//     let tags = product.tags;
-//     const colorBreak = element.getAttribute('data-color');
-//     const productColorLower = colorBreak.toLowerCase();
-//     console.log(productColorLower)
-//             // let productTagsBreakdown = {{ product.tags | json }};
-//             tags.forEach(tag => { 
-//                 if (tag.indexOf('hide:') === 0){
-//                 const tagValue = tag.substr(5);
-//                 console.log(tagValue, 'testasdasda', productColorLower)
-//                 if (productColorLower.includes(tagValue)){
-//                 document.querySelector('.product-breakdown').classList.add('hide');
-//                 console.log('sdklfjhasdflhasdfsdfasdfafsfasdfasdasdffsda')
-//                 }   
-//             }   });
-            
-// })
-
 function setProductData(product, meta, target, current_variant_id = false, init1 = false) {
-    const productBreakdownColor = document.querySelectorAll('.product-breakdown');
     const isProductUnit = target.classList.contains('product-unit');
     const handle = product.handle;
     let tags = product.tags;
@@ -244,17 +222,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 }
             }
         }
-
-        productBreakdownColor.forEach(function(element){
-            const colorBreak = element.getAttribute('data-color');
-            const productColorLower = colorBreak.toLowerCase();
-            if (tag.indexOf('hide:') === 0){
-                const tagValue = tag.substr(5);
-                if(productColorLower===tagValue){
-                    element.classList.add('hide');
-                }
-            }
-        });
 
         if(tag.indexOf('hide:') === 0) {
             let _hide = tag.replace('hide:', '').split(';');
@@ -1339,11 +1306,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 tryUpdateProcessTheProductUnits();
             }
         });
-        
         document.addEventListener('DOMContentLoaded', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('shopify:section:load', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
-        
 });

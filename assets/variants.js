@@ -176,7 +176,7 @@ function variantUpdateProcess(target) {
 
         const qty = option.getAttribute('data-qty');
         const stock = pdpInfo.querySelector('.pdp__stock');
-        if( qty > 0 && qty <= 10 ) {
+        if(qty) {
             stock.querySelector('span').innerHTML = qty;
             stock.classList.add('pdp__stock--active');
         } else stock.classList.remove('pdp__stock--active');

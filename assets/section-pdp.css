@@ -257,21 +257,11 @@
     z-index: 1;
 }
 
-@keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-}
-  
-.pdp__description-review {
-    animation: fadeUp 0.2s ease-in-out;
-    opacity: 0;
-    display: none;
+.pdp__meta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    font-size: 14px;
+    margin: 10px 0;
 }
 
 @keyframes fadeUp {

@@ -58,13 +58,23 @@
     <div
       class="cart__header"
       data-status="
-        {%- if gamification_progress == 100 or free_shipping_progress == 100 -%}
-            success
-        {%- else -%}
-            progress
-        {%- endif -%}
-      "
-    >
+      {%- if gamification_progress == 100 or free_shipping_progress == 100 -%}
+        success
+      {%- else -%}
+        progress
+      {%- endif -%}">
+      {% if settings.show-cart-gamification == true %}
+        {%- for block in section.blocks -%}
+          {% if block.type == 'gamification-gift' %}
+            {% if block.settings.announcement != blank %}
+              <div class="free-gift__announcement">
+                {{ block.settings.announcement }}
+              </div>
+            {% endif %}
+          {% endif %}
+        {%- endfor -%}
+      {% endif %}
+
       {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
       {%- comment -%}
@@ -120,6 +130,7 @@
               {% endif %}
             {%- endfor -%}
           {% endif %}
+
           <div class="cart__items-title">
             Your items (<span class="cart__count">{{ cart.item_count }}</span>)
           </div>
@@ -277,129 +288,159 @@
 </script>
 
 {% schema %}
-{
-  "name": "Cart",
-  "class": "shopify-section--cart",
-  "settings": [
-    {
-      "type": "text",
-      "id": "featured-title",
-      "label": "Featured products title",
-      "default": "More for you"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Featured collection"
-    },
-    {
-      "type": "product_list",
-      "id": "product_list",
-      "label": "Featured products",
-      "info": "Overrides featured collection"
-    },
-    {
-      "type": "url",
-      "id": "continue-shopping",
-      "label": "Continue Shopping link"
-    },
-    {
-      "type": "range",
-      "id": "wishlist-timeout",
-      "min": 1,
-      "max": 10,
-      "step": 1,
-      "unit": "sec",
-      "label": "Add to wishlist message timeout",
-      "default": 5
-    },
-    {
-      "type": "header",
-      "content": "Gamification"
-    },
-    {
-      "type": "number",
-      "id": "max_value",
-      "label": "Gamification max value"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "announcement",
-      "name": "Announcement",
-      "settings": [
-        {
-          "type": "select",
-          "id": "position",
-          "label": "Position",
-          "options": [
-            {
-              "value": "top",
-              "label": "On the top"
-            },
-            {
-              "value": "above-products",
-              "label": "Above products"
-            },
-            {
-              "value": "under-products",
-              "label": "Under products"
-            }
-          ],
-          "default": "top"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        }
-      ]
-    },
-    {
-      "type": "gamification-goal",
-      "name": "Gamification goal",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Copy"
-        },
-        {
-          "type": "number",
-          "id": "value",
-          "label": "Reach at..."
-        },
-        {
-          "type": "textarea",
-          "id": "icon",
-          "label": "SVG icon"
-        },
-        {
-          "type": "header",
-          "content": "Add items to cart"
-        },
-        {
-          "type": "product",
-          "id": "gift",
-          "label": "Gift"
-        },
-        {
-          "type": "text",
-          "id": "default_variant",
-          "label": "Default variant ID"
-        }
-      ]
-    }
-  ]
-} 
+  {
+    "name": "Cart",
+    "class": "shopify-section--cart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "featured-title",
+        "label": "Featured products title",
+        "default": "More for you"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Featured collection"
+      },
+      {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Featured products",
+        "info": "Overrides featured collection"
+      },
+      {
+        "type": "url",
+        "id": "continue-shopping",
+        "label": "Continue Shopping link"
+      }, {
+        "type": "range",
+        "id": "wishlist-timeout",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "sec",
+        "label": "Add to wishlist message timeout",
+        "default": 5
+      }, {
+        "type": "header",
+        "content": "Gamification"
+      }, {
+        "type": "number",
+        "id": "max_value",
+        "label": "Gamification max value",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Courtesy banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "courtesy-banner",
+        "label": "Display courtesy banner",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "announcement",
+        "name": "Announcement",
+        "settings": [
+          {
+            "type": "select",
+            "id": "position",
+            "label": "Position",
+            "options": [
+              {
+                "value": "top",
+                "label": "On the top"
+              }, {
+                "value": "above-products",
+                "label": "Above products"
+              }, {
+                "value": "under-products",
+                "label": "Under products"
+              }
+            ],
+            "default": "top"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }, {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }, {
+        "type": "gamification-goal",
+        "name": "Gamification goal",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Copy"
+          },
+          {
+            "type": "number",
+            "id": "value",
+            "label": "Reach at..."
+          },
+          {
+            "type": "textarea",
+            "id": "icon",
+            "label": "SVG icon"
+          },
+          {
+            "type": "header",
+            "content": "Add items to cart"
+          }, {
+            "type": "product",
+            "id": "gift",
+            "label": "Gift"
+          }, {
+            "type": "text",
+            "id": "default_variant",
+            "label": "Default variant ID"
+          }
+        ]
+      }, {
+        "type": "gamification-gift",
+        "name": "Gamification gift",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "announcement",
+            "label": "Announcement"
+          },
+          {
+            "type": "textarea",
+            "id": "icon",
+            "label": "SVG icon"
+          },
+          {
+            "type": "product",
+            "id": "gift_key",
+            "label": "Product Key"
+          },
+          {
+            "type": "product_list",
+            "id": "gift_keys",
+            "label": "Product Keys"
+          }, {
+            "type": "product_list",
+            "id": "gift_available",
+            "label": "Products available for gift",
+            "limit": 3
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
