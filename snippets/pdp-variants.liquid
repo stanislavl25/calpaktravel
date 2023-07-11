@@ -151,11 +151,9 @@
 
   {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
   {%- if product_type contains 'luggage' and featured_collection != false -%}
-    {% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 10000 and current_variant.inventory_policy == 'deny' %}
-      <div class="pdp__inventory-policy pdp__stock--active">
-        <p class="pdp__stock-variant">Low Stock</p><p >Only {{ current_variant.inventory_quantity }} left</p>
-      </div>
-    {% endif %} 
+    <div class="pdp__stock{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %} pdp__stock--active{% endif %}">
+      <p class="pdp__stock-variant">Low Stock</p><p>Only</p><span>{{ current_variant.inventory_quantity }}</span> left
+    </div>
     <div class="pdp__variant-type" data-collection="{{- featured_collection.handle -}}">
       <div class="select__wrapper select__wrapper--pdp-type">
         <select>
