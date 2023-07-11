@@ -80,36 +80,18 @@
             "settings": {
             }
           },
-          "66117e8e-72a2-4c4a-9251-d53677ed9255": {
-            "type": "shop-block",
-            "disabled": true,
-            "settings": {
-              "title": "Shop: Featured",
-              "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/3-piece-luggage-sets",
-              "block-title": "LIMITED TIME: Pick your FREE gift when you shop the 3-Piece Luggage Set",
-              "description": "",
-              "button-text": "Shop Now",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/210817_CALPAK_AUG_28603_Hi-4.jpg",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
-          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b": {
+          "d354ff31-c668-4b29-8245-34b614309172": {
             "type": "shop-block",
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "Last Chance: Save big, travel more— up to 60% off best-sellers NOW.",
+              "button-url": "shopify:\/\/collections\/summer-arrivals",
+              "block-title": "Explore bags for your sweetest summer yet",
               "description": "",
-              "button-text": "Shop Now",
+              "button-text": "Shop Summer Arrivals",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/IMG_9868-2-3.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_2_3.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -133,30 +115,12 @@
               "video-ratio-h": "9"
             }
           },
-          "d354ff31-c668-4b29-8245-34b614309172": {
-            "type": "shop-block",
-            "disabled": true,
-            "settings": {
-              "title": "Shop: Featured",
-              "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/summer-arrivals",
-              "block-title": "Explore bags for your sweetest summer yet",
-              "description": "",
-              "button-text": "Shop Summer Arrivals",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Frame_2_3.png",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
           "9bc35091-f1af-4ade-937e-7abddf8840bc": {
             "type": "featured-collection",
             "settings": {
               "title": "Shop: Featured: Carousel of Best sellers",
               "submenu-number": 1,
-              "collection": "sale",
+              "collection": "best-sellers",
               "block-title": "Explore Our Travel More Sale"
             }
           },
@@ -331,10 +295,8 @@
         },
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
-          "66117e8e-72a2-4c4a-9251-d53677ed9255",
-          "0cc1e704-5b9c-4f4b-b0c6-445e1161789b",
-          "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "d354ff31-c668-4b29-8245-34b614309172",
+          "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
           "52c25c9a-745f-42c5-8106-d8505dcb22b6",
@@ -641,7 +603,6 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -652,21 +613,6 @@
               "description": "",
               "button-text": "Shop All",
               "link-for-button": true,
-              "text-color-scheme": "white"
-            }
-          },
-          "97742501-521b-4ea2-a166-533c5387df96": {
-            "type": "media-block",
-            "settings": {
-              "title": "Shop: All",
-              "menu": "shop",
-              "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/2.20_CALPAK_LIFESTYLE3697-5.jpg",
-              "link": "shopify:\/\/collections\/sale",
-              "media-title": "",
-              "description": "",
-              "button-text": "Shop Travel More Sale",
-              "link-for-button": false,
               "text-color-scheme": "white"
             }
           },
@@ -758,7 +704,6 @@
         },
         "block_order": [
           "adc05d65-da10-4314-9243-585b3e5e1c66",
-          "97742501-521b-4ea2-a166-533c5387df96",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
           "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
