@@ -74,6 +74,7 @@
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Last Chance: Travel More Sale",
             "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
@@ -89,6 +90,7 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TMS.gif",
             "image-mobile": "shopify:\/\/shop_images\/Frame_1-11.png",
@@ -105,6 +107,7 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_1-11.png",
             "video": "",
@@ -135,11 +138,9 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "Master the art of packing this summer",
             "description": "<p>Shop organizers for your summer vacation including packing cubes, cosmetic cases and more. <\/p>",
@@ -155,7 +156,6 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-5_1.jpg",
             "video": "",
@@ -171,7 +171,6 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2_1.jpg",
             "video": "",
