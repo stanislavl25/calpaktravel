@@ -158,6 +158,12 @@
     font-size: 14px;
 }
 @media screen and (max-width:649px) {
+    .product-label--badge.product-label--active, 
+    .product-label--badge.badge-active {
+        width: 74px;
+        height: 74px;
+        font-size: 14px;
+    }
     .menu-popup--search.menu-popup--visible .product-label--badge.product-label--active, .product-label--badge.badge-active {
         display: none;
     }

@@ -197,7 +197,8 @@
             data-early-access="{{ early_access }}"
           {%- endif -%}
           data-variant="{{ variant.id }}"
-          class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
+          data-color = "{{ color }}"
+          class="product-breakdown product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
 
           <div class="product-unit__image-wrapper breakdown {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
             {%- if quick_view == true -%}

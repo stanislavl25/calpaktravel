@@ -194,12 +194,7 @@
                     {%- when 'title' -%}
                         <section class="pdp__header">
                             <h1 class="pdp__title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</h1>
-
-
-
-                            <section class="pdp__meta">
-
-                            
+                            <section class="pdp__meta"> 
                                 {%- if product.metafields.custom.featured_collection != blank -%}
                                     {%- assign collection = collections[product.metafields.custom.featured_collection] -%}
                                     <div class="pdp__feat-col">Part of <a href="{{ collection.url }}">{{- collection.title | escape -}}</a></div>
@@ -275,7 +270,6 @@
                                 {% render 'pdp-description-reviews', description_reviews_split: description_reviews_split %}
                             {%- endif -%}
                             
-
                         </section>
                     {%- when 'variants' -%}
                         {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
