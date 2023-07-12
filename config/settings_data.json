@@ -14,7 +14,7 @@
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
     "sale-text": "%% off",
-    "extra-sale-enabled": true,
+    "extra-sale-enabled": false,
     "extra-sale-tag": "extrasale",
     "extra-sale-text-pdp": "New - %% off",
     "extra-sale-text": "New - %% off",
