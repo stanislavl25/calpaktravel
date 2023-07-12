@@ -156,8 +156,6 @@
         "title": "You earned points on this purchase!",
         "text": "<p>Log in or sign up to see how many points you received.<\/p>",
         "button-text": "Log In",
-        "button-behavior": "link",
-        "scroll-to": 3,
         "link": "https:\/\/www.calpaktravel.com\/account\/login",
         "link-for-button": true,
         "height": "content",

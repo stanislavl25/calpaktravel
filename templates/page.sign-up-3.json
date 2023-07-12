@@ -20,9 +20,9 @@
             "form_type": "klaviyo",
             "iframe-url": "",
             "klaviyo_id": "X5a7Wy",
+            "vertical_alignment": "center",
             "height": "800",
-            "height-mobile": "600",
-            "vertical_alignment": "center"
+            "height-mobile": "600"
           }
         }
       },
