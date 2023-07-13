@@ -509,10 +509,18 @@
 
 .cart__courtesy-banner-disclaimer {
   position: absolute;
-  padding-left: 85px;
   bottom: -10px;
   font-size: 14px;
   font-style: italic;
+  width: 100%;
+}
+
+.cart__courtesy-banner-disclaimer p {
+  text-align: center;
+}
+
+.cart__courtesy-banner-text-p {
+  margin: 0;
 }
 
 .cart__footer-total {
@@ -1025,8 +1033,8 @@ border-radius: 8px;
   }
 
   .cart__courtesy-banner-disclaimer {
-    padding-left: 60px;
     bottom: -16px;
+    width: 100%;
   }
 }
 
