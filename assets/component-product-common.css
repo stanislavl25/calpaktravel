@@ -164,6 +164,7 @@
 
 .product-unit__title a {
     text-decoration: none;
+    font-weight: var(--font-body-weight);
 }
 
 .product-unit--na .product-label.product-label--promo,

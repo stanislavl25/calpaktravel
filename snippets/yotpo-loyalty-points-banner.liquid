@@ -1,0 +1,51 @@
+<!-- this is code for PDP Yotpo Loylaty, starts here -->
+<div id="yotpo_loyalty_pdp">
+    {% if customer %}
+        <h4>VIT Rewards</h4>
+        <p>Hi {{ customer.first_name }}, you have <span class="points-wrap"><span class="swell-point-balance">0</span> points available.</span></p>
+    <span> Earn</span>
+        <span
+          class="swell-product-helper"
+          data-mode="display-points"
+          data-product-id="{{ product.id }}"
+          data-price-cents="{{ product.price }}">
+        </span>
+        <span>points on this item!</span>
+    {% else %}
+    <h4>
+        Earn
+        <span
+          class="swell-product-helper"
+          data-mode="display-points"
+          data-product-id="{{ product.id }}"
+          data-price-cents="{{ product.price }}">
+        </span>
+        <span>points on this item!</span>
+    </h4>
+      <span>Make sure you <a href="https://www.calpaktravel.com/account/register">create a VIT account</a> at checkout.</span>
+    {% endif %}
+</div>
+
+<style>
+    div#yotpo_loyalty_pdp {
+      background:  #EAE9E1;
+      text-align: center;
+      color: #000;
+      font-size: 15px;
+      line-height: 20px;
+      border-radius: 6px;
+      padding: 15px;
+  }
+  
+  div#yotpo_loyalty_pdp h4 {
+      padding: 0;
+      margin: 0 0 10px;
+      font-size: 19px;
+    font-weight: 500;
+  }
+  div#yotpo_loyalty_pdp p {
+      padding: 0;
+      margin: 0;
+  }
+</style>
+<!-- this is code for PDP Yotpo Loylaty, ends here -->

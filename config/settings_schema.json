@@ -515,7 +515,7 @@
       {
         "type": "checkbox",
         "id": "sale-badge-hide-textog",
-        "label": "Hide original text Sale Badge on custom sale product",
+        "label": "Hide Sale Bubble on mobile",
         "default": false
       },
       {
