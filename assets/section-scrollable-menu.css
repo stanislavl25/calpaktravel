@@ -48,7 +48,7 @@
     width: 120px;
     display: block;
     text-overflow: ellipsis;
-    overflow: auto;
+    overflow: hidden;
 }
 
 @media (min-width: 901px) {
