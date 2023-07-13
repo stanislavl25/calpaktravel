@@ -39,7 +39,8 @@
     .hot-deals-mobile-countdown-wrapper {
         display: none;
         position: absolute;
-        margin-top: -32px;
+        margin-top: -40px;
+        font-size: 24px;
     }
 
     .hot-deals-banner-wrapper{
@@ -81,6 +82,11 @@
         margin-right: 16px;
         flex: 0 0 80%;
         padding-right: 20px;
+    }
+
+    .slider__wrapper--buttons-side .button-tri-right,
+    .slider__wrapper--buttons-side .button-tri-left {
+        z-index: 1;
     }
 
     .slider__wrapper--buttons-side .button-tri-right {
@@ -126,7 +132,7 @@
 
     .hot-deals-text .countdown-timer {
         color: white;
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .hot-deals-text-container-top,
@@ -262,7 +268,7 @@
     @media (max-width: 900px){
         .hot-deals-mobile-countdown-wrapper {
             display: block;
-            padding: 2px 8px!important;
+            padding: 4px 12px!important;
             color: white;
             background: {{ block.settings.banner-text-background-color }};
             border-radius: 6px;
