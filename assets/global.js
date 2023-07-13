@@ -243,6 +243,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
     });
 
+    if(isProductUnit && target.hasAttribute('data-single')) collectionLimit = [target.getAttribute('data-single')];
+
     for(let i = 0; i < product.options.length; i++) {
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;
@@ -344,6 +346,16 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if(current_variant === false) current_variant = availableVariants[0];
 
     let hasMultipleSizes = false;
+
+    let productOnSale = true;
+
+    for (let i = 0; i < availableVariants.length; i++) {
+        const variant = availableVariants[i];
+        if (variant.compare_at_price === variant.price || variant.compare_at_price === null) {
+            productOnSale = false;
+            break;
+        }
+    }
     
     availableVariants.forEach(variant => {
         const opt1 = handleize(variant.option1);
@@ -481,7 +493,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 hoverImg.classList.add('img-hover');
                 hoverImg.setAttribute('loading', 'eager');
                 target.querySelector('.product-unit__image').appendChild(hoverImg);
+                if(target.parentNode.classList.contains('free-gift__selector-product')) {
+                    hoverImg.remove();
+                }
             }
+            
         }
 
         options += `<option
@@ -548,6 +564,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             if(swatchesCheck.indexOf(variant.option1) === -1) {
                 swatchesCheck.push(variant.option1);
                 const varHandle = handleize(variant.option1);
+                const varOnSale = (variant.compare_at_price && variant.compare_at_price >= variant.price ? 'true' : 'false')
     
                 if(hide.indexOf(varHandle) === -1) {
                     let pushGroupIndex = 0;
@@ -584,7 +601,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         href="${url}"
                         data-value="${varHandle}"
                         title="${capitalize(variant.option1)}"
-                        class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'}">
+                        class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'} ${varOnSale=="true" && productOnSale==false ?'color-swatch-sale':''}">
                             ` + img + `
                         </a>`;
                 }
@@ -805,7 +822,7 @@ function activateProductUnit(target) {
     if(window.debug) console.log('Init product', handle);
     
     return new Promise((resolve, reject) => {
-        fetch('/products/' + handle + '?view=json')
+        fetch('/products/' + handle + '?view=async')
         .then(response => response.json())
         .then(data => {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
@@ -947,7 +964,14 @@ function activateVideoContainer(video) {
             })
             .then(response => response.json())
             .then(response => {
-                video.style.setProperty('--ratio', `${response.width} / ${response.height}`)
+                let videos = document.querySelectorAll(`.video-iframe-container[data-vimeo-id="${vimeoId}"]`);
+                videos.forEach(video => {
+                    video.style.setProperty('--ratio', `${response.width} / ${response.height}`);
+                    if(video.closest('.video-slider__slide')) {
+                        video.parentNode.style.padding = '0';
+                        video.parentNode.style.aspectRatio = `${response.width} / ${response.height}`;
+                    }
+                });
             })
             .catch((error) => {
                 console.error('Error:', error);

@@ -1,4 +1,6 @@
 {{ 'section-nav-hero.css' | asset_url | stylesheet_tag: preload: true }}
+<link rel="stylesheet" href="{{ 'component-hero-nav.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-header-subnav.css' | asset_url | stylesheet_tag }}</noscript>
 
 <script src="{{ 'nav-hero.js' | asset_url }}" defer="defer"></script>
 
