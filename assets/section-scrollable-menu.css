@@ -44,6 +44,13 @@
     object-fit: cover;
 }
 
+.scrollable-nav-menu__block h7 {
+    width: 120px;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 @media (min-width: 901px) {
     .shopify-section--scrollable-nav-menu {
       display: none;
