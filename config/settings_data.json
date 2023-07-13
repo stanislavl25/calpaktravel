@@ -46,7 +46,7 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": true,
-    "sale-msg-pdp-only": false,
+    "sale-msg-pdp-only": true,
     "sale-msg-tag": "Final Sale",
     "sale-msg-highlighted": "Test",
     "sale-msg-message": "Test",
