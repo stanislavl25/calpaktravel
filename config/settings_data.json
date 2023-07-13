@@ -45,7 +45,7 @@
     "hot-deals-ends": "July 7, 2023 11:00am",
     "chk-msg-enabled": false,
     "sale-msg-code": "FREEMINI",
-    "sale-msg-enabled": true,
+    "sale-msg-enabled": false,
     "sale-msg-pdp-only": true,
     "sale-msg-tag": "Final Sale",
     "sale-msg-highlighted": "Test123",
