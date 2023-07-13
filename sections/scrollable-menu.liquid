@@ -1,0 +1,69 @@
+{{ 'section-scrollable-menu.css' | asset_url | stylesheet_tag }}
+
+{% if section.blocks.size > 0 and section.settings.display-menu %}
+    <section class="scrollable-nav-menu">
+        {% for block in section.blocks %}
+            {% assign collection = collections[block.settings.collection] %}
+            <div class="scrollable-nav-menu__block">
+            <a href="{{ collection.url }}">
+                <div class="scrollable-nav-menu__image-container">
+                    {% if block.settings.image != blank %}
+                        <img src="{{ block.settings.image | img_url: '800x800' }}" alt="{{ block.settings.title | escape }}">
+                    {% else %}
+                        <img src="{{ collection.image | img_url: '800x800' }}" alt="{{ collection.title | escape }}">
+                    {% endif %}
+                </div>
+                {% if block.settings.title != blank %}
+                    <h7>{{ block.settings.title | escape }}</h7>
+                {% else %}
+                    <h7>{{ collection.title | escape }}</h7>
+                {% endif %}
+                </a>
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Scrollable Nav Menu",
+        "class": "shopify-section--scrollable-nav-menu",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "display-menu",
+                "label": "Display scrollable navigation menu",
+                "default": true
+            }
+        ],
+        "blocks": [
+            {
+                "type": "collection",
+                "name": "Collection",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "collection",
+                        "label": "Collection"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Scrollable Nav Menu"
+            }
+        ]
+    }
+{% endschema %}

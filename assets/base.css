@@ -361,7 +361,7 @@ div.swym-inject,
   background: var(--button-bg);
   border-radius: 9px;
   font-size: 16px;
-  font-weight: var(--font-body-weight-bold);
+  font-weight: var(--font-body-weight);
   padding: 0 17px;
   text-align: center;
   cursor: pointer;
@@ -1024,4 +1024,14 @@ span.shipping-custom-msg {
 /*promotion bar*/
 #shopify-section-promo-bar {
     z-index: 3;
+}
+
+.pushowl-simple-toast {
+  bottom: 85px!important;
+  z-index: 10!important;
+}
+@media (max-width:900px){
+  .pushowl-simple-toast {
+    bottom: 125px!important;
+  }
 }

@@ -1,0 +1,76 @@
+<style>
+    .blog-text-product-feature__blocks {
+        display: grid;
+        grid-template-columns: repeat({{ section.blocks.size }}, minmax(0, 1fr));
+        gap: var(--gap);
+    }
+
+    @media (max-width: 900px) {
+        .blog-text-product-feature__blocks {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--gap);
+        }
+    }
+</style>
+
+{{ 'section-blog-text-product-feature.css' | asset_url | stylesheet_tag }}
+
+<div class="shopify-section--blog-text-product-feature">
+    <div class="blog-text-product-feature">
+        <div class="blog-text-product-feature__blocks">
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'text' %}
+                        <div class="blog-text-product-feature__block">
+                            <div class="blog-text-product-feature__block-text">
+                                {{ block.settings.text }}
+                            </div>
+                        </div>
+                    {% when 'product' %}
+                        <div class="blog-text-product-feature__block">
+                            <div class="blog-text-product-feature__block-product">
+                                {%- render 'product-unit' with block.settings.product, in_collection: collection, all_colors_quickadd: true, add_to_cart: block.settings.show-add-to-cart, wishlist: true, quick_view: true -%}
+                            </div>
+                        </div>
+                {% endcase %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Blog Text Product Feature",
+        "class": "shopify-section--blog-text-product-feature",
+        "max_blocks": 4,
+        "blocks": [
+            {
+                "type": "text",
+                "name": "Text",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    }
+                ]
+            },
+            {
+                "type": "product",
+                "name": "Product",
+                "settings": [
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Blog Text Product Feature"
+            }
+        ]
+    }
+{% endschema %}
