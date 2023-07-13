@@ -539,7 +539,7 @@ p.pdp__stock-variant {
 }
 
 .pdp__info .pdp__form-labels .product-label {
-    margin: -18px 0 0 0;
+    margin: -12px 0;
 }
 .qv__body .pdp__form-labels .product-label{
     margin-bottom: calc(-1 * var(--gap) + 10px);
