@@ -1,7 +1,7 @@
 
 <div class="slider__wrapper">
     <div data-nav=".pdp__gallery-thumbs" data-slider-on="mobile" data-video-order="{{ product.metafields.custom.product_video_position }}" class="pdp__gallery slider{% if current_variant.metafields.custom.featured_images == blank %} pdp__gallery--old{% endif %}">
-        {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, zoom: section.settings.zoom %}
+        {% render 'pdp-media-list', location: 'pdp', current_variant: current_variant, zoom: section.settings.zoom, fancy_box: true %}
     </div>
 </div>
 <div class="slider__wrapper slider__wrapper--buttons-side" data-gap="10" data-slide="3">
