@@ -13,6 +13,13 @@
             assign limitSearch = in_collection.handle | append: ':'
 
             for tag in product.tags
+                assign splitted_tag = tag | split: ":"
+                if splitted_tag[0] == 'hot-deals'
+                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+                endif
+            endfor
+
+            for tag in product.tags
                 if tag contains 'hide:'
                     assign val = tag | split: ":" | last
                     unless hide == ''
@@ -103,23 +110,35 @@
     endif
 
     if settings.sale-badge-tag == blank
-            assign saleBadge = true
-        else
-            assign saleBadge = false
-            for tag in product.tags
-                assign tagSpl = tag | split: ':'
-                if settings.sale-badge-tag == tagSpl[0]
-                    if tagSpl.size == 1
-                        assign saleBadge = true
-                    else init_option1
-                        assign saleBadge = tagSpl[1] | downcase | split: ';'
-                    endif
+      assign saleBadge = true
+    else
+        assign saleBadge = false
+        for tag in product.tags
+            assign tagSpl = tag | split: ':'
+            if settings.sale-badge-tag == tagSpl[0]
+                if tagSpl.size == 1
+                    assign saleBadge = true
+                else init_option1
+                    assign saleBadge = tagSpl[1] | downcase | split: ';'
                 endif
-            endfor
+            endif
+        endfor
+    endif
+
+    if hotDealsTag == true
+        assign now = "now" | date: '%s' | times: 1
+        assign ends = false
+        if settings.hot-deals-ends != blank
+          assign ends = settings.hot-deals-ends | date: '%s' | times: 1
+          assign timeLeft = ends | minus: now
         endif
+        assign countdownTimer = false
+
+        if timeLeft < 172800 and timeLeft > 0 and ends != false
+          assign countdownTimer = true
+        endif
+    endif 
 -%}
-
-
 
 {% assign color_option_index = '' %}
 {%- assign color_options = '' -%}
@@ -180,7 +199,7 @@
           data-variant="{{ variant.id }}"
           class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
 
-          <div class="product-unit__image-wrapper breakdown">
+          <div class="product-unit__image-wrapper breakdown {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
             {%- if quick_view == true -%}
               <a
                 class="quick-view__link quick-view__link--circle"
@@ -272,6 +291,7 @@
           {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
             <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
           {%- endif -%}
+
           <div class="product-unit__row">
             <div class="product-unit__price">
               {%- if current_variant.compare_at_price > current_variant.price -%}
@@ -282,6 +302,7 @@
               {%- endif -%}
             </div>
           </div>
+
           <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
           {%- if add_to_cart == true -%}
             <div class="product-unit__colors--quickadd"></div>

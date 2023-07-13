@@ -83,7 +83,7 @@ window.addEventListener("load", () => {
                 document.querySelector('.shopify-section--collection-image-banner').classList.remove('banner-active');
             }
             filters.setAttribute('aria-expanded', false);
-            filters.classList.remove('collection-filters--active');
+           //filters.classList.remove('collection-filters--active');
         });
 
         filtersCont.addEventListener('click', e => e.stopPropagation());

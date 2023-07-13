@@ -5,6 +5,7 @@
       "blocks": {
         "9844c605-e2c1-43fe-98a7-10eac41c76c4": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK-MDW-Landing-Page-GIF-1000-Revised.gif",
             "keep-proportions": true,
@@ -19,10 +20,10 @@
           "settings": {
             "form_type": "klaviyo",
             "iframe-url": "",
-            "klaviyo_id": "Xu7VLX",
-            "height": "500",
-            "height-mobile": "300",
-            "vertical_alignment": "center"
+            "klaviyo_id": "Ycfuvm",
+            "vertical_alignment": "center",
+            "height": "300",
+            "height-mobile": "300"
           }
         }
       },
@@ -43,7 +44,8 @@
           "settings": {
             "collection": "best-sellers",
             "title": "",
-            "hide-form-labels": false
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         }
       },

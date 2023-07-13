@@ -1,0 +1,59 @@
+<style>
+    .shopify-section--blog-text-feature {
+        background-color: {{ section.settings.background_color }};
+        text-align: {{ section.settings['text-alignment'] }};
+    }
+</style>
+
+{{ 'section-blog-text-feature.css' | asset_url | stylesheet_tag }}
+
+<div class="blog-text-feature">
+    {%- if section.settings.copy != blank -%}
+        {{ section.settings.copy }}
+    {%- endif -%}
+</div>
+
+{% schema %}
+    {
+        "name": "Blog Text Feature",
+        "class": "shopify-section--blog-text-feature",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "copy",
+                "label": "Copy"
+            },
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Background color",
+                "default": "#e1ded4"
+            },
+            {
+                "type": "select",
+                "id": "text-alignment",
+                "label": "Text alignment",
+                "default": "left",
+                "options": [
+                    {
+                        "value": "left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "center",
+                        "label": "Center"
+                    },
+                    {
+                        "value": "right",
+                        "label": "Right"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Blog Text Feature"
+            }
+        ]
+    }
+{% endschema %}

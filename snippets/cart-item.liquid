@@ -91,6 +91,10 @@
                 {%- endif -%}
             {%- endif -%}
 
+            {% if item.properties['_preorder'] != blank and item.properties['_preorder'] != false and item.properties['_preorder'] != 'false' %}
+                <div class="cart__item-preorder">Expected to ship <span>{{ item.properties['_preorder'] | escape }}</span></div>
+            {% endif %}
+
             {%- if item.properties['_gift'] == 'true' -%}
 
                 <div

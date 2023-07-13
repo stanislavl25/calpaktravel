@@ -251,7 +251,7 @@
 }
 
 .menu-popup__main .menu > li:not(:first-child) li:last-child {
-    font-weight: var(--font-body-weight-black);
+    text-decoration: underline;
 }
 
 .menu-popup__main::-webkit-scrollbar {
@@ -300,4 +300,9 @@
     .menu-popup--shop .menu-side .product-slider {
         border-top: 0;
     }
+}
+
+/* Hide hot deals badge in nav */
+.menu-popup__content .product-label--active {
+    display: none!important;
 }

@@ -179,7 +179,9 @@
 .slide-menu-item--has-sub {
     border-bottom: 1px dashed #aeaeae;
 }
-
+.mobile-menu__nav:first-child .slide-menu-item--single {
+    border-bottom: 1px dashed #aeaeae;
+}
 .slide-menu__sub-button::before {
     position: absolute;
     top: 50%;

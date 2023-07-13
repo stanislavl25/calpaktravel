@@ -214,7 +214,7 @@
 
 
                 if collectionbreakdown == true and section.settings.breakdown-collection != blank
-                        render 'product-unit-single' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
+                    render 'product-unit-single' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
                 elsif forloop.index <= 5
                     render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
                 else
@@ -235,6 +235,10 @@
                     render 'static-block' with block as block
                 when 'banner'
                     render 'banner-image-grid' with block as block
+                when 'hot-deals-banner'
+                    render 'hot-deals-banner' with block as block
+                when 'hot-deals-banner-sale'
+                    render 'hot-deals-banner-sale' with block as block
             endcase
         endfor
     -%}
@@ -942,6 +946,190 @@
                         "id": "banner-text-background-color",
                         "label": "Central Banner Text Background Color",
                         "default": "#FFF"
+                    }
+                ]
+            },
+            {
+                "type": "hot-deals-banner",
+                "name": "Hot Deals Banner",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Settings"
+                    },
+                    {
+                        "type": "select",
+                        "id": "display",
+                        "label": "Display rules for banner",
+                        "options": [
+                            {
+                            "value": "desktop",
+                            "label": "Only Desktop"
+                            },
+                            {
+                            "value": "mobile",
+                            "label": "Only Mobile"
+                            },
+                            {
+                            "value": "both",
+                            "label": "Desktop and Mobile"
+                            }
+                        ],
+                        "default": "both"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list",
+                        "label": "Collections to display on the banner",
+                        "info": "If no collections are selected, the banner will be displayed on all collections"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner images"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop",
+                        "label": "Hot Deals Image Desktop - No Countdown"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop-countdown-1",
+                        "label": "Hot Deals Image Desktop - Countdown 1"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-mobile",
+                        "label": "Hot Deals Image Mobile"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner placement"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row",
+                        "label": "Row desktop position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row_mobile",
+                        "label": "Row mobile position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-color",
+                        "label": "Central Banner Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-background-color",
+                        "label": "Central Banner Text Background Color",
+                        "default": "#FFF"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Featured Products"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "featured_products",
+                        "label": "Featured Products List"
+                    }
+                ]
+            },
+            {
+                "type": "hot-deals-banner-sale",
+                "name": "Hot Deals Banner Sale",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Settings"
+                    },
+                    {
+                        "type": "select",
+                        "id": "display",
+                        "label": "Display rules for banner",
+                        "options": [
+                            {
+                            "value": "desktop",
+                            "label": "Only Desktop"
+                            },
+                            {
+                            "value": "mobile",
+                            "label": "Only Mobile"
+                            },
+                            {
+                            "value": "both",
+                            "label": "Desktop and Mobile"
+                            }
+                        ],
+                        "default": "both"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list",
+                        "label": "Collections to display on the banner",
+                        "info": "If no collections are selected, the banner will be displayed on all collections"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner images"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop",
+                        "label": "Hot Deals Image Desktop - No Countdown"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop-countdown-1",
+                        "label": "Hot Deals Image Desktop - Countdown 1"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-mobile",
+                        "label": "Hot Deals Image Mobile"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner placement"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row",
+                        "label": "Row desktop position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row_mobile",
+                        "label": "Row mobile position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-color",
+                        "label": "Central Banner Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-background-color",
+                        "label": "Central Banner Text Background Color",
+                        "default": "#FFF"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Featured Products"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "featured_products",
+                        "label": "Featured Products List"
                     }
                 ]
             }

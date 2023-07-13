@@ -29,11 +29,29 @@ function updateProductURLs(productContainer, options, multiple = false, earlyAcc
     });
 }
 
+function handlePreorderLabels(productContainer, option, location) {
+    let preorderLabels = productContainer.querySelectorAll('.product-label--preorder');
+    preorderLabels.forEach(preorderLabel => preorderLabel.classList.remove('product-label--active'));
+
+    if(option.getAttribute('data-available') != 'false') {
+        let preorder = false;
+        if(option.hasAttribute('data-preorder')) preorder = option.getAttribute('data-preorder');
+
+        if(preorder) {
+            if(location == 'pdp') productContainer.closest('.pdp__grid, .qv__body').setAttribute('data-status', 'preorder');
+
+            preorderLabels.forEach(preorderLabel => {
+                preorderLabel.classList.add('product-label--active');
+                preorderLabel.querySelector('.preorder-date').innerHTML = preorder;
+            });
+        } else if(location == 'pdp') productContainer.closest('.pdp__grid, .qv__body').setAttribute('data-status', 'default');
+    }
+}
+
 function variantUpdateProcess(target) {
     if(window.location.pathname.includes('product')) {
         changeBadgeAbsolutePosition(); // defined on pdp.js
     }
-    const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
     const productContainer = target.closest('.product-unit, .shopify-product-form');
     
     if(!productContainer) return;
@@ -71,33 +89,6 @@ function variantUpdateProcess(target) {
     if(!option) return;
     select.value = option.value;
 
-    if(includesTextWrapperForLuggageCovers.length > 1) {
-        if(option.getAttribute('data-option2') === "set-of-2") {
-                includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
-                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
-                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.remove('display-none')
-                includesTextWrapperForLuggageCover.classList.remove('unseen')
-                includesTextWrapperForLuggageCover.classList.add('seen')
-            })
-            
-        } else if(option.getAttribute('data-option2') === "set-of-3") {
-            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
-                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
-                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.remove('display-none')
-                includesTextWrapperForLuggageCover.classList.remove('unseen')
-                includesTextWrapperForLuggageCover.classList.add('seen')
-            })
-            
-        } else {
-            includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
-                includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
-                includesTextWrapperForLuggageCover.querySelector(".set-of-3").classList.add('display-none')
-                includesTextWrapperForLuggageCover.classList.remove('seen')
-                includesTextWrapperForLuggageCover.classList.add('unseen')
-            })
-            
-        }
-    }
 
     const earlyAccessValue = productContainer.getAttribute('data-early-access');
     updateProductURLs(productContainer, options, multiple, earlyAccessValue == 'all' || earlyAccessValue == 'only');
@@ -128,6 +119,8 @@ function variantUpdateProcess(target) {
             }
         }
     });
+
+    handlePreorderLabels(productContainer, option, location);
 
     if(location == 'unit') {
         const img = option.getAttribute('data-image');
@@ -169,9 +162,6 @@ function variantUpdateProcess(target) {
         const ytPoints = pdpGrid.querySelectorAll('.yt-points');
         ytPoints.forEach(ytPoint => ytPoint.innerHTML = Math.floor(price / 100));
 
-        let preorderLabels = productContainer.querySelectorAll('.product-label--preorder');
-        preorderLabels.forEach(preorderLabel => preorderLabel.classList.remove('product-label--active'));
-
         if(option.getAttribute('data-available') == 'false') {
             pdpGrid.setAttribute('data-status', 'sold-out');
 
@@ -181,20 +171,6 @@ function variantUpdateProcess(target) {
             if(pdpGrid.hasAttribute('data-soldout')) {
                 if(pdpGrid.matches(`[data-soldout~=${options[0]}]`)) pdpGrid.classList.add('pdp__grid--soldout');
                 else pdpGrid.classList.remove('pdp__grid--soldout');
-            }
-        } else {
-            let preorder = false;
-            if(option.hasAttribute('data-preorder')) preorder = option.getAttribute('data-preorder');
-
-            if(preorder) {
-                pdpGrid.setAttribute('data-status', 'preorder');
-
-                preorderLabels.forEach(preorderLabel => {
-                    preorderLabel.classList.add('product-label--active');
-                    preorderLabel.querySelector('.preorder-date').innerHTML = preorder;
-                });
-            } else {
-                pdpGrid.setAttribute('data-status', 'default');
             }
         }
 

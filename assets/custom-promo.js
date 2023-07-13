@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let entry of entries) {
         if (entry.target === navbar) {
             const navbarHeight = navbar.offsetHeight;
-            stickyElement.style.top = navbarHeight > 60 ? '82px' : '42px';
+            stickyElement.style.top = navbarHeight > 60 ? '80px' : '42px';
         }
         }
     });
@@ -98,9 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const navbarHeight = navbar.offsetHeight;
             if (window.innerWidth <= 900) {
                 stickyElement2.style.top = 'auto';
-                // stickyElement2.style.top = navbarHeight > 60 ? '42px' : '0';
             } else {
-                stickyElement2.style.top = navbarHeight > 60 ? '82px' : '42px';
+                stickyElement2.style.top = navbarHeight > 60 ? '80px' : '42px';
             }
         }
         }

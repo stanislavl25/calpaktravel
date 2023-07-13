@@ -2,8 +2,11 @@
     {%- liquid
         assign now = "now" | date: '%s' | times: 1
         assign ends = settings.flash-sale-ends | date: '%s' | times: 1
+        assign starts = settings.flash-sale-starts | date: '%s' | times: 1
 
-        if settings.flash-sale-tag == blank
+        if starts > now
+            assign flashSale = false
+        elsif settings.flash-sale-tag == blank
             assign flashSale = true
         else
             assign flashSale = false
@@ -20,14 +23,16 @@
         endif
 
         assign timeLeft = ends | minus: now
+
+        assign start_theshold = settings.flash-sale-countdown | times: 3600
     -%}
 
-    {%- if timeLeft > 0 and flashSale != false -%}
+    {%- if timeLeft < start_theshold and timeLeft > 0 and flashSale != false -%}
         {%- assign opt1 = current_variant.option1 | handleize -%}
-    <div class="product-label product-label--flash{% if flashSale contains opt1 and flashSale != true %} product-label--active{% endif %}"{% if flashSale != true %} data-options="{{ flashSale | join: ' ' }}"{% endif %}>
-        <label>{{- settings.flash-sale-text | escape -}}</label>
-        <div class="countdown-timer" data-time="{{- timeLeft -}}"></div>
-    </div>
+        <div class="product-label product-label--flash{% if flashSale contains opt1 and flashSale != true %} product-label--active{% endif %}"{% if flashSale != true %} data-options="{{ flashSale | join: ' ' }}"{% endif %}>
+            <label>{{- settings.flash-sale-text | escape -}}</label>
+            <div class="countdown-timer" data-time="{{- timeLeft -}}"></div>
+        </div>
     {%- endif -%}
 
 {%- endif -%}
