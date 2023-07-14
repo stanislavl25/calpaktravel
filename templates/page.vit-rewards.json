@@ -129,7 +129,7 @@
           "type": "faq",
           "settings": {
             "title": "Where do I check how many points I have?",
-            "answer": "<p>It’s easy—just log into your account and go to the rewards tab. You have to be signed in if you want to redeem your points.<\/p>",
+            "answer": "<p>Simply log into your account and go to the rewards tab. To redeem your points, you must be signed in.<\/p>",
             "hide": false
           }
         },
@@ -137,7 +137,7 @@
           "type": "faq",
           "settings": {
             "title": "How many points can I use on my order?",
-            "answer": "<p>You can use as many points as you'd like! Please note, VIT points cannot be used to redeem shipping costs. If your order total goes below our threshold for free standard shipping, you will be charged our shipping fee.<\/p>",
+            "answer": "<p>Once your order goes above the $50, you can use as many points as you like on your order. Please note, if you redeem your VIT points and your order total goes below the minimum threshold for free shipping, you will need to pay the cost of shipping. Unfortunately, VIT points cannot be applied to shipping costs.<\/p>",
             "hide": false
           }
         },
@@ -153,7 +153,7 @@
           "type": "faq",
           "settings": {
             "title": "Why aren’t my points showing up?",
-            "answer": "<p>It takes up to 24 hours for your points to show up. Didn’t get a confirmation email from us? Try checking your spam.<\/p><p><\/p><p>*Please note birthdays must be shared 30 days prior to the date.  If your birthday falls within the next 30 days, please reach out to our customer service team at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, and we're happy to help you add your birthday to our system!<\/p>",
+            "answer": "<p>It takes up to 24 hours for your points to show up. Didn’t get a confirmation email from us? Try checking your spam.<\/p><p><\/p><p>*Please note birthdays must be shared 30 days prior to the date.  If your birthday falls within the next 30 days, please reach out to our customer service team at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, and we're happy to help you add your birthday to our system! Oh, and happy birthday—by the way!<\/p>",
             "hide": false
           }
         },
