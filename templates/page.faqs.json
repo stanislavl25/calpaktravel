@@ -656,6 +656,14 @@
             "hide": false
           }
         },
+        "a6764864-181b-4f62-9dfd-c8040fc18e40": {
+          "type": "faq",
+          "settings": {
+            "title": "What is the difference between VIT tiers?",
+            "answer": "<p>We have three different VIT tiers: Explorer, Voyager, and Jetsetter. Click this <a href=\"https:\/\/www.calpaktravel.com\/pages\/rewards\"><span style=\"text-decoration:underline\">link here<\/span><\/a> to be redirected to our VIT homepage. From there, you can see the different tiers and all the exciting perks and rewards associated with each one. <\/p>",
+            "hide": false
+          }
+        },
         "2c702dea-e365-413d-b997-7ad4a3046674": {
           "type": "faq",
           "settings": {
@@ -733,6 +741,7 @@
         "95ddffd6-ecee-452f-8b85-3c99c69b6c29",
         "7a4e8cb7-7ed2-4dc3-81cc-1c278808d330",
         "ebc2b598-56aa-481f-a676-096b84bbcb3e",
+        "a6764864-181b-4f62-9dfd-c8040fc18e40",
         "2c702dea-e365-413d-b997-7ad4a3046674",
         "8a53336a-a512-4942-8083-2c2dcd82529f",
         "49e7451a-5aff-49fd-b193-24b9ac47d178",
