@@ -69,7 +69,7 @@
           "type": "faq",
           "settings": {
             "title": "How much is shipping?",
-            "answer": "<p>Free standard ground shipping for all orders above $100*. For orders below the $100 shipping threshold, a $7.95 standard shipping flat rate is applied*.<\/p><p>* contiguous U.S. only<\/p>",
+            "answer": "<p>Free standard ground shipping for all orders above $100*. For orders below the $100 shipping threshold, a $7.95 standard shipping flat rate is applied*.<\/p><h6>* contiguous U.S. only<\/h6>",
             "hide": false
           }
         },
