@@ -81,6 +81,9 @@
                         {% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}
                         {% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}
                         {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
+                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                        starter-customize custom-dash
+                        {% endif %}
                     {% else %}
                         product-label--badge-collection-page
                         {% if saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}    
@@ -91,7 +94,7 @@
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                 {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
             >
-                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}  
+                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and settings.sale-badge-text-starter != blank %}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}

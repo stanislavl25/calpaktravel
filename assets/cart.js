@@ -397,15 +397,20 @@ function setGamificationProducts( gifts ) {
 }
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
-
-    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
+    /*
+        !!!!!!!!!!!!!!!!!!
+        CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
+        !!!!!!!!!!!!!!!!!!
+    */
+    // if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
     const { goals, gifts, wrapper, limit } = settings["cartGamification"];
     const cartHeader = document.querySelector('.cart__header');
     const cartGoals = document.querySelector(wrapper);
     const cartGifts = document.querySelector('.cart__gamification-gifts');
     const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-    const freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
+    let freeShippingStarts = -1;
+    if(goals.length) freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
 
 
     cartGoals.innerHTML = '';
@@ -496,7 +501,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 
     }
 
-    if(items_subtotal_price >= freeShippingStarts) {
+    if(freeShippingStarts > -1 && items_subtotal_price >= freeShippingStarts) {
         cartHeader.setAttribute('data-status', 'success');
         return true;
     } else {
@@ -725,7 +730,7 @@ function openCart() {
     const cartContainer = document.querySelector('.cart__container');
     if(!cartContainer || cartContainer.classList.contains('cart__container--visible')) return;
 
-    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
+    if(settings["cartGamification"] && settings["cartGamification"].gifts.length > 0 && document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
     cartContainer.classList.add('cart__container--active');
     setTimeout(() => {

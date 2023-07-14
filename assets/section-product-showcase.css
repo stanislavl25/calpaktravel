@@ -54,6 +54,11 @@
     line-height: 1.5em;
 }
 
+.product-showcase__description h3 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
 @media (max-width: 900px) {
     .product-showcase {
         display: flex;
@@ -83,5 +88,9 @@
     .product-showcase--mob-one-line .product-showcase__block--image,
     .product-showcase--mob-one-line .product-showcase__block--product {
         flex: 0 0 50%;
+    }
+
+    .product-showcase__description h3 {
+        font-size: 24px;
     }
 }

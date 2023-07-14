@@ -1,0 +1,31 @@
+.shopify-section--blog-image-text-feature {
+    margin: var(--section-gap) 0;
+    padding: 0 var(--gap);
+}
+
+.blog-image-text-feature__title {
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.25em;
+    margin-bottom: var(--gap);
+    text-decoration: none;
+}
+
+.blog-image-text-feature {
+    display: grid;
+    gap: var(--gap);
+}
+
+.blog-image-text-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.blog-image-text-section:first-child img {
+    border-radius: 9px 0px 0px 9px;
+}
+
+.blog-image-text-section:last-child img {
+    border-radius: 0px 9px 9px 0px;
+}

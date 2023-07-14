@@ -113,7 +113,7 @@
 }
 
 .product-slider__title {
-    font-weight: var(--font-body-weight-black);
+    font-weight: var(--font-body-weight);
 }
 
 .product-slider__header .slider__nav {
@@ -154,6 +154,10 @@
     height: 28px;
     margin-bottom: -4px;
     transition: opacity 0.3s;
+}
+
+.product-unit[data-single] .product-unit__colors {
+    display: none;
 }
 
 .product-unit__colors--all {

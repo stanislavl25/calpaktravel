@@ -243,6 +243,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
     });
 
+    if(isProductUnit && target.hasAttribute('data-single')) collectionLimit = [target.getAttribute('data-single')];
+
     for(let i = 0; i < product.options.length; i++) {
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;
@@ -491,7 +493,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 hoverImg.classList.add('img-hover');
                 hoverImg.setAttribute('loading', 'eager');
                 target.querySelector('.product-unit__image').appendChild(hoverImg);
+                if(target.parentNode.classList.contains('free-gift__selector-product')) {
+                    hoverImg.remove();
+                }
             }
+            
         }
 
         options += `<option
@@ -958,7 +964,14 @@ function activateVideoContainer(video) {
             })
             .then(response => response.json())
             .then(response => {
-                video.style.setProperty('--ratio', `${response.width} / ${response.height}`)
+                let videos = document.querySelectorAll(`.video-iframe-container[data-vimeo-id="${vimeoId}"]`);
+                videos.forEach(video => {
+                    video.style.setProperty('--ratio', `${response.width} / ${response.height}`);
+                    if(video.closest('.video-slider__slide')) {
+                        video.parentNode.style.padding = '0';
+                        video.parentNode.style.aspectRatio = `${response.width} / ${response.height}`;
+                    }
+                });
             })
             .catch((error) => {
                 console.error('Error:', error);
