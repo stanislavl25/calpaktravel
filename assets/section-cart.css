@@ -903,7 +903,7 @@ border-radius: 8px;
   opacity: 1 !important;
 }
 [data-status="success"] .cart__free-ship-success {
-  margin-left: -8px;
+  margin-left: -9px;
 }
 [data-status="progress"] .cart__free-ship-progress,
 [data-status="success"] .cart__free-ship-success {
@@ -1045,6 +1045,10 @@ border-radius: 8px;
     bottom: -16px;
     width: 100%;
   }
+  [data-status="progress"] .cart__free-ship-progress {
+    max-width: 90%;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 650px) {
@@ -1067,6 +1071,10 @@ border-radius: 8px;
   }
   .cart__gam-verbose {
     padding: 0 25px;
+  }
+  [data-status=progress] .cart__free-ship-progress, [data-status=success] .cart__free-ship-success {
+    max-width: 87%;
+    margin: 0 auto;
   }
 }
 
