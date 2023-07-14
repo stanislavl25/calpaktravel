@@ -69,7 +69,7 @@
           "type": "faq",
           "settings": {
             "title": "How much is shipping?",
-            "answer": "<p>Free standard ground shipping for all orders above $100*. For orders below the $100 shipping threshold, a $7.95 standard shipping flat rate is applied*.<\/p><h5>* contiguous U.S. only<\/h5>",
+            "answer": "<p>Free standard ground shipping for all orders above $100.  For orders below the $100 shipping threshold, a $7.95 standard shipping flat rate is applied.* <\/p><p>*contiguous US only<\/p><p>For Hawaii and Alaska orders, we are happy to offer a flat rate shipping fee. These orders will ship out via FedEx 2Day Air or FedEx Overnight shipping, and the fees are as follows:<\/p><p>Bags\/Accessories: <\/p><ul><li>FedEx 2nd Day Air: $24.95<\/li><li>FedEx Overnight: $34.95<\/li><\/ul><p>Luggage* & Hat Boxes: <\/p><ul><li>FedEx 2nd Day AIr: $49.95<\/li><li>FedEx Overnight: $99.95<\/li><\/ul><p>*Including Stevyn Rolling Duffel<\/p><p>Please note, the shipping fee will be determined by the largest item on your order.<\/p>",
             "hide": false
           }
         },
