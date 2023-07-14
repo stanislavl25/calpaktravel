@@ -299,7 +299,7 @@
           "type": "faq",
           "settings": {
             "title": "Are returns free?",
-            "answer": "<p>Currently, we do not offer free return shipping.  However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<br\/><br\/>Flat rate return shipping fees:<br\/><br\/>- Luggage: $24.95<br\/>- Bags & Accessories: $11.95<\/p>",
+            "answer": "<p>Currently, we do not offer free return shipping. However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<\/p><p>Flat rate return shipping fees within the contiguous US:<\/p><ul><li>Bags & Accessories: $11.95<\/li><li>Luggage: $24.95<\/li><\/ul><p>Flat rate return shipping fees for Hawaii and Alaska:<\/p><ul><li>Bags & Accessories: $24.95<\/li><li>Luggage: $49.95<\/li><\/ul>",
             "hide": false
           }
         },
