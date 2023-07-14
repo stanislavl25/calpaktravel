@@ -676,7 +676,7 @@
           "type": "faq",
           "settings": {
             "title": "Do points expire?",
-            "answer": "<p>Your points expire after 2 years once they're earned leaving you ample time to apply your points towards your next purchase.<\/p>",
+            "answer": "<p>VIT points expire after your VIT account has been inactive for 2 years. To clarify, inactivity means there has been no CALPAK purchase associated with your VIT account two years after your last purchase. Feel free to reach out to <a href=\"mailto:help@calpaks.com\"><span style=\"text-decoration:underline\">help@calpaks.com<\/span><\/a> for further information.<\/p>",
             "hide": false
           }
         },
