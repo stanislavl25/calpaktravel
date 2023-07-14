@@ -903,6 +903,12 @@ border-radius: 8px;
   opacity: 1 !important;
 }
 
+[data-status="progress"] .cart__free-ship-progress,
+[data-status="success"] .cart__free-ship-success {
+  display: block;
+  line-height: 21px;
+}
+
 @media (max-width: 900px) {
   .cart__gamification-goal:last-child {
     margin-left: -30px;
@@ -1099,10 +1105,7 @@ border-radius: 8px;
   display: none;
 }
 
-[data-status="progress"] .cart__free-ship-progress,
-[data-status="success"] .cart__free-ship-success {
-  display: block;
-}
+
 
 .cart__item .product-label {
   margin: 6px 0;
