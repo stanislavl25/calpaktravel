@@ -692,7 +692,7 @@
           "type": "faq",
           "settings": {
             "title": "How many points can I use on my order?",
-            "answer": "<p>You can use as many points as you like on your order. Please note, that if you redeem your VIT points and your order total goes below the minimum threshold for free shipping, you will need to pay the cost of shipping. Unfortunately, VIT points cannot be applied to shipping costs.<\/p>",
+            "answer": "<p>Once your order goes above the $50, you can use as many points as you like on your order. Please note, if you redeem your VIT points and your order total goes below the minimum threshold for free shipping, you will need to pay the cost of shipping. Unfortunately, VIT points cannot be applied to shipping costs.<\/p>",
             "hide": false
           }
         },
