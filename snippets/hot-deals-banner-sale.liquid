@@ -84,12 +84,6 @@
         padding-right: 20px;
     }
 
-    .slider__wrapper--buttons-side .button-tri-right,
-    .slider__wrapper--buttons-side .button-tri-left {
-        z-index: 1;
-
-    }
-
     .slider__wrapper--buttons-side .button-tri-right {
         right: 10px;
     }
@@ -133,7 +127,7 @@
 
     .hot-deals-text .countdown-timer {
         color: white;
-        font-size: 24px;
+        font-size: 32px;
     }
 
     .hot-deals-text-container-top,
@@ -266,7 +260,13 @@
         
     {% endif %}  
 
-    @media (max-width: 900px){
+    @media (max-width: 1200px) {
+        .hot-deals-text .countdown-timer {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 900px) {
         .hot-deals-mobile-countdown-wrapper {
             display: block;
             padding: 4px 12px!important;
