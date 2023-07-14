@@ -397,6 +397,14 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Continental US only free shipping orders over $100<\/p>",
+              "only-for-guests": false
+            }
+          },
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
             "settings": {
@@ -428,6 +436,7 @@
           }
         },
         "block_order": [
+          "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
           "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
@@ -805,21 +814,6 @@
               "text-color": ""
             }
           },
-          "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
-            "type": "promo-bar-line",
-            "disabled": true,
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Free shipping on all orders $75 or more!<\/p>",
-              "url": "",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
             "disabled": true,
@@ -829,8 +823,23 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Last chance to shop the Travel More Sale((countdown)) <\/p>",
-              "url": "shopify:\/\/collections\/sale",
+              "content": "<p>Free shipping on continental US orders $100 or more!<\/p>",
+              "url": "",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>We now ship to Hawaii and Alaska!<\/p>",
+              "url": "",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -838,8 +847,8 @@
         },
         "block_order": [
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
-          "7d3bbce9-7dd8-473d-958c-bf75d4555902",
-          "44595217-2033-4341-98cf-4fc74fd48e3d"
+          "44595217-2033-4341-98cf-4fc74fd48e3d",
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902"
         ],
         "settings": {
           "show": "everywhere",
