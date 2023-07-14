@@ -91,7 +91,7 @@ if(Shopify.Checkout.step == "shipping_method") {
             label1.innerHTML += `<div style="color:#666">Estimated 3-8 business days</div><div style="margin-top: 8px;">${groundString}</div>`;
         }
         
-        let label2 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title~='Day']");
+        let label2 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx 2 Day']");
         
         if(label2) {
             label2 = label2.closest('.content-box__row');
@@ -108,6 +108,11 @@ if(Shopify.Checkout.step == "shipping_method") {
         if(ExpressAppElement) {
             ExpressAppElement = ExpressAppElement.closest('.content-box__row');
             ExpressAppElement.innerHTML += `<div style="margin-top: 8px;">${expeditedString}</div>`;
+        }
+        let boxifyOvernight = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Standard Overnight']");
+        if(boxifyOvernight) {
+            boxifyOvernight = boxifyOvernight.closest('.content-box__row');
+            boxifyOvernight.innerHTML += `<div style="color:#666">Estimated 1 business days</div><div style="margin-top: 8px;">${overnightString}</div>`;
         }
     }
 //  function displayShippingMessage() {
