@@ -902,11 +902,14 @@ border-radius: 8px;
   border-radius: 6px !important;
   opacity: 1 !important;
 }
-
+[data-status="success"] .cart__free-ship-success {
+  margin-left: -8px;
+}
 [data-status="progress"] .cart__free-ship-progress,
 [data-status="success"] .cart__free-ship-success {
   display: block;
   line-height: 21px;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
@@ -1052,6 +1055,10 @@ border-radius: 8px;
   .button--checkout {
     height: 50px;
   }
+  [data-status="progress"] .cart__free-ship-progress,
+  [data-status="success"] .cart__free-ship-success {
+    margin-left: 0;
+  } 
 }
 
 @media (max-width: 550px) {
