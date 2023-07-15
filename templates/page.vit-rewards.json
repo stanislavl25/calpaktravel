@@ -2,6 +2,7 @@
   "sections": {
     "hero": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "2c965d8f-2457-454a-a651-b4d589db05a8": {
           "type": "media-block",
@@ -67,7 +68,7 @@
     "7a534b13-e0e0-4aee-abc7-11b75cc3e5e6": {
       "type": "html",
       "settings": {
-        "html": "<script src=\"https:\/\/cdn-widgetsrepository.yotpo.com\/v1\/loader\/j0R3HMDaDyhf40m2xcICbQ\" async=\"\"><\/script>\n<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"130075\"><\/div>\n<script>\n    let checkYotpoReady = setInterval(function() {\n        let desc = document.querySelector('body:not(.customer-logged-in) .yotpo-text-and-buttons .yotpo-description');\n        if(desc) {\n            clearInterval(checkYotpoReady);\n            desc.innerHTML = '<p>Are you a CALPAK VIT yet?<\/p><p>Join our rewards program, and get insider perks, exclusive early access to sales, and stackable credit.<\/p><p>You literally get a $5 credit just for signing up.<\/p>';\n            desc.classList.add('yotpo-description--active');\n            console.log(desc);\n        }\n    }, 100);\n<\/script>",
+        "html": "<script src=\"https:\/\/cdn-widgetsrepository.yotpo.com\/v1\/loader\/j0R3HMDaDyhf40m2xcICbQ\" async=\"\"><\/script>\n<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"130075\"><\/div>",
         "add-padding": true
       }
     },

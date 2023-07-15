@@ -21,3 +21,8 @@
         margin: 40px 0 0;
     }
 }
+
+/* Hide hot deals badge in nav */
+.pdp__upsell .product-label--active {
+    display: none!important;
+}

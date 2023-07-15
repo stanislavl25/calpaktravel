@@ -5,7 +5,7 @@
     <script src="{{ 'accordion.js' | asset_url }}" defer="defer"></script>
     
     <div class="accordion">
-        <div class="accordion__title">Description</div>
+        <div class="accordion__title">{{ description_title }}</div>
         <div class="accordion__content">
             {%- liquid
                 assign description = product.description
@@ -24,7 +24,7 @@
 
     {%- if section.settings.specifications != blank or product.metafields.custom.line_drawing != blank -%}
     <div class="accordion">
-        <div class="accordion__title">Specifications</div>
+        <div class="accordion__title">{{ specifications_title }}</div>
         <div class="accordion__content">
             {%- if section.settings.specifications != blank -%}
                 {{- section.settings.specifications | newline_to_br -}}
@@ -32,17 +32,6 @@
 
             {%- if product.metafields.custom.line_drawing != blank -%}
                 {%- render 'image' with product.metafields.custom.line_drawing, lazy: true, sizes: '(min-width: 901px) 40vw, 100vw', no_wrapper: true -%}
-            {%- endif -%}
-        </div>
-    </div>
-    {%- endif -%}
-
-    {%- if product.metafields.custom.prop65 != blank -%}
-    <div class="accordion">
-        <div class="accordion__title">{{- section.settings.prop65-title -}}</div>
-        <div class="accordion__content">
-            {%- if product.metafields.custom.prop65 -%}
-                {{- section.settings.prop65 -}}
             {%- endif -%}
         </div>
     </div>
@@ -81,7 +70,7 @@
 
     {%- if warranty_tab != '' -%}
     <div class="accordion">
-        <div class="accordion__title">Warranty and Return Policy</div>
+        <div class="accordion__title">{{ warranty_title }}</div>
         <div class="accordion__content">
             {{- warranty_tab -}}
         </div>
