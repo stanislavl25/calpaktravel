@@ -451,6 +451,7 @@
         "blocks": {
           "fbdf664a-4341-47c0-bce5-14700ff998ba": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "position": "top",
               "title": "",
