@@ -43,9 +43,9 @@
     "starter__customizer-badge": "#f7f177",
     "hot-deals-badge-enabled": false,
     "hot-deals-ends": "July 7, 2023 11:00am",
-    "chk-msg-enabled": true,
+    "chk-msg-enabled": false,
     "sale-msg-code": "",
-    "chk-msg-text": "Shipping to Hawaii + Alaska Free 1st time exchange - contiguous US only",
+    "chk-msg-text": "",
     "sale-msg-enabled": false,
     "sale-msg-pdp-only": true,
     "sale-msg-tag": "Final Sale",
@@ -451,7 +451,6 @@
         "blocks": {
           "b9e6b17b-dffb-45b9-8ae4-eb899f113588": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "position": "top",
               "title": "Get a free gift with any 3-piece luggage set!",
