@@ -557,7 +557,7 @@ p.pdp__stock-variant {
 }
 
 .pdp__info .pdp__form-labels .product-label {
-    margin: -18px 0 0 0;
+    margin: -12px 0;
 }
 .qv__body .pdp__form-labels .product-label{
     margin-bottom: calc(-1 * var(--gap) + 10px);
@@ -720,6 +720,43 @@ p.pdp__stock-variant {
     border-radius: 6px;
     margin-right: 5px;
     font-size: 13px;
+}
+
+.pdp__purchased-counter,
+.pdp__views-counter {
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 16px;
+    position: relative;
+    margin: 10px 0 5px;
+}
+
+.pdp__purchased-counter::before,
+.pdp__purchased-counter::after,
+.pdp__views-counter::before,
+.pdp__views-counter::after {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+}
+
+.pdp__purchased-counter::after,
+.pdp__views-counter::after {
+    width: 7px;
+    height: 7px;
+    border: 0;
+    background-color: #000;
+    transform: translate(1.5px, 1.5px);
+}
+
+.pdp__purchased-counter--hidden,
+.pdp__views-counter--hidden {
+    display: none;
 }
 
 .variant_data {

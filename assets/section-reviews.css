@@ -107,7 +107,8 @@
 }
 
 .review-slide__review strong {
-    font-weight: var(--font-body-weight-black);
+    font-weight: var(--font-body-weight);
+    font-style: var(--font-body-style-italic);
 }
 
 .review-slide__review--quotes p:first-child::before {
