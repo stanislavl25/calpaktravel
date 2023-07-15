@@ -15,13 +15,13 @@
     <div class="hot-deals-banner-text-wrapper">
         <div class="hot-deals-text">
             <div class="hot-deals-text-container-top">
-                <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+                <div class="countdown-timer" data-time="{{- timeLeft -}}" style="display: none;">{{timeLeft}}</div>
             </div>
         </div>
     </div>
     
     {%- if settings.hot-deals-ends != blank and countdownTimer == true -%}
-        <div class="countdown-timer hot-deals-mobile-countdown-wrapper" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+        <div class="countdown-timer hot-deals-mobile-countdown-wrapper" data-time="{{- timeLeft -}}" style="display: none;">{{timeLeft}}</div>
     {%- endif -%}
 
     <div data-index="{{ forloop.index }}" data-slide="2" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper slider__wrapper--buttons-side" data-index="{{ forloop.index }}">
