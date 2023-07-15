@@ -641,6 +641,14 @@ p.pdp__stock-variant {
     display: none !important;
 }
 
+.want-it-shipped {
+    display: block;
+}
+
+[data-status="sold-out"]:not(.pdp__grid--soldout) .want-it-shipped {
+    display: none;
+}
+
 .pdp__waitlist {
     display: none;
 }

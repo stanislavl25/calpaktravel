@@ -201,7 +201,7 @@
                     {%- when 'shipping-calculator' -%}
                         {% render 'shipping-calculator' %}
                     {%- when 'want-it-shipped' -%}
-                        {% render 'want-it-shipped' %}
+                        {% render 'want-it-shipped' handle: product.handle, exclusion_list: block.settings.product-list %}
                     {%- when 'submit' -%}
                         {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
                         {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
@@ -665,7 +665,14 @@
             {
                 "type": "want-it-shipped",
                 "name": "Want it shipped label",
-                "limit": 1
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Exclusions list"                    
+                    }
+                ]
             }
         ]
     }
