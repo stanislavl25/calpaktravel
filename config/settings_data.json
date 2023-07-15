@@ -449,12 +449,21 @@
       "cart": {
         "type": "cart",
         "blocks": {
-          "b9e6b17b-dffb-45b9-8ae4-eb899f113588": {
+          "fbdf664a-4341-47c0-bce5-14700ff998ba": {
             "type": "announcement",
             "settings": {
               "position": "top",
-              "title": "",
-              "text": "<p>Shipping to Hawaii + Alaska Free 1st time exchange - contiguous US only<\/p>"
+              "title": "Shipping to Hawaii + Alaska Free 1st time exchange - contiguous US only",
+              "text": ""
+            }
+          },
+          "b9e6b17b-dffb-45b9-8ae4-eb899f113588": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "top",
+              "title": "Get a free gift with any 3-piece luggage set!",
+              "text": "<p>x2<\/p>"
             }
           },
           "8c9ba91f-2777-428f-837a-f7b2b9f8cc50": {
@@ -548,6 +557,7 @@
           }
         },
         "block_order": [
+          "fbdf664a-4341-47c0-bce5-14700ff998ba",
           "b9e6b17b-dffb-45b9-8ae4-eb899f113588",
           "8c9ba91f-2777-428f-837a-f7b2b9f8cc50",
           "ed173313-2039-410a-a20a-4f9cdbf1687a",
