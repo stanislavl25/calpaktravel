@@ -664,6 +664,14 @@
             "hide": false
           }
         },
+        "81dc36bc-3eaf-4d28-a354-7cc250f848b5": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I have to wait until the end of the year to be promoted to a new VIT tier?",
+            "answer": "<p>Not at all! Once you reach the threshold for the next VIT tier, you will stay in that tier for one year from that date. You can immediately take advantage of the perks of that new tier.<\/p>",
+            "hide": false
+          }
+        },
         "2c702dea-e365-413d-b997-7ad4a3046674": {
           "type": "faq",
           "settings": {
@@ -742,6 +750,7 @@
         "7a4e8cb7-7ed2-4dc3-81cc-1c278808d330",
         "ebc2b598-56aa-481f-a676-096b84bbcb3e",
         "a6764864-181b-4f62-9dfd-c8040fc18e40",
+        "81dc36bc-3eaf-4d28-a354-7cc250f848b5",
         "2c702dea-e365-413d-b997-7ad4a3046674",
         "8a53336a-a512-4942-8083-2c2dcd82529f",
         "49e7451a-5aff-49fd-b193-24b9ac47d178",
