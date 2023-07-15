@@ -43,7 +43,7 @@
     "starter__customizer-badge": "#f7f177",
     "hot-deals-badge-enabled": false,
     "hot-deals-ends": "July 7, 2023 11:00am",
-    "chk-msg-enabled": false,
+    "chk-msg-enabled": true,
     "sale-msg-code": "FREEMINI",
     "sale-msg-enabled": false,
     "sale-msg-pdp-only": true,
@@ -401,7 +401,7 @@
             "type": "notification",
             "disabled": true,
             "settings": {
-              "text": "<p>Continental US only free shipping orders over $100<\/p>",
+              "text": "<p>Contiguous US only free shipping orders over $100<\/p>",
               "only-for-guests": false
             }
           },
@@ -823,7 +823,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Free shipping on continental US orders $100 or more!<\/p>",
+              "content": "<p>Free shipping on contiguous US orders $100 or more!<\/p>",
               "url": "",
               "background": "#f7f177",
               "text-color": ""
