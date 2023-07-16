@@ -313,6 +313,7 @@
     },
     "57633640-e576-4861-a9f9-a0e0fbe645fb": {
       "type": "section-blog-text-feature",
+      "disabled": true,
       "settings": {
         "copy": "<h3><strong>Stevyn Rolling Duffel<\/strong><\/h3><p><\/p><p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>",
         "background_color": "#e1ded4",
@@ -321,27 +322,32 @@
     },
     "9535cfea-a9c1-4a70-964c-73315f550cc5": {
       "type": "section-blog-text-product-feature",
+      "disabled": true,
       "blocks": {
         "4702d9e9-11d3-4c53-b919-e9d452dee3ea": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>"
           }
         },
         "23e0c733-c51f-4d2a-9ebd-da5a8ae51aee": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "ambeur-2-piece-luggage-set"
           }
         },
         "fd1680f4-180c-40ae-a35a-349e339ea970": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "car-organizer"
           }
         },
         "fb0c9b31-04b9-4d3c-b23e-49132b85219b": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "clear-luggage-cover"
           }
@@ -358,9 +364,11 @@
     },
     "789eb7f2-4642-4979-b93a-0e5e647b4653": {
       "type": "product-showcase",
+      "disabled": true,
       "blocks": {
         "aad8ef8d-2c37-453b-a67c-784709f81cde": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "title": "Terra Sling Bag",
             "description": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enought to lighten the load, but stylist enough to be worn at full size. <\/p>",
@@ -371,6 +379,7 @@
         },
         "43bf864e-ffdf-4c71-8cc8-640552a05e31": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "ambeur-2-piece-luggage-set",
             "show-add-to-cart": true
@@ -394,9 +403,11 @@
     },
     "124869bb-4ccd-46df-a4a8-cf6e1162f6d0": {
       "type": "section-blog-image-text-feature",
+      "disabled": true,
       "blocks": {
         "2f4c576a-8a18-4fc4-a098-42b364664ea1": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg",
             "title": "Small",
@@ -405,6 +416,7 @@
         },
         "5de40915-f63e-40e3-a4f5-e43e77ff2b49": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE2.jpg",
             "title": "Medium",
@@ -413,6 +425,7 @@
         },
         "75b472e7-b77e-4b15-9aa3-0a3e16665206": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE3.jpg",
             "title": "Large",
