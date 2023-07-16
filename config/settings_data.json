@@ -402,7 +402,7 @@
             "type": "notification",
             "disabled": true,
             "settings": {
-              "text": "<p>Contiguous US only free shipping orders over $100<\/p>",
+              "text": "<p>Contiguous US orders $100 and over get free standard shipping<\/p>",
               "only-for-guests": false
             }
           },
