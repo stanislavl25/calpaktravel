@@ -319,6 +319,12 @@
         "text-alignment": "left"
       }
     },
+    "69a0a351-6509-4f35-bcf0-0c5fef94ad7c": {
+      "type": "collections-showcase",
+      "settings": {
+        "text": ""
+      }
+    },
     "9535cfea-a9c1-4a70-964c-73315f550cc5": {
       "type": "section-blog-text-product-feature",
       "blocks": {
@@ -355,6 +361,24 @@
       ],
       "settings": {
       }
+    },
+    "789eb7f2-4642-4979-b93a-0e5e647b4653": {
+      "type": "product-showcase",
+      "blocks": {
+        "43bf864e-ffdf-4c71-8cc8-640552a05e31": {
+          "type": "product",
+          "settings": {
+            "product": "ambeur-2-piece-luggage-set",
+            "show-add-to-cart": true
+          }
+        }
+      },
+      "block_order": [
+        "43bf864e-ffdf-4c71-8cc8-640552a05e31"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
     }
   },
   "order": [
@@ -369,6 +393,8 @@
     "ae3bfcca-500e-418f-aa5f-400d291c7a15",
     "6d36577b-6bf7-41d0-9fd0-c2663c060865",
     "57633640-e576-4861-a9f9-a0e0fbe645fb",
-    "9535cfea-a9c1-4a70-964c-73315f550cc5"
+    "69a0a351-6509-4f35-bcf0-0c5fef94ad7c",
+    "9535cfea-a9c1-4a70-964c-73315f550cc5",
+    "789eb7f2-4642-4979-b93a-0e5e647b4653"
   ]
 }
