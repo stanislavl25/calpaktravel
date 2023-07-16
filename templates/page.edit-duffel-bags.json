@@ -314,7 +314,7 @@
     "57633640-e576-4861-a9f9-a0e0fbe645fb": {
       "type": "section-blog-text-feature",
       "settings": {
-        "copy": "<h3><strong>Stevyn Rolling Duffel<\/strong><\/h3><p><\/p><p>Discover the joy of packing with 10% Off. fsjkdfnsdjvbskdnvdslnksvnsdvnsvnksdnvdsjnsdk<\/p>",
+        "copy": "<h3><strong>Stevyn Rolling Duffel<\/strong><\/h3><p><\/p><p>Discover the joy of packing with 10% Off. Discover the joy of packing with 10% Off. Discover the joy of packing with 10% Off.<\/p>",
         "background_color": "#e1ded4",
         "text-alignment": "left"
       }
@@ -365,16 +365,34 @@
     "789eb7f2-4642-4979-b93a-0e5e647b4653": {
       "type": "product-showcase",
       "blocks": {
+        "aad8ef8d-2c37-453b-a67c-784709f81cde": {
+          "type": "text",
+          "settings": {
+            "title": "Terra Sling Bag",
+            "description": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enought to lighten the load, but stylist enough to be worn at full size. <\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/ambeur-front-pocket-carry-on-luggage",
+            "description-2": ""
+          }
+        },
         "43bf864e-ffdf-4c71-8cc8-640552a05e31": {
           "type": "product",
           "settings": {
             "product": "ambeur-2-piece-luggage-set",
             "show-add-to-cart": true
           }
+        },
+        "d9121943-48fe-4efd-a32f-a7d9526d4bba": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg"
+          }
         }
       },
       "block_order": [
-        "43bf864e-ffdf-4c71-8cc8-640552a05e31"
+        "aad8ef8d-2c37-453b-a67c-784709f81cde",
+        "43bf864e-ffdf-4c71-8cc8-640552a05e31",
+        "d9121943-48fe-4efd-a32f-a7d9526d4bba"
       ],
       "settings": {
         "mobile-layout": "one-line"
