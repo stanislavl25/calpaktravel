@@ -391,6 +391,43 @@
       "settings": {
         "mobile-layout": "one-line"
       }
+    },
+    "124869bb-4ccd-46df-a4a8-cf6e1162f6d0": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "2f4c576a-8a18-4fc4-a098-42b364664ea1": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg",
+            "title": "Small",
+            "description": "<p>dfdfns,s<\/p>"
+          }
+        },
+        "5de40915-f63e-40e3-a4f5-e43e77ff2b49": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE2.jpg",
+            "title": "Medium",
+            "description": "<p>dafnkafnaf,n<\/p>"
+          }
+        },
+        "75b472e7-b77e-4b15-9aa3-0a3e16665206": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE3.jpg",
+            "title": "Large",
+            "description": "<p>fsnfms,nf,s<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "2f4c576a-8a18-4fc4-a098-42b364664ea1",
+        "5de40915-f63e-40e3-a4f5-e43e77ff2b49",
+        "75b472e7-b77e-4b15-9aa3-0a3e16665206"
+      ],
+      "settings": {
+        "title": "Which size do you need?"
+      }
     }
   },
   "order": [
@@ -406,6 +443,7 @@
     "6d36577b-6bf7-41d0-9fd0-c2663c060865",
     "57633640-e576-4861-a9f9-a0e0fbe645fb",
     "9535cfea-a9c1-4a70-964c-73315f550cc5",
-    "789eb7f2-4642-4979-b93a-0e5e647b4653"
+    "789eb7f2-4642-4979-b93a-0e5e647b4653",
+    "124869bb-4ccd-46df-a4a8-cf6e1162f6d0"
   ]
 }
