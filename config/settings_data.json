@@ -818,7 +818,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Free shipping on contiguous US orders $100 or more!<\/p>",
+              "content": "<p>Free shipping on contiguous US orders of $100+<\/p>",
               "url": "",
               "background": "#f7f177",
               "text-color": ""
