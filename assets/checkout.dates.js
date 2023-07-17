@@ -98,21 +98,21 @@ if(Shopify.Checkout.step == "shipping_method") {
             label2.innerHTML += `<div style="color:#666">Estimated 2 business days</div><div style="margin-top: 8px;">${expeditedString}</div>`;
         }
 
-        let label3 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title~='Overnight']");
+        let label3 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Standard Overnight']");
 
         if(label3) {
             label3 = label3.closest('.content-box__row');
-            label3.innerHTML += `<div style="margin-top: 8px;">${overnightString}</div>`;
+            label3.innerHTML += `<div style="color:#666">Estimated 1 business day</div><div style="margin-top: 8px;">${overnightString}</div>`;
         }
         let ExpressAppElement = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx 2 Day [ASR]']");
         if(ExpressAppElement) {
             ExpressAppElement = ExpressAppElement.closest('.content-box__row');
             ExpressAppElement.innerHTML += `<div style="margin-top: 8px;">${expeditedString}</div>`;
         }
-        let boxifyOvernight = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Standard Overnight']");
+        let boxifyOvernight = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Standard Overnight [ASR]']");
         if(boxifyOvernight) {
             boxifyOvernight = boxifyOvernight.closest('.content-box__row');
-            boxifyOvernight.innerHTML += `<div style="color:#666">Estimated 1 business days</div><div style="margin-top: 8px;">${overnightString}</div>`;
+            boxifyOvernight.innerHTML += `<div style="margin-top: 8px;">${overnightString}</div>`;
         }
     }
 //  function displayShippingMessage() {
