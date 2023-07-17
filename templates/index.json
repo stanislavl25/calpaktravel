@@ -1,5 +1,63 @@
 {
   "sections": {
+    "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
+      "type": "scrollable-menu",
+      "blocks": {
+        "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": ""
+          }
+        },
+        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": ""
+          }
+        },
+        "1a9f7649-d924-4b41-be44-f921b6e301dc": {
+          "type": "collection",
+          "settings": {
+            "collection": "luggage",
+            "title": ""
+          }
+        },
+        "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce": {
+          "type": "collection",
+          "settings": {
+            "collection": "carry-on-luggage",
+            "title": "Carry-On"
+          }
+        },
+        "b4f87340-14ff-4b77-aa89-5840cb4efcc2": {
+          "type": "collection",
+          "settings": {
+            "collection": "checked-in-luggage",
+            "title": "Checked"
+          }
+        },
+        "69fb0fb6-9c79-400a-bb23-2f808700224d": {
+          "type": "collection",
+          "settings": {
+            "collection": "bags",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "5c9b298a-373d-4e25-ba9f-69fd566cd278",
+        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
+        "1a9f7649-d924-4b41-be44-f921b6e301dc",
+        "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
+        "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
+        "69fb0fb6-9c79-400a-bb23-2f808700224d"
+      ],
+      "settings": {
+        "display-menu": true
+      }
+    },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
       "blocks": {
@@ -499,6 +557,7 @@
     }
   },
   "order": [
+    "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd",
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
     "c77438d3-e596-410d-9341-7eea51a24a37",
