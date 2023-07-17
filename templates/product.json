@@ -256,6 +256,9 @@
         "a5e30674-2af4-4a47-80b3-3e99df6259cd": {
           "type": "want-it-shipped",
           "settings": {
+            "product-list": [
+              "trnk-large-hat-box"
+            ]
           }
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
