@@ -400,7 +400,6 @@
         "blocks": {
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154": {
             "type": "notification",
-            "disabled": true,
             "settings": {
               "text": "<p>Contiguous US orders $100 and over get free standard shipping.<\/p>",
               "only-for-guests": false
@@ -408,6 +407,7 @@
           },
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Orders $100 and over get free standard shipping.<\/p>",
               "only-for-guests": false
@@ -451,10 +451,9 @@
         "blocks": {
           "fbdf664a-4341-47c0-bce5-14700ff998ba": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "position": "top",
-              "title": "",
+              "title": "We now ship to Hawaii and Alaska!",
               "text": "<p>We now ship to Hawaii and Alaska!<\/p>"
             }
           },
@@ -811,23 +810,8 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Free shipping on all orders $100 or more!<\/p>",
-              "url": "",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -842,7 +826,6 @@
           },
           "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -854,12 +837,27 @@
               "background": "#f7f177",
               "text-color": ""
             }
+          },
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Free shipping on all orders $100 or more!<\/p>",
+              "url": "",
+              "background": "#f7f177",
+              "text-color": ""
+            }
           }
         },
         "block_order": [
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
-          "7d3bbce9-7dd8-473d-958c-bf75d4555902"
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902",
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f"
         ],
         "settings": {
           "show": "everywhere",
