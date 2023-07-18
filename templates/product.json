@@ -258,7 +258,11 @@
           "type": "want-it-shipped",
           "settings": {
             "product-list": [
-
+              "gift-card",
+              "extended-warranty",
+              "extend-protection-plans-3",
+              "extend-protection-plans-2",
+              "extend-protection-plans-1"
             ]
           }
         },
