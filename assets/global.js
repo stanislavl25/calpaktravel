@@ -1117,6 +1117,9 @@ window.addEventListener("load", () => {
     if(countdown_ticks.length) {
         updateTimeouts(countdown_ticks);
         setInterval(() => updateTimeouts(countdown_ticks), 1000);
+        countdown_ticks.forEach(function(element) {
+            element.style.display = "block";
+        })
     }
 });
 

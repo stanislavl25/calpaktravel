@@ -301,3 +301,8 @@
         border-top: 0;
     }
 }
+
+/* Hide hot deals badge in nav */
+.menu-popup__content .product-label--active {
+    display: none!important;
+}

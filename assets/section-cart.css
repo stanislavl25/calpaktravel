@@ -1125,3 +1125,8 @@ border-radius: 8px;
 .cart__item .product-label {
   margin: 6px 0;
 }
+
+/* Hide hot deals badge in nav */
+.cart__empty .product-label--active {
+  display: none!important;
+}
