@@ -1,0 +1,65 @@
+{{ 'section-video-slider.css' | asset_url | stylesheet_tag: preload: true }}
+<link rel="stylesheet" href="{{ 'component-hero-nav.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-header-subnav.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script src="{{ 'video-slider.js' | asset_url }}" defer="defer"></script>
+
+<section class="slider__wrapper slider__wrapper--video-slider">
+    <div class="slider">
+        {%- for block in section.blocks -%}
+        <div class="slide video-slider__slide">
+            {%- render 'video' with block.settings.video, height: 53, autoplay: true, loop: true, controls: true -%}
+        </div>
+        {%- endfor -%}
+    </div>
+</section>
+
+<nav class="nav-hero__nav">
+{%- for block in section.blocks -%}
+    <div class="nav-hero__item" data-target="{{ forloop.index }}">
+        <div class="nav-hero__item-image">
+            {% render 'image' with block.settings.image, no_wrapper: true, sizes: '130px' %}
+        </div>
+        <div class="nav-hero__item-title">{{- block.settings.title | escape -}}</div>
+    </div>
+{%- endfor -%}
+</nav>
+
+{% schema %}
+    {
+        "name": "Video slider",
+        "class": "shopify-section--video-slider",
+        "settings": [
+            
+        ],
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Video slide",
+                "settings": [
+                    {
+                        "type": "video_url",
+                        "id": "video",
+                        "label": "Video",
+                        "accept": ["vimeo"]
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title in navigation"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image in navigation"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Video slider"
+            }
+        ]
+    }
+{% endschema %}
