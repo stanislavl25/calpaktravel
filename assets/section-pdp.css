@@ -794,6 +794,11 @@ p.pdp__stock-variant {
         display: none;
     }
 
+    [data-status="sold-out"]:not(.pdp__grid--soldout) .pdp__header {
+        border-top: none;
+        padding-top: 0;
+    }
+
     .button--pdp__wishlist {
         width: 58px;
     }
