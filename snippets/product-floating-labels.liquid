@@ -2,7 +2,6 @@
     assign opt1 = current_variant.option1 | handleize
     assign starter_bundle = collections.all.products | where: 'data-handle', 'starter-bundle'
     assign starter_true = true
-     assign product_handle = product.handle 
 -%}
 {%- if settings.sale-badge-enabled -%}
     {%- liquid
@@ -82,6 +81,9 @@
                         {% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}
                         {% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}
                         {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
+                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                        starter-customize custom-dash
+                        {% endif %}
                     {% else %}
                         product-label--badge-collection-page
                         {% if saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}    
@@ -92,7 +94,7 @@
                 {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                 {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
             >
-                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}  
+                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and settings.sale-badge-text-starter != blank %}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
@@ -105,6 +107,7 @@
                         border: 1px dashed black !important;
                         color: {{ settings.starter__customizer-badge-text }} !important;
                     }
+                    
                 </style>
             {% endif %}
         {% elsif settings.badge_display == 'product' %}
@@ -190,6 +193,25 @@
         {% endif %}
         
 
+    {%- endif -%}
+
+    {%- if settings.hot-deals-badge-enabled -%}
+        {%- liquid
+            assign hotDealsVariants = false
+            for tag in product.tags
+                assign splitted_tag = tag | split: ":"
+                if splitted_tag[0] == 'hot-deals'
+                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+                endif
+            endfor
+        -%}
+    
+        {%- if hotDealsVariants != false -%}
+            <div class="product-label product-label--final hot-deals-badge product-label--badge-mobile-top product-label--badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+                {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+                Hot Deal
+            </div>
+        {%- endif -%}
     {%- endif -%}
 {%- endif -%}
 
@@ -302,7 +324,7 @@
 
     {%- endif -%}
     {%- if settings.sale-msg-starter != false -%}
-        {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false and template contains 'collection' %}
+        {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false and template contains 'collection' and settings.starter-bundle-badge != blank %}
             <div class="product-label--promo starter-label">
                 {{settings.starter-bundle-badge}}
             </div>
@@ -398,11 +420,6 @@
             Preorder
         </div>
     {%- endif -%}
-
-    
-
-    
-
         
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
@@ -444,5 +461,4 @@
     {%- if best_seller == true -%}
         <div class="product-label">Bestseller</div>
     {%- endif -%}
-    
 </div>

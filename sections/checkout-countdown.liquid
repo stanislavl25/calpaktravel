@@ -1,0 +1,23 @@
+{%- if section.settings.show-countdown-message -%}
+    <script>
+        window.countdown_enabled = true;
+    </script>
+{%- else %}
+    <script>
+        window.countdown_enabled = false;
+    </script>
+{%- endif -%}
+
+{% schema %}
+    {
+        "name": "Checkout Countdown",
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show-countdown-message",
+                "label": "Show countdown message",
+                "default": true
+            }
+        ]
+    }
+{% endschema %}

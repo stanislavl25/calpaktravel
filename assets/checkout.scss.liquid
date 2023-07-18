@@ -404,7 +404,7 @@ body .alternative-payment-separator {
     }
 }
 
-.no-expedited .section--shipping-method .section__content .content-box__row:last-child {
+.no-expedited .section--shipping-method .section__content .content-box__row:not(:first-of-type) {
     display: none !important;
 }
 
@@ -3055,7 +3055,6 @@ body .icon-svg--clickable:hover {
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
-    display: none;
     letter-spacing: -0.03em;
     padding: 4px 16px;
     border-radius: 4px;
@@ -3090,4 +3089,14 @@ span.shipping-info {
 span.shipping-custom-msg {
     display: block;
     padding: 5px 0;
+}
+
+.free-upgrade {
+	font-size: 12px;
+    position: absolute;
+    right: 14px;
+    background: #EAE9E1;
+    padding: 0 6px;
+    border-radius: 6px;
+    top: 32px;
 }
