@@ -52,12 +52,17 @@
 @media (max-width: 900px) {
     .more-links,
     .more-link {
-        flex-direction: column;
         gap: 8px;
+    }
+
+    .more-links {
+        overflow: auto;
     }
 
     .more-link {
         margin-bottom: 25px;
+        flex-direction: column;
+        flex: 0 0 60%;
     }
 
     .more-link__image {

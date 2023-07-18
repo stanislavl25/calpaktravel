@@ -7,13 +7,11 @@
     font-size: 36px;
     letter-spacing: -0.02em;
     line-height: 1.25em;
-    margin-bottom: var(--gap);
     text-decoration: none;
 }
 
 .blog-image-text-feature {
     display: grid;
-    gap: var(--gap);
 }
 
 .blog-image-text-section {
@@ -28,4 +26,18 @@
 
 .blog-image-text-section:last-child img {
     border-radius: 0px 9px 9px 0px;
+}
+
+@media (max-width: 900px) {
+    .blog-image-text-feature {
+        display: block;
+    }
+    
+    .blog-image-text-section {
+        margin-bottom: calc(var(--gap) * 4);
+    }
+
+    .blog-image-text-section img {
+        border-radius: 9px!important;
+    }
 }
