@@ -245,6 +245,7 @@
         },
         "db84d3cc-deea-45c6-a0ee-81ddf2509239": {
           "type": "arrival",
+          "disabled": true,
           "settings": {
             "available-products": [
               "hue-carry-on-luggage",
