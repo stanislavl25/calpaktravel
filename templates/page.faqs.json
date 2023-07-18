@@ -327,9 +327,9 @@
         "b2cff9d1-52fc-4393-8524-acb649517df7": {
           "type": "faq",
           "settings": {
-            "title": "Are returns free?",
-            "answer": "<p>Currently, we do not offer free return shipping. However, we offer our customers flat rate return shipping! You'll be charged a single fee, even with multiple items—so there aren't any surprises.<\/p><p>Flat rate return shipping fees within the contiguous US:<\/p><ul><li>Bags & Accessories: $11.95<\/li><li>Luggage: $24.95<\/li><\/ul><p>Flat rate return shipping fees for Hawaii and Alaska:<\/p><ul><li>Bags & Accessories: $24.95<\/li><li>Luggage: $49.95<\/li><\/ul>",
-            "popanswer": "",
+            "title": "Do you charge a return shipping fee?",
+            "answer": "<p>While there is a flat-rate return shipping fee, we are happy to offer a one-time free exchange for contiguous US orders.<\/p><p>If you choose to return your item, please note, you'll only be charged a single fee, even with multiple items—so there aren't any surprises.<\/p><p>Flat rate return shipping fees within the contiguous US:<\/p><ul><li>Bags & Accessories: $11.95<\/li><li>Luggage: $24.95<\/li><\/ul><p>*Flat rate return shipping fees for Hawaii and Alaska:<\/p><ul><li>Bags & Accessories: $24.95<\/li><li>Luggage: $49.95*<\/li><\/ul><p>*Including Stevyn Rolling Duffel<\/p>",
+            "popanswer": "<p data-mce-fragment=\"1\">While there is a flat-rate return shipping fee, we are happy to offer a one-time free exchange for contiguous US orders.<\/p>\n<p data-mce-fragment=\"1\">If you choose to return your item, please note, you'll only be charged a single fee, even with multiple items—so there aren't any surprises.<\/p>\n<p data-mce-fragment=\"1\">Flat rate return shipping fees within the contiguous US:<\/p>\n<ul data-mce-fragment=\"1\">\n<li data-mce-fragment=\"1\">Bags & Accessories: $11.95<\/li>\n<li data-mce-fragment=\"1\">Luggage: $24.95<\/li>\n<\/ul>\n<p data-mce-fragment=\"1\">*Flat rate return shipping fees for Hawaii and Alaska:<\/p>\n<ul data-mce-fragment=\"1\">\n<li data-mce-fragment=\"1\">Bags & Accessories: $24.95<\/li>\n<li data-mce-fragment=\"1\">Luggage: $49.95*<\/li>\n<\/ul>\n<p data-mce-fragment=\"1\" style=\"font-size:12px\">*Including Stevyn Rolling Duffel<\/p>",
             "hide": false
           }
         },
