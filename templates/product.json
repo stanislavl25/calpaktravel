@@ -584,8 +584,10 @@
         "specifications-title": "Specifications",
         "specifications": "{{ product.metafields.custom.specifications | metafield_tag }}",
         "warranty-title": "Warranty and Return Policy",
-        "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",
-        "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>"
+        "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",        
+        "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
+        "quick-view": true,
+        "addtocart-button": false
       }
     },
     "pdp-product-features": {
@@ -607,7 +609,8 @@
     "pdp-featured-collection": {
       "type": "pdp-featured-collection",
       "settings": {
-        "quick-view": false
+        "quick-view": true,
+        "addtocart-button": false
       }
     },
     "167267170152804e97": {
