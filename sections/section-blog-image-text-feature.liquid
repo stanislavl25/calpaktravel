@@ -1,6 +1,21 @@
 <style>
     .blog-image-text-feature {
         grid-template-columns: {% for block in section.blocks %}1fr {% endfor %};
+        {% if section.settings.gap %}gap: var(--gap);{% endif %}
+    }
+
+    {% if section.settings.gap %}
+        .blog-image-text-section__title,
+        .blog-image-text-section__description {
+            padding-right: var(--gap);
+        }
+    {% endif %}
+
+    @media (max-width: 900px) {
+        .blog-image-text-section__title,
+        .blog-image-text-section__description {
+            padding: 0;
+        }
     }
 </style>
 
@@ -42,6 +57,12 @@
                 "type": "text",
                 "id": "title",
                 "label": "Title"
+            },
+            {
+                "type": "checkbox",
+                "id": "gap",
+                "label": "Add gap between sections",
+                "default": false
             }
         ],
         "blocks": [

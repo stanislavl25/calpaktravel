@@ -2,14 +2,6 @@
     .blog-text-product-feature__blocks {
         display: grid;
         grid-template-columns: repeat({{ section.blocks.size }}, minmax(0, 1fr));
-        gap: var(--gap);
-    }
-
-    @media (max-width: 900px) {
-        .blog-text-product-feature__blocks {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: var(--gap);
-        }
     }
 </style>
 
@@ -21,8 +13,12 @@
             {% for block in section.blocks %}
                 {% case block.type %}
                     {% when 'text' %}
+                        <div class="blog-text-product-feature__mobile" style="background: {{ block.settings.background-color }}">
+                            <h3 class="blog-image-text-feature__title">{{ block.settings.title }}</h3>
+                        </div>
                         <div class="blog-text-product-feature__block">
-                            <div class="blog-text-product-feature__block-text">
+                            <div class="blog-text-product-feature__block-text" style="background: {{ block.settings.background-color }}">
+                                <h3 class="blog-image-text-feature__title">{{ block.settings.title }}</h3>
                                 {{ block.settings.text }}
                             </div>
                         </div>
@@ -49,9 +45,20 @@
                 "name": "Text",
                 "settings": [
                     {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
                         "type": "richtext",
                         "id": "text",
                         "label": "Text"
+                    },
+                    {
+                        "type": "color",
+                        "id": "background-color",
+                        "label": "Background Color",
+                        "default": "#ffffff"
                     }
                 ]
             },
