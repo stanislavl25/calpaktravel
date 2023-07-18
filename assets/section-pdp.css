@@ -557,7 +557,7 @@ p.pdp__stock-variant {
 }
 
 .pdp__info .pdp__form-labels .product-label {
-    margin: -18px 0 0 0;
+    margin: -12px 0;
 }
 .qv__body .pdp__form-labels .product-label{
     margin-bottom: calc(-1 * var(--gap) + 10px);
@@ -657,6 +657,14 @@ p.pdp__stock-variant {
 
 .klaviyo-bis-trigger {
     display: none !important;
+}
+
+.want-it-shipped {
+    display: block;
+}
+
+[data-status="sold-out"]:not(.pdp__grid--soldout) .want-it-shipped {
+    display: none;
 }
 
 .pdp__waitlist {

@@ -476,18 +476,19 @@
 }
 
 .cart__footer > *:not(:nth-last-child(-n+2)) {
-  margin-bottom: var(--gap);
+  margin-bottom: calc(var(--gap) * 3);
 }
 
 .cart__footer > *:nth-last-child(2) {
   margin-bottom: calc(var(--gap) / 2);
 }
 
-.cart__courtesty-banner {
+.cart__courtesy-banner {
   display: flex;
+  position: relative;
 }
 
-.cart__courtesty-banner img {
+.cart__courtesy-banner img {
   flex: 0 0 85px;
   width: 85px;
   height: 85px;
@@ -504,6 +505,22 @@
   margin-left: -24px;
   z-index: -1;
   align-self: center;
+}
+
+.cart__courtesy-banner-disclaimer {
+  position: absolute;
+  bottom: -10px;
+  font-size: 14px;
+  font-style: italic;
+  width: 100%;
+}
+
+.cart__courtesy-banner-disclaimer p {
+  text-align: center;
+}
+
+.cart__courtesy-banner-text-p {
+  margin: 0;
 }
 
 .cart__footer-total {
@@ -1003,15 +1020,21 @@ border-radius: 8px;
     flex: 0 0 50%;
   }
 
-  .cart__courtesty-banner img {
+  .cart__courtesy-banner img {
     flex: 0 0 60px;
     width: 60px;
     height: 60px;
+    position: relative;
   }
 
   .cart__courtesy-banner-text {
     font-size: 14px;
     padding: 12px 12px 12px 18px;
+  }
+
+  .cart__courtesy-banner-disclaimer {
+    bottom: -16px;
+    width: 100%;
   }
 }
 
@@ -1083,4 +1106,9 @@ border-radius: 8px;
 
 .cart__item .product-label {
   margin: 6px 0;
+}
+
+/* Hide hot deals badge in nav */
+.cart__empty .product-label--active {
+  display: none!important;
 }

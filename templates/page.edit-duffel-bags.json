@@ -37,13 +37,15 @@
             "title": "Luka Duffel",
             "description": "<p>Our Luka lightweight duffel bag is designed to make moves and has endless possibilities. With 9 separate pockets, and 1 shoe compartment, you can use it as a gym bag, a diaper bag, or wear it to the airport or the office. The best part of this puffy duffel bag? It features a tucked away passport pocket on the inside of the trolley sleeve, <em>and <\/em>fits nearly under most plane seats. You’re welcome. <\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 4<br\/>Interior Pockets: 5<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 16\" x 12\" x 7\"<br\/>Materials: Scratch-resistant polyester<br\/>Extra Perk: Hidden pocket in trolley sleeve<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/luka-duffel"
+            "button-link": "shopify:\/\/products\/luka-duffel",
+            "description-2": ""
           }
         },
         "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
           "type": "product",
           "settings": {
-            "product": "luka-duffel"
+            "product": "luka-duffel",
+            "show-add-to-cart": false
           }
         },
         "1b775b70-f16b-4f85-a218-760455abe4b0": {
@@ -74,7 +76,8 @@
         "b394e341-bc6d-49a8-9b04-e63ab5852abe": {
           "type": "product",
           "settings": {
-            "product": "luka-large-duffel"
+            "product": "luka-large-duffel",
+            "show-add-to-cart": false
           }
         },
         "1aa09430-6423-4007-ad71-50ce6febb20a": {
@@ -83,7 +86,8 @@
             "title": "Luka Large Duffel",
             "description": "<p>The bigger sister to our Luka Duffel—this large version was designed as a lightweight solution for those who like to carry-on just a little bit extra (we're looking at you, overpackers). Created for extended weekends away, you can fit all you need into this gleefully spacious holdall that features 9 pockets and an interior shoe compartment. Plus, it fits perfectly in all overhead bins. More space, no stress.<\/p><p><\/p><p><strong>Features<\/strong><\/p><p><\/p><p>Exterior Pockets:4<br\/>Interior Pockets: 5<br\/>Fits On A Plane: Overhead Bin<br\/>Dimensions: 19\" x 15.5\" x 9.5\"<br\/>Materials: Scratch-resistant polyester<br\/>Extra Perk: Hidden pocket in trolley sleeve<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/luka-large-duffel"
+            "button-link": "shopify:\/\/products\/luka-large-duffel",
+            "description-2": ""
           }
         }
       },
@@ -105,13 +109,15 @@
             "title": "Terra Backpack Duffel",
             "description": "<p>This water-resistant duffel backpack, made from 27 recycled plastic bottles, offers you the best of both worlds: it converts from a backpack to duffel, and back again, and features padded shoulder and sternum straps for extra comfort. In addition to multiple pockets and an interior compression strap, this travel duffel backpack has a 17” padded laptop compartment so you can take your work with you (if you absolutely insist.) <\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 8<br\/>Interior Pockets: 10<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 12\" x 7.5\"<br\/>Materials: 100% Recycled ripstop polyester with TPU laminate\/coating<br\/>Extra Perk: Dual-Purpose Functionality<br\/>Padded Laptop Sleeve: Yes<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/terra-26l-backpack-duffel"
+            "button-link": "shopify:\/\/products\/terra-26l-backpack-duffel",
+            "description-2": ""
           }
         },
         "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
           "type": "product",
           "settings": {
-            "product": "terra-26l-backpack-duffel"
+            "product": "terra-26l-backpack-duffel",
+            "show-add-to-cart": false
           }
         },
         "999f1999-abe3-4175-b42f-0de5ff5d695e": {
@@ -142,7 +148,8 @@
         "0a8943de-6418-49c8-b19d-b5455d663d83": {
           "type": "product",
           "settings": {
-            "product": "compakt-duffel-bag"
+            "product": "compakt-duffel-bag",
+            "show-add-to-cart": false
           }
         },
         "ef8c0b8b-95a2-4a2f-9c93-c123ce147ef2": {
@@ -151,7 +158,8 @@
             "title": "Compakt Duffel Bag",
             "description": "<p>Meet the ultra-lightweight, nylon duffel bag that’s foldable and perfect for quick trips out of town or to the gym. This packable duffel bag is large enough to fit all the souvenirs from your travels, and flexible enough to break down and store away discreetly inside its own zippered pouch. Made from durable ripstop nylon, and featuring its own luggage sleeve—this is the perfect over-the-shoulder travel duffel bag to go away with. <\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 4<br\/>Interior Pockets: 0<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 12\" x 8\"<br\/>Materials: Water-resistant durable ripstop nylon<br\/>Extra Perk: Folds into a zippered pocket for compact storage<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/compakt-duffel-bag"
+            "button-link": "shopify:\/\/products\/compakt-duffel-bag",
+            "description-2": ""
           }
         }
       },
@@ -173,13 +181,15 @@
             "title": "Stevyn Duffel",
             "description": "<p>Looking for weekend duffel bags? This duffel bag with shoe compartment truly can fit everything you need, and much more. With its sleek, unisex design, this sturdy duffel bag is perfect for overnight trips, sessions in the gym, or as a carry-on; especially since it features a luggage sleeve, a roomy main compartment with multiple interior pockets and a separate compartment for multiple pairs of shoes.<\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 1<br\/>Interior Pockets: 4<br\/>Fits On A Plane: Overhead bin<br\/>Dimensions: 19.5\" x 14\" x 10.5\"<br\/>Materials: Durable polyester with nylon straps<br\/>Extra Perk: Separate shoe compartment<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/stevyn-duffel"
+            "button-link": "shopify:\/\/products\/stevyn-duffel",
+            "description-2": ""
           }
         },
         "611b8d2c-a735-4f72-a218-bbf258971931": {
           "type": "product",
           "settings": {
-            "product": "stevyn-duffel"
+            "product": "stevyn-duffel",
+            "show-add-to-cart": false
           }
         },
         "9198450a-5d39-4180-860a-ed583abc20a3": {
@@ -210,7 +220,8 @@
         "7a2c1cce-c531-413d-bf7b-65a8d18d3edc": {
           "type": "product",
           "settings": {
-            "product": "hue-duffel"
+            "product": "hue-duffel",
+            "show-add-to-cart": false
           }
         },
         "52752383-f19d-4e38-949c-ad7cf3c8d887": {
@@ -219,7 +230,8 @@
             "title": "Hue Laptop Duffel",
             "description": "<p>Made from this buttery-soft vegan leather, our Hue <strong>minimalist duffel bag <\/strong>is the perfect bag for those who take a ‘less is more’ approach to travel. With a 15\" padded laptop sleeve, a removable accessory pocket, and a secret smartphone pouch, plus plenty of pockets to keep you organized—this duffel wins our vote for best <strong>business travel duffel bag, <\/strong>perfect for days in the office (with a trip to the gym before) or work trips.<\/p><p><\/p><p>Features<\/p><p>Exterior Pockets: 2<br\/>Interior Pockets: 4<br\/>Fits On A Plane: Under the seat<br\/>Dimensions: 18\" x 10\" x 9.5\"<br\/>Materials: Buttery-soft vegan leather<br\/>Extra Perk: Removable accessory pocket<br\/>Padded Laptop Sleeve: Yes<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: Yes<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/hue-duffel"
+            "button-link": "shopify:\/\/products\/hue-duffel",
+            "description-2": ""
           }
         }
       },
@@ -241,13 +253,15 @@
             "title": "Stevyn Rolling Duffel",
             "description": "<p>Our best-selling rolling duffel bag, Stevyn, just got wheels—making it the largest, and easiest to carry, duffel bag in our selection. With this wheeling duffel bag’s large bottom compartment, perfect for shoes or storing cosmetic bags, you can pack and carry more than ever and still fit it in the overhead bin.<\/p><p><\/p><p><strong>Features<\/strong><\/p><p>Exterior Pockets: 2<br\/>Interior Pockets: 4<br\/>Fits On A Plane: Most overhead bins<br\/>Dimensions: 22” x 13” x 10.5”<br\/>Materials: Durable polyester<br\/>Extra Perk: Rolling wheels for easy travel<br\/>Padded Laptop Sleeve: No<br\/>Trolley Sleeve: Yes<br\/>Removable Shoulder Strap: No<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/stevyn-rolling-duffel"
+            "button-link": "shopify:\/\/products\/stevyn-rolling-duffel",
+            "description-2": ""
           }
         },
         "8deb4852-d011-49d6-bd4f-83740d382b41": {
           "type": "product",
           "settings": {
-            "product": "stevyn-rolling-duffel"
+            "product": "stevyn-rolling-duffel",
+            "show-add-to-cart": false
           }
         },
         "5f97a1d4-5349-47ac-8075-2294761bbbbe": {
@@ -296,6 +310,137 @@
       "settings": {
         "title": "More stories"
       }
+    },
+    "57633640-e576-4861-a9f9-a0e0fbe645fb": {
+      "type": "section-blog-text-feature",
+      "disabled": true,
+      "settings": {
+        "copy": "<h3><strong>Stevyn Rolling Duffel<\/strong><\/h3><p><\/p><p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>",
+        "background_color": "#e1ded4",
+        "text-alignment": "left"
+      }
+    },
+    "9535cfea-a9c1-4a70-964c-73315f550cc5": {
+      "type": "section-blog-text-product-feature",
+      "disabled": true,
+      "blocks": {
+        "4702d9e9-11d3-4c53-b919-e9d452dee3ea": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>"
+          }
+        },
+        "23e0c733-c51f-4d2a-9ebd-da5a8ae51aee": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "ambeur-2-piece-luggage-set"
+          }
+        },
+        "fd1680f4-180c-40ae-a35a-349e339ea970": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "car-organizer"
+          }
+        },
+        "fb0c9b31-04b9-4d3c-b23e-49132b85219b": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "clear-luggage-cover"
+          }
+        }
+      },
+      "block_order": [
+        "4702d9e9-11d3-4c53-b919-e9d452dee3ea",
+        "23e0c733-c51f-4d2a-9ebd-da5a8ae51aee",
+        "fd1680f4-180c-40ae-a35a-349e339ea970",
+        "fb0c9b31-04b9-4d3c-b23e-49132b85219b"
+      ],
+      "settings": {
+      }
+    },
+    "789eb7f2-4642-4979-b93a-0e5e647b4653": {
+      "type": "product-showcase",
+      "disabled": true,
+      "blocks": {
+        "aad8ef8d-2c37-453b-a67c-784709f81cde": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "Terra Sling Bag",
+            "description": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enought to lighten the load, but stylist enough to be worn at full size. <\/p>",
+            "button-text": "Shop Now",
+            "button-link": "shopify:\/\/products\/ambeur-front-pocket-carry-on-luggage",
+            "description-2": ""
+          }
+        },
+        "43bf864e-ffdf-4c71-8cc8-640552a05e31": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "ambeur-2-piece-luggage-set",
+            "show-add-to-cart": true
+          }
+        },
+        "d9121943-48fe-4efd-a32f-a7d9526d4bba": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "aad8ef8d-2c37-453b-a67c-784709f81cde",
+        "43bf864e-ffdf-4c71-8cc8-640552a05e31",
+        "d9121943-48fe-4efd-a32f-a7d9526d4bba"
+      ],
+      "settings": {
+        "mobile-layout": "one-line"
+      }
+    },
+    "124869bb-4ccd-46df-a4a8-cf6e1162f6d0": {
+      "type": "section-blog-image-text-feature",
+      "disabled": true,
+      "blocks": {
+        "2f4c576a-8a18-4fc4-a098-42b364664ea1": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg",
+            "title": "Small",
+            "description": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>"
+          }
+        },
+        "5de40915-f63e-40e3-a4f5-e43e77ff2b49": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE2.jpg",
+            "title": "Medium",
+            "description": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>"
+          }
+        },
+        "75b472e7-b77e-4b15-9aa3-0a3e16665206": {
+          "type": "link",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE3.jpg",
+            "title": "Large",
+            "description": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "2f4c576a-8a18-4fc4-a098-42b364664ea1",
+        "5de40915-f63e-40e3-a4f5-e43e77ff2b49",
+        "75b472e7-b77e-4b15-9aa3-0a3e16665206"
+      ],
+      "settings": {
+        "title": "Which size do you need?"
+      }
     }
   },
   "order": [
@@ -308,6 +453,10 @@
     "0457f328-6f97-47de-a08c-d178e917c6af",
     "f3583065-c645-42a0-ad74-db136b6f5cc1",
     "ae3bfcca-500e-418f-aa5f-400d291c7a15",
-    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865",
+    "57633640-e576-4861-a9f9-a0e0fbe645fb",
+    "9535cfea-a9c1-4a70-964c-73315f550cc5",
+    "789eb7f2-4642-4979-b93a-0e5e647b4653",
+    "124869bb-4ccd-46df-a4a8-cf6e1162f6d0"
   ]
 }
