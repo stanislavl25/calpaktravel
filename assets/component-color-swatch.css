@@ -101,10 +101,15 @@ a.color-swatch--active::after {
     position: absolute;
     top: 2px;
     left: 22px;
-    /* width: 4px;
+    width: 4px;
     height: 4px;
     background-color: red;
-    border-radius: 50%; */
+    border-radius: 50%;
+}
+
+.color-swatch-sale.product-option--na::before {
+    height: 0;
+    border-radius: 0;
 }
 
 .color-swatch img {
