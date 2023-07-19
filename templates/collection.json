@@ -582,10 +582,11 @@
           "type": "banner",
           "disabled": true,
           "settings": {
-            "display": "desktop",
-            "collection_list": [
+            "collection_list_display": [
               "summer-arrivals"
             ],
+            "heading": "New: Banner",
+            "display": "desktop",
             "banner-text": "Summer Arrivals",
             "row": "1",
             "row_mobile": "1",
@@ -601,6 +602,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "New: Terra",
             "pictured_link": true,
             "display": "both",
             "row": 2,
@@ -623,7 +628,10 @@
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
           "settings": {
-            "heading": "Video: Luka Carry-On",
+            "collection_list_display": [
+
+            ],
+            "heading": "New: Luka Carry-On Video",
             "index": 22,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
@@ -636,6 +644,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "New: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 3,
@@ -658,6 +670,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -679,6 +695,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 4,
@@ -700,6 +720,9 @@
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Mobile: Luka Belt Bag",
             "index": 29,
             "enable_static_for_desktop": false,
@@ -713,6 +736,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 4,
@@ -734,6 +761,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 4,
@@ -754,6 +785,9 @@
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
             "index": 2,
             "enable_static_for_desktop": true,
@@ -767,6 +801,9 @@
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
           "type": "static",
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Desktop: Tech Organizer",
             "index": 36,
             "enable_static_for_desktop": true,
@@ -781,6 +818,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -801,6 +842,10 @@
         "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
           "type": "module",
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -822,6 +867,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -843,6 +892,10 @@
           "type": "modular-section",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Section",
             "pictured_link": true,
             "gap": 10,
             "section_height": 70,
@@ -868,6 +921,9 @@
           "type": "static",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
             "index": 28,
             "enable_static_for_desktop": false,
@@ -881,6 +937,10 @@
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
           "type": "module",
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 3,
@@ -903,6 +963,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 8,
@@ -978,9 +1042,6 @@
         "hide_view": true,
         "row_gap": 40,
         "column_gap": 10,
-        "collection_list": [
-          "summer-arrivals"
-        ],
         "breakdown-collection": [
           "3-piece-luggage-sets"
         ],
