@@ -6,7 +6,9 @@
 
     if timeLeft < 0
         assign countdownTimer = false
-    elsif timeLeft < 172800
+    elsif settings.hot-deals-countdown-time == '24' and timeLeft < 86400 and settings.hot-deals-countdown-enabled
+        assign countdownTimer = true
+    elsif settings.hot-deals-countdown-time == '48' and timeLeft < 172800 and settings.hot-deals-countdown-enabled
         assign countdownTimer = true
     endif
 -%}
@@ -20,7 +22,7 @@
         </div>
     </div>
     
-    {%- if settings.hot-deals-ends != blank and countdownTimer == true -%}
+    {%- if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled -%}
         <div class="countdown-timer hot-deals-mobile-countdown-wrapper" data-time="{{- timeLeft -}}" style="display: none;">{{timeLeft}}</div>
     {%- endif -%}
 
@@ -51,7 +53,7 @@
         border: 1px solid {{ block.settings.banner-text-background-color }};
         border-radius: 11px;
         overflow: visible!important;
-        margin-top: {% if settings.hot-deals-ends != blank and countdownTimer == true %}32px{% endif %};
+        margin-top: {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}32px{% endif %};
     }
 
     .hot-deals-banner-wrapper-sale .slider:not([data-slider-on="mobile"]) {
@@ -135,7 +137,7 @@
         display: none;
     }
 
-    {% if settings.hot-deals-ends != blank and countdownTimer == true %}
+    {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
         .hot-deals-text-container-top,
         .hot-deals-text .countdown-timer {
             display: block;
@@ -366,3 +368,4 @@
         }
     }
 </style>
+<script>console.lot("settings.hot-deals-countdown-time", {{settings.hot-deals-countdown-time}})</script>
