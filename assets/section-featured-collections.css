@@ -95,7 +95,3 @@
 .shopify-section--featured-collections .product-label--active {
     display: none!important;
 }
-
-.shopify-section--pdp-featured .product-label--final {
-    display: none;
-}
