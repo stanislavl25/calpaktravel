@@ -10,6 +10,7 @@
     right: 0px;
     top: 0;
     position: inherit;
+    margin-top: calc(100% - 20px);
 }
 
 .shopify-section--product-grid .product-link.hot-deals--active img {
