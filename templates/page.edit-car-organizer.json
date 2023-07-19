@@ -292,12 +292,19 @@
           "settings": {
             "product": "car-organizer"
           }
+        },
+        "d3f22aa8-568d-4ddc-918a-3a4c8588fe75": {
+          "type": "product",
+          "settings": {
+            "product": "ambeur-mini-carry-on-luggage"
+          }
         }
       },
       "block_order": [
         "0941192e-7ebb-4256-a575-3ad689850aa3",
         "bfcb8a7a-7d57-48d8-8480-ea29d8475803",
-        "16fce86a-c84a-43cc-841b-dbf0d68077f1"
+        "16fce86a-c84a-43cc-841b-dbf0d68077f1",
+        "d3f22aa8-568d-4ddc-918a-3a4c8588fe75"
       ],
       "settings": {
       }
