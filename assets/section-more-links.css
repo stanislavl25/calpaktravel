@@ -49,10 +49,15 @@
     border-bottom: 1px dashed #aeaeae;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) {    
     .more-links,
     .more-link {
         gap: 8px;
+    }
+
+    .more-links__title,
+    .more-link__title {
+        font-size: 24px;
     }
 
     .more-links {

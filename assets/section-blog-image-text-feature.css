@@ -8,6 +8,7 @@
     letter-spacing: -0.02em;
     line-height: 1.25em;
     text-decoration: none;
+    margin-bottom: var(--gap);
 }
 
 .blog-image-text-feature {
@@ -31,6 +32,11 @@
 @media (max-width: 900px) {
     .blog-image-text-feature {
         display: block;
+    }
+
+    .blog-image-text-feature__title,
+    .blog-image-text-section__title {
+        font-size: 24px;
     }
     
     .blog-image-text-section {
