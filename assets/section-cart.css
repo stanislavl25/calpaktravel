@@ -506,6 +506,14 @@
   align-self: center;
 }
 
+.cart__courtesy-banner-disclaimer {
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  width: 100%;
+  margin-top: -10px;
+}
+
 .cart__footer-total {
   line-height: 1.5em;
 }
