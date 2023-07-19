@@ -11,17 +11,8 @@
     margin-bottom: 5px;
 }
 
-.pdp__upsell .product-label.hot-deals-badge,
-.pdp__upsell .product-label.product-label--disclaimer--no-final {
-    display: none!important;
-}
-
 .pdp__upsell .slide {
     flex: 0 0 50%;
-}
-
-.pdp__upsell div#product-card__ {
-    margin-bottom: 0!important;
 }
 
 @media (max-width: 1180px) {
