@@ -280,37 +280,6 @@
         "mobile-layout": "one-line"
       }
     },
-    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
-      "type": "more-links",
-      "disabled": true,
-      "blocks": {
-        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
-          "type": "link",
-          "settings": {
-            "title": "Toiletry Bags",
-            "description": "Bring your glow on-the-go and find the best toiletry bag for traveling.",
-            "link": "shopify:\/\/pages\/which-toiletry-bag-is-right-for-you",
-            "image": "shopify:\/\/shop_images\/Rectangle_3308-1.png"
-          }
-        },
-        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
-          "type": "link",
-          "settings": {
-            "title": "Packing Cubes",
-            "description": "Packing cubes are the #1 tool for travel organization—  they make your journeys more enjoyable.",
-            "link": "shopify:\/\/pages\/packing-cubes-your-favorite-organizing-tool",
-            "image": "shopify:\/\/shop_images\/Rectangle_3425_c698bf0f-ac6d-4ae3-b373-d7813a2106ce.png"
-          }
-        }
-      },
-      "block_order": [
-        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
-        "6baef4b6-c263-4d78-a19b-84732571f4bc"
-      ],
-      "settings": {
-        "title": "More stories"
-      }
-    },
     "57633640-e576-4861-a9f9-a0e0fbe645fb": {
       "type": "section-blog-text-feature",
       "disabled": true,
@@ -322,9 +291,11 @@
     },
     "9535cfea-a9c1-4a70-964c-73315f550cc5": {
       "type": "section-blog-text-product-feature",
+      "disabled": true,
       "blocks": {
         "4702d9e9-11d3-4c53-b919-e9d452dee3ea": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "title": "For solo travel",
             "text": "<p>Start your little one early with these kid-friendly sized CALPAK pieces small enough to lighten the load, but stylist enough to be worn at full size. <\/p>",
@@ -333,18 +304,21 @@
         },
         "23e0c733-c51f-4d2a-9ebd-da5a8ae51aee": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "ambeur-2-piece-luggage-set"
           }
         },
         "fd1680f4-180c-40ae-a35a-349e339ea970": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "car-organizer"
           }
         },
         "fb0c9b31-04b9-4d3c-b23e-49132b85219b": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "product": "clear-luggage-cover"
           }
@@ -436,6 +410,36 @@
         "title": "Which size do you need?",
         "gap": false
       }
+    },
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
+      "type": "more-links",
+      "blocks": {
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
+          "type": "link",
+          "settings": {
+            "title": "Toiletry Bags",
+            "description": "Bring your glow on-the-go and find the best toiletry bag for traveling.",
+            "link": "shopify:\/\/pages\/which-toiletry-bag-is-right-for-you",
+            "image": "shopify:\/\/shop_images\/Rectangle_3308-1.png"
+          }
+        },
+        "6baef4b6-c263-4d78-a19b-84732571f4bc": {
+          "type": "link",
+          "settings": {
+            "title": "Packing Cubes",
+            "description": "Packing cubes are the #1 tool for travel organization—  they make your journeys more enjoyable.",
+            "link": "shopify:\/\/pages\/packing-cubes-your-favorite-organizing-tool",
+            "image": "shopify:\/\/shop_images\/Rectangle_3425_c698bf0f-ac6d-4ae3-b373-d7813a2106ce.png"
+          }
+        }
+      },
+      "block_order": [
+        "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
+        "6baef4b6-c263-4d78-a19b-84732571f4bc"
+      ],
+      "settings": {
+        "title": "More stories"
+      }
     }
   },
   "order": [
@@ -448,10 +452,10 @@
     "0457f328-6f97-47de-a08c-d178e917c6af",
     "f3583065-c645-42a0-ad74-db136b6f5cc1",
     "ae3bfcca-500e-418f-aa5f-400d291c7a15",
-    "6d36577b-6bf7-41d0-9fd0-c2663c060865",
     "57633640-e576-4861-a9f9-a0e0fbe645fb",
     "9535cfea-a9c1-4a70-964c-73315f550cc5",
     "789eb7f2-4642-4979-b93a-0e5e647b4653",
-    "124869bb-4ccd-46df-a4a8-cf6e1162f6d0"
+    "124869bb-4ccd-46df-a4a8-cf6e1162f6d0",
+    "6d36577b-6bf7-41d0-9fd0-c2663c060865"
   ]
 }
