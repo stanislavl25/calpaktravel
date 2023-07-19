@@ -585,7 +585,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Banner",
+            "heading": "Summer: Banner",
             "display": "desktop",
             "banner-text": "Summer Arrivals",
             "row": "1",
@@ -605,7 +605,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Terra",
+            "heading": "Summer: Terra",
             "pictured_link": true,
             "display": "both",
             "row": 2,
@@ -631,7 +631,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Stevyn",
+            "heading": "Summer: Stevyn",
             "pictured_link": true,
             "display": "both",
             "row": 3,
@@ -656,7 +656,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Luka Carry-On Video",
+            "heading": "Summer: Luka Carry-On Video",
             "index": 22,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
@@ -672,7 +672,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Luka",
+            "heading": "Summer: Luka",
             "pictured_link": true,
             "display": "desktop",
             "row": 3,
@@ -698,7 +698,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Luka Duffel",
+            "heading": "Summer: Luka Duffel",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -723,7 +723,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Belt Bag + Key Pouch",
+            "heading": "Summer: Belt Bag + Key Pouch",
             "pictured_link": true,
             "display": "desktop",
             "row": 4,
@@ -748,7 +748,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Luka Belt Bag",
+            "heading": "Summer: Luka Belt Bag",
             "index": 29,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
@@ -764,7 +764,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Luka Key Pouch",
+            "heading": "Summer: Luka Key Pouch",
             "pictured_link": true,
             "display": "both",
             "row": 4,
@@ -789,7 +789,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: CCC",
+            "heading": "Summer: CCC",
             "pictured_link": true,
             "display": "mobile",
             "row": 4,
@@ -813,7 +813,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Kaya Laptop Backpack",
+            "heading": "Summer: Kaya Laptop Backpack",
             "index": 2,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -829,7 +829,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Tech Organizer",
+            "heading": "Summer: Tech Organizer",
             "index": 36,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -846,7 +846,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Tech Organizer",
+            "heading": "Summer: Tech Organizer",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -870,7 +870,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Video",
+            "heading": "Summer: Video",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -895,7 +895,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Compakt Duffel",
+            "heading": "Summer: Compakt Duffel",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -920,7 +920,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Compakt Duffel",
+            "heading": "Summer: Compakt Duffel",
             "pictured_link": true,
             "gap": 10,
             "section_height": 70,
@@ -949,7 +949,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Compakt Tote Bag",
+            "heading": "Summer: Compakt Tote Bag",
             "index": 28,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
@@ -966,7 +966,7 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "New: Compression Packing Cubes",
+            "heading": "Summer: Compression Packing Cubes",
             "pictured_link": true,
             "display": "desktop",
             "row": 8,
@@ -1011,6 +1011,23 @@
               "padded-laptop-sleeve"
             ]
           }
+        },
+        "a196e0f6-213b-4650-b73d-78a1eb2245c1": {
+          "type": "hot-deals-banner-sale",
+          "disabled": true,
+          "settings": {
+            "display": "both",
+            "collection_list": [
+
+            ],
+            "row": "1",
+            "row_mobile": "1",
+            "banner-text-color": "#000",
+            "banner-text-background-color": "#FFF",
+            "featured_products": [
+
+            ]
+          }
         }
       },
       "block_order": [
@@ -1034,7 +1051,8 @@
         "26121484-6047-4828-919f-49c8e5363c7d",
         "98bbbe49-ef4a-4acd-9165-232fac007486",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33"
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33",
+        "a196e0f6-213b-4650-b73d-78a1eb2245c1"
       ],
       "settings": {
         "wishlist": true,
