@@ -164,6 +164,7 @@
 
 .product-unit__title a {
     text-decoration: none;
+    font-weight: var(--font-body-weight);
 }
 
 .product-unit--na .product-label.product-label--promo,
@@ -239,8 +240,6 @@
     display: none;
 }
 
-
-
 div.product-label.product.label--memorial-day {
     display: flex;
     align-items: center;
@@ -282,5 +281,9 @@ div.product-label.product.label--memorial-day label {
         color: white;
         height: 25px;
         display: block!important;
+    }
+
+    .product-unit__title a {
+        font-size: 14px;
     }
 }

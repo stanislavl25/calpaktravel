@@ -1,0 +1,781 @@
+<script id="CartAbandonTemplate" type="text/template">
+{% raw %}
+    <form action="{% endraw %}{{ routes.cart_url }}{% raw %}" method="post" novalidate class="cart ajaxcart">
+      <div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer">
+        <div class="ajaxcart__items-qty">Your items ({% endraw %}{{ cart.items.size }}{% raw %})</div>
+        {{#items}}
+        <div class="ajaxcart__product">
+            <div class="ajaxcart__row" data-line="{{line}}">
+                <div class="ajaxcart__row-product">
+                    <a href="{{url}}" class="ajaxcart__product-image"><img src="{{img}}" alt="{{name}}"></a>
+                    <div class="ajaxcart__row-product-body">
+                        <div class="ajaxcart__product-name--wrapper">
+                            <div class="ajaxcart__product-name--data">
+                                <a href="{{url}}" class="ajaxcart__product-name">{{{name}}}</a>
+                            </div>
+                            
+                            <div class="ajaxcart__price-n-qty">
+                                {{#if discountsApplied}}
+                                <span
+                                    class="visually-hidden">{% endraw %}{{ 'products.general.regular_price' | t }}{% raw %}</span>
+                                <del class="ajaxcart__price {{{id}}}">{{{price}}}</del>
+                                <span
+                                    class="visually-hidden">{% endraw %}{{ 'products.general.sale_price' | t }}{% raw %}</span>
+                                <span class="ajaxcart__price {{{id}}}">{{{discountedPrice}}}</span>
+                                {{else}}
+                                <span class="ajaxcart__price {{{id}}}">{{{price}}}</span>
+                                {{/if}}
+                                {{#if unitPrice}}
+                                <span
+                                    class="visually-hidden">{% endraw %}{{ 'products.general.unit_price' | t }}{% raw %}</span>
+                                <span class="cart__unit-price">
+                                    {% endraw %}
+                                    {%- capture unit_price_separator -%}
+                                    <span aria-hidden="true">/</span><span
+                                        class="visually-hidden">&nbsp;{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+                                    {%- endcapture -%}
+                                    {% raw %}
+                                    <span>{{{ unitPrice.price }}}</span>{% endraw %}{{- unit_price_separator -}}{% raw %}{{#if unitPrice.addRefererenceValue }}{{{ unitPrice.reference_value }}}{{/if}}{{{ unitPrice.reference_unit }}}
+                                </span>
+                                {{/if}}
+
+                                <span class="amount-abandon">{{{itemQty}}}</span>
+                            </div>
+
+                            {{#if variation}}
+                            <span class="ajaxcart__product-meta">{{variation}}</span>
+                            {{/if}}
+                            {{#if sellingPlanAllocation}}
+                            <span class="ajaxcart__product-meta">{{sellingPlanAllocation.selling_plan.name}}</span>
+                            {{/if}}
+                               
+                        </div>
+                        {{#if discountsApplied}}
+                        <div class="grid--full">
+                            <div class="grid__item text-right">
+                                <ul class="order-discount order-discount--list order-discount--title order-discount--ajax-cart order-discount--ajax-cart-list"
+                                    aria-label="{% endraw %}{{ 'customer.order.discount' | t }}{% raw %}">
+                                    {{#each discounts}}
+                                    <li class="order-discount__item">
+                                        <span class="icon icon-saletag"
+                                            aria-hidden="true"></span>{{ this.discount_application.title }}
+                                        (-{{{ this.formattedAmount }}})
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                        {{/if}}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/items}}
+        {% endraw %}{% if welcomeSettings.cart_notes_enable %}{% raw %}
+          <div>
+            <label for="CartSpecialInstructions" class="ajaxcart__note">{% endraw %}{{ 'cart.general.note' | t }}{% raw %}</label>
+            <textarea name="note" class="input-full" id="CartSpecialInstructions">{{note}}</textarea>
+          </div>
+        {% endraw %}{% endif %}{% raw %}
+      </div>
+      <hr/>
+      <div class="ajaxcart__footer ajaxcart__footer--fixed">
+        <div class="grid--full">
+          {{#if cartDiscountsApplied}}
+            {{#each cartDiscounts}}
+              <div class="grid__item two-thirds ajaxcart__discounts">
+                <span class="order-discount order-discount--title order-discount--ajax-cart">
+                  <span class="icon icon-saletag" aria-hidden="true"></span><span class="visually-hidden">{% endraw %}{{ 'customer.order.discount' | t }}{% raw %}:</span>{{ this.title }}
+                </span>
+              </div>
+              <div class="grid__item one-third text-right">
+                <span class="ajaxcart__price {{{id}}}">-{{{ this.formattedAmount }}}</span>
+              </div>
+            {{/each}}
+          {{/if}}
+
+          <div class="ajaxcart__footer-total">
+            <p class="ajaxcart__subtotal-name">{% endraw %}Estimated total{% raw %}</p>
+            <p class="ajaxcart__subtotal">{{{totalPrice}}}</p>
+          </div>
+          <div class="cart__4-payments {% endraw %}{% if cart.total_price <= 5000 %} cart__4-payments--limit{% endif %}{% raw %}">
+            <span>4 easy payments
+                <span class="spc__msg-amnt">
+                    of <span class="cart__payments-amnt">{{ shopPayPrice }}</span> with
+                </span>
+                <span class="spc__msg-limit">on orders over $50 with</span>
+            </span>
+            {% endraw %}{% render 'icon-shop-pay' %}{% raw %}
+        </div>
+        </div>
+        
+        <button id="welcomeback-submit-button" type="submit" class="button button--checkout" name="checkout">
+          {% endraw %}Checkout{% raw %}</span>
+        </button>
+        <div class="redirect-abandond close-abandon-two">Continue shopping</div>
+      </div>
+    </form>
+  {% endraw %}
+</script>
+<div class="abandon-container hidden">
+    <div class="abandon-header">
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15.5" cy="15.5" r="15.5" fill="#F7F177"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1735 6.19388C14.1735 5.97409 14.3516 5.79592 14.5714 5.79592H16.9592C17.179 5.79592 17.3571 5.97409 17.3571 6.19388V7.78571H14.1735V6.19388ZM13.3776 7.78571V6.19388C13.3776 5.53452 13.9121 5 14.5714 5H16.9592C17.6185 5 18.1531 5.53452 18.1531 6.19388V7.78571H20.9388C21.8179 7.78571 22.5306 8.4984 22.5306 9.37755V22.9082C22.5306 23.7873 21.8179 24.5 20.9388 24.5H10.5918C9.71269 24.5 9 23.7873 9 22.9082V9.37755C9 8.4984 9.71269 7.78571 10.5918 7.78571H13.3776ZM10.5918 8.58163H20.9388C21.3783 8.58163 21.7347 8.93798 21.7347 9.37755V22.9082C21.7347 23.3477 21.3783 23.7041 20.9388 23.7041H10.5918C10.1523 23.7041 9.79592 23.3477 9.79592 22.9082V9.37755C9.79592 8.93798 10.1523 8.58163 10.5918 8.58163Z" fill="black"/>
+        </svg>
+        <p class="abandon-subtitle">
+            Welcome back, we saved your bag!
+        </p>
+        <div class="close-abandon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.0306 9.96938C11.1715 10.1103 11.2506 10.3014 11.2506 10.5006C11.2506 10.6999 11.1715 10.891 11.0306 11.0319C10.8897 11.1728 10.6986 11.2519 10.4993 11.2519C10.3001 11.2519 10.109 11.1728 9.9681 11.0319L5.99997 7.0625L2.0306 11.0306C1.8897 11.1715 1.69861 11.2507 1.49935 11.2507C1.30009 11.2507 1.10899 11.1715 0.968098 11.0306C0.827202 10.8897 0.748047 10.6986 0.748047 10.4994C0.748047 10.3001 0.827202 10.109 0.968098 9.96813L4.93747 6L0.969348 2.03063C0.828451 1.88973 0.749297 1.69864 0.749297 1.49938C0.749297 1.30012 0.828451 1.10902 0.969348 0.968128C1.11024 0.827231 1.30134 0.748077 1.5006 0.748077C1.69986 0.748077 1.89095 0.827231 2.03185 0.968128L5.99997 4.9375L9.96935 0.967503C10.1102 0.826606 10.3013 0.747452 10.5006 0.747452C10.6999 0.747452 10.891 0.826606 11.0318 0.967503C11.1727 1.1084 11.2519 1.2995 11.2519 1.49875C11.2519 1.69801 11.1727 1.88911 11.0318 2.03L7.06247 6L11.0306 9.96938Z" fill="black"/>
+            </svg>
+        </div>
+    </div>
+    <div class="abandon-body"></div>
+</div>
+
+<script>
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    var welcomeSettings = {
+        moneyFormat: '$[[amount_no_decimals]]'
+    };
+
+    var Currency = (function () {
+        var moneyFormat = '$[[amount]]';
+        function formatMoney(cents, format) {
+            if (typeof cents === 'string') {
+                cents = cents.replace('.', '');
+            }
+            var value = '';
+            var placeholderRegex = /\[\[\s*(\w+)\s*\]\]/;
+            var formatString = format || moneyFormat;
+            function formatWithDelimiters(number, precision, thousands, decimal) {
+                thousands = thousands || ',';
+                decimal = decimal || '.';
+                if (isNaN(number) || number === null) {
+                    return 0;
+                }
+                number = (number / 100.0).toFixed(precision);
+                var parts = number.split('.');
+                var dollarsAmount = parts[0].replace(
+                    /(\d)(?=(\d\d\d)+(?!\d))/g,
+                    '$1' + thousands
+                );
+                var centsAmount = parts[1] ? decimal + parts[1] : '';
+                return dollarsAmount + centsAmount;
+            }
+            switch (formatString.match(placeholderRegex)[1]) {
+                case 'amount':
+                    value = formatWithDelimiters(cents, 2);
+                    break;
+                case 'amount_no_decimals':
+                    value = formatWithDelimiters(cents, 0);
+                    break;
+                case 'amount_with_comma_separator':
+                    value = formatWithDelimiters(cents, 2, '.', ',');
+                    break;
+                case 'amount_no_decimals_with_comma_separator':
+                    value = formatWithDelimiters(cents, 0, '.', ',');
+                    break;
+                case 'amount_no_decimals_with_space_separator':
+                    value = formatWithDelimiters(cents, 0, ' ');
+                    break;
+                case 'amount_with_apostrophe_separator':
+                    value = formatWithDelimiters(cents, 2, "'");
+                    break;
+            }
+            return formatString.replace(placeholderRegex, value);
+        }
+        return {
+            formatMoney: formatMoney
+        };
+    })();
+
+    function isObjEmpty(obj) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) return false;
+        }
+
+        return true;
+    }
+
+
+    let buildAbandonCart = function (cart) {
+
+
+        const arrayTotal = [];
+
+
+        cart.items.map((item, index) => {
+            var numberPattern = /\d+\.\d+/g;
+            let currentPrice = item.final_line_price / 100; // Arn - Thanh 25/08/2022 change final_price to final_line_price
+            let originalPrice = item.original_line_price / 100; // Arn - Thanh 25/08/2022
+            let totalPrice = [currentPrice];
+
+
+         
+            Object.values(item.properties).map((item2, index2) => {
+
+                try {
+                    if (item2.match(numberPattern)) {
+                        totalPrice.push(parseFloat(item2.match(numberPattern)));
+                    }
+                } catch {}
+            });
+
+            var finalPrice = parseFloat(totalPrice.reduce((a, b) => a + b, 0));
+
+            arrayTotal.push(finalPrice);
+
+
+            setTimeout(() => {
+                document.querySelector(`.ajaxcart__price.${item.handle}`).innerHTML = `$${parseFloat(finalPrice).toFixed(0)}`;
+            }, 2000)
+
+        });
+
+        var totalPriceFinal = arrayTotal.reduce((a, b) => a + b, 0);
+
+
+        var commas = parseFloat(totalPriceFinal).toFixed(0).toLocaleString("en-US");
+        var commas = parseFloat(totalPriceFinal).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        setTimeout(() => {
+            document.querySelector(`.abandon-container .ajaxcart__subtotal`).innerHTML = `$${commas}`;
+        }, 2000)
+
+
+        // Start with a fresh cart div
+        let $cartContainer = document.querySelector('.abandon-body');
+        $cartContainer.innerHTML = '';
+        // Show empty cart
+        if (cart.item_count === 0) {
+            $cartContainer.append(
+                '<p class="cart--empty-message">{{ 'cart.general.empty' | t | json }}</p>'
+            );
+            cartCallback(cart);
+            return;
+        }
+        // Handlebars.js cart layout
+        var items = [],
+            item = {},
+            data = {},
+            // source = $('#CartAbandonTemplate').html(),
+            source = document.querySelector('#CartAbandonTemplate').innerHTML,
+            template = Handlebars.compile(source);
+
+
+        cart.items.forEach((cartItem, index) => {
+
+            var prodImg;
+            var unitPrice = null;
+            if (cartItem.image !== null) {
+                prodImg = cartItem.image
+                    .replace(/(\.[^.]*)$/, '_medium$1')
+                    .replace('http:', '');
+            } else {
+                prodImg =
+                    '//cdn.shopify.com/s/assets/admin/no-image-medium-cc9732cb976dd349a0df1d39816fbcc7.gif';
+            }
+            
+            if (cartItem.properties.length) {
+                cartItem.properties.forEach((value, key) => {  
+                    if (key.charAt(0) === '_' || !value) {
+                        delete cartItem.properties[key];
+                    }
+                });
+            }
+
+            if (cartItem.properties.length) {
+                cartItem.properties.forEach((value, key) => {  
+                    if (key.charAt(0) === '_' || !value) {
+                        delete cartItem.properties[key];
+                    }
+                    if (key == 'image') {
+                        prodImg = value;
+                        delete cartItem.properties[key];
+                    }
+                });
+            }
+
+            if (cartItem.line_level_discount_allocations.length !== 0) {
+                for (var discount in cartItem.line_level_discount_allocations) {
+                    var amount =
+                        cartItem.line_level_discount_allocations[discount].amount;
+                    cartItem.line_level_discount_allocations[
+                        discount
+                    ].formattedAmount = Currency.formatMoney(
+                        amount,
+                        welcomeSettings.moneyFormat
+                    );
+                }
+            }
+            if (cart.cart_level_discount_applications.length !== 0) {
+                for (var cartDiscount in cart.cart_level_discount_applications) {
+                    var cartAmount =
+                        cart.cart_level_discount_applications[cartDiscount]
+                            .total_allocated_amount;
+                    cart.cart_level_discount_applications[
+                        cartDiscount
+                    ].formattedAmount = Currency.formatMoney(
+                        cartAmount,
+                        welcomeSettings.moneyFormat
+                    );
+                }
+            }
+            if (cartItem.unit_price_measurement) {
+                unitPrice = {
+                    addRefererenceValue:
+                        cartItem.unit_price_measurement.reference_value !== 1,
+                    price: Currency.formatMoney(
+                        cartItem.unit_price,
+                        welcomeSettings.moneyFormat
+                    ),
+                    reference_value: cartItem.unit_price_measurement.reference_value,
+                    reference_unit: cartItem.unit_price_measurement.reference_unit
+                };
+            }
+            
+            // Create item's data object and add to 'items' array
+            item = {
+                id: cartItem.handle,
+                key: cartItem.key,
+                line: index + 1, // Shopify uses a 1+ index in the API
+                url: cartItem.url,
+                img: prodImg,
+                name: cartItem.product_title,
+                variation: cartItem.variant_title != null ? cartItem.variant_title.toLowerCase() : false,
+                sellingPlanAllocation: cartItem.selling_plan_allocation,
+                properties: isObjEmpty(cartItem.properties) ? false : cartItem.properties,
+                itemAdd: cartItem.quantity + 1,
+                itemMinus: cartItem.quantity - 1,
+                itemQty: cartItem.quantity,
+                price: Currency.formatMoney(
+                    cartItem.original_line_price,
+                    welcomeSettings.moneyFormat
+                ),
+                discountedPrice: Currency.formatMoney(
+                    cartItem.final_line_price,
+                    welcomeSettings.moneyFormat
+                ),
+                discounts: cartItem.line_level_discount_allocations,
+                discountsApplied:
+                    cartItem.line_level_discount_allocations.length === 0 ? false : true,
+                vendor: cartItem.vendor,
+                unitPrice: unitPrice
+            };
+            items.push(item);
+        });
+
+
+        // Gather all cart data and add to DOM
+        data = {
+            items: items,
+            note: cart.note,
+            totalPrice: Currency.formatMoney(
+                cart.total_price,
+                welcomeSettings.moneyFormat
+            ),
+            shopPayPrice: Currency.formatMoney(
+                cart.total_price / 4,
+                welcomeSettings.moneyFormat
+            ),
+            cartDiscounts: cart.cart_level_discount_applications,
+            cartDiscountsApplied:
+                cart.cart_level_discount_applications.length === 0 ? false : true
+        };
+        $cartContainer.insertAdjacentHTML('beforeend', template(data));
+        cartCallback(cart);
+
+    };
+
+    let cartCallback = function (cart) {
+        if (window.Shopify && Shopify.StorefrontExpressButtons) {
+            Shopify.StorefrontExpressButtons.initialize();
+        }
+        let item_count = (cart.item_count > 1) ? cart.item_count + " Items" : cart.item_count + " Item";
+        document.querySelectorAll('.cart-items-title').forEach(function(element){
+            element.innerHTML = (cart.item_count > 1) ? cart.item_count + " Items" : cart.item_count + " Item";
+        })
+        document.querySelector('.abandon-container').classList.remove('hidden');
+    };
+
+    const endrockExperiment = (experimentId) => {
+        return new Promise((resolve) => {
+          (async () => {
+            if (window.dataLayer) {
+              await window.dataLayer.push({ event: "optimize.activate" });
+            }
+      
+            // Set a timeout to stop checking for the variant after 10 seconds
+            const timeoutId = setTimeout(() => {
+              clearInterval(intervalId);
+              resolve('0');
+            }, 10000);
+      
+            // Use setInterval to check for the variant every 100ms
+            const intervalId = setInterval(() => {
+              if (window.google_optimize !== undefined) {
+                clearInterval(intervalId);
+                clearTimeout(timeoutId);
+                resolve(window.google_optimize.get(experimentId) ?? '0');
+              }
+            }, 100);
+          })();
+        });
+      };
+
+    function initExperiment(){
+        console.log('Experiment Running: Autodisplay Sidecart');
+        fetch('/cart.js')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (cart) {
+            if (cart.item_count > 0) {
+                if (getCookie('_abandonPopup') != 'true') {
+                    buildAbandonCart(cart);
+                    //document.querySelector('body').style.overflow = 'hidden';
+                    document.querySelector('body').classList.add('abandon-open');
+                    document.addEventListener('click', function (e) {
+                        if (e.target.classList.contains('abandon-container')) {
+                            document.querySelector('.abandon-container').classList.add('hidden');
+                            document.querySelector('body').removeAttribute('style');
+                            document.querySelector('body').classList.remove('abandon-open');
+                        }
+                    })
+                    setCookie('_abandonPopup','true', 0.041)
+                }
+            }
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
+
+        document.querySelector('.close-abandon').addEventListener('click', () => {
+            document.querySelector('.abandon-container').classList.add('hidden');
+            //document.querySelector('body').removeAttribute('style');
+            document.querySelector('body').classList.remove('abandon-open');
+        });
+        document.addEventListener('click', event => {
+            console.log(event.target);
+			if (event.target.matches('.close-abandon-two')) {
+				document.querySelector('.abandon-container').classList.add('hidden');
+                document.querySelector('body').classList.remove('abandon-open');
+			}
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        endrockExperiment('7uVKhso1Rc-GbZ6oUPJHxA').then(variant => {
+            if(variant === '1'){
+                initExperiment();
+            }   
+        });
+    });
+
+</script>
+{% style %}
+body.gempage.abandon-open {
+    margin: 0!important; 
+    height: 100%!important; 
+    overflow: hidden!important;
+}
+.abandon-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all ease-in-out 0.25s;
+}
+.abandon-open .abandon-overlay {
+    opacity: 1;
+    display: block;
+}
+.abandon-container {
+    position: fixed;
+    top: 78px;
+    right: 6px;
+    z-index: 50;
+    background: #ffffff;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 12px;
+    margin: 6px;
+    border: 1px solid #000;
+}
+.abandon-container.hidden {
+    display: none !important;
+}
+
+.redirect-abandond {
+    margin: 15px 0 10px;
+    display: block;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #000;
+}
+
+.abandon-container .abandon-header {
+    padding: 9px 19px;
+    border-radius: 12px 12px 0 0;
+    position: relative;
+    background: #F7F7F7;
+    border-bottom: 1px dashed #AEAEAE;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.abandon-container .abandon-header .close-abandon {
+    cursor: pointer;
+    position: absolute;
+    right: 18px;
+    top: 15px;
+}
+
+.amount-abandon {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: var(--font-body-weight);
+    font-family: Futura, sans-serif;
+    border: 1px solid;
+    width: 67px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.abandon-container .abandon-subtitle {
+    text-align: center;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    color: #000;
+    margin: 0;
+}
+
+.abandon-container .abandon-subtitle strong {
+    color: #C84332;
+    font-size: 16px;
+}
+
+.abandon-container .abandon-body {
+    border-radius: 0 12px 12px 0;
+}
+
+
+.abandon-container .abandon-body .ajaxcart__row {
+
+}
+
+.abandon-container .abandon-body .ajaxcart__row .ajaxcart__row-product {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 18px;
+}
+
+.abandon-container .abandon-body .ajaxcart__row img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 125px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.abandon-container .abandon-body .ajaxcart__row .ajaxcart__row-product-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.abandon-container .abandon-body .ajaxcart__inner.ajaxcart__inner--has-fixed-footer {
+    height: 265px;
+    overflow-y: scroll;
+    padding: 17px 8px 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 5px;
+}
+
+/* width */
+.abandon-container .abandon-body .ajaxcart__inner.ajaxcart__inner--has-fixed-footer::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.abandon-container .abandon-body .ajaxcart__inner.ajaxcart__inner--has-fixed-footer::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 20px;
+}
+
+/* Handle */
+.abandon-container .abandon-body .ajaxcart__inner.ajaxcart__inner--has-fixed-footer::-webkit-scrollbar-thumb {
+    background: #858585;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+.abandon-container .abandon-body .ajaxcart__inner.ajaxcart__inner--has-fixed-footer::-webkit-scrollbar-thumb:hover {
+    background: #858585;
+    border-radius: 20px;
+}
+
+.abandon-container .abandon-body .ajaxcart__footer.ajaxcart__footer--fixed {
+    padding: 0 22px 18px;
+}
+
+.abandon-container .abandon-body .ajaxcart__footer.ajaxcart__footer--fixed .button {
+    margin-top: 15px;
+    width: 100%;
+    height: 60px;
+    text-transform: uppercase;
+}
+
+.abandon-container .abandon-body .ajaxcart__product-name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    color: #191A1A;
+    text-decoration: none;
+}
+
+.abandon-container .abandon-body .ajaxcart__product-meta {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.14;
+    color: #191A1A;
+    display: block;
+    margin-top: 4px;
+    text-transform: capitalize;
+}
+
+.abandon-container .abandon-body .ajaxcart__price {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.14;
+    color: #191A1A;
+}
+
+.abandon-container .abandon-body hr {
+    border: 0;
+    border-bottom: 1px dashed #AEAEAE;
+    margin: 5px 15px 20px;
+}
+
+.abandon-container .abandon-body .grid {
+    display: flex;
+    align-items: center;
+}
+
+.abandon-container .abandon-body .ajaxcart__product-name--wrapper {
+    display: flex;
+    line-height: normal;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.abandon-container .abandon-body .ajaxcart__product-name--data {
+    font-weight: var(--font-body-weight-bold);
+    line-height: 1.2em;
+    margin-bottom: 0.3em;
+}
+
+.abandon-container .abandon-body .ajaxcart__price-n-qty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 10px);
+}
+
+.abandon-container .abandon-body .ajaxcart__footer-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.abandon-container .abandon-body .ajaxcart__footer-total p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.12;
+    color: #191A1A;
+    margin: 0;
+}
+
+.cart__4-payments {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--gray);
+    font-size: 14px;
+  }
+  
+  .cart__4-payments .shop-pay-logo {
+    width: 60px;
+    height: auto;
+    margin-bottom: -2px;
+  }
+  
+  .cart__4-payments--limit .spc__msg-amnt,
+  .cart__4-payments:not(.cart__4-payments--limit) .spc__msg-limit {
+    display: none;
+  }
+  
+  .cart__4-payments .shop-pay-logo path {
+    fill: var(--gray);
+  }
+
+@media screen and (max-width: 768px){
+    .abandon-container {
+        left: 0;
+        right: 0;
+        margin: 5px auto 0;
+    }
+
+    .abandon-container .abandon-body .ajaxcart__inner.ajaxcart__inner--has-fixed-footer {
+        margin-top: 0;
+        padding-top: 10px;  
+    }
+}
+{% endstyle %}

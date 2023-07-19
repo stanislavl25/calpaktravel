@@ -23,6 +23,12 @@
     font-weight: var(--font-body-weight-black);
 }
 
+/* .accordion__content h5 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+} */
+
 .accordion__content img {
     max-width: 100%;
     height: auto;
@@ -38,7 +44,7 @@
     font-size: 16px;
     line-height: 20px;
     font-family: var(--font-body-family);
-    font-weight: var(--font-body-weight-bold);
+    font-weight: var(--font-body-weight);
     padding-right: 30px;
     cursor: pointer;
     z-index: 1;

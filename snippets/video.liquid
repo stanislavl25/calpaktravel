@@ -25,7 +25,7 @@
     assign video = video | append: params
 -%}
 {% unless no_wrapper == true %}
-{%- liquid
+  {%- liquid
     if height != blank
         assign ratio = height
     else
@@ -35,23 +35,35 @@
         assign ratio = max_ratio
     endif
 -%}
-<div class="ratio-container video-container{% if class != false and class != blank %} {{ class }}{% endif %}" style="padding-top: {{ ratio }}%">
-{% endunless %}
-
-<div class="video-iframe-container{% if contain == true %} video-iframe-container--contain{% endif %}{% if class != false and class != blank and no_wrapper %} {{ class}}{% endif %}"
+  <div class="ratio-container video-container{% if class != false and class != blank %} {{ class }}{% endif %}" style="padding-top: {{ ratio }}%">
+  {% endunless %}
+  <div
+    class="video-iframe-container{% if contain == true %} video-iframe-container--contain{% endif %}{% if class != false and class != blank and no_wrapper %} {{ class}}{% endif %}"
     {% if video_ratio != false and video_ratio != blank %}style="--ratio: {{ video_ratio }};"{% endif %}
     data-video="{{ video }}"
     data-vimeo-id="{{ video_id }}">
     {% if lazy != true %}
-        <iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="{{ video }}"></iframe>
+      <iframe
+        allow="autoplay; fullscreen"
+        allowfullscreen=""
+        width="100%"
+        height="100%"
+        frameborder="0"
+        src="{{ video }}"></iframe>
     {% else %}
-    <noscript>
-        <iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="{{ video }}"></iframe>
-    </noscript>
+      <noscript>
+        <iframe
+          allow="autoplay; fullscreen"
+          allowfullscreen=""
+          width="100%"
+          height="100%"
+          frameborder="0"
+          src="{{ video }}"></iframe>
+      </noscript>
     {% endif %}
-</div>
+  </div>
 
-{%- liquid    
+  {%- liquid    
     unless preload == true and preload != blank
         assign preload = false
     endunless
@@ -81,6 +93,6 @@
     endif
 %}
 
-{% unless no_wrapper == true %}
-</div>
+  {% unless no_wrapper == true %}
+  </div>
 {% endunless %}

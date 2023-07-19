@@ -101,10 +101,10 @@ a.color-swatch--active::after {
     position: absolute;
     top: 2px;
     left: 22px;
-    width: 4px;
+    /* width: 4px;
     height: 4px;
     background-color: red;
-    border-radius: 50%;
+    border-radius: 50%; */
 }
 
 .color-swatch img {
@@ -163,6 +163,14 @@ a.color-swatch--active::after {
 .color-obsidian,
 .color-trnk-black {
     --background: #000;
+}
+
+.color-copper {
+    --background: #b57e5a;
+}
+
+.color-cabernet {
+    --background: #843939;
 }
 
 .color-moss {

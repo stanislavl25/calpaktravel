@@ -1,0 +1,21 @@
+.want-it-shipped {
+    font-size: 14px;
+    line-height: 22px;
+    gap: 5px;
+    margin: -12px 0;
+}
+
+.want-it-shipped .order-by-date {
+    background: #e7e7e7;
+    border-radius: 6px;
+    padding: 0 8px;
+    white-space: nowrap;
+    align-self: flex-start;
+    font-weight: inherit;
+}
+
+@media (max-width: 900px) {
+    .want-it-shipped {
+        margin: 0;
+    }
+}

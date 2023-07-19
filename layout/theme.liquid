@@ -77,6 +77,8 @@
                 --font-body-weight-bold: {{ body_font_bold.weight }};
                 --font-body-weight-black: {{ body_font_black.weight }};
                 --font-body-weight-light: {{ body_font_light.weight }};
+
+              --font-body-style-italic: {{ body_font_italic.style }};
               
               --sale-price-color: {{ settings.sale_price_color }};
               --extra-sale-price-color: {{ settings.extra-sale_price_color }};
@@ -215,7 +217,8 @@
               newArrivals: {{ settings.new-arrivals.handle | json }},
               swatchesLimit: {{ settings.product-unit-sw-count }},
               freeShipping: {{ settings.free-shipping | times: 100 | json }},
-              wishlistTimeout: {{ settings.wishlist-popup-timeout | json }}
+              wishlistTimeout: {{ settings.wishlist-popup-timeout | json }},
+              cartGamification: false
           }
           </script>
         <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
@@ -370,6 +373,11 @@
               setTimeout(addLabelToCollectionProductUnit, 1000);
           }
       </script>
+  {% endif %}
+
+  {% if template == 'index' %}
+    <script src="{{ 'handlebars-v4.0.5.js' | asset_url }}"  defer="defer"></script>
+    {% render 'welcome-back' %}
   {% endif %}
   </body>
   </html>

@@ -46,8 +46,6 @@
         "title": "",
         "text": "",
         "button-text": "",
-        "button-behavior": "link",
-        "scroll-to": 3,
         "link": "",
         "link-for-button": false,
         "height": "image",
@@ -73,9 +71,9 @@
             "form_type": "iframe",
             "iframe-url": "https:\/\/calpak.attn.tv\/p\/aJ0\/landing-page",
             "klaviyo_id": "",
+            "vertical_alignment": "center",
             "height": "450",
-            "height-mobile": "600",
-            "vertical_alignment": "center"
+            "height-mobile": "600"
           }
         }
       },

@@ -3,7 +3,7 @@
 }
 
 .featured-col__lists .product-unit {
-    flex: 0 0 20%;
+    flex: 0 0 19.20%;
 }
 
 .featured-col__nav {
@@ -31,6 +31,10 @@
     letter-spacing: -0.02em;
     line-height: 1.25em;
     margin-bottom: var(--gap);
+}
+
+.shopify-section--pdp-featured div#product-card__ {
+    margin-bottom: 0!important;
 }
 
 .shopify-section--pdp-featured .product-unit:not(.product-unit--loaded) .product-unit__image img {
@@ -85,4 +89,13 @@
   .transparent-button {
     font-size: 20px;
   }
+}
+
+/* Hide hot deals badge in nav */
+.shopify-section--featured-collections .product-label--active {
+    display: none!important;
+}
+
+.shopify-section--pdp-featured .product-label--final {
+    display: none;
 }
