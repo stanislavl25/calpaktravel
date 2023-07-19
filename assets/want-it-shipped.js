@@ -28,7 +28,7 @@ function startCountdown() {
 
         if (hours === 0 && minutes === 0) {
             pst12pm.add(1, 'day');
-            
+
             // Skip weekends
             if (pst12pm.day() === 6) {
                 // Saturday, add two days

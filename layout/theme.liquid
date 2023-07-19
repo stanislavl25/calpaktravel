@@ -374,5 +374,10 @@
           }
       </script>
   {% endif %}
+
+  {% if template == 'index' %}
+    <script src="{{ 'handlebars-v4.0.5.js' | asset_url }}"  defer="defer"></script>
+    {% render 'welcome-back' %}
+  {% endif %}
   </body>
   </html>

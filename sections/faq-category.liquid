@@ -25,7 +25,13 @@
         <div class="accordion">
             <div id="{{ id }}" class="scroll-anchor"></div>
             <a href="#{{ id }}" class="accordion__title">{{ block.settings.title }}</a>
-            <div class="accordion__content">{{ block.settings.answer | replace: '[[', '<div class="iframe-container"><iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="360" frameborder="0" src="' | replace: ']]', '"></iframe></div>' | replace: 'vimeo.com/', 'player.vimeo.com/video/' | replace: '((', '<div><img alt="" src="' | replace: '))', '"></div>' }}</div>
+            <div class="accordion__content">
+                {% if block.settings.popanswer != blank %}
+                    {{ block.settings.popanswer }}
+                {% else %}
+                    {{ block.settings.answer | replace: '[[', '<div class="iframe-container"><iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="360" frameborder="0" src="' | replace: ']]', '"></iframe></div>' | replace: 'vimeo.com/', 'player.vimeo.com/video/' | replace: '((', '<div><img alt="" src="' | replace: '))', '"></div>' }}
+                {% endif %}
+                </div>
         </div>
         {% endfor %}
     </section>
@@ -112,6 +118,11 @@
                         "id": "answer",
                         "label": "Answer",
                         "info": "[[video]], ((image))"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "popanswer",
+                        "label": "Styled Answer"
                     },
                     {
                         "type": "checkbox",

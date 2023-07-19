@@ -172,7 +172,7 @@
         data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-        class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false %} customBadge-class {% endif %}"
+        class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false and settings.sale-msg-starter != false %} customBadge-class {% endif %}"
     >    
     <div class="product-unit__image-wrapper splash {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
         {%- if quick_view == true -%}
@@ -284,6 +284,13 @@
             {%- endif -%}
         </div>
     </div>
+
+    {%- if hotDealsVariants != false -%}
+        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+            Hot Deal
+        </div>
+    {%- endif -%}
       
     {% comment %} {%- if hotDealsVariants contains opt1 -%}
         <div class="product-label hot-deals-countdown-wrapper">

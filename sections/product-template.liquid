@@ -290,7 +290,7 @@
                     {%- when 'shipping-calculator' -%}
                         {% render 'shipping-calculator' %}
                     {%- when 'want-it-shipped' -%}
-                        {% render 'want-it-shipped' handle: product.handle, exclusion_list: block.settings.product-list %}
+                            {% render 'want-it-shipped' handle: product.handle, exclusion_list: block.settings.product-list %}
                     {%- when 'submit' -%}
                         {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
                         {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
@@ -399,6 +399,20 @@
                 "type": "richtext",
                 "id": "warranty-and-return",
                 "label": "Default warranty and return policy"
+            },
+            {
+                "type": "header",
+                "content": "Product Upsell Settings"
+            }, {
+                "type": "checkbox",
+                "id": "quick-view",
+                "label": "Enable Quick View",
+                "default": false
+            }, {
+                "type": "checkbox",
+                "id": "addtocart-button",
+                "label": "Enable Add to Cart",
+                "default": false
             }
         ],
         "blocks": [

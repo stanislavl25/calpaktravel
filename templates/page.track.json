@@ -151,13 +151,10 @@
     },
     "58293d19-3672-4467-b344-458b29446b31": {
       "type": "banner",
-      "disabled": true,
       "settings": {
         "title": "You earned points on this purchase!",
         "text": "<p>Log in or sign up to see how many points you received.<\/p>",
         "button-text": "Log In",
-        "button-behavior": "link",
-        "scroll-to": 3,
         "link": "https:\/\/www.calpaktravel.com\/account\/login",
         "link-for-button": true,
         "height": "content",
@@ -175,7 +172,8 @@
           "settings": {
             "collection": "organizers",
             "title": "",
-            "hide-form-labels": false
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         },
         "6e15438e-5336-41ed-8d78-d70250f7834d": {
@@ -183,7 +181,8 @@
           "settings": {
             "collection": "bags",
             "title": "",
-            "hide-form-labels": false
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         },
         "5055a2b7-9ea9-406b-bf57-a473e8604d1e": {
@@ -191,7 +190,8 @@
           "settings": {
             "collection": "accessories",
             "title": "",
-            "hide-form-labels": false
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         }
       },

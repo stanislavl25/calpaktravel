@@ -72,9 +72,9 @@ if(Shopify.Checkout.step == "shipping_method") {
         let expeditedDate = new Date(updatedTime + expeditedTotal * 1000 * 60 * 60 * 24);
         let overnightDate = new Date(updatedTime + overnightTotal * 1000 * 60 * 60 * 24);
 
-        let groundString = `Order submitted ${beforeAfter} 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} estimated arrival by ${groundDate.getMonth() + 1}/${groundDate.getDate()}`;
-        let expeditedString = `Order submitted ${beforeAfter} 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} estimated arrival by ${expeditedDate.getMonth() + 1}/${expeditedDate.getDate()}`;
-        let overnightString = `Order submitted ${beforeAfter} 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} estimated arrival by ${overnightDate.getMonth() + 1}/${overnightDate.getDate()}`;
+        let groundString = `Submit your order by 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} for estimated arrival by ${groundDate.getMonth() + 1}/${groundDate.getDate()}`;
+        let expeditedString = `Submit your order by 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} for estimated arrival by ${expeditedDate.getMonth() + 1}/${expeditedDate.getDate()}`;
+        let overnightString = `Submit your order by 12PM PT on ${nowDate.getMonth() + 1}/${nowDate.getDate()} for estimated arrival by ${overnightDate.getMonth() + 1}/${overnightDate.getDate()}`;
 
         let targetElement = document.querySelector('div.radio-wrapper[data-shipping-method="shopify-Express-0.00"]');
         if (targetElement) {
@@ -91,18 +91,28 @@ if(Shopify.Checkout.step == "shipping_method") {
             label1.innerHTML += `<div style="color:#666">Estimated 3-8 business days</div><div style="margin-top: 8px;">${groundString}</div>`;
         }
         
-        let label2 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title~='Day']");
+        let label2 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx 2 Day']");
         
         if(label2) {
             label2 = label2.closest('.content-box__row');
             label2.innerHTML += `<div style="color:#666">Estimated 2 business days</div><div style="margin-top: 8px;">${expeditedString}</div>`;
         }
 
-        let label3 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title~='Overnight']");
+        let label3 = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Standard Overnight']");
 
         if(label3) {
             label3 = label3.closest('.content-box__row');
             label3.innerHTML += `<div style="color:#666">Estimated 1 business day</div><div style="margin-top: 8px;">${overnightString}</div>`;
+        }
+        let ExpressAppElement = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx 2 Day [ASR]']");
+        if(ExpressAppElement) {
+            ExpressAppElement = ExpressAppElement.closest('.content-box__row');
+            ExpressAppElement.innerHTML += `<div style="margin-top: 8px;">${expeditedString}</div>`;
+        }
+        let boxifyOvernight = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Standard Overnight [ASR]']");
+        if(boxifyOvernight) {
+            boxifyOvernight = boxifyOvernight.closest('.content-box__row');
+            boxifyOvernight.innerHTML += `<div style="margin-top: 8px;">${overnightString}</div>`;
         }
     }
 //  function displayShippingMessage() {
