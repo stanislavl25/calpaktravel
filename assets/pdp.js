@@ -450,8 +450,14 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         
         for(let i = 0; i < newMedia.length; i++) {
             let newMed = newMedia[i];
-            
-            let videoContainer = newMed.querySelector('.video-iframe-container');
+        
+            let videoContainer;
+            if(!newMed.querySelector('.video-iframe-container'))
+            {
+             videoContainer = newMed.querySelector('.video-cdn-container');
+            }else{
+              videoContainer = newMed.querySelector('.video-iframe-container');
+            }
             if(videoContainer) {
                 if(newMed.classList.contains('pdp__media--prod-video')) {
                     mediaProdVideo = newMed;

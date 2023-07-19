@@ -1,0 +1,32 @@
+{% unless no_wrapper == true %}
+  {%- liquid
+    if height != blank
+        assign ratio = height
+    else
+        assign ratio = 100 | divided_by: poster.aspect_ratio
+    endif
+    if ratio > max_ratio and max_ratio != blank
+        assign ratio = max_ratio
+    endif
+-%}
+  <div class="ratio-container video-container{% if class != false and class != blank %} {{ class }}{% endif %}" style="padding-top: {{ ratio }}%">
+  {% endunless %}
+  <div class="video-cdn-container {% if contain == true %} video-cdn-container--contain{% endif %}" {% if video_ratio != false and video_ratio != blank %}style="--ratio: {{ video_ratio }};"{% endif %}>
+    <video
+      poster="{{ poster | img_url: 'master' }}"
+      height="100%"
+      width="100%"
+      class="shopify-cdn-video"
+      {% if autoplay == true %}autoplay{%endif%}
+      {% if autoplay == true %}muted{%endif%}
+      controls>
+      <source src="{{ video_url }}" />
+    </video>
+  </div>
+  {% unless no_wrapper == true %}
+  </div>
+{% endunless %}
+<script type="text/javascript">
+  document.querySelector(".shopify-cdn-video").addEventListener("loadeddata", function() {
+  document.querySelector(".shopify-cdn-video").parentElement.classList.add("video-loaded");
+  });</script>

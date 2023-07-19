@@ -1,4 +1,16 @@
 <div data-variants="" class="pdp__media{% if thumbnails == true %}-thumb{% endif %} pdp__media--prod-video{% unless varVideoActive %} pdp__media--active slide{% endunless %}">
+  {% if product.metafields.custom.product_video_cdn != blank %}
+    {%- liquid
+        assign video = product.metafields.custom.product_video_cdn | file_url
+        assign poster_url = product.metafields.custom.video_poster.value
+
+        if thumbnails == true
+            render 'image' with null, sizes: sizes, height: '133.333', class: 'video-link-image'
+        else
+            render 'shopify-cdn-video' with video_url: video, contain: true, poster: poster_url, alt: alt, sizes: sizes, height: '133.333', lazy: true
+        endif
+    -%}
+  {% else %}
     {%- liquid
         assign video = product.metafields.product.video
 
@@ -8,16 +20,17 @@
             render 'video' with video, contain: true, poster: null, alt: alt, sizes: sizes, height: '133.333', lazy: true
         endif
     -%}
+  {% endif %}
 
-    {%- unless thumbnails -%}
+  {%- unless thumbnails -%}
     <div class="pdp__video-info">
-        {% if current_variant.metafields.video.height != blank %}
-            {{- current_variant.metafields.video.height | escape -}}
-        {% elsif product.metafields.model.model_height != blank %}
-            Model Height: {{ product.metafields.model.model_height }}
-        {% elsif product.metafields.video.height != blank %}
-            {{ product.metafields.video.height }}
-        {% endif %}
+      {% if current_variant.metafields.video.height != blank %}
+        {{- current_variant.metafields.video.height | escape -}}
+      {% elsif product.metafields.model.model_height != blank %}
+        Model Height: {{ product.metafields.model.model_height }}
+      {% elsif product.metafields.video.height != blank %}
+        {{ product.metafields.video.height }}
+      {% endif %}
     </div>
-    {%- endunless -%}
+  {%- endunless -%}
 </div>
