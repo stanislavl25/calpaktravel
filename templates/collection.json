@@ -1325,6 +1325,30 @@
             ],
             "image_r": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
           }
+        },
+        "cf5b65fb-cea3-46e7-9866-2e2c4464c75b": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Mobile: Terra + Tablet Organizer",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 0,
+            "column": 0,
+            "col_span": 0,
+            "mobile_row": 5,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
+          }
         }
       },
       "block_order": [
@@ -1362,7 +1386,8 @@
         "050aff0f-d374-422b-9637-2e44b6afb709",
         "8cac41f8-f309-41e1-a432-7669e4fbdc23",
         "7800b009-d00e-429b-874b-48f584b59c5b",
-        "f4023f5b-a395-4272-8ef7-b5ab9ed77348"
+        "f4023f5b-a395-4272-8ef7-b5ab9ed77348",
+        "cf5b65fb-cea3-46e7-9866-2e2c4464c75b"
       ],
       "settings": {
         "wishlist": true,
