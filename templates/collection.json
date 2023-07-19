@@ -603,7 +603,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "New: Terra",
             "pictured_link": true,
@@ -629,7 +629,7 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "New: Luka Carry-On Video",
             "index": 22,
@@ -645,9 +645,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
-            "heading": "New: Modular Block",
+            "heading": "New: Luka",
             "pictured_link": true,
             "display": "desktop",
             "row": 3,
@@ -671,9 +671,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
-            "heading": "Desktop\/Mobile: Modular Block",
+            "heading": "New: Luka Duffel",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -696,7 +696,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -721,7 +721,7 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Mobile: Luka Belt Bag",
             "index": 29,
@@ -737,7 +737,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -762,7 +762,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -786,7 +786,7 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
             "index": 2,
@@ -802,7 +802,7 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop: Tech Organizer",
             "index": 36,
@@ -819,7 +819,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -843,7 +843,7 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -868,7 +868,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -893,7 +893,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Section",
             "pictured_link": true,
@@ -922,7 +922,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
             "index": 28,
@@ -938,7 +938,7 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
@@ -964,7 +964,7 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-
+              "summer-arrivals"
             ],
             "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
