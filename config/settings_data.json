@@ -39,7 +39,7 @@
     "sale-badge-tag-bundle": "",
     "starter-bundle-badge": "",
     "sale-badge-text-starter": "Special Offer",
-    "sale-badge-hide-textog": false,
+    "sale-badge-hide-textog": true,
     "starter__customizer-badge": "#f7f177",
     "hot-deals-badge-enabled": false,
     "hot-deals-ends": "",
