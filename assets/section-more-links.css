@@ -48,3 +48,34 @@
     border-top: 1px dashed #aeaeae;
     border-bottom: 1px dashed #aeaeae;
 }
+
+@media (max-width: 900px) {
+    .more-links,
+    .more-link {
+        gap: 8px;
+    }
+
+    .more-links {
+        overflow: auto;
+    }
+
+    .more-link {
+        margin-bottom: 25px;
+        flex-direction: column;
+        flex: 0 0 60%;
+    }
+
+    .more-link__image {
+        flex: 0 0 calc((100vw - 45px)/2);
+        height: calc((100vw - 45px)/2)
+    }
+
+    .more-link__image .ratio-container {
+        padding-top: 100%!important;
+    }
+
+    .more-link:not(:first-child) {
+        border-left: none;
+        padding-left: 0; 
+    }
+}
