@@ -1038,10 +1038,10 @@
             "heading": "BTS: GIF: Luka Expandable Tote",
             "index": 9,
             "enable_static_for_desktop": true,
-            "static_media_type_desktop": "image",
+            "static_media_type_desktop": "video",
             "desktop_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
             "enable_static_for_mobile": true,
-            "static_media_type_mobile": "image",
+            "static_media_type_mobile": "video",
             "mobile_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4"
           }
         },
@@ -1184,6 +1184,147 @@
             ],
             "image_r": "shopify:\/\/shop_images\/TABLET-TECH-ORGANIZER-INTERIOR1-DAISY.jpg"
           }
+        },
+        "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Padded Laptop Sleeve",
+            "pictured_link": true,
+            "display": "desktop",
+            "row": 1,
+            "column": 4,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "padded-laptop-sleeve"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3710_1.jpg"
+          }
+        },
+        "8896a19e-17ab-456f-9fdf-a352ee417a57": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Kaya Laptop Backpack",
+            "pictured_link": true,
+            "display": "desktop",
+            "row": 2,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "kaya-laptop-backpack"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3705_1.jpg"
+          }
+        },
+        "050aff0f-d374-422b-9637-2e44b6afb709": {
+          "type": "static",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Video: Tablet Tech Organizer",
+            "index": 7,
+            "enable_static_for_desktop": true,
+            "static_media_type_desktop": "video",
+            "desktop_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "video",
+            "mobile_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4"
+          }
+        },
+        "8cac41f8-f309-41e1-a432-7669e4fbdc23": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Tablet Tech Organizer",
+            "pictured_link": true,
+            "display": "desktop",
+            "row": 3,
+            "column": 4,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3711_1.jpg"
+          }
+        },
+        "7800b009-d00e-429b-874b-48f584b59c5b": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Backpacks",
+            "pictured_link": true,
+            "display": "both",
+            "row": 4,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "luka-laptop-backpack",
+              "kaya-laptop-backpack"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3712_1.jpg"
+          }
+        },
+        "f4023f5b-a395-4272-8ef7-b5ab9ed77348": {
+          "type": "modular-section",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: 2-Blocks",
+            "pictured_link": true,
+            "gap": 10,
+            "section_height": 70,
+            "row": 5,
+            "mobile_row": 1,
+            "column": 1,
+            "col_span": 5,
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "video_l": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
+            "title_r": "",
+            "description_r": "",
+            "pictured_products_r": [
+
+            ],
+            "image_r": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
+          }
         }
       },
       "block_order": [
@@ -1215,7 +1356,13 @@
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
         "095699f0-711f-4640-a656-2b4741be09b6",
         "004c300c-cbfd-42d4-b36d-d32f6356e801",
-        "42b77a18-3805-4d6a-9e4a-5e6cad3181bc"
+        "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
+        "d83347fe-83d2-4af3-bf0e-611f7feabf38",
+        "8896a19e-17ab-456f-9fdf-a352ee417a57",
+        "050aff0f-d374-422b-9637-2e44b6afb709",
+        "8cac41f8-f309-41e1-a432-7669e4fbdc23",
+        "7800b009-d00e-429b-874b-48f584b59c5b",
+        "f4023f5b-a395-4272-8ef7-b5ab9ed77348"
       ],
       "settings": {
         "wishlist": true,
