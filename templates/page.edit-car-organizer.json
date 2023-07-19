@@ -269,6 +269,38 @@
         "title": "testing",
         "gap": true
       }
+    },
+    "a7fbeebe-cc5f-485e-a806-2adfe7a77478": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "0941192e-7ebb-4256-a575-3ad689850aa3": {
+          "type": "text",
+          "settings": {
+            "title": "tiutlead ask",
+            "text": "<p>Experience the Thrill of Trying Anything!<\/p>",
+            "background-color": "#ffffff"
+          }
+        },
+        "bfcb8a7a-7d57-48d8-8480-ea29d8475803": {
+          "type": "product",
+          "settings": {
+            "product": "ambeur-large-luggage"
+          }
+        },
+        "16fce86a-c84a-43cc-841b-dbf0d68077f1": {
+          "type": "product",
+          "settings": {
+            "product": "car-organizer"
+          }
+        }
+      },
+      "block_order": [
+        "0941192e-7ebb-4256-a575-3ad689850aa3",
+        "bfcb8a7a-7d57-48d8-8480-ea29d8475803",
+        "16fce86a-c84a-43cc-841b-dbf0d68077f1"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -282,6 +314,7 @@
     "527e243a-89fe-4b09-a1c3-6f94af8ccc86",
     "6d36577b-6bf7-41d0-9fd0-c2663c060865",
     "02c6670f-9b20-4c50-900b-68043f886691",
-    "64cd1497-deec-4cf6-b45c-9ee50968e1c3"
+    "64cd1497-deec-4cf6-b45c-9ee50968e1c3",
+    "a7fbeebe-cc5f-485e-a806-2adfe7a77478"
   ]
 }
