@@ -1029,30 +1029,6 @@
             ]
           }
         },
-        "004c300c-cbfd-42d4-b36d-d32f6356e801": {
-          "type": "module",
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Terra",
-            "pictured_link": true,
-            "display": "both",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "terra-26l-backpack-duffel"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
-          }
-        },
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
           "type": "static",
           "settings": {
@@ -1157,6 +1133,30 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3712.jpg"
           }
         },
+        "004c300c-cbfd-42d4-b36d-d32f6356e801": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-school"
+            ],
+            "heading": "BTS: Terra",
+            "pictured_link": true,
+            "display": "both",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "terra-26l-backpack-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
+          }
+        },
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
           "type": "modular-section",
           "settings": {
@@ -1169,7 +1169,7 @@
             "section_height": 90,
             "row": 5,
             "mobile_row": 1,
-            "column": 1,
+            "column": 8,
             "col_span": 5,
             "title": "",
             "description": "",
@@ -1209,12 +1209,12 @@
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
         "531f4f21-bb35-4123-a4c9-2725fdd92f33",
         "a196e0f6-213b-4650-b73d-78a1eb2245c1",
-        "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
         "095699f0-711f-4640-a656-2b4741be09b6",
+        "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc"
       ],
       "settings": {
