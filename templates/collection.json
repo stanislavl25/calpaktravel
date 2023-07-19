@@ -8,7 +8,7 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "FREE GIFT",
+        "title-above": "Back To School",
         "main-text": "<p>Pick a free gift worth up to $98, when you purchase a 3-Piece Luggage Set<\/p>",
         "hide": false,
         "product_list": [
@@ -1022,8 +1022,8 @@
             ],
             "row": "1",
             "row_mobile": "1",
-            "banner-text-color": "#000",
-            "banner-text-background-color": "#FFF",
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff",
             "featured_products": [
 
             ]
