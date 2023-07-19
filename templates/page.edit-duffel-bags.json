@@ -358,6 +358,7 @@
         },
         "d9121943-48fe-4efd-a32f-a7d9526d4bba": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg"
           }
@@ -378,6 +379,7 @@
       "blocks": {
         "2f4c576a-8a18-4fc4-a098-42b364664ea1": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE1.jpg",
             "title": "Small",
@@ -386,6 +388,7 @@
         },
         "5de40915-f63e-40e3-a4f5-e43e77ff2b49": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE2.jpg",
             "title": "Medium",
@@ -394,6 +397,7 @@
         },
         "75b472e7-b77e-4b15-9aa3-0a3e16665206": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/TERRA-SMALL-SLING-BAG-JUNIPER-LIFESTYLE3.jpg",
             "title": "Large",
@@ -413,9 +417,11 @@
     },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
+      "disabled": true,
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "title": "Toiletry Bags",
             "description": "Bring your glow on-the-go and find the best toiletry bag for traveling.",
@@ -425,6 +431,7 @@
         },
         "6baef4b6-c263-4d78-a19b-84732571f4bc": {
           "type": "link",
+          "disabled": true,
           "settings": {
             "title": "Packing Cubes",
             "description": "Packing cubes are the #1 tool for travel organization—  they make your journeys more enjoyable.",
