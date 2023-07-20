@@ -1,0 +1,30 @@
+<button class="click-me-button" onClick= function (){
+    window._klOnsite = window._klOnsite || [];
+    window._klOnsite.push(['openForm', 'SLHask']);
+}>click me for popup</button>
+
+{% schema %}
+    {
+        "name": "Sign up popup",
+        "class": "section__sign-up-popup",
+        "settings": [
+            {
+                "type": "text",
+                "id": "button-class",
+                "label": "Button class"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Sign up popup"
+            }
+        ]
+    }
+{% endschema %}
+
+<script type="text/javascript">
+    document.querySelector('.{{ section.settings.button-class }}').addEventListener('mouseover', function (){
+        window._klOnsite = window._klOnsite || [];
+        window._klOnsite.push(['openForm', 'SLHask']);
+    })
+</script>
