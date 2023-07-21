@@ -457,6 +457,15 @@
               "text": "<p>We now ship to Hawaii and Alaska!<\/p>"
             }
           },
+          "f201f5a0-c22e-4148-9f30-774d79ef284a": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "top",
+              "title": "",
+              "text": "<p>Get 10% OFF back to school favorites with code: BACKTOIT<\/p>"
+            }
+          },
           "b9e6b17b-dffb-45b9-8ae4-eb899f113588": {
             "type": "announcement",
             "disabled": true,
@@ -558,6 +567,7 @@
         },
         "block_order": [
           "fbdf664a-4341-47c0-bce5-14700ff998ba",
+          "f201f5a0-c22e-4148-9f30-774d79ef284a",
           "b9e6b17b-dffb-45b9-8ae4-eb899f113588",
           "8c9ba91f-2777-428f-837a-f7b2b9f8cc50",
           "ed173313-2039-410a-a20a-4f9cdbf1687a",
