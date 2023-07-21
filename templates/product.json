@@ -255,6 +255,13 @@
         "b9fe6758-af70-4751-a566-9682f8742d4c": {
           "type": "yotpo-loyalty",
           "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+              "all"
+            ],
+            "show-for-all": false
           }
         },
         "48138d37-8473-4c57-adc6-882525675315": {
