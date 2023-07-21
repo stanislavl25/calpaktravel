@@ -759,6 +759,21 @@
               "description": "<p>Packing cubes are the #1 tool for organization.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
             }
+          },
+          "04605ea0-0820-4c21-b443-99943fd24488": {
+            "type": "media-block",
+            "settings": {
+              "title": "Shop: Back to School",
+              "menu": "shop",
+              "submenu-number": 0,
+              "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2424-2_1.jpg",
+              "link": "shopify:\/\/collections\/back-to-school",
+              "media-title": "",
+              "description": "",
+              "button-text": "Shop Back to School",
+              "link-for-button": false,
+              "text-color-scheme": "white"
+            }
           }
         },
         "block_order": [
@@ -770,7 +785,8 @@
           "4552f1b4-22d2-4133-8804-c2cfd261dae7",
           "657418bd-98df-44f4-9363-2b2a9c4cf77e",
           "22ba977a-5751-40f1-ab10-64600d42f7d7",
-          "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
+          "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036",
+          "04605ea0-0820-4c21-b443-99943fd24488"
         ],
         "settings": {
           "shop-menu": "mothers-day-menu",
