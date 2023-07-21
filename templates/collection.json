@@ -1005,10 +1005,17 @@
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "haven-laptop-tote-bag",
-              "insulated-lunch-bag",
               "luka-mini-belt-bag",
-              "padded-laptop-sleeve"
+              "padded-laptop-sleeve",
+              "compakt-duffel-bag",
+              "compakt-small-garment-bag",
+              "clear-luggage-cover",
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-2-piece-luggage-set",
+              "astyll-3-piece-luggage-set",
+              "silk-travel-set",
+              "hotel-calpak-robe"
             ]
           }
         },
