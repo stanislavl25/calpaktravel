@@ -667,17 +667,16 @@
         },
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "Summer: Stevyn",
+            "heading": "Summer: Kaya Mini Backpack",
             "pictured_link": true,
             "display": "both",
-            "row": 3,
-            "column": 1,
-            "col_span": 2,
+            "row": 5,
+            "column": 3,
+            "col_span": 3,
             "mobile_row": 7,
             "column_mobile": 1,
             "col_span_mobile": 2,
@@ -685,10 +684,10 @@
             "title": "",
             "description": "",
             "pictured_products": [
-              "stevyn-mini-crossbody-bag",
-              "stevyn-duffel"
+              "kaya-mini-backpack",
+              "kaya-laptop-backpack"
             ],
-            "image": "shopify:\/\/shop_images\/STEVYN-MINI-CROSSBODY-BAG-SKY-LIFESTYLE2.jpg"
+            "image": "shopify:\/\/shop_images\/KAYA-MINI-BACKPACK-DRAGONFRUIT-LIFESTYLE1.jpg"
           }
         },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
