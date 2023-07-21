@@ -734,7 +734,6 @@
         },
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "summer-arrivals"
