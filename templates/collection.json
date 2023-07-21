@@ -677,7 +677,7 @@
             "row": 5,
             "column": 3,
             "col_span": 3,
-            "mobile_row": 6,
+            "mobile_row": 12,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
