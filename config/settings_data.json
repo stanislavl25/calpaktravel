@@ -136,6 +136,7 @@
           },
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Back to School",
               "submenu-number": 1,
