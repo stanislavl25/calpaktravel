@@ -939,8 +939,6 @@
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "haven-laptop-tote-bag",
-              "insulated-lunch-bag",
               "luka-mini-belt-bag",
               "padded-laptop-sleeve"
             ]
@@ -962,7 +960,8 @@
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "luka-mini-belt-bag"
+              "luka-mini-belt-bag",
+              "padded-laptop-sleeve"
             ]
           }
         }
