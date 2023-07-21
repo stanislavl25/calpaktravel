@@ -105,12 +105,28 @@
             "text-color-scheme": "white",
             "text-alignment": "center"
           }
+        },
+        "c223db2c-ac6f-42f3-9295-5f1c931e86c1": {
+          "type": "text-block",
+          "settings": {
+            "title": "Get back at it!",
+            "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.<\/p>",
+            "main-link": "shopify:\/\/collections\/back-to-school",
+            "button-text": "Shop Now",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "show-condition": "always",
+            "text-alignment": "left",
+            "text-color-scheme": "white",
+            "background": "#e4dfd5"
+          }
         }
       },
       "block_order": [
         "6b6690fe-fe86-46f9-be16-304c72f808d2",
         "43bc22b6-f802-47c3-87c2-6f437780d388",
-        "dfe207be-4840-46d8-ad62-ad355866c677"
+        "dfe207be-4840-46d8-ad62-ad355866c677",
+        "c223db2c-ac6f-42f3-9295-5f1c931e86c1"
       ],
       "settings": {
         "hero-height": "limited",

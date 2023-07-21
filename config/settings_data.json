@@ -762,6 +762,7 @@
           },
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Back to School",
               "menu": "shop",
