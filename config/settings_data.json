@@ -118,6 +118,7 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -131,6 +132,15 @@
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
+            }
+          },
+          "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Shop: Featured: Back to School",
+              "submenu-number": 1,
+              "collection": "back-to-school",
+              "block-title": "Explore Back to School"
             }
           },
           "9bc35091-f1af-4ade-937e-7abddf8840bc": {
@@ -316,6 +326,7 @@
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "e331480d-2d4f-4d45-9833-0284975a6965",
+          "0066fcc3-11cd-4e67-8864-e6c0a00bfab6",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
           "52c25c9a-745f-42c5-8106-d8505dcb22b6",
