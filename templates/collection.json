@@ -708,6 +708,7 @@
         },
         "00502ff4-5f0b-4184-8f85-af5354461ebd": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "summer-arrivals"
@@ -715,7 +716,7 @@
             "heading": "Summer: Compakt Zippered Pouches",
             "pictured_link": true,
             "display": "desktop",
-            "row": 12,
+            "row": 11,
             "column": 1,
             "col_span": 1,
             "mobile_row": 6,
