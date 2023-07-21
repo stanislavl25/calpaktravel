@@ -349,9 +349,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false,
-          "live-start-time": "July 7, 2023 10:00AM",
-          "live-end-time": "July 7, 2023 11:00AM"
+          "live": true,
+          "live-start-time": "July 25, 2023 4:00PM",
+          "live-end-time": "July 25, 2023 5:00PM"
         }
       },
       "footer": {
