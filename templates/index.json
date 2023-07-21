@@ -116,8 +116,8 @@
             "add-link-to-button-only": true,
             "show-screens": "all",
             "show-condition": "always",
-            "text-alignment": "left",
-            "text-color-scheme": "white",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
             "background": "#e4dfd5"
           }
         }
