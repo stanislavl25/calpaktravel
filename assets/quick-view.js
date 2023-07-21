@@ -53,8 +53,8 @@ function setQuickViewContent(data, variant, qvParent) {
     const gallerySlider = qvParent.querySelector('.qv__gallery-inner');
     const galleryThumbsSldier = qvParent.querySelector('.qv__gallery-thumbs-inner');
 
-    let variantTypeEl = qvParent.querySelector('.pdp__variants .pdp__variant-type');
-    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, true);
+    let variantSizeEl = qvParent.querySelector('.pdp__variants .pdp__variant-size');
+    if(variantSizeEl) pdpCreateSizeSelect(variantSizeEl, product, true);
 
     variantUpdateProcess(target);
 
@@ -96,7 +96,7 @@ async function getQuickView(link, variant = false) {
 
     let promises = [];
     if(typeof variantUpdateProcess == 'undefined') promises.push(loadScript(scripts.variants));
-    if(typeof pdpCreateTypeSelect == 'undefined') {
+    if(typeof pdpCreateSizeSelect == 'undefined') {
         promises.push(loadScript(scripts.pdp));
         promises.push(loadStyle(styles.pdp));
         promises.push(loadStyle(styles.pdpGallery));
