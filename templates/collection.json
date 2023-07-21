@@ -961,13 +961,8 @@
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ff0000",
             "featured_products": [
-              "ambeur-medium-luggage",
-              "ambeur-vanity-case",
-              "ambeur-mini-carry-on-luggage",
-              "ambeur-large-luggage",
-              "ambeur-front-pocket-carry-on-luggage",
-              "ambeur-carry-on-luggage",
-              "ambeur-3-piece-luggage-set"
+              "starter-bundle",
+              "luka-mini-belt-bag"
             ]
           }
         }
