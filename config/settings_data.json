@@ -870,6 +870,7 @@
           },
           "652fae05-e012-48a0-bd05-eebda8839bc2": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
