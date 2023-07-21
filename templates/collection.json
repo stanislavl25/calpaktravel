@@ -712,12 +712,12 @@
             "collection_list_display": [
               "summer-arrivals"
             ],
-            "heading": "Summer: Belt Bag + Key Pouch",
+            "heading": "Summer: Compakt Zippered Pouches",
             "pictured_link": true,
             "display": "desktop",
-            "row": 4,
+            "row": 12,
             "column": 1,
-            "col_span": 3,
+            "col_span": 1,
             "mobile_row": 6,
             "column_mobile": 1,
             "col_span_mobile": 2,
