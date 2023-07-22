@@ -2,14 +2,13 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Back To School",
-        "main-text": "<p>Pick a free gift worth up to $98, when you purchase a 3-Piece Luggage Set<\/p>",
+        "title-above": "LIMITED TIME",
+        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
         "hide": false,
         "product_list": [
 
@@ -19,11 +18,11 @@
         ],
         "section-id": "",
         "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/3-piece-luggage-sets",
-        "cta_text": "Shop Now",
+        "cta_url": "shopify:\/\/collections\/back-to-school",
+        "cta_text": "Shop Back to School",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "Prices as marked. See Terms & Conditions.",
+        "terms_text": "See Terms & Conditions",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -520,6 +519,7 @@
       "blocks": {
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2192.jpg",
             "video": "",
