@@ -389,42 +389,6 @@
         "autoslide": 3
       }
     },
-    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
-      "type": "promo-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Ambeur Collection",
-        "description": "",
-        "quick-view": true,
-        "product-labels": false,
-        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1372_6c72ff0e-c237-424c-afdf-a9528ed74b74.jpg",
-        "video": "",
-        "media-link": "",
-        "pictured-product": "ambeur-front-pocket-carry-on-luggage",
-        "pictured-product-quick-view": true,
-        "pictured-product-override": "",
-        "pictured-product-title": "Ambeur Front Pocket Carry-On",
-        "button-text": "Shop Now",
-        "button-quick-view": false,
-        "button-link": "shopify:\/\/collections\/ambeur-collection",
-        "background": "#ff6b0e",
-        "text-color": "{{ shop.brand.colors.primary[1].background }}",
-        "accent-color": "#ffffff",
-        "pictured-product-display": "top",
-        "featured-collection": "",
-        "collection-limit": 0,
-        "show-view-all": true,
-        "product_list": [
-          "ambeur-vanity-case",
-          "ambeur-mini-carry-on-luggage",
-          "ambeur-front-pocket-carry-on-luggage",
-          "ambeur-carry-on-luggage",
-          "ambeur-medium-luggage",
-          "ambeur-large-luggage"
-        ],
-        "columns": "3"
-      }
-    },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
       "settings": {
@@ -451,6 +415,42 @@
         "show-view-all": false,
         "product_list": [
 
+        ],
+        "columns": "3"
+      }
+    },
+    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
+      "type": "promo-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Explore Our New Arrivals",
+        "description": "",
+        "quick-view": true,
+        "product-labels": true,
+        "image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION0999.jpg",
+        "video": "",
+        "media-link": "shopify:\/\/collections\/summer-arrivals",
+        "pictured-product": "",
+        "pictured-product-quick-view": false,
+        "pictured-product-override": "",
+        "pictured-product-title": "Ambeur Front Pocket Carry-On",
+        "button-text": "Shop Now",
+        "button-quick-view": false,
+        "button-link": "shopify:\/\/collections\/summer-arrivals",
+        "background": "#ff6b0e",
+        "text-color": "{{ shop.brand.colors.primary[1].background }}",
+        "accent-color": "#ffffff",
+        "pictured-product-display": "top",
+        "featured-collection": "summer-arrivals",
+        "collection-limit": 0,
+        "show-view-all": true,
+        "product_list": [
+          "ambeur-vanity-case",
+          "ambeur-mini-carry-on-luggage",
+          "ambeur-front-pocket-carry-on-luggage",
+          "ambeur-carry-on-luggage",
+          "ambeur-medium-luggage",
+          "ambeur-large-luggage"
         ],
         "columns": "3"
       }
@@ -562,8 +562,8 @@
     "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
     "951d1a57-9c08-4431-a932-aafbc04369f5",
-    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
+    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "1645aa0b-1a41-4be9-906e-35c475633190",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
     "5a6f5490-2467-4517-8d4e-1b098c285ad9"
