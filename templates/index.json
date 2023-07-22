@@ -442,15 +442,10 @@
         "accent-color": "#ffffff",
         "pictured-product-display": "top",
         "featured-collection": "summer-arrivals",
-        "collection-limit": 0,
-        "show-view-all": true,
+        "collection-limit": 6,
+        "show-view-all": false,
         "product_list": [
-          "ambeur-vanity-case",
-          "ambeur-mini-carry-on-luggage",
-          "ambeur-front-pocket-carry-on-luggage",
-          "ambeur-carry-on-luggage",
-          "ambeur-medium-luggage",
-          "ambeur-large-luggage"
+
         ],
         "columns": "3"
       }
