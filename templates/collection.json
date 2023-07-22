@@ -518,6 +518,29 @@
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
+        "64e7da40-e05d-412d-809b-024b8aa13efb": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2192.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055_1.jpg",
+            "link": "shopify:\/\/products\/padded-laptop-sleeve",
+            "title": "MUST HAVE: All Laptop Sleeves just $29.99",
+            "text": "<ul><li>Bring your laptop back to school in style and shop any sized Laptop Sleeve.<\/li><li>SHOP NOW (Link to Padded Laptop Sleeve)<\/li><\/ul>",
+            "show-for-collections": [
+              "summer-arrivals",
+              "best-sellers",
+              "in-stock-ready-to-deliver"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 2,
+            "column": 1,
+            "row-mob": 1
+          }
+        },
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
           "disabled": true,
@@ -547,29 +570,6 @@
             "row": 2,
             "column": 1,
             "row-mob": 2
-          }
-        },
-        "64e7da40-e05d-412d-809b-024b8aa13efb": {
-          "type": "promo",
-          "settings": {
-            "banner": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2192.jpg",
-            "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055_1.jpg",
-            "link": "shopify:\/\/products\/padded-laptop-sleeve",
-            "title": "MUST HAVE: All Laptop Sleeves just $29.99",
-            "text": "<ul><li>Bring your laptop back to school in style and shop any sized Laptop Sleeve.<\/li><li>SHOP NOW (Link to Padded Laptop Sleeve)<\/li><\/ul>",
-            "show-for-collections": [
-              "summer-arrivals",
-              "best-sellers",
-              "in-stock-ready-to-deliver"
-            ],
-            "background": "#e4dfd5",
-            "text-color": "#000000",
-            "starts-on": "",
-            "ends-on": "",
-            "row": 2,
-            "column": 1,
-            "row-mob": 1
           }
         },
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
@@ -1368,8 +1368,8 @@
         }
       },
       "block_order": [
-        "b401a37d-55aa-49b7-b987-45893897281b",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
+        "b401a37d-55aa-49b7-b987-45893897281b",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "8faf4caf-1276-4186-8468-5d0516de3da7",
         "212c972f-9876-4c34-906d-1e46cefc4380",
