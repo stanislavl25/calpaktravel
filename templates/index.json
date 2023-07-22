@@ -108,6 +108,7 @@
         },
         "c223db2c-ac6f-42f3-9295-5f1c931e86c1": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Get back at it!",
             "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.<\/p>",
@@ -120,13 +121,29 @@
             "text-color-scheme": "black",
             "background": "#e4dfd5"
           }
+        },
+        "edef727e-efa6-4510-9944-6318fbf6d82c": {
+          "type": "media-block",
+          "disabled": true,
+          "settings": {
+            "video": "",
+            "main-link": "shopify:\/\/collections\/back-to-school",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
         }
       },
       "block_order": [
         "6b6690fe-fe86-46f9-be16-304c72f808d2",
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677",
-        "c223db2c-ac6f-42f3-9295-5f1c931e86c1"
+        "c223db2c-ac6f-42f3-9295-5f1c931e86c1",
+        "edef727e-efa6-4510-9944-6318fbf6d82c"
       ],
       "settings": {
         "hero-height": "limited",
@@ -145,9 +162,9 @@
           "type": "text-block",
           "disabled": true,
           "settings": {
-            "title": "Last Chance: Travel More Sale",
-            "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
-            "main-link": "shopify:\/\/collections\/sale",
+            "title": "Get back at it!",
+            "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.  <\/p>",
+            "main-link": "shopify:\/\/collections\/back-to-school",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
