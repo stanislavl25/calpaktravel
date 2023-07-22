@@ -551,22 +551,16 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
-          "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0181-5.jpg",
+            "banner": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2192.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/CALPAK.3.20.LIFESTYLE_0021-2.jpg",
-            "link": "https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU",
-            "title": "Free Luka Key Pouch",
-            "text": "<p>Join us for 1 hour live shopping event April 6, 12:00 PM PT.<\/p><p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=TEvfQuz8ZIwQb2Gnv1TU\">ADD TO CALENDAR<\/a><\/p>",
+            "banner-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055_1.jpg",
+            "link": "shopify:\/\/products\/padded-laptop-sleeve",
+            "title": "MUST HAVE: All Laptop Sleeves just $29.99",
+            "text": "<ul><li>Bring your laptop back to school in style and shop any sized Laptop Sleeve.<\/li><li>SHOP NOW (Link to Padded Laptop Sleeve)<\/li><\/ul>",
             "show-for-collections": [
-              "accessories",
-              "organizers",
-              "luggage",
-              "bags",
-              "new-arrivals",
+              "summer-arrivals",
               "best-sellers",
-              "all",
               "in-stock-ready-to-deliver"
             ],
             "background": "#e4dfd5",
@@ -575,7 +569,7 @@
             "ends-on": "",
             "row": 2,
             "column": 1,
-            "row-mob": 2
+            "row-mob": 1
           }
         },
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
