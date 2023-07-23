@@ -161,7 +161,8 @@
         "height-percent": 50,
         "text-alignment": "center",
         "text-color-scheme": "black",
-        "background": "#e4dfd5"
+        "background": "#e4dfd5",
+        "query-match": false
       }
     },
     "e1a88b84-9af4-4c4e-b72b-41478cc6a177": {
