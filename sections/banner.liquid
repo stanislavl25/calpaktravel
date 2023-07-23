@@ -218,7 +218,7 @@
     // Update the hidden element when the URL changes
     setInterval(() => {
         urlObserverElement.setAttribute('data-url', window.location.href);
-    }, 1000);  // Poll every 100 milliseconds
+    }, 1000);  // Poll every 1 second
 
     // Observe the hidden element for changes
     const observer = new MutationObserver(checkQuery);
