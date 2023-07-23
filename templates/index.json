@@ -1,5 +1,55 @@
 {
   "sections": {
+    "25d29c3d-398d-4bf7-ba9d-56c564639e61": {
+      "type": "scrollable-menu",
+      "blocks": {
+        "402ca32f-6b9c-440b-aa04-243500f51b76": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": ""
+          }
+        },
+        "0f028c7d-da28-4af6-b622-ae0057d42f6b": {
+          "type": "collection",
+          "settings": {
+            "collection": "3-piece-luggage-sets",
+            "title": "3-Piece Set"
+          }
+        },
+        "a33f5cc3-a81d-4929-b42d-22fb175a4d01": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": ""
+          }
+        },
+        "60e923ad-0187-4f92-b706-c3eaf2c8cf34": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-products",
+            "title": ""
+          }
+        },
+        "cf01d678-08dd-46cb-9461-8573b846154c": {
+          "type": "collection",
+          "settings": {
+            "collection": "2022-essentials",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "402ca32f-6b9c-440b-aa04-243500f51b76",
+        "0f028c7d-da28-4af6-b622-ae0057d42f6b",
+        "a33f5cc3-a81d-4929-b42d-22fb175a4d01",
+        "60e923ad-0187-4f92-b706-c3eaf2c8cf34",
+        "cf01d678-08dd-46cb-9461-8573b846154c"
+      ],
+      "settings": {
+        "display-menu": true
+      }
+    },
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
       "type": "scrollable-menu",
       "blocks": {
@@ -551,8 +601,8 @@
     }
   },
   "order": [
-    "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd",
-    "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
+    "25d29c3d-398d-4bf7-ba9d-56c564639e61",
+    "9a46d065-1a77-4b95-ba73-e9bf4d14e72a",
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
     "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
