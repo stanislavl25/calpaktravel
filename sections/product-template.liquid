@@ -4,17 +4,37 @@
 {{ 'component-star-rating.css' | asset_url | stylesheet_tag }}
 {{ 'component-pdp-promo.css' | asset_url | stylesheet_tag }}
 
-<link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'fancybox.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-tooltip.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-pdp-floating-submit.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-waitlist.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link
+  rel="stylesheet"
+  href="{{ 'component-color-swatch.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'fancybox.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-tooltip.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-pdp-floating-submit.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-waitlist.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
-<script src="{{ 'fancybox.js' | asset_url }}" defer ></script>
+<script src="{{ 'fancybox.js' | asset_url }}" defer></script>
 <script src="{{ 'pdp.js' | asset_url }}" defer="defer"></script>
 {%- liquid
     assign request_arg = request.path | split: "/"
@@ -163,60 +183,69 @@
     endfor
 -%}
 {%- if product.handle == 'gift-card' -%}
-<style>.okeReviews-widget-holder {display: none !important;}</style>
+  <style>
+    .okeReviews-widget-holder {
+      display: none !important;
+    }
+  </style>
 {%- endif -%}
-<section class="pdp__grid{% if soldout == true %} pdp__grid--soldout{% endif %}"
-    data-status="{% if current_variant.available == false %}sold-out{% elsif preorder != false %}preorder{% else %}default{% endif %}"
-    {% if soldout != false and soldout != true %}data-soldout="{{ soldout | join: ' ' }}"{% endif %}
-    >
-    
-    <div class="pdp__breadcrumbs">
-        {% render 'pdp-breadcrumbs', current_product_group_type: current_product_group_type, featured_collection: featured_collection %}
-    </div>
+<section
+  class="pdp__grid{% if soldout == true %} pdp__grid--soldout{% endif %}"
+  data-status="{% if current_variant.available == false %}sold-out{% elsif preorder != false %}preorder{% else %}default{% endif %}"
+  {% if soldout != false and soldout != true %}data-soldout="{{ soldout | join: ' ' }}"{% endif %}>
 
-    <aside class="pdp__gallery-container">
-        {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
-        {% render 'pdp-gallery', current_variant: current_variant %}
-        <button aria-label="Show all product media" class="pdp-gallery__more-btn"><span>See more images (<em class="img-num">2</em>)</span></button>
-    </aside>
+  <div class="pdp__breadcrumbs">
+    {% render 'pdp-breadcrumbs', current_product_group_type: current_product_group_type, featured_collection: featured_collection %}
+  </div>
 
-    <main
-        class="pdp__info{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}"
-        >
-        {% form 'product', product, data-handle: product.handle, data-id: product.id %}
-            <script type="text/json" class="pdp-json" data-current-variant="{{ current_variant.id }}">{{ product | json }}</script>
-            <script type="text/json" class="pdp-meta-json">{% render 'product-meta-json' with product %}</script>
+  <aside class="pdp__gallery-container">
+    {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
+    {% render 'pdp-gallery', current_variant: current_variant %}
+    <button aria-label="Show all product media" class="pdp-gallery__more-btn">
+      <span>See more images (<em class="img-num">2</em>)</span>
+    </button>
+  </aside>
 
-            {%- for block in section.blocks -%}
-                {%- case block.type -%}
-                    {%- when '@app' -%}
-                        {% render block %}
-                    {%- when 'title' -%}
-                        <section class="pdp__header">
-                            <h1 class="pdp__title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</h1>
+  <main class="pdp__info{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}">
+    {% form 'product', product, data-handle: product.handle, data-id: product.id %}
+      <script
+        type="text/json"
+        class="pdp-json"
+        data-current-variant="{{ current_variant.id }}">{{ product | json }}</script>
+      <script type="text/json" class="pdp-meta-json">{% render 'product-meta-json' with product %}</script>
 
-
-
-                            <section class="pdp__meta">
-
-                            
-                                {%- if product.metafields.custom.featured_collection != blank -%}
-                                    {%- assign collection = collections[product.metafields.custom.featured_collection] -%}
-                                    <div class="pdp__feat-col">Part of <a href="{{ collection.url }}">{{- collection.title | escape -}}</a></div>
-                                {%- endif -%}
-
-                                <div class="pdp__reviews-cont">
-                                    <a href="{{ product.url }}/reviews" class="pdp__reviews">
-                                        {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
-                                            {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-                                        {%- endif -%}
-                                    </a>
-                                </div>
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+          {% render block %}
+          {%- when 'title' -%}
+          <section class="pdp__header">
+            <h1 class="pdp__title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</h1>
 
 
 
-                                {%- comment -%}Purchased and Views widget{%- endcomment -%}
-                                {%- liquid
+            <section class="pdp__meta">
+
+
+              {%- if product.metafields.custom.featured_collection != blank -%}
+                {%- assign collection = collections[product.metafields.custom.featured_collection] -%}
+                <div class="pdp__feat-col">Part of
+                  <a href="{{ collection.url }}">{{- collection.title | escape -}}</a>
+                </div>
+              {%- endif -%}
+
+              <div class="pdp__reviews-cont">
+                <a href="{{ product.url }}/reviews" class="pdp__reviews">
+                  {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+                    {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+                  {%- endif -%}
+                </a>
+              </div>
+
+
+
+              {%- comment -%}Purchased and Views widget{%- endcomment -%}
+              {%- liquid
                                     assign enable = false
                                     for availableproduct in block.settings.available-products
                                         if product.handle == availableproduct.handle
@@ -224,57 +253,59 @@
                                         endif
                                     endfor
                                 -%}
-                                {% if enable %}
-                                <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
-                                <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function () {
+              {% if enable %}
+                <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
+                <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
+                <script>
+                  document.addEventListener('DOMContentLoaded', function() {
 
-                                        const purchased_text = '{purchased} items purchased in the last 24 hours';
-                                        const views_text = '{views} items viewed in the last 24 hours';
+                    const purchased_text = '{purchased} items purchased in the last 24 hours';
+                    const views_text = '{views} items viewed in the last 24 hours';
 
-                                        window.fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
-                                            method: 'GET',
-                                            redirect: 'follow'
-                                        })
-                                        .then(response => response.json())
-                                        .then(result => {
-        
-                                            const mapObj = {
-                                                '{purchased}': result.data.itemsPurchased,
-                                                '{views}': result.data.itemsViewed,
-                                            };
+                    window
+                    .fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
+                        method: 'GET',
+                        redirect: 'follow'
+                      })
+                    .then(response => response.json())
+                    .then(result => {
 
-                                            const purchased_final = purchased_text.replace(/{purchased}|{views}/gi, matched => mapObj[matched]);
-                                            const views_final = views_text.replace(/{purchased}|{views}/gi, matched => mapObj[matched]);
-    
-                                            try { document.querySelector('#pdp__views-counter').innerHTML = views_final; } catch {}
-                                            try { document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final; } catch {}
+                        const mapObj = {
+                          '{purchased}': result.data.itemsPurchased,
+                          '{views}': result.data.itemsViewed
+                        };
 
-                                        })
-                                        .catch(error => console.log('error', error));
-                                    });
-                                </script>
-                                {% endif %}
+                        const purchased_final = purchased_text.replace(/{purchased}|{views}/gi, matched => mapObj[matched]);
+                        const views_final = views_text.replace(/{purchased}|{views}/gi, matched => mapObj[matched]);
 
-                                <div class="pdp__price">
-                                    <div class="pdp__price-inner">
-                                        {%- if current_variant.compare_at_price > current_variant.price -%}
-                                        <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-                                        {%- endif -%}
-                                        <b>{{- current_variant.price | money_without_trailing_zeros -}}</b>
-                                    </div>
-                                </div>
-                            </section>
+                        try {
+                          document.querySelector('#pdp__views-counter').innerHTML = views_final;
+                        } catch {}try {
+                          document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final;
+                        
 
-                            
-                            
+                      } catch{}})
+                    .catch(error => console.log('error', error));
+                });
+                </script>
+              {% endif %}
+
+              <div class="pdp__price">
+                <div class="pdp__price-inner">
+                  {%- if current_variant.compare_at_price > current_variant.price -%}
+                    <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+                  {%- endif -%}
+                  <b>{{- current_variant.price | money_without_trailing_zeros -}}</b>
+                </div>
+              </div>
+            </section>
 
 
-                            {%- if description_reviews_split -%}
-                                {% render 'pdp-description-reviews', description_reviews_split: description_reviews_split %}
-                            {%- endif -%}
-                            
+
+            {%- if description_reviews_split -%}
+              {% render 'pdp-description-reviews', description_reviews_split: description_reviews_split %}
+            {%- endif -%}
+
 
                         </section>
                     {%- when 'variants' -%}
@@ -310,20 +341,23 @@
             {%- endfor -%}
         {% endform %}
 
-        {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
-    </main>
+    {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
+  </main>
 
 </section>
 
 <script>
-    const pdpSettings = {
-        gallery_limit: {{ section.settings.gallery-limit }},
-        reapply_limit: {% if section.settings.gallery-limit-reapply %}true{% else %}false{% endif %},
-    };
+  const pdpSettings = {
+    gallery_limit: {{ section.settings.gallery-limit }},
+    reapply_limit:{% if section.settings.gallery-limit-reapply %}true
+    {% else %}
+      false
+    {% endif %}
+  };
 </script>
 
 <script type="application/ld+json">
-{% render 'schema-product-stub', product_variant: current_variant, early_access: early_access %}
+  {% render 'schema-product-stub', product_variant: current_variant, early_access: early_access %}
 </script>
 
 {% schema %}

@@ -201,7 +201,8 @@ function variantUpdateProcess(target) {
         });
 
         pdpGalleryUpdate(pdpGrid, option, isQuickView);
-
+        pdpSizePriceUpdate(option);
+        
         if(!isQuickView) {
             pdpHandleUpsell(option);
             pdpHandleDescriptions(pdpInfo, option);

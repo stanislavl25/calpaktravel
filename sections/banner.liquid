@@ -183,6 +183,11 @@
                 "id": "background",
                 "label": "Background color",
                 "default": "#e4dfd5"
+            },
+            {
+                "type": "text",
+                "id": "query-match",
+                "label": "Define what URL query needs to be present to show"
             }
         ],
         "presets": [
@@ -192,3 +197,33 @@
         ]
     }
 {% endschema %}
+<script>
+    function checkQuery() {
+        const windowSearch = window.location.search;
+        const queryMatch = "{{ section.settings.query-match }}";
+        const bannerElement = document.querySelector(".banner-section");
+
+        if (windowSearch.includes(queryMatch) || queryMatch == "") {
+            bannerElement.style.display = "block";
+        } else {
+            bannerElement.style.display = "none";
+        }
+    }
+
+    // Listen for URL changes
+    const urlObserverElement = document.createElement('div');
+    urlObserverElement.style.display = 'none';
+    document.body.appendChild(urlObserverElement);
+
+    // Update the hidden element when the URL changes
+    setInterval(() => {
+        urlObserverElement.setAttribute('data-url', window.location.href);
+    }, 1000);  // Poll every 1 second
+
+    // Observe the hidden element for changes
+    const observer = new MutationObserver(checkQuery);
+    observer.observe(urlObserverElement, { attributes: true });
+
+    // Initial call when the window is fully loaded
+    window.onload = checkQuery;
+</script>
