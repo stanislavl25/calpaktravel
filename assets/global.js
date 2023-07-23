@@ -1337,4 +1337,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
+
+
+        // On section-blog-text-product-feature, match the height of the text block to the image
+        const matchTextHeight = window.getComputedStyle(document.querySelector('.shopify-section--blog-text-product-feature a.product-unit__image')).getPropertyValue('padding-top');
+        const textBlock = document.querySelector('.blog-text-product-feature__block-text');
+        textBlock.style.height = matchTextHeight;
 });
