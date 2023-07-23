@@ -321,8 +321,8 @@
                 {{- saleMessage | escape | replace: '%%', discount -}}
             </div>
         {%- endif -%}
-
     {%- endif -%}
+
     {%- if settings.sale-msg-starter != false -%}
         {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false and template contains 'collection' and settings.starter-bundle-badge != blank %}
             <div class="product-label--promo starter-label">
@@ -419,25 +419,6 @@
             {% if preorder != true %}data-options="{{ preorder | join: ' ' }}"{% endif %}>
             Preorder
         </div>
-    {%- endif -%}
-
-    {%- if settings.hot-deals-badge-enabled -%}
-        {%- liquid
-            assign hotDealsVariants = false
-            for tag in product.tags
-                assign splitted_tag = tag | split: ":"
-                if splitted_tag[0] == 'hot-deals'
-                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
-                endif
-            endfor
-        -%}
-    
-        {%- if hotDealsVariants != false -%}
-            <div class="product-label product-label--final hot-deals-badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
-                {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
-                Hot Deal
-            </div>
-        {%- endif -%}
     {%- endif -%}
         
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
