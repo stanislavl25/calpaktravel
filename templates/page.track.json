@@ -162,7 +162,7 @@
         "text-alignment": "center",
         "text-color-scheme": "black",
         "background": "#e4dfd5",
-        "query-match": false
+        "query-match": true
       }
     },
     "e1a88b84-9af4-4c4e-b72b-41478cc6a177": {
