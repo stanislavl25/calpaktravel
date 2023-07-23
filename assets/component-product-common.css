@@ -14,7 +14,7 @@
 }
 .product-label:not(.product-label--active).product-label--preorder,
 .product-label:not(.product-label--active)[data-options] {
-    display: none;
+    display: none!important;
 }
 
 .product-label {
