@@ -185,9 +185,10 @@
                 "default": "#e4dfd5"
             },
             {
-                "type": "text",
+                "type": "checkbox",
                 "id": "query-match",
-                "label": "Define what URL query needs to be present to show"
+                "label": "Define what URL query needs to be present to show",
+                "default": true
             }
         ],
         "presets": [
@@ -200,10 +201,10 @@
 <script>
     function checkQuery() {
         const windowSearch = window.location.search;
-        const queryMatch = "{{ section.settings.query-match }}";
-        const bannerElement = document.querySelector(".banner-section");
+        const queryMatch = {{ section.settings.query-match }};
+        const bannerElement = document.querySelector(".shopify-section--banner");
 
-        if (windowSearch.includes(queryMatch) || queryMatch == "") {
+        if (windowSearch.includes('search') && queryMatch == true) {
             bannerElement.style.display = "block";
         } else {
             bannerElement.style.display = "none";
