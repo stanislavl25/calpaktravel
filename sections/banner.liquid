@@ -206,6 +206,8 @@
 
         if (windowSearch.includes('search') && queryMatch == true) {
             bannerElement.style.display = "block";
+        else if (queryMatch == false) {
+            bannerElement.style.display = "block";
         } else {
             bannerElement.style.display = "none";
         }
