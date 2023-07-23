@@ -187,7 +187,7 @@
             {
                 "type": "checkbox",
                 "id": "query-match",
-                "label": "Define what URL query needs to be present to show",
+                "label": "Show banner only when search query is active",
                 "default": true
             }
         ],
@@ -206,7 +206,7 @@
 
         if (windowSearch.includes('search') && queryMatch == true) {
             bannerElement.style.display = "block";
-        else if (queryMatch == false) {
+        } else if (queryMatch == false) {
             bannerElement.style.display = "block";
         } else {
             bannerElement.style.display = "none";
