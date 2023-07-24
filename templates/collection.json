@@ -793,30 +793,6 @@
             "static_media_type_mobile": "image"
           }
         },
-        "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
-          "type": "module",
-          "settings": {
-            "collection_list_display": [
-              "summer-arrivals"
-            ],
-            "heading": "Summer: Video",
-            "pictured_link": true,
-            "display": "mobile",
-            "row": 7,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "video": "shopify:\/\/files\/videos\/IMG_3027_5.mp4"
-          }
-        },
         "8beb041e-a61d-40dd-b978-d4c14c2679f9": {
           "type": "module",
           "settings": {
@@ -866,6 +842,30 @@
             "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-LIFESTYLE.jpg"
           }
         },
+        "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "summer-arrivals"
+            ],
+            "heading": "Summer: Video",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 7,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "video": "shopify:\/\/files\/videos\/IMG_3027_5.mp4"
+          }
+        },
         "26121484-6047-4828-919f-49c8e5363c7d": {
           "type": "modular-section",
           "disabled": true,
@@ -875,6 +875,7 @@
             ],
             "heading": "Summer: Compakt Zippered Pouches",
             "pictured_link": true,
+            "display": "both",
             "gap": 10,
             "section_height": 70,
             "row": 12,
@@ -971,7 +972,6 @@
         },
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -988,7 +988,6 @@
         },
         "d069cb25-8ad8-48ef-baef-185bfbd99234": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1037,7 +1036,6 @@
         },
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1054,7 +1052,6 @@
         },
         "095699f0-711f-4640-a656-2b4741be09b6": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1079,7 +1076,6 @@
         },
         "004c300c-cbfd-42d4-b36d-d32f6356e801": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1104,13 +1100,13 @@
         },
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
           "type": "modular-section",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
             ],
             "heading": "BTS: 2-Blocks",
             "pictured_link": true,
+            "display": "both",
             "gap": 10,
             "section_height": 90,
             "row": 5,
@@ -1131,7 +1127,6 @@
         },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1254,6 +1249,7 @@
             ],
             "heading": "BTC: 2-Blocks",
             "pictured_link": true,
+            "display": "both",
             "gap": 10,
             "section_height": 70,
             "row": 5,
