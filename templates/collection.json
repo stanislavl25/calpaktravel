@@ -1108,6 +1108,30 @@
             "image_r": "shopify:\/\/shop_images\/TechOrganizer.gif"
           }
         },
+        "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-school"
+            ],
+            "heading": "BTS: Mobile: Students",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 9,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
+          }
+        },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
           "type": "module",
           "settings": {
@@ -1282,8 +1306,8 @@
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
-            "row": "9",
-            "row_mobile": "9",
+            "row": "10",
+            "row_mobile": "10",
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ffffff",
             "featured_products": [
@@ -1330,6 +1354,7 @@
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
         "095699f0-711f-4640-a656-2b4741be09b6",
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
+        "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
         "050aff0f-d374-422b-9637-2e44b6afb709",
