@@ -1324,6 +1324,30 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
           }
         },
+        "42852222-c14c-4d5c-a974-bdecd91dc4e0": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Mobile: Modular Block",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 0,
+            "column": 0,
+            "col_span": 0,
+            "mobile_row": 11,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "video": "shopify:\/\/files\/videos\/BTS_VIDEO-1.mp4"
+          }
+        },
         "a196e0f6-213b-4650-b73d-78a1eb2245c1": {
           "type": "hot-deals-banner-sale",
           "settings": {
@@ -1393,6 +1417,7 @@
         "7800b009-d00e-429b-874b-48f584b59c5b",
         "f4023f5b-a395-4272-8ef7-b5ab9ed77348",
         "cf5b65fb-cea3-46e7-9866-2e2c4464c75b",
+        "42852222-c14c-4d5c-a974-bdecd91dc4e0",
         "a196e0f6-213b-4650-b73d-78a1eb2245c1"
       ],
       "settings": {
