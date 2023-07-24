@@ -952,6 +952,30 @@
             ]
           }
         },
+        "004c300c-cbfd-42d4-b36d-d32f6356e801": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "back-to-school"
+            ],
+            "heading": "BTS: Terra",
+            "pictured_link": true,
+            "display": "both",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 1,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "terra-26l-backpack-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
+          }
+        },
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
           "type": "static",
           "settings": {
@@ -959,7 +983,7 @@
               "back-to-school"
             ],
             "heading": "BTS: GIF: Luka Expandable Tote",
-            "index": 9,
+            "index": 6,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/LukaLaptopTote.gif",
@@ -1056,30 +1080,6 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3712.jpg"
           }
         },
-        "004c300c-cbfd-42d4-b36d-d32f6356e801": {
-          "type": "module",
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Terra",
-            "pictured_link": true,
-            "display": "both",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "terra-26l-backpack-duffel"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
-          }
-        },
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
           "type": "modular-section",
           "settings": {
@@ -1157,7 +1157,6 @@
         },
         "050aff0f-d374-422b-9637-2e44b6afb709": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1198,7 +1197,6 @@
         },
         "7800b009-d00e-429b-874b-48f584b59c5b": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1224,7 +1222,6 @@
         },
         "f4023f5b-a395-4272-8ef7-b5ab9ed77348": {
           "type": "modular-section",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1252,7 +1249,6 @@
         },
         "cf5b65fb-cea3-46e7-9866-2e2c4464c75b": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1326,12 +1322,12 @@
         "26121484-6047-4828-919f-49c8e5363c7d",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
         "531f4f21-bb35-4123-a4c9-2725fdd92f33",
+        "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
         "095699f0-711f-4640-a656-2b4741be09b6",
-        "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
