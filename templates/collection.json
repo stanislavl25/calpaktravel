@@ -1217,7 +1217,7 @@
             "heading": "BTC: Video: Tablet Tech Organizer",
             "index": 7,
             "enable_static_for_desktop": true,
-            "static_media_type_desktop": "image",
+            "static_media_type_desktop": "video",
             "desktop_static_video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4",
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "video",
@@ -1291,7 +1291,7 @@
             "pictured_products": [
 
             ],
-            "video_l": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
+            "video_l": "shopify:\/\/files\/videos\/BTS_VIDEO-1.mp4",
             "title_r": "",
             "description_r": "",
             "pictured_products_r": [
