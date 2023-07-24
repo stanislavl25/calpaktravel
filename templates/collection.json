@@ -1088,7 +1088,7 @@
             ],
             "heading": "BTS: 2-Blocks",
             "pictured_link": true,
-            "display": "both",
+            "display": "desktop",
             "gap": 10,
             "section_height": 90,
             "row": 5,
