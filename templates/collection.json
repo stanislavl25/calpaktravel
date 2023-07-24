@@ -918,20 +918,24 @@
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2236_1.jpg"
           }
         },
-        "a196e0f6-213b-4650-b73d-78a1eb2245c1": {
-          "type": "hot-deals-banner-sale",
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33": {
+          "type": "hot-deals-banner",
           "settings": {
             "display": "both",
             "collection_list": [
-              "back-to-school",
-              "back-to-college"
+              "bags",
+              "all",
+              "luggage",
+              "organizers",
+              "accessories",
+              "sale"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
-            "row": "9",
-            "row_mobile": "9",
+            "row": "1",
+            "row_mobile": "1",
             "banner-text-color": "#000000",
-            "banner-text-background-color": "#ffffff",
+            "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
               "luka-mini-belt-bag",
@@ -1268,24 +1272,20 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
           }
         },
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33": {
-          "type": "hot-deals-banner",
+        "a196e0f6-213b-4650-b73d-78a1eb2245c1": {
+          "type": "hot-deals-banner-sale",
           "settings": {
             "display": "both",
             "collection_list": [
-              "bags",
-              "all",
-              "luggage",
-              "organizers",
-              "accessories",
-              "sale"
+              "back-to-school",
+              "back-to-college"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
-            "row": "6",
+            "row": "9",
             "row_mobile": "9",
             "banner-text-color": "#000000",
-            "banner-text-background-color": "#ff0000",
+            "banner-text-background-color": "#ffffff",
             "featured_products": [
               "starter-bundle",
               "luka-mini-belt-bag",
@@ -1322,7 +1322,7 @@
         "5a9fc48f-6b94-416e-88c7-3325d24efb85",
         "26121484-6047-4828-919f-49c8e5363c7d",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
-        "a196e0f6-213b-4650-b73d-78a1eb2245c1",
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33",
         "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
@@ -1337,7 +1337,7 @@
         "7800b009-d00e-429b-874b-48f584b59c5b",
         "f4023f5b-a395-4272-8ef7-b5ab9ed77348",
         "cf5b65fb-cea3-46e7-9866-2e2c4464c75b",
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33"
+        "a196e0f6-213b-4650-b73d-78a1eb2245c1"
       ],
       "settings": {
         "wishlist": true,
