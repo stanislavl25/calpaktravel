@@ -321,8 +321,8 @@
                 {{- saleMessage | escape | replace: '%%', discount -}}
             </div>
         {%- endif -%}
-
     {%- endif -%}
+
     {%- if settings.sale-msg-starter != false -%}
         {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false and template contains 'collection' and settings.starter-bundle-badge != blank %}
             <div class="product-label--promo starter-label">

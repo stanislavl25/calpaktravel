@@ -2,6 +2,7 @@
     padding: 0 var(--gap);
     margin: var(--section-gap) 0;
     position: relative;
+    display: none;
 }
 
 .shopify-section--banner:first-child {

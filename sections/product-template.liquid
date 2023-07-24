@@ -307,172 +307,39 @@
             {%- endif -%}
 
 
-          </section>
-          {%- when 'variants' -%}
-          {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
-          {%- when 'flash-sale' -%}
-          {% render 'flash-sale-label', current_variant: current_variant %}
-          {%- when 'yotpo-loyalty' -%}
-          {% render 'yotpo-loyalty-points-banner', product_exclusion_list: block.settings.product-list, collection_exclusion_list: block.settings.collection-list, show-for-all: block.settings.show-for-all %}
-          {%- when 'product-labels' -%}
-          <section class="pdp__form-labels">
-            {% render 'product-form-labels', location: 'pdp', current_variant: current_variant, finalSale: finalSale %}
-          </section>
-          {%- when 'shipping-calculator' -%}
-          {% render 'shipping-calculator' %}
-          {%- when 'want-it-shipped' -%}
-          {% render 'want-it-shipped' handle: product.handle, exclusion_list: block.settings.product-list %}
-          {%- when 'submit' -%}
-          {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
-          {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
-          {%- when 'purchase-counter' -%}
-          {%- liquid
-                            assign enable = false
-                            for availableproduct in block.settings.available-products
-                                if product.handle == availableproduct.handle
-                                    assign enable = true
-                                endif
-                            endfor
-                        -%}
-          {% if enable %}
-            <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                const counter_text = '{{ block.settings.text }}';
-                window
-                  .fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
-                    method: 'GET',
-                    redirect: 'follow'
-                  })
-                  .then(response => response.json())
-                  .then(result => {
-                    console.log(result);
-
-                    var mapObj = {
-                      '{purchased}': result.data.itemsPurchased,
-                      '{views}': result.data.itemsViewed
-                    };
-
-                    counter_final = counter_text.replace(/{purchased}|{views}/gi, function(matched) {
-                      return mapObj[matched];
-                    });
-                    document.querySelector('#pdp__purchased-counter').innerHTML = counter_final;
-                  })
-                  .catch(error => console.log('error', error));
-              });
-            </script>
-          {% endif %}
-          {%- when 'views-counter' -%}
-          {%- liquid
-                            assign enable = false
-                            for availableproduct in block.settings.available-products
-                                if product.handle == availableproduct.handle
-                                    assign enable = true
-                                endif
-                            endfor
-                        -%}
-          {% if enable %}
-            <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                const counter_text = '{{ block.settings.text }}';
-                window
-                  .fetch(`https://webhooks.endrock.software/endrockapi/v3/app/calpack/purchased.php?productId={{ product.id }}&name=calpak-ga4`, {
-                    method: 'GET',
-                    redirect: 'follow'
-                  })
-                  .then(response => response.json())
-                  .then(result => {
-                    console.log(result);
-
-                    var mapObj = {
-                      '{purchased}': result.data.itemsPurchased,
-                      '{views}': result.data.itemsViewed
-                    };
-
-                    counter_final = counter_text.replace(/{purchased}|{views}/gi, function(matched) {
-                      return mapObj[matched];
-                    });
-                    document.querySelector('#pdp__views-counter').innerHTML = counter_final;
-                  })
-                  .catch(error => console.log('error', error));
-              });
-            </script>
-          {% endif %}
-          {%- when 'arrival' -%}
-          {%- liquid
-                            assign enable = false
-                            for availableproduct in block.settings.available-products
-                                if product.handle == availableproduct.handle
-                                    assign enable = true
-                                endif
-                            endfor
-                        -%}
-          {% if enable %}
-            <div id="pdp__arrival" class="pdp__arrival pdp__arrival--hidden"></div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-
-                var arrival_text = '{{ block.settings.text }}',
-                  now = new Date(),
-                  tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1),
-                  second = 1000,
-                  minute = second * 60,
-                  hour = minute * 60,
-                  day = hour * 24;
-
-                var distance = tomorrow - now;
-                var distanceFormat = {
-                  'days': Math.floor(distance / (day)),
-                  'hours': Math.floor(
-                    (distance % (day)) / (hour)
-                  ),
-                  'minutes': Math.floor(
-                    (distance % (hour)) / (minute)
-                  ),
-                  'seconds': Math.floor(
-                    (distance % (minute)) / second
-                  )
-                }
-
-                window
-                  .fetch("https://webhooks.endrock.software//endrockapi/v3/app/estimatedArrival/?store=calpak", {
-                    method: 'GET',
-                    redirect: 'follow'
-                  })
-                  .then(response => response.json())
-                  .then(result => {
-
-                    var range_from = result.data.delivery_max_date_start_at_desc_m + " - " + result.data.delivery_max_date_end_at_desc_m;
-                    var order_time = distanceFormat.hours + ' hrs ' + distanceFormat.minutes + ' mins';
-                    var mapObj = {
-                      '{range}': range_from,
-                      '{time}': order_time
-                    };
-
-                    arrival_final = arrival_text.replace(/{range}|{time}/gi, function(matched) {
-                      return mapObj[matched];
-                    });
-                    document.querySelector('#pdp__arrival').innerHTML = arrival_final;
-                  })
-                  .catch(error => console.log('error', error));
-              });
-            </script>
-          {% endif %}
-          {%- when 'description' -%}
-          {% assign description_title = section.settings.description-title %}
-          {% assign specifications_title = section.settings.specifications-title %}
-          {% assign warranty_title = section.settings.warranty-title %}
-          {% render 'pdp-description'
-           , description_title: description_title,
-           specifications_title: specifications_title,
-           warranty_title: warranty_title,
-           current_variant: current_variant %}
-        {%- else -%}
-          {% render 'pdp-promo' with block, current_variant: current_variant %}
-        {%- endcase -%}
-      {%- endfor -%}
-    {% endform %}
+                        </section>
+                    {%- when 'variants' -%}
+                        {% render 'pdp-variants', featured_collection: featured_collection, current_product_group_type: current_product_group_type, has_more_product_types: has_more_product_types, current_variant: current_variant, finalSale: finalSale, early_access: early_access %}
+                    {%- when 'flash-sale' -%}
+                        {% render 'flash-sale-label', current_variant: current_variant %}
+                    {%- when 'yotpo-loyalty' -%}
+                        {% render 'yotpo-loyalty-points-banner' %}
+                    {%- when 'product-labels' -%}
+                        <section class="pdp__form-labels">
+                        {% render 'product-form-labels', location: 'pdp', current_variant: current_variant, finalSale: finalSale %}
+                        </section>
+                    {%- when 'shipping-calculator' -%}
+                        {% render 'shipping-calculator' %}
+                    {%- when 'want-it-shipped' -%}
+                            {% render 'want-it-shipped' handle: product.handle, exclusion_list: block.settings.product-list %}
+                    {%- when 'submit' -%}
+                        {% render 'pdp-floating-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
+                        {% render 'pdp-submit', current_variant: current_variant, wishlist: block.settings.wishlist %}
+                    {%- when 'description' -%}
+                        {% assign description_title = section.settings.description-title %}
+                        {% assign specifications_title = section.settings.specifications-title %}
+                        {% assign warranty_title = section.settings.warranty-title %}
+                        {% render 'pdp-description', 
+                            description_title: description_title, 
+                            specifications_title: specifications_title,
+                            warranty_title: warranty_title,
+                            current_variant: current_variant 
+                        %}
+                    {%- else -%}
+                        {% render 'pdp-promo' with block, current_variant: current_variant %}
+                {%- endcase -%}
+            {%- endfor -%}
+        {% endform %}
 
     {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
   </main>
@@ -494,430 +361,465 @@
 </script>
 
 {% schema %}
-  {
-    "name": "Single Product",
-    "class": "shopify-section--single-product",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "hide-single-size",
-        "label": "Hide size selector for luggage with one available size",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Gallery"
-      },
-      {
-        "type": "checkbox",
-        "id": "zoom",
-        "label": "Enable zoom on images",
-        "default": false
-      },
-      {
-        "type": "range",
-        "id": "gallery-limit",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "label": "Limit number of gallery items",
-        "default": 0,
-        "info": "0 for no limit"
-      }, {
-        "type": "checkbox",
-        "id": "gallery-limit-reapply",
-        "label": "Re-apply limit after variant change",
-        "default": true
-      }, {
-        "type": "header",
-        "content": "Content"
-      }, {
-        "type": "text",
-        "id": "description-title",
-        "label": "Description title",
-        "default": "Description"
-      }, {
-        "type": "text",
-        "id": "specifications-title",
-        "label": "Specifications title",
-        "default": "Specifications"
-      }, {
-        "type": "richtext",
-        "id": "specifications",
-        "label": "Specifications source"
-      }, {
-        "type": "text",
-        "id": "warranty-title",
-        "label": "Warrant title",
-        "default": "Warranty and Return Policy"
-      }, {
-        "type": "richtext",
-        "id": "warranty-product-level",
-        "label": "Warranty source"
-      }, {
-        "type": "richtext",
-        "id": "warranty-and-return",
-        "label": "Default warranty and return policy"
-      }, {
-        "type": "header",
-        "content": "Product Upsell Settings"
-      }, {
-        "type": "checkbox",
-        "id": "quick-view",
-        "label": "Enable Quick View",
-        "default": false
-      }, {
-        "type": "checkbox",
-        "id": "addtocart-button",
-        "label": "Enable Add to Cart",
-        "default": false
-      }
-    ],
-    "blocks": [
-      {
-        "type": "@app"
-      },
-      {
-        "type": "title",
-        "name": "Title",
-        "limit": 1,
+    {
+        "name": "Single Product",
+        "class": "shopify-section--single-product",
         "settings": [
-          {
-            "type": "product_list",
-            "id": "available-products",
-            "label": "Available for"
-          }
-        ]
-      },
-      {
-        "type": "variants",
-        "name": "Variants",
-        "limit": 1
-      },
-      {
-        "type": "product-labels",
-        "name": "Product Labels",
-        "limit": 1
-      }, {
-        "type": "flash-sale",
-        "name": "Flash sale label",
-        "limit": 1
-      }, {
-        "type": "yotpo-loyalty",
-        "name": "Yotpo Loyalty Banner",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "product-list",
-            "label": "Show for these products only"
-          }, {
-            "type": "collection_list",
-            "id": "collection-list",
-            "label": "And for products in these collections"
-          }, {
-            "type": "checkbox",
-            "id": "show-for-all",
-            "label": "Show for all products",
-            "default": false
-          }
-        ]
-      }, {
-        "type": "submit",
-        "name": "Submit",
-        "settings": [
-          {
-            "type": "checkbox",
-            "id": "wishlist",
-            "label": "Enable wishlist button",
-            "default": true
-          }
+            {
+                "type": "checkbox",
+                "id": "hide-single-size",
+                "label": "Hide size selector for luggage with one available size",
+                "default": true
+            },
+            {
+                "type": "header",
+                "content": "Gallery"
+            },
+            {
+                "type": "checkbox",
+                "id": "zoom",
+                "label": "Enable zoom on images",
+                "default": false
+            },
+            {
+                "type": "range",
+                "id": "gallery-limit",
+                "min": 0,
+                "max": 10,
+                "step": 1,
+                "label": "Limit number of gallery items",
+                "default": 0,
+                "info": "0 for no limit"
+            },
+            {
+                "type": "checkbox",
+                "id": "gallery-limit-reapply",
+                "label": "Re-apply limit after variant change",
+                "default": true
+            },
+            {
+                "type": "header",
+                "content": "Content"
+            },
+            {
+                "type": "text",
+                "id": "description-title",
+                "label": "Description title",
+                "default": "Description"
+            },
+            {
+                "type": "text",
+                "id": "specifications-title",
+                "label": "Specifications title",
+                "default": "Specifications"
+            },
+            {
+                "type": "richtext",
+                "id": "specifications",
+                "label": "Specifications source"
+            },
+            {
+                "type": "text",
+                "id": "warranty-title",
+                "label": "Warrant title",
+                "default": "Warranty and Return Policy"
+            },
+            {
+                "type": "richtext",
+                "id": "warranty-product-level",
+                "label": "Warranty source"
+            },
+            {
+                "type": "richtext",
+                "id": "warranty-and-return",
+                "label": "Default warranty and return policy"
+            },
+            {
+                "type": "header",
+                "content": "Product Upsell Settings"
+            }, {
+                "type": "checkbox",
+                "id": "quick-view",
+                "label": "Enable Quick View",
+                "default": false
+            }, {
+                "type": "checkbox",
+                "id": "addtocart-button",
+                "label": "Enable Add to Cart",
+                "default": false
+            }
         ],
-        "limit": 1
-      }, {
-        "type": "arrival",
-        "name": "Estimated arrival",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "available-products",
-            "label": "Available for"
-          }, {
-            "type": "textarea",
-            "id": "text",
-            "label": "Messgage template"
-          }
-        ],
-        "limit": 1
-      }, {
-        "type": "purchase-counter",
-        "name": "Purchase counter",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "available-products",
-            "label": "Available for"
-          }, {
-            "type": "textarea",
-            "id": "text",
-            "label": "Messgage template"
-          }
-        ],
-        "limit": 1
-      }, {
-        "type": "views-counter",
-        "name": "Views counter",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "available-products",
-            "label": "Available for"
-          }, {
-            "type": "textarea",
-            "id": "text",
-            "label": "Messgage template"
-          }
-        ],
-        "limit": 1
-      }, {
-        "type": "shipping-calculator",
-        "name": "Shipping Calculator",
-        "limit": 1
-      }, {
-        "type": "description",
-        "name": "Description",
-        "limit": 1
-      }, {
-        "type": "points",
-        "name": "Points earned",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "product-list",
-            "label": "Show for these products only"
-          },
-          {
-            "type": "collection_list",
-            "id": "collection-list",
-            "label": "And for products in these collections"
-          },
-          {
-            "type": "checkbox",
-            "id": "show-for-all",
-            "label": "Show for all products",
-            "default": false
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          }, {
-            "type": "richtext",
-            "id": "text",
-            "label": "Text",
-            "info": "Use [points] to show the number of points"
-          }
+        "blocks": [
+            {
+                "type": "@app"
+            },
+            {
+                "type": "title",
+                "name": "Title",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    }
+                ]
+            },
+            {
+                "type": "variants",
+                "name": "Variants",
+                "limit": 1
+            },
+            {
+                "type": "product-labels",
+                "name": "Product Labels",
+                "limit": 1
+            },
+            {
+                "type": "flash-sale",
+                "name": "Flash sale label",
+                "limit": 1
+            },
+            {
+                "type": "yotpo-loyalty",
+                "name": "Yotpo Loyalty Banner",
+                "limit": 1
+            },
+            {
+                "type": "submit",
+                "name": "Submit",
+                "settings": [
+                    {
+                        "type": "checkbox",
+                        "id": "wishlist",
+                        "label": "Enable wishlist button",
+                        "default": true
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "purchase-counter",
+                "name": "Purchase counter",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "text",
+                        "label": "Messgage template"
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "views-counter",
+                "name": "Views counter",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "text",
+                        "label": "Messgage template"
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "views-counter",
+                "name": "Views counter",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "available-products",
+                        "label": "Available for"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "text",
+                        "label": "Messgage template"
+                    }
+                ],
+                "limit": 1
+            },
+            {
+                "type": "shipping-calculator",
+                "name": "Shipping Calculator",
+                "limit": 1
+            },
+            {
+                "type": "description",
+                "name": "Description",
+                "limit": 1
+            },
+            {
+                "type": "points",
+                "name": "Points earned",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text",
+                        "info": "Use [points] to show the number of points"
+                    }
+                ]
+            },
+            {
+                "type": "upsell-banner",
+                "name": "Upsell Banner",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "header",
+                        "content": "Display"
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading",
+                        "info": "Use %% to show discount percent. Use $$ to show money savings."
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title-override",
+                        "label": "Title override"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image-override",
+                        "label": "Image Override"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "include-price",
+                        "label": "Add product price to button",
+                        "default": false
+                    },
+                    {
+                        "type": "select",
+                        "id": "button-behaviour",
+                        "label": "Button behavior",
+                        "options": [
+                            {
+                                "value": "follow-link",
+                                "label": "Follow link"
+                            },
+                            {
+                                "value": "add-to-cart",
+                                "label": "Add to cart"
+                            },
+                            {
+                                "value": "quick-view",
+                                "label": "Quick view"
+                            }
+                        ],
+                        "default": "follow-link"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button link",
+                        "info": "When 'Follow link' selected above"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Styles"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "border-dash",
+                        "label": "Enable border dash"
+                    },
+                    {
+                        "type":"color",
+                        "id": "upsell-background",
+                        "label": "Background",
+                        "default": "#e4dfd5"
+                    },
+                    {
+                        "type": "color",
+                        "id": "upsell-text",
+                        "label": "Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "upsell-accent",
+                        "label": "Accent Color",
+                        "default": "#000"
+                    }
+                ]
+            },
+            {
+                "type": "image-banner",
+                "name": "Banner with image",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "header",
+                        "content": "Display"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button Link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "live-show-id",
+                        "label": "Live show ID",
+                        "info": "If set, the button will launch a Bambuser live show"
+                    }
+                ]
+            },
+            {
+                "type": "text-banner",
+                "name": "Banner with text",
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Show for these products only"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection-list",
+                        "label": "And for products in these collections"  
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-for-all",
+                        "label": "Show for all products",
+                        "default": false
+                    },
+                    {
+                        "type": "header",
+                        "content": "Display"
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Title"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button-text",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button-url",
+                        "label": "Button Link"
+                    }
+                ]
+            },
+            {
+                "type": "want-it-shipped",
+                "name": "Want it shipped label",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "product_list",
+                        "id": "product-list",
+                        "label": "Exclusions list"                    
+                    }
+                ]
+            }
         ]
-      }, {
-        "type": "upsell-banner",
-        "name": "Upsell Banner",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "product-list",
-            "label": "Show for these products only"
-          },
-          {
-            "type": "collection_list",
-            "id": "collection-list",
-            "label": "And for products in these collections"
-          },
-          {
-            "type": "checkbox",
-            "id": "show-for-all",
-            "label": "Show for all products",
-            "default": false
-          },
-          {
-            "type": "header",
-            "content": "Display"
-          }, {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading",
-            "info": "Use %% to show discount percent. Use $$ to show money savings."
-          }, {
-            "type": "product",
-            "id": "product",
-            "label": "Product"
-          }, {
-            "type": "text",
-            "id": "title-override",
-            "label": "Title override"
-          }, {
-            "type": "image_picker",
-            "id": "image-override",
-            "label": "Image Override"
-          }, {
-            "type": "text",
-            "id": "button-text",
-            "label": "Button Text"
-          }, {
-            "type": "checkbox",
-            "id": "include-price",
-            "label": "Add product price to button",
-            "default": false
-          }, {
-            "type": "select",
-            "id": "button-behaviour",
-            "label": "Button behavior",
-            "options": [
-              {
-                "value": "follow-link",
-                "label": "Follow link"
-              }, {
-                "value": "add-to-cart",
-                "label": "Add to cart"
-              }, {
-                "value": "quick-view",
-                "label": "Quick view"
-              }
-            ],
-            "default": "follow-link"
-          }, {
-            "type": "url",
-            "id": "button-url",
-            "label": "Button link",
-            "info": "When 'Follow link' selected above"
-          }, {
-            "type": "header",
-            "content": "Styles"
-          }, {
-            "type": "checkbox",
-            "id": "border-dash",
-            "label": "Enable border dash"
-          }, {
-            "type": "color",
-            "id": "upsell-background",
-            "label": "Background",
-            "default": "#e4dfd5"
-          }, {
-            "type": "color",
-            "id": "upsell-text",
-            "label": "Text Color",
-            "default": "#000"
-          }, {
-            "type": "color",
-            "id": "upsell-accent",
-            "label": "Accent Color",
-            "default": "#000"
-          }
-        ]
-      }, {
-        "type": "image-banner",
-        "name": "Banner with image",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "product-list",
-            "label": "Show for these products only"
-          },
-          {
-            "type": "collection_list",
-            "id": "collection-list",
-            "label": "And for products in these collections"
-          },
-          {
-            "type": "checkbox",
-            "id": "show-for-all",
-            "label": "Show for all products",
-            "default": false
-          },
-          {
-            "type": "header",
-            "content": "Display"
-          }, {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          }, {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }, {
-            "type": "richtext",
-            "id": "text",
-            "label": "Text"
-          }, {
-            "type": "text",
-            "id": "button-text",
-            "label": "Button Text"
-          }, {
-            "type": "url",
-            "id": "button-url",
-            "label": "Button Link"
-          }, {
-            "type": "text",
-            "id": "live-show-id",
-            "label": "Live show ID",
-            "info": "If set, the button will launch a Bambuser live show"
-          }
-        ]
-      }, {
-        "type": "text-banner",
-        "name": "Banner with text",
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "product-list",
-            "label": "Show for these products only"
-          },
-          {
-            "type": "collection_list",
-            "id": "collection-list",
-            "label": "And for products in these collections"
-          },
-          {
-            "type": "checkbox",
-            "id": "show-for-all",
-            "label": "Show for all products",
-            "default": false
-          },
-          {
-            "type": "header",
-            "content": "Display"
-          }, {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-          }, {
-            "type": "richtext",
-            "id": "text",
-            "label": "Text"
-          }, {
-            "type": "text",
-            "id": "button-text",
-            "label": "Button Text"
-          }, {
-            "type": "url",
-            "id": "button-url",
-            "label": "Button Link"
-          }
-        ]
-      }, {
-        "type": "want-it-shipped",
-        "name": "Want it shipped label",
-        "limit": 1,
-        "settings": [
-          {
-            "type": "product_list",
-            "id": "product-list",
-            "label": "Exclusions list"
-          }
-        ]
-      }
-    ]
-  }
+    }
 {% endschema %}
 <script src="{{ 'pdp-description-reviews.js' | asset_url }}" defer="defer"></script>
