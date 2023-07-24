@@ -221,7 +221,7 @@
               cartGamification: false
           }
           </script>
-        <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+        <script class="test-it" src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
         <!-- Add to cart AJAX Script -->
 <script>
   window.addEventListener('load', function() {
@@ -287,6 +287,9 @@
               {% section 'gwp' %}
               {%- if template != 'cart' -%}
                   {% section 'cart' %}
+                  <div style="display: none;">
+                    {% section 'cart-pair-upsell' %}
+                  </div>
               {%- endif -%}
   
               <section class="header__container">

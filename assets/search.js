@@ -25,7 +25,15 @@ const seachSynonymsTerms = [
     'baby',
     'hatbox',
     'passport',
-    'toiletries'
+    'toiletries',
+    'back',
+    'leopard',
+    'sunglasses',
+    'underseat',
+    'under seat',
+    'checked',
+    'bestsellers',
+
 ];
 const seachSynonymsValues = [
     'lavender',
@@ -44,7 +52,14 @@ const seachSynonymsValues = [
     'luka duffel',
     'baye',
     'kaya wallet',
-    'toiletry'
+    'toiletry',
+    'backpack',
+    'animal print leopard',
+    'Travel Accessories Case',
+    'mini',
+    'mini',
+    'Checked Luggage',
+    'best',
 ];
 
 let searchInput = document.querySelectorAll('.search-input');
@@ -137,7 +152,10 @@ function getOneVariant(variants, sale) {
     return false;
 }
 
-function getMatchedVariants(product, search, colors, visible_variants, ambiguity, or, sale) {
+async function getMatchedVariants(product, search, colors, visible_variants, ambiguity, or, sale) {
+    
+    // or = false;
+    // !or = true
     let best_match = [];
 
     // The amount Sim affects the order
@@ -163,13 +181,15 @@ function getMatchedVariants(product, search, colors, visible_variants, ambiguity
 
         let prod_title = product.title.toLowerCase().replace(' and ', ' ').replace('-', ' ');
         let prod_type = product.product_type.toLowerCase().replace('-', ' ');
+        console.log(await getCollectionsByProductId(product.id))
+        let prod_collections = await getCollectionsByProductId(product.id).map(({title}) => title.toLowerCase().replace('-', ' '))
         let prod_vendor = product.vendor.toLowerCase().replace('-', ' ');
         let check_body_laptop = false;
         let check_body_fanny = false;
         
         for(let i = 0; i < search_strings.length; i++) {
             let search_str = search_strings[i];
-
+            // _sim means _similarity: its the number that represents how similar it
             let title_sim = 0;
             if(!or) {
                 let title_explode = prod_title.split(' ');
@@ -185,9 +205,14 @@ function getMatchedVariants(product, search, colors, visible_variants, ambiguity
             }
 
             let type_sim = similarity2(search_str, prod_type) * 0.85;
+            
+            let collection_sim_array = prod_collections.map(tag => (similarity2(search_str, tag) * 0.85));
+            let collection_sim = Math.max(...collection_sim_array);
+
+            console.log(collection_sim)
             let vendor_sim = similarity2(search_str, prod_vendor) * 0.85;
 
-            let max_val = Math.max(type_sim, title_sim, vendor_sim);
+            let max_val = Math.max(type_sim, title_sim, vendor_sim, collection_sim);
             if(!check_body_laptop) {
                 check_body_laptop = similarity2('laptop', search_str) > 0.8;
                 if(check_body_laptop) max_val = Math.max( max_val, similarity2(search_str, product.body_html.toLowerCase()) );
@@ -283,6 +308,7 @@ function getMatchedVariants(product, search, colors, visible_variants, ambiguity
         }
     }
 
+    console.log(product, search, visible_variants) //just this matters
     if(best_match.length == 0 || best_match[0] <= 0.66 || best_match[1] === false) return false;
     return best_match;
 }
@@ -404,6 +430,7 @@ function fillSearchProducts(results, container, search, color_search, ambiguity,
 }
 
 function fillSearchResults(results, container) {
+    console.log(results, container)
     const collectionsTarget = container.querySelector('.content-section--collections');
     let collectionsFound = 0;
     if(collectionsTarget && typeof results.collections != 'undefined') {
@@ -415,7 +442,6 @@ function fillSearchResults(results, container) {
         for(let i = 0; i < collections.length; i++) {
             let collection = collections[i];
             if(collection.body.indexOf('hide in search') > -1 || collection.title.toLowerCase().indexOf('early access') > -1) continue;
-
             collectionsFound++;
 
             let newItem = document.createElement('a');
@@ -433,10 +459,11 @@ function fillSearchResults(results, container) {
             collectionsTargetGrid.appendChild(newItem);
         }
 
+        
         const searchNums = container.querySelectorAll('.search-col-num');
         if(collectionsFound > 0) searchNums.forEach(searchNum => searchNum.innerHTML = collectionsFound);
     }
-
+    
     if(collectionsFound == 0) container.classList.add('menu-popup--no-side');
 }
 
@@ -530,9 +557,47 @@ function searchProcessQuery(split) {
         or = true;
     }
 
+    if(similarity2('under seat', unsplited) >= 0.95) {
+        split = ['underseat'];
+        or = true;
+    }
+
+    if(similarity2('bestsellers', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    if(similarity2('bestseller', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    if(similarity2('best sellers', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    
+    if(similarity2('best seller', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    if(similarity2('faq', unsplited) >= 0.95) {
+        split = ['Frequently Asked Questions'];
+        or = true;
+    }
+    if(similarity2('summer arrivals', unsplited) >= 0.95) {
+        split = ['new arrivals'];
+        or = true;
+    }
+    if(similarity2('Merch', unsplited) >= 0.95) {
+        split = ['merchandising'];
+        or = true;
+    }
+
     return [split, or];
 }
 
+function getCollectionsByProductId(productId) {
+    return fetch(`/collections.json?product_id=${productId}?limit=250`).then(response => response.json());
+}
 function getAllProducts() {
     return fetch(`/collections/${settings.bestSellers}/products.json?limit=250`).then(response => response.json());
 }
@@ -583,12 +648,12 @@ async function performSearch(el) {
         }
     }
 
+
     let splitInit = searchTextLC.match(/\b(\w+)\b/g);
     if(!splitInit) return;
     
     const [split, or] = searchProcessQuery(splitInit);
 
-    // Generating word combinations
     if(split.length == 2) {
         split.unshift(searchTextLC);
         generated_words = 1;
@@ -651,7 +716,8 @@ async function performSearch(el) {
             continue;
         }
 
-        if(exclude_from_color.indexOf(word) === -1) {
+        
+        if(!exclude_from_color.includes(word)) {
             // Look for color names
             let color_match = colorMatch(word);
             if(color_match !== false && !gen_color_match) {
@@ -720,8 +786,6 @@ async function performSearch(el) {
         return;
     }
 
-    console.log(search, color_search, ambiguity, or, sale);
-
     let terms = container.querySelectorAll('.search-term');
     terms.forEach(term => term.innerHTML = stripHTML(s));
         
@@ -734,8 +798,15 @@ async function performSearch(el) {
     if(searchType == 'normal') fillSearchProducts(all_products_cache, container, search, color_search, ambiguity, or, sale);
 
     //// COLLECTIONS AND ARTICLES ////    
+
+    let newS = split.join(' ')
+
+    if(similarity2('new arrivals', newS) >= 0.95) {
+        newS = ['summer arrivals'];
+    }
+    
     container.classList.remove('menu-popup--no-side');
-    fetch(`/search/suggest.json?q=${encodeURIComponent(s)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container));
+    fetch(`/search/suggest.json?q=${encodeURIComponent(newS)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container));
 }
 
 // function openHeaderSearch() {

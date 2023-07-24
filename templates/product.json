@@ -223,13 +223,11 @@
         "420ab98a-7d0a-4d74-bf22-48f42e2c33fa": {
           "type": "want-it-shipped",
           "settings": {
-            "product-list": [
-              "gift-card",
-              "extended-warranty",
-              "extend-protection-plans-3",
-              "extend-protection-plans-2",
-              "extend-protection-plans-1"
-            ]
+            "available-products": [
+              "hue-carry-on-luggage",
+              "ambeur-carry-on-luggage"
+            ],
+            "text": "<span>Want it delivered {range}?<\/span><b>Order within {time}<\/b>"
           }
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
@@ -262,13 +260,6 @@
         "b9fe6758-af70-4751-a566-9682f8742d4c": {
           "type": "yotpo-loyalty",
           "settings": {
-            "product-list": [
-
-            ],
-            "collection-list": [
-              "all"
-            ],
-            "show-for-all": false
           }
         },
         "48138d37-8473-4c57-adc6-882525675315": {
@@ -548,7 +539,6 @@
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
         "de1468ed-2f65-4371-be8f-69be7e1dcec6",
         "355dabeb-9c30-46f5-9912-52a97ee1196e",
-        "b9fe6758-af70-4751-a566-9682f8742d4c",
         "48138d37-8473-4c57-adc6-882525675315",
         "97b58e16-1c05-46d6-a2e9-b83db6d82916",
         "a59119dd-3de7-40ba-8531-92996e1e14b0",

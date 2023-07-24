@@ -55,7 +55,15 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
         const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
 
         if(match) {
-            const newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
+            let newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
+            if(!newSwatch.classList.contains('product-option--na')) {
+            } else {
+                let posibleNewSwatch = productUnit.querySelector(`.color-swatch[data-available="true"]`);
+                if(posibleNewSwatch) {
+                    newSwatch = posibleNewSwatch;
+                }
+            }
+
             
             const activeFirst = productUnit.querySelector('.color-swatch--first');
             if(activeFirst) activeFirst.classList.remove('color-swatch--first');
@@ -390,6 +398,10 @@ window.addEventListener("load", () => {
 
         bindWaitlist(pdpGrid);
     }
+
+
+    pdpHandleUpsell(document.querySelector('.variant-select option[selected]'));
+    pdpHandleFeaturedCollection(document.querySelector('.variant-select option[selected]'));
 });
 
 function setupGalleryMediaLimit(newMedia) {
@@ -685,10 +697,12 @@ const changeBadgeAbsolutePosition = e => {
 
 document.addEventListener("DOMContentLoaded", function () {
     changeBadgeAbsolutePosition()
+    Fancybox.bind('[data-fancybox="gallery"]', {});
     const mediaColors = [...document.querySelectorAll(".pdp__media")]
     const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
+   
     for (let i = 0; i < mediaUniqueColors.length; i++) {
-        const color = mediaUniqueColors[i];
+      const color = mediaUniqueColors[i];
      if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
     }
 });

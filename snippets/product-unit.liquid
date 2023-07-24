@@ -162,6 +162,7 @@
     data-suffix="{{ product.template_suffix }}"
     data-handle="{{ product.handle }}"
     data-id="{{ product.id }}"
+    data-cardnumber="{{index}}"
     {%- if init_option1 != blank -%}
         data-init-1="{{ init_option1 }}"
     {%- endif -%}
@@ -194,9 +195,9 @@
 
         {% if all_sizes == true %}
             {%- for option in product.options_with_values -%}   
-                {%- assign optionLow = option.name | downcase -%}
-                {%- if optionLow == 'size' -%}
-
+            {%- assign optionLow = option.name | downcase -%}
+            {%- if optionLow == 'size' or optionLow == 'quantity' or optionLow == 'amount' -%}
+                
                     <div class="product-unit__size-component">
                         <input type="text" class="product-unit__size-component">
                         <input 
@@ -207,10 +208,22 @@
                         <div data-position="{{ option.position }}"
                             class="product-unit__sizes{% if all_colors_quickadd == true %} product-unit__sizes--all{% endif %}"
                             data-count="0">
-                            <div class="product-unit__select sizes-container"></div>
+                            
+                            {%- if optionLow == 'size' -%}
+                                {% assign optionSize = product.options_with_values | where: "name", "Size"%}
+                            {% elsif  optionLow == 'quantity' %}
+                                {% assign optionSize = product.options_with_values | where: "name", "Quantity"%}
+                            {% elsif  optionLow == 'amount' %}
+                                {% assign optionSize = product.options_with_values | where: "name", "Amount"%}
+                            {% endif %}
+
+
+                            {% assign optionSizeLength = optionSize.first.values.size %}
+                            <div class="product-unit__select sizes-container" data-nocolor="{% if optionLow == 'amount' %}true{% else %}false{% endif %}" data-size="{{optionSizeLength}}"></div>
                         </div>
                     </div>
                 {%- endif -%}
+
             {%- endfor -%}
         {% endif %}
 
@@ -263,6 +276,8 @@
     </div>
     {%- endif -%}
 
+    <div class="product-unit__colors--quickadd"></div>
+
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
         <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
     </div>
@@ -270,6 +285,12 @@
     {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
     <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
     {%- endif -%}
+    
+    {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+        <div class="product-unit__reviews">
+            {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+        </div>
+        {%- endif -%}
 
     {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
     <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
@@ -284,7 +305,6 @@
             {%- endif -%}
         </div>
     </div>
-      
     {% comment %} {%- if hotDealsVariants contains opt1 -%}
         <div class="product-label hot-deals-countdown-wrapper">
             <label>Sale ends</label>
@@ -301,13 +321,24 @@
 
     <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
     {%- if add_to_cart == true -%}
-    <div class="product-unit__colors--quickadd"></div>
+    
     <div class="product-unit__button">
         <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
             <div class="button-msg-add">Add to Bag</div>
             <div class="button-msg-adding">Adding...</div>
             <div class="button-msg-added">Added!</div>
+            <div class="button-msg-so">Sold Out</div>
+            <div class="button-msg-jw">Join Waitlist</div>            
             <div class="button-msg-na">Not Available</div>
+            {% comment %} <div class="product-unit__row">
+                <div class="product-unit__price">
+                    {%- if current_variant.compare_at_price > current_variant.price -%}
+                        <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s><b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                    {%- else -%}
+                        <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                    {%- endif -%}
+                </div>
+            </div> {% endcomment %}
         </button>
     </div>
     {%- endif -%}

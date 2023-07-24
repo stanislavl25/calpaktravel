@@ -14,7 +14,7 @@
     
     .header__nav--full {
         transform: translateY(-100%);
-        background: var(--yellow);
+        background: var(--yellow);x'x'
         opacity: 0;
         transition: background 0.3s;
         /* transition: opacity 0.3s, transform 0.3s; */
@@ -300,6 +300,10 @@
     font-size: 24px;
     padding: 0rem 0.6rem;
     text-align: center;
+}
+
+.mobile-menu-promo-text {
+    line-height: 1.1;
 }
 
 .slide-menu-item--media {

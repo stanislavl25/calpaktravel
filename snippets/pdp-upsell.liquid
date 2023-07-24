@@ -27,22 +27,31 @@
 {%- if set != false or upsell_items != false -%}
   <section class="pdp__upsell slider__wrapper slider__wrapper--buttons-side" data-slide="2" data-gap="50">
     {{ 'component-upsell.css' | asset_url | stylesheet_tag }}
-    <button
-      aria-label="Show previous slide"
-      class="slider__control button-tri-left slider__control--prev"
-      title="Previous"
-    ></button>
-    <button
-      aria-label="Show next slide"
-      class="slider__control button-tri-right slider__control--next"
-      title="Next"
-    ></button>
+    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
 
     {%- if title != blank -%}
       <div class="pdp__upsell-title">{{- title | escape -}}</div>
     {%- endif -%}
-
-    <div class="slider slider--scrollbar">
+    <div class="slider slider--scrollbar slider--ab-test-variant">
+      {%- liquid
+        for upsell_item in upsell_items
+          if upsell_item.handle != blank and upsell_item != blank
+            render 'product-unit' with upsell_item, wishlist: true, class: 'slide', quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
+          endif
+        endfor
+      -%}
+      {%- liquid
+          for set_product in set
+            assign set_product = set_product | split: ':' | first
+            assign prod = all_products[set_product]
+            if prod.handle != blank and prod != blank
+              render 'product-unit' with prod, wishlist: true, class: 'slide', quick_view: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
+            endif
+          endfor
+      -%}
+    </div>
+    <div class="slider slider--scrollbar slider--ab-test-original">
       {%- liquid
         if upsell_items != false
           for upsell_item in upsell_items
@@ -58,8 +67,19 @@
               render 'product-unit' with prod, wishlist: true, class: 'slide', quick_view: quick_view, add_to_cart: add_to_cart, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
             endif
           endfor
-        endif
       -%}
     </div>
   </section>
+  <style>
+
+    .pdp__upsell > .slider--ab-test-variant {
+      display: none;
+    }
+    body.variant .pdp__upsell > .slider--ab-test-variant {
+      display: flex;
+    }
+    body.variant .pdp__upsell > .slider--ab-test-original {
+      display: none;
+    }
+  </style>
 {%- endif -%}

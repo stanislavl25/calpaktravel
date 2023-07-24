@@ -1,3 +1,5 @@
+
+
 :root {
   --yellow: #f7f177;
   --orange: #ff6b0e;
@@ -820,6 +822,7 @@ body.swym-modal-active:not(.modal-open) {
 }
 .product-unit__colors--quickadd {
   margin-top: auto;
+  margin-bottom: 10px;
 }
 #shopify-section-promo-bar {
   z-index: 3;
@@ -1034,4 +1037,9 @@ span.shipping-custom-msg {
   .pushowl-simple-toast {
     bottom: 125px!important;
   }
+}
+
+
+.product-unit__reviews {
+  display: none!important;
 }
