@@ -790,6 +790,23 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                             }
     
                         } 
+
+                        const tagBuilder_hotdeal = 'hot-deal-slider:' ;
+                        const hotdealtagColors = productTags[i].replace(tagBuilder_hotdeal, '');
+                        const hotdealtagColorsSplit = hotdealtagColors.split(';');
+                        const mainDiv = document.querySelector('.hot-deal-con');
+                        if(productTags[i].indexOf(tagBuilder_hotdeal) > -1){
+                            el.classList.add('hot-deal');
+                            for (let i = 0; i < hotdealtagColorsSplit.length; i++){
+                                if(color == hotdealtagColorsSplit[i]){
+                                    if(match.toString() == 0){
+                                        el.classList.add('color-swatch-hot');
+                                    }
+                                    el.classList.add('show-hotdeal');
+                                }
+                                match++;
+                            }
+                        }
                     }
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
@@ -802,6 +819,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     document.querySelectorAll('.color_index__0').forEach(function(el){
          el.click();
         })
+        document.querySelectorAll('.hot-deals-banner-wrapper .color-swatch-hot').forEach(function(el){
+            el.click();
+           })
     // If sizes wrapper
     if (hasSizeSelector) {
         
