@@ -983,7 +983,7 @@
               "back-to-school"
             ],
             "heading": "BTS: GIF: Luka Expandable Tote",
-            "index": 6,
+            "index": 5,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
             "desktop_static_img": "shopify:\/\/shop_images\/LukaLaptopTote.gif",
@@ -1047,13 +1047,13 @@
               "back-to-school"
             ],
             "heading": "BTS: Video: Tablet Tech Organizer",
-            "index": 3,
+            "index": 9,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/taco-bell-landing.mp4",
+            "desktop_static_video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4",
             "enable_static_for_mobile": true,
             "static_media_type_mobile": "video",
-            "mobile_static_video": "shopify:\/\/files\/videos\/taco-bell-landing.mp4"
+            "mobile_static_video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4"
           }
         },
         "095699f0-711f-4640-a656-2b4741be09b6": {
