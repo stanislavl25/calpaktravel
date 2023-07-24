@@ -1282,8 +1282,8 @@
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
-            "row": "6",
-            "row_mobile": "10",
+            "row": "9",
+            "row_mobile": "9",
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ffffff",
             "featured_products": [
