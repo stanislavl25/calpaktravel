@@ -1132,6 +1132,20 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
           }
         },
+        "ecee2052-9cc8-4273-af8e-35f65453ef8b": {
+          "type": "curalate-gallery",
+          "settings": {
+            "collection_list_display": [
+              "back-to-school"
+            ],
+            "heading": "BTS: Curalate Gallery",
+            "gallery_id": "gallery-iM0lBFp1",
+            "title": "Back to School + You",
+            "subtitle": "",
+            "desktop_row": 6,
+            "mobile_row": 11
+          }
+        },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
           "type": "module",
           "settings": {
@@ -1355,6 +1369,7 @@
         "095699f0-711f-4640-a656-2b4741be09b6",
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
         "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
+        "ecee2052-9cc8-4273-af8e-35f65453ef8b",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
         "050aff0f-d374-422b-9637-2e44b6afb709",
