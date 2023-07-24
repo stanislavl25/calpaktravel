@@ -276,7 +276,7 @@
     </div>
     {%- endif -%}
 
-    <div class="product-unit__colors--quickadd"></div>
+    {% comment %} <div class="product-unit__colors--quickadd"></div> {% endcomment %}
 
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
         <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
@@ -286,11 +286,11 @@
     <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
     {%- endif -%}
     
-    {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+    {% comment %} {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
         <div class="product-unit__reviews">
             {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
         </div>
-        {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
     {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
     <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
@@ -321,26 +321,28 @@
 
     <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
     {%- if add_to_cart == true -%}
+
+        <div class="product-unit__colors--quickadd"></div>
     
-    <div class="product-unit__button">
-        <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
-            <div class="button-msg-add">Add to Bag</div>
-            <div class="button-msg-adding">Adding...</div>
-            <div class="button-msg-added">Added!</div>
-            <div class="button-msg-so">Sold Out</div>
-            <div class="button-msg-jw">Join Waitlist</div>            
-            <div class="button-msg-na">Not Available</div>
-            {% comment %} <div class="product-unit__row">
-                <div class="product-unit__price">
-                    {%- if current_variant.compare_at_price > current_variant.price -%}
-                        <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s><b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-                    {%- else -%}
-                        <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-                    {%- endif -%}
-                </div>
-            </div> {% endcomment %}
-        </button>
-    </div>
+        <div class="product-unit__button">
+            <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
+                <div class="button-msg-add">Add to Bag</div>
+                <div class="button-msg-adding">Adding...</div>
+                <div class="button-msg-added">Added!</div>
+                <div class="button-msg-so">Sold Out</div>
+                <div class="button-msg-jw">Join Waitlist</div>            
+                {% comment %} <div class="button-msg-na">Not Available</div>
+                <div class="product-unit__row">
+                    <div class="product-unit__price">
+                        {%- if current_variant.compare_at_price > current_variant.price -%}
+                            <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s><b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                        {%- else -%}
+                            <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                        {%- endif -%}
+                    </div>
+                </div> {% endcomment %}
+            </button>
+        </div>
     {%- endif -%}
 </div>
 {% endunless %}
