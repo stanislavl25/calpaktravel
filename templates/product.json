@@ -223,11 +223,6 @@
         "420ab98a-7d0a-4d74-bf22-48f42e2c33fa": {
           "type": "want-it-shipped",
           "settings": {
-            "available-products": [
-              "hue-carry-on-luggage",
-              "ambeur-carry-on-luggage"
-            ],
-            "text": "<span>Want it delivered {range}?<\/span><b>Order within {time}<\/b>"
           }
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
