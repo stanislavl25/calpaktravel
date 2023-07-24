@@ -1194,6 +1194,20 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3705_1.jpg"
           }
         },
+        "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81": {
+          "type": "curalate-gallery",
+          "settings": {
+            "collection_list_display": [
+              "back-to-college"
+            ],
+            "heading": "BTC: Curalate Gallery",
+            "gallery_id": "gallery-5IOKCE3C",
+            "title": "Back to College + You",
+            "subtitle": "",
+            "desktop_row": 3,
+            "mobile_row": 6
+          }
+        },
         "050aff0f-d374-422b-9637-2e44b6afb709": {
           "type": "static",
           "settings": {
@@ -1373,6 +1387,7 @@
         "ecee2052-9cc8-4273-af8e-35f65453ef8b",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
+        "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81",
         "050aff0f-d374-422b-9637-2e44b6afb709",
         "8cac41f8-f309-41e1-a432-7669e4fbdc23",
         "7800b009-d00e-429b-874b-48f584b59c5b",
