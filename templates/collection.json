@@ -1281,7 +1281,7 @@
             ],
             "heading": "BTC: 2-Blocks",
             "pictured_link": true,
-            "display": "both",
+            "display": "desktop",
             "gap": 10,
             "section_height": 70,
             "row": 6,
@@ -1319,7 +1319,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "terra-26l-backpack-duffel"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
           }
