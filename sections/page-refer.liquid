@@ -8,6 +8,10 @@
 <div class="refer__form">
     <div class="swell-referral-main-content">
         <div class="swell-referral">
+            <div class="swell-referral-content">
+                <h2>{{ section.settings.title }}</h2>
+                {{ section.settings.content }}
+            </div>
             <div class="swell-referral-loader loading-animation loading-animation--alt"></div>
         </div>
     </div>
@@ -24,6 +28,18 @@
         "class": "shopify-section--refer",
         "settings": [
             {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Give $25, Get $25"
+            },
+            {
+                "type": "richtext",
+                "id": "content",
+                "label": "Content",
+                "default": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!</p>"
+            },
+            {
                 "type": "image_picker",
                 "id": "image",
                 "label": "Image"
@@ -31,3 +47,18 @@
         ]
     }
 {% endschema %}
+
+<script>
+    const swellHeader = document.querySelector('.refer__form .swell-referral-heading');
+    const swellContent = document.querySelector('.refer__form .swell-referral-message');
+
+    addEventListener("load", function() {
+        if (swellHeader) {
+            swellHeader.innerHTML = '{{ section.settings.title }}';
+        }
+    
+        if (swellContent) {
+            swellContent.innerHTML = '{{ section.settings.content }}';
+        }
+    })
+</script>

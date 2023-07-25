@@ -8,7 +8,7 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Back To School",
+        "title-above": "FREE GIFT",
         "main-text": "<p>Pick a free gift worth up to $98, when you purchase a 3-Piece Luggage Set<\/p>",
         "hide": false,
         "product_list": [
@@ -238,8 +238,8 @@
         "0c75d020-409d-4603-90cf-614003549181": {
           "type": "filter",
           "settings": {
-            "heading": "-> Clear Luggage Covers",
-            "title": "Clear Luggage Covers",
+            "heading": "-> Clear Lugagge Covers",
+            "title": "Clear Lugagge Covers",
             "collection": "clear-luggage-covers",
             "product_list": [
 
@@ -583,9 +583,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Banner",
+            "heading": "Desktop\/Mobile: Banner",
             "display": "desktop",
             "banner-text": "Summer Arrivals",
             "row": "1",
@@ -603,9 +603,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Terra",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 2,
@@ -625,38 +625,14 @@
             "image": "shopify:\/\/shop_images\/TERRA-26L-LAPTOP-BACKPACK-WHITE-SANDS-LIFESTYLE2_c597ca51-368e-436a-9338-bc30ba9e2a86.jpg"
           }
         },
-        "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
-          "type": "module",
-          "settings": {
-            "collection_list_display": [
-              "summer-arrivals"
-            ],
-            "heading": "Summer: Stevyn",
-            "pictured_link": true,
-            "display": "both",
-            "row": 3,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 7,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "stevyn-mini-crossbody-bag",
-              "stevyn-duffel"
-            ],
-            "image": "shopify:\/\/shop_images\/STEVYN-MINI-CROSSBODY-BAG-SKY-LIFESTYLE2.jpg"
-          }
-        },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Luka Carry-On Video",
+            "heading": "Video: Luka Carry-On",
             "index": 22,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "video",
@@ -670,9 +646,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Luka",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 3,
@@ -696,9 +672,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Luka Duffel",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -721,9 +697,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Belt Bag + Key Pouch",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 4,
@@ -744,11 +720,12 @@
         },
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Luka Belt Bag",
+            "heading": "Mobile: Luka Belt Bag",
             "index": 29,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
@@ -762,9 +739,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Luka Key Pouch",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 4,
@@ -787,9 +764,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: CCC",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 4,
@@ -809,11 +786,12 @@
         },
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Kaya Laptop Backpack",
+            "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
             "index": 2,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -825,11 +803,12 @@
         },
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Tech Organizer",
+            "heading": "Desktop: Tech Organizer",
             "index": 36,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -844,9 +823,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Tech Organizer",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -866,11 +845,12 @@
         },
         "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Video",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -893,9 +873,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Compakt Duffel",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -918,9 +898,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Compakt Duffel",
+            "heading": "Desktop\/Mobile: Modular Section",
             "pictured_link": true,
             "gap": 10,
             "section_height": 70,
@@ -947,9 +927,9 @@
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Compakt Tote Bag",
+            "heading": "Desktop\/Mobile: Compakt Tote Bag",
             "index": 28,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
@@ -959,14 +939,40 @@
             "mobile_static_img": "shopify:\/\/shop_images\/COMPAKT-TOTE-BAG-ORANGE-GRID-LIFESTYLE2.jpg"
           }
         },
+        "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
+          "type": "module",
+          "disabled": true,
+          "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
+            "pictured_link": true,
+            "display": "both",
+            "row": 3,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 7,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "stevyn-mini-crossbody-bag",
+              "stevyn-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/STEVYN-MINI-CROSSBODY-BAG-SKY-LIFESTYLE2.jpg"
+          }
+        },
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3": {
           "type": "module",
           "disabled": true,
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+
             ],
-            "heading": "Summer: Compression Packing Cubes",
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 8,
@@ -993,375 +999,41 @@
               "all",
               "luggage",
               "organizers",
-              "accessories",
-              "sale"
+              "accessories"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
-            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16_f13b6815-df02-4abe-ad0a-5171ed219f26.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
             "row": "1",
-            "row_mobile": "1",
+            "row_mobile": "3",
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "starter-bundle",
-              "haven-laptop-tote-bag",
-              "insulated-lunch-bag",
               "luka-mini-belt-bag",
               "padded-laptop-sleeve"
             ]
           }
         },
-        "a196e0f6-213b-4650-b73d-78a1eb2245c1": {
+        "58884853-bea8-451d-92d2-e9ef1a9f1540": {
           "type": "hot-deals-banner-sale",
-          "disabled": true,
           "settings": {
             "display": "both",
             "collection_list": [
-
+              "sale"
             ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
             "row": "1",
-            "row_mobile": "1",
+            "row_mobile": "3",
             "banner-text-color": "#000000",
-            "banner-text-background-color": "#ffffff",
+            "banner-text-background-color": "#ff0000",
             "featured_products": [
-
+              "starter-bundle",
+              "luka-mini-belt-bag",
+              "padded-laptop-sleeve"
             ]
-          }
-        },
-        "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
-          "type": "static",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: GIF: Luka Expandable Tote",
-            "index": 9,
-            "enable_static_for_desktop": true,
-            "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "video",
-            "mobile_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4"
-          }
-        },
-        "d069cb25-8ad8-48ef-baef-185bfbd99234": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Luka Duffel",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 2,
-            "column": 4,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "luka-duffel"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3710.jpg"
-          }
-        },
-        "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Padded Laptop Sleeve",
-            "pictured_link": true,
-            "display": "both",
-            "row": 3,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "padded-laptop-sleeve"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3711.jpg"
-          }
-        },
-        "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3": {
-          "type": "static",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Video: Tablet Tech Organizer",
-            "index": 3,
-            "enable_static_for_desktop": true,
-            "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/taco-bell-landing.mp4",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "video",
-            "mobile_static_video": "shopify:\/\/files\/videos\/taco-bell-landing.mp4"
-          }
-        },
-        "095699f0-711f-4640-a656-2b4741be09b6": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Lunch Bag +",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 4,
-            "column": 4,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "insulated-lunch-bag"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3712.jpg"
-          }
-        },
-        "004c300c-cbfd-42d4-b36d-d32f6356e801": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Terra",
-            "pictured_link": true,
-            "display": "both",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "terra-26l-backpack-duffel"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
-          }
-        },
-        "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
-          "type": "modular-section",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: 2-Blocks",
-            "pictured_link": true,
-            "gap": 10,
-            "section_height": 90,
-            "row": 5,
-            "mobile_row": 8,
-            "column": 1,
-            "col_span": 5,
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3707.jpg",
-            "title_r": "",
-            "description_r": "",
-            "pictured_products_r": [
-
-            ],
-            "image_r": "shopify:\/\/shop_images\/TABLET-TECH-ORGANIZER-INTERIOR1-DAISY.jpg"
-          }
-        },
-        "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: Padded Laptop Sleeve",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 1,
-            "column": 4,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "padded-laptop-sleeve"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3710_1.jpg"
-          }
-        },
-        "8896a19e-17ab-456f-9fdf-a352ee417a57": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: Kaya Laptop Backpack",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 2,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "kaya-laptop-backpack"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3705_1.jpg"
-          }
-        },
-        "050aff0f-d374-422b-9637-2e44b6afb709": {
-          "type": "static",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: Video: Tablet Tech Organizer",
-            "index": 7,
-            "enable_static_for_desktop": true,
-            "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "video",
-            "mobile_static_video": "shopify:\/\/files\/videos\/memorial-day-video.mp4"
-          }
-        },
-        "8cac41f8-f309-41e1-a432-7669e4fbdc23": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: Tablet Tech Organizer",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 3,
-            "column": 4,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3711_1.jpg"
-          }
-        },
-        "7800b009-d00e-429b-874b-48f584b59c5b": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: Backpacks",
-            "pictured_link": true,
-            "display": "both",
-            "row": 4,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "luka-laptop-backpack",
-              "kaya-laptop-backpack"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3712_1.jpg"
-          }
-        },
-        "f4023f5b-a395-4272-8ef7-b5ab9ed77348": {
-          "type": "modular-section",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: 2-Blocks",
-            "pictured_link": true,
-            "gap": 10,
-            "section_height": 70,
-            "row": 5,
-            "mobile_row": 1,
-            "column": 1,
-            "col_span": 5,
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "video_l": "shopify:\/\/files\/videos\/memorial-day-video.mp4",
-            "title_r": "",
-            "description_r": "",
-            "pictured_products_r": [
-
-            ],
-            "image_r": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
-          }
-        },
-        "cf5b65fb-cea3-46e7-9866-2e2c4464c75b": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-college"
-            ],
-            "heading": "BTC: Mobile: Terra + Tablet Organizer",
-            "pictured_link": true,
-            "display": "mobile",
-            "row": 0,
-            "column": 0,
-            "col_span": 0,
-            "mobile_row": 5,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
           }
         }
       },
@@ -1370,7 +1042,6 @@
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "8faf4caf-1276-4186-8468-5d0516de3da7",
-        "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
         "5a135156-ce8b-442d-a624-b2d324e911c8",
         "aeedb1d4-a4f2-49b2-979a-57b3e6c4a18e",
@@ -1385,23 +1056,10 @@
         "212c972f-9876-4c34-906d-1e46cefc4380",
         "26121484-6047-4828-919f-49c8e5363c7d",
         "98bbbe49-ef4a-4acd-9165-232fac007486",
+        "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
         "531f4f21-bb35-4123-a4c9-2725fdd92f33",
-        "a196e0f6-213b-4650-b73d-78a1eb2245c1",
-        "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b",
-        "d069cb25-8ad8-48ef-baef-185bfbd99234",
-        "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
-        "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
-        "095699f0-711f-4640-a656-2b4741be09b6",
-        "004c300c-cbfd-42d4-b36d-d32f6356e801",
-        "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
-        "d83347fe-83d2-4af3-bf0e-611f7feabf38",
-        "8896a19e-17ab-456f-9fdf-a352ee417a57",
-        "050aff0f-d374-422b-9637-2e44b6afb709",
-        "8cac41f8-f309-41e1-a432-7669e4fbdc23",
-        "7800b009-d00e-429b-874b-48f584b59c5b",
-        "f4023f5b-a395-4272-8ef7-b5ab9ed77348",
-        "cf5b65fb-cea3-46e7-9866-2e2c4464c75b"
+        "58884853-bea8-451d-92d2-e9ef1a9f1540"
       ],
       "settings": {
         "wishlist": true,

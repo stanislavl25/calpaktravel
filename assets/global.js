@@ -661,7 +661,28 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             const productLinks = target.querySelectorAll('.product-link, .quick-view__link');
             productLinks.forEach(productLink => productLink.setAttribute('href', url));
         }
-
+        let match = 0;
+            const productTags = product.tags;
+                    for (let i = 0; i < productTags.length; i++) {
+                        const collectionUrl = window.location.href;
+                            const collectionUrlSplit = collectionUrl.replace('https://www.calpaktravel.com/collections/', '');
+                            const tagBuilder = 'first:' + collectionUrlSplit + ':' ;
+                            const tagColors = productTags[i].replace(tagBuilder, '');
+                            const tagColorsSplit = tagColors.split(';');
+                        if (productTags[i].indexOf(tagBuilder) > -1) {
+                            el.classList.add('color_mutiple');
+                            for (let i = 0; i < tagColorsSplit.length; i++){
+                                if(color == tagColorsSplit[i]){
+                                    el.classList.add('color_index__' + match.toString());
+                                    el.style.order = match.toString();
+                                }
+                                match++;
+                            }
+    
+                        } 
+                    }
+                    
+        
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
@@ -670,7 +691,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         swatches.appendChild(el);
     }
-
+    document.querySelectorAll('.color_index__0').forEach(function(el){
+         el.click();
+        })
     // If sizes wrapper
 
     if (hasSizeSelector) {
@@ -705,7 +728,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 currentSize = sizes[size].title;
                 if(!variantAutoSelected) el.classList.add('size-swatch--first');
             }
-    
+            
             if(sizes[size].available === false && sizes[size].selected === true) target.classList.add('product-unit--na');
 
             el.innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
@@ -1314,4 +1337,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('shopify:section:change', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
+
+
+        // On section-blog-text-product-feature, match the height of the text block to the image
+        const matchTextHeight = window.getComputedStyle(document.querySelector('.shopify-section--blog-text-product-feature a.product-unit__image')).getPropertyValue('padding-top');
+        const textBlock = document.querySelector('.blog-text-product-feature__block-text');
+        textBlock.style.height = matchTextHeight;
 });
