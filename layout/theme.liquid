@@ -334,15 +334,16 @@
                           let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
                           let newLabelTextBadge = document.createTextNode('{{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}');
                           let newLabel = document.createElement('p');
-  
+                          let badgeElements =  document.querySelector('.product-label--badge');
                           newLabel.setAttribute('class', 'countdown-sale-badge-label');        
                           newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
                           if(productUnit.classList.contains('customBadge-class')) {
                             newLabel.setAttribute('class', 'countdown-sale-badge-label starter-customize');
-                            newLabel.appendChild(newLabelTextBadge);
-                            productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
+                            newLabel.appendChild(badgeElements);
+                            //productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
                           } else {
-                            newLabel.appendChild(newLabelText);
+                            //newLabel.appendChild(newLabelText);
+                            newLabel.appendChild(badgeElements)
                           }
                           
                           
@@ -350,13 +351,16 @@
                               console.log('trying add sale badge wrapper');
                               if(productUnit.querySelector('.sale-badge-wrapper')) {
                                   clearInterval(intervalId);
-                                  if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.countdown-sale-badge-label')].length < 1) {
+                                  if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.product-label--badge')].length < 1) {
                                       if(productUnit.classList.contains('customBadge-class')) {
                                         newLabel.appendChild(newLabelTextBadge);
-                                        productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
+                                        //productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
+                                        productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements)
                                       }  
 
-                                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
+                                      //productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
+                                      productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements)
+
                                   }
                               }                            
                           }, 1500);
