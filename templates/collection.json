@@ -1490,6 +1490,7 @@
     },
     "c21deb88-82ba-42cd-8b8a-9516d11e23cf": {
       "type": "curalate-gallery",
+      "disabled": true,
       "settings": {
         "gallery_id": "gallery-zfEKaK3p",
         "title": "Summer Arrivals + You",
