@@ -740,7 +740,7 @@
             "row": 10,
             "column": 4,
             "col_span": 2,
-            "mobile_row": 23,
+            "mobile_row": 26,
             "column_mobile": 1,
             "col_span_mobile": 2,
             "target_link": "",
@@ -818,7 +818,6 @@
         },
         "71baa67a-2226-426d-9b84-717bf4a6e1a8": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "summer-arrivals"
