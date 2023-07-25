@@ -82,9 +82,9 @@
         "aa5cbd40-97cf-44c3-97b3-4f0397167dce": {
           "type": "filter",
           "settings": {
-            "heading": "-> Summer Arrivals",
-            "title": "Summer Arrivals",
-            "collection": "summer-arrivals",
+            "heading": "-> New Arrivals",
+            "title": "New Arrivals",
+            "collection": "new-arrivals",
             "product_list": [
 
             ],
