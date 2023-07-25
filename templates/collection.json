@@ -514,18 +514,23 @@
       "blocks": {
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
-          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2192.jpg",
             "video": "",
             "banner-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055_1.jpg",
             "link": "shopify:\/\/products\/padded-laptop-sleeve",
             "title": "MUST HAVE: All Laptop Sleeves just $29.99",
-            "text": "<ul><li>Bring your laptop back to school in style and shop any sized Laptop Sleeve.<\/li><li>SHOP NOW (Link to Padded Laptop Sleeve)<\/li><\/ul>",
+            "text": "<p>Bring your laptop back to school in style and shop any sized Laptop Sleeve.<\/p><p><a href=\"\/products\/padded-laptop-sleeve\" title=\"Padded Laptop Sleeve\">SHOP NOW<\/a><\/p>",
             "show-for-collections": [
-              "summer-arrivals",
               "best-sellers",
-              "in-stock-ready-to-deliver"
+              "in-stock-ready-to-deliver",
+              "all-products",
+              "luggage",
+              "bags",
+              "organizers",
+              "accessories",
+              "sale",
+              "all"
             ],
             "background": "#e4dfd5",
             "text-color": "#000000",
