@@ -110,6 +110,30 @@
         endfor
     endif
 
+    if settings.product-disclaimer == true
+        assign disclaimerTagHandle = settings.product-disclaimer-tag | handleize
+        for tag in product.tags
+            assign tagSpl = tag | split: ':'
+            assign handle = tagSpl[0] | handleize
+
+            if 'final-sale' == handle
+                if tagSpl.size == 1
+                    assign finalSale = true
+                else
+                    assign finalSale = tagSpl[1] | downcase | split: ';'
+                endif
+            endif
+            
+            if disclaimerTagHandle == handle
+                if tagSpl.size == 1
+                    assign disclaimer = true
+                else
+                    assign disclaimer = tagSpl[1] | downcase | split: ';'
+                endif
+            endif
+        endfor
+    endif
+
     if settings.sale-badge-tag == blank
             assign saleBadge = true
         else
@@ -153,7 +177,7 @@
         else if timeLeft < 0
             assign countdownTimer = false
         endif
-    endif 
+    endif
 -%}
 
 {%- unless cancelDisplay -%}
@@ -284,13 +308,13 @@
             {%- endif -%}
         </div>
     </div>
-      
-    {% comment %} {%- if hotDealsVariants contains opt1 -%}
-        <div class="product-label hot-deals-countdown-wrapper">
-            <label>Sale ends</label>
-            <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+    
+    {%- if hotDealsVariants != false -%}
+        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+            Hot Deal
         </div>
-    {%- endif -%} {% endcomment %}
+    {%- endif -%}
 
     {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
@@ -302,6 +326,9 @@
     <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
     {%- if add_to_cart == true -%}
     <div class="product-unit__colors--quickadd"></div>
+    {%- if finalSale == true -%}
+        <div class="product-label product-label--final"><strong>This item is Final Sale</strong></div>
+    {%- endif -%}
     <div class="product-unit__button">
         <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
             <div class="button-msg-add">Add to Bag</div>

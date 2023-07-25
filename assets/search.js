@@ -392,6 +392,13 @@ function fillSearchProducts(results, container, search, color_search, ambiguity,
             const searchNums = container.querySelectorAll('.search-num');
             searchNums.forEach(searchNum => searchNum.innerHTML = products_found);
             container.setAttribute('data-status', 'results');
+
+            // Send GTM search event
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event' : 'search',
+                'search_term' : search
+            });
         }
     }
 }
