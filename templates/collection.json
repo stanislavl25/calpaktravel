@@ -761,9 +761,9 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Compakt Zippered Pouches",
+            "heading": "New Arrivals: Compakt Zippered Pouches",
             "pictured_link": true,
             "display": "desktop",
             "row": 11,
