@@ -764,7 +764,7 @@
             "display": "desktop",
             "row": 11,
             "column": 1,
-            "col_span": 1,
+            "col_span": 3,
             "mobile_row": 6,
             "column_mobile": 1,
             "col_span_mobile": 2,
@@ -772,8 +772,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-              "luka-mini-belt-bag",
-              "luka-key-pouch"
+              "compakt-zippered-pouch-set"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3696_2.png"
           }
