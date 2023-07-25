@@ -656,7 +656,6 @@
         },
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "summer-arrivals"
@@ -796,6 +795,7 @@
         },
         "8beb041e-a61d-40dd-b978-d4c14c2679f9": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "summer-arrivals"
