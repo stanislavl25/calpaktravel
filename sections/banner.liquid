@@ -4,7 +4,11 @@
 
 <section class="banner-section banner-section--{{ section.settings.height }} banner-section--{{ section.id }}">
     {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
-    <a href="{{ section.settings.link }}">
+        {%- if section.settings.klaviyo and customer -%}
+            <a href="{{ section.settings.signed-in-link }}">
+        {%- else -%}
+            <a href="{{ section.settings.link }}">
+        {%- endif -%}
     {%- endif -%}
 
     {%- liquid
@@ -25,20 +29,28 @@
     -%}
     <div class="banner-section__content banner-section__content--{{ section.settings.text-color-scheme }} banner-section__content--{{ section.settings.text-alignment }}">
         {%- if section.settings.title != blank -%}
-        <div class="banner-section__title">{{- section.settings.title | escape -}}</div>
+            <div class="banner-section__title">{{- section.settings.title | escape -}}</div>
         {%- endif -%}
 
-        {%- if section.settings.text != blank -%}
-        <div class="banner-section__text">{{- section.settings.text -}}</div>
+        {%- if section.settings.text != blank and section.settings.klaviyo != true and customer != true -%}
+            <div class="banner-section__text">{{- section.settings.text -}}</div>
         {%- endif -%}
 
         {%- if section.settings.button-text != blank -%}
             {%- if section.settings.link-for-button -%}
-                <a
-                    href="{{ section.settings.link }}"
-                    class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
-                    <span>{{- section.settings.button-text | escape -}}</span>
-                </a>
+                {%- if section.settings.klaviyo and customer -%}
+                    <a
+                        href="{{ section.settings.link }}"
+                        class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
+                        <span>{{- section.settings.signed-in-button-text | escape -}}</span>
+                    </a>
+                {%- else -%}
+                    <a
+                        href="{{ section.settings.link }}"
+                        class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
+                        <span>{{- section.settings.button-text | escape -}}</span>
+                    </a>
+                {%- endif -%}
             {%- else -%}
                 <span
                     class="button{% if section.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
@@ -189,6 +201,25 @@
                 "id": "query-match",
                 "label": "Show banner only when search query is active",
                 "default": true
+            },
+            {
+                "type": "header",
+                "content": "For Klaviyo only"
+            },
+            {
+                "type": "checkbox",
+                "id": "klaviyo",
+                "label": "Is this a Klaviyo banner?"
+            },
+            {
+                "type": "text",
+                "id": "signed-in-button-text",
+                "label": "Signed In Button Text"
+            },
+            {
+                "type": "url",
+                "id": "signed-in-link",
+                "label": "Signed In Link"
             }
         ],
         "presets": [
