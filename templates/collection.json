@@ -10,7 +10,7 @@
         "bold-text-background": "#ffffff",
         "title-above": "LIMITED TIME",
         "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
-        "hide": false,
+        "hide": true,
         "product_list": [
           "compakt-zippered-pouch-set",
           "haven-laptop-tote-bag",
@@ -22,7 +22,8 @@
           "terra-26l-backpack-duffel",
           "tech-organizer",
           "water-bottle-holder",
-          "padded-laptop-sleeve"
+          "padded-laptop-sleeve",
+          "tablet-tech-organizer"
         ],
         "collection_list": [
 
