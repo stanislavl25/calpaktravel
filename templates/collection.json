@@ -801,6 +801,62 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3698.png"
           }
         },
+        "69180ccd-43a7-4273-8df0-849b60f0a29b": {
+          "type": "static",
+          "settings": {
+            "collection_list_display": [
+              "summer-arrivals"
+            ],
+            "heading": "Desktop\/Mobile: Ambeur Vanity Case",
+            "index": 8,
+            "enable_static_for_desktop": false,
+            "static_media_type_desktop": "image",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_137_1.png"
+          }
+        },
+        "281ff7c2-bd78-4b8f-8128-9e4e923a4d39": {
+          "type": "module",
+          "disabled": true,
+          "settings": {
+            "collection_list_display": [
+              "summer-arrivals"
+            ],
+            "heading": "Summer: Tech Organizer",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 13,
+            "column_mobile": 2,
+            "col_span_mobile": 1,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "tech-organizer"
+            ],
+            "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-LIFESTYLE.jpg"
+          }
+        },
+        "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
+          "type": "static",
+          "disabled": true,
+          "settings": {
+            "collection_list_display": [
+              "summer-arrivals"
+            ],
+            "heading": "Mobile: Luka Belt Bag",
+            "index": 13,
+            "enable_static_for_desktop": false,
+            "static_media_type_desktop": "image",
+            "enable_static_for_mobile": true,
+            "static_media_type_mobile": "image",
+            "mobile_static_img": "shopify:\/\/shop_images\/image_137.png"
+          }
+        },
         "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
           "type": "module",
           "disabled": true,
@@ -851,22 +907,6 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3693_b5472a86-acb2-4d9f-b211-4d9f5895a533.png"
           }
         },
-        "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
-          "type": "static",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "summer-arrivals"
-            ],
-            "heading": "Mobile: Luka Belt Bag",
-            "index": 13,
-            "enable_static_for_desktop": false,
-            "static_media_type_desktop": "image",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "image",
-            "mobile_static_img": "shopify:\/\/shop_images\/image_137.png"
-          }
-        },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
           "disabled": true,
@@ -881,31 +921,6 @@
             "desktop_static_video": "shopify:\/\/files\/videos\/IMG_3027.mp4",
             "enable_static_for_mobile": false,
             "static_media_type_mobile": "image"
-          }
-        },
-        "281ff7c2-bd78-4b8f-8128-9e4e923a4d39": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "summer-arrivals"
-            ],
-            "heading": "Summer: Tech Organizer",
-            "pictured_link": true,
-            "display": "mobile",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 13,
-            "column_mobile": 2,
-            "col_span_mobile": 1,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "tech-organizer"
-            ],
-            "image": "shopify:\/\/shop_images\/TECH-ORGANIZER-LIFESTYLE.jpg"
           }
         },
         "26121484-6047-4828-919f-49c8e5363c7d": {
@@ -1430,11 +1445,12 @@
         "8beb041e-a61d-40dd-b978-d4c14c2679f9",
         "00502ff4-5f0b-4184-8f85-af5354461ebd",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
+        "69180ccd-43a7-4273-8df0-849b60f0a29b",
+        "281ff7c2-bd78-4b8f-8128-9e4e923a4d39",
+        "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
         "5a9fc48f-6b94-416e-88c7-3325d24efb85",
         "71baa67a-2226-426d-9b84-717bf4a6e1a8",
-        "a5843c4f-bafe-40f9-88aa-4a6e14286c14",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
-        "281ff7c2-bd78-4b8f-8128-9e4e923a4d39",
         "26121484-6047-4828-919f-49c8e5363c7d",
         "531f4f21-bb35-4123-a4c9-2725fdd92f33",
         "004c300c-cbfd-42d4-b36d-d32f6356e801",
