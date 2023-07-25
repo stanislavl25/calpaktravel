@@ -2,7 +2,6 @@
   "sections": {
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -40,14 +39,13 @@
     },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
-      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Travel More Sale",
-        "main-text": "<p>Get up to 60% off best-sellers for a limited-time only.<\/p>",
+        "title-above": "LIMITED TIME",
+        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
         "hide": false,
         "product_list": [
 
@@ -57,11 +55,11 @@
         ],
         "section-id": "",
         "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/sale",
+        "cta_url": "shopify:\/\/collections\/back-to-school",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "Terms & Conditions",
+        "terms_text": "See Terms & Conditions",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
