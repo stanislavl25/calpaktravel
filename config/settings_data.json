@@ -35,7 +35,7 @@
     "sale-badge-tag": "btsbadge",
     "sale-badge-text": "Back to School Promo",
     "sale-badge-bg": "#f7f177",
-    "sale-msg-starter": false,
+    "sale-msg-starter": true,
     "sale-badge-tag-bundle": "laptoppromo",
     "starter-bundle-badge": "",
     "sale-badge-text-starter": "Special Offer",
