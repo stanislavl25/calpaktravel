@@ -663,9 +663,9 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Desktop\/Mobile: Car Organizer",
+            "heading": "New Arrivals: Desktop\/Mobile: Car Organizer",
             "index": 13,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -679,9 +679,9 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Kaya Mini Backpack",
+            "heading": "New Arrivals: Kaya Mini Backpack",
             "pictured_link": true,
             "display": "both",
             "row": 5,
@@ -705,9 +705,9 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Luka Mini Carry-On",
+            "heading": "New Arrivals: Luka Mini Carry-On",
             "index": 32,
             "enable_static_for_desktop": true,
             "static_media_type_desktop": "image",
@@ -720,9 +720,9 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Medium Clear Cosmetics Case",
+            "heading": "New Arrivals: Medium Clear Cosmetics Case",
             "index": 24,
             "enable_static_for_desktop": false,
             "static_media_type_desktop": "image",
@@ -736,9 +736,9 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Tablet Tech Organizer",
+            "heading": "New Arrivals: Tablet Tech Organizer",
             "pictured_link": true,
             "display": "both",
             "row": 10,
@@ -751,7 +751,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "tablet-tech-organizer"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3704.png",
             "image_mobile": "shopify:\/\/shop_images\/Rectangle_3711.png"
