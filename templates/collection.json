@@ -785,9 +785,9 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Stevyn Large Rolling Duffel",
+            "heading": "New Arrivals: Stevyn Large Rolling Duffel",
             "pictured_link": true,
             "display": "mobile",
             "row": 8,
