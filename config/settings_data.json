@@ -145,6 +145,7 @@
           },
           "9bc35091-f1af-4ade-937e-7abddf8840bc": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Carousel of Best sellers",
               "submenu-number": 1,
