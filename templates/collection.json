@@ -824,9 +824,9 @@
           "type": "module",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
-            "heading": "Summer: Luka Collection",
+            "heading": "New Arrivals: Luka Collection",
             "pictured_link": true,
             "display": "mobile",
             "row": 4,
