@@ -278,7 +278,7 @@
             "type": "discover-block",
             "settings": {
               "title": "Discover #1",
-              "button-url": "shopify:\/\/collections\/summer-arrivals",
+              "button-url": "shopify:\/\/collections\/new-arrivals",
               "block-title": "",
               "description": "",
               "button-text": "",
