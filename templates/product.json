@@ -259,11 +259,10 @@
           "type": "yotpo-loyalty",
           "settings": {
             "product-list": [
-              "trnk-large-hat-box",
-              "trnk-large-luggage"
+
             ],
             "collection-list": [
-
+              "all"
             ],
             "show-for-all": false
           }
