@@ -10,8 +10,13 @@
         "settings": [
             {
                 "type": "text",
+                "id": "klaviyo-id",
+                "label": "Klaviyo Form ID"
+            },
+            {
+                "type": "text",
                 "id": "button-class",
-                "label": "Button class"
+                "label": "Button class that triggers popup"
             }
         ],
         "presets": [
@@ -23,8 +28,10 @@
 {% endschema %}
 
 <script type="text/javascript">
-    document.querySelector('.{{ section.settings.button-class }}').addEventListener('mouseover', function (){
-        window._klOnsite = window._klOnsite || [];
-        window._klOnsite.push(['openForm', 'SLHask']);
+    const klaviyoPopup = document.querySelector('[data-testid="klaviyo-form-{{ section.settings.klaviyo-id }}}"]');
+    klaviyoPopup.display="none";
+
+    document.querySelector(".{{ section.settings.button-class }}").addEventListener("click", function (){
+        klaviyoPopup.display="flex"
     })
 </script>
