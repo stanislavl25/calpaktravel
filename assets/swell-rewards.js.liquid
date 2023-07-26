@@ -39,13 +39,13 @@
 
 // referral
 (function() {
-    if(typeof referralDetails == 'undefined') var referralDetails = "Send a friend $25 off their first qualifying CALPAK order ($150+), and <strong>you'll get $25 off your next order!</strong> Keep referring friends, and keep stacking credit.";
+    if(typeof referralDetails == 'undefined') var referralDetails = "";
   window.SwellConfig = window.SwellConfig || {};
 
   SwellConfig.Referral = {
     opts: {
       localization: {
-        referralSidebarDetailsAction: "Refer a Friend!",
+        referralSidebarDetailsAction: "",
         referralSidebarDetailsReward: "<%= referralCampaign.reward_text %>",
 
         referralRegisterHeading: "Give $25, Get $25",
@@ -54,7 +54,7 @@
         referralRegisterFormSubmit: '<i class="swell-icon-return-arrow" aria-hidden="true"></i>',
         referralRegisterDetails: referralDetails,
 
-        referralReferHeading:"Give $25, Get $25",
+        referralReferHeading:"",
         referralReferFormEmails: "Your friends’ emails (seperated by commas)",
         referralReferFormSubmit: '<i class="swell-icon-return-arrow" aria-hidden="true"></i>',
         referralReferFormDetails: "Now, enter your friends’ emails below.",
