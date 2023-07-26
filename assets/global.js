@@ -1527,7 +1527,7 @@ const recreateCRL8 = () => {
         [...document.querySelectorAll('.curalate-gallery_embed')].map(embed => {
             return embed.getAttribute('data-crl8-container-id')
         }).map(id => {
-            window.crl8.createExperience("gallery-zfEKaK3p")
+            window.crl8.createExperience(id)
         })    
     })  
 };
