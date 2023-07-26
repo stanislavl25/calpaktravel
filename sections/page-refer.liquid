@@ -47,18 +47,3 @@
         ]
     }
 {% endschema %}
-
-<script>
-    const swellHeader = document.querySelector('.refer__form .swell-referral-heading');
-    const swellContent = document.querySelector('.refer__form .swell-referral-message');
-
-    addEventListener("load", function() {
-        if (swellHeader) {
-            swellHeader.innerHTML = '{{ section.settings.title }}';
-        }
-    
-        if (swellContent) {
-            swellContent.innerHTML = '{{ section.settings.content }}';
-        }
-    })
-</script>
