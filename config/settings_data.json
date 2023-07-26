@@ -285,7 +285,7 @@
               "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Frame_1_23359518-94fa-40a6-9240-15298346b7dd.png",
+              "image": "shopify:\/\/shop_images\/Frame_1_1_df411491-e59f-4542-aa0c-00574ff6cda1.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -673,6 +673,7 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -759,11 +760,11 @@
           "657418bd-98df-44f4-9363-2b2a9c4cf77e": {
             "type": "edit",
             "settings": {
-              "title": "Summer Arrivals",
-              "image": "shopify:\/\/shop_images\/Frame_2_3_a42ff80d-e9f8-40f8-922a-c746c97a6781.png",
-              "edit-title": "Fresh summer styles are here",
-              "description": "<p>Explore bags for your sweetest summer yet.<\/p>",
-              "link": "shopify:\/\/collections\/summer-arrivals"
+              "title": "New Arrivals",
+              "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1183-2_94015f57-3474-4ae9-aecb-23df714c2e46.jpg",
+              "edit-title": "Love getting there",
+              "description": "<p>Explore our best-selling luggage collection and more.<\/p>",
+              "link": "shopify:\/\/collections\/new-arrivals"
             }
           },
           "22ba977a-5751-40f1-ab10-64600d42f7d7": {
