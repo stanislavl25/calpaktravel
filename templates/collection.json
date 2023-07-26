@@ -95,8 +95,8 @@
         "70b2154d-2620-4583-ab2f-871333b645be": {
           "type": "filter",
           "settings": {
-            "heading": ". . . Bestsellers",
-            "title": "Bestsellers",
+            "heading": ". . . Best Sellers",
+            "title": "Best Sellers",
             "collection": "best-sellers",
             "product_list": [
 
