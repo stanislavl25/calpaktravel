@@ -2,7 +2,16 @@
     .shopify-section--mobile-menu {
         display: block;
     }
-
+    body.modal-open #shopify-section-promo-bar {
+       display: none;
+    }
+    body .site-header__nav > ul.header__nav--full {
+        display: none;
+    }
+    body.modal-open .site-header__nav  > ul.header__nav--full {
+        display: flex;
+        z-index: 6;
+    }
     .site-header__nav > ul.header__nav--full {
         position: absolute;
         left: 0;
@@ -14,7 +23,7 @@
     
     .header__nav--full {
         transform: translateY(-100%);
-        background: var(--yellow);x'x'
+        background: var(--yellow);x'x';
         opacity: 0;
         transition: background 0.3s;
         /* transition: opacity 0.3s, transform 0.3s; */
