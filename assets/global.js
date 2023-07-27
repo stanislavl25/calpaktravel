@@ -1536,5 +1536,3 @@ const recreateCRL8 = () => {
         })    
     })  
 };
-
-// TESTING THE BRANCH
