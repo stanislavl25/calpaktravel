@@ -26,14 +26,6 @@ function setQuickViewContent(data, variant, qvParent) {
 
     setProductData(product, meta, target, variant);
 
-    if(isset(fbq)) fbq('track', 'ViewContent', {
-        content_name: product.title,
-        content_ids: [product.id],
-        content_type: 'product',
-        value: product.price / 100,
-        currency: 'USD'
-    });
-
     const productForm = qvParent.querySelector('.shopify-product-form');
     if(productForm) productForm.addEventListener('submit', async function(e) {
         e.preventDefault();
