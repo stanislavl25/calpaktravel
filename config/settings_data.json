@@ -431,7 +431,7 @@
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
             "settings": {
-              "text": "<p>Use code: BACKTOIT to get 10% off Back To School Items<\/p>",
+              "text": "<p>Use code: BACKTOIT to get 10% off Back To School Items!<\/p>",
               "only-for-guests": false
             }
           },
