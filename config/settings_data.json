@@ -428,18 +428,17 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "04bc2b17-2375-4de8-af63-63c2c120af5a": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Shop 10% off Back To School Items with code: BACKTOIT<\/p>",
+              "only-for-guests": false
+            }
+          },
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154": {
             "type": "notification",
             "settings": {
               "text": "<p>Contiguous US orders $100 and over get free standard shipping.<\/p>",
-              "only-for-guests": false
-            }
-          },
-          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
-            "type": "notification",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Orders $100 and over get free standard shipping.<\/p>",
               "only-for-guests": false
             }
           },
@@ -457,6 +456,14 @@
               "only-for-guests": true
             }
           },
+          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Orders $100 and over get free standard shipping.<\/p>",
+              "only-for-guests": false
+            }
+          },
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d": {
             "type": "notification",
             "disabled": true,
@@ -467,10 +474,11 @@
           }
         },
         "block_order": [
+          "04bc2b17-2375-4de8-af63-63c2c120af5a",
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
-          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
+          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
         "settings": {
