@@ -8,44 +8,21 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Mother's Day Promo",
-        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
+        "title-above": "LIMITED TIME",
+        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
         "hide": true,
         "product_list": [
-          "luka-duffel",
-          "insulated-lunch-bag",
-          "stevyn-duffel",
-          "kaya-laptop-backpack",
+          "compakt-zippered-pouch-set",
           "haven-laptop-tote-bag",
-          "terra-26l-backpack-duffel",
-          "luka-belt-bag",
+          "insulated-lunch-bag",
+          "kaya-laptop-backpack",
           "luka-expandable-laptop-tote",
-          "luka-mini-belt-bag",
-          "luka-mini-backpack",
           "luka-laptop-backpack",
-          "luka-key-pouch",
-          "luka-mini-carry-on-luggage",
-          "compakt-duffel-bag",
-          "compakt-tote-bag",
-          "water-bottle-holder",
-          "hue-duffel",
-          "compression-packing-cubes",
-          "packing-cubes-5-piece-set",
-          "compakt-large-garment-bag",
-          "compakt-small-garment-bag",
-          "car-organizer",
-          "power-luggage-tag",
-          "jewelry-case",
-          "large-clear-cosmetic-case",
-          "medium-clear-cosmetics-case",
-          "small-clear-cosmetics-case",
+          "luka-duffel",
+          "terra-26l-backpack-duffel",
           "tech-organizer",
-          "hue-carry-on-luggage",
-          "hue-carry-on-luggage-with-pocket",
-          "hue-mini-carry-on-luggage",
-          "ambeur-carry-on-luggage",
-          "ambeur-mini-carry-on-luggage",
-          "trnk-mini-carry-on-luggage"
+          "water-bottle-holder",
+          "padded-laptop-sleeve"
         ],
         "collection_list": [
 
@@ -238,19 +215,35 @@
           "settings": {
           }
         },
+        "2753912b-e90a-4277-bc5c-ff7bfd1ef4ec": {
+          "type": "views-counter",
+          "settings": {
+            "available-products": [
+
+            ],
+            "text": ""
+          }
+        },
         "3f584821-31db-42cb-941c-f61866a361a0": {
           "type": "product-labels",
           "settings": {
           }
         },
-        "db84d3cc-deea-45c6-a0ee-81ddf2509239": {
-          "type": "arrival",
+        "a5e30674-2af4-4a47-80b3-3e99df6259cd": {
+          "type": "want-it-shipped",
+        "420ab98a-7d0a-4d74-bf22-48f42e2c33fa": {
+          "type": "want-it-shipped",
           "settings": {
-            "available-products": [
-              "hue-carry-on-luggage",
-              "ambeur-carry-on-luggage"
-            ],
-            "text": "<span>Want it delivered {range}?<\/span><b>Order within {time}<\/b>"
+            "product-list": [
+              "trnk-large-hat-box"
+            ]
+            "product-list": [
+              "gift-card",
+              "extended-warranty",
+              "extend-protection-plans-3",
+              "extend-protection-plans-2",
+              "extend-protection-plans-1"
+            ]
           }
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
@@ -273,16 +266,23 @@
 
             ],
             "collection-list": [
-
+              "all"
             ],
             "show-for-all": true,
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0053A-33.jpg",
-            "text": "<p>Earn up to <span style=\"text-decoration:underline\">[points]<\/span> points!<\/p>"
+            "image": "shopify:\/\/shop_images\/6.28.CALPAK.LOCATION2024-2.jpg",
+            "text": "<p>Earn <span style=\"text-decoration:underline\">[points]<\/span> points on this item!<\/p>"
           }
         },
         "b9fe6758-af70-4751-a566-9682f8742d4c": {
           "type": "yotpo-loyalty",
           "settings": {
+            "product-list": [
+
+            ],
+            "collection-list": [
+              "all"
+            ],
+            "show-for-all": false
           }
         },
         "48138d37-8473-4c57-adc6-882525675315": {
@@ -557,8 +557,9 @@
         "ef919b9c-2309-4d2f-a855-59983014b88b",
         "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
+        "2753912b-e90a-4277-bc5c-ff7bfd1ef4ec",
         "3f584821-31db-42cb-941c-f61866a361a0",
-        "db84d3cc-deea-45c6-a0ee-81ddf2509239",
+        "a5e30674-2af4-4a47-80b3-3e99df6259cd",
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
         "de1468ed-2f65-4371-be8f-69be7e1dcec6",
         "355dabeb-9c30-46f5-9912-52a97ee1196e",
@@ -585,7 +586,9 @@
         "specifications": "{{ product.metafields.custom.specifications | metafield_tag }}",
         "warranty-title": "Warranty and Return Policy",
         "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",
-        "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>"
+        "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
+        "quick-view": true,
+        "addtocart-button": false
       }
     },
     "pdp-product-features": {
@@ -607,7 +610,8 @@
     "pdp-featured-collection": {
       "type": "pdp-featured-collection",
       "settings": {
-        "quick-view": false
+        "quick-view": true,
+        "addtocart-button": false
       }
     },
     "167267170152804e97": {

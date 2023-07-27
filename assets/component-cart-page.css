@@ -183,3 +183,10 @@
         flex: 0 0 50%;
     }
 }
+
+.cart-page .slider {
+  column-gap: 18px;
+}
+.cart-page .slider .product-unit .product-unit__image-wrapper {
+  border-radius: 9px;
+}
