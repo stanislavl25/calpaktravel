@@ -308,8 +308,8 @@
             {%- endif -%}
         </div>
     </div>
-    
-    {%- if hotDealsVariants != false -%}
+
+    {%- if hotDealsVariants != false and settings.hot-deals-badge-enabled -%}
         <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
             {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
             Hot Deal
