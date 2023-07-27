@@ -2,7 +2,7 @@
   "name": "calpak",
   "version": "1.0.0",
   "scripts": {
-    "dev": "shopify theme dev --store https://calpak.myshopify.com"
+    "dev": "shopify theme dev --store https://calpak.myshopify.com --theme-editor-sync"
   },
   "repository": {
     "type": "git",
