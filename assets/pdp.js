@@ -356,7 +356,7 @@ window.addEventListener("load", () => {
         pdpGalleryUpdate(pdpGrid, select.options[select.selectedIndex], false);
 
         const featuredCollectionProducts = document.querySelectorAll('.shopify-section--pdp-featured .product-unit');
-        featuredCollectionProducts.forEach(featuredCollectionProduct => featuredCollectionProduct.setAttribute('data-init-1', select.options[select.selectedIndex].getAttribute('data-option1'));
+        featuredCollectionProducts.forEach(featuredCollectionProduct => featuredCollectionProduct.setAttribute('data-init-1', select.options[select.selectedIndex].getAttribute('data-option1')));
 
         updateOptionsAvailability(getProductOptionsList(pdpGrid), select, pdpGrid);
 
