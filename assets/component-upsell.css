@@ -28,6 +28,10 @@
     margin-bottom: 0!important;
 }
 
+.pdp__upsell .product-label--final {
+    display: none!important;
+}
+
 @media (max-width: 1180px) {
     .pdp__upsell {
         padding: 0;
