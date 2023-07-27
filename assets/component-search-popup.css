@@ -358,10 +358,9 @@
         padding: 15px var(--gap);
         min-height: 0;
         flex: 0 0 auto;
+        height: auto;
         max-height: fit-content;
         overflow-y: scroll;
-        height: fit-content;
-        max-height: fit-content;
     }
 
     .menu-side {
