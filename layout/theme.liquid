@@ -334,17 +334,19 @@
                     let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
                     let newLabelTextBadge = document.createTextNode('{{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}');
                     let newLabel = document.createElement('p');
-                    let badgeElements =  document.querySelector('.product-label--badge');
+                    let badgeElements =  productUnit.querySelector('.product-label--badge');
+                    console.log(badgeElements)
                      
                     newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2, 11) + index}`);
                 
                     if (productUnit.classList.contains('customBadge-class')) {
-                      newLabel.setAttribute('class', 'countdown-sale-badge-label starter-customize');
-                      newLabel.appendChild(newLabelTextBadge);
+                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
                     } else {
                       newLabel.appendChild(badgeElements);
+                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
                     }
                 
+                    /*
                     if (!productUnit.querySelector('.sale-badge-wrapper')) {
                       // If the sale-badge-wrapper does not exist, create it and append it after product-unit-rows div
                       const saleBadgeWrapper = document.createElement('div');
@@ -355,20 +357,19 @@
                       } else {
                         productUnit.appendChild(saleBadgeWrapper);
                       }
-                    }
+                    }*/
+                    
                 
-                    let intervalId = setInterval(() => {
-                      console.log('trying add sale badge wrapper');
+                    
                       if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.product-label--badge')].length < 1) {
-                        clearInterval(intervalId);
-                
+                        
                         if (productUnit.classList.contains('customBadge-class')) {
-                          newLabel.appendChild(newLabelTextBadge);
+                          productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements);
                         }
                 
-                        productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
+                        productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements);
                       }
-                    }, 0); // Use a delay of 0 to avoid race conditions
+                    
                   });
                 }
                 
