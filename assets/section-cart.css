@@ -226,7 +226,7 @@
 }
 
 .cart__items-title {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25em;
   margin: 0;
 }
@@ -245,6 +245,24 @@
 
 .cart__item--gift {
   order: 999;
+}
+
+.cart__item-preorder {
+    background: var(--yellow);
+    color: #000;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 0 8px;
+    line-height: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.cart__item-preorder span {
+    white-space: normal;
+    text-align: right;
 }
 
 .cart__item--gift .cart__item-price-row,
@@ -465,11 +483,11 @@
   margin-bottom: calc(var(--gap) / 2);
 }
 
-.cart__courtesty-banner {
+.cart__courtesy-banner {
   display: flex;
 }
 
-.cart__courtesty-banner img {
+.cart__courtesy-banner img {
   flex: 0 0 85px;
   width: 85px;
   height: 85px;
@@ -486,6 +504,14 @@
   margin-left: -24px;
   z-index: -1;
   align-self: center;
+}
+
+.cart__courtesy-banner-disclaimer {
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  width: 100%;
+  margin-top: -30px;
 }
 
 .cart__footer-total {
@@ -867,8 +893,21 @@ border-radius: 8px;
   border-radius: 6px !important;
   opacity: 1 !important;
 }
+[data-status="success"] .cart__free-ship-success {
+  margin-left: -9px;
+}
+[data-status="progress"] .cart__free-ship-progress,
+[data-status="success"] .cart__free-ship-success {
+  display: block;
+  line-height: 21px;
+  text-align: center;
+}
 
 @media (max-width: 900px) {
+  .cart__upsell-items.slider .product-unit .product-unit__image-wrapper {
+    border-radius: 9px;
+  }
+
   .cart__gamification-goal:last-child {
     margin-left: -30px;
   }
@@ -978,14 +1017,14 @@ border-radius: 8px;
 
   .cart__body .cart__upsell-items {
     padding-right: 0;
-    gap: 0;
+    gap: 10px;
   }
 
   .cart__body .cart__upsell-items .product-unit {
     flex: 0 0 50%;
   }
 
-  .cart__courtesty-banner img {
+  .cart__courtesy-banner img {
     flex: 0 0 60px;
     width: 60px;
     height: 60px;
@@ -994,6 +1033,10 @@ border-radius: 8px;
   .cart__courtesy-banner-text {
     font-size: 14px;
     padding: 12px 12px 12px 18px;
+  }
+
+  .cart__courtesy-banner-disclaimer {
+    margin-top: -10px;
   }
 }
 
@@ -1065,4 +1108,13 @@ border-radius: 8px;
 
 .cart__item .product-label {
   margin: 6px 0;
+}
+.product-unit{
+  margin-bottom: 1rem;
+}
+.cart-page .slider {
+  column-gap: 18px;
+}
+.cart-page .slider .product-unit .product-unit__image-wrapper {
+  border-radius: 9px;
 }

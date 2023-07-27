@@ -404,7 +404,7 @@ body .alternative-payment-separator {
     }
 }
 
-.no-expedited .section--shipping-method .section__content .content-box__row:last-child {
+.no-expedited .section--shipping-method .section__content .content-box__row:not(:first-of-type) {
     display: none !important;
 }
 
@@ -924,6 +924,12 @@ a.btn {
     // .section--payment-method & {
     //     margin: 0;
     // }
+}
+.radio__label__primary[data-shipping-method-label-title="FedEx 2 Day [ASR]"] .small-text,
+.radio__label__primary[data-shipping-method-label-title="FedEx Standard Overnight [ASR]"] .small-text { 
+    display: block;
+    font-size: 14px;
+    margin-left: -29px;
 }
 
 .content-box, .content-box-spacing {
@@ -1522,6 +1528,11 @@ a.btn {
 body #swell-checkout-redeem-btn {
     max-width: 12vw;
 }
+.radio__label__primary[data-shipping-method-label-title="FedEx 2 Day [ASR]"] .small-text, .radio__label__primary[data-shipping-method-label-title="FedEx Standard Overnight [ASR]"] .small-text, .radio__label__primary[data-shipping-method-label-title="FedEx Priority Overnight"] .small-text {
+    display: block;
+    font-size: 14px;
+    margin-left: -28px;
+}
 
 @media screen and (max-width: 999px) {
     body {
@@ -1544,7 +1555,13 @@ body #swell-checkout-redeem-btn {
     .total-line:not(.total-line--subtotal) {
         font-size: 14px;
     }
-    
+    .radio__label__primary[data-shipping-method-label-title="FedEx 2 Day [ASR]"] .small-text,
+    .radio__label__primary[data-shipping-method-label-title="FedEx Standard Overnight [ASR]"] .small-text,
+    .radio__label__primary[data-shipping-method-label-title="FedEx Priority Overnight"] .small-text {
+        font-size: 16px;
+        margin-left: -23px;
+        display: block;
+    }
     .hide-field {
         right: 2px;
         top: 4px;
@@ -3089,4 +3106,14 @@ span.shipping-info {
 span.shipping-custom-msg {
     display: block;
     padding: 5px 0;
+}
+
+.free-upgrade {
+	font-size: 12px;
+    position: absolute;
+    right: 14px;
+    background: #EAE9E1;
+    padding: 0 6px;
+    border-radius: 6px;
+    top: 32px;
 }

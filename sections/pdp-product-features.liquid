@@ -1,18 +1,18 @@
 {% unless product.metafields.custom.features_titles == blank %}
-<section class="pdp-features">
+  <section class="pdp-features">
     {{ 'section-product-features.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'pdp-features.js' | asset_url }}" defer="defer"></script>
 
     <div class="pdp-features__info">
-        {%- if product.metafields.custom.features_heading != blank -%}
+      {%- if product.metafields.custom.features_heading != blank -%}
         <div class="pdp-features__title">{{- product.metafields.custom.features_heading | escape -}}</div>
-        {%- endif -%}
+      {%- endif -%}
 
-        <div class="pdp-features__list">
+      <div class="pdp-features__list">
         {% for title in product.metafields.custom.features_titles.value %}
-            <div style="order: {{ forloop.index }}" class="pdp-feature{% if forloop.first %} pdp-feature--active{% endif %}">
-                <button aria-label="Show feature details" class="pdp-feature__title">{{- title -}}</button>
-                {%- liquid
+          <div style="order: {{ forloop.index }}" class="pdp-feature{% if forloop.first %} pdp-feature--active{% endif %}">
+            <button aria-label="Show feature details" class="pdp-feature__title">{{- title -}}</button>
+            {%- liquid
                     assign index = forloop.index0
                     assign description = false
                     if product.metafields.custom.features_descriptions.value[index] != blank
@@ -20,22 +20,22 @@
                     endif
                 -%}
 
-                {%- if description.size > 1 and description != false -%}
-                <div class="pdp-feature__content">{{- description -}}</div>
-                {%- endif -%}
-            </div>
+            {%- if description.size > 1 and description != false -%}
+              <div class="pdp-feature__content">{{- description -}}</div>
+            {%- endif -%}
+          </div>
         {% endfor %}
-        </div>
+      </div>
     </div>
     {%- if product.metafields.custom.features_images != blank -%}
-    <div class="pdp-features__media">
+      <div class="pdp-features__media">
         {% for media in product.metafields.custom.features_images.value %}
-            <div class="pdp-feature__media{% if forloop.first %} pdp-feature__media--active{% endif %}">
-                {%- liquid
+          <div class="pdp-feature__media{% if forloop.first %} pdp-feature__media--active{% endif %}">
+            {%- liquid
                     assign video = false
                     assign alt = media.alt
 
-                    if alt contains 'vimeo.com/'
+                    if alt contains 'vimeo.com/' or alt contains '.mp4'
                         assign video = alt | split: ';' | first
                         assign alt = alt | split: ';' | last
                     endif
@@ -45,22 +45,25 @@
                     if video == false
                         render 'image' with media, sizes: sizes, lazy: true
                     else
+                        if alt contains 'vimeo.com/'
                         render 'video' with video, video_ratio: '16/9', loop: true, controls: false, autoplay: true, poster: media, alt: alt, sizes: sizes, lazy: true
+                       else
+                            render 'shopify-cdn-video' with video_url: media.alt , video_ratio: '16/9', loop: true, controls: false, autoplay: true, poster: media, alt: alt, sizes: sizes, lazy: true                           
+                        endif
                     endif
                 -%}
-            </div>
+            {{ video }}
+          </div>
         {% endfor %}
-    </div>
+      </div>
     {%- endif -%}
-</section>
+  </section>
 {% endunless %}
 
 {% schema %}
-    {
-        "name": "Product Features",
-        "class": "shopify-section--product-features",
-        "settings": [
-        
-        ]
-    }
+  {
+    "name": "Product Features",
+    "class": "shopify-section--product-features",
+    "settings": []
+  }
 {% endschema %}

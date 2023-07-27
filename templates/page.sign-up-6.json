@@ -21,9 +21,9 @@
             "form_type": "iframe",
             "iframe-url": "https:\/\/calpak.attn.tv\/p\/3eO\/landing-page",
             "klaviyo_id": "",
+            "vertical_alignment": "center",
             "height": "600",
-            "height-mobile": "700",
-            "vertical_alignment": "center"
+            "height-mobile": "700"
           }
         }
       },

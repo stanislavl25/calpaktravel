@@ -107,6 +107,11 @@ a.color-swatch--active::after {
     border-radius: 50%;
 }
 
+.color-swatch-sale.product-option--na::before {
+    height: 0;
+    border-radius: 0;
+}
+
 .color-swatch img {
     width: 20px;
     height: 20px;
@@ -163,6 +168,14 @@ a.color-swatch--active::after {
 .color-obsidian,
 .color-trnk-black {
     --background: #000;
+}
+
+.color-copper {
+    --background: #b57e5a;
+}
+
+.color-cabernet {
+    --background: #843939;
 }
 
 .color-moss {
@@ -854,4 +867,10 @@ a.color-swatch--active::after {
 
 .color-group-orange {
     background: #F08247;
+}
+.hot-deals-banner-wrapper a.color-swatch.slide.hot-deal.show-hotdeal {
+    display: block;
+}
+.hot-deals-banner-wrapper a.color-swatch.slide.hot-deal {
+    display: none;
 }

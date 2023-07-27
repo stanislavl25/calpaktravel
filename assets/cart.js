@@ -17,7 +17,7 @@ function addToCart(variant_id, quantity, callback, always, final_sale = false, p
     let formData = {
         cb: Date.now(),
         items: items,
-        sections: 'cart-items,cart-json'
+        sections: 'cart-items,cart-json,cart-pair-upsell'
     };
 
     if(typeof always != 'function') always = () => {};
@@ -51,10 +51,10 @@ function addToCart(variant_id, quantity, callback, always, final_sale = false, p
             currency: 'USD'
         });
 
-        if(typeof gwpConfig != 'undefined') {
-            if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
-            response = await checkGWP(response);
-        }
+        // if(typeof gwpConfig != 'undefined') {
+        //     if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
+        //     response = await checkGWP(response);
+        // }
 
         if(typeof callback == 'function') callback(response);
     })
@@ -74,7 +74,7 @@ function changeCartItem(key, qty) {
             cb: Date.now(),
             id: key,
             quantity: qty,
-            sections: 'cart-items,cart-json'
+            sections: 'cart-items,cart-json,cart-pair-upsell'
         })
     }).then(response => {
         if(!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -91,7 +91,7 @@ function updateCartItems(items, callback, always) {
         },
         body: JSON.stringify({
             updates: items,
-            sections: 'cart-items,cart-json'
+            sections: 'cart-items,cart-json,cart-pair-upsell'
         })
     })
     .then(response => {
@@ -397,15 +397,20 @@ function setGamificationProducts( gifts ) {
 }
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
-
-    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
+    /*
+        !!!!!!!!!!!!!!!!!!
+        CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
+        !!!!!!!!!!!!!!!!!!
+    */
+    // if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
     const { goals, gifts, wrapper, limit } = settings["cartGamification"];
     const cartHeader = document.querySelector('.cart__header');
     const cartGoals = document.querySelector(wrapper);
     const cartGifts = document.querySelector('.cart__gamification-gifts');
     const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-    const freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
+    let freeShippingStarts = -1;
+    if(goals.length) freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
 
 
     cartGoals.innerHTML = '';
@@ -496,7 +501,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 
     }
 
-    if(items_subtotal_price >= freeShippingStarts) {
+    if(freeShippingStarts > -1 && items_subtotal_price >= freeShippingStarts) {
         cartHeader.setAttribute('data-status', 'success');
         return true;
     } else {
@@ -654,7 +659,13 @@ function updateCartGWPs() {
 function updateCart(data, jsonIncluded = false) {
 
 
+    //document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
     document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
+    if(document.body.classList.contains('variant')){
+        //console.log("🚀 ~ file: cart.js:366 ~ updateCart ~ data.sections['cart-pair-upsell']:", data.sections['cart-pair-upsell'])
+        updateUpsell(data.sections['cart-pair-upsell']);
+    }
+
     let cart;
     if(jsonIncluded) cart = data;
     else cart = JSON.parse(stripHTML(data.sections['cart-json']));
@@ -725,7 +736,7 @@ function openCart() {
     const cartContainer = document.querySelector('.cart__container');
     if(!cartContainer || cartContainer.classList.contains('cart__container--visible')) return;
 
-    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
+    if(settings["cartGamification"] && settings["cartGamification"].gifts.length > 0 && document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
     cartContainer.classList.add('cart__container--active');
     setTimeout(() => {
@@ -895,4 +906,55 @@ async function cartItemMoveToWishlist(target) {
     wishlistNotificationTimeout = setTimeout(() => {
         cartContainer.classList.remove('cart__container--wishlist');
     }, settings.cartWishlistTimeout * 1000);
+}
+
+/* eslint-disable no-undef */
+function support() {
+	if (!window.DOMParser) return false;
+
+	const parser = new DOMParser();
+
+  try {
+		parser.parseFromString('x', 'text/html');
+	} catch (err) {
+		return false;
+	}
+
+	return true;
+};
+
+/**
+ * Convert a template string into HTML DOM nodes
+ * @param  {String} str The template string
+ * @return {Node}       The template HTML
+ */
+function stringToHTML(str) {
+	// If DOMParser is supported, use it
+	if (support()) {
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(str, 'text/html');
+		return doc.body;
+	}
+
+	// Otherwise, fallback to old-school method
+	const dom = document.createElement('div');
+	dom.innerHTML = str;
+	return dom;
+}
+
+function updateUpsell(str){
+    const upsellContainer = document.querySelector('.cart__upsell-items--ab-test-variant');
+    upsellContainer.innerHTML = stringToHTML(str).innerHTML;
+    const products = upsellContainer.querySelectorAll(".product-unit")
+    products.forEach(product => {
+        activateProductUnit(product);
+    })
+
+    let visibleUpsells = [];
+    document.querySelectorAll('.cart__items .cart__item').forEach(item => visibleUpsells.push(item.dataset.id));
+    document.querySelectorAll('.cart__upsell-items--ab-test-variant .product-unit').forEach(item => {
+        visibleUpsells.includes(item.dataset.id) ? item.style.display = 'none' : '';
+        visibleUpsells.push(item.dataset.id);
+    });
+
 }

@@ -49,7 +49,7 @@
         }
     {% endif %}
     {% if template == 'collection' or 'summer-arrival' %}
-        {% if section.settings.collection_list != empty %}
+        {% comment %} {% if section.settings.collection_list != empty %}
             {% for collection_item in section.settings.collection_list %}
                 .{{ collection_item.handle }} .product-unit__image > .f-loaded {
                     object-position:-1000px!important;
@@ -85,14 +85,13 @@
                 }
             {% endfor %}
         {% else %}
-                .modular-block, .modular-section__wrap, .static-video-desktop
-                .static-video-mobile {
-                   display:flex!important;
-                }
-                .product-unit__image > .f-loaded {
-                    object-position:-1000px!important;
-                }
-        {% endif %}
+        {% endif %} {% endcomment %}
+        .modular-block, .modular-section__wrap, .static-video-desktop, .static-video-mobile {
+            display:flex!important;
+        }
+        .product-unit__image > .f-loaded {
+            object-position:-1000px!important;
+        }
     {% endif %}
     .product-grid {
         row-gap: {{section.settings.row_gap}}px;
@@ -132,11 +131,15 @@
             text-align: center;
         }
         .product-unit .countdown-sale-badge-label {
-            display: flex; 
+            display: flex!important; 
             align-items: center;
             justify-content: center;
-            width: 132px;
-            height: 22px;
+            max-width: 84%;
+            min-width: 80px;
+            width: fit-content;
+            max-height: 48px;
+            height: fit-content;
+            min-height: 22px;
             border-radius: 6px;
             font-size: 14px;
             font-weight: 400;
@@ -224,19 +227,50 @@
         endpaginate
 
         for block in section.blocks
+
+            assign inCollectionList = false 
+            if block.settings.collection_list_display
+                if block.settings.collection_list_display != empty
+                    assign collection_handle_list = block.settings.collection_list_display | map: "handle" 
+                    for collection_handle in collection_handle_list 
+                        if collection_handle == collection.handle 
+                            assign inCollectionList = true 
+                            break 
+                        endif 
+                    endfor 
+                else 
+                    assign inCollectionList = true 
+                endif
+            endif
+
             case block.type
                 when 'promo'
                     render 'promo-unit' with block
                 when 'module'
-                    render 'modular-block' with block as block, collection: collection
+                    if  inCollectionList 
+                        render 'modular-block' with block as block, collection: collection    
+                    endif
                 when 'modular-section'
-                    render 'modular-section' with block as block, collection: collection
+                    if  inCollectionList 
+                        render 'modular-section' with block as block, collection: collection
+                    endif
                 when 'static'
-                    render 'static-block' with block as block
+                    if  inCollectionList 
+                        render 'static-block' with block as block
+                    endif
                 when 'banner'
-                    render 'banner-image-grid' with block as block
+                    if  inCollectionList 
+                        render 'banner-image-grid' with block as block
+                    endif
+                when 'curalate-gallery'
+                    if  inCollectionList 
+                        render 'curalate-gallery' with block as block
+                    endif
+                    
                 when 'hot-deals-banner'
                     render 'hot-deals-banner' with block as block
+                when 'hot-deals-banner-sale'
+                    render 'hot-deals-banner-sale' with block as block
             endcase
         endfor
     -%}
@@ -257,6 +291,7 @@
         });
     })
 </script>
+
 {% render 'schema-collection' %}
 
 {% schema %}
@@ -311,12 +346,6 @@
                 "content": "Modular block and section settings"
             },
             {
-                "type": "collection_list",
-                "id": "collection_list",
-                "label": "Collections to display on",
-                "info": "If no collections are selected, the modular blocks will be displayed on all collections."
-            },
-            {
                 "type": "header",
                 "content": "Breakdown variant collections"
             },
@@ -325,6 +354,10 @@
                 "id": "breakdown-collection",
                 "label": "Collections to display the breakdown variant products",
                 "info": "If no collections are selected, the breakdown variant products will be displayed on all collections." 
+            },
+            {
+                "type": "header",
+                "content": "Breakdown variant collections"
             },
             {
                 "type": "range",
@@ -342,6 +375,12 @@
                 "type": "static",
                 "name": "Static content",
                 "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
                     {
                         "type": "text",
                         "id": "heading",
@@ -560,6 +599,19 @@
                         "content": "Display rules"
                     },
                     {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "default": "Desktop/Mobile: Modular Block",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
                     "type": "checkbox",
                     "id": "pictured_link",
                     "label": "Pictured product link to quick view",
@@ -687,12 +739,45 @@
             {
                 "type": "modular-section",
                 "name": "Modular Section",
-                "settings": [ 
+                "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular sections will be displayed on all collections."
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "default": "Desktop/Mobile: Modular Section",
+                        "info": "For organization purposes. Not shown on site."
+                    },
                     {
                     "type": "checkbox",
                     "id": "pictured_link",
                     "label": "Pictured product link to quick view",
                     "default": true
+                    },
+                    {
+                        "type": "select",
+                        "id": "display",
+                        "label": "Display rules for modular section",
+                        "options": [
+                            {
+                            "value": "desktop",
+                            "label": "Only Desktop"
+                            },
+                            {
+                            "value": "mobile",
+                            "label": "Only Mobile"
+                            },
+                            {
+                            "value": "both",
+                            "label": "Both"
+                            }
+                        ],
+                        "default": "both"
                     },
                     {
                     "type": "range",
@@ -730,26 +815,10 @@
                     "id": "mobile_row",
                     "label": "Mobile row position",
                     "default": 1
-                    },
-                    {
-                    "type": "number",
-                    "id": "column",
-                    "label": "Column position",
-                    "default": 1
-                    },
-                    {
-                    "type": "number",
-                    "id": "col_span",
-                    "label": "Width (columns)",
-                    "default": 5
-                    },                      
+                    },                     
                     {
                         "type": "header",
-                        "content": "Left block"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Text"
+                        "content": "Left block settings"
                     },
                     {
                         "type": "text",
@@ -762,17 +831,9 @@
                         "label": "Description"
                     },
                     {
-                        "type": "header",
-                        "content": "Product"
-                    },
-                    {
                         "type": "product_list",
                         "id": "pictured_products",
                         "label": "Pictured Products List"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Media"
                     },
                     {
                         "type": "image_picker",
@@ -780,24 +841,19 @@
                         "label": "Image"
                     },
                     {
-                        "type": "video",
-                        "id": "video_l",
-                        "label": "Video (first block)"
-                      },
-                    {
                         "type": "image_picker",
                         "id": "image_mobile",
                         "label": "Image for mobile"
                     },
                     {
-                        "type": "header",
-                        "content": "_________________________"
+                        "type": "video",
+                        "id": "video_l",
+                        "label": "Video"
                     },
                     {
                         "type": "header",
-                        "content": "Right block"
+                        "content": "Right block settings"
                     },
-
                     {
                         "type": "header",
                         "content": "Text"
@@ -813,17 +869,9 @@
                         "label": "Description"
                     },
                     {
-                        "type": "header",
-                        "content": "Product"
-                    },
-                    {
                         "type": "product_list",
                         "id": "pictured_products_r",
                         "label": "Pictured Products List"
-                    },
-                    {
-                        "type": "header",
-                        "content": "Media"
                     },
                     {
                         "type": "image_picker",
@@ -831,14 +879,14 @@
                         "label": "Image"
                     },
                     {
-                        "type": "video",
-                        "id": "video_r",
-                        "label": "Video (second block)"
-                      },
-                    {
                         "type": "image_picker",
                         "id": "image_mobile_r",
-                        "label": "Image for mobile"
+                        "label": "Mobile Image"
+                    },
+                    {
+                        "type": "video",
+                        "id": "video_r",
+                        "label": "Video"
                     }
                 ]
             },
@@ -846,6 +894,19 @@
                 "type": "banner",
                 "name": "Banner",
                 "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the modular blocks will be displayed on all collections."
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "default": "Desktop/Mobile: Banner",
+                        "info": "For organization purposes. Not shown on site."
+                    },
                     {
                         "type": "header",
                         "content": "Settings"
@@ -869,12 +930,6 @@
                         }
                     ],
                     "default": "desktop"
-                    },
-                    {
-                        "type": "collection_list",
-                        "id": "collection_list",
-                        "label": "Collections to display on the banner",
-                        "info": "If no collections are selected, the banner will be displayed on all collections"
                     },
                     {
                         "type": "text",
@@ -948,6 +1003,56 @@
                 ]
             },
             {
+                "name": "Curalate Gallery",
+                "type": "curalate-gallery",
+                "settings": [
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list_display",
+                        "label": "Collections to display on",
+                        "info": "If no collections are selected, the curalate gallery will be displayed on all collections."
+                    },
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Label",
+                        "default": "Desktop/Mobile: Curalate Gallery",
+                        "info": "For organization purposes. Not shown on site."
+                    },
+                    {
+                        "type": "text",
+                        "id": "gallery_id",
+                        "label": "Curalate gallery ID",
+                        "default": "gallery-zfEKaK3p",
+                        "info": "The gallery ID can be found in after the attribute data-crl8-container-id in the div embed code snippet."
+                    },
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "Heading",
+                        "default": "Travel looks good on you."
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "subtitle",
+                        "label": "Subheading",
+                        "default": "Tag your adventures @calpak #calpaktravel."
+                    },
+                    {
+                        "type": "number",
+                        "id": "desktop_row",
+                        "label": "Desktop row position",
+                        "default": 2
+                    },
+                    {
+                        "type": "number",
+                        "id": "mobile_row",
+                        "label": "Mobile row position",
+                        "default": 2
+                    }          
+                ]
+            },
+            {
                 "type": "hot-deals-banner",
                 "name": "Hot Deals Banner",
                 "settings": [
@@ -973,7 +1078,7 @@
                             "label": "Desktop and Mobile"
                             }
                         ],
-                        "default": "desktop"
+                        "default": "both"
                     },
                     {
                         "type": "collection_list",
@@ -982,14 +1087,119 @@
                         "info": "If no collections are selected, the banner will be displayed on all collections"
                     },
                     {
+                        "type": "header",
+                        "content": "Banner images"
+                    },
+                    {
                         "type": "image_picker",
                         "id": "hot-deals-header-image-desktop",
-                        "label": "Hot Deals Header Image Desktop"
+                        "label": "Hot Deals Image Desktop - No Countdown"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop-countdown-1",
+                        "label": "Hot Deals Image Desktop - Countdown 1"
                     },
                     {
                         "type": "image_picker",
                         "id": "hot-deals-header-image-mobile",
-                        "label": "Hot Deals Header Image Mobile"
+                        "label": "Hot Deals Image Mobile"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner placement"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row",
+                        "label": "Row desktop position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "text",
+                        "id": "row_mobile",
+                        "label": "Row mobile position",
+                        "default": "1"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-color",
+                        "label": "Central Banner Text Color",
+                        "default": "#000"
+                    },
+                    {
+                        "type": "color",
+                        "id": "banner-text-background-color",
+                        "label": "Central Banner Text Background Color",
+                        "default": "#FFF"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Featured Products"
+                    },
+                    {
+                        "type": "product_list",
+                        "id": "featured_products",
+                        "label": "Featured Products List"
+                    }
+                ]
+            },
+            {
+                "type": "hot-deals-banner-sale",
+                "name": "Hot Deals Banner Sale",
+                "settings": [
+                    {
+                        "type": "header",
+                        "content": "Settings"
+                    },
+                    {
+                        "type": "select",
+                        "id": "display",
+                        "label": "Display rules for banner",
+                        "options": [
+                            {
+                            "value": "desktop",
+                            "label": "Only Desktop"
+                            },
+                            {
+                            "value": "mobile",
+                            "label": "Only Mobile"
+                            },
+                            {
+                            "value": "both",
+                            "label": "Desktop and Mobile"
+                            }
+                        ],
+                        "default": "both"
+                    },
+                    {
+                        "type": "collection_list",
+                        "id": "collection_list",
+                        "label": "Collections to display on the banner",
+                        "info": "If no collections are selected, the banner will be displayed on all collections"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner images"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop",
+                        "label": "Hot Deals Image Desktop - No Countdown"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-desktop-countdown-1",
+                        "label": "Hot Deals Image Desktop - Countdown 1"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "hot-deals-header-image-mobile",
+                        "label": "Hot Deals Image Mobile"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Banner placement"
                     },
                     {
                         "type": "text",

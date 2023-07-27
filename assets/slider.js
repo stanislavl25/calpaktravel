@@ -111,11 +111,14 @@ window.addEventListener("click", (e) => {
             wrapper.classList.remove('slider__wrapper--end');
         } else wrapper.classList.remove('slider__wrapper--start');
     }
-    
-    setTimeout(() => {
-        console.log('trying update process via slide move')
-        tryUpdateProcessTheProductUnits();
-    }, 500)
+    // let timesTryed = 0;
+    // setTimeout(() => {
+    //     if (timesTryed < 100) {
+    //         console.log('trying update process via slide move')
+    //         tryUpdateProcessTheProductUnits();
+    //         timesTryed += 1;
+    //     }
+    // }, 500)
     
 });
 
@@ -205,12 +208,35 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
         slideWidth = firstSlide.offsetWidth;
     }
 
+    let maxPage = Math.round(maxScroll / slideWidth);
+    let currentPage = Math.round(currentScroll / slideWidth);
+    if(isNaN(currentPage)) currentPage = 0;
+
     let animateScroller = isSafari() || wrapper.classList.contains('slider__wrapper--content-slider');
 
     if(!wrapper.classList.contains('slider__wrapper--loaded')) {
         slider.addEventListener('scroll', function() {
             if(sliderThrottle !== false) clearTimeout(sliderThrottle);
-            sliderThrottle = setTimeout(() => checkSlider(this, sliderCheckNum, indexFilter), 305);
+            sliderThrottle = setTimeout(() => {
+                const thisSlider = this;
+                let currentScroll = Math.ceil(slider.scrollLeft);
+                let firstSlide = slider.querySelector('*');
+                let slideWidth = firstSlide.offsetWidth;
+                let currentPage = Math.round(currentScroll / slideWidth);
+
+                let event = new CustomEvent("sliderUpdate",
+                    {
+                        bubbles: true,
+                        detail: {
+                            slider: thisSlider,
+                            slideNumber: currentPage
+                        }
+                    }
+                );
+                document.dispatchEvent(event);
+
+                checkSlider(thisSlider, sliderCheckNum, indexFilter)
+            }, 305);
 
             if(animateScroller) requestAnimationFrame(() => {
                 wrapper.style.setProperty('--scroll-pos', (slider.scrollLeft * 100 / maxScroll) + '%');
@@ -230,10 +256,6 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
 
         wrapper.classList.add('slider__wrapper--loaded');
     }
-
-    let maxPage = Math.round(maxScroll / slideWidth);
-    let currentPage = Math.round(currentScroll / slideWidth);
-    if(isNaN(currentPage)) currentPage = 0;
 
     if(slider.hasAttribute('data-nav')) {
         let nav = document.querySelector(slider.getAttribute('data-nav'));

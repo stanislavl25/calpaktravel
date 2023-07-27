@@ -1,14 +1,34 @@
+{%- liquid
+    assign now = "now" | date: '%s' | times: 1
+    assign ends = settings.hot-deals-ends | date: '%s' | times: 1
+    assign timeLeft = ends | minus: now
+    assign countdownTimer = false
+
+    if timeLeft < 0
+        assign countdownTimer = false
+    elsif timeLeft < 172800
+        assign countdownTimer = true
+    endif
+-%}
+
 <div class=" hot-deals-banner-wrapper {{ collection.handle }} {{ block.settings.display }} banner--{{block.id}}">
     <div class="hot-deals-banner-text-wrapper">
         <div class="hot-deals-text">
+            <div class="hot-deals-text-container-top">
+                <div class="countdown-timer" data-time="{{- timeLeft -}}" style="display: none;">{{timeLeft}}</div>
+            </div>
         </div>
     </div>
+    
+    {%- if settings.hot-deals-ends != blank and countdownTimer == true -%}
+        <div class="countdown-timer hot-deals-mobile-countdown-wrapper" data-time="{{- timeLeft -}}" style="display: none;">{{timeLeft}}</div>
+    {%- endif -%}
 
     <div data-index="{{ forloop.index }}" data-slide="2" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper slider__wrapper--buttons-side" data-index="{{ forloop.index }}">
         <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
         <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
         <div class="slider slider--scrollbar">
-
+            
             {%- for product in block.settings.featured_products -%}
                 {%- render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, wishlist: true, class: 'slide', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels, index: forloop.index -%}
             {%- endfor -%}
@@ -16,6 +36,13 @@
     </div>
 </div>
 <style>
+    .hot-deals-mobile-countdown-wrapper {
+        display: none;
+        position: absolute;
+        margin-top: -40px;
+        font-size: 24px;
+    }
+
     .hot-deals-banner-wrapper{
         display: flex;
         row-gap: 40px;
@@ -23,14 +50,20 @@
         overflow-x: auto;
         border: 1px solid {{ block.settings.banner-text-background-color }};
         border-radius: 11px;
+        overflow: visible!important;
+        margin-top: {% if settings.hot-deals-ends != blank and countdownTimer == true %}32px{% endif %};
     }
 
     .hot-deals-banner-wrapper .slider:not([data-slider-on="mobile"]) {
         gap: 1%;
     }
 
+    .hot-deals-banner-wrapper .product-unit__swatches {
+        gap: inherit!important;
+    }
+
     .hot-deals-banner-wrapper .product-unit {
-        flex: 0 0 23.7%;
+        flex: 0 0 24%;
     }
 
     .hot-deals-banner-wrapper > * {
@@ -48,15 +81,21 @@
     .hot-deals-banner-wrapper > *:last-child {
         margin-right: 16px;
         flex: 0 0 80%;
+        padding-right: 20px;
+    }
+
+    .slider__wrapper--buttons-side .button-tri-right {
+        right: 10px;
     }
 
     .hot-deals-banner-wrapper .hot-deals-badge.product-label--active {
         width: 80px;
         height: 80px;
         font-size: 14px;
-        right: 0px;
-        top: 0;
-        position: inherit;
+        right: 11px;
+        bottom: 11px;
+        position: absolute;
+        top: auto;
     }
 
     .hot-deals-banner-text-wrapper {
@@ -76,8 +115,44 @@
         background-size: cover;  /* The image will cover the full width and height of the div */
         background-repeat: no-repeat;  /* This prevents the image from repeating */
         background-position: center;
-        background-image: url({{ block.settings.hot-deals-header-image-desktop | img_url: 'master' }});
     }
+
+    .hot-deals-text-container-top {
+        height: 100%;
+        background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .hot-deals-text .countdown-timer {
+        color: white;
+        font-size: 32px;
+    }
+
+    .hot-deals-text-container-top,
+    .hot-deals-text .countdown-timer {
+        display: none;
+    }
+
+    {% if settings.hot-deals-ends != blank and countdownTimer == true %}
+        .hot-deals-text-container-top,
+        .hot-deals-text .countdown-timer {
+            display: block;
+        }
+
+        .hot-deals-text .countdown-timer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+    {% else %}
+        .hot-deals-text {
+            background-image: url({{ block.settings.hot-deals-header-image-desktop | img_url: 'master' }});
+        }
+    {% endif %}
 
     .shopify-section--collection-image-banner {
         width: 100%;
@@ -94,6 +169,7 @@
         position: relative;
         grid-column: 1 / span 5;
         grid-row: {{ block.settings.row }} / span 1;
+        overflow: hidden!important;
     }
 
     .collection-image-banner-video,
@@ -114,6 +190,11 @@
         
         /* CUSTOMIZER GIVEN CSS*/
         color: {{ block.settings.banner-text-color }};
+    }
+
+    .hot-deals-banner-wrapper .slider--scrollbar::-webkit-scrollbar-thumb,
+    .hot-deals-banner-wrapper .slider--scrollbar::-webkit-scrollbar {
+        border-bottom: none!important
     }
 
     .hot-deals-banner-text {        
@@ -156,14 +237,15 @@
             .{{ collection_item.handle }}.hot-deals-banner-wrapper{
                 display: flex;
                 column-gap: 10px;
-                overflow-x: auto;
-                overflow-y: hidden;
             }
         .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.desktop {
             display: flex;
         }
         .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.mobile {
                 display: none;
+        }
+        .{{ collection_item.handle }}.hot-deals-banner-wrapper .product-label--active img {
+            border: none!important;
         }
         @media (max-width: 649px) {
             .{{ collection_item.handle }}.hot-deals-banner-wrapper.banner--{{block.id}}.desktop {
@@ -178,13 +260,33 @@
         
     {% endif %}  
 
-    @media (max-width:900px){
+    @media (max-width: 1200px) {
+        .hot-deals-text .countdown-timer {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 900px){
+        .hot-deals-mobile-countdown-wrapper {
+            display: block;
+            padding: 4px 12px!important;
+            color: white;
+            background: {{ block.settings.banner-text-background-color }};
+            border-radius: 6px;
+        }
+
         .hot-deals-banner-wrapper {
             grid-column: 1 / span 3;
+            overflow: visible!important;
         }
 
         .hot-deals-banner-wrapper .hot-deals-badge.product-label--active {
             display: none!important;
+        }
+
+        .hot-deals-banner-wrapper > *:last-child {
+            padding-right: 0;
+            flex: 0 0 calc(100% - 74px);
         }
 
         .hot-deals-text {
@@ -204,6 +306,11 @@
             transform: rotate(-90deg);
         }
 
+        .hot-deals-text-container-top,
+        .hot-deals-text .countdown-timer {
+            display: none;
+        }
+
         .hot-deals-text .desktop {
             display: none;
         }
@@ -220,6 +327,10 @@
 
         .hot-deals-banner-wrapper .slider:not([data-slider-on="mobile"]) {
             gap: 2%;
+        }
+
+        .product-unit__swatches-container .slider:not([data-slider-on="mobile"]) {
+            gap: 0;
         }
 
         .hot-deals-banner-wrapper .product-unit {

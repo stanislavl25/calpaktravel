@@ -62,6 +62,11 @@
     margin: 50px 0;
 }
 
+.swell-referral-content h2 {
+    font-size: 24px;
+    margin-bottom: var(--gap);
+}
+
 .swell-referral {
     height: 100%;
 }

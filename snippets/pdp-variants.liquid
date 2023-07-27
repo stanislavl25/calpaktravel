@@ -1,11 +1,10 @@
 {%- assign product_type = product.type | downcase -%}
 
-<section
+  <section
   class="pdp__variants"
   {% if early_access != blank %}
-    data-early-access="{{ early_access }}"
-  {% endif %}
->
+  data-early-access="{{ early_access }}"
+  {% endif %}>
   {% comment %} //// SIZES/QTY/ETC //// {% endcomment %}
   {%- for option in product.options_with_values -%}
     {%- assign optionLow = option.name | downcase -%}
@@ -31,8 +30,7 @@
       <div
         class="pdp__variant-buttons{% if group1 != false and group2 != false %} pdp__variant-buttons--grouped{% endif %}"
         data-count="{{ option.values.size }}"
-        data-position="{{ option.position }}"
-      >
+        data-position="{{ option.position }}">
         {% if group1 != false and group2 != false %}
           {%- liquid
             if group1.size > 2
@@ -48,8 +46,10 @@
             endif
           -%}
 
-          <div class="pdp__variant-buttons-title">{{- group1[1] | escape -}}</div>
-          <div class="pdp__variant-list">
+          <div
+            class="pdp__variant-buttons-title">{{- group1[1] | escape -}}</div>
+          <div
+            class="pdp__variant-list">
             {%- for value in option.values -%}
               {%- liquid
                 assign val = value | handleize
@@ -70,16 +70,17 @@
               {%- if go -%}
                 <button
                   data-value="{{- val -}}"
-                  class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}"
-                >
+                  class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}">
                   <span>{{- value | escape -}}</span>
                 </button>
               {%- endif -%}
             {%- endfor -%}
           </div>
 
-          <div class="pdp__variant-buttons-title">{{- group2[1] | escape -}}</div>
-          <div class="pdp__variant-list">
+          <div
+            class="pdp__variant-buttons-title">{{- group2[1] | escape -}}</div>
+          <div
+            class="pdp__variant-list">
             {%- for value in option.values -%}
               {%- liquid
                 assign val = value | handleize
@@ -100,21 +101,21 @@
               {%- if go -%}
                 <button
                   data-value="{{- val -}}"
-                  class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}"
-                >
+                  class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% unless variant_object_by_option.available %} product-option--na{% endunless %}">
                   <span>{{- value | escape -}}</span>
                 </button>
               {%- endif -%}
             {%- endfor -%}
           </div>
         {%- else -%}
-          <div class="pdp__variant-buttons-title">{{- option.name | escape -}}</div>
-          <div class="pdp__variant-list">
+          <div
+            class="pdp__variant-buttons-title">{{- option.name | escape -}}</div>
+          <div
+            class="pdp__variant-list">
             {%- for value in option.values -%}
               <button
                 data-value="{{- value | handleize -}}"
-                class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% if variant_object_by_option.available %} product-option--na{% endif %}"
-              >
+                class="product-option{% if value == current_variant[optionN] %} product-option--selected{% endif %}{% if variant_object_by_option.available %} product-option--na{% endif %}">
                 <span>{{- value | escape -}}</span>
               </button>
             {%- endfor -%}
@@ -130,37 +131,106 @@
     {%- assign optionN = 'option' | append: option.position -%}
 
     {%- if optionLow == 'color' -%}
-      <div class="pdp__variant-color" data-count="{{ option.values.size }}" data-position="{{ option.position }}">
-        <div class="pdp__variants-selected">
-          <div class="pdp__variants-spacer">
+      <div
+        class="pdp__variant-color"
+        data-count="{{ option.values.size }}"
+        data-position="{{ option.position }}">
+        <div
+          class="pdp__variants-selected">
+          <div
+            class="pdp__variants-spacer">
             {%- for variant in product.variants -%}
               <i>{{- variant[optionN] | downcase -}}</i>
             {%- endfor -%}
           </div>
           <label>Selected Color</label>
-          <span class="pdp__selected-variant">
+          <span
+            class="pdp__selected-variant">
             {{ current_variant[optionN] | downcase }}
           </span>
-          <span class="tooltip">i<span class="tooltip__message">Color may vary due to lighting on images</span></span>
+          <span
+            class="tooltip">i<span
+              class="tooltip__message">Color may vary due to lighting on images</span>
+          </span>
         </div>
 
-        <div class="pdp__swatches-groups swatches-container"></div>
+        <div
+          class="pdp__swatches-groups swatches-container"></div>
       </div>
     {%- endif -%}
   {%- endfor -%}
 
   {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
   {%- if product_type contains 'luggage' and featured_collection != false -%}
+    <div
+      class="pdp__stock{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %} pdp__stock--active{% endif %}">
+      <p
+        class="pdp__stock-variant">Low Stock</p>
+      <p>Only</p>
+      <span>{{ current_variant.inventory_quantity }}</span>
+      left
+    </div>
+    {% comment %}
     <div class="pdp__variant-type" data-collection="{{- featured_collection.handle -}}">
-      <div class="select__wrapper select__wrapper--pdp-type">
+    <label>Size</label>
+    <div class="select__wrapper select__wrapper--pdp-type">
+    <select>
+    <option>
+    {%- if current_product_group_type != false -%}
+    {{ current_product_group_type }} - {{ current_variant.price | money_without_trailing_zeros }}
+    {%- endif -%}
+    </option>
+    </select>
+    </div>
+    </div>
+    {% endcomment %}
+  {%- endif -%}
+
+  {%- unless product_type contains 'luggage' and featured_collection != false -%}
+    <div
+      class="pdp__stock{% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %} pdp__stock--active{% endif %}">
+      <p
+        class="pdp__stock-variant">Low Stock</p>
+      <p>Only</p>
+      <span>{{ current_variant.inventory_quantity }}</span>
+      left
+    </div>
+  {%- endunless -%}
+
+  {% if product.metafields.custom.select_size_products != blank %}
+    {% assign size_items = product.metafields.custom.select_size_products.value %}
+    <div
+      class="pdp__variant-size"
+      data-productId="{{ product.id }}">
+      <label>Size</label>
+      <div
+        class="select__wrapper">
         <select>
-          <option>
-            {%- if current_product_group_type != false -%}
-              {{ current_product_group_type }} - {{ current_variant.price | money_without_trailing_zeros }}
-            {%- endif -%}
-          </option>
+          {% for size_item in size_items %}
+            <option
+              value="{{ size_item.handle }}"
+              data-producthandle="{{ current_variant.title | handle }}"
+              {% if size_item.handle == product.handle %}selected{% endif %}
+              data-prodtitle="
+              {% if size_item.metafields.custom.select_size_name != blank %}
+                {{ size_item.metafields.custom.select_size_name }}
+              {% else %}
+                {{ size_item.title }}
+              {% endif %}">
+              {% if size_item.metafields.custom.select_size_name != blank %}
+                {{ size_item.metafields.custom.select_size_name }}
+              {% else %}
+                {{ size_item.title }}
+              {% endif %}
+              -
+              {% if size_item.handle == product.handle %}
+                {{ current_variant.price | money_without_trailing_zeros }}
+              {% else %}
+                {{ size_item.price | money_without_trailing_zeros }}{% endif %}
+            </option>
+          {%- endfor -%}
         </select>
       </div>
     </div>
-  {%- endif -%}
+  {% endif %}
 </section>

@@ -29,24 +29,45 @@ function updateProductURLs(productContainer, options, multiple = false, earlyAcc
     });
 }
 
+function handlePreorderLabels(productContainer, option, location) {
+    let preorderLabels = productContainer.querySelectorAll('.product-label--preorder');
+    preorderLabels.forEach(preorderLabel => preorderLabel.classList.remove('product-label--active'));
+
+    if(option.getAttribute('data-available') != 'false') {
+        let preorder = false;
+        if(option.hasAttribute('data-preorder')) preorder = option.getAttribute('data-preorder');
+
+        if(preorder) {
+            if(location == 'pdp') productContainer.closest('.pdp__grid, .qv__body').setAttribute('data-status', 'preorder');
+
+            preorderLabels.forEach(preorderLabel => {
+                preorderLabel.classList.add('product-label--active');
+                preorderLabel.querySelector('.preorder-date').innerHTML = preorder;
+            });
+        } else if(location == 'pdp') productContainer.closest('.pdp__grid, .qv__body').setAttribute('data-status', 'default');
+    }
+}
+
 function variantUpdateProcess(target) {
     if(window.location.pathname.includes('product')) {
         changeBadgeAbsolutePosition(); // defined on pdp.js
     }
     const productContainer = target.closest('.product-unit, .shopify-product-form');
     
+    
     if(!productContainer) return;
-
+    
     const select = productContainer.querySelector('.variant-select');
     if(!select) return;
-
+    
     const hasSizeSelector = productContainer.querySelector('.product-unit__sizes') ? true: false;
     let location = false;
     if(productContainer.classList.contains('product-unit')) location = 'unit';
     else if(productContainer.classList.contains('shopify-product-form')) location = 'pdp';
-
+    
     let [options, multiple] = getProductOptionsList(productContainer, location);
     
+
     let option = false,
         selector = `option`;
     if(location == 'unit' && options.length > 1) {
@@ -87,13 +108,21 @@ function variantUpdateProcess(target) {
     
     const optionalLabels = productContainer.closest('.product-unit, .pdp__grid, .qv__body').querySelectorAll('.product-label[data-options]');
     optionalLabels.forEach(optionalLabel => {
-        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { optionalLabel.classList.add('product-label--active');
+        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { 
+            optionalLabel.classList.add('product-label--active');
+            
+            if (optionalLabel.classList.contains('product-label--badge')) {
+                optionalLabel.classList.add('badge-active');
+            }
             
             if(optionalLabel.classList.contains('product-label--extra-sale')) {
                 productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.add('extra-sale-active');
             }
         } else {
             optionalLabel.classList.remove('product-label--active');
+            if (optionalLabel.classList.contains('product-label--badge')) {
+                optionalLabel.classList.remove('badge-active');
+            }
             
             if(optionalLabel.classList.contains('product-label--extra-sale')) {
                 productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.remove('extra-sale-active');
@@ -101,11 +130,26 @@ function variantUpdateProcess(target) {
         }
     });
 
+    handlePreorderLabels(productContainer, option, location);
+
     if(location == 'unit') {
         const img = option.getAttribute('data-image');
         
-        if(option.getAttribute('data-available') == 'false') productContainer.classList.add('product-unit--na');
-        else productContainer.classList.remove('product-unit--na');
+        if(option.getAttribute('data-available') == 'false') {
+            productContainer.classList.add('product-unit--na')
+            if(
+                option.getAttribute(`data-soldout-all-variants`) === true ||
+                option.getAttribute(`data-soldout-this-variant`) === true 
+            ) {
+                productContainer.classList.add('product-unit--so')
+            } else {
+                productContainer.classList.add('product-unit--jw')
+            }
+        } else {
+            productContainer.classList.remove('product-unit--na');
+            productContainer.classList.remove('product-unit--so')
+            productContainer.classList.remove('product-unit--jw')
+        }
         
         try {
         productContainer.querySelector('.product-unit__price').innerHTML = formatedPrice;
@@ -141,9 +185,6 @@ function variantUpdateProcess(target) {
         const ytPoints = pdpGrid.querySelectorAll('.yt-points');
         ytPoints.forEach(ytPoint => ytPoint.innerHTML = Math.floor(price / 100));
 
-        let preorderLabels = productContainer.querySelectorAll('.product-label--preorder');
-        preorderLabels.forEach(preorderLabel => preorderLabel.classList.remove('product-label--active'));
-
         if(option.getAttribute('data-available') == 'false') {
             pdpGrid.setAttribute('data-status', 'sold-out');
 
@@ -154,25 +195,11 @@ function variantUpdateProcess(target) {
                 if(pdpGrid.matches(`[data-soldout~=${options[0]}]`)) pdpGrid.classList.add('pdp__grid--soldout');
                 else pdpGrid.classList.remove('pdp__grid--soldout');
             }
-        } else {
-            let preorder = false;
-            if(option.hasAttribute('data-preorder')) preorder = option.getAttribute('data-preorder');
-
-            if(preorder) {
-                pdpGrid.setAttribute('data-status', 'preorder');
-
-                preorderLabels.forEach(preorderLabel => {
-                    preorderLabel.classList.add('product-label--active');
-                    preorderLabel.querySelector('.preorder-date').innerHTML = preorder;
-                });
-            } else {
-                pdpGrid.setAttribute('data-status', 'default');
-            }
         }
 
         const qty = option.getAttribute('data-qty');
         const stock = pdpInfo.querySelector('.pdp__stock');
-        if(qty) {
+        if(qty > 0 && qty <= 10) {
             stock.querySelector('span').innerHTML = qty;
             stock.classList.add('pdp__stock--active');
         } else stock.classList.remove('pdp__stock--active');
@@ -197,7 +224,8 @@ function variantUpdateProcess(target) {
         });
 
         pdpGalleryUpdate(pdpGrid, option, isQuickView);
-
+        pdpSizePriceUpdate(option);
+        
         if(!isQuickView) {
             pdpHandleUpsell(option);
             pdpHandleDescriptions(pdpInfo, option);
@@ -205,4 +233,16 @@ function variantUpdateProcess(target) {
             pdpUpdateURL(product, options);
         }
     }
+}
+
+async function selectThisColorSwatch(colorSwatch) {
+    if(typeof variantUpdateProcess == 'undefined') {
+        await loadScript(scripts.variants);
+    }
+
+    const actives = colorSwatch.closest('.swatches-container').querySelectorAll('.color-swatch--active');
+    actives.forEach( active => active.classList.remove('color-swatch--active') );
+    colorSwatch.classList.add('color-swatch--active');
+
+    variantUpdateProcess(colorSwatch);
 }

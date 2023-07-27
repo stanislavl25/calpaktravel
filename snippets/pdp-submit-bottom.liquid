@@ -1,7 +1,4 @@
 <div class="pdp__submit-bottom">
-    <div class="pdp__stock{% if current_variant.inventory_quantity <= 10 and current_variant.inventory_policy == 'deny' %} pdp__stock--active{% endif %}">
-        <span>{{ current_variant.inventory_quantity }}</span> In Stock
-    </div>
     <div class="pdp__payments{% if current_variant.price <= 5000 %} pdp__payments--limit{% endif %}">
         <span>
             4 easy payments

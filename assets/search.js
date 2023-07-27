@@ -25,7 +25,14 @@ const seachSynonymsTerms = [
     'baby',
     'hatbox',
     'passport',
-    'toiletries'
+    'toiletries',
+    'back',
+    'leopard',
+    'sunglasses',
+    'underseat',
+    'under seat',
+    'checked',
+    'bestsellers'
 ];
 const seachSynonymsValues = [
     'lavender',
@@ -44,7 +51,14 @@ const seachSynonymsValues = [
     'luka duffel',
     'baye',
     'kaya wallet',
-    'toiletry'
+    'toiletry',
+    'backpack',
+    'animal print leopard',
+    'Travel Accessories Case',
+    'mini',
+    'mini',
+    'Checked Luggage',
+    'best'
 ];
 
 let searchInput = document.querySelectorAll('.search-input');
@@ -392,6 +406,13 @@ function fillSearchProducts(results, container, search, color_search, ambiguity,
             const searchNums = container.querySelectorAll('.search-num');
             searchNums.forEach(searchNum => searchNum.innerHTML = products_found);
             container.setAttribute('data-status', 'results');
+
+            // Send GTM search event
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event' : 'search',
+                'search_term' : search
+            });
         }
     }
 }
@@ -520,6 +541,40 @@ function searchProcessQuery(split) {
 
     if(similarity2('makeup', unsplited) >= 0.95) {
         split = ['cosmetics', 'hat', 'toiletry'];
+        or = true;
+    }
+    if(similarity2('under seat', unsplited) >= 0.95) {
+        split = ['underseat'];
+        or = true;
+    }
+
+    if(similarity2('bestsellers', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    if(similarity2('bestseller', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    if(similarity2('best sellers', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    
+    if(similarity2('best seller', unsplited) >= 0.95) {
+        split = ['best'];
+        or = true;
+    }
+    if(similarity2('faq', unsplited) >= 0.95) {
+        split = ['Frequently Asked Questions'];
+        or = true;
+    }
+    if(similarity2('summer arrivals', unsplited) >= 0.95) {
+        split = ['new arrivals'];
+        or = true;
+    }
+    if(similarity2('Merch', unsplited) >= 0.95) {
+        split = ['merchandising'];
         or = true;
     }
 

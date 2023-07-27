@@ -85,11 +85,35 @@
     "222feffe-9c48-4fc5-9d3c-ad6b1a20b55a": {
       "type": "faq-category",
       "blocks": {
+        "97940945-5e88-4c83-b0e0-1124296292c0": {
+          "type": "faq",
+          "settings": {
+            "title": "What’s a VIT?",
+            "answer": "<p>VIT stands for Very Important Traveler. When you join our exclusive VIT Rewards Program, we reward you for traveling and spreading the word about CALPAK along the way. <\/p>",
+            "hide": false
+          }
+        },
         "21cf3361-61c5-4894-9700-4b22031646f6": {
           "type": "faq",
           "settings": {
             "title": "What do I get for joining?",
-            "answer": "<p>First of all, you get $5 just for signing up—need we say more? But that’s not the only VIT perk. Here are more:<\/p><ul><li>You’ll also be the first to know about all of our sales<\/li><li>Get a special birthday gift<\/li><li>Earn points (points = $) just for following us on our social channels<\/li><li>Leave a review and we’ll give you $<\/li><li>Earn 1 point for every $1 you spend<\/li><li>Receive $25 every time you successfully refer a friend.<\/li><\/ul><p>It’s basically the easiest money you’ve ever made.<\/p>",
+            "answer": "<p>We're glad you asked! First of all, you get $5 *just* for signing up—need we say more? Depending on your VIT tier, you will receive different perks and rewards. <\/p><p>Regardless of which tier you fall into, you will get the following perks:<\/p><ul><li>Be the first to know about all our future sales and promotions<\/li><li>Earn points for every dollar spent<\/li><li>A very special birthday gift<\/li><li>An anniversary gift<\/li><li>Receive $25 worth of VIT points every time you successfully refer a friend.<\/li><\/ul><p>*Please note: VIT points can not be earned when purchasing a CALPAK gift card.<\/p><p>Why not earn while you travel the world?<\/p>",
+            "hide": false
+          }
+        },
+        "3232ac63-2f34-47df-86b8-b2df51840cca": {
+          "type": "faq",
+          "settings": {
+            "title": "What is the difference between VIT tiers?",
+            "answer": "<p>We have three different VIT tiers: Explorer, Voyager, and Jetsetter. Click this <a href=\"https:\/\/www.calpaktravel.com\/pages\/rewards\"><span style=\"text-decoration:underline\">link here<\/span><\/a> to be redirected to our VIT homepage. From there, you can see the different tiers and all the exciting perks and rewards associated with each one. <\/p>",
+            "hide": false
+          }
+        },
+        "7d001a4e-ce37-4255-912a-df90d17f38d6": {
+          "type": "faq",
+          "settings": {
+            "title": "Do I have to wait until the end of the year to be promoted to a new VIT tier?",
+            "answer": "<p>Not at all! Once you reach the threshold for the next VIT tier, you will stay in that tier for one year from that date. You can immediately take advantage of the perks of that new tier.<\/p>",
             "hide": false
           }
         },
@@ -97,15 +121,7 @@
           "type": "faq",
           "settings": {
             "title": "Can I combine my offers?",
-            "answer": "<p>Unfortunately, you can’t use a promo code and your reward points at the same time. But, good news! You <em>can<\/em> combine all of your reward points and use them at once.<\/p>",
-            "hide": false
-          }
-        },
-        "97940945-5e88-4c83-b0e0-1124296292c0": {
-          "type": "faq",
-          "settings": {
-            "title": "What’s a VIT?",
-            "answer": "<p>A VIT is a Very Important Traveler. When you join the VIT Club, we reward you for traveling and spreading the word about CALPAK. Get ready for a special birthday gift, exclusive events, first access to sales, referral credits, and more.<\/p>",
+            "answer": "<p>Unfortunately, you can’t use a promo code and your reward points at the same time. But, good news! You can combine all of your reward points and use them at once—so start saving those points ASAP!<\/p>",
             "hide": false
           }
         },
@@ -113,7 +129,7 @@
           "type": "faq",
           "settings": {
             "title": "Do points expire?",
-            "answer": "<p>Your points expire after 2 years after once they're earned leaving you ample time to use your points!<\/p>",
+            "answer": "<p>VIT points expire after your VIT account has been inactive for 2 years. To clarify, inactivity means there has been no CALPAK purchase associated with your VIT account two years after your last purchase. Feel free to reach out to <a href=\"mailto:help@calpaks.com\"><span style=\"text-decoration:underline\">help@calpaks.com<\/span><\/a> for further information.<\/p>",
             "hide": false
           }
         },
@@ -121,7 +137,7 @@
           "type": "faq",
           "settings": {
             "title": "Where do I check how many points I have?",
-            "answer": "<p>It’s easy—just log into your account and go to the rewards tab. You have to be signed in if you want to redeem your points.<\/p>",
+            "answer": "<p>Simply log into your account and go to the rewards tab. To redeem your points, you must be signed in.<\/p>",
             "hide": false
           }
         },
@@ -129,7 +145,7 @@
           "type": "faq",
           "settings": {
             "title": "How many points can I use on my order?",
-            "answer": "<p>You can use as many points as you'd like! Please note, VIT points cannot be used to redeem shipping costs. If your order total goes below our threshold for free standard shipping, you will be charged our shipping fee.<\/p>",
+            "answer": "<p>Once your order goes above the $50, you can use as many points as you like on your order. Please note, if you redeem your VIT points and your order total goes below the minimum threshold for free shipping, you will need to pay the cost of shipping. Unfortunately, VIT points cannot be applied to shipping costs.<\/p>",
             "hide": false
           }
         },
@@ -145,7 +161,7 @@
           "type": "faq",
           "settings": {
             "title": "Why aren’t my points showing up?",
-            "answer": "<p>It takes up to 24 hours for your points to show up. Didn’t get a confirmation email from us? Try checking your spam.<\/p><p><\/p><p>*Please note birthdays must be shared 30 days prior to the date.  If your birthday falls within the next 30 days, please reach out to our customer service team at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, and we're happy to help you add your birthday to our system!<\/p>",
+            "answer": "<p>It takes up to 24 hours for your points to show up. Didn’t get a confirmation email from us? Try checking your spam.<\/p><p><\/p><p>*Please note birthdays must be shared 30 days prior to the date.  If your birthday falls within the next 30 days, please reach out to our customer service team at <a href=\"mailto:help@calpaks.com\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a>, and we're happy to help you add your birthday to our system! Oh, and happy birthday—by the way!<\/p>",
             "hide": false
           }
         },
@@ -153,7 +169,7 @@
           "type": "faq",
           "settings": {
             "title": "What makes a successful referral?",
-            "answer": "<p>When whoever you refer to CALPAK makes a purchase of $150 or more, you’ll get a $25 credit. Please note that it may take some time to show up in your rewards account. If it’s been over 24 hours, then contact us. There’s no limit to how many people you refer, so keep spreading the word and earning credit!<\/p>",
+            "answer": "<p>When the person you refer to CALPAK makes a purchase of $150 or more, you’ll get a $25 worth of VIT points added to your account. Please note, it may take up to 48 hours for the points to be available on your account. If it’s been over 48 hours, then feel free to contact us. There’s no limit to how many people you refer, so keep spreading the word and earning credit! Giving is receiving!<\/p>",
             "hide": false
           }
         },
@@ -161,7 +177,7 @@
           "type": "faq",
           "settings": {
             "title": "What if I forgot my password?",
-            "answer": "<p>Oh no! We can help with that. Head over to the account page and hit 'forgot password.” Enter your email and you’ll receive an email shortly after to update your password.<\/p>",
+            "answer": "<p>It happens to the best of us, but don't worry, it's easy to fix! Head over to the account page and hit \"forgot password.\" Enter your email and you’ll receive an email shortly after with the option to update your password.<\/p>",
             "hide": false
           }
         },
@@ -175,9 +191,11 @@
         }
       },
       "block_order": [
-        "21cf3361-61c5-4894-9700-4b22031646f6",
-        "7fa674fa-915f-419c-b704-fd35047bba33",
         "97940945-5e88-4c83-b0e0-1124296292c0",
+        "21cf3361-61c5-4894-9700-4b22031646f6",
+        "3232ac63-2f34-47df-86b8-b2df51840cca",
+        "7d001a4e-ce37-4255-912a-df90d17f38d6",
+        "7fa674fa-915f-419c-b704-fd35047bba33",
         "4b71f991-7214-4e29-8783-0d2486ac13dd",
         "9e6fdf8a-1ce3-4e07-a3ab-7b345446527c",
         "3e5a057d-c631-4113-b7c2-feb328c884f8",

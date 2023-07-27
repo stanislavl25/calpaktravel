@@ -8,6 +8,12 @@
     z-index: 2;
 }
 
+/* body.modal-open #shopify-section-promo-bar {
+    display: none;
+    transition: .2s ease;
+ } */
+
+
 @media (min-width: 1728px) {
     .menu-popup.menu-popup--shop {
         height: auto;
@@ -251,7 +257,7 @@
 }
 
 .menu-popup__main .menu > li:not(:first-child) li:last-child {
-    font-weight: var(--font-body-weight-black);
+    text-decoration: underline;
 }
 
 .menu-popup__main::-webkit-scrollbar {
@@ -300,4 +306,9 @@
     .menu-popup--shop .menu-side .product-slider {
         border-top: 0;
     }
+}
+
+/* Hide hot deals badge in nav */
+.menu-popup__content .product-label--active {
+    display: none!important;
 }

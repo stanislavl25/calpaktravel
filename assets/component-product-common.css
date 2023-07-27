@@ -14,7 +14,7 @@
 }
 .product-label:not(.product-label--active).product-label--preorder,
 .product-label:not(.product-label--active)[data-options] {
-    display: none;
+    display: none!important;
 }
 
 .product-label {
@@ -164,6 +164,7 @@
 
 .product-unit__title a {
     text-decoration: none;
+    font-weight: var(--font-body-weight);
 }
 
 .product-unit--na .product-label.product-label--promo,
@@ -228,7 +229,9 @@
 .color-swatch--first {
     order: -1;
 }
-
+a.color-swatch.slide.color_mutiple {
+    order: 25;
+}
 
 .product-label--disclaimer {
     color: var(--product-disclaimer-text);
@@ -282,5 +285,9 @@ div.product-label.product.label--memorial-day label {
         color: white;
         height: 25px;
         display: block!important;
+    }
+
+    .product-unit__title a {
+        font-size: 14px;
     }
 }
