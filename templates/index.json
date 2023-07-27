@@ -50,72 +50,149 @@
         "display-menu": true
       }
     },
-    "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
-      "type": "scrollable-menu",
+    "9a46d065-1a77-4b95-ba73-e9bf4d14e72a": {
+      "type": "hero",
+      "disabled": true,
       "blocks": {
-        "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
-          "type": "collection",
+        "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
+          "type": "text-block",
+          "disabled": true,
           "settings": {
-            "collection": "best-sellers",
-            "title": ""
+            "title": "FREE gift with our 3-Piece Luggage Sets",
+            "description": "<p>For a limited time, pick any gift you like (up to $98 value) when you buy a 3-Piece Luggage Set.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
+            "main-link": "shopify:\/\/collections\/3-piece-luggage-sets",
+            "button-text": "Shop Now",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "show-condition": "always",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
           }
         },
-        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
-          "type": "collection",
+        "a17da66f-28b0-45ff-8e34-f875358fe7d4": {
+          "type": "media-block",
+          "disabled": true,
           "settings": {
-            "collection": "sale",
-            "title": ""
+            "image": "shopify:\/\/shop_images\/HERO_GWP_DESKTOP-1.gif",
+            "image-mobile": "shopify:\/\/shop_images\/HERO_GWP_MOBILE-1.gif",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/3-piece-luggage-sets",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "desktop",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
           }
         },
-        "1a9f7649-d924-4b41-be44-f921b6e301dc": {
-          "type": "collection",
+        "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271": {
+          "type": "media-block",
+          "disabled": true,
           "settings": {
-            "collection": "luggage",
-            "title": ""
-          }
-        },
-        "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce": {
-          "type": "collection",
-          "settings": {
-            "collection": "carry-on-luggage",
-            "title": "Carry-On"
-          }
-        },
-        "b4f87340-14ff-4b77-aa89-5840cb4efcc2": {
-          "type": "collection",
-          "settings": {
-            "collection": "checked-in-luggage",
-            "title": "Checked"
-          }
-        },
-        "69fb0fb6-9c79-400a-bb23-2f808700224d": {
-          "type": "collection",
-          "settings": {
-            "collection": "bags",
-            "title": ""
+            "image": "shopify:\/\/shop_images\/HERO_GWP_DESKTOP-2.gif",
+            "image-mobile": "shopify:\/\/shop_images\/HERO_GWP_MOBILE-1.gif",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/3-piece-luggage-sets",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "mobile",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
           }
         }
       },
       "block_order": [
-        "5c9b298a-373d-4e25-ba9f-69fd566cd278",
-        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
-        "1a9f7649-d924-4b41-be44-f921b6e301dc",
-        "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
-        "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
-        "69fb0fb6-9c79-400a-bb23-2f808700224d"
+        "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9",
+        "a17da66f-28b0-45ff-8e34-f875358fe7d4",
+        "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271"
       ],
       "settings": {
-        "display-menu": true
+        "hero-height": "limited",
+        "height-limit": 100,
+        "enable-sticky-promo": false,
+        "promo-text": "",
+        "promo-link": "",
+        "close-color-scheme": "white"
+      }
+    },
+    "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
+      "type": "hero",
+      "blocks": {
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
+          "type": "text-block",
+          "settings": {
+            "title": "Last Chance: Travel More Sale",
+            "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
+            "main-link": "shopify:\/\/collections\/sale",
+            "button-text": "Shop Now",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "show-condition": "always",
+            "text-alignment": "center",
+            "text-color-scheme": "black",
+            "background": "#e4dfd5"
+          }
+        },
+        "05c1be71-e898-478e-adad-1b2271f72d07": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/TMS.gif",
+            "image-mobile": "shopify:\/\/shop_images\/Frame_1-11.png",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/sale",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": false,
+            "show-screens": "desktop",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        },
+        "488d30f2-0c2e-491b-88cc-600019715197": {
+          "type": "media-block",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_1-11.png",
+            "video": "",
+            "main-link": "shopify:\/\/collections\/sale",
+            "title": "",
+            "description": "",
+            "button-text": "",
+            "add-link-to-button-only": true,
+            "show-screens": "all",
+            "text-color-scheme": "white",
+            "text-alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
+        "05c1be71-e898-478e-adad-1b2271f72d07",
+        "488d30f2-0c2e-491b-88cc-600019715197"
+      ],
+      "settings": {
+        "hero-height": "limited",
+        "height-limit": 105,
+        "enable-sticky-promo": false,
+        "promo-text": "•Trnk Collection Live Now",
+        "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
+        "close-color-scheme": "white"
       }
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
-            "title": "Art of Packing",
-            "description": "<p>Shop organizers for your summer travels<\/p>",
+            "title": "Master the art of packing this summer",
+            "description": "<p>Shop organizers for your summer vacation including packing cubes, cosmetic cases and more. <\/p>",
             "main-link": "shopify:\/\/collections\/organizers",
             "button-text": "Shop Organizers",
             "add-link-to-button-only": true,
@@ -128,6 +205,7 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-5_1.jpg",
             "video": "",
@@ -143,6 +221,7 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2_1.jpg",
             "video": "",
@@ -168,73 +247,6 @@
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
-        "close-color-scheme": "white"
-      }
-    },
-    "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
-      "type": "hero",
-      "disabled": true,
-      "blocks": {
-        "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
-          "type": "text-block",
-          "disabled": true,
-          "settings": {
-            "title": "Get back at it!",
-            "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.  <\/p>",
-            "main-link": "shopify:\/\/collections\/back-to-school",
-            "button-text": "Shop Now",
-            "add-link-to-button-only": true,
-            "show-screens": "all",
-            "show-condition": "always",
-            "text-alignment": "center",
-            "text-color-scheme": "black",
-            "background": "#e4dfd5"
-          }
-        },
-        "05c1be71-e898-478e-adad-1b2271f72d07": {
-          "type": "media-block",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_cb19f67a-21f6-4c8b-92e1-4aabd50a2bde.jpg",
-            "video": "",
-            "main-link": "shopify:\/\/collections\/back-to-school",
-            "title": "",
-            "description": "",
-            "button-text": "",
-            "add-link-to-button-only": false,
-            "show-screens": "desktop",
-            "text-color-scheme": "white",
-            "text-alignment": "center"
-          }
-        },
-        "488d30f2-0c2e-491b-88cc-600019715197": {
-          "type": "media-block",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235177_9aa04390-3a2a-48da-b0e1-0d5b00196232.jpg",
-            "video": "",
-            "main-link": "shopify:\/\/collections\/back-to-school",
-            "title": "",
-            "description": "",
-            "button-text": "",
-            "add-link-to-button-only": true,
-            "show-screens": "all",
-            "text-color-scheme": "white",
-            "text-alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "ee068b0d-f69b-4136-8fef-be3ec21f588f",
-        "05c1be71-e898-478e-adad-1b2271f72d07",
-        "488d30f2-0c2e-491b-88cc-600019715197"
-      ],
-      "settings": {
-        "hero-height": "limited",
-        "height-limit": 105,
-        "enable-sticky-promo": false,
-        "promo-text": "•Trnk Collection Live Now",
-        "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
         "close-color-scheme": "white"
       }
     },
@@ -439,6 +451,42 @@
         "autoslide": 3
       }
     },
+    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
+      "type": "promo-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Ambeur Collection",
+        "description": "",
+        "quick-view": true,
+        "product-labels": false,
+        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1372_6c72ff0e-c237-424c-afdf-a9528ed74b74.jpg",
+        "video": "",
+        "media-link": "",
+        "pictured-product": "ambeur-front-pocket-carry-on-luggage",
+        "pictured-product-quick-view": true,
+        "pictured-product-override": "",
+        "pictured-product-title": "Ambeur Front Pocket Carry-On",
+        "button-text": "Shop Now",
+        "button-quick-view": false,
+        "button-link": "shopify:\/\/collections\/ambeur-collection",
+        "background": "#ff6b0e",
+        "text-color": "{{ shop.brand.colors.primary[1].background }}",
+        "accent-color": "#ffffff",
+        "pictured-product-display": "top",
+        "featured-collection": "",
+        "collection-limit": 0,
+        "show-view-all": true,
+        "product_list": [
+          "ambeur-vanity-case",
+          "ambeur-mini-carry-on-luggage",
+          "ambeur-front-pocket-carry-on-luggage",
+          "ambeur-carry-on-luggage",
+          "ambeur-medium-luggage",
+          "ambeur-large-luggage"
+        ],
+        "columns": "3"
+      }
+    },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
       "settings": {
@@ -459,37 +507,6 @@
         "background": "#ff6b0e",
         "text-color": "#000000",
         "accent-color": "#000000",
-        "pictured-product-display": "top",
-        "featured-collection": "summer-arrivals",
-        "collection-limit": 6,
-        "show-view-all": false,
-        "product_list": [
-
-        ],
-        "columns": "3"
-      }
-    },
-    "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
-      "type": "promo-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Explore Our New Arrivals",
-        "description": "",
-        "quick-view": true,
-        "product-labels": true,
-        "image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION0999.jpg",
-        "video": "",
-        "media-link": "shopify:\/\/collections\/summer-arrivals",
-        "pictured-product": "",
-        "pictured-product-quick-view": false,
-        "pictured-product-override": "",
-        "pictured-product-title": "",
-        "button-text": "Shop Now",
-        "button-quick-view": false,
-        "button-link": "shopify:\/\/collections\/summer-arrivals",
-        "background": "#ff6b0e",
-        "text-color": "{{ shop.brand.colors.primary[1].background }}",
-        "accent-color": "#ffffff",
         "pictured-product-display": "top",
         "featured-collection": "summer-arrivals",
         "collection-limit": 6,
@@ -561,7 +578,7 @@
             "title": "Packing Cubes Forever!",
             "description": "<p>Packing cubes come in all shapes and sizes—let's find the right ones for you.<\/p>",
             "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/compression-packing-cubes",
+            "pictured_product": "shopify:\/\/products\/medium-compression-packing-cubes",
             "product_title": "Compression Packing Cubes",
             "image": "shopify:\/\/shop_images\/Packing_Cubes.jpg",
             "video": "",
@@ -604,11 +621,12 @@
     "25d29c3d-398d-4bf7-ba9d-56c564639e61",
     "9a46d065-1a77-4b95-ba73-e9bf4d14e72a",
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
+    "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
     "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
     "951d1a57-9c08-4431-a932-aafbc04369f5",
-    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
+    "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "1645aa0b-1a41-4be9-906e-35c475633190",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
     "5a6f5490-2467-4517-8d4e-1b098c285ad9"
