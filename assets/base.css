@@ -821,7 +821,6 @@ body.swym-modal-active:not(.modal-open) {
   display: none;
 }
 .product-unit__colors--quickadd {
-  margin-top: auto;
   margin-bottom: 10px;
 }
 #shopify-section-promo-bar {
@@ -1042,4 +1041,10 @@ span.shipping-custom-msg {
 
 .product-unit__reviews {
   display: none!important;
+}
+.sale-badge-wrapper {
+  margin-top: auto;
+}
+.sale-badge-wrapper p {
+  margin: 0;
 }
