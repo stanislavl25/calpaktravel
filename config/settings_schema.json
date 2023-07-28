@@ -156,6 +156,17 @@
     "name": "Final Sale",
     "settings": [
       {
+        "type": "header",
+        "content": "Final sale"
+
+      },
+      {
+        "type": "checkbox",
+        "id": "final-sale-text",
+        "label": "Enable Final Sale Text",
+        "default": true
+      },
+      {
         "type": "color",
         "id": "final-sale-highlight-col",
         "label": "Final sale highlight",
@@ -175,7 +186,7 @@
       },
       {
         "type": "header",
-        "content": "No additional discount"
+        "content": "Eligible for additional discount"
       },
       {
         "type": "checkbox",
