@@ -506,6 +506,14 @@
   align-self: center;
 }
 
+.cart__courtesy-banner-disclaimer {
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  width: 100%;
+  margin-top: -30px;
+}
+
 .cart__footer-total {
   line-height: 1.5em;
 }
@@ -1025,6 +1033,10 @@ border-radius: 8px;
   .cart__courtesy-banner-text {
     font-size: 14px;
     padding: 12px 12px 12px 18px;
+  }
+
+  .cart__courtesy-banner-disclaimer {
+    margin-top: -10px;
   }
 }
 

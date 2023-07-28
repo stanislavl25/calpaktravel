@@ -66,73 +66,89 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
     });
 }
 
-function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeSelectProductQuickView = false) {
-    const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
-    const productTypes = ['Mini Carry-On', 'Front Pocket Carry-On', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
-    let foundTypes = [];
+function pdpCreateSizeSelect(variantsizeEl, createTypeSelectProduct, createTypeSelectProductQuickView = false){
     quickView = createTypeSelectProductQuickView;
     product = createTypeSelectProduct;
-    fetch(`/collections/${pdpFeaturedCollection}/products.json`)
-    .then(response => response.json())
-    .then(data => {
-        let selectedAssigned = false;
-        let added = [];
-        for(let j = 0; j < productTypes.length; j++) {
-            let selected = false;
-            if(selectedAssigned === false && product.title.indexOf(productTypes[j]) > -1) {
-                selectedAssigned = true;
-                selected = true;
-            }
-
-            for(let i = 0; i < data.products.length; i++) {
-                let prod = data.products[i];
-                if(prod.title.indexOf(productTypes[j]) > -1 && added.indexOf(prod.handle) === -1) {
-                    let correctVariantPrice;  
-                    
-                    if(prod.handle === product.handle) {
-                        // getting the variantion selectedAssigned
-                        if(quickView) {
-                            correctVariantPrice = prod.variants.find((variant) => variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())?.price || prod.variants[0].price;
-                        } else {
-                            correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))?.price || prod.variants[0].price;
-                        }
-                    } else {
-                        correctVariantPrice = prod.variants[0].price
-                    }
-                    foundTypes.push([
-                        productTypes[j],
-                        prod.handle,
-                        correctVariantPrice,
-                        prod.id == product.id
-                    ]);
-                    added.push(prod.handle);
-                    break;
-                }
-            }
+    const ProductId = variantsizeEl.getAttribute('data-productId');
+    const select = variantsizeEl.querySelector('select');
+    select.addEventListener('change', (e) => {
+        const productForm = variantsizeEl.closest('.shopify-product-form');
+        const options = getProductOptionsList(productForm, 'pdp');
+        let url = `/products/${e.target.value}`;
+        // Get the selected option from the select element
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        let getvarianthandle = selectedOption.getAttribute('data-producthandle');
+        if(quickView === false) {
+            location.href = url + '/' + getvarianthandle;
+        } else {
+            getQuickView(url, getvarianthandle);
         }
-
-        const select = variantTypeEl.querySelector('select');
-        let selectOptions = '';
-        foundTypes.forEach(foundType => {
-            selectOptions += `<option ${foundType[3]?'selected':''} value="${foundType[1]}">${foundType[0]} - ${formatPrice(foundType[2])}</option>`;
-        });
-
-        select.innerHTML = selectOptions;
-        select.classList.add('select__wrapper--pdp-active');
-
-        select.addEventListener('change', (e) => {
-            const productForm = variantTypeEl.closest('.shopify-product-form');
-            const options = getProductOptionsList(productForm, 'pdp');
-            let url = `/products/${e.target.value}`;
-            
-            if(quickView === false) {
-                location.href = url + '/' + options[0];
-            } else {
-                getQuickView(url, options[0]);
-            }
-        });
     });
 }
+
+async function pdpSizePriceUpdate(option) {
+    const selectedColor = option.getAttribute('data-option1');
+    const sizeOptions = document.querySelectorAll('.pdp__variant-size select option');
+  
+    for (const sizeOption of sizeOptions) {
+      const value = sizeOption.value;
+      const productTitle = sizeOption.getAttribute('data-prodtitle');
+  
+      try {
+        const productInfo = await getProductOptions(value, selectedColor);
+        // Update the content of each option with the new product information
+        sizeOption.textContent = `${productTitle} - ${productInfo.price}`;
+        const producthandle = `${productInfo.title}`;
+        sizeOption.setAttribute('data-producthandle', producthandle);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+  
+  async function getProductOptions(handle, selectedColor) {
+    const productContent = await fetch(window.Shopify.routes.root + 'products/' + handle + '.js', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      return res.json();
+    });
+  
+    var productVariants = productContent.variants;
+    var defaultVariant = null; // Variable to store the default variant info
+  
+    for (const variant of productVariants) {
+        const originalString = variant.title;
+        const separatorIndex = originalString.indexOf(" / ");
+        let variantTitle;
+        if(separatorIndex >= 0){
+            variantTitle = originalString.slice(0, separatorIndex).toLowerCase().replace(/\s+/g, "-");
+        }else{
+            variantTitle = variant.title.toLowerCase().replace(/\s+/g, "-");
+        }
+      if (variantTitle === selectedColor && variant.available == true) {
+        return {
+          title: variantTitle,
+          price: formatPrice(variant.price / 100),
+        };
+      } else if (!defaultVariant) {
+        // Store the default variant info if no match found yet
+        defaultVariant = {
+          title: variantTitle,
+          price: formatPrice(variant.price / 100),
+        };
+      }
+    }
+  
+    // If no match found, return the default variant
+    if (defaultVariant) {
+      return defaultVariant;
+    }
+  
+    throw new Error("Variant not found for the selected color.");
+  }
 
 async function pdpFormSubmit(productForm, showCart = true) {
     const container = productForm.closest('.pdp__grid, .qv__body');
@@ -297,8 +313,8 @@ window.addEventListener("load", () => {
     });
 
     if(pdpGrid) {
-        let variantTypeEl = document.querySelector('.pdp__variant-type');
-        if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
+        let variantsizeEl = document.querySelector('.pdp__variant-size');
+        if(variantsizeEl) pdpCreateSizeSelect(variantsizeEl, product, quickView);
 
         const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
@@ -399,8 +415,8 @@ function setupGalleryMediaLimit(newMedia) {
 }
 
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
-    let variantTypeEl = document.querySelector('.pdp__variant-type');
-    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
+    let variantsizeEl = document.querySelector('.pdp__variant-size');
+    if(variantsizeEl) pdpCreateSizeSelect(variantsizeEl, product, quickView);
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
     const pdpThumbs = pdpGrid.querySelector('.pdp__gallery-thumbs, .qv__gallery-thumbs');
     const pdpGalleryInfo = pdpGrid.querySelector('.pdp__video-info');
