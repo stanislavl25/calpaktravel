@@ -101,12 +101,14 @@
     <div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
         {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
         {%- if unit == true -%}
-            {%- if settings.product-disclaimer -%}
+            {%- if settings.final-sale-text -%}
                 <strong>This item is Final Sale</strong>
             {%- endif -%}
         {%- else -%}
-            {%- if settings.product-disclaimer -%}
+            {%- if settings.final-sale-text -%}
                 <strong>This item is Final Sale</strong>
+            {%- endif -%}
+            {%- if settings.product-disclaimer -%}
                 <span>Not eligible for additional discount</span>
             {%- endif -%}
         {%- endif -%}

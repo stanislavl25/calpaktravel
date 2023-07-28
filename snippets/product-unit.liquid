@@ -110,7 +110,7 @@
         endfor
     endif
 
-    if settings.product-disclaimer == true
+    if settings.final-sale-text == true
         assign disclaimerTagHandle = settings.product-disclaimer-tag | handleize
         for tag in product.tags
             assign tagSpl = tag | split: ':'
