@@ -211,11 +211,11 @@
     "a4508bee-d891-4cfd-968a-c4c2cbf685f9": {
       "type": "banner",
       "settings": {
-        "title": "",
-        "text": "",
-        "button-text": "",
-        "link": "",
-        "link-for-button": false,
+        "title": "You earned points on this purchase!",
+        "text": "<p>Log in or sign up to see how many points you received.<\/p>",
+        "button-text": "Log In",
+        "link": "https:\/\/www.calpaktravel.com\/account\/login",
+        "link-for-button": true,
         "height": "image",
         "height-percent": 50,
         "text-alignment": "left",
