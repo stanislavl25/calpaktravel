@@ -207,6 +207,25 @@
       "settings": {
         "quick-view": false
       }
+    },
+    "a4508bee-d891-4cfd-968a-c4c2cbf685f9": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "text": "",
+        "button-text": "",
+        "link": "",
+        "link-for-button": false,
+        "height": "image",
+        "height-percent": 50,
+        "text-alignment": "left",
+        "text-color-scheme": "white",
+        "background": "#e4dfd5",
+        "query-match": true,
+        "yotpo": true,
+        "signed-in-button-text": "Redeem Your Points Now",
+        "signed-in-link": "shopify:\/\/collections\/all"
+      }
     }
   },
   "order": [
@@ -216,6 +235,7 @@
     "rebuy",
     "fairing",
     "58293d19-3672-4467-b344-458b29446b31",
-    "e1a88b84-9af4-4c4e-b72b-41478cc6a177"
+    "e1a88b84-9af4-4c4e-b72b-41478cc6a177",
+    "a4508bee-d891-4cfd-968a-c4c2cbf685f9"
   ]
 }
