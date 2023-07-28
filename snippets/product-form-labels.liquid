@@ -94,17 +94,21 @@
                         assign finalSale = tagSpl[1] | downcase | split: ';'
                     endif
                 endif
-                endfor
-            endif
+            endfor
+        endif
     -%}
     {%- if finalSale != false -%}
     <div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
         {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
         {%- if unit == true -%}
-        <strong>This item is Final Sale</strong>
+            {%- if settings.product-disclaimer -%}
+                <strong>This item is Final Sale</strong>
+            {%- endif -%}
         {%- else -%}
-        <strong>This item is Final Sale</strong>
-        <span>Not eligible for additional discount</span>
+            {%- if settings.product-disclaimer -%}
+                <strong>This item is Final Sale</strong>
+                <span>Not eligible for additional discount</span>
+            {%- endif -%}
         {%- endif -%}
     </div>
     {%- endif -%}
