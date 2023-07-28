@@ -13,6 +13,15 @@
     position: relative;
 }
 
+.swell-referral-content {
+    padding: 40px 17px 0;
+    text-align: center;
+}
+
+.swell-referral-content p {
+    margin: 16px 0 0 0;
+}
+
 .refer__content .ratio-container {
     position: static !important;
 }
