@@ -257,6 +257,13 @@
     z-index: 1;
 }
 
+.pdp__meta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
 @keyframes fadeUp {
     from {
       opacity: 0;
