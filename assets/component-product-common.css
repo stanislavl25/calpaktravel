@@ -14,7 +14,7 @@
 }
 .product-label:not(.product-label--active).product-label--preorder,
 .product-label:not(.product-label--active)[data-options] {
-    display: none;
+    display: none!important;
 }
 
 .product-label {
@@ -229,7 +229,9 @@
 .color-swatch--first {
     order: -1;
 }
-
+a.color-swatch.slide.color_mutiple {
+    order: 25;
+}
 
 .product-label--disclaimer {
     color: var(--product-disclaimer-text);
