@@ -137,6 +137,12 @@
         display: none!important;
     }
 
+    {% if settings.hot-deals-badge-enabled == false%}
+        .hot-deals-banner-wrapper .product-label--final {
+            display: none!important;
+        }
+    {% endif %}
+
     {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
         .hot-deals-text-container-top,
         .hot-deals-text .countdown-timer {
