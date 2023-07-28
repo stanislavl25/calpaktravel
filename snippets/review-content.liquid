@@ -37,18 +37,18 @@
         </div>
         {%- endif -%}
 
-        <a href="{{ product.url }}/reviews" class="review-slide__reviews">
+        <a href="{{ product.url }}#reviews-widget" class="review-slide__reviews">
         {% render 'star-rating' with block.settings.stars, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
         </a>
     </div>
-    
+
     <div class="review-slide__main">
         <div class="review-slide__review{% if block.settings.add-quotes %} review-slide__review--quotes{% endif %}">{{ block.settings.review }}</div>
         {%- if block.settings.name != blank -%}
         <div class="review-slide__author">&ndash; {{ block.settings.name | escape }}</div>
         {%- endif -%}
     </div>
-    
+
     <div class="review-slide__footer">
         {%- if block.settings.button-text != blank -%}
         <a href="{{ block.settings.button-link }}" class="button">

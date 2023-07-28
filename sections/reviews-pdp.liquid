@@ -1,0 +1,23 @@
+<div id="reviews-widget">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when '@app' %}
+        {% render block %}
+    {% endcase %}
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "PDP Reviews",
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Reviews"
+    }
+  ]
+}
+{% endschema %}
