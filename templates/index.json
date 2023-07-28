@@ -547,7 +547,7 @@
         "text-alignment": "center",
         "text-color-scheme": "white",
         "background": "#ff6b0e",
-        "query-match": true,
+        "query-match": false,
         "yotpo": false,
         "signed-in-button-text": "",
         "signed-in-link": ""
