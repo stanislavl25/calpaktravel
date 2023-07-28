@@ -95,7 +95,7 @@
         height: 74px;
         font-size: 14px;
         right: 11.01px;
-        top: calc(100% + -85.99px);
+        top: calc(100% - 84.99px);
         z-index: 6;
     }
 
@@ -134,7 +134,7 @@
     .hot-deals-text-container-top,
     .hot-deals-text .countdown-timer,
     .hot-deals-banner-wrapper .sale-badge-wrapper {
-        display: none;
+        display: none!important;
     }
 
     {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled%}
