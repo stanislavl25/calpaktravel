@@ -41,7 +41,7 @@
     "sale-badge-text-starter": "Special Offer",
     "sale-badge-hide-textog": false,
     "starter__customizer-badge": "#f7f177",
-    "hot-deals-badge-enabled": false,
+    "hot-deals-badge-enabled": true,
     "hot-deals-countdown-enabled": false,
     "hot-deals-ends": "July 27, 2023 12:09PM",
     "hot-deals-countdown-time": "24",
