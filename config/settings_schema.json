@@ -156,6 +156,17 @@
     "name": "Final Sale",
     "settings": [
       {
+        "type": "header",
+        "content": "Final sale"
+
+      },
+      {
+        "type": "checkbox",
+        "id": "final-sale-text",
+        "label": "Enable Final Sale Text",
+        "default": true
+      },
+      {
         "type": "color",
         "id": "final-sale-highlight-col",
         "label": "Final sale highlight",
@@ -175,7 +186,7 @@
       },
       {
         "type": "header",
-        "content": "No additional discount"
+        "content": "Eligible for additional discount"
       },
       {
         "type": "checkbox",
@@ -536,9 +547,23 @@
     "name": "Hot Deals Badge",
     "settings": [
       {
+        "type": "header",
+        "content": "Hot Deals Badge"
+      },
+      {
         "type": "checkbox",
         "id": "hot-deals-badge-enabled",
         "label": "Hot Deals Badge Enabled",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Hot Deals Countdown"
+      },
+      {
+        "type": "checkbox",
+        "id": "hot-deals-countdown-enabled",
+        "label": "Hot Deals Countdown Enabled",
         "default": true
       },
       {
@@ -546,6 +571,23 @@
         "id": "hot-deals-ends",
         "label": "End date\/time",
         "info": "Format: 'Month DD, YYYY hh:mmam\/pm'. All times should be in PDT."
+      },
+      {
+        "type": "select",
+        "id": "hot-deals-countdown-time",
+        "label": "Show countdown when",
+        "options": [
+          {
+            "value": "24",
+            "label": "less than 24 hours left"
+          },
+          {
+            "value": "48",
+            "label": "less than 48 hours left"
+          }
+        ],
+        "default": "24",
+        "info": "Only applies when countdown checkbox is enabled"
       }
     ]
   },

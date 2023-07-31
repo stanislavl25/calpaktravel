@@ -1,0 +1,7 @@
+.shopify-section--blog-text-feature {
+    margin: var(--section-gap) 0;
+}
+
+.shopify-section--blog-text-feature .blog-text-feature {
+    padding: calc(var(--gap) * 3) var(--gap);
+}
