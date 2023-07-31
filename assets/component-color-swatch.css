@@ -868,9 +868,11 @@ a.color-swatch--active::after {
 .color-group-orange {
     background: #F08247;
 }
-.hot-deals-banner-wrapper a.color-swatch.slide.hot-deal.show-hotdeal,.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal.show-hotdeal {
+.hot-deals-banner-wrapper a.color-swatch.slide.hot-deal.show-hotdeal,
+.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal.show-hotdeal {
     display: block;
 }
-.hot-deals-banner-wrapper a.color-swatch.slide.hot-deal,.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal {
+.hot-deals-banner-wrapper a.color-swatch.slide.hot-deal,
+.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal {
     display: none;
 }
