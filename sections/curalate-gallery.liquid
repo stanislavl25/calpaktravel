@@ -25,9 +25,12 @@
     </aside> {% endcomment %}
 </header>
 {% if template == 'collection'%}
-<div class="curalate-gallery_embed" data-crl8-container-id="gallery-zfEKaK3p"></div>
+    <div class="curalate-gallery_embed" data-crl8-container-id="{{ section.settings.gallery_id }}"></div>
+{% comment %} {% elsif template == 'page.gallery'%}
+    <h1>skdnakdnsddnsaldksandas</h1>
+    <div class="curalate-gallery_embed" data-crl8-container-id="{{ section.settings.gallery_id }}"></div> {% endcomment %}
 {% else %}
-<div class="curalate-gallery-container" crl8-container-id="product" crl8-filter="productId:'{{ product.selected_or_first_available_variant.sku }}'"></div>
+    <div class="curalate-gallery-container" crl8-container-id="product" crl8-filter="productId:'{{ product.selected_or_first_available_variant.sku }}'"></div>
 {% endif %}
 
 {% schema %}
