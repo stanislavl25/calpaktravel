@@ -55,6 +55,15 @@
 
 {%- endif -%}
 
+{% if template contains "product" %}
+    {%- if product.handle == "clear-luggage-cover" -%}
+        <div class="inlcudes-on-set unseen" style="display: none;">
+            <p class="variation-type-set set-of-2 display-none">Includes: Carry-On and Large Luggage covers</p>
+            <p class="variation-type-set set-of-3 display-none">Includes: Carry-On, Medium and Large covers</p>
+        </div>
+    {%- endif -%}
+{%- endif -%}
+
 {%- if collection.metafields.custom.show_final_sale == true or collection == blank or location == 'pdp' -%}
     {%- liquid
         assign opt1 = current_variant.option1 | handleize
@@ -73,7 +82,7 @@
                         assign finalSale = tagSpl[1] | downcase | split: ';'
                     endif
                 endif
-                
+
                 if disclaimerTagHandle == handle
                     if tagSpl.size == 1
                         assign disclaimer = true
@@ -97,6 +106,7 @@
                 endfor
             endif
     -%}
+
     {%- if finalSale != false -%}
     <div class="product-label product-label--final{% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
         {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
@@ -117,11 +127,3 @@
     {%- endif -%}
 {%- endif -%}
 
-{% if template contains "product" %}
-    {%- if product.handle == "clear-luggage-cover" -%}
-        <div class="inlcudes-on-set unseen">
-            <p class="variation-type-set set-of-2 display-none">Includes: Carry-On and Large Luggage covers</p>
-            <p class="variation-type-set set-of-3 display-none">Includes: Carry-On, Medium and Large covers</p>
-        </div>
-    {%- endif -%}
-{%- endif -%}

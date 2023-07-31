@@ -16,7 +16,7 @@ if(pdpJSON) {
 
     try {
         product = JSON.parse(pdpJSON.innerHTML);
-        
+
         setProductData(product, productMeta, document.querySelector('.pdp__variants'), pdpJSON.getAttribute('data-current-variant'));
     } catch( e ) {
         console.log('ERROR', e);
@@ -50,7 +50,7 @@ function getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable 
 function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
     const color = option.getAttribute('data-option1');
     const colorGroup = getColorGroup(color);
-    
+
     productUnits.forEach(productUnit => {
         const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
 
@@ -64,10 +64,10 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
                 }
             }
 
-            
+
             const activeFirst = productUnit.querySelector('.color-swatch--first');
             if(activeFirst) activeFirst.classList.remove('color-swatch--first');
-            
+
             newSwatch.classList.add('color-swatch--first');
             newSwatch.click();
         }
@@ -97,11 +97,11 @@ function pdpCreateSizeSelect(variantsizeEl, createTypeSelectProduct, createTypeS
 async function pdpSizePriceUpdate(option) {
     const selectedColor = option.getAttribute('data-option1');
     const sizeOptions = document.querySelectorAll('.pdp__variant-size select option');
-  
+
     for (const sizeOption of sizeOptions) {
       const value = sizeOption.value;
       const productTitle = sizeOption.getAttribute('data-prodtitle');
-  
+
       try {
         const productInfo = await getProductOptions(value, selectedColor);
         // Update the content of each option with the new product information
@@ -113,7 +113,7 @@ async function pdpSizePriceUpdate(option) {
       }
     }
   }
-  
+
   async function getProductOptions(handle, selectedColor) {
     const productContent = await fetch(window.Shopify.routes.root + 'products/' + handle + '.js', {
       method: "GET",
@@ -123,10 +123,10 @@ async function pdpSizePriceUpdate(option) {
     }).then((res) => {
       return res.json();
     });
-  
+
     var productVariants = productContent.variants;
     var defaultVariant = null; // Variable to store the default variant info
-  
+
     for (const variant of productVariants) {
         const originalString = variant.title;
         const separatorIndex = originalString.indexOf(" / ");
@@ -149,12 +149,12 @@ async function pdpSizePriceUpdate(option) {
         };
       }
     }
-  
+
     // If no match found, return the default variant
     if (defaultVariant) {
       return defaultVariant;
     }
-  
+
     throw new Error("Variant not found for the selected color.");
   }
 
@@ -162,7 +162,7 @@ async function pdpFormSubmit(productForm, showCart = true) {
     const container = productForm.closest('.pdp__grid, .qv__body');
 
     if(container.getAttribute('data-status') == 'sold-out') return;
-    
+
     productForm.classList.add('shopify-product-form--loading');
     if(typeof openCart == 'undefined') await activateCart();
 
@@ -193,7 +193,7 @@ function updateOptionsAvailability(options, select, container) {
             const option = siblingOptions[j];
             for(let optNum = 0; optNum < options.length; optNum++) {
                 if(optNum == i) continue;
-                
+
                 const value = option.getAttribute(`data-option${optNum + 1}`);
                 const available = option.getAttribute('data-available');
                 const target = container.querySelector(`.pdp__variants [data-position="${optNum + 1}"] [data-value="${value}"]`);
@@ -218,7 +218,7 @@ async function triggerWaitlist(waitlistCont) {
 
         waitlistCont.classList.remove('pdp__waitlist--error');
         waitlistCont.classList.add('pdp__waitlist--loading');
-        
+
         if(klaviyoLoaded == false) {
             await loadScript(scripts.klaviyo);
             klaviyoLoaded = true;
@@ -299,7 +299,7 @@ window.addEventListener("load", () => {
     window.addEventListener("resize", checkPDPSwatches);
     function checkPDPSwatches() {
         if(pdpSwatchesCheckThrottle !== false) clearTimeout(pdpSwatchesCheckThrottle);
-    
+
         pdpSwatchesCheckThrottle = setTimeout(() => {
             pdpSwatches.forEach(pdpSwatch => {
                 pdpSwatch.style.setProperty('--max-fit', Math.floor(pdpSwatch.offsetWidth / 28));
@@ -410,7 +410,7 @@ function setupGalleryMediaLimit(newMedia) {
     if(typeof pdpSettings != 'undefined') {
         const galleryMoreBtn = document.querySelector('.pdp-gallery__more-btn');
         mediaLimit = pdpSettings.gallery_limit;
-        
+
         if(mediaLimit < newMedia.length) {
             galleryMoreBtn.classList.add('pdp-gallery__more-btn--active');
 
@@ -445,13 +445,13 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
 
     const allMedia = pdpGallery.querySelectorAll('.pdp__media');
     allMedia.forEach(mediaActive => mediaActive.classList.remove('pdp__media--active', 'pdp__media--wide', 'pdp__media--extra', 'slide'));
-    
+
     const allThumbs = pdpThumbs.querySelectorAll('.pdp__media-thumb');
     allThumbs.forEach(mediaActive => mediaActive.classList.remove('pdp__media--active', 'slide'));
 
     let newMedia = [];
     let newMediaThumbs = [];
-    
+
     if(pdpGallery.classList.contains('pdp__gallery--old')) {
         let sku = option.getAttribute('data-sku');
         let color = option.getAttribute('data-option1');
@@ -475,10 +475,10 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         let mediaVarVideo = false;
         let mediaProdVideo = false;
         let pdpVideoCurrentOrder = 0;
-        
+
         for(let i = 0; i < newMedia.length; i++) {
             let newMed = newMedia[i];
-        
+
             let videoContainer;
             if(!newMed.querySelector('.video-iframe-container'))
             {
@@ -494,18 +494,18 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
                 if(newMed.classList.contains('pdp__media--var-video')) mediaVarVideo = newMed;
                 continue;
             }
-            
+
             newMed.classList.add('pdp__media--active', 'slide');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         }
-        
+
         if(mediaVarVideo !== false) {
             mediaVarVideo.classList.add('pdp__media--active', 'slide');
             let videoContainer = mediaVarVideo.querySelector('.video-iframe-container');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         } else if(mediaProdVideo !== false) {
             mediaProdVideo.classList.add('pdp__media--active', 'slide');
-            
+
             if(pdpVideoOrder !== false) {
                 if(pdpVideoCurrentOrder < pdpVideoOrder - 1) {
                     pdpSlides.insertBefore(mediaProdVideo, newMedia[pdpVideoOrder]);
@@ -513,13 +513,13 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
                     pdpSlides.insertBefore(mediaProdVideo, newMedia[pdpVideoOrder - 1]);
                 }
             }
-            
+
             let videoContainer = mediaProdVideo.querySelector('.video-iframe-container');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         }
-        
+
         pdpGallery.scrollLeft = 0;
-        
+
         let activeMedia = pdpGallery.querySelectorAll('.pdp__media--active');
         activeMedia[0].classList.add('pdp__media--wide');
         if(!isQuickView) {
@@ -621,7 +621,7 @@ function pdpHandleFeaturedCollection(option) {
 }
 
 function pdpUpdateURL(product, options) {
-    let url_vars = ''; 
+    let url_vars = '';
     if(document.location.href.indexOf('?') > -1) {
         url_vars = document.location.href.split('?');
         url_vars = '?' + url_vars[1];
@@ -640,7 +640,7 @@ function pdpUpdateURL(product, options) {
     //     }
 
     //     if(option1Only) attr = options[0];
-    //     else 
+    //     else
     // } else attr = options[0];
 
     // if(selector.variantIdField.options[selector.variantIdField.selectedIndex].classList.contains('early-access-option')) attr = 'early-access-' + attr;
@@ -666,27 +666,27 @@ const changeBadgeAbsolutePosition = e => {
             let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
             let badge = document.querySelector('.pdp__gallery-container .product-label--badge-mobile-bottom');
             if(badge) {
-                badge.style.marginTop = `0px`; 
-                badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
+                badge.style.marginTop = `0px`;
+                badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`;
             } else {
                 badge = document.querySelector('.pdp__gallery-container .product-label--badge');
                 if (badge) {
-                    badge.style.marginTop = ``; 
-                    badge.style.top = ``; 
+                    badge.style.marginTop = ``;
+                    badge.style.top = ``;
                 }
-                
+
             }
         } else {
             let first_media = document.querySelector('.pdp__gallery-container .pdp__media--wide');
             let badge = document.querySelector('.pdp__gallery-container .product-label--badge-desktop-bottom');
             if(badge) {
-                badge.style.marginTop = `0px`; 
-                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 26}px`; 
+                badge.style.marginTop = `0px`;
+                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 26}px`;
             } else {
                 badge = document.querySelector('.pdp__gallery-container .product-label--badge');
                 if (badge) {
-                    badge.style.marginTop = ``; 
-                    badge.style.top = ``; 
+                    badge.style.marginTop = ``;
+                    badge.style.top = ``;
                 }
             }
         }
@@ -700,7 +700,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Fancybox.bind('[data-fancybox="gallery"]', {});
     const mediaColors = [...document.querySelectorAll(".pdp__media")]
     const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
-   
+
     for (let i = 0; i < mediaUniqueColors.length; i++) {
       const color = mediaUniqueColors[i];
      if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
@@ -713,6 +713,7 @@ changeBadgeAbsolutePosition()
 window.addEventListener('DOMContentLoaded', () => {
     const pdpOptions = document.querySelectorAll('.product-option');
     const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
+    console.log(includesTextWrapperForLuggageCovers);
     if(pdpOptions){
         [].map.call(pdpOptions, option => {
             option.addEventListener('click', () => {
@@ -725,7 +726,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             includesTextWrapperForLuggageCover.classList.remove('unseen')
                             includesTextWrapperForLuggageCover.classList.add('seen')
                         })
-                        
+
                     } else if(optVal === "set-of-3") {
                         includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                             includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
@@ -733,7 +734,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             includesTextWrapperForLuggageCover.classList.remove('unseen')
                             includesTextWrapperForLuggageCover.classList.add('seen')
                         })
-                        
+
                     } else {
                         includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                             includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
