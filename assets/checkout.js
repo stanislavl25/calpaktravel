@@ -16,7 +16,7 @@ if(altPayments) {
 var addressInput = document.querySelector('#checkout_shipping_address_address1');
 if(addressInput) {
 //   addressInput.placeholder = 'Address';
-  
+
   function checkPOBox(that) {
     var vl = that.value;
     var prnt = that.parentNode.parentNode;
@@ -46,11 +46,11 @@ if(addressInput) {
     }
   }
   checkPOBox(addressInput);
-  
+
   addressInput.addEventListener('change', function(){
     checkPOBox(this);
   });
-  
+
   var addressInput2 = document.querySelector('#checkout_shipping_address_address2');
   if(addressInput2) addressInput2.placeholder = 'Apt/Unit';
 }
@@ -78,7 +78,7 @@ function addProductInfo(item, i) {
     $.getJSON('/products/'+item.handle+'.js', function(data) {
         let prod = $('.order-summary__section__content .product-table .product').eq(i);
         let current_variant = false;
-        
+
         for(let i = 0; i < data.variants.length; i++) {
             if(data.variants[i].id == item.variant_id) {
                 current_variant = data.variants[i];
@@ -209,7 +209,7 @@ function addGiftNoteField() {
     // if($('.section--contact-information').length > 0 && $('.section--contact-information .section__content .gift-note-field-container').length == 0) {
     //     $('.gift-note-field-container').eq(0).clone().appendTo('.section--contact-information .section__content:eq(0)').css({'margin-top': '20px'}).addClass('active');
     // }
-    
+
     if($('.add-review-block').length && $('.review-block:not(.add-review-block)').length) {
         $('.review-block:not(.add-review-block)').last().after($('.add-review-block').eq(0));
     }
@@ -231,26 +231,26 @@ jQuery(document).ready(function($){
                 $(this).closest('.gift-note-field-container').addClass('gift-note-field-container--active');
             } else $(this).closest('.gift-note-field-container').removeClass('gift-note-field-container--active');
         });
-    
+
         $('.gift-textarea-container .field__input--textarea').keyup(function() {
             let length = $(this).val().length;
             $(this).parent().find('.textarea-character-count span').text(length);
         });
-    
+
         $('.gift-textarea-container .field__input--textarea').blur(function() {
             let length = $(this).val().length;
             $(this).parent().find('.textarea-character-count span').text(length);
         });
-    
+
         if($('.gift-note-field-container').length) {
             setInterval(addGiftNoteField, 1000);
             addGiftNoteField();
-            
+
             $('.gift-note-field-container input').trigger('focus').trigger('blur');
-        
+
             // $('.gift-note-input').blur(function(){
             // var vl = $(this).val();
-            
+
             // $.ajax({
             //     url: '/cart/update.js',
             //     type: 'POST',
@@ -288,19 +288,19 @@ jQuery(document).ready(function($){
     setTimeout(function() {
         if(window.sessionStorage.getItem('returning-to-edit')) {
             let value = window.sessionStorage.getItem('returning-to-edit');
-            
+
             let input = false;
             if(value == 'address') {
                 input = document.querySelector('#checkout_shipping_address_address1');
             } else if(value == 'email') {
                 input = document.querySelector('#checkout_email');
             }
-        
+
             if(input) {
                 input.focus();
                 input.scrollIntoView({behavior: 'smooth'});
             }
-            
+
             window.sessionStorage.setItem('returning-to-edit', false);
         }
     }, 100);
@@ -329,6 +329,7 @@ jQuery(document).ready(function($){
             day             = hour * 24;
 
         $(".main__header").append('<div class="countdown__checkout">The items in your cart are in high demand: <b>Cart reserved for </b><span></span></div>');
+        $(".os-step__special-description").append('<div class="countdown__checkout">Please note: we are unable to make any changes to your order once it has been placed.</div>');
         const countdown__display = setInterval(() => {
             const distance = countdown - new Date();
             const distanceFormat = {
@@ -349,7 +350,7 @@ jQuery(document).ready(function($){
         }, 1000);
     }
 
-    // AB Logic 
+    // AB Logic
     if(google_optimize && google_optimize.get('cOTsgH-0S1G_D2IxnP4Sdg') === '1' && Shopify.Checkout.step == 'shipping_method'){
         const freeUpgradeInterval = setInterval(lookFreeShipping, 100);
         //Temporal Code
@@ -507,5 +508,5 @@ window.addEventListener("load", () => {
 });
 
 
-  
+
 
