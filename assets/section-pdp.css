@@ -211,6 +211,10 @@
     gap: 30px;
 }
 
+.pdp__info .product-label--disclaimer {
+    display: block!important;
+}
+
 .pdp__breadcrumbs {
     position: absolute;
     top: var(--gap);

@@ -223,6 +223,10 @@
     right: 24px;
 }
 
+.search-popup__content .product-label--final {
+    display: none;
+}
+
 @media (max-width: 1727px) {
     .products__grid--flex .product-unit {
         flex: 0 0 calc(25% - var(--gap) * 3 / 4);

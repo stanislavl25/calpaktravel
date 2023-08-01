@@ -2,6 +2,7 @@
     assign product = product-unit
     assign hotDealsTag = false
     assign hotDealsVariants = false
+    assign finalSale = false
 
     if product.product != blank
         assign product = product.product
@@ -125,6 +126,22 @@
                 endif
             endfor
     endif
+
+    if settings.final-sale-text
+        for tag in product.tags
+            assign tagSpl = tag | split: ':'
+            assign handle = tagSpl[0] | handleize
+
+            if 'final-sale' == handle
+                if tagSpl.size == 1
+                    assign finalSale = true
+                else
+                    assign finalSale = tagSpl[1] | downcase | split: ';'
+                endif
+            endif
+        endfor
+    endif
+
     if settings.sale-badge-tag-bundle == blank
             assign saleBadge-bundle = true
         else
@@ -223,7 +240,6 @@
                         </div>
                     </div>
                 {%- endif -%}
-
             {%- endfor -%}
         {% endif %}
 
@@ -315,15 +331,22 @@
     {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
             render 'flash-sale-label', current_variant: current_variant, product: product
-            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
+            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true, add_to_cart: add_to_cart
         endif
     -%}
-
+    
     <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
     {%- if add_to_cart == true -%}
-
+        
         <div class="product-unit__colors--quickadd"></div>
-    
+        
+        {%- if finalSale != false -%}
+            <div class="product-label product-label--final {% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
+                {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
+                <strong>This item is Final Sale</strong>
+            </div>
+        {%- endif -%}
+        
         <div class="product-unit__button">
             <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
                 <div class="button-msg-add">Add to Bag</div>

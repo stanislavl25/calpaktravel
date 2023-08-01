@@ -947,9 +947,8 @@ body.swym-modal-active:not(.modal-open) {
   position: inherit;
   height: 100%;
 }
-.free-gift__selector .free-gift__selector-product .product-unit .product-label--badge.product-label--badge-collection-page {
+.free-gift__selector .free-gift__selector-product .product-unit .product-label--badge.product-label--badge-collection-page, .product-label--disclaimer {
   display: none !important;
-
 }
 .free-gift__selector .free-gift__selector-product .product-unit img {
   border-radius: 9px;
