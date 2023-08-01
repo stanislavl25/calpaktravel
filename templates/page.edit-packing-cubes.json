@@ -48,13 +48,15 @@
             "title": "Packing Cubes 5-Piece Set",
             "description": "<p>Whether you're going international or traveling state-side, our 5-Piece Packing Cube Set is the perfect starter kit to travel organization. With 4 different sizes and a label holder, these cubes will be as transformative as you.<\/p><p><\/p><p><strong>The 5 different sizes:<\/strong><\/p><p>1. The Small #1 (12\" x 8.8\" x 3\") is great for tops, pajamas, and shorts.<br\/>2. The Small #2 (12\" x 8.8\" x 3\") is great for dresses, undergarments, and skirts.<br\/>3. The Medium (15\" x 11\" x 3\") is great for chunkier items like jeans and pants, even a couple pairs of shoes!<br\/>4. The Large (17\" x 12\" x 3\") is great for heavy sweaters and jackets.<br\/>5. The Envelope (13\" x 10\" x 1.5\") is great for bathing suits and cosmetics.<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/packing-cubes-5-piece-set"
+            "button-link": "shopify:\/\/products\/packing-cubes-5-piece-set",
+            "description-2": ""
           }
         },
         "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
           "type": "product",
           "settings": {
-            "product": "packing-cubes-5-piece-set"
+            "product": "packing-cubes-5-piece-set",
+            "show-add-to-cart": false
           }
         },
         "1b775b70-f16b-4f85-a218-760455abe4b0": {
@@ -138,13 +140,15 @@
             "title": "Compakt Shoe Bag",
             "description": "<p>Like most people, we don't love when the sand from our hiking boots gets sprinkled into our underwear. This money-saving set will keep your shoes zipped up tight, and helps you put your best foot forward.<\/p><p><\/p><p><strong>The features <\/strong><\/p><ul><li>Comes in a set of 2, making it easier than ever to organize your shoes, without the usual bulk. <\/li><li>Water-resistant ripstop nylon you can wipe and wash—so it doesn’t matter how dirty your shoes get, you can clean these cubes again and again. <\/li><li>Easy handle for carrying—so you can pack and go. <\/li><li>Top flap zipper with interior mesh pocket, to store any extra laces or accessories. <\/li><\/ul>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/compakt-shoe-bag-set"
+            "button-link": "shopify:\/\/products\/compakt-shoe-bag-set",
+            "description-2": ""
           }
         },
         "79780fc5-d217-444f-b73d-95a7c2ff1a30": {
           "type": "product",
           "settings": {
-            "product": "compakt-shoe-bag-set"
+            "product": "compakt-shoe-bag-set",
+            "show-add-to-cart": false
           }
         },
         "67c159bc-ab05-4718-b5c3-81bb3f1c12cf": {
@@ -195,7 +199,6 @@
     },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
-      "disabled": true,
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",

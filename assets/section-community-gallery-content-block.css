@@ -1,0 +1,55 @@
+.community-galery-content-block__container {
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.community-galery-content-block__container > * {
+    flex-wrap: wrap;
+    overflow: hidden;
+    border-radius: 9px;
+    height: 150px;
+    width: 48%;
+    margin: 1%;
+    position: relative;
+}
+
+.curalate-gallery__video video,
+.curalate-gallery__lifestyle-image-1 img,
+.curalate-gallery__lifestyle-image-2 img {
+    width: 100%;
+    border-radius: 9px;
+}
+
+.curalate-gallery__quote {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px dashed orange;
+    line-height: 130%;
+}
+
+.curalate-gallery__quote-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.curalate-gallery__quote-reviewer {
+    bottom: 12px;
+    left: 12px;
+    position: absolute;
+}
+
+@media (max-width: 900px) {
+    .community-galery-content-block__container {
+        display: block;
+    }
+
+    .community-galery-content-block__container > * {
+        width: 98%;
+        margin-bottom: var(--gap);
+    }
+}

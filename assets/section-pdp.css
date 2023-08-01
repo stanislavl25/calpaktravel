@@ -247,7 +247,6 @@
   color: #000;
 }
 
-
 .pdp__breadcrumbs span:not(:first-child)::before,
 .pdp__breadcrumbs a:not(:first-child)::before {
     position: absolute;
