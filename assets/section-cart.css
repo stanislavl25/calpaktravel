@@ -243,8 +243,8 @@
   transition: opacity 0.3s;
 }
 
-.cart__item--gift {
-  order: 999;
+.cart__empty .product-label {
+  display: none;
 }
 
 .cart__item-preorder {
