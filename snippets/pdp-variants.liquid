@@ -160,6 +160,15 @@
     {%- endif -%}
   {%- endfor -%}
 
+  {% if template contains "product" %}
+    {%- if product.handle == "clear-luggage-cover" -%}
+        <div class="inlcudes-on-set unseen">
+            <p class="variation-type-set set-of-2 display-none">Includes: Carry-On and Large Luggage covers</p>
+            <p class="variation-type-set set-of-3 display-none">Includes: Carry-On, Medium and Large covers</p>
+        </div>
+    {%- endif -%}
+  {%- endif -%}
+
   {% comment %} //// LUGGAGE SIZES //// {% endcomment %}
   {%- if product_type contains 'luggage' and featured_collection != false -%}
     <div
