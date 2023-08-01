@@ -183,6 +183,7 @@ stickyClose.forEach(close => close.addEventListener('click', (e) => e.target.clo
 function setProductData(product, meta, target, current_variant_id = false, init1 = false) {
     const isProductUnit = target.classList.contains('product-unit');
     const handle = product.handle;
+    let optionIsAmount = false
     let tags = product.tags;
     if(typeof tags == 'string') tags = tags.split(', ');
     let colorIndex = false;
@@ -196,8 +197,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(isProductUnit) collection = target.getAttribute('data-collection');
 
+    
     const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
-
     tags.forEach(tag => {
         let tg = handleize(tag);
 
@@ -249,7 +250,14 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;
         if( optionName.toLowerCase().trim() == 'color' ) colorIndex = i;
-        if( optionName.toLowerCase().trim() == 'size' ) sizeIndex = i;
+        if( 
+            optionName.toLowerCase().trim() == 'size' || 
+            optionName.toLowerCase().trim() == 'quantity' ||
+            optionName.toLowerCase().trim() == 'amount' 
+        ) { 
+            if(optionName.toLowerCase().trim() == 'amount' ) { optionIsAmount = true; }
+            sizeIndex = i;
+        }
     }
 
     let colors = {
@@ -444,7 +452,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     sizes[sizeOption] = {
                         available: available,
                         selected: selected,
-                        title: variant.option2,
+                        title: variant.option2 ? variant.option2 : variant.option1,
                         first_variant_id: variant.id,
                         first_variant_price: variant.price
                     };
@@ -517,6 +525,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 value="${variant.id}"
                 data-price="${variantPrice}"
                 ${variantComparePrice?`data-cprice="${variantComparePrice}"`:''}
+                data-soldout-all-variants="${product.tags.find(tag => tag === "soldout")?true:false}"
+                data-soldout-this-variant="${product.tags.find(tag => tag.includes(`soldout`))?.split(':')[1]?.split(',').find(color => color === opt1)?true:false}"
                 >
                     ${variant.title}
             </option>`;
@@ -556,7 +566,106 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
     }
 
-    if(colors._count === 0) return;
+    if( colors._count === 0 ) {
+        if (optionIsAmount) {
+            if (hasSizeSelector) {
+        
+                let currentSize = false;
+                const selects = target.querySelector('.product-unit__sizes');
+                const sizesContainer = selects.querySelector('.sizes-container');
+                const component = target.querySelector('.product-unit__select--seleted');    
+                const atcBtn = target.querySelector('.product-unit__button');
+                
+                console.log
+                
+                for (const size in sizes) {
+                    if(size == '_count') continue;
+            
+                    let el = document.createElement('a');
+                    el.setAttribute('href', '#');
+                    el.classList.add('size-swatch');
+                    el.classList.add('no-color');
+                    el.classList.add('size-' + size);
+                    el.setAttribute('title', sizes[size].title);
+                    el.setAttribute('data-title', size);
+                    el.setAttribute('data-value', size);
+                    el.value = size;
+                    el.setAttribute('data-first-variant-id', sizes[size].first_variant_id);
+        
+                    if (target.querySelector('.product-unit__select--seleted').innerHTML.trim() == '') {
+                        el.classList.add('selected');
+                        target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
+                    }
+                    
+                    if(sizes[size].available === false) el.classList.add('product-option--na');
+            
+                    if(sizes[size].selected === true) {
+                        el.classList.add('size-swatch--active');
+                        currentSize = sizes[size].title;
+                        if(!variantAutoSelected) el.classList.add('size-swatch--first');
+                    }
+            
+                    if(sizes[size].available === false && sizes[size].selected === true) target.classList.add('product-unit--na');
+        
+                    el.innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
+        
+                    sizesContainer.appendChild(el);
+                    
+                }
+                if (window.innerWidth < 900){
+                    atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
+                 target.addEventListener('mouseover', (e) => {
+                    component.classList.add('hovered');
+                });
+                target.addEventListener('mouseout', (e) => {
+                    if(!component.classList.contains('focused')){
+                        component.classList.remove('hovered');
+                    }
+                });
+                component.addEventListener('click', (e) => {
+                    component.classList.toggle('focused');
+                });
+                atcBtn.addEventListener('click', (e) => {
+                    component.classList.add('focused');
+                    atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+                    atcBtn.classList.add('ready');
+                });
+                
+                const sizeSwatches = target.querySelectorAll('.size-swatch');
+                sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+                    component.classList.remove('focused');
+                }));
+                } else {
+                    const checkSelected = target.querySelector('.product-unit--quickadd .product-unit__size-component label');
+                    target.addEventListener('mouseover', (e) => {
+                        component.classList.add('hovered');
+                    });
+                    const checkboxes = document.querySelectorAll('.product-unit--quickadd .product-unit__size-component input');
+        
+                    checkboxes.forEach((checkbox) => {
+                    checkbox.addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                        checkboxes.forEach((otherCheckbox) => {
+                            if (otherCheckbox !== e.target) {
+                            otherCheckbox.checked = false;
+                            }
+                        });
+                        }
+                    });
+                    });
+        
+                }
+        
+                if (sizes._count <= 1) {
+                    selects.parentNode.classList.add('hide')
+                }
+                
+            } 
+            return
+        } else {
+            return;
+        }
+    }
 
     if(!isProductUnit) {
         let swatchesCheck = [], swatchesElements = [];
@@ -649,6 +758,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.classList.add('color-' + color);
         el.setAttribute('title', colors[color].title);
         el.setAttribute('data-value', color);
+        el.setAttribute('data-available', colors[color].available);
         el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
         
         if(colors[color].available === false) el.classList.add('product-option--na');
@@ -680,9 +790,24 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                             }
     
                         } 
+
+                        const tagBuilder_hotdeal = 'hot-deal-slider:' ;
+                        const hotdealtagColors = productTags[i].replace(tagBuilder_hotdeal, '');
+                        const hotdealtagColorsSplit = hotdealtagColors.split(';');
+                        const mainDiv = document.querySelector('.hot-deal-con');
+                        if(productTags[i].indexOf(tagBuilder_hotdeal) > -1){
+                            el.classList.add('hot-deal');
+                            for (let i = 0; i < hotdealtagColorsSplit.length; i++){
+                                if(color == hotdealtagColorsSplit[i]){
+                                    if(match.toString() == 0){
+                                        el.classList.add('color-swatch-hot');
+                                    }
+                                    el.classList.add('show-hotdeal');
+                                }
+                                match++;
+                            }
+                        }
                     }
-                    
-        
         if(colors[color].available === false && colors[color].selected === true) target.classList.add('product-unit--na');
 
         if(colors_img.indexOf(color) > -1) {
@@ -694,15 +819,19 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     document.querySelectorAll('.color_index__0').forEach(function(el){
          el.click();
         })
+        document.querySelectorAll('.hot-deals-banner-wrapper .color-swatch-hot').forEach(function(el){
+            el.click();
+           })
     // If sizes wrapper
-
     if (hasSizeSelector) {
-
+        
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
         const component = target.querySelector('.product-unit__select--seleted');    
         const atcBtn = target.querySelector('.product-unit__button');
+        
+        console.log
         
         for (const size in sizes) {
             if(size == '_count') continue;
@@ -874,33 +1003,60 @@ function setProductUnitSwatchesCount() {
 }
 
 window.addEventListener("click", async (e) => {
+    
+
+    if(e.target.classList.contains('product-unit__select--seleted')) {
+        [...document.querySelectorAll('.product-unit__size-component input:checked')].map(focused => focused.checked = false);
+        [...document.querySelectorAll('.product-unit__size-component label.hovered')].map(focused => focused !== e.target?focused.classList.remove('hovered'):null);
+        [...document.querySelectorAll('.product-unit__size-component label.focused')].map(focused => focused !== e.target?focused.classList.remove('focused'):null);
+    }
 
     if(e.target.classList.contains('size-swatch')) {
         e.preventDefault();
-
+        
         if(typeof variantUpdateProcess == 'undefined') {
             await loadScript(scripts.variants);
         }
+      
+        //  mark 2
+        if( !e.target.classList.contains('no-color') ){
+            const thisSize = e.target.querySelectorAll('span')[0].innerHTML;
+            const thisPrice = e.target.querySelectorAll('span')[1].innerHTML;
+            const sizesContainer = e.target.parentNode.querySelectorAll('.size-swatch');
+            const variantSelector = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.variant-select');
+            const selectedContainer = e.target.parentNode.parentNode.parentNode.querySelector('label');
+            const componentContainer = e.target.parentNode.parentNode.parentNode.querySelector('input[type="checkbox"]');
+            
+            const colorContainer = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors')?e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors'):null;
+            const colorTarget = colorContainer ? colorContainer.querySelector('.product-unit__colors .color-swatch--active'): null;
+            
+            componentContainer.checked = false;
+            selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
+            sizesContainer.forEach(element => element.classList.remove('selected'));
+            e.target.classList.add('selected');
+            variantUpdateProcess(colorTarget);
+            colorContainer.querySelectorAll('.color-swatch').forEach( color => {    
+                const option = variantSelector.querySelector(`[data-option1="${color.dataset.value}"][data-option2="${e.target.dataset.title}"]`);
+                option.dataset.available == 'true' 
+                    ? color.classList.remove('product-option--na')
+                    : color.classList.add('product-option--na');
+            });
+        } else {
+            const thisSize = e.target.querySelectorAll('span')[0].innerHTML;
+            const thisPrice = e.target.querySelectorAll('span')[1].innerHTML;
+            const sizesContainer = e.target.parentNode.querySelectorAll('.size-swatch');
+            const selectedContainer = e.target.parentNode.parentNode.parentNode.querySelector('label');
+            const componentContainer = e.target.parentNode.parentNode.parentNode.querySelector('input[type="checkbox"]');
 
-        const thisSize = e.target.querySelectorAll('span')[0].innerHTML;
-        const thisPrice = e.target.querySelectorAll('span')[1].innerHTML;
-        const sizesContainer = e.target.parentNode.querySelectorAll('.size-swatch');
-        const variantSelector = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.variant-select');
-        const selectedContainer = e.target.parentNode.parentNode.parentNode.querySelector('label');
-        const componentContainer = e.target.parentNode.parentNode.parentNode.querySelector('input[type="checkbox"]');
-        const colorContainer = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors');
-        const colorTarget = colorContainer.querySelector('.product-unit__colors .color-swatch--active');
-        componentContainer.checked = false;
-        selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
-        sizesContainer.forEach(element => element.classList.remove('selected'));
-        e.target.classList.add('selected');
-        variantUpdateProcess(colorTarget);
-        colorContainer.querySelectorAll('.color-swatch').forEach( color => {    
-            const option = variantSelector.querySelector(`[data-option1="${color.dataset.value}"][data-option2="${e.target.dataset.title}"]`);
-            option.dataset.available == 'true' 
-                ? color.classList.remove('product-option--na')
-                : color.classList.add('product-option--na');
-        });
+            e.target.closest('.product-unit').querySelector('.product-unit__option').setAttribute('value', e.target.getAttribute('data-value'))
+
+            componentContainer.checked = false;
+            selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
+            sizesContainer.forEach(element => element.classList.remove('selected'));
+            e.target.classList.add('selected');
+            
+            variantUpdateProcess(e.target);
+        }
     }
 
     if(e.target.classList.contains('color-swatch')) {
@@ -1160,7 +1316,7 @@ function getProductOptionsList(productContainer, location = 'pdp') {
 
     for(let i = 1; i <= 3 ; i++) {
         const optCont = productContainer.querySelector(`.pdp__variants [data-position="${i}"], .product-unit__option[data-position="${i}"], .product-unit__colors[data-position="${i}"]`);
-        
+
         if(optCont) {
             let value = false;
             if(optCont.classList.contains('product-unit__colors')) {
@@ -1170,7 +1326,6 @@ function getProductOptionsList(productContainer, location = 'pdp') {
                 if(!disableMultiple && i == 2 && hasOtherValues(productContainer, value)) multipleSizes = true;
             } else if(optCont.classList.contains('product-unit__option')){
                 value = optCont.value;
-                
                 if(!disableMultiple && i == 2 && hasOtherValues(productContainer, value)) multipleSizes = true;
             } else if(optCont.classList.contains('pdp__variant-buttons')) {
                 let selectedOption = optCont.querySelector('.product-option--selected');
@@ -1286,7 +1441,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 { selector: '.pdp__upsell', differentSwatches: false },
                 { selector: '.product-grid', differentSwatches: false },
                 { selector: '.featured-col__lists', differentSwatches: false },
-                { selector: '.shopify-section--featured-collections', differentSwatches: true }
+                { selector: '.shopify-section--featured-collections', differentSwatches: true },
+                { selector: '.cart__upsell-items', differentSwatches: true }
             ];
         
             sections.map(section => processSection(section));
@@ -1322,13 +1478,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         keepTryingUpdateProcessTheProductUnits()
-
-        let lastScroll = window.pageYOffset;
+        
         window.addEventListener('scroll', () => {
             let scrolled = false
             if (!scrolled) {
                 scrolled = true;
                 setTimeout(() => { scrolled = false } ,500)
+                tryUpdateProcessTheProductUnits();
+            }
+        });
+
+        let upsell = document.querySelector('.cart__upsell-items')
+        upsell.addEventListener('scroll', () => {
+            let upsellscrolled = false
+            if (!upsellscrolled) {
+                upsellscrolled = true;
+                setTimeout(() => { upsellscrolled = false } ,500)
                 tryUpdateProcessTheProductUnits();
             }
         });
@@ -1338,9 +1503,850 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('page:load', e => tryUpdateProcessTheProductUnits());
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
 
-
         // On section-blog-text-product-feature, match the height of the text block to the image
         const matchTextHeight = window.getComputedStyle(document.querySelector('.shopify-section--blog-text-product-feature a.product-unit__image')).getPropertyValue('padding-top');
         const textBlock = document.querySelector('.blog-text-product-feature__block-text');
         textBlock.style.height = matchTextHeight;
 });
+
+
+/* Code start for custom product size dropdown */
+'use strict';
+var aria = aria || {};
+
+aria.Listbox = function (listboxNode) {
+  this.listboxNode = listboxNode;
+  this.activeDescendant = this.listboxNode.getAttribute(
+    'aria-activedescendant'
+  );
+  this.multiselectable = this.listboxNode.hasAttribute('aria-multiselectable');
+  this.moveUpDownEnabled = false;
+  this.siblingList = null;
+  this.startRangeIndex = 0;
+  this.upButton = null;
+  this.downButton = null;
+  this.moveButton = null;
+  this.keysSoFar = '';
+  this.handleFocusChange = function () {};
+  this.handleItemChange = function () {};
+  this.registerEvents();
+};
+
+aria.Listbox.prototype.registerEvents = function () {
+  this.listboxNode.addEventListener('focus', this.setupFocus.bind(this));
+  this.listboxNode.addEventListener('keydown', this.checkKeyPress.bind(this));
+  this.listboxNode.addEventListener('click', this.checkClickItem.bind(this));
+
+  if (this.multiselectable) {
+    this.listboxNode.addEventListener(
+      'mousedown',
+      this.checkMouseDown.bind(this)
+    );
+  }
+};
+
+aria.Listbox.prototype.setupFocus = function () {
+  if (this.activeDescendant) {
+    return;
+  }
+};
+
+aria.Listbox.prototype.focusFirstItem = function () {
+  var firstItem = this.listboxNode.querySelector('[role="option"]');
+
+  if (firstItem) {
+    this.focusItem(firstItem);
+  }
+};
+
+aria.Listbox.prototype.focusLastItem = function () {
+  var itemList = this.listboxNode.querySelectorAll('[role="option"]');
+
+  if (itemList.length) {
+    this.focusItem(itemList[itemList.length - 1]);
+  }
+};
+
+
+aria.Listbox.prototype.checkKeyPress = function (evt) {
+  var key = evt.which || evt.keyCode;
+  var lastActiveId = this.activeDescendant;
+  var allOptions = this.listboxNode.querySelectorAll('[role="option"]');
+  var currentItem =
+    document.getElementById(this.activeDescendant) || allOptions[0];
+  var nextItem = currentItem;
+
+  if (!currentItem) {
+    return;
+  }
+
+  switch (key) {
+    case aria.KeyCode.PAGE_UP:
+    case aria.KeyCode.PAGE_DOWN:
+      if (this.moveUpDownEnabled) {
+        evt.preventDefault();
+
+        if (key === aria.KeyCode.PAGE_UP) {
+          this.moveUpItems();
+        } else {
+          this.moveDownItems();
+        }
+      }
+
+      break;
+    case aria.KeyCode.UP:
+    case aria.KeyCode.DOWN:
+      if (!this.activeDescendant) {
+        // focus first option if no option was previously focused, and perform no other actions
+        this.focusItem(currentItem);
+        break;
+      }
+
+      if (this.moveUpDownEnabled && evt.altKey) {
+        evt.preventDefault();
+        if (key === aria.KeyCode.UP) {
+          this.moveUpItems();
+        } else {
+          this.moveDownItems();
+        }
+        return;
+      }
+
+      if (key === aria.KeyCode.UP) {
+        nextItem = this.findPreviousOption(currentItem);
+      } else {
+        nextItem = this.findNextOption(currentItem);
+      }
+
+      if (nextItem && this.multiselectable && event.shiftKey) {
+        this.selectRange(this.startRangeIndex, nextItem);
+      }
+
+      if (nextItem) {
+        this.focusItem(nextItem);
+        evt.preventDefault();
+      }
+
+      break;
+    case aria.KeyCode.HOME:
+      evt.preventDefault();
+      this.focusFirstItem();
+
+      if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
+        this.selectRange(this.startRangeIndex, 0);
+      }
+      break;
+    case aria.KeyCode.END:
+      evt.preventDefault();
+      this.focusLastItem();
+
+      if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
+        this.selectRange(this.startRangeIndex, allOptions.length - 1);
+      }
+      break;
+    case aria.KeyCode.SHIFT:
+      this.startRangeIndex = this.getElementIndex(currentItem, allOptions);
+      break;
+    case aria.KeyCode.SPACE:
+      evt.preventDefault();
+      this.toggleSelectItem(nextItem);
+      break;
+    case aria.KeyCode.BACKSPACE:
+    case aria.KeyCode.DELETE:
+    case aria.KeyCode.RETURN:
+      if (!this.moveButton) {
+        return;
+      }
+
+      var keyshortcuts = this.moveButton.getAttribute('aria-keyshortcuts');
+      if (key === aria.KeyCode.RETURN && keyshortcuts.indexOf('Enter') === -1) {
+        return;
+      }
+      if (
+        (key === aria.KeyCode.BACKSPACE || key === aria.KeyCode.DELETE) &&
+        keyshortcuts.indexOf('Delete') === -1
+      ) {
+        return;
+      }
+
+      evt.preventDefault();
+
+      var nextUnselected = nextItem.nextElementSibling;
+      while (nextUnselected) {
+        if (nextUnselected.getAttribute('aria-selected') != 'true') {
+          break;
+        }
+        nextUnselected = nextUnselected.nextElementSibling;
+      }
+      if (!nextUnselected) {
+        nextUnselected = nextItem.previousElementSibling;
+        while (nextUnselected) {
+          if (nextUnselected.getAttribute('aria-selected') != 'true') {
+            break;
+          }
+          nextUnselected = nextUnselected.previousElementSibling;
+        }
+      }
+
+      this.moveItems();
+
+      if (!this.activeDescendant && nextUnselected) {
+        this.focusItem(nextUnselected);
+      }
+      break;
+    case 65:
+      // handle control + A
+      if (this.multiselectable && (evt.ctrlKey || evt.metaKey)) {
+        evt.preventDefault();
+        this.selectRange(0, allOptions.length - 1);
+        break;
+      }
+    // fall through
+    default:
+      var itemToFocus = this.findItemToFocus(key);
+      if (itemToFocus) {
+        this.focusItem(itemToFocus);
+      }
+      break;
+  }
+
+  if (this.activeDescendant !== lastActiveId) {
+    this.updateScroll();
+  }
+};
+
+aria.Listbox.prototype.findItemToFocus = function (key) {
+  var itemList = this.listboxNode.querySelectorAll('[role="option"]');
+  var character = String.fromCharCode(key);
+  var searchIndex = 0;
+
+  if (!this.keysSoFar) {
+    for (var i = 0; i < itemList.length; i++) {
+      if (itemList[i].getAttribute('id') == this.activeDescendant) {
+        searchIndex = i;
+      }
+    }
+  }
+  this.keysSoFar += character;
+  this.clearKeysSoFarAfterDelay();
+
+  var nextMatch = this.findMatchInRange(
+    itemList,
+    searchIndex + 1,
+    itemList.length
+  );
+  if (!nextMatch) {
+    nextMatch = this.findMatchInRange(itemList, 0, searchIndex);
+  }
+  return nextMatch;
+};
+
+/* Return the index of the passed element within the passed array, or null if not found */
+aria.Listbox.prototype.getElementIndex = function (option, options) {
+  var allOptions = Array.prototype.slice.call(options); // convert to array
+  var optionIndex = allOptions.indexOf(option);
+
+  return typeof optionIndex === 'number' ? optionIndex : null;
+};
+
+/* Return the next listbox option, if it exists; otherwise, returns null */
+aria.Listbox.prototype.findNextOption = function (currentOption) {
+  var allOptions = Array.prototype.slice.call(
+    this.listboxNode.querySelectorAll('[role="option"]')
+  ); // get options array
+  var currentOptionIndex = allOptions.indexOf(currentOption);
+  var nextOption = null;
+
+  if (currentOptionIndex > -1 && currentOptionIndex < allOptions.length - 1) {
+    nextOption = allOptions[currentOptionIndex + 1];
+  }
+
+  return nextOption;
+};
+
+/* Return the previous listbox option, if it exists; otherwise, returns null */
+aria.Listbox.prototype.findPreviousOption = function (currentOption) {
+  var allOptions = Array.prototype.slice.call(
+    this.listboxNode.querySelectorAll('[role="option"]')
+  ); // get options array
+  var currentOptionIndex = allOptions.indexOf(currentOption);
+  var previousOption = null;
+
+  if (currentOptionIndex > -1 && currentOptionIndex > 0) {
+    previousOption = allOptions[currentOptionIndex - 1];
+  }
+
+  return previousOption;
+};
+
+aria.Listbox.prototype.clearKeysSoFarAfterDelay = function () {
+  if (this.keyClear) {
+    clearTimeout(this.keyClear);
+    this.keyClear = null;
+  }
+  this.keyClear = setTimeout(
+    function () {
+      this.keysSoFar = '';
+      this.keyClear = null;
+    }.bind(this),
+    500
+  );
+};
+
+aria.Listbox.prototype.findMatchInRange = function (
+  list,
+  startIndex,
+  endIndex
+) {
+  // Find the first item starting with the keysSoFar substring, searching in
+  // the specified range of items
+  for (var n = startIndex; n < endIndex; n++) {
+    var label = list[n].innerText;
+    if (label && label.toUpperCase().indexOf(this.keysSoFar) === 0) {
+      return list[n];
+    }
+  }
+  return null;
+};
+
+aria.Listbox.prototype.checkClickItem = function (evt) {
+  if (evt.target.getAttribute('role') !== 'option') {
+    return;
+  }
+
+  this.focusItem(evt.target);
+  this.toggleSelectItem(evt.target);
+  this.updateScroll();
+
+  if (this.multiselectable && evt.shiftKey) {
+    this.selectRange(this.startRangeIndex, evt.target);
+  }
+};
+
+aria.Listbox.prototype.checkMouseDown = function (evt) {
+  if (
+    this.multiselectable &&
+    evt.shiftKey &&
+    evt.target.getAttribute('role') === 'option'
+  ) {
+    evt.preventDefault();
+  }
+};
+
+aria.Listbox.prototype.toggleSelectItem = function (element) {
+  if (this.multiselectable) {
+    element.setAttribute(
+      'aria-selected',
+      element.getAttribute('aria-selected') === 'true' ? 'false' : 'true'
+    );
+
+    this.updateMoveButton();
+  }
+};
+
+aria.Listbox.prototype.defocusItem = function (element) {
+  if (!element) {
+    return;
+  }
+  if (!this.multiselectable) {
+    element.removeAttribute('aria-selected');
+  }
+  element.classList.remove('focused');
+};
+
+aria.Listbox.prototype.focusItem = function (element) {
+  console.log(this.activeDescendant);
+  this.defocusItem(document.getElementById(this.activeDescendant));
+  if (!this.multiselectable) {
+    element.setAttribute('aria-selected', 'true');
+  }
+  let product_handle = element.getAttribute('value');
+  const parentUlClass = element.parentNode.classList[1];
+  let url = `/products/${product_handle}`;
+  var variant_handle = element.getAttribute('data-producthandle');
+  var quickView =  document.querySelector('ul.'+parentUlClass).getAttribute("is-quickview");
+  if(quickView == 'false') {
+            location.href = url + '/' + variant_handle;
+    } else {
+            getQuickView(url, variant_handle);
+    }
+  element.classList.add('focused');
+  this.listboxNode.setAttribute('aria-activedescendant', element.id);
+  this.activeDescendant = element.id;
+
+  if (!this.multiselectable) {
+    this.updateMoveButton();
+  }
+
+  this.checkUpDownButtons();
+  this.handleFocusChange(element);
+};
+
+aria.Listbox.prototype.checkInRange = function (index, start, end) {
+  var rangeStart = start < end ? start : end;
+  var rangeEnd = start < end ? end : start;
+
+  return index >= rangeStart && index <= rangeEnd;
+};
+
+aria.Listbox.prototype.selectRange = function (start, end) {
+  // get start/end indices
+  var allOptions = this.listboxNode.querySelectorAll('[role="option"]');
+  var startIndex =
+    typeof start === 'number' ? start : this.getElementIndex(start, allOptions);
+  var endIndex =
+    typeof end === 'number' ? end : this.getElementIndex(end, allOptions);
+
+  for (var index = 0; index < allOptions.length; index++) {
+    var selected = this.checkInRange(index, startIndex, endIndex);
+    allOptions[index].setAttribute('aria-selected', selected + '');
+  }
+
+  this.updateMoveButton();
+};
+
+/**
+ * Check for selected options and update moveButton, if applicable
+ */
+aria.Listbox.prototype.updateMoveButton = function () {
+  if (!this.moveButton) {
+    return;
+  }
+
+  if (this.listboxNode.querySelector('[aria-selected="true"]')) {
+    this.moveButton.setAttribute('aria-disabled', 'false');
+  } else {
+    this.moveButton.setAttribute('aria-disabled', 'true');
+  }
+};
+
+/**
+ * Check if the selected option is in view, and scroll if not
+ */
+aria.Listbox.prototype.updateScroll = function () {
+  var selectedOption = document.getElementById(this.activeDescendant);
+  if (
+    selectedOption &&
+    this.listboxNode.scrollHeight > this.listboxNode.clientHeight
+  ) {
+    var scrollBottom =
+      this.listboxNode.clientHeight + this.listboxNode.scrollTop;
+    var elementBottom = selectedOption.offsetTop + selectedOption.offsetHeight;
+    if (elementBottom > scrollBottom) {
+      this.listboxNode.scrollTop =
+        elementBottom - this.listboxNode.clientHeight;
+    } else if (selectedOption.offsetTop < this.listboxNode.scrollTop) {
+      this.listboxNode.scrollTop = selectedOption.offsetTop;
+    }
+  }
+};
+
+/**
+ * @description
+ *  Enable/disable the up/down arrows based on the activeDescendant.
+ */
+aria.Listbox.prototype.checkUpDownButtons = function () {
+  var activeElement = document.getElementById(this.activeDescendant);
+
+  if (!this.moveUpDownEnabled) {
+    return;
+  }
+
+  if (!activeElement) {
+    this.upButton.setAttribute('aria-disabled', 'true');
+    this.downButton.setAttribute('aria-disabled', 'true');
+    return;
+  }
+
+  if (this.upButton) {
+    if (activeElement.previousElementSibling) {
+      this.upButton.setAttribute('aria-disabled', false);
+    } else {
+      this.upButton.setAttribute('aria-disabled', 'true');
+    }
+  }
+
+  if (this.downButton) {
+    if (activeElement.nextElementSibling) {
+      this.downButton.setAttribute('aria-disabled', false);
+    } else {
+      this.downButton.setAttribute('aria-disabled', 'true');
+    }
+  }
+};
+
+aria.Listbox.prototype.addItems = function (items) {
+  if (!items || !items.length) {
+    return;
+  }
+
+  items.forEach(
+    function (item) {
+      this.defocusItem(item);
+      this.toggleSelectItem(item);
+      this.listboxNode.append(item);
+    }.bind(this)
+  );
+
+  if (!this.activeDescendant) {
+    this.focusItem(items[0]);
+  }
+
+  this.handleItemChange('added', items);
+};
+
+aria.Listbox.prototype.deleteItems = function () {
+  var itemsToDelete;
+
+  if (this.multiselectable) {
+    itemsToDelete = this.listboxNode.querySelectorAll('[aria-selected="true"]');
+  } else if (this.activeDescendant) {
+    itemsToDelete = [document.getElementById(this.activeDescendant)];
+  }
+
+  if (!itemsToDelete || !itemsToDelete.length) {
+    return [];
+  }
+
+  itemsToDelete.forEach(
+    function (item) {
+      item.remove();
+
+      if (item.id === this.activeDescendant) {
+        this.clearActiveDescendant();
+      }
+    }.bind(this)
+  );
+
+  this.handleItemChange('removed', itemsToDelete);
+
+  return itemsToDelete;
+};
+
+aria.Listbox.prototype.clearActiveDescendant = function () {
+  this.activeDescendant = null;
+  this.listboxNode.setAttribute('aria-activedescendant', null);
+
+  this.updateMoveButton();
+  this.checkUpDownButtons();
+};
+
+aria.Listbox.prototype.moveUpItems = function () {
+  if (!this.activeDescendant) {
+    return;
+  }
+
+  var currentItem = document.getElementById(this.activeDescendant);
+  var previousItem = currentItem.previousElementSibling;
+
+  if (previousItem) {
+    this.listboxNode.insertBefore(currentItem, previousItem);
+    this.handleItemChange('moved_up', [currentItem]);
+  }
+
+  this.checkUpDownButtons();
+};
+
+aria.Listbox.prototype.moveDownItems = function () {
+  if (!this.activeDescendant) {
+    return;
+  }
+
+  var currentItem = document.getElementById(this.activeDescendant);
+  var nextItem = currentItem.nextElementSibling;
+
+  if (nextItem) {
+    this.listboxNode.insertBefore(nextItem, currentItem);
+    this.handleItemChange('moved_down', [currentItem]);
+  }
+
+  this.checkUpDownButtons();
+};
+
+aria.Listbox.prototype.moveItems = function () {
+  if (!this.siblingList) {
+    return;
+  }
+
+  var itemsToMove = this.deleteItems();
+  this.siblingList.addItems(itemsToMove);
+};
+
+aria.Listbox.prototype.enableMoveUpDown = function (upButton, downButton) {
+  this.moveUpDownEnabled = true;
+  this.upButton = upButton;
+  this.downButton = downButton;
+  upButton.addEventListener('click', this.moveUpItems.bind(this));
+  downButton.addEventListener('click', this.moveDownItems.bind(this));
+};
+
+aria.Listbox.prototype.setupMove = function (button, siblingList) {
+  this.siblingList = siblingList;
+  this.moveButton = button;
+  button.addEventListener('click', this.moveItems.bind(this));
+};
+
+aria.Listbox.prototype.setHandleItemChange = function (handlerFn) {
+  this.handleItemChange = handlerFn;
+};
+
+aria.Listbox.prototype.setHandleFocusChange = function (focusChangeHandler) {
+  this.handleFocusChange = focusChangeHandler;
+};
+
+'use strict';
+
+window.addEventListener('load', function () {
+  if(typeof product !== "undefined"){
+    selectLoad(false, product.handle)
+  }
+});
+
+function selectLoad (createTypeSelectProductQuickView = false, product_handle) {
+    let quickView = createTypeSelectProductQuickView;
+    let producthandle = product_handle;
+    if(product_handle)
+    {
+      var button = document.querySelector('.dropdown-'+product_handle);
+    var exListbox = new aria.Listbox(document.querySelector('.dropdownlist-'+product_handle));
+    new aria.ListboxButton(button, exListbox, quickView, producthandle);
+    }else{
+    var button = document.querySelector('.dropdown-box');
+    var exListbox = new aria.Listbox(document.querySelector('.dropdownlist_box'));
+    new aria.ListboxButton(button, exListbox, quickView, producthandle);
+    }
+  }
+var aria = aria || {};
+
+aria.ListboxButton = function (button, listbox, quickView, producthandle) {
+  this.button = button;
+  this.listbox = listbox;
+  this.quickView = quickView;
+  this.producthandle = producthandle;
+  this.registerEvents();
+};
+
+aria.ListboxButton.prototype.registerEvents = function () {
+  // Add a property to store the state of the listbox
+  this.listboxOpen = false;
+  this.button.addEventListener('click', this.toggleListbox.bind(this));
+  this.button.addEventListener('keyup', this.checkShow.bind(this));
+  this.listbox.listboxNode.addEventListener(
+    'blur',
+    this.hideListbox.bind(this)
+  );
+  this.listbox.listboxNode.addEventListener(
+    'keydown',
+    this.checkHide.bind(this)
+  );
+  //this.listbox.setHandleFocusChange(this.onFocusChange.bind(this));
+};
+
+aria.ListboxButton.prototype.toggleListbox = function () {
+  if (this.listboxOpen) {
+    // Listbox is open, so close it
+    this.hideListbox();
+  } else {
+    // Listbox is closed, so open it
+    this.showListbox();
+  }
+  // Toggle the state
+  this.listboxOpen = !this.listboxOpen;
+};
+
+aria.ListboxButton.prototype.checkShow = function (evt) {
+  var key = evt.which || evt.keyCode;
+
+  switch (key) {
+    case aria.KeyCode.UP:
+    case aria.KeyCode.DOWN:
+      evt.preventDefault();
+      this.showListbox();
+      this.listbox.checkKeyPress(evt);
+      break;
+  }
+};
+
+aria.ListboxButton.prototype.checkHide = function (evt) {
+  var key = evt.which || evt.keyCode;
+
+  switch (key) {
+    case aria.KeyCode.RETURN:
+    case aria.KeyCode.ESC:
+      evt.preventDefault();
+      this.hideListbox();
+      this.button.focus();
+      break;
+  }
+};
+
+aria.ListboxButton.prototype.showListbox = function () {
+  aria.Utils.removeClass(this.listbox.listboxNode, 'hidden');
+  this.button.setAttribute('aria-expanded', 'true');
+  this.listbox.listboxNode.focus();
+  document.querySelector('ul.dropdownlist-'+this.producthandle).setAttribute("is-quickview",this.quickView)
+};
+
+aria.ListboxButton.prototype.hideListbox = function () {
+  aria.Utils.addClass(this.listbox.listboxNode, 'hidden');
+  this.button.removeAttribute('aria-expanded');
+};
+
+// aria.ListboxButton.prototype.onFocusChange = function (focusedItem) {
+//   this.button.innerText = focusedItem.innerText;
+// };
+'use strict';
+/**
+ * @namespace aria
+ */
+
+var aria = aria || {};
+aria.KeyCode = {
+  BACKSPACE: 8,
+  TAB: 9,
+  RETURN: 13,
+  SHIFT: 16,
+  ESC: 27,
+  SPACE: 32,
+  PAGE_UP: 33,
+  PAGE_DOWN: 34,
+  END: 35,
+  HOME: 36,
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40,
+  DELETE: 46,
+};
+
+aria.Utils = aria.Utils || {};
+
+// Polyfill src https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+aria.Utils.matches = function (element, selector) {
+  if (!Element.prototype.matches) {
+    Element.prototype.matches =
+      Element.prototype.matchesSelector ||
+      Element.prototype.mozMatchesSelector ||
+      Element.prototype.msMatchesSelector ||
+      Element.prototype.oMatchesSelector ||
+      Element.prototype.webkitMatchesSelector ||
+      function (s) {
+        var matches = element.parentNode.querySelectorAll(s);
+        var i = matches.length;
+        while (--i >= 0 && matches.item(i) !== this) {
+          // empty
+        }
+        return i > -1;
+      };
+  }
+
+  return element.matches(selector);
+};
+
+aria.Utils.remove = function (item) {
+  if (item.remove && typeof item.remove === 'function') {
+    return item.remove();
+  }
+  if (
+    item.parentNode &&
+    item.parentNode.removeChild &&
+    typeof item.parentNode.removeChild === 'function'
+  ) {
+    return item.parentNode.removeChild(item);
+  }
+  return false;
+};
+
+aria.Utils.isFocusable = function (element) {
+  if (element.tabIndex < 0) {
+    return false;
+  }
+
+  if (element.disabled) {
+    return false;
+  }
+
+  switch (element.nodeName) {
+    case 'A':
+      return !!element.href && element.rel != 'ignore';
+    case 'INPUT':
+      return element.type != 'hidden';
+    case 'BUTTON':
+    case 'SELECT':
+    case 'TEXTAREA':
+      return true;
+    default:
+      return false;
+  }
+};
+
+aria.Utils.getAncestorBySelector = function (element, selector) {
+  if (!aria.Utils.matches(element, selector + ' ' + element.tagName)) {
+    // Element is not inside an element that matches selector
+    return null;
+  }
+
+  // Move up the DOM tree until a parent matching the selector is found
+  var currentNode = element;
+  var ancestor = null;
+  while (ancestor === null) {
+    if (aria.Utils.matches(currentNode.parentNode, selector)) {
+      ancestor = currentNode.parentNode;
+    } else {
+      currentNode = currentNode.parentNode;
+    }
+  }
+
+  return ancestor;
+};
+
+aria.Utils.hasClass = function (element, className) {
+  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.className);
+};
+
+aria.Utils.addClass = function (element, className) {
+  if (!aria.Utils.hasClass(element, className)) {
+    element.className += ' ' + className;
+  }
+};
+
+aria.Utils.removeClass = function (element, className) {
+  var classRegex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+  element.className = element.className.replace(classRegex, ' ').trim();
+};
+
+aria.Utils.bindMethods = function (object /* , ...methodNames */) {
+  var methodNames = Array.prototype.slice.call(arguments, 1);
+  methodNames.forEach(function (method) {
+    object[method] = object[method].bind(object);
+  });
+};
+
+/* Code end for custom product size dropdown */
+const reloadStaticBlocks = () => {
+    [...document.querySelectorAll('.static-block-script')].map(script => {
+        let scriptInnerHtml = script.innerText;
+        let scriptAttribute = script.getAttribute('data-function-name')
+        let parent = script.parentNode;
+        parent.removeChild(script);
+        
+        var newScriptTag = document.createElement('script');
+        newScriptTag.innerText = scriptInnerHtml;
+        newScriptTag.className = "static-block-script";
+        newScriptTag.setAttribute('data-function-name', scriptAttribute);
+        parent.appendChild(newScriptTag);
+        return newScriptTag;
+    }).map(script => {
+        eval(script.getAttribute('data-function-name'))()
+    })
+};
+
+const recreateCRL8 = () => {
+    window.crl8.destroyAllExperiences().then(cb =>{
+        [...document.querySelectorAll('.curalate-gallery_embed')].map(embed => {
+            return embed.getAttribute('data-crl8-container-id')
+        }).map(id => {
+            window.crl8.createExperience(id)
+        })    
+    })  
+};

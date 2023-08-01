@@ -7,6 +7,7 @@ let klaviyoLoaded = false;
 
 const pdpJSON = document.querySelector('.pdp-json');
 const pdpMetaJSON = document.querySelector('.pdp-meta-json');
+
 if(pdpJSON) {
     try {
         productMeta = JSON.parse(pdpMetaJSON.innerHTML);
@@ -55,7 +56,15 @@ function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
         const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
 
         if(match) {
-            const newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
+            let newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
+            if(!newSwatch.classList.contains('product-option--na')) {
+            } else {
+                let posibleNewSwatch = productUnit.querySelector(`.color-swatch[data-available="true"]`);
+                if(posibleNewSwatch) {
+                    newSwatch = posibleNewSwatch;
+                }
+            }
+
             
             const activeFirst = productUnit.querySelector('.color-swatch--first');
             if(activeFirst) activeFirst.classList.remove('color-swatch--first');
@@ -70,34 +79,37 @@ function pdpCreateSizeSelect(variantsizeEl, createTypeSelectProduct, createTypeS
     quickView = createTypeSelectProductQuickView;
     product = createTypeSelectProduct;
     const ProductId = variantsizeEl.getAttribute('data-productId');
-    const select = variantsizeEl.querySelector('select');
-    select.addEventListener('change', (e) => {
-        const productForm = variantsizeEl.closest('.shopify-product-form');
-        const options = getProductOptionsList(productForm, 'pdp');
-        let url = `/products/${e.target.value}`;
-        // Get the selected option from the select element
-        const selectedOption = e.target.options[e.target.selectedIndex];
-        let getvarianthandle = selectedOption.getAttribute('data-producthandle');
-        if(quickView === false) {
-            location.href = url + '/' + getvarianthandle;
-        } else {
-            getQuickView(url, getvarianthandle);
-        }
-    });
+    const select = variantsizeEl.querySelector('ul.dropdownlist_box');
 }
 
 async function pdpSizePriceUpdate(option) {
     const selectedColor = option.getAttribute('data-option1');
-    const sizeOptions = document.querySelectorAll('.pdp__variant-size select option');
-  
+    const sizeOptions = document.querySelectorAll('.dropdownlist_box li');
+    const buttontext = document.querySelector('.dropdown-box');
+
     for (const sizeOption of sizeOptions) {
-      const value = sizeOption.value;
+      const value = sizeOption.getAttribute('value');
       const productTitle = sizeOption.getAttribute('data-prodtitle');
-  
       try {
         const productInfo = await getProductOptions(value, selectedColor);
         // Update the content of each option with the new product information
-        sizeOption.textContent = `${productTitle} - ${productInfo.price}`;
+        const buttontext = document.querySelector('.dropdown-'+productInfo.producthandle)
+        if(buttontext){
+            if(productInfo.compare_at != '$0'){
+                buttontext.innerHTML = `${productTitle} - <s>${productInfo.compare_at}</s>${productInfo.price}`;
+            }else{
+                buttontext.innerHTML = `${productTitle} - ${productInfo.price}`;
+            }
+        }
+        if(typeof productInfo.productavailable !== "undefined"){
+            sizeOption.innerHTML = `${productTitle} - Out Of Stock`;
+        }else{
+                if(productInfo.compare_at != '$0'){
+                    sizeOption.innerHTML = `${productTitle} - <s>${productInfo.compare_at}</s>${productInfo.price}`;
+                }else{
+                    sizeOption.innerHTML = `${productTitle} - ${productInfo.price}`;
+                }
+        }
         const producthandle = `${productInfo.title}`;
         sizeOption.setAttribute('data-producthandle', producthandle);
       } catch (error) {
@@ -115,37 +127,51 @@ async function pdpSizePriceUpdate(option) {
     }).then((res) => {
       return res.json();
     });
-  
     var productVariants = productContent.variants;
     var defaultVariant = null; // Variable to store the default variant info
   
-    for (const variant of productVariants) {
-        const originalString = variant.title;
-        const separatorIndex = originalString.indexOf(" / ");
-        let variantTitle;
-        if(separatorIndex >= 0){
-            variantTitle = originalString.slice(0, separatorIndex).toLowerCase().replace(/\s+/g, "-");
-        }else{
-            variantTitle = variant.title.toLowerCase().replace(/\s+/g, "-");
+    if(productContent.available){
+        for (const variant of productVariants) {
+            const originalString = variant.title;
+            const separatorIndex = originalString.indexOf(" / ");
+            let variantTitle;
+            if(separatorIndex >= 0){
+                variantTitle = originalString.slice(0, separatorIndex).toLowerCase().replace(/\s+/g, "-");
+            }else{
+                variantTitle = variant.title.toLowerCase().replace(/\s+/g, "-");
+            }
+          if (variantTitle === selectedColor && variant.available == true) {
+            return {
+             producthandle: productContent.handle,
+              title: variantTitle,
+              compare_at: formatPrice(variant.compare_at_price / 100),
+              price: formatPrice(variant.price / 100),
+            };
+          } else if (!defaultVariant && variant.available === true) {
+            // Store the default variant info if no match found yet
+            defaultVariant = {
+             producthandle: productContent.handle,
+              title: variantTitle,
+              compare_at: formatPrice(variant.compare_at_price / 100),
+              price: formatPrice(variant.price / 100),
+              available: variant.available
+            };
+          }
         }
-      if (variantTitle === selectedColor && variant.available == true) {
-        return {
-          title: variantTitle,
-          price: formatPrice(variant.price / 100),
-        };
-      } else if (!defaultVariant) {
-        // Store the default variant info if no match found yet
-        defaultVariant = {
-          title: variantTitle,
-          price: formatPrice(variant.price / 100),
-        };
-      }
+      
+        // If no match found, return the default variant
+        if (defaultVariant) {
+          return defaultVariant;
+        }
+    }else{
+        return{
+            producthandle: productContent.handle,
+            productavailable: productContent.available,
+            compare_at: formatPrice(productContent.compare_at_price / 100),
+            price: formatPrice(productContent.price / 100),
+        }
     }
-  
-    // If no match found, return the default variant
-    if (defaultVariant) {
-      return defaultVariant;
-    }
+    
   
     throw new Error("Variant not found for the selected color.");
   }
@@ -685,10 +711,12 @@ const changeBadgeAbsolutePosition = e => {
 
 document.addEventListener("DOMContentLoaded", function () {
     changeBadgeAbsolutePosition()
+    Fancybox.bind('[data-fancybox="gallery"]', {});
     const mediaColors = [...document.querySelectorAll(".pdp__media")]
     const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
+   
     for (let i = 0; i < mediaUniqueColors.length; i++) {
-        const color = mediaUniqueColors[i];
+      const color = mediaUniqueColors[i];
      if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
     }
 });

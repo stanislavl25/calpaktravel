@@ -98,8 +98,7 @@
         "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
           "type": "product",
           "settings": {
-            "product": "medium-compression-packing-cubes",
-            "show-add-to-cart": false
+            "product": "medium-compression-packing-cubes"
           }
         },
         "0e83dcef-762d-48a3-8506-b41184fbd8d6": {
@@ -108,8 +107,7 @@
             "title": "Compression Packing Cube Set",
             "description": "<p>Each cube in this 2-Piece Set has an expandable component— taking a 4.5\" cube full of all your favorite t-shirts, dresses, and shorts, down to a compressed, 2\" cube. With a top handle and a back zippered compartment for extra storage, these cubes will be the ultimate space saving solution.<\/p><p><\/p><p><strong>The expandable system<\/strong><\/p><p>Each cube in this 2-Piece Set has a 2.5\" expandable component— taking a 4.5\" cube full of all your favorite t-shirts, dresses, and shorts, down to a compressed, 2\" cube. With a top handle for holding, and a back zippered compartment for extra storage, these cubes will be your next space saving solution.<br\/><br\/>One Size Expanded (9\" x 13\" x 4.5\")<br\/>One Size Compressed (9\" x 13\" x 2\")<\/p>",
             "button-text": "Shop Now",
-            "button-link": "shopify:\/\/products\/medium-compression-packing-cubes",
-            "description-2": ""
+            "button-link": "shopify:\/\/products\/medium-compression-packing-cubes"
           }
         }
       },

@@ -34,6 +34,7 @@
 <noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
+<script src="{{ 'product-overlay.js' | asset_url }}" defer ></script>
 <script src="{{ 'fancybox.js' | asset_url }}" defer></script>
 <script src="{{ 'pdp.js' | asset_url }}" defer="defer"></script>
 {%- liquid
@@ -283,6 +284,7 @@
                         } catch {}try {
                           document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final;
                         
+
 
                       } catch{}})
                     .catch(error => console.log('error', error));

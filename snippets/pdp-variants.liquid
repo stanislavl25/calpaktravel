@@ -204,33 +204,76 @@
       data-productId="{{ product.id }}">
       <label>Size</label>
       <div
-        class="select__wrapper">
-        <select>
-          {% for size_item in size_items %}
-            <option
-              value="{{ size_item.handle }}"
-              data-producthandle="{{ current_variant.title | handle }}"
-              {% if size_item.handle == product.handle %}selected{% endif %}
-              data-prodtitle="
-              {% if size_item.metafields.custom.select_size_name != blank %}
-                {{ size_item.metafields.custom.select_size_name }}
-              {% else %}
-                {{ size_item.title }}
-              {% endif %}">
-              {% if size_item.metafields.custom.select_size_name != blank %}
-                {{ size_item.metafields.custom.select_size_name }}
-              {% else %}
-                {{ size_item.title }}
-              {% endif %}
-              -
-              {% if size_item.handle == product.handle %}
-                {{ current_variant.price | money_without_trailing_zeros }}
-              {% else %}
-                {{ size_item.price | money_without_trailing_zeros }}{% endif %}
-            </option>
-          {%- endfor -%}
-        </select>
+        class="listbox-area">
+        <div
+          class="left-area">
+          <div
+            id="exp_wrapper">
+            <button
+              type="button"
+              aria-haspopup="listbox"
+              aria-labelledby="exp_elem exp_button"
+              id="exp_button"
+              class="dropdown-box dropdown-{{ product.handle }}">
+              {% if product.metafields.custom.select_size_name != blank %}
+              {{ product.metafields.custom.select_size_name }}  -
+            {% else %}
+              {{ product.title }}  -
+            {% endif %}
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+              {%- endif -%}
+              {{ current_variant.price | money_without_trailing_zeros }}
+            </button>
+            <ul
+              id="exp_elem_list"
+              tabindex="-1"
+              role="listbox"
+              aria-labelledby="exp_elem"
+              class="hidden dropdownlist_box dropdownlist-{{ product.handle }}"
+              is-quickview="false">
+              {% for size_item in size_items %}
+                <li
+              {% if size_item.handle == product.handle %} style="display:none" {% endif %}
+                  id="exp_elem_{{ forloop.index }}"
+                  role="option"
+                  value="{{ size_item.handle }}"
+                  data-producthandle="{{ current_variant.title | handle }}"
+                  {% if size_item.handle == product.handle %}selected{% endif %}
+                  data-prodtitle="
+                  {% if size_item.metafields.custom.select_size_name != blank %}
+                    {{ size_item.metafields.custom.select_size_name }}
+                  {% else %}
+                    {{ size_item.title }}
+                  {% endif %}">
+                  {% if size_item.metafields.custom.select_size_name != blank %}
+                    {{ size_item.metafields.custom.select_size_name }}
+                  {% else %}
+                    {{ size_item.title }}
+                  {% endif %}
+                  -
+                  {%if size_item.available %}
+                    {% if size_item.handle == product.handle %}
+                          {%- if current_variant.compare_at_price > current_variant.price -%}
+                                <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+                            {%- endif -%}
+                            {{ current_variant.price | money_without_trailing_zeros }}
+                          {% else %}
+                          {%- if size_item.compare_at_price > current_variant.price -%} 
+                                <s>{{ size_item.compare_at_price | money_without_trailing_zeros }}</s>
+                            {%- endif -%}
+                            {{ size_item.price | money_without_trailing_zeros }}
+                   {% endif %}
+                  {% else %} Out Of Stock{%endif%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   {% endif %}
+
+
+
 </section>

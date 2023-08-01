@@ -1,6 +1,6 @@
 {{ 'section-curalate.css' | asset_url | stylesheet_tag }}
 <style>   
-#shopify-section-template--{{section.id}}{
+{% comment %} #shopify-section-template--{{section.id}}{
     display:none;
 }
 {% if section.settings.collection_list != empty %}
@@ -13,7 +13,32 @@
 .shopify-section--curalate:has(.curalate-gallery_embed){
     display:flex!important;
 }
-{% endif %}
+{% endif %} {% endcomment %}
+{% if section.settings.collection_list != empty %}
+    {% assign collection_handle_list = section.settings.collection_list | map: "handle" %}
+    {% if template == "collection" %}
+        {% for collection_iterate in collection_handle_list %}
+            {% if collection.handle == collection_iterate %}
+                {% assign inCollectionList = true %}
+                {% break %}
+            {% endif %}  
+        {% endfor %}
+        
+        {% if inCollectionList %}
+            #shopify-section-{{section.id}} {
+                display: flex!important;
+            }   
+        {% else %}
+            #shopify-section-{{section.id}}  {
+                display: none!important;
+            }   
+        {% endif %}
+    {% endif %}
+{% else %}
+    #shopify-section-{{section.id}} {
+        display: flex!important;
+    }   
+{% endif %}    
 </style>
 <header class="curalate-gallery__header gallery--{{section.id}} {{collection-handle}}">
     <aside>

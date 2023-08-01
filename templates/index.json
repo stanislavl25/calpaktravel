@@ -53,9 +53,11 @@
     "9a46d065-1a77-4b95-ba73-e9bf4d14e72a": {
       "type": "hero",
       "disabled": true,
+      "disabled": true,
       "blocks": {
         "f9b2bb8f-72af-4c2b-8de8-9fa7f76866d9": {
           "type": "text-block",
+          "disabled": true,
           "disabled": true,
           "settings": {
             "title": "FREE gift with our 3-Piece Luggage Sets",
@@ -73,6 +75,7 @@
         "a17da66f-28b0-45ff-8e34-f875358fe7d4": {
           "type": "media-block",
           "disabled": true,
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/HERO_GWP_DESKTOP-1.gif",
             "image-mobile": "shopify:\/\/shop_images\/HERO_GWP_MOBILE-1.gif",
@@ -89,6 +92,7 @@
         },
         "c9bdd6f7-dbe2-40c8-8866-0c4792a3d271": {
           "type": "media-block",
+          "disabled": true,
           "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/HERO_GWP_DESKTOP-2.gif",
@@ -134,14 +138,13 @@
             "show-condition": "always",
             "text-alignment": "center",
             "text-color-scheme": "black",
-            "background": "#e4dfd5"
+            "background": "#eae9e1"
           }
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/TMS.gif",
-            "image-mobile": "shopify:\/\/shop_images\/Frame_1-11.png",
+            "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_55533bc3-6cfe-4c7b-8dc3-0dc4075ff3df.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
@@ -453,42 +456,37 @@
     },
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
       "type": "promo-collection",
-      "disabled": true,
       "settings": {
-        "title": "Ambeur Collection",
+        "title": "Explore Our New Arrivals",
         "description": "",
         "quick-view": true,
-        "product-labels": false,
-        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1372_6c72ff0e-c237-424c-afdf-a9528ed74b74.jpg",
+        "product-labels": true,
+        "image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION0999.jpg",
         "video": "",
-        "media-link": "",
-        "pictured-product": "ambeur-front-pocket-carry-on-luggage",
-        "pictured-product-quick-view": true,
+        "media-link": "shopify:\/\/collections\/new-arrivals",
+        "pictured-product": "",
+        "pictured-product-quick-view": false,
         "pictured-product-override": "",
-        "pictured-product-title": "Ambeur Front Pocket Carry-On",
+        "pictured-product-title": "",
         "button-text": "Shop Now",
         "button-quick-view": false,
-        "button-link": "shopify:\/\/collections\/ambeur-collection",
+        "button-link": "shopify:\/\/collections\/summer-arrivals",
         "background": "#ff6b0e",
         "text-color": "{{ shop.brand.colors.primary[1].background }}",
         "accent-color": "#ffffff",
         "pictured-product-display": "top",
-        "featured-collection": "",
-        "collection-limit": 0,
-        "show-view-all": true,
+        "featured-collection": "new-arrivals",
+        "collection-limit": 6,
+        "show-view-all": false,
         "product_list": [
-          "ambeur-vanity-case",
-          "ambeur-mini-carry-on-luggage",
-          "ambeur-front-pocket-carry-on-luggage",
-          "ambeur-carry-on-luggage",
-          "ambeur-medium-luggage",
-          "ambeur-large-luggage"
+
         ],
         "columns": "3"
       }
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Explore Our Summer Arrivals",
         "description": "",
@@ -613,7 +611,11 @@
         "height-percent": 20,
         "text-alignment": "center",
         "text-color-scheme": "white",
-        "background": "#ff6b0e"
+        "background": "#ff6b0e",
+        "query-match": false,
+        "yotpo": false,
+        "signed-in-button-text": "",
+        "signed-in-link": ""
       }
     }
   },

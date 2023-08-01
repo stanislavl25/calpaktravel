@@ -158,13 +158,11 @@
       {
         "type": "header",
         "content": "Final sale"
-
       },
       {
         "type": "checkbox",
         "id": "final-sale-text",
-        "label": "Enable Final Sale Text",
-        "default": true
+        "label": "Enable final sale text"
       },
       {
         "type": "color",
