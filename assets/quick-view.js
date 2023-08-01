@@ -13,6 +13,7 @@ function getQuickViewProduct(link, variant) {
 }
 
 function setQuickViewContent(data, variant, qvParent) {
+
     qvParent.querySelector('.qv__body-inner').innerHTML = data.layout;
 
     const target = qvParent.querySelector('.pdp__variants');
@@ -46,7 +47,8 @@ function setQuickViewContent(data, variant, qvParent) {
     const galleryThumbsSldier = qvParent.querySelector('.qv__gallery-thumbs-inner');
 
     let variantSizeEl = qvParent.querySelector('.pdp__variants .pdp__variant-size');
-    if(variantSizeEl) pdpCreateSizeSelect(variantSizeEl, product, true);
+    if(variantSizeEl) selectLoad(true, product.handle)
+    
 
     variantUpdateProcess(target);
 
