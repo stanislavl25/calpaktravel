@@ -210,7 +210,7 @@ function variantUpdateProcess(target) {
 
         const pdpPrices = pdpInfo.querySelectorAll('.pdp__price-inner, .pdp__submit-price');
         pdpPrices.forEach(pdpPrice => pdpPrice.innerHTML = formatedPrice);
-
+  
 
         const pdpDscnts = pdpGrid.querySelectorAll('.dscnt');
         if(cprice) {

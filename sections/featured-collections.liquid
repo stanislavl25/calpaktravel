@@ -10,26 +10,30 @@
     endfor
 -%}
 {%- if numberOfButtons > 1 -%}
-<nav class="featured-col__nav tabs__nav">
+  <nav class="featured-col__nav tabs__nav">
     {%- for block in section.blocks -%}
 
-        {%- assign collection = block.settings.collection -%}
-        {%- if collection.products.size == 0 or collection == blank -%}
-            {%- continue -%}
-        {%- endif -%}
+      {%- assign collection = block.settings.collection -%}
+      {%- if collection.products.size == 0 or collection == blank -%}
+        {%- continue -%}
+      {%- endif -%}
 
-        <button aria-label="Display tab #{{ forloop.index }}" data-index="{{ forloop.index }}" class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button" data-index="{{ forloop.index }}">
-            {%- if block.settings.title != blank -%}
-                {{- block.settings.title | escape -}}
-            {%- else -%}
-                {{- collection.title | escape -}}
-            {%- endif -%}
-        </button>
+      <button
+        aria-label="Display tab #{{ forloop.index }}"
+        data-index="{{ forloop.index }}"
+        class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button"
+        data-index="{{ forloop.index }}">
+        {%- if block.settings.title != blank -%}
+          {{- block.settings.title | escape -}}
+        {%- else -%}
+          {{- collection.title | escape -}}
+        {%- endif -%}
+      </button>
 
     {%- endfor -%}
-</nav>
+  </nav>
 {%- else -%}
-    <h2 class="featured-col__title">
+  <h2 class="featured-col__title">
     {%- liquid
         for block in section.blocks
             if block.settings.collection.products.size == 0 or block.settings.collection == blank
@@ -43,80 +47,92 @@
             endif
         endfor
     -%}
-    </h2>
+  </h2>
 {%- endif -%}
 <section class="featured-col__lists tabs__target">
-    {%- for block in section.blocks -%}
-        
-        {%- assign collection = block.settings.collection -%}
-        {%- if collection.products.size == 0 or collection == blank -%}
-            {%- continue -%}
+  {%- for block in section.blocks -%}
+
+    {%- assign collection = block.settings.collection -%}
+    {%- if collection.products.size == 0 or collection == blank -%}
+      {%- continue -%}
+    {%- endif -%}
+
+    <div
+      data-index="{{ forloop.index }}"
+      data-slide="2"
+      class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper slider__wrapper--buttons-side"
+      data-index="{{ forloop.index }}">
+      <button
+        aria-label="Show previous slide"
+        class="slider__control button-tri-left slider__control--prev"
+        title="Previous"></button>
+      <button
+        aria-label="Show next slide"
+        class="slider__control button-tri-right slider__control--next"
+        title="Next"></button>
+      <div class="slider slider--scrollbar">
+        {%- if block.settings.hide-form-labels -%}
+          {%- assign floatingLabels = true -%}
+        {%- else -%}
+          {%- assign floatingLabels = nil -%}
         {%- endif -%}
+        {%- for product in collection.products limit: 20 -%}
+          {%- render 'product-unit' with product, in_collection: collection, wishlist: true, class: 'slide', all_colors_quickadd: true, all_sizes: true, add_to_cart: section.settings.add-to-cart, quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels, overrideFlashSale: block.settings.dont-hide-flash-sale -%}
+        {%- endfor -%}
+      </div>
+    </div>
 
-        <div data-index="{{ forloop.index }}" data-slide="2" class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper slider__wrapper--buttons-side" data-index="{{ forloop.index }}">
-            <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-            <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
-            <div class="slider slider--scrollbar">
-                {%- if block.settings.hide-form-labels -%}
-                    {%- assign floatingLabels = true -%}
-                {%- else -%}
-                    {%- assign floatingLabels = nil -%}
-                {%- endif -%}
-                {%- for product in collection.products limit: 20 -%}
-                    {%- render 'product-unit' with product, in_collection: collection, wishlist: true, class: 'slide', quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels, overrideFlashSale: block.settings.dont-hide-flash-sale -%}
-                {%- endfor -%}
-            </div>
-        </div>
-
-    {%- endfor -%}
+  {%- endfor -%}
 </section>
 
 {% schema %}
-    {
-        "name": "Fearured Collections",
-        "class": "shopify-section--featured-collections",
+  {
+    "name": "Featured Collections",
+    "class": "shopify-section--featured-collections",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "quick-view",
+        "label": "Enable Quick View",
+        "default": false
+      }, {
+        "type": "checkbox",
+        "id": "add-to-cart",
+        "label": "Enable AddToCart",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
         "settings": [
-            {
-                "type": "checkbox",
-                "id": "quick-view",
-                "label": "Enable Quick View",
-                "default": false
-            }
-        ],
-        "blocks": [
-            {
-                "type": "collection",
-                "name": "Collection",
-                "settings": [
-                    {
-                        "type": "collection",
-                        "id": "collection",
-                        "label": "Collection"
-                    },
-                    {
-                        "type": "text",
-                        "id": "title",
-                        "label": "Override Title"
-                    },
-                    {
-                        "type": "checkbox",
-                        "id": "hide-form-labels",
-                        "label": "Hide labels under product title",
-                        "default": false
-                    },
-                    {
-                        "type": "checkbox",
-                        "id": "dont-hide-flash-sale",
-                        "label": "Don't hide flash sale",
-                        "default": true
-                    }
-                ]
-            }
-        ],
-        "presets": [
-            {
-                "name": "Featured Collections"
-            }
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Override Title"
+          }, {
+            "type": "checkbox",
+            "id": "hide-form-labels",
+            "label": "Hide labels under product title",
+            "default": false
+          }, {
+            "type": "checkbox",
+            "id": "dont-hide-flash-sale",
+            "label": "Don't hide flash sale",
+            "default": true
+          }
         ]
-    }
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Collections"
+      }
+    ]
+  }
 {% endschema %}

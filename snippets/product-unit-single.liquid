@@ -183,7 +183,7 @@
 
     {%- for color in unique_color_values -%}
       {% if color != blank %}
-        <div id="product-card__{{ forloop.index }}"
+    <div id="product-card__{{ forloop.index }} {% if forloop.first == true%}product-card-border-left{% endif %}"
           data-suffix="{{ product.template_suffix }}"
           data-handle="{{ product.handle }}"
           data-id="{{ product.id }}"
