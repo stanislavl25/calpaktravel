@@ -137,8 +137,8 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Get back at it!",
-            "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.  <\/p>",
+            "title": "Use code BACKTOIT for 10% OFF!",
+            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
             "main-link": "shopify:\/\/collections\/back-to-school",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
