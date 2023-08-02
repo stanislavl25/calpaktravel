@@ -1,21 +1,25 @@
 "use strict";
 
 const color_groups = {
-    'beige': ['beige', 'white-sands', 'nude', 'linen', 'speckle', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
+
     'black': ['black', 'trnk-black', 'matte-black', 'ambeur-black', 'luka-black', 'brushed-black', 'wavy', 'eclipse', 'cheetah', 'plaid', 'obsidian', 'onyx', 'midnight-marble'],
-    'blue': ['astrology', 'aqua', 'lagoon', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
-    'brown': ['papaya', 'ginger', 'khaki', 'taupe', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee', 'copper'],
-    'green': ['pale-green', 'khaki', 'modern-abstract', 'palm', 'green-apple', 'kiwi', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive', 'green-checkerboard'],
-    'grey': ['grey', 'taupe', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
-    'lavender': ['lavender', 'orchid', 'amethyst', 'things-between', 'groovy-blue', 'bloom', 'orchid-fields'],
-    'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold', 'copper'],
-    'orange': ['orange', 'papaya', 'orange-grid', 'retro-sunset', 'pumpkin', 'canyon'],
     'pink': ['pink', 'watermelon', 'modern-abstract', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink', 'pink-grid'],
-    'print': ['astrology', 'trnk-almond', 'trnk-espresso', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity', 'orchid-fields', 'green-checkerboard', 'pink-grid'],
-    'red': ['red', 'brick', 'watermelon', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid', 'cabernet'],
     'rose-gold': ['rose-gold', 'rosewood-tie-dye', 'jen-pink'],
+    'brown': ['papaya', 'ginger', 'khaki', 'taupe', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee', 'copper'],
+    'beige': ['beige', 'white-sands', 'nude', 'linen', 'speckle', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
+    'print': ['astrology', 'trnk-almond', 'trnk-espresso', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity', 'orchid-fields', 'green-checkerboard', 'pink-grid'],
+    'lavender': ['lavender', 'orchid', 'amethyst', 'things-between', 'groovy-blue', 'bloom', 'orchid-fields'],
+    'green': ['pale-green', 'khaki', 'modern-abstract', 'palm', 'green-apple', 'kiwi', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive', 'green-checkerboard'],
+    'blue': ['astrology', 'aqua', 'lagoon', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
+    'orange': ['orange', 'papaya', 'orange-grid', 'retro-sunset', 'pumpkin', 'canyon'],
+    'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold', 'copper'],
     'white': ['white', 'white-sands', 'linen', 'dove-grey', 'bloom', 'sky-tie-dye', 'sky-tie-dye-wash', 'white-bandana', 'confetti', 'cream', 'gold-marble', 'milk-marble', 'terrazzo', 'stone'],
-    'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow']
+    'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow'],
+    'grey': ['grey', 'taupe', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
+    'red': ['red', 'brick', 'watermelon', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid', 'cabernet'],
+
+
+
 };
 
 const colors_img = ["trnk-grey", 'modern-abstract', 'copper', 'speckle', 'orange-grid', "trnk-black", "trnk-espresso", "trnk-nude", "shimmer-pink", "pink-n-gold", "pink-gold", "sorbet", "bronze", "kaya-bronze", "gold", "silver", "rose-gold", "astrology", "trnk-almond", "wavy", "sand-tide", "daisy", "cloud", "gingham", "rosewood-tie-dye", "cappuccino-tie-dye", "flora", "polka-dot", "cheetah", "things-between", "plaid", "bloom", "confetti", "sand-tie-dye", "sand-tie-dye-wash", "sky-tie-dye", "sky-tie-dye-wash", "floral", "gold-marble", "leopard", "midnight-marble", "milk-marble", "palm-leaf", "stars", "stripe", "sunset", "terrazzo", "mustard-bandana", "white-bandana", "tutti-fruity", "retro-sunset", "groovy-blue", "pink-grid", "green-checkerboard", "orchid-fields"];
@@ -63,9 +67,9 @@ function getIndex(el) {
 function getIndexWithSelector(el, selector) {
     let index = 0,
         matches = el.parentNode.querySelectorAll(selector);
-    
+
     if(matches.length == 0) return false;
-    
+
     for(let i = 0; i < matches.length; i++) {
         if(matches[i] == el) break;
         index++;
@@ -121,11 +125,11 @@ function lazyloadImageSrcset(src) {
 function loadScript(src) {
     return new Promise((resolve, reject) => {
         const s = document.createElement('script');
-    
+
         s.setAttribute('src', src);
         s.addEventListener('load', resolve);
         s.addEventListener('error', reject);
-    
+
         document.body.appendChild(s);
     });
 }
@@ -139,7 +143,7 @@ function loadStyle(src) {
         s.setAttribute('type', 'text/css');
         s.addEventListener('load', resolve);
         s.addEventListener('error', reject);
-    
+
         document.body.appendChild(s);
     });
 }
@@ -197,7 +201,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(isProductUnit) collection = target.getAttribute('data-collection');
 
-    
+
     const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
     tags.forEach(tag => {
         let tg = handleize(tag);
@@ -250,11 +254,11 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         let optionName = product.options[i];
         if(product.options[i].name !== undefined) optionName = optionName.name;
         if( optionName.toLowerCase().trim() == 'color' ) colorIndex = i;
-        if( 
-            optionName.toLowerCase().trim() == 'size' || 
+        if(
+            optionName.toLowerCase().trim() == 'size' ||
             optionName.toLowerCase().trim() == 'quantity' ||
-            optionName.toLowerCase().trim() == 'amount' 
-        ) { 
+            optionName.toLowerCase().trim() == 'amount'
+        ) {
             if(optionName.toLowerCase().trim() == 'amount' ) { optionIsAmount = true; }
             sizeIndex = i;
         }
@@ -284,7 +288,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if(hideUnavailable && !product.variants[i].available) continue;
         const opt1 = handleize(product.variants[i].option1);
         if((collectionLimit !== false && collectionLimit.indexOf(opt1) === -1) || (hide !== false && hide.indexOf(opt1) > -1)) continue;
-        
+
         if(isProductUnit) {
             if(earlyAccessEnabled) { // Apply only when product has early access enabled
                 if(earlyAccessVar == 'all'); // If collection should show all EA variants don't hide anything
@@ -306,10 +310,10 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 // (earlyAccessVar != "true" && earlyAccessVar != opt1) // Disable variant if it's not the current EA variant shown
             ) continue;
         }
-        
+
         availableVariants.push(product.variants[i]);
     }
-    
+
     if(isProductUnit && isset(init1) && init1 !== false) {
         init1 = handleize(init1);
 
@@ -364,13 +368,13 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             break;
         }
     }
-    
+
     availableVariants.forEach(variant => {
         const opt1 = handleize(variant.option1);
         let opt2 = false;
-        
+
         if(variant.option2 != null && variant.option2 != undefined) opt2 = handleize(variant.option2);
-        
+
         // if(opt2 !== false && hasMultipleSizes !== true) {
         //     if(hasMultipleSizes === false) hasMultipleSizes = opt2;
         //     else if(hasMultipleSizes !== opt2) hasMultipleSizes = true;
@@ -448,7 +452,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     if(sizes[sizeOption].available === false && available === true) sizes[sizeOption].available = true;
                     if(sizes[sizeOption].selected === false && selected === true) sizes[sizeOption].selected = true;
                 } else {
-                    
+
                     sizes[sizeOption] = {
                         available: available,
                         selected: selected,
@@ -505,7 +509,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     hoverImg.remove();
                 }
             }
-            
+
         }
 
         options += `<option
@@ -546,7 +550,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     const wishlistButtons = target.querySelectorAll('.wishlist__button');
     if(wishlistButtons.length > 0 && wishlist && current_variant) wishlistButtons.forEach(wishlistButton => checkWishlistButton(wishlistButton, current_variant.id));
-    
+
     if(isProductUnit) {
         select.setAttribute('data-min-price', minPrice);
         select.setAttribute('data-max-price', maxPrice);
@@ -561,7 +565,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             optionInput.setAttribute("data-position", i + 1);
             optionInput.classList.add('product-unit__option');
             optionInput.value = handleize(current_variant[`option${i + 1}`]);
-    
+
             target.appendChild(optionInput);
         }
     }
@@ -569,18 +573,18 @@ function setProductData(product, meta, target, current_variant_id = false, init1
     if( colors._count === 0 ) {
         if (optionIsAmount) {
             if (hasSizeSelector) {
-        
+
                 let currentSize = false;
                 const selects = target.querySelector('.product-unit__sizes');
                 const sizesContainer = selects.querySelector('.sizes-container');
-                const component = target.querySelector('.product-unit__select--seleted');    
+                const component = target.querySelector('.product-unit__select--seleted');
                 const atcBtn = target.querySelector('.product-unit__button');
-                
+
                 console.log
-                
+
                 for (const size in sizes) {
                     if(size == '_count') continue;
-            
+
                     let el = document.createElement('a');
                     el.setAttribute('href', '#');
                     el.classList.add('size-swatch');
@@ -591,26 +595,26 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     el.setAttribute('data-value', size);
                     el.value = size;
                     el.setAttribute('data-first-variant-id', sizes[size].first_variant_id);
-        
+
                     if (target.querySelector('.product-unit__select--seleted').innerHTML.trim() == '') {
                         el.classList.add('selected');
                         target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
                     }
-                    
+
                     if(sizes[size].available === false) el.classList.add('product-option--na');
-            
+
                     if(sizes[size].selected === true) {
                         el.classList.add('size-swatch--active');
                         currentSize = sizes[size].title;
                         if(!variantAutoSelected) el.classList.add('size-swatch--first');
                     }
-            
+
                     if(sizes[size].available === false && sizes[size].selected === true) target.classList.add('product-unit--na');
-        
+
                     el.innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
-        
+
                     sizesContainer.appendChild(el);
-                    
+
                 }
                 if (window.innerWidth < 900){
                     atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
@@ -630,7 +634,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
                     atcBtn.classList.add('ready');
                 });
-                
+
                 const sizeSwatches = target.querySelectorAll('.size-swatch');
                 sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
                     component.classList.remove('focused');
@@ -641,7 +645,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         component.classList.add('hovered');
                     });
                     const checkboxes = document.querySelectorAll('.product-unit--quickadd .product-unit__size-component input');
-        
+
                     checkboxes.forEach((checkbox) => {
                     checkbox.addEventListener('change', (e) => {
                         if (e.target.checked) {
@@ -653,14 +657,14 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         }
                     });
                     });
-        
+
                 }
-        
+
                 if (sizes._count <= 1) {
                     selects.parentNode.classList.add('hide')
                 }
-                
-            } 
+
+            }
             return
         } else {
             return;
@@ -674,7 +678,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 swatchesCheck.push(variant.option1);
                 const varHandle = handleize(variant.option1);
                 const varOnSale = (variant.compare_at_price && variant.compare_at_price >= variant.price ? 'true' : 'false')
-    
+
                 if(hide.indexOf(varHandle) === -1) {
                     let pushGroupIndex = 0;
                     if(
@@ -688,9 +692,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         // groups.length > 0 // If there are groups defined
                         // && groups[0].length > 1 // If there are colors defined in the first group
                         // && (groups[0][1].length === 0 || groups[0][1].indexOf(varHandle) === -1) // If there are 0 colors defined or the color is listed
-                        // && (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1) // If there are colors in the 1st group or 2nd group is false or 
+                        // && (groups[0][1].length > 0 || groups[1] === false || groups[1][1].indexOf(varHandle) > -1) // If there are colors in the 1st group or 2nd group is false or
                     ) {
-                        // if(groups.length > 1) 
+                        // if(groups.length > 1)
                         pushGroupIndex = 1;
                         // else return;
                     }
@@ -719,7 +723,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         const swatchesGroupsEl = target.querySelector('.pdp__swatches-groups');
         if(!swatchesGroupsEl) return;
-    
+
         for(let i = 0; i < swatchesElements.length; i++) {
             swatchesGroupsEl.innerHTML += `<div class="pdp__swatches-group">
                 ${groups.length > 0?`<label>${groups[i][0]}</label>`:''}
@@ -740,14 +744,14 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         var colorsContainer = swatches.closest('.product-unit__colors');
         var allColors = colorsContainer.classList.contains('product-unit__colors--all');
     }
-    
+
 
     let currentColor = false;
     for (const color in colors) {
         if(color == '_count') continue;
 
         let el = document.createElement('a');
-        
+
         let url;
         if(hasMultipleSizes) url = colors[color].url;
         else url = colors[color].urlOpt1;
@@ -760,7 +764,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.setAttribute('data-value', color);
         el.setAttribute('data-available', colors[color].available);
         el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
-        
+
         if(colors[color].available === false) el.classList.add('product-option--na');
 
         if(colors[color].selected === true) {
@@ -788,8 +792,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                                 }
                                 match++;
                             }
-    
-                        } 
+
+                        }
 
                         const tagBuilder_hotdeal = 'hot-deal-slider:' ;
                         const hotdealtagColors = productTags[i].replace(tagBuilder_hotdeal, '');
@@ -824,18 +828,18 @@ function setProductData(product, meta, target, current_variant_id = false, init1
            })
     // If sizes wrapper
     if (hasSizeSelector) {
-        
+
         let currentSize = false;
         const selects = target.querySelector('.product-unit__sizes');
         const sizesContainer = selects.querySelector('.sizes-container');
-        const component = target.querySelector('.product-unit__select--seleted');    
+        const component = target.querySelector('.product-unit__select--seleted');
         const atcBtn = target.querySelector('.product-unit__button');
-        
+
         console.log
-        
+
         for (const size in sizes) {
             if(size == '_count') continue;
-    
+
             let el = document.createElement('a');
             el.setAttribute('href', '#');
             el.classList.add('size-swatch');
@@ -849,21 +853,21 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 el.classList.add('selected');
                 target.querySelector('.product-unit__select--seleted').innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
             }
-            
+
             if(sizes[size].available === false) el.classList.add('product-option--na');
-    
+
             if(sizes[size].selected === true) {
                 el.classList.add('size-swatch--active');
                 currentSize = sizes[size].title;
                 if(!variantAutoSelected) el.classList.add('size-swatch--first');
             }
-            
+
             if(sizes[size].available === false && sizes[size].selected === true) target.classList.add('product-unit--na');
 
             el.innerHTML = `<span>${sizes[size].title}</span> <span>$${sizes[size].first_variant_price / 100}</span>`;
 
             sizesContainer.appendChild(el);
-            
+
         }
         if (window.innerWidth < 900){
             atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
@@ -883,7 +887,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
             atcBtn.classList.add('ready');
         });
-        
+
         const sizeSwatches = target.querySelectorAll('.size-swatch');
         sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
             component.classList.remove('focused');
@@ -912,8 +916,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         if (sizes._count <= 1) {
             selects.parentNode.classList.add('hide')
         }
-        
-    }  
+
+    }
 
     if(isProductUnit && currentColor) {
         let colorValue = document.createElement('div');
@@ -972,7 +976,7 @@ function activateProductUnit(target) {
     const handle = target.getAttribute('data-handle');
 
     if(window.debug) console.log('Init product', handle);
-    
+
     return new Promise((resolve, reject) => {
         fetch('/products/' + handle + '?view=async')
         .then(response => response.json())
@@ -1003,7 +1007,7 @@ function setProductUnitSwatchesCount() {
 }
 
 window.addEventListener("click", async (e) => {
-    
+
 
     if(e.target.classList.contains('product-unit__select--seleted')) {
         [...document.querySelectorAll('.product-unit__size-component input:checked')].map(focused => focused.checked = false);
@@ -1013,11 +1017,11 @@ window.addEventListener("click", async (e) => {
 
     if(e.target.classList.contains('size-swatch')) {
         e.preventDefault();
-        
+
         if(typeof variantUpdateProcess == 'undefined') {
             await loadScript(scripts.variants);
         }
-      
+
         //  mark 2
         if( !e.target.classList.contains('no-color') ){
             const thisSize = e.target.querySelectorAll('span')[0].innerHTML;
@@ -1026,18 +1030,18 @@ window.addEventListener("click", async (e) => {
             const variantSelector = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.variant-select');
             const selectedContainer = e.target.parentNode.parentNode.parentNode.querySelector('label');
             const componentContainer = e.target.parentNode.parentNode.parentNode.querySelector('input[type="checkbox"]');
-            
+
             const colorContainer = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors')?e.target.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.product-unit__colors'):null;
             const colorTarget = colorContainer ? colorContainer.querySelector('.product-unit__colors .color-swatch--active'): null;
-            
+
             componentContainer.checked = false;
             selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
             sizesContainer.forEach(element => element.classList.remove('selected'));
             e.target.classList.add('selected');
             variantUpdateProcess(colorTarget);
-            colorContainer.querySelectorAll('.color-swatch').forEach( color => {    
+            colorContainer.querySelectorAll('.color-swatch').forEach( color => {
                 const option = variantSelector.querySelector(`[data-option1="${color.dataset.value}"][data-option2="${e.target.dataset.title}"]`);
-                option.dataset.available == 'true' 
+                option.dataset.available == 'true'
                     ? color.classList.remove('product-option--na')
                     : color.classList.add('product-option--na');
             });
@@ -1054,7 +1058,7 @@ window.addEventListener("click", async (e) => {
             selectedContainer.innerHTML = `<span>${thisSize}</span> <span>${thisPrice}</span>`;
             sizesContainer.forEach(element => element.classList.remove('selected'));
             e.target.classList.add('selected');
-            
+
             variantUpdateProcess(e.target);
         }
     }
@@ -1135,10 +1139,10 @@ function activateVideoContainer(video) {
 
         if(!video.classList.contains('video-iframe-container--contain')) {
             const vimeoId = video.getAttribute('data-vimeo-id');
-    
+
             fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(`https://vimeo.com/${vimeoId}`)}`, {
                 method: 'GET',
-                cache: 'no-cache', 
+                cache: 'no-cache',
                 mode: 'cors'
             })
             .then(response => response.json())
@@ -1205,10 +1209,10 @@ window.addEventListener("load", () => {
         });
     }, {threshold: 0, rootMargin: '0px'});
 
-    
+
     const productUnits = document.querySelectorAll(".product-unit");
     productUnits.forEach( productUnit => productUnitsObserver.observe(productUnit) );
-    
+
     const videos = document.querySelectorAll(".video-iframe-container");
     videos.forEach( video => videoObserver.observe(video) );
 
@@ -1330,12 +1334,12 @@ function getProductOptionsList(productContainer, location = 'pdp') {
             } else if(optCont.classList.contains('pdp__variant-buttons')) {
                 let selectedOption = optCont.querySelector('.product-option--selected');
                 if(selectedOption) value = selectedOption.getAttribute('data-value');
-                
+
                 if(!disableMultiple && i == 2 && hasOtherValues(productContainer, value)) multipleSizes = true;
             } else if(optCont.classList.contains('pdp__variant-color')) {
                 let selectedOption = optCont.querySelector('.color-swatch--active');
                 if(selectedOption) value = selectedOption.getAttribute('data-value');
-                
+
                 if(!disableMultiple && i == 2 && hasOtherValues(productContainer, value)) multipleSizes = true;
 
                 if(location == 'pdp' && selectedOption) {
@@ -1391,8 +1395,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 sliderWrapper.setAttribute('data-slide-mob', 3);
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
-                
-                
+
+
                 console.log('check slide')
                 checkSlider(sliderWrapper.querySelector('.slider'));
             });
@@ -1403,13 +1407,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener("shopify:section:change", loadQuickAdd);
         document.addEventListener('page:load', loadQuickAdd);
         document.addEventListener('page:change', loadQuickAdd);
-        
+
         const subcategoryLinks = document.querySelectorAll('a.filter__collection');
         [].map.call(subcategoryLinks, (subcategoryLink) => {
             subcategoryLink.addEventListener('click', (e) => {
                 setTimeout( function() {
                     loadQuickAdd();
-                }, 2000);       
+                }, 2000);
             });
         });
     }
@@ -1417,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /**
-     * 
+     *
      * FOR EVERY MODIFICATION IN HERE MAKE SURE TO UPDATE THE SAME FUNCTIONS ON assets/slider.js
      */
         const processSection = ({selector, differentSwatches}) => {
@@ -1427,14 +1431,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
                     if (differentSwatches) {
                         firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch--active');
-                    } 
+                    }
                     if (firstSwatch) {
                         variantUpdateProcess(firstSwatch);
                     }
                 });
             }
         };
-        
+
         const initializeSections = () => {
             const sections = [
                 { selector: '.shopify-section--pdp-featured', differentSwatches: false },
@@ -1444,10 +1448,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 { selector: '.shopify-section--featured-collections', differentSwatches: true },
                 { selector: '.cart__upsell-items', differentSwatches: true }
             ];
-        
+
             sections.map(section => processSection(section));
         };
-        
+
         let scriptLoaded = false;
         const tryUpdateProcessTheProductUnits = (intervalId = false) => {
             //console.log('Trying updateProcessTheProductUnits');
@@ -1478,7 +1482,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         keepTryingUpdateProcessTheProductUnits()
-        
+
         window.addEventListener('scroll', () => {
             let scrolled = false
             if (!scrolled) {
@@ -2329,7 +2333,7 @@ const reloadStaticBlocks = () => {
         let scriptAttribute = script.getAttribute('data-function-name')
         let parent = script.parentNode;
         parent.removeChild(script);
-        
+
         var newScriptTag = document.createElement('script');
         newScriptTag.innerText = scriptInnerHtml;
         newScriptTag.className = "static-block-script";
@@ -2347,6 +2351,6 @@ const recreateCRL8 = () => {
             return embed.getAttribute('data-crl8-container-id')
         }).map(id => {
             window.crl8.createExperience(id)
-        })    
-    })  
+        })
+    })
 };
