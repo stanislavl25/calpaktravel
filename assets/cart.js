@@ -4,7 +4,7 @@ let cartShippingGift = document.querySelector('.cart__gamification-gifts');
 function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false) {
     if(typeof final_sale == 'undefined') final_sale = false;
     if(typeof preorder == 'undefined') preorder = false;
-   
+
     let items = typeof variant_id == 'object' ? variant_id : [{
         id: variant_id,
         quantity: quantity,
@@ -112,7 +112,7 @@ function gamificationInit() {
             document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
         }
     }
-    
+
 
     document.querySelector(wrapper).innerHTML = '';
     goals.forEach( item => {
@@ -127,7 +127,7 @@ function gamificationInit() {
         document.querySelector(wrapper).innerHTML += goalTemplate;
     });
 
-    
+
 
 
 
@@ -169,7 +169,7 @@ function gamificationInit() {
                     activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
                 });
             });
-            
+
         }
     });
 }
@@ -228,7 +228,7 @@ function setFreeGiftsByProduct(items) {
         }
     }
 
-    /*  
+    /*
       // Clean gifts from cart if exists
         let clean_items = {};
         const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
@@ -243,7 +243,7 @@ function setFreeGiftsByProduct(items) {
             });
         }
     */
-    
+
 }
 
 function validateGifts () {
@@ -286,7 +286,7 @@ function setGiftFunctions () {
         checkSlider(sliderWrapper.querySelector('.slider'));
     });
 
- 
+
     document.querySelectorAll('.free-gift__selector .product-unit__image.product-link').forEach((link, index) => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -303,7 +303,7 @@ function setGiftFunctions () {
     document.addEventListener('click', event => {
         if (event.target.matches(".free-gift__selector .color-swatch")) {
             //alert("select the color");
-            
+
             const giftSelector = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
             giftSelector.classList.add('free-gift__selector--applied');
             document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--reached');
@@ -343,7 +343,7 @@ function setGamificationProducts( gifts ) {
         if (!cartShippingGift) {
             // Disable gift gamification by cart total
             if(gifts.length == 0) {
-                
+
                 // Clean gifts from cart if exists
                 let clean_items = {};
                 const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
@@ -371,146 +371,38 @@ function setGamificationProducts( gifts ) {
                         });
                     }
                 });
-                
+
                 if (items.length > 0) {
                     addToCart(items, 1, (data) => {
                         updateCart(data);
                         activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
                     });
-                } 
+                }
             }
         } else {
             validateGifts();
-            // Free gifts 
+            // Free gifts
             setFreeGiftsByProduct(cartItems);
         }
-       
+
     });
-}
-
-function setGamificationProgress(items_subtotal_price, cart = {}) {
-    /*
-        !!!!!!!!!!!!!!!!!!
-        CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
-        !!!!!!!!!!!!!!!!!!
-    */
-    // if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
-
-    const { goals, gifts, wrapper, limit } = settings["cartGamification"];
-    const cartHeader = document.querySelector('.cart__header');
-    const cartGoals = document.querySelector(wrapper);
-    const cartGifts = document.querySelector('.cart__gamification-gifts');
-    const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-    let freeShippingStarts = -1;
-    if(goals.length) freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
-
-
-    cartGoals.innerHTML = '';
-    let goalsVerbose = [];
-    let goalsGifts = [];
-
-    goals.forEach((item, index) => {
-        // Set gamification progressbar
-        const goalOffset = item.value / limit * 100;
-        const goalTemplate = `
-            <div class="cart__gamification-goal" style="left: ${goalOffset}%">
-                <figure class="cart__gamification-icon ${items_subtotal_price >= (item.value * 100) ? 'cart__gamification-icon--reached' : false}">
-                    ${item.icon}
-                </figure>
-            </div>
-        `;
-        cartGoals.innerHTML += goalTemplate;
-
-        if (items_subtotal_price < (item.value * 100)) {
-
-            let left_value = item.value - (items_subtotal_price / 100);
-            goalsVerbose.push({
-                'goal': item.title,
-                'status': 'incomplete',
-                'value': left_value
-            })
-        } else {
-            goalsVerbose.push({
-                'goal': item.title,
-                'status': 'complete',
-                'value': 0
-            });
-            if(item.product != '') goalsGifts.push(item.product);
-        }
-    });
-
-    cartGifts.innerHTML = '';
-    gifts.forEach((item, index) => {
-        const giftTemplate = `
-            <div class="cart__gamification-goal cart__gamification-goal--gift" style="left: 100%">
-                <figure class="cart__gamification-icon">
-                    ${item.icon}
-                </figure>
-            </div>
-        `;
-        cartGifts.innerHTML += giftTemplate;
-    });
-
-    setGamificationProducts(goalsGifts);
-    
-    let verboseTemplate = '';
-    let verboseTemplateGift = ''
-    if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
-        for(let x in goalsVerbose) {
-            let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get`;
-            if (goalsVerbose[x].status == 'complete') {
-                verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
-                verboseTemplateGift += `Add any <a href="/collections/3-piece-luggage-sets">3-piece luggage set</a> to get a <strong>FREE</strong> gift (up to $98 value)!`;
-                document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
-                document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--partial');
-            } else {
-                verboseTemplate += `${prefix} ${goalsVerbose[x].goal}! `;
-                document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
-            }
-        }
-    } else {
-        const toFixedPrice = goalsVerbose[0].value;
-        verboseTemplate =
-          `You are $${toFixedPrice.toFixed(2)} away from ${goalsVerbose[0].goal}!`.replace(
-            "FREE",
-            "<b>FREE</b>"
-          );
-          document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
-    }
-
-    document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;
-    document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
-
-    let gamificationPercent = (items_subtotal_price * 100) / (limit * 100);
-    if(gamificationPercent > 100) gamificationPercent = 100;
-    gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
-
-    if (gamificationPercent == 100) {
-        const verboseGoals = goals[goals.length - 1].title;
-        document.querySelector(
-          ".cart__gam-verbose"
-        ).innerHTML = `You got ${verboseGoals}!`;
-
-    }
-
-    if(freeShippingStarts > -1 && items_subtotal_price >= freeShippingStarts) {
-        cartHeader.setAttribute('data-status', 'success');
-        return true;
-    } else {
-        cartHeader.setAttribute('data-status', 'progress');
-        return false;
-    }
 }
 
 // function setGamificationProgress(items_subtotal_price, cart = {}) {
+//     /*
+//         !!!!!!!!!!!!!!!!!!
+//         CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
+//         !!!!!!!!!!!!!!!!!!
+//     */
+//     // if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
 
-//     if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
-
-//     const { goals, wrapper, limit } = settings["cartGamification"];
+//     const { goals, gifts, wrapper, limit } = settings["cartGamification"];
 //     const cartHeader = document.querySelector('.cart__header');
 //     const cartGoals = document.querySelector(wrapper);
+//     const cartGifts = document.querySelector('.cart__gamification-gifts');
 //     const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
-//     const freeShippingStarts = goals.find(goal => goal.title == 'free standard shipping').value * 100;
+//     let freeShippingStarts = -1;
+//     if(goals.length) freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
 
 
 //     cartGoals.innerHTML = '';
@@ -547,37 +439,61 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 //         }
 //     });
 
+//     cartGifts.innerHTML = '';
+//     gifts.forEach((item, index) => {
+//         const giftTemplate = `
+//             <div class="cart__gamification-goal cart__gamification-goal--gift" style="left: 100%">
+//                 <figure class="cart__gamification-icon">
+//                     ${item.icon}
+//                 </figure>
+//             </div>
+//         `;
+//         cartGifts.innerHTML += giftTemplate;
+//     });
+
 //     setGamificationProducts(goalsGifts);
-    
+
 //     let verboseTemplate = '';
+//     let verboseTemplateGift = ''
 //     if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
 //         for(let x in goalsVerbose) {
-//             let prefix = x == 0 ? `You are $${goalsVerbose[x].value.toFixed(2)} away from` : `Add $${goalsVerbose[x].value.toFixed(2)} to get`;
+//             let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get`;
 //             if (goalsVerbose[x].status == 'complete') {
 //                 verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
-
+//                 verboseTemplateGift += `Add any <a href="/collections/3-piece-luggage-sets">3-piece luggage set</a> to get a <strong>FREE</strong> gift (up to $98 value)!`;
+//                 document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
+//                 document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--partial');
 //             } else {
-//                 verboseTemplate += `<b>${prefix} ${goalsVerbose[x].goal}!</b> `;
+//                 verboseTemplate += `${prefix} ${goalsVerbose[x].goal}! `;
+//                 document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
 //             }
 //         }
 //     } else {
-//         verboseTemplate = `You are $${goalsVerbose[0].value.toFixed(2)} away from <b>${goalsVerbose[0].goal}</b>!`;
+//         const toFixedPrice = goalsVerbose[0].value;
+//         verboseTemplate =
+//           `You are $${toFixedPrice.toFixed(2)} away from ${goalsVerbose[0].goal}!`.replace(
+//             "FREE",
+//             "<b>FREE</b>"
+//           );
+//           document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
 //     }
 
 //     document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;
+//     document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
 
 //     let gamificationPercent = (items_subtotal_price * 100) / (limit * 100);
 //     if(gamificationPercent > 100) gamificationPercent = 100;
 //     gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
 
 //     if (gamificationPercent == 100) {
-    
 //         const verboseGoals = goals[goals.length - 1].title;
-//         document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! <br> <b>You got ${ verboseGoals }!</b>`;
+//         document.querySelector(
+//           ".cart__gam-verbose"
+//         ).innerHTML = `You got ${verboseGoals}!`;
 
 //     }
 
-//     if(items_subtotal_price >= freeShippingStarts) {
+//     if(freeShippingStarts > -1 && items_subtotal_price >= freeShippingStarts) {
 //         cartHeader.setAttribute('data-status', 'success');
 //         return true;
 //     } else {
@@ -585,6 +501,90 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 //         return false;
 //     }
 // }
+
+function setGamificationProgress(items_subtotal_price, cart = {}) {
+
+    if(document.querySelector('.cart__gamification-goals') != null && document.querySelector('.cart__gamification-goals').innerHTML == '') gamificationInit();
+
+    const { goals, wrapper, limit } = settings["cartGamification"];
+    const cartHeader = document.querySelector('.cart__header');
+    const cartGoals = document.querySelector(wrapper);
+    const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
+    const freeShippingStarts = goals.find(goal => goal.title == 'free standard shipping').value * 100;
+
+
+    cartGoals.innerHTML = '';
+    let goalsVerbose = [];
+    let goalsGifts = [];
+
+    goals.forEach((item, index) => {
+        // Set gamification progressbar
+        const goalOffset = item.value / limit * 100;
+        const goalTemplate = `
+            <div class="cart__gamification-goal" style="left: ${goalOffset}%">
+                <figure class="cart__gamification-icon ${items_subtotal_price >= (item.value * 100) ? 'cart__gamification-icon--reached' : false}">
+                    ${item.icon}
+                </figure>
+            </div>
+        `;
+        cartGoals.innerHTML += goalTemplate;
+
+        if (items_subtotal_price < (item.value * 100)) {
+
+            let left_value = item.value - (items_subtotal_price / 100);
+            goalsVerbose.push({
+                'goal': item.title,
+                'status': 'incomplete',
+                'value': left_value
+            })
+        } else {
+            goalsVerbose.push({
+                'goal': item.title,
+                'status': 'complete',
+                'value': 0
+            });
+            if(item.product != '') goalsGifts.push(item.product);
+        }
+    });
+
+    setGamificationProducts(goalsGifts);
+
+    let verboseTemplate = '';
+    if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
+        for(let x in goalsVerbose) {
+            let prefix = x == 0 ? `You are $${goalsVerbose[x].value.toFixed(2)} away from` : `Add $${goalsVerbose[x].value.toFixed(2)} to get`;
+            if (goalsVerbose[x].status == 'complete') {
+                verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
+
+            } else {
+                verboseTemplate += `<b>${prefix} ${goalsVerbose[x].goal}!</b> `;
+            }
+        }
+    } else {
+        verboseTemplate = `You are $${goalsVerbose[0].value.toFixed(2)} away from <b>${goalsVerbose[0].goal}</b>!`;
+    }
+
+    document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;
+
+    let gamificationPercent = (items_subtotal_price * 100) / (limit * 100);
+    if(gamificationPercent > 100) gamificationPercent = 100;
+    gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
+
+    if (gamificationPercent == 100) {
+
+        const verboseGoals = goals[goals.length - 1].title;
+        document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! <br> <b>You got ${ verboseGoals }!</b>`;
+
+    }
+
+    if(items_subtotal_price >= freeShippingStarts) {
+        cartHeader.setAttribute('data-status', 'success');
+        return true;
+    } else {
+        cartHeader.setAttribute('data-status', 'progress');
+        return false;
+    }
+}
 
 function setFreeShippingProgress(cart) {
     const cartContainers = document.querySelectorAll('.cart-page, .cart__body');
@@ -622,7 +622,7 @@ function setFreeShippingProgress(cart) {
 
 function setHeaderItemCounter(cart) {
     let bag = document.querySelector('.header__bag-icon')
-    
+
     if(cart.item_count == 0) bag.classList.remove('header__bag-icon--full');
     else bag.classList.add('header__bag-icon--full');
 
@@ -661,9 +661,9 @@ function updateCart(data, jsonIncluded = false) {
     let cart;
     if(jsonIncluded) cart = data;
     else cart = JSON.parse(stripHTML(data.sections['cart-json']));
-    
+
     const cartContainer = document.querySelector('.cart__container, .cart-page');
-    
+
     if(cart.item_count == 0) cartContainer.classList.add('cart__container--empty');
     else cartContainer.classList.remove('cart__container--empty');
 
@@ -672,7 +672,7 @@ function updateCart(data, jsonIncluded = false) {
     let checkShipping = document.querySelector('.cart__free-shipping')
     checkShipping ? freeShipping = setFreeShippingProgress(cart) : setGamificationProgress(cart.items_subtotal_price, cart);
 
-    
+
     let totalPrice = cart.total_price;
     if(!freeShipping) totalPrice += 795;
 
@@ -697,17 +697,17 @@ function updateCart(data, jsonIncluded = false) {
          } else {
              document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--half');
          }
-     });	
- 
+     });
+
      cartItems.forEach(function(item) {
- 
+
          if (item.properties?._gift == 'true') {
          reorderedCartItems.unshift(item);
          } else {
          reorderedCartItems.push(item);
          }
      });
- 
+
      data.items = reorderedCartItems;
      document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
    }
@@ -737,7 +737,7 @@ function openCart() {
     document.body.classList.add('modal-open');
 
     updateCartGWPs();
-    
+
     if(isset(localStorage.getItem('guest_checkout')) && localStorage.getItem('guest_checkout')) {
         document.querySelector('.cart__footer .button--checkout').setAttribute('href', '/checkout');
     }
@@ -814,7 +814,7 @@ window.addEventListener("click", async (e) => {
         btn.classList.add('cart__undo-wishlist--working');
         addToCart(wishlistFromCartItem.variant_id, wishlistFromCartItem.qty, (data) => {
             updateCart(data);
-            
+
             cartContainer.classList.remove('cart__container--wishlist');
         }, () => {
             btn.classList.remove('cart__undo-wishlist--working');

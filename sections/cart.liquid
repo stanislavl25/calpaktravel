@@ -47,7 +47,7 @@
         else
             assign free_shipping_progress = 100
         endif
-        
+
         assign totalPrice = cart.total_price
         if free_shipping_progress < 100
             assign totalPrice = totalPrice | plus: 795
@@ -63,17 +63,7 @@
       {%- else -%}
         progress
       {%- endif -%}">
-      {% if settings.show-cart-gamification == true %}
-        {%- for block in section.blocks -%}
-          {% if block.type == 'gamification-gift' %}
-            {% if block.settings.announcement != blank %}
-              <div class="free-gift__announcement">
-                {{ block.settings.announcement }}
-              </div>
-            {% endif %}
-          {% endif %}
-        {%- endfor -%}
-      {% endif %}
+
 
       {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
@@ -137,7 +127,7 @@
 
           <div class="cart__items-container">
             <pre class="hide">
-                
+
                 {{ cart.items[0].product.metafields.custom.pairs_cart_upsell }}
             </pre>
             <div class="cart__items">
@@ -317,33 +307,49 @@
 </div>
 
 <script>
-  window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};{% if settings.show-cart-gamification == true %}
+
+
+
+
+
+
+
+
+
+
+
+
+    window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
+    {% if settings.show-cart-gamification == true %}
     window.settings["cartGamification"] = {
-      subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
-      wrapper: '.cart__gamification-goals',
-      limit: {{ section.settings.max_value }},
-      goals: [{%- for block in section.blocks -%}
-          {% if block.type == 'gamification-goal' %}
-            {
-              title: '{{ block.settings.title }}',
-              value: {{ block.settings.value }},
-              icon: `{{ block.settings.icon }}`,
-              product: '{{ block.settings.gift.selected_or_first_available_variant.id }}'
-            }{%- unless forloop.last == true -%},{%- endunless -%}{% endif %}
-        {%- endfor -%}] {% if settings.show-cart-gamification == true %},
-      gifts: [{%- for block in section.blocks -%}
-          {% if block.type == 'gamification-gift' %}
-            {
-              keys: [{% for gift_product in block.settings.gift_keys %}{{ gift_product.id }}
-                  {%- unless forloop.last == true -%},{%- endunless -%}{% endfor %}],
-              key: '{{ block.settings.gift_key.id }}',
-              icon: `{{ block.settings.icon }}`,
-              selected: ''
-            }
-            {%- unless forloop.last == true -%},{%- endunless -%}{% endif %}
-        {%- endfor -%}]
-      {% endif %}
-    };{% endif %}
+        subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
+        wrapper: '.cart__gamification-goals',
+        limit: {{ section.settings.max_value }},
+        goals: [
+            {%- for block in section.blocks -%}
+                {% if block.type == 'gamification-goal' %}
+                {
+                    title: '{{ block.settings.title }}',
+                    value: {{ block.settings.value }},
+                    icon: `{{ block.settings.icon }}`,
+                    product: '{{ block.settings.gift.selected_or_first_available_variant.id }}'
+                }{%- unless forloop.last == true -%},{%- endunless -%}
+                {% endif %}
+            {%- endfor -%}
+        ]
+    };
+          {% endif %}
+
+
+
+
+
+
+
+
+
+
+
 </script>
 <style>
 
