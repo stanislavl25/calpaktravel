@@ -134,7 +134,7 @@
     .hot-deals-text-container-top,
     .hot-deals-text .countdown-timer,
     .hot-deals-banner-wrapper-sale .sale-badge-wrapper {
-        display: none;
+        display: none!important;
     }
 
     {% if settings.hot-deals-badge-enabled == false%}
@@ -144,6 +144,11 @@
     {% endif %}
 
     {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
+        .hot-deals-text-container-top,
+        .hot-deals-text .countdown-timer {
+            display: block!important;
+        }
+
         .hot-deals-banner-wrapper-sale .hot-deals-text {
             background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
         }
@@ -313,6 +318,7 @@
             transform: rotate(-90deg);
         }
 
+        .hot-deals-text-container-top,
         .hot-deals-text .countdown-timer,
         .hot-deals-text .desktop,
         .hot-deals-banner-text-wrapper .countdown-timer {
@@ -370,15 +376,3 @@
         }
     }
 </style>
-{% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            setTimeout(function() {
-                let countdownTimer = document.querySelector('.countdown-timer');
-                let hotDealsText = document.querySelector('.hot-deals-text-container-top');
-                countdownTimer.style.display = 'block';
-                hotDealsText.style.display = 'block';
-            }, 3000);
-        });
-    </script>
-{% endif %}
