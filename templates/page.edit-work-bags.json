@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "{{ page.title }}",
+        "title-size": "medium",
+        "text": "",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "de55c006-6953-4117-a117-d3c99a23b3c2": {
+      "type": "page-content",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "de55c006-6953-4117-a117-d3c99a23b3c2"
+  ]
+}

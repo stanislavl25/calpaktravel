@@ -1,0 +1,79 @@
+<style>
+    /*hide bazar voice*/
+    #crl8-{{block.settings.gallery_id}}-carousel a[aria-label="Powered by Bazaarvoice - Opens in new tab"] {
+        display: none;
+    }
+    .curalate-gallery-wrapper-{{ block.id }} { 
+        grid-row: {{ block.settings.desktop_row }} / span 1;
+        grid-column: 1 / span 5;
+    }
+    @media screen and (max-width:900px) {
+        .curalate-gallery-wrapper-{{ block.id }} { 
+            grid-row: {{ block.settings.row}} / span 1;
+            grid-column: 1 / span 3;
+        }
+    }
+    @media screen and (max-width:649px) {
+        .curalate-gallery-wrapper-{{ block.id }} { 
+            grid-row: {{ block.settings.mobile_row}} / span 1;
+            grid-column: 1 / span 2;
+        }
+    }
+</style>
+
+{{ 'snippet-curalate-gallery.css' | asset_url | stylesheet_tag }}
+<div class="curalate-gallery-wrapper-{{block.id}} curalate-gallery-wrapper">
+    <style>   
+    {% comment %} #shopify-section-template--{{section.id}}{
+        display:none;
+    }
+    {% if block.settings.collection_list != empty %}
+        {% for collection_item in block.settings.collection_list %}
+            .shopify-block--curalate:has(.{{ collection_item.handle}}){
+            display:flex;
+        }
+        {% endfor %}
+    {% else %}
+    .shopify-block--curalate:has(.curalate-gallery_embed){
+        display:flex!important;
+    }
+    {% endif %} {% endcomment %}
+    {% if block.settings.collection_list != empty %}
+        {% assign collection_handle_list = block.settings.collection_list | map: "handle" %}
+        {% if template == "collection" %}
+            {% for collection_iterate in collection_handle_list %}
+                {% if collection.handle == collection_iterate %}
+                    {% assign inCollectionList = true %}
+                    {% break %}
+                {% endif %}  
+            {% endfor %}
+            
+            {% if inCollectionList %}
+                #shopify-block-{{block.id}} {
+                    display: flex!important;
+                }   
+            {% else %}
+                #shopify-block-{{block.id}}  {
+                    display: none!important;
+                }   
+            {% endif %}
+        {% endif %}
+    {% else %}
+        #shopify-block-{{block.id}} {
+            display: flex!important;
+        }   
+    {% endif %}    
+    </style>
+    <header class="curalate-gallery__header gallery--{{block.id}} {{collection-handle}}">
+        <aside>
+            {% if block.settings.title %}<h2 class="curalate-gallery__title">{{block.settings.title}}</h2>{% endif %}
+            {% if block.settings.subtitle %}<div class="curalate-gallery__subtitle">{{block.settings.subtitle}}</div>{% endif %}
+        </aside>
+        {% comment %} <aside>
+            <a class="curalate-gallery__cta" href="https://www.calpaktravel.com/pages/tag-your-adventures">Shop Gallery</a>
+        </aside> {% endcomment %}
+    </header>
+    {% if template == 'collection'%}
+        <div class="curalate-gallery_embed" data-crl8-container-id="{{block.settings.gallery_id}}"></div>
+    {% endif %}
+</div>
