@@ -27,7 +27,7 @@
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
-    "sale-badge-enabled": true,
+    "sale-badge-enabled": false,
     "sale-badge-text-tilt": false,
     "countdown-label-collection-enabled": true,
     "desktop-badge-placement": "top",
