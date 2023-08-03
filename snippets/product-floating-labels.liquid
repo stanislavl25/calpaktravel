@@ -315,8 +315,8 @@
                 endif
             -%}
         
-            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
-        starter-customize{% endif %}{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %}{% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
+                starter-customize{% endif %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
                 {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
                 {{- saleMessage | escape | replace: '%%', discount -}}
             </div>
