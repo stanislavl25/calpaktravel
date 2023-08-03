@@ -42,14 +42,6 @@ function addToCart(variant_id, quantity, callback, always, final_sale = false, p
         return response.json();
     })
     .then(async response => {
-        if(isset(fbq)) fbq('track', 'AddToCart', {
-            content_name: response.items[0].product_title, 
-            content_ids: [response.items[0].id],
-            content_type: 'product',
-            value: response.items[0].price / 100,
-            currency: 'USD'
-        });
-
         if(typeof gwpConfig != 'undefined') {
             if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
             response = await checkGWP(response);

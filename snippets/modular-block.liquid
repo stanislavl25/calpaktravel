@@ -1,38 +1,15 @@
 <style>
-    .block_id--{{ block.id }} {
-        grid-row: {{ block.settings.row }} / span 1;
-        grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
-    }
-    .floating-link__pictured {
-        margin-left: 20px;
-    }
-    .floating-link {
-        left: 24px;
-        right: 24px
-    }
-    .modular-block-video {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        border-radius: 6px;
-        object-fit: cover;
-        object-position: center;
-        height: 100%;
-        z-index: 2;
-        display: block;
-    }
-    @media screen and (max-width:900px){
+    {% if block.settings.display != 'mobile' %}
         .block_id--{{ block.id }} {
             grid-row: {{ block.settings.row }} / span 1;
-            grid-column: 1 / span 1;
+            grid-column: {{ block.settings.column }} / span {{ block.settings.col_span }};
         }
         .floating-link__pictured {
-            margin-left: 6px;
+            margin-left: 20px;
         }
         .floating-link {
-            left: 10px;
-            right: 10px
+            left: 24px;
+            right: 24px
         }
         .modular-block-video {
             position: absolute;
@@ -46,23 +23,67 @@
             z-index: 2;
             display: block;
         }
+    {% else %}
+        div.modular-block.block_id--{{ block.id }} {
+            display: none!important;
+        }
+    {% endif %}
+    @media screen and (max-width:900px){
+        {% if block.settings.display != 'desktop' %}
+                div.modular-block.block_id--{{ block.id }} {
+                    grid-row: {{ block.settings.row }} / span 1;
+                    grid-column: 1 / span 1;
+                    display: grid!important
+                }
+                .floating-link__pictured {
+                    padding-right: 18px;
+                    margin-left: 20px;
+                    padding-block: 8px;
+                }
+                .floating-link {
+                    left: 10px;
+                    right: 10px
+                }
+                .modular-block-video {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 100%;
+                    border-radius: 6px;
+                    object-fit: cover;
+                    object-position: center;
+                    height: 100%;
+                    z-index: 2;
+                    display: block;
+                }
+        {% else %}
+            div.modular-block.block_id--{{ block.id }} {
+                display: none!important;
+            }
+        {% endif %}
     }
     @media screen and (max-width:649px){
-        {% if  block.settings.only_mobile %}
-            div.modular-block.block_id--{{ block.id }} {
-                display: flex!important;;
+        {% if block.settings.display != 'desktop' %}
+            {% if  block.settings.only_mobile%}
+                div.modular-block.block_id--{{ block.id }} {
+                    display: flex!important;;
+                }
+            {% else %}
+                div.modular-block.block_id--{{ block.id }} {
+                    grid-row: {{ block.settings.row }} / span 1;
+                    grid-column: {{ block.settings.column }} / span 1;
+                }
+            {% endif%}
+                div.modular-block.block_id--{{ block.id }} {
+                grid-row: {{ block.settings.mobile_row }} / span 1;
+                grid-column: {{ block.settings.column_mobile }} / span {{ block.settings.col_span_mobile }};
+                min-height: 280px;
             }
         {% else %}
-            .block_id--{{ block.id }} {
-                grid-row: {{ block.settings.row }} / span 1;
-                grid-column: {{ block.settings.column }} / span 1;
+            div.modular-block.block_id--{{ block.id }} {
+                display: none!important;
             }
-        {% endif%}
-        .block_id--{{ block.id }} {
-            grid-row: {{ block.settings.mobile_row }} / span 1;
-            grid-column: {{ block.settings.column_mobile }} / span {{ block.settings.col_span_mobile }};
-            min-height: 280px;
-        }
+        {% endif %}
     }
 </style>
 <div class="modular-block content-block block_id--{{ block.id }} {{ block.settings.display }}" data-span="{{ block.settings.col_span}}">

@@ -155,6 +155,10 @@
     max-height: calc(100vh - 142px);
 }
 
+.menu-popup__content.search-section .product-label--final {
+    display: none!important;
+}
+
 .content-section--stories {
     border-top: 1px dashed #AEAEAE;
     display: none;
@@ -221,6 +225,10 @@
     font-size: 14px;
     top: 24px;
     right: 24px;
+}
+
+.search-popup__content .product-label--final {
+    display: none;
 }
 
 @media (max-width: 1727px) {

@@ -60,18 +60,17 @@ if (document.querySelector('.promo-holiday-banner')) {
 const body = document.body;
 const promoSection = document.getElementById('shopify-section-promo-bar');
 
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-      if (body.classList.contains('modal-open')) {
-        promoSection.style.display = 'none';
-      } else {
-        promoSection.style.display = 'block';
+new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        if (document.body.classList.contains('modal-open')) {
+          document.getElementById('shopify-section-promo-bar').style.display = 'none';
+        } else {
+          document.getElementById('shopify-section-promo-bar').style.display = 'block';
+        }
       }
-    }
-  });
-});
-observer.observe(body, { attributes: true });
+    });
+  }).observe(document.body, { attributes: true });
 
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.header-container');

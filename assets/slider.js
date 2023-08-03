@@ -111,11 +111,14 @@ window.addEventListener("click", (e) => {
             wrapper.classList.remove('slider__wrapper--end');
         } else wrapper.classList.remove('slider__wrapper--start');
     }
-    
-    setTimeout(() => {
-        console.log('trying update process via slide move')
-        tryUpdateProcessTheProductUnits();
-    }, 500)
+    // let timesTryed = 0;
+    // setTimeout(() => {
+    //     if (timesTryed < 100) {
+    //         console.log('trying update process via slide move')
+    //         tryUpdateProcessTheProductUnits();
+    //         timesTryed += 1;
+    //     }
+    // }, 500)
     
 });
 
