@@ -122,7 +122,7 @@
         // snaptr('track', 'PURCHASE', {'item_ids': [{{ all_items }}]});
       </script>
 
-      <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+      <script class="test-it" src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
       <div class="yotpo-widget-instance" data-yotpo-instance-id="4351"></div>
     {%- endif -%}
 
@@ -384,6 +384,29 @@ $(document).on("page:load page:change", function() {
 </script>
      
 <!-- End Custom Discount Message -->
+  <!-- Begins Narvar Script -->
+  <script>
+    cart = Input.cart
+
+cart.line_items.each { |line_item|
+  narvar_exchange_credit_property = line_item.properties['exchange_credit'] || line_item.properties['_exchange_credit'] || line_item.properties['narvar_exchange_credit'] || line_item.properties['_narvar_exchange_credit']
+
+  if narvar_exchange_credit_property
+    unless cart.presentment_currency == cart.shop_currency
+      properties = line_item.properties
+      properties['_exchange_rate'] = (Money.derived_from_presentment(customer_cents: 100).cents / 100).to_s # cart.shop_currency_rate.to_s
+      line_item.change_properties(properties, { message: 'Added exchange rate' })
+    end
+
+    line_item.change_line_price(
+      Money.derived_from_presentment(customer_cents: narvar_exchange_credit_property.to_i), { message: "Exchange price" }
+    )
+  end
+}
+
+Output.cart = cart
+  </script>
+  <!-- Ends Narvar Script -->
 {% endif %}
 </body>
 </html>

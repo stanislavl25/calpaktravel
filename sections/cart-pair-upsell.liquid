@@ -1,0 +1,57 @@
+{% for cart_item in cart.items %}
+  {% assign pairs_upsell = cart_item.product.metafields.custom.pairs_cart_upsell.value %}
+  {%- for product_upsell in pairs_upsell limit: 1 -%}
+    {% assign exists = cart.items | map: "id" | where: 'id', product_upsell.id | first %}
+    {{ exists }}
+    {% if exists == product_upsell.id %}
+      {% else %}
+        {%- render 'product-unit' with product_upsell
+          , class: 'slide product-unit--only-available',
+          all_colors: true,
+          add_to_cart: true,
+          location: 'cart',
+          sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
+    {% endif %}
+  {%- endfor -%}
+{% endfor %}
+{%- if section.settings.product_list != blank -%}
+  {%- for product in section.settings.product_list -%}
+    {%- render 'product-unit' with product
+      , class: 'slide product-unit--only-available',
+      all_colors: true,
+      add_to_cart: true,
+      location: 'cart',
+      sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
+  {%- endfor -%}
+{%- elsif section.settings.collection != blank -%}
+  {%- for product in section.settings.collection.products -%}
+    {%- unless product.available and product.price_min <= 10000 -%}
+      {%- continue -%}
+    {%- endunless %}
+    {%- render 'product-unit' with product
+      , in_collection: section.settings.collection,
+      class: 'slide product-unit--only-available',
+      all_colors: true,
+      add_to_cart: true,
+      location: 'cart',
+      sizes: '(min-width: 901px) 200px, (min-width: 551px) 265px, 50vw' -%}
+  {%- endfor -%}
+{%- endif -%}
+{% schema %}
+  {
+    "name": "Cart Pairs Upsell",
+    "class": "upsell",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Featured collection"
+      }, {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Featured products",
+        "info": "Overrides featured collection"
+      }
+    ]
+  }
+{% endschema %}
