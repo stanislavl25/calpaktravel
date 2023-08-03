@@ -3,8 +3,8 @@
     <div class="cart__free-shipping-msg">
         <div class="cart__free-ship-progress">You're only <span class="shipping-value">{% if priceDifference > 0 %}
             {{ priceDifference | money_without_trailing_zeros }}
-         {% endif %}</span> away from free standard shipping!</div>
-        <div class="cart__free-ship-success">Congrats, you get free standard shipping!</div>
+         {% endif %}</span> away from free shipping!*</div>
+        <div class="cart__free-ship-success">Congrats, you get free shipping!*</div>
     </div>
     <div class="cart__free-shipping-progress">
         <div class="cart__free-shipping-indicator" style="--shipping-progress: {{ free_shipping_progress }}%;"></div>
