@@ -1052,6 +1052,24 @@
               "hotel-calpak-robe"
             ]
           }
+        },
+        "159c5718-fbb7-41bc-9c8b-690aa5d65692": {
+          "type": "hot-deals-banner-school",
+          "settings": {
+            "display": "both",
+            "collection_list": [
+              "3-piece-luggage-sets"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/BAGS.jpg",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/LUKA-DUFFEL-KHAKI-LIFESTYLE1.jpg",
+            "row": "3",
+            "row_mobile": "4",
+            "banner-text-color": "#FFF",
+            "banner-text-background-color": "#ff0000",
+            "featured_products": [
+              "ambeur-front-pocket-carry-on-luggage"
+            ]
+          }
         }
       },
       "block_order": [
@@ -1076,7 +1094,8 @@
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
         "531f4f21-bb35-4123-a4c9-2725fdd92f33",
-        "58884853-bea8-451d-92d2-e9ef1a9f1540"
+        "58884853-bea8-451d-92d2-e9ef1a9f1540",
+        "159c5718-fbb7-41bc-9c8b-690aa5d65692"
       ],
       "settings": {
         "wishlist": true,
