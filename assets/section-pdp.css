@@ -530,6 +530,12 @@
     font-size: 14px;
 }
 
+@media (min-width: 901px) {
+    .pdp__stock--active {
+        margin-bottom: -8px;
+    }
+}
+
 p.pdp__stock-variant {
     margin: 0;
     background: #EAE9E1;
