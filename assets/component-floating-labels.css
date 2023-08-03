@@ -260,7 +260,29 @@ body .floating-labels .product-label--extra-sale {
         margin-right: 0px;
     }
     .product-label--badge.product-label--badge-collection-page {
-        display: none!important;
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        max-width: 84%;
+        min-width: 80px;
+        width: fit-content;
+        max-height: 48px;
+        height: fit-content;
+        min-height: 22px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        background-color: #f7f177;
+        color: #000;
+        text-align: left;
+        padding-inline: 6px 6px;
+        padding-block: 6px;
+        margin-top: 8px;
+        margin-bottom: 0px;
+        position: relative;
+        top: 0;
+        right: 0;
     }
     .floating-labels {
         flex-direction: column;
