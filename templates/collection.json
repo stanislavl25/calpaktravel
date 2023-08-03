@@ -1058,13 +1058,13 @@
           "settings": {
             "display": "both",
             "collection_list": [
-              "3-piece-luggage-sets"
+              "bags"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/BAGS.jpg",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/LUKA-DUFFEL-KHAKI-LIFESTYLE1.jpg",
             "row": "3",
             "row_mobile": "4",
-            "banner-text-color": "#FFF",
+            "banner-text-color": "#ffffff",
             "banner-text-background-color": "#ff0000",
             "featured_products": [
               "ambeur-front-pocket-carry-on-luggage"
