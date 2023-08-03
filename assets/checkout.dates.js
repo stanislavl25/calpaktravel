@@ -114,6 +114,11 @@ if(Shopify.Checkout.step == "shipping_method") {
             boxifyOvernight = boxifyOvernight.closest('.content-box__row');
             boxifyOvernight.innerHTML += `<div style="margin-top: 8px;">${overnightString}</div>`;
         }
+        let hawaiAlaska = document.querySelector("[data-shipping-methods] [data-shipping-method-label-title='FedEx Priority Overnight']");
+        if(hawaiAlaska) {
+            hawaiAlaska = hawaiAlaska.closest('.content-box__row');
+            hawaiAlaska.innerHTML += `<div style="margin-top: 8px;">${overnightString}</div>`;
+        }
     }
 //  function displayShippingMessage() {
 //   setTimeout(() => {

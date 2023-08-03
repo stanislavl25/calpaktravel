@@ -63,6 +63,7 @@
     display: block;
     text-align: center;
     white-space: nowrap;
+    padding-inline: 0px;
 }
 .filter__collection--text-only.filter__collection--active {
     display: inline-flex;
@@ -167,6 +168,7 @@
 }
 .collection-categories__wrapper.slider__wrapper--loaded{
     display: block;
+    padding-bottom: 0px;
 }
 @media (max-width: 900px) {
     .slider.filter__collections {
@@ -185,6 +187,7 @@
 }
 @media (max-width: 649px){
     .slider.filter__collections {
-        padding: 10px;
+        padding-block: 10px;
+        padding-inline: 0px;
     } 
 }
