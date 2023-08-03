@@ -198,24 +198,24 @@
         
 
     {%- endif -%}
+{%- endif -%}
 
-    {%- if settings.hot-deals-badge-enabled -%}
-        {%- liquid
-            assign hotDealsVariants = false
-            for tag in product.tags
-                assign splitted_tag = tag | split: ":"
-                if splitted_tag[0] == 'hot-deals'
-                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
-                endif
-            endfor
-        -%}
-    
-        {%- if hotDealsVariants != false -%}
-            <div class="product-label product-label--final hot-deals-badge product-label--badge-mobile-top product-label--badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
-                {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
-                Hot Deal
-            </div>
-        {%- endif -%}
+{%- if settings.hot-deals-badge-enabled -%}
+    {%- liquid
+        assign hotDealsVariants = false
+        for tag in product.tags
+            assign splitted_tag = tag | split: ":"
+            if splitted_tag[0] == 'hot-deals'
+                assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+            endif
+        endfor
+    -%}
+
+    {%- if hotDealsVariants != false -%}
+        <div class="product-label product-label--hot-deal hot-deals-badge product-label--badge-mobile-top product-label--badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+            Hot Deal
+        </div>
     {%- endif -%}
 {%- endif -%}
 
@@ -319,14 +319,14 @@
                 endif
             -%}
         
-            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %} product-label--sale {% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
-        starter-customize{% endif %}{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
+            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %}{% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
+                starter-customize{% endif %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
                 {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
                 {{- saleMessage | escape | replace: '%%', discount -}}
             </div>
         {%- endif -%}
-
     {%- endif -%}
+
     {%- if settings.sale-msg-starter != false -%}
         {% if settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false and template contains 'collection' and settings.starter-bundle-badge != blank %}
             <div class="product-label--promo starter-label">

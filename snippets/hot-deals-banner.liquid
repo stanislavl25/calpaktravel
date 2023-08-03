@@ -6,7 +6,9 @@
 
     if timeLeft < 0
         assign countdownTimer = false
-    elsif timeLeft < 172800
+    elsif settings.hot-deals-countdown-time == '24' and timeLeft < 86400 and settings.hot-deals-countdown-enabled
+        assign countdownTimer = true
+    elsif settings.hot-deals-countdown-time == '48' and timeLeft < 172800 and settings.hot-deals-countdown-enabled
         assign countdownTimer = true
     endif
 -%}
