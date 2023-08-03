@@ -144,6 +144,10 @@
     {% endif %}
 
     {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
+        .hot-deals-banner-wrapper-school .hot-deals-text {
+            background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
+        }
+
         .hot-deals-text .countdown-timer {
             position: absolute;
             top: 50%;
