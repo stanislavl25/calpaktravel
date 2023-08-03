@@ -134,7 +134,7 @@
     .hot-deals-text-container-top,
     .hot-deals-text .countdown-timer,
     .hot-deals-banner-wrapper-school .sale-badge-wrapper {
-        display: none!important;
+        display: none;
     }
 
     {% if settings.hot-deals-badge-enabled == false%}
@@ -374,13 +374,12 @@
 {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            // After 3 seconds, show the countdown timer
             setTimeout(function() {
                 let countdownTimer = document.querySelector('.countdown-timer');
-                let containerTop = document.querySelector('.hot-deals-text-container-top');
+                let hotDealsText = document.querySelector('.hot-deals-text-container-top');
                 countdownTimer.style.display = 'block';
-                containerTop.style.display = 'block';
-            }, 3000); 
+                hotDealsText.style.display = 'block';
+            }, 3000);
         });
     </script>
 {% endif %}
