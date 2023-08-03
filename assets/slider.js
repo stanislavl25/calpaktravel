@@ -21,7 +21,7 @@ const initializeSections = () => {
         { selector: '.pdp__upsell', differentSwatches: false },
         { selector: '.product-grid', differentSwatches: false },
         { selector: '.featured-col__lists', differentSwatches: false },
-        { selector: '.shopify-section--featured-collections', differentSwatches: true }
+        //{ selector: '.shopify-section--featured-collections', differentSwatches: true }
     ];
 
     sections.map(section => processSection(section));
@@ -111,11 +111,14 @@ window.addEventListener("click", (e) => {
             wrapper.classList.remove('slider__wrapper--end');
         } else wrapper.classList.remove('slider__wrapper--start');
     }
-    
-    setTimeout(() => {
-        console.log('trying update process via slide move')
-        tryUpdateProcessTheProductUnits();
-    }, 500)
+    // let timesTryed = 0;
+    // setTimeout(() => {
+    //     if (timesTryed < 100) {
+    //         console.log('trying update process via slide move')
+    //         tryUpdateProcessTheProductUnits();
+    //         timesTryed += 1;
+    //     }
+    // }, 500)
     
 });
 

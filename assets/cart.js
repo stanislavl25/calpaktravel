@@ -17,7 +17,7 @@ function addToCart(variant_id, quantity, callback, always, final_sale = false, p
     let formData = {
         cb: Date.now(),
         items: items,
-        sections: 'cart-items,cart-json'
+        sections: 'cart-items,cart-json,cart-pair-upsell'
     };
 
     if(typeof always != 'function') always = () => {};
@@ -43,18 +43,10 @@ function addToCart(variant_id, quantity, callback, always, final_sale = false, p
         return response.json();
     })
     .then(async response => {
-        if(isset(fbq)) fbq('track', 'AddToCart', {
-            content_name: response.items[0].product_title, 
-            content_ids: [response.items[0].id],
-            content_type: 'product',
-            value: response.items[0].price / 100,
-            currency: 'USD'
-        });
-
-        if(typeof gwpConfig != 'undefined') {
-            if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
-            response = await checkGWP(response);
-        }
+        // if(typeof gwpConfig != 'undefined') {
+        //     if(typeof getGWP == 'undefined') await loadScript(scripts.gwp);
+        //     response = await checkGWP(response);
+        // }
 
         if(typeof callback == 'function') callback(response);
     })
@@ -74,7 +66,7 @@ function changeCartItem(key, qty) {
             cb: Date.now(),
             id: key,
             quantity: qty,
-            sections: 'cart-items,cart-json'
+            sections: 'cart-items,cart-json,cart-pair-upsell'
         })
     }).then(response => {
         if(!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -91,7 +83,7 @@ function updateCartItems(items, callback, always) {
         },
         body: JSON.stringify({
             updates: items,
-            sections: 'cart-items,cart-json'
+            sections: 'cart-items,cart-json,cart-pair-upsell'
         })
     })
     .then(response => {
@@ -111,16 +103,12 @@ function updateCartItems(items, callback, always) {
     });
     // Extend - End code
 }
-
+if (cartShippingGift) {
+    document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
+}
 function gamificationInit() {
     const { subtotal, goals, gifts, wrapper, limit } = settings["cartGamification"];
 
-    if (cartShippingGift) {
-        if (gifts.length) {
-            document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
-        }
-    }
-    
 
     document.querySelector(wrapper).innerHTML = '';
     goals.forEach( item => {
@@ -659,7 +647,13 @@ function updateCartGWPs() {
 function updateCart(data, jsonIncluded = false) {
 
 
+    //document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
     document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
+    if(document.body.classList.contains('variant')){
+        //console.log("🚀 ~ file: cart.js:366 ~ updateCart ~ data.sections['cart-pair-upsell']:", data.sections['cart-pair-upsell'])
+        updateUpsell(data.sections['cart-pair-upsell']);
+    }
+
     let cart;
     if(jsonIncluded) cart = data;
     else cart = JSON.parse(stripHTML(data.sections['cart-json']));
@@ -900,4 +894,55 @@ async function cartItemMoveToWishlist(target) {
     wishlistNotificationTimeout = setTimeout(() => {
         cartContainer.classList.remove('cart__container--wishlist');
     }, settings.cartWishlistTimeout * 1000);
+}
+
+/* eslint-disable no-undef */
+function support() {
+	if (!window.DOMParser) return false;
+
+	const parser = new DOMParser();
+
+  try {
+		parser.parseFromString('x', 'text/html');
+	} catch (err) {
+		return false;
+	}
+
+	return true;
+};
+
+/**
+ * Convert a template string into HTML DOM nodes
+ * @param  {String} str The template string
+ * @return {Node}       The template HTML
+ */
+function stringToHTML(str) {
+	// If DOMParser is supported, use it
+	if (support()) {
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(str, 'text/html');
+		return doc.body;
+	}
+
+	// Otherwise, fallback to old-school method
+	const dom = document.createElement('div');
+	dom.innerHTML = str;
+	return dom;
+}
+
+function updateUpsell(str){
+    const upsellContainer = document.querySelector('.cart__upsell-items--ab-test-variant');
+    upsellContainer.innerHTML = stringToHTML(str).innerHTML;
+    const products = upsellContainer.querySelectorAll(".product-unit")
+    products.forEach(product => {
+        activateProductUnit(product);
+    })
+
+    let visibleUpsells = [];
+    document.querySelectorAll('.cart__items .cart__item').forEach(item => visibleUpsells.push(item.dataset.id));
+    document.querySelectorAll('.cart__upsell-items--ab-test-variant .product-unit').forEach(item => {
+        visibleUpsells.includes(item.dataset.id) ? item.style.display = 'none' : '';
+        visibleUpsells.push(item.dataset.id);
+    });
+
 }

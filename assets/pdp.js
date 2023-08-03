@@ -7,6 +7,7 @@ let klaviyoLoaded = false;
 
 const pdpJSON = document.querySelector('.pdp-json');
 const pdpMetaJSON = document.querySelector('.pdp-meta-json');
+
 if(pdpJSON) {
     try {
         productMeta = JSON.parse(pdpMetaJSON.innerHTML);
@@ -16,7 +17,7 @@ if(pdpJSON) {
 
     try {
         product = JSON.parse(pdpJSON.innerHTML);
-        
+
         setProductData(product, productMeta, document.querySelector('.pdp__variants'), pdpJSON.getAttribute('data-current-variant'));
     } catch( e ) {
         console.log('ERROR', e);
@@ -50,95 +51,136 @@ function getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable 
 function matchProductUnitsToOption(productUnits, option, onlyAvailable = true) {
     const color = option.getAttribute('data-option1');
     const colorGroup = getColorGroup(color);
-    
+
     productUnits.forEach(productUnit => {
         const match = getProductUnitColorMatch(productUnit, color, colorGroup, onlyAvailable);
 
         if(match) {
-            const newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
-            
+            let newSwatch = productUnit.querySelector(`.color-swatch[data-value="${match.getAttribute('data-option1')}"]`);
+            if(!newSwatch.classList.contains('product-option--na')) {
+            } else {
+                let posibleNewSwatch = productUnit.querySelector(`.color-swatch[data-available="true"]`);
+                if(posibleNewSwatch) {
+                    newSwatch = posibleNewSwatch;
+                }
+            }
+
+
             const activeFirst = productUnit.querySelector('.color-swatch--first');
             if(activeFirst) activeFirst.classList.remove('color-swatch--first');
-            
+
             newSwatch.classList.add('color-swatch--first');
             newSwatch.click();
         }
     });
 }
 
-function pdpCreateTypeSelect(variantTypeEl, createTypeSelectProduct, createTypeSelectProductQuickView = false) {
-    const pdpFeaturedCollection = variantTypeEl.getAttribute('data-collection');
-    const productTypes = ['Mini Carry-On', 'Front Pocket Carry-On', 'Carry-On', 'Medium Luggage', 'Large Luggage', 'Trunk Luggage', '2-Piece Set', '3-Piece Set', '2-Piece Luggage Set', '3-Piece Luggage Set'];
-    let foundTypes = [];
+function pdpCreateSizeSelect(variantsizeEl, createTypeSelectProduct, createTypeSelectProductQuickView = false){
     quickView = createTypeSelectProductQuickView;
     product = createTypeSelectProduct;
-    fetch(`/collections/${pdpFeaturedCollection}/products.json`)
-    .then(response => response.json())
-    .then(data => {
-        let selectedAssigned = false;
-        let added = [];
-        for(let j = 0; j < productTypes.length; j++) {
-            let selected = false;
-            if(selectedAssigned === false && product.title.indexOf(productTypes[j]) > -1) {
-                selectedAssigned = true;
-                selected = true;
-            }
+    const ProductId = variantsizeEl.getAttribute('data-productId');
+    const select = variantsizeEl.querySelector('ul.dropdownlist_box');
+}
 
-            for(let i = 0; i < data.products.length; i++) {
-                let prod = data.products[i];
-                if(prod.title.indexOf(productTypes[j]) > -1 && added.indexOf(prod.handle) === -1) {
-                    let correctVariantPrice;  
-                    
-                    if(prod.handle === product.handle) {
-                        // getting the variantion selectedAssigned
-                        if(quickView) {
-                            correctVariantPrice = prod.variants.find((variant) => variant.option1.toLowerCase() === document.querySelector('.pdp__selected-variant')?.innerText.toLowerCase())?.price || prod.variants[0].price;
-                        } else {
-                            correctVariantPrice = prod.variants.find(variant => variant.option1.toLowerCase() === window.location.pathname.split('/')[window.location.pathname.split('/').length -1 ].replace('-', ' '))?.price || prod.variants[0].price;
-                        }
-                    } else {
-                        correctVariantPrice = prod.variants[0].price
-                    }
-                    foundTypes.push([
-                        productTypes[j],
-                        prod.handle,
-                        correctVariantPrice,
-                        prod.id == product.id
-                    ]);
-                    added.push(prod.handle);
-                    break;
-                }
+async function pdpSizePriceUpdate(option) {
+    const selectedColor = option.getAttribute('data-option1');
+    const sizeOptions = document.querySelectorAll('.dropdownlist_box li');
+    const buttontext = document.querySelector('.dropdown-box');
+
+    for (const sizeOption of sizeOptions) {
+      const value = sizeOption.getAttribute('value');
+      const productTitle = sizeOption.getAttribute('data-prodtitle');
+      try {
+        const productInfo = await getProductOptions(value, selectedColor);
+        // Update the content of each option with the new product information
+        const buttontext = document.querySelector('.dropdown-'+productInfo.producthandle)
+        if(buttontext){
+            if(productInfo.compare_at != '$0'){
+                buttontext.innerHTML = `${productTitle} - <s>${productInfo.compare_at}</s>${productInfo.price}`;
+            }else{
+                buttontext.innerHTML = `${productTitle} - ${productInfo.price}`;
             }
         }
+        if(typeof productInfo.productavailable !== "undefined"){
+            sizeOption.innerHTML = `${productTitle} - Out Of Stock`;
+        }else{
+                if(productInfo.compare_at != '$0'){
+                    sizeOption.innerHTML = `${productTitle} - <s>${productInfo.compare_at}</s>${productInfo.price}`;
+                }else{
+                    sizeOption.innerHTML = `${productTitle} - ${productInfo.price}`;
+                }
+        }
+        const producthandle = `${productInfo.title}`;
+        sizeOption.setAttribute('data-producthandle', producthandle);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
-        const select = variantTypeEl.querySelector('select');
-        let selectOptions = '';
-        foundTypes.forEach(foundType => {
-            selectOptions += `<option ${foundType[3]?'selected':''} value="${foundType[1]}">${foundType[0]} - ${formatPrice(foundType[2])}</option>`;
-        });
-
-        select.innerHTML = selectOptions;
-        select.classList.add('select__wrapper--pdp-active');
-
-        select.addEventListener('change', (e) => {
-            const productForm = variantTypeEl.closest('.shopify-product-form');
-            const options = getProductOptionsList(productForm, 'pdp');
-            let url = `/products/${e.target.value}`;
-            
-            if(quickView === false) {
-                location.href = url + '/' + options[0];
-            } else {
-                getQuickView(url, options[0]);
-            }
-        });
+  async function getProductOptions(handle, selectedColor) {
+    const productContent = await fetch(window.Shopify.routes.root + 'products/' + handle + '.js', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      return res.json();
     });
-}
+    var productVariants = productContent.variants;
+    var defaultVariant = null; // Variable to store the default variant info
+
+    if(productContent.available){
+        for (const variant of productVariants) {
+            const originalString = variant.title;
+            const separatorIndex = originalString.indexOf(" / ");
+            let variantTitle;
+            if(separatorIndex >= 0){
+                variantTitle = originalString.slice(0, separatorIndex).toLowerCase().replace(/\s+/g, "-");
+            }else{
+                variantTitle = variant.title.toLowerCase().replace(/\s+/g, "-");
+            }
+          if (variantTitle === selectedColor && variant.available == true) {
+            return {
+             producthandle: productContent.handle,
+              title: variantTitle,
+              compare_at: formatPrice(variant.compare_at_price / 100),
+              price: formatPrice(variant.price / 100),
+            };
+          } else if (!defaultVariant && variant.available === true) {
+            // Store the default variant info if no match found yet
+            defaultVariant = {
+             producthandle: productContent.handle,
+              title: variantTitle,
+              compare_at: formatPrice(variant.compare_at_price / 100),
+              price: formatPrice(variant.price / 100),
+              available: variant.available
+            };
+          }
+        }
+
+        // If no match found, return the default variant
+        if (defaultVariant) {
+          return defaultVariant;
+        }
+    }else{
+        return{
+            producthandle: productContent.handle,
+            productavailable: productContent.available,
+            compare_at: formatPrice(productContent.compare_at_price / 100),
+            price: formatPrice(productContent.price / 100),
+        }
+    }
+
+
+    throw new Error("Variant not found for the selected color.");
+  }
 
 async function pdpFormSubmit(productForm, showCart = true) {
     const container = productForm.closest('.pdp__grid, .qv__body');
 
     if(container.getAttribute('data-status') == 'sold-out') return;
-    
+
     productForm.classList.add('shopify-product-form--loading');
     if(typeof openCart == 'undefined') await activateCart();
 
@@ -169,7 +211,7 @@ function updateOptionsAvailability(options, select, container) {
             const option = siblingOptions[j];
             for(let optNum = 0; optNum < options.length; optNum++) {
                 if(optNum == i) continue;
-                
+
                 const value = option.getAttribute(`data-option${optNum + 1}`);
                 const available = option.getAttribute('data-available');
                 const target = container.querySelector(`.pdp__variants [data-position="${optNum + 1}"] [data-value="${value}"]`);
@@ -194,7 +236,7 @@ async function triggerWaitlist(waitlistCont) {
 
         waitlistCont.classList.remove('pdp__waitlist--error');
         waitlistCont.classList.add('pdp__waitlist--loading');
-        
+
         if(klaviyoLoaded == false) {
             await loadScript(scripts.klaviyo);
             klaviyoLoaded = true;
@@ -275,7 +317,7 @@ window.addEventListener("load", () => {
     window.addEventListener("resize", checkPDPSwatches);
     function checkPDPSwatches() {
         if(pdpSwatchesCheckThrottle !== false) clearTimeout(pdpSwatchesCheckThrottle);
-    
+
         pdpSwatchesCheckThrottle = setTimeout(() => {
             pdpSwatches.forEach(pdpSwatch => {
                 pdpSwatch.style.setProperty('--max-fit', Math.floor(pdpSwatch.offsetWidth / 28));
@@ -297,8 +339,8 @@ window.addEventListener("load", () => {
     });
 
     if(pdpGrid) {
-        let variantTypeEl = document.querySelector('.pdp__variant-type');
-        if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
+        let variantsizeEl = document.querySelector('.pdp__variant-size');
+        if(variantsizeEl) pdpCreateSizeSelect(variantsizeEl, product, quickView);
 
         const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
@@ -382,7 +424,7 @@ function setupGalleryMediaLimit(newMedia) {
     if(typeof pdpSettings != 'undefined') {
         const galleryMoreBtn = document.querySelector('.pdp-gallery__more-btn');
         mediaLimit = pdpSettings.gallery_limit;
-        
+
         if(mediaLimit < newMedia.length) {
             galleryMoreBtn.classList.add('pdp-gallery__more-btn--active');
 
@@ -399,8 +441,8 @@ function setupGalleryMediaLimit(newMedia) {
 }
 
 function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
-    let variantTypeEl = document.querySelector('.pdp__variant-type');
-    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, quickView);
+    let variantsizeEl = document.querySelector('.pdp__variant-size');
+    if(variantsizeEl) pdpCreateSizeSelect(variantsizeEl, product, quickView);
     const pdpGallery = pdpGrid.querySelector('.pdp__gallery, .qv__gallery');
     const pdpThumbs = pdpGrid.querySelector('.pdp__gallery-thumbs, .qv__gallery-thumbs');
     const pdpGalleryInfo = pdpGrid.querySelector('.pdp__video-info');
@@ -417,13 +459,13 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
 
     const allMedia = pdpGallery.querySelectorAll('.pdp__media');
     allMedia.forEach(mediaActive => mediaActive.classList.remove('pdp__media--active', 'pdp__media--wide', 'pdp__media--extra', 'slide'));
-    
+
     const allThumbs = pdpThumbs.querySelectorAll('.pdp__media-thumb');
     allThumbs.forEach(mediaActive => mediaActive.classList.remove('pdp__media--active', 'slide'));
 
     let newMedia = [];
     let newMediaThumbs = [];
-    
+
     if(pdpGallery.classList.contains('pdp__gallery--old')) {
         let sku = option.getAttribute('data-sku');
         let color = option.getAttribute('data-option1');
@@ -447,10 +489,10 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         let mediaVarVideo = false;
         let mediaProdVideo = false;
         let pdpVideoCurrentOrder = 0;
-        
+
         for(let i = 0; i < newMedia.length; i++) {
             let newMed = newMedia[i];
-        
+
             let videoContainer;
             if(!newMed.querySelector('.video-iframe-container'))
             {
@@ -466,18 +508,18 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
                 if(newMed.classList.contains('pdp__media--var-video')) mediaVarVideo = newMed;
                 continue;
             }
-            
+
             newMed.classList.add('pdp__media--active', 'slide');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         }
-        
+
         if(mediaVarVideo !== false) {
             mediaVarVideo.classList.add('pdp__media--active', 'slide');
             let videoContainer = mediaVarVideo.querySelector('.video-iframe-container');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         } else if(mediaProdVideo !== false) {
             mediaProdVideo.classList.add('pdp__media--active', 'slide');
-            
+
             if(pdpVideoOrder !== false) {
                 if(pdpVideoCurrentOrder < pdpVideoOrder - 1) {
                     pdpSlides.insertBefore(mediaProdVideo, newMedia[pdpVideoOrder]);
@@ -485,13 +527,13 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
                     pdpSlides.insertBefore(mediaProdVideo, newMedia[pdpVideoOrder - 1]);
                 }
             }
-            
+
             let videoContainer = mediaProdVideo.querySelector('.video-iframe-container');
             // if(videoContainer && !videoContainer.querySelector('iframe')) activateVideoContainer(videoContainer);
         }
-        
+
         pdpGallery.scrollLeft = 0;
-        
+
         let activeMedia = pdpGallery.querySelectorAll('.pdp__media--active');
         activeMedia[0].classList.add('pdp__media--wide');
         if(!isQuickView) {
@@ -593,7 +635,7 @@ function pdpHandleFeaturedCollection(option) {
 }
 
 function pdpUpdateURL(product, options) {
-    let url_vars = ''; 
+    let url_vars = '';
     if(document.location.href.indexOf('?') > -1) {
         url_vars = document.location.href.split('?');
         url_vars = '?' + url_vars[1];
@@ -612,7 +654,7 @@ function pdpUpdateURL(product, options) {
     //     }
 
     //     if(option1Only) attr = options[0];
-    //     else 
+    //     else
     // } else attr = options[0];
 
     // if(selector.variantIdField.options[selector.variantIdField.selectedIndex].classList.contains('early-access-option')) attr = 'early-access-' + attr;
@@ -638,27 +680,27 @@ const changeBadgeAbsolutePosition = e => {
             let slider = document.querySelector('.pdp__gallery-container .slider__wrapper');
             let badge = document.querySelector('.pdp__gallery-container .product-label--badge-mobile-bottom');
             if(badge) {
-                badge.style.marginTop = `0px`; 
-                badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`; 
+                badge.style.marginTop = `0px`;
+                badge.style.top = `${slider.clientHeight - badge.clientHeight - 10}px`;
             } else {
                 badge = document.querySelector('.pdp__gallery-container .product-label--badge');
                 if (badge) {
-                    badge.style.marginTop = ``; 
-                    badge.style.top = ``; 
+                    badge.style.marginTop = ``;
+                    badge.style.top = ``;
                 }
-                
+
             }
         } else {
             let first_media = document.querySelector('.pdp__gallery-container .pdp__media--wide');
             let badge = document.querySelector('.pdp__gallery-container .product-label--badge-desktop-bottom');
             if(badge) {
-                badge.style.marginTop = `0px`; 
-                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 26}px`; 
+                badge.style.marginTop = `0px`;
+                badge.style.top = `${first_media.clientHeight - badge.clientHeight - 26}px`;
             } else {
                 badge = document.querySelector('.pdp__gallery-container .product-label--badge');
                 if (badge) {
-                    badge.style.marginTop = ``; 
-                    badge.style.top = ``; 
+                    badge.style.marginTop = ``;
+                    badge.style.top = ``;
                 }
             }
         }
@@ -669,10 +711,12 @@ const changeBadgeAbsolutePosition = e => {
 
 document.addEventListener("DOMContentLoaded", function () {
     changeBadgeAbsolutePosition()
+    Fancybox.bind('[data-fancybox="gallery"]', {});
     const mediaColors = [...document.querySelectorAll(".pdp__media")]
     const mediaUniqueColors = [...new Set(mediaColors.map(ele => ele.dataset.variants))]
+
     for (let i = 0; i < mediaUniqueColors.length; i++) {
-        const color = mediaUniqueColors[i];
+      const color = mediaUniqueColors[i];
      if (color.length) Fancybox.bind(`[data-fancybox="gallery-${color}"]`, {});
     }
 });
@@ -683,6 +727,7 @@ changeBadgeAbsolutePosition()
 window.addEventListener('DOMContentLoaded', () => {
     const pdpOptions = document.querySelectorAll('.product-option');
     const includesTextWrapperForLuggageCovers = Array.from(document.querySelectorAll('.inlcudes-on-set'));
+    console.log(includesTextWrapperForLuggageCovers);
     if(pdpOptions){
         [].map.call(pdpOptions, option => {
             option.addEventListener('click', () => {
@@ -695,7 +740,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             includesTextWrapperForLuggageCover.classList.remove('unseen')
                             includesTextWrapperForLuggageCover.classList.add('seen')
                         })
-                        
+
                     } else if(optVal === "set-of-3") {
                         includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                             includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')
@@ -703,7 +748,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             includesTextWrapperForLuggageCover.classList.remove('unseen')
                             includesTextWrapperForLuggageCover.classList.add('seen')
                         })
-                        
+
                     } else {
                         includesTextWrapperForLuggageCovers.map(includesTextWrapperForLuggageCover => {
                             includesTextWrapperForLuggageCover.querySelector(".set-of-2").classList.add('display-none')

@@ -153,7 +153,15 @@ function initFilter() {
 
 }
 
-function filterUnitByColor(product, colors) {
+async function filterUnitByColor(product, colors) {
+
+    /**
+     * CHCECK IF COLORS LENGHT > 1
+     * CLONE THE PRODUCT COLORS LENGTH TIMES
+     * *ISSUE EVENT LISTENERS*
+     * CHECK THE RESPECTIVLY SWATCH FOR EACH CLONE 
+     */
+    
     const unitColors = product.querySelectorAll('.color-swatch');
     let unitColorValues = [];
 
@@ -163,30 +171,47 @@ function filterUnitByColor(product, colors) {
     });
 
     let found = false;
+    var commoncolor = [];
 
     for(let j = 0; j < colors.length; j++) {
         const activeColorValue = colors[j];
-
-        for(let k = 0; k < unitColorValues.length; k++) {
-            const unitColorValue = unitColorValues[k];
-
-            if(color_groups[activeColorValue].indexOf(unitColorValue) > -1) {
-                const selectedSwatch = product.querySelector('.color-swatch[data-value="' + unitColorValue + '"]');
-
-                selectedSwatch.classList.add('color-swatch--filter');
-
-                if(!found) {
-                    found = true;
-                    selectedSwatch.click();
-                }
-                // break;
-            }
-        }
-
-        // if(found === 0) break;
+        commoncolor.push(...color_groups[activeColorValue]);
     }
+    const uniqueSet = new Set(commoncolor);
+    commoncolor = Array.from(uniqueSet);
+    for(let k = 0; k < unitColorValues.length; k++) {
+        const unitColorValue = unitColorValues[k];
+
+        if(commoncolor&&commoncolor.indexOf(unitColorValue) > -1) {
+            const selectedSwatch = product.querySelector('.color-swatch[data-value="' + unitColorValue + '"]');
+
+            selectedSwatch.classList.add('color-swatch--filter');
+
+            if(!found) {
+                found = true;
+                selectThisColorSwatch(selectedSwatch);
+            } else {
+                if(!product.getAttribute('data-clone')) {
+                    let newProduct = product.insertAdjacentElement('afterend', product.cloneNode(true))
+                    newProduct.setAttribute('data-clone', true);
+                    let newSelectedSwatch = newProduct.querySelector('.color-swatch[data-value="' + unitColorValue + '"]');
+                    selectThisColorSwatch(newSelectedSwatch);
+                }
+            }
+            // break;
+        }
+    }
+    
 
     if(found == false) product.classList.add('product-unit--filtered-out');
+
+    // var hot_deal = document.querySelectorAll(".hot-deals-banner-wrapper .tabs__content .slider--scrollbar .product-unit");
+    // var hot_deal_oos = document.querySelectorAll(".hot-deals-banner-wrapper .tabs__content .slider--scrollbar .product-unit.product-unit--filtered-out");
+    // if(hot_deal.length == hot_deal_oos.length){
+    //     document.querySelector('.hot-deals-banner-wrapper').classList.add("hide-hot-deals");
+    // }else{
+    //     document.querySelector('.hot-deals-banner-wrapper').classList.remove("hide-hot-deals");
+    // }
 }
 
 function updateCurrentFilters(colors = []) {
@@ -330,6 +355,14 @@ async function applyFilter(source = false) {
     const productUnits = filteredContainer.querySelectorAll('.product-unit');
     let filtered = false;
 
+    console.log('appling filter');
+    
+    [...productUnits].map( productUnit => {
+        if(productUnit.getAttribute('data-clone')) {
+            productUnit.remove()
+        }
+    });
+    
     //// COLLECTIONS ////
     let filteredProducts = false;
     if(source == 'collections') {
@@ -389,6 +422,10 @@ async function applyFilter(source = false) {
 
     if(filtered) filteredContainer.classList.add('section-filtered');
     else filteredContainer.classList.remove('section-filtered');
+
+
+    reloadStaticBlocks();
+    recreateCRL8();
 }
 
 function resetFilter() {

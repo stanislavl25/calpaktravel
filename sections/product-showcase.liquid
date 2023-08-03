@@ -1,5 +1,11 @@
 {{ 'section-product-showcase.css' | asset_url | stylesheet_tag }}
 
+<style>
+    .product-showcase .product-unit__button {
+        display: grid;
+    }
+</style>
+
 <div class="product-showcase product-showcase--mob-{{ section.settings.mobile-layout }}">
 {%- for block in section.blocks -%}
     <div class="product-showcase__block product-showcase__block--{{- block.type -}}">
@@ -7,14 +13,14 @@
         {%- when 'image' -%}
             {%- render 'image' with block.settings.image, height: '133.333', lazy: true, sizes: '(min-width: 901px) 33vw, 50vw' -%}
         {%- when 'product' -%}
-            {%- render 'product-unit' with block.settings.product, quick_view: true, wishlist: true -%}
+            {%- render 'product-unit' with block.settings.product, in_collection: collection, all_colors_quickadd: true, add_to_cart: block.settings.show-add-to-cart, wishlist: true, quick_view: true -%}
         {%- when 'text' -%}
             {%- if block.settings.title != blank -%}
-            <div class="product-showcase__title">{{- block.settings.title | escape -}}</div>
+                <div class="product-showcase__title">{{- block.settings.title | escape -}}</div>
             {%- endif -%}
 
             {%- if block.settings.description != blank -%}
-            <div class="product-showcase__description">{{- block.settings.description -}}</div>
+                <div class="product-showcase__description">{{- block.settings.description -}}</div>
             {%- endif -%}
 
             {%- if block.settings.button-text != blank -%}
@@ -23,6 +29,10 @@
                         {{- block.settings.button-text | escape -}}
                     </span>
                 </a>
+            {%- endif -%}
+
+            {%- if block.settings.description-2 != blank -%}
+                <div class="product-showcase__description">{{- block.settings.description-2 -}}</div>
             {%- endif -%}
     {%- endcase -%}
     </div>
@@ -72,6 +82,11 @@
                         "type": "product",
                         "id": "product",
                         "label": "Product"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show-add-to-cart",
+                        "label": "Show add to cart button"
                     }
                 ]
             },
@@ -98,6 +113,12 @@
                         "type": "url",
                         "id": "button-link",
                         "label": "Button link"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "description-2",
+                        "label": "Second description",
+                        "info": "Optional"
                     }
                 ]
             }

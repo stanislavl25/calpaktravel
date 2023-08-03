@@ -5,7 +5,7 @@
 .collection-filters__section {
     position: sticky;
     top: 42px;
-    z-index: 3;
+    z-index: 20;
     background: #fff;
 }
 
@@ -193,11 +193,14 @@
     grid-column: span 3;
     display: flex;
     gap: 10px;
+    padding-top: 8px;
+    flex-wrap: wrap;
 }
 
 .current-filters-list {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .current-filters-list:empty {
@@ -305,6 +308,7 @@
 
 .section-filtered[data-sort="featured"] .product-unit--na {
     order: 999;
+    display: none;
 }
 
 .filter__collection {
@@ -312,6 +316,9 @@
 }
 
 @media (max-width: 900px) {
+    .current-filters{
+        padding-bottom: 10px;
+    }
     .active-filters-nav {
         display: flex;
     }

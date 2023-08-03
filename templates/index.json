@@ -7,42 +7,48 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-4.jpg"
           }
         },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
           "type": "collection",
           "settings": {
             "collection": "sale",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
           "type": "collection",
           "settings": {
             "collection": "luggage",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-2-3.jpg"
           }
         },
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce": {
           "type": "collection",
           "settings": {
             "collection": "carry-on-luggage",
-            "title": "Carry-On"
+            "title": "Carry-On",
+            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO__0583-6.jpg"
           }
         },
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2": {
           "type": "collection",
           "settings": {
             "collection": "checked-in-luggage",
-            "title": "Checked"
+            "title": "Checked",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods_20249-4_1.jpg"
           }
         },
         "69fb0fb6-9c79-400a-bb23-2f808700224d": {
           "type": "collection",
           "settings": {
             "collection": "bags",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Shot_7.jpg"
           }
         }
       },
@@ -60,9 +66,11 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Art of Packing",
             "description": "<p>Shop organizers for your summer travels<\/p>",
@@ -78,6 +86,7 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-5_1.jpg",
             "video": "",
@@ -93,6 +102,7 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2_1.jpg",
             "video": "",
@@ -123,32 +133,28 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "Last Chance: Travel More Sale",
-            "description": "<p>Shop best-sellers, including luggage and carry-ons in classic colors, now up to 60% off.<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions<\/a> apply.<\/p>",
-            "main-link": "shopify:\/\/collections\/sale",
+            "title": "Use code BACKTOIT for 10% OFF!",
+            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
+            "main-link": "shopify:\/\/collections\/back-to-school",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
             "text-color-scheme": "black",
-            "background": "#e4dfd5"
+            "background": "#eae9e1"
           }
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/TMS.gif",
-            "image-mobile": "shopify:\/\/shop_images\/Frame_1-11.png",
+            "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_55533bc3-6cfe-4c7b-8dc3-0dc4075ff3df.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/sale",
+            "main-link": "shopify:\/\/collections\/back-to-school",
             "title": "",
             "description": "",
             "button-text": "",
@@ -160,11 +166,10 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_1-11.png",
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235177_9aa04390-3a2a-48da-b0e1-0d5b00196232.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/sale",
+            "main-link": "shopify:\/\/collections\/back-to-school",
             "title": "",
             "description": "",
             "button-text": "",
@@ -292,7 +297,8 @@
         "97749904-2195-42da-9b4e-7a6f7995c1ca"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": false,
+        "add-to-cart": true
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {
@@ -392,42 +398,37 @@
     },
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0": {
       "type": "promo-collection",
-      "disabled": true,
       "settings": {
-        "title": "Ambeur Collection",
+        "title": "Explore Our New Arrivals",
         "description": "",
         "quick-view": true,
-        "product-labels": false,
-        "image": "shopify:\/\/shop_images\/01.25.CALPAK.HOUSE1372_6c72ff0e-c237-424c-afdf-a9528ed74b74.jpg",
+        "product-labels": true,
+        "image": "shopify:\/\/shop_images\/5.26.CALPAK.ON.LOCATION0999.jpg",
         "video": "",
-        "media-link": "",
-        "pictured-product": "ambeur-front-pocket-carry-on-luggage",
-        "pictured-product-quick-view": true,
+        "media-link": "shopify:\/\/collections\/new-arrivals",
+        "pictured-product": "",
+        "pictured-product-quick-view": false,
         "pictured-product-override": "",
-        "pictured-product-title": "Ambeur Front Pocket Carry-On",
+        "pictured-product-title": "",
         "button-text": "Shop Now",
         "button-quick-view": false,
-        "button-link": "shopify:\/\/collections\/ambeur-collection",
+        "button-link": "shopify:\/\/collections\/summer-arrivals",
         "background": "#ff6b0e",
         "text-color": "{{ shop.brand.colors.primary[1].background }}",
         "accent-color": "#ffffff",
         "pictured-product-display": "top",
-        "featured-collection": "",
-        "collection-limit": 0,
-        "show-view-all": true,
+        "featured-collection": "new-arrivals",
+        "collection-limit": 6,
+        "show-view-all": false,
         "product_list": [
-          "ambeur-vanity-case",
-          "ambeur-mini-carry-on-luggage",
-          "ambeur-front-pocket-carry-on-luggage",
-          "ambeur-carry-on-luggage",
-          "ambeur-medium-luggage",
-          "ambeur-large-luggage"
+
         ],
         "columns": "3"
       }
     },
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47": {
       "type": "promo-collection",
+      "disabled": true,
       "settings": {
         "title": "Explore Our Summer Arrivals",
         "description": "",
@@ -517,7 +518,7 @@
             "title": "Packing Cubes Forever!",
             "description": "<p>Packing cubes come in all shapes and sizes—let's find the right ones for you.<\/p>",
             "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/products\/compression-packing-cubes",
+            "pictured_product": "shopify:\/\/products\/medium-compression-packing-cubes",
             "product_title": "Compression Packing Cubes",
             "image": "shopify:\/\/shop_images\/Packing_Cubes.jpg",
             "video": "",
@@ -552,7 +553,11 @@
         "height-percent": 20,
         "text-alignment": "center",
         "text-color-scheme": "white",
-        "background": "#ff6b0e"
+        "background": "#ff6b0e",
+        "query-match": false,
+        "yotpo": false,
+        "signed-in-button-text": "",
+        "signed-in-link": ""
       }
     }
   },

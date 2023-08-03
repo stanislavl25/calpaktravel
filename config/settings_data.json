@@ -26,19 +26,19 @@
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
-    "sale-badge-enabled": false,
+    "sale-badge-enabled": true,
     "sale-badge-text-tilt": false,
     "countdown-label-collection-enabled": true,
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "Final Sale",
-    "sale-badge-text": "Back to School Promo",
+    "sale-badge-tag": "btsbadge",
+    "sale-badge-text": "Code: BACKTOIT",
     "sale-badge-bg": "#f7f177",
-    "sale-msg-starter": false,
-    "sale-badge-tag-bundle": "",
+    "sale-msg-starter": true,
+    "sale-badge-tag-bundle": "laptoppromo",
     "starter-bundle-badge": "",
-    "sale-badge-text-starter": "Special Offer",
+    "sale-badge-text-starter": "LIMITED TIME",
     "sale-badge-hide-textog": false,
     "starter__customizer-badge": "#f7f177",
     "hot-deals-badge-enabled": false,
@@ -46,11 +46,11 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "",
     "chk-msg-text": "",
-    "sale-msg-enabled": false,
+    "sale-msg-enabled": true,
     "sale-msg-pdp-only": true,
-    "sale-msg-tag": "Final Sale",
-    "sale-msg-highlighted": "Test123",
-    "sale-msg-message": "",
+    "sale-msg-tag": "backtoschool",
+    "sale-msg-highlighted": "Code: BACKTOIT",
+    "sale-msg-message": "Get 10% off best-selling back-to-school styles",
     "sale-msg-main-col-text": "#707070",
     "type_light_font": "futura_n3",
     "type_body_font": "futura_n4",
@@ -81,8 +81,35 @@
             "settings": {
             }
           },
+          "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Shop: Featured: Back to School",
+              "submenu-number": 1,
+              "collection": "back-to-school",
+              "block-title": "Explore Back to School"
+            }
+          },
+          "e331480d-2d4f-4d45-9833-0284975a6965": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/products\/padded-laptop-sleeve",
+              "block-title": "Something to set your alarm for: $29.99 for ANY Laptop Sleeve",
+              "description": "",
+              "button-text": "Shop Now",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
           "d354ff31-c668-4b29-8245-34b614309172": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -118,6 +145,7 @@
           },
           "9bc35091-f1af-4ade-937e-7abddf8840bc": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Carousel of Best sellers",
               "submenu-number": 1,
@@ -250,13 +278,13 @@
             "type": "discover-block",
             "settings": {
               "title": "Discover #1",
-              "button-url": "shopify:\/\/collections\/summer-arrivals",
+              "button-url": "shopify:\/\/collections\/new-arrivals",
               "block-title": "",
               "description": "",
               "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Frame_1_23359518-94fa-40a6-9240-15298346b7dd.png",
+              "image": "shopify:\/\/shop_images\/Frame_1_1_df411491-e59f-4542-aa0c-00574ff6cda1.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -296,6 +324,8 @@
         },
         "block_order": [
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
+          "0066fcc3-11cd-4e67-8864-e6c0a00bfab6",
+          "e331480d-2d4f-4d45-9833-0284975a6965",
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
@@ -319,9 +349,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": false,
-          "live-start-time": "July 7, 2023 10:00AM",
-          "live-end-time": "July 7, 2023 11:00AM"
+          "live": true,
+          "live-start-time": "July 25, 2023 4:00PM",
+          "live-end-time": "July 25, 2023 5:00PM"
         }
       },
       "footer": {
@@ -398,18 +428,17 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "04bc2b17-2375-4de8-af63-63c2c120af5a": {
+            "type": "notification",
+            "settings": {
+              "text": "<p>Use code: BACKTOIT to get 10% off <a href=\"\/collections\/back-to-school\" title=\"Back to School\">Back To School Items!<\/a><\/p>",
+              "only-for-guests": false
+            }
+          },
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154": {
             "type": "notification",
             "settings": {
               "text": "<p>Contiguous US orders $100 and over get free standard shipping.<\/p>",
-              "only-for-guests": false
-            }
-          },
-          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
-            "type": "notification",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Orders $100 and over get free standard shipping.<\/p>",
               "only-for-guests": false
             }
           },
@@ -427,6 +456,14 @@
               "only-for-guests": true
             }
           },
+          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Orders $100 and over get free standard shipping.<\/p>",
+              "only-for-guests": false
+            }
+          },
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d": {
             "type": "notification",
             "disabled": true,
@@ -437,10 +474,11 @@
           }
         },
         "block_order": [
+          "04bc2b17-2375-4de8-af63-63c2c120af5a",
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
-          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
+          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
         "settings": {
@@ -449,8 +487,18 @@
       "cart": {
         "type": "cart",
         "blocks": {
+          "f201f5a0-c22e-4148-9f30-774d79ef284a": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "position": "top",
+              "title": "",
+              "text": "<p>Get 10% OFF back to school favorites with code: BACKTOIT<\/p>"
+            }
+          },
           "fbdf664a-4341-47c0-bce5-14700ff998ba": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "position": "top",
               "title": "",
@@ -557,6 +605,7 @@
           }
         },
         "block_order": [
+          "f201f5a0-c22e-4148-9f30-774d79ef284a",
           "fbdf664a-4341-47c0-bce5-14700ff998ba",
           "b9e6b17b-dffb-45b9-8ae4-eb899f113588",
           "8c9ba91f-2777-428f-837a-f7b2b9f8cc50",
@@ -578,6 +627,15 @@
           "wishlist-timeout": 3,
           "max_value": 75,
           "courtesy-banner": true
+        }
+      },
+      "cart-pair-upsell": {
+        "type": "cart-pair-upsell",
+        "settings": {
+          "collection": "best-sellers",
+          "product_list": [
+
+          ]
         }
       },
       "contact-form": {
@@ -622,6 +680,7 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -632,6 +691,21 @@
               "description": "",
               "button-text": "Shop All",
               "link-for-button": true,
+              "text-color-scheme": "white"
+            }
+          },
+          "04605ea0-0820-4c21-b443-99943fd24488": {
+            "type": "media-block",
+            "settings": {
+              "title": "Shop: Back to School",
+              "menu": "shop",
+              "submenu-number": 0,
+              "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2424-2_1.jpg",
+              "link": "shopify:\/\/collections\/back-to-school",
+              "media-title": "",
+              "description": "",
+              "button-text": "Shop Back to School",
+              "link-for-button": false,
               "text-color-scheme": "white"
             }
           },
@@ -693,11 +767,11 @@
           "657418bd-98df-44f4-9363-2b2a9c4cf77e": {
             "type": "edit",
             "settings": {
-              "title": "Summer Arrivals",
-              "image": "shopify:\/\/shop_images\/Frame_2_3_a42ff80d-e9f8-40f8-922a-c746c97a6781.png",
-              "edit-title": "Fresh summer styles are here",
-              "description": "<p>Explore bags for your sweetest summer yet.<\/p>",
-              "link": "shopify:\/\/collections\/summer-arrivals"
+              "title": "New Arrivals",
+              "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1183-2_94015f57-3474-4ae9-aecb-23df714c2e46.jpg",
+              "edit-title": "Love getting there",
+              "description": "<p>Explore our best-selling luggage collection and more.<\/p>",
+              "link": "shopify:\/\/collections\/new-arrivals"
             }
           },
           "22ba977a-5751-40f1-ab10-64600d42f7d7": {
@@ -723,6 +797,7 @@
         },
         "block_order": [
           "adc05d65-da10-4314-9243-585b3e5e1c66",
+          "04605ea0-0820-4c21-b443-99943fd24488",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
           "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
@@ -810,6 +885,34 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
+          "62b6d713-dd1b-4386-a18e-6932387e7112": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>10% off back-to-school bags<\/p>",
+              "url": "shopify:\/\/collections\/back-to-school",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
+          "652fae05-e012-48a0-bd05-eebda8839bc2": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>$29.99 for ANY Laptop Sleeve<\/p>",
+              "url": "shopify:\/\/products\/padded-laptop-sleeve",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
             "settings": {
@@ -826,6 +929,7 @@
           },
           "7d3bbce9-7dd8-473d-958c-bf75d4555902": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -855,6 +959,8 @@
           }
         },
         "block_order": [
+          "62b6d713-dd1b-4386-a18e-6932387e7112",
+          "652fae05-e012-48a0-bd05-eebda8839bc2",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
           "7d3bbce9-7dd8-473d-958c-bf75d4555902",
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f"
@@ -868,12 +974,6 @@
           "countdown-active": false,
           "countdown-show": "48",
           "countdown-to": "July 7, 2023 11:00am"
-        }
-      },
-      "checkout-countdown": {
-        "type": "checkout-countdown",
-        "settings": {
-          "show-countdown-message": true
         }
       }
     },

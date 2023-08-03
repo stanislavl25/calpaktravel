@@ -54,18 +54,20 @@ function variantUpdateProcess(target) {
     }
     const productContainer = target.closest('.product-unit, .shopify-product-form');
     
+    
     if(!productContainer) return;
-
+    
     const select = productContainer.querySelector('.variant-select');
     if(!select) return;
-
+    
     const hasSizeSelector = productContainer.querySelector('.product-unit__sizes') ? true: false;
     let location = false;
     if(productContainer.classList.contains('product-unit')) location = 'unit';
     else if(productContainer.classList.contains('shopify-product-form')) location = 'pdp';
-
+    
     let [options, multiple] = getProductOptionsList(productContainer, location);
     
+
     let option = false,
         selector = `option`;
     if(location == 'unit' && options.length > 1) {
@@ -106,13 +108,21 @@ function variantUpdateProcess(target) {
     
     const optionalLabels = productContainer.closest('.product-unit, .pdp__grid, .qv__body').querySelectorAll('.product-label[data-options]');
     optionalLabels.forEach(optionalLabel => {
-        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { optionalLabel.classList.add('product-label--active');
+        if(optionalLabel.matches(`[data-options~="${options[0]}"]`) || optionalLabel.matches(`[data-options~="${option.value}"]`)) { 
+            optionalLabel.classList.add('product-label--active');
+            
+            if (optionalLabel.classList.contains('product-label--badge')) {
+                optionalLabel.classList.add('badge-active');
+            }
             
             if(optionalLabel.classList.contains('product-label--extra-sale')) {
                 productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.add('extra-sale-active');
             }
         } else {
             optionalLabel.classList.remove('product-label--active');
+            if (optionalLabel.classList.contains('product-label--badge')) {
+                optionalLabel.classList.remove('badge-active');
+            }
             
             if(optionalLabel.classList.contains('product-label--extra-sale')) {
                 productContainer.closest('.product-unit, .pdp__info, .qv__body').classList.remove('extra-sale-active');
@@ -125,8 +135,21 @@ function variantUpdateProcess(target) {
     if(location == 'unit') {
         const img = option.getAttribute('data-image');
         
-        if(option.getAttribute('data-available') == 'false') productContainer.classList.add('product-unit--na');
-        else productContainer.classList.remove('product-unit--na');
+        if(option.getAttribute('data-available') == 'false') {
+            productContainer.classList.add('product-unit--na')
+            if(
+                option.getAttribute(`data-soldout-all-variants`) === true ||
+                option.getAttribute(`data-soldout-this-variant`) === true 
+            ) {
+                productContainer.classList.add('product-unit--so')
+            } else {
+                productContainer.classList.add('product-unit--jw')
+            }
+        } else {
+            productContainer.classList.remove('product-unit--na');
+            productContainer.classList.remove('product-unit--so')
+            productContainer.classList.remove('product-unit--jw')
+        }
         
         try {
         productContainer.querySelector('.product-unit__price').innerHTML = formatedPrice;
@@ -187,7 +210,7 @@ function variantUpdateProcess(target) {
 
         const pdpPrices = pdpInfo.querySelectorAll('.pdp__price-inner, .pdp__submit-price');
         pdpPrices.forEach(pdpPrice => pdpPrice.innerHTML = formatedPrice);
-
+  
 
         const pdpDscnts = pdpGrid.querySelectorAll('.dscnt');
         if(cprice) {
@@ -201,7 +224,8 @@ function variantUpdateProcess(target) {
         });
 
         pdpGalleryUpdate(pdpGrid, option, isQuickView);
-
+        pdpSizePriceUpdate(option);
+        
         if(!isQuickView) {
             pdpHandleUpsell(option);
             pdpHandleDescriptions(pdpInfo, option);
@@ -209,4 +233,16 @@ function variantUpdateProcess(target) {
             pdpUpdateURL(product, options);
         }
     }
+}
+
+async function selectThisColorSwatch(colorSwatch) {
+    if(typeof variantUpdateProcess == 'undefined') {
+        await loadScript(scripts.variants);
+    }
+
+    const actives = colorSwatch.closest('.swatches-container').querySelectorAll('.color-swatch--active');
+    actives.forEach( active => active.classList.remove('color-swatch--active') );
+    colorSwatch.classList.add('color-swatch--active');
+
+    variantUpdateProcess(colorSwatch);
 }

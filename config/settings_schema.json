@@ -32,6 +32,18 @@
     "name": "Cart",
     "settings": [
       {
+        "type": "text",
+        "id": "shipping_message",
+        "label": "Shipping Message",
+        "default": "You're only [] away from free shipping!*"
+      },
+      {
+        "type": "text",
+        "id": "shipping_message_beyond",
+        "label": "Shipping Message Congrats",
+        "default": "Congrats, you get free shipping!*"
+      },
+      {
         "type": "range",
         "id": "free-shipping",
         "label": "Free Shipping starting from",
