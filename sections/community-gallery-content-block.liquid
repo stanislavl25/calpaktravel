@@ -1,0 +1,146 @@
+{{ 'section-community-gallery-content-block.css' | asset_url | stylesheet_tag }}
+<style>
+    .community-galery-content-block__container {
+        height: {{ section.settings.video_height | plus: section.settings.quote_height | plus: 80 }}px;
+    }
+
+    .curalate-gallery__video {
+        height: {{ section.settings.video_height }}px;
+    }
+
+    .curalate-gallery__quote {
+        height: {{ section.settings.quote_height }}px;
+    }
+
+    .curalate-gallery__lifestyle-image-1 {
+        height: {{ section.settings.life_style_image_1_height }}px;
+    }
+
+    .curalate-gallery__lifestyle-image-2 {
+        height: {{ section.settings.life_style_image_2_height }}px;
+    }
+
+    @media (max-width: 900px) {
+        .community-galery-content-block__container {
+            height: {{ section.settings.video_height | plus: section.settings.quote_height | plus: section.settings.life_style_image_1_height | plus: section.settings.life_style_image_2_height | plus: 60 }}px;
+        }
+    }
+</style>
+<div class="community-galery-content-block__container">
+    {% if section.settings.video != empty %}
+        <div class="curalate-gallery__video">
+            <video muted loop class="collection-image-banner-video">
+                <source src="{{- section.settings.video.sources[1].url -}}" type="video/mp4">
+            </video>
+        </div>
+    {% endif %}
+    {% if section.settings.quote != empty %}
+        <div class="curalate-gallery__quote">
+            <div class="curalate-gallery__stars">
+                <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+                <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+                <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+                <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+                <img alt="Star" src="{{- 'icon-star-black.svg' | asset_url -}}" class="star-icon" loading="lazy" width="11">
+            </div>
+            <div class="curalate-gallery__quote-text">
+                                  
+                <h2>{{ section.settings.quote }}</h2>
+            </div>
+            {% if section.settings.reviewer != empty %}
+                <div class="curalate-gallery__quote-reviewer">
+                    {{ section.settings.reviewer }}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if section.settings.lifestyle_image_1 != empty %}
+        <div class="curalate-gallery__lifestyle-image-1">
+            <img src="{{ section.settings.lifestyle_image_1 | img_url: 'master' }}" alt="Lifestyle Image 1">
+        </div>
+    {% endif %}
+    {% if section.settings.lifestyle_image_2 != empty %}
+        <div class="curalate-gallery__lifestyle-image-2">
+            <img src="{{ section.settings.lifestyle_image_2 | img_url: 'master' }}" alt="Lifestyle Image 2">
+        </div>
+    {% endif %}
+</div>
+
+{% schema %}
+    {
+        "name": "Community Gallery Content",
+        "class": "shopify-section--community-gallery-content",
+        "settings" : [
+            {
+                "type": "header",
+                "content": "Video"
+            },
+            {
+                "type": "video",
+                "id": "video",
+                "label": "Video"
+            },
+            {
+                "type": "number",
+                "id": "video_height",
+                "label": "Video Height (in px)",
+                "default": 200
+            },
+            {
+                "type": "header",
+                "content": "Quote"
+            },
+            {
+                "type": "text",
+                "id": "quote",
+                "label": "Quote"
+            },
+            {
+                "type": "richtext",
+                "id": "reviewer",
+                "label": "Reviewer"
+            },
+            {
+                "type": "number",
+                "id": "quote_height",
+                "label": "Quote Height (in px)",
+                "default": 200
+            },
+            {
+                "type": "header",
+                "content": "Lifestyle Image 1"
+            },
+            {
+                "type": "image_picker",
+                "id": "lifestyle_image_1",
+                "label": "Image"
+            },
+            {
+                "type": "number",
+                "id": "life_style_image_1_height",
+                "label": "Height (in px)",
+                "default": 200
+            },
+            {
+                "type": "header",
+                "content": "Lifestyle Image 2"
+            },
+            {
+                "type": "image_picker",
+                "id": "lifestyle_image_2",
+                "label": "Image"
+            },
+            {
+                "type": "number",
+                "id": "life_style_image_2_height",
+                "label": "Height (in px)",
+                "default": 200
+            }
+        ],
+        "presets": [
+            {
+                "name": "Community Gallery Content"
+            }
+        ]
+    }
+{% endschema %}

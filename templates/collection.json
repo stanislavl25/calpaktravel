@@ -582,10 +582,11 @@
           "type": "banner",
           "disabled": true,
           "settings": {
-            "display": "desktop",
-            "collection_list": [
-              "summer-arrivals"
+            "collection_list_display": [
+
             ],
+            "heading": "Desktop\/Mobile: Banner",
+            "display": "desktop",
             "banner-text": "Summer Arrivals",
             "row": "1",
             "row_mobile": "1",
@@ -601,6 +602,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 2,
@@ -622,7 +627,11 @@
         },
         "7f629c14-61ca-4cfa-b514-756101b71ede": {
           "type": "static",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Video: Luka Carry-On",
             "index": 22,
             "enable_static_for_desktop": true,
@@ -636,6 +645,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 3,
@@ -658,6 +671,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -679,6 +696,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 4,
@@ -699,7 +720,11 @@
         },
         "a5843c4f-bafe-40f9-88aa-4a6e14286c14": {
           "type": "static",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Mobile: Luka Belt Bag",
             "index": 29,
             "enable_static_for_desktop": false,
@@ -713,6 +738,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 4,
@@ -732,7 +761,12 @@
         },
         "71baa67a-2226-426d-9b84-717bf4a6e1a8": {
           "type": "module",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 4,
@@ -752,7 +786,11 @@
         },
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07": {
           "type": "static",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Desktop\/Mobile: Kaya Laptop Backpack",
             "index": 2,
             "enable_static_for_desktop": true,
@@ -765,7 +803,11 @@
         },
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
           "type": "static",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Desktop: Tech Organizer",
             "index": 36,
             "enable_static_for_desktop": true,
@@ -780,6 +822,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "mobile",
             "row": 1,
@@ -799,7 +845,12 @@
         },
         "5a9fc48f-6b94-416e-88c7-3325d24efb85": {
           "type": "module",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -821,6 +872,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 7,
@@ -842,13 +897,16 @@
           "type": "modular-section",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Section",
             "pictured_link": true,
+            "display": "both",
             "gap": 10,
             "section_height": 70,
             "row": 6,
             "mobile_row": 12,
-            "column": 1,
-            "col_span": 5,
             "title": "",
             "description": "",
             "pictured_products": [
@@ -867,6 +925,9 @@
           "type": "static",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
             "heading": "Desktop\/Mobile: Compakt Tote Bag",
             "index": 28,
             "enable_static_for_desktop": false,
@@ -879,7 +940,12 @@
         },
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d": {
           "type": "module",
+          "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "both",
             "row": 3,
@@ -902,6 +968,10 @@
           "type": "module",
           "disabled": true,
           "settings": {
+            "collection_list_display": [
+
+            ],
+            "heading": "Desktop\/Mobile: Modular Block",
             "pictured_link": true,
             "display": "desktop",
             "row": 8,
@@ -914,7 +984,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-              "compression-packing-cubes"
+              "medium-compression-packing-cubes"
             ],
             "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2236_1.jpg"
           }
@@ -928,21 +998,78 @@
               "all",
               "luggage",
               "organizers",
-              "accessories",
+              "accessories"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
+            "row": "2",
+            "row_mobile": "3",
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ff0000",
+            "featured_products": [
+              "padded-laptop-sleeve",
+              "starter-bundle",
+              "luka-mini-belt-bag",
+              "compakt-duffel-bag",
+              "compakt-small-garment-bag",
+              "clear-luggage-cover",
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-2-piece-luggage-set",
+              "astyll-3-piece-luggage-set",
+              "silk-travel-set",
+              "hotel-calpak-robe"
+            ]
+          }
+        },
+        "58884853-bea8-451d-92d2-e9ef1a9f1540": {
+          "type": "hot-deals-banner-sale",
+          "settings": {
+            "display": "both",
+            "collection_list": [
               "sale"
             ],
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
-            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16_f13b6815-df02-4abe-ad0a-5171ed219f26.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/Frame-16.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
             "row": "1",
             "row_mobile": "1",
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ff0000",
             "featured_products": [
+              "padded-laptop-sleeve",
               "starter-bundle",
-              "haven-laptop-tote-bag",
-              "insulated-lunch-bag",
               "luka-mini-belt-bag",
+              "compakt-duffel-bag",
+              "compakt-small-garment-bag",
+              "clear-luggage-cover",
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-2-piece-luggage-set",
+              "astyll-3-piece-luggage-set",
+              "silk-travel-set",
+              "hotel-calpak-robe"
+            ]
+          }
+        },
+        "159c5718-fbb7-41bc-9c8b-690aa5d65692": {
+          "type": "hot-deals-banner-school",
+          "settings": {
+            "display": "both",
+            "collection_list": [
+              "back-to-college",
+              "back-to-school"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/HotDealsCountdownTimer.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
+            "row": "4",
+            "row_mobile": "8",
+            "banner-text-color": "#ffffff",
+            "banner-text-background-color": "#ff0000",
+            "featured_products": [
+              "ambeur-front-pocket-carry-on-luggage",
               "padded-laptop-sleeve"
             ]
           }
@@ -969,7 +1096,9 @@
         "98bbbe49-ef4a-4acd-9165-232fac007486",
         "8497f629-c8e0-41e5-b8ee-3ca5c866475d",
         "de8f3214-ac8f-4182-94ac-268daa3b4dd3",
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33"
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33",
+        "58884853-bea8-451d-92d2-e9ef1a9f1540",
+        "159c5718-fbb7-41bc-9c8b-690aa5d65692"
       ],
       "settings": {
         "wishlist": true,
@@ -977,9 +1106,6 @@
         "hide_view": true,
         "row_gap": 40,
         "column_gap": 10,
-        "collection_list": [
-          "summer-arrivals"
-        ],
         "breakdown-collection": [
           "3-piece-luggage-sets"
         ],
@@ -996,6 +1122,13 @@
 
         ]
       }
+    },
+    "2197b43f-a36d-4c8f-a10d-00fa7aad44ca": {
+      "type": "sign-up-popup",
+      "settings": {
+        "klaviyo-id": "",
+        "button-class": "test"
+      }
     }
   },
   "order": [
@@ -1005,6 +1138,7 @@
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5d2317b7-1cdb-4bdb-a129-65bf15cbaf07",
     "product-grid-section-id",
-    "c21deb88-82ba-42cd-8b8a-9516d11e23cf"
+    "c21deb88-82ba-42cd-8b8a-9516d11e23cf",
+    "2197b43f-a36d-4c8f-a10d-00fa7aad44ca"
   ]
 }

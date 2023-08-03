@@ -1,5 +1,18 @@
-<script>
-    window.addEventListener("load", function() {
+{% comment %} 
+
+    in this JS script you need to use ;
+{% endcomment %}
+
+<script class="static-block-script" data-function-name="loadStaticBlock_{{ block.settings.index }}">
+    "use sctrict";
+
+    try {
+        let loadStaticBlock_{{ block.settings.index }} = () => {};
+    } catch(e) {
+        loadStaticBlock_{{ block.settings.index }} = () => {};
+    }
+    
+    loadStaticBlock_{{ block.settings.index }} = () =>{
         if(window.location.pathname.includes('3-piece-luggage-sets')) return;
         const card = document.querySelector('#product-card__{{ block.settings.index }}');
         if(!card) return;
@@ -15,64 +28,65 @@
             setTimeout(() => {
                     if(window.innerWidth < 900) {
                     {% if block.settings.enable_static_for_mobile == true %}
+                        /* {{ block.settings.static_media_type_mobile }} */
                         {% case block.settings.static_media_type_mobile %}  
                             {% when 'video' %}
                                 {% if block.settings.mobile_static_video %}
                                     if(!link.querySelector('.static-video-mobile')) {
+                                        let videoId = Math.floor(100000000 + Math.random() * 900000000);
+                                        
                                         link.innerHTML += `
-                                            <video autoplay muted loop class="static-video-mobile">
+                                            <video autoplay muted loop playsinline class="static-video-mobile" id="${videoId}">
                                                 <source src="{{- block.settings.mobile_static_video.sources[1].url -}}" type="video/mp4">
                                             </video>
                                         `;
+                                        
+                                        {% comment %} document.getElementById(videoId).play(); {% endcomment %}
                                     }
                                     try {
                                             [...swatches].map(swatch => {
-                                                swatch.addEventListener('click', function(e) {
-                                                    console.log('mobile static video click');
-                                                    [].map.call(imgs, function(img) {
+                                                swatch.addEventListener('click', (e) => {
+                                                    [].map.call(imgs, (img) => {
                                                         img.classList.remove('f-loaded');
                                                     });
                                                 });
-                                            })
-                                            sizeSelect.addEventListener('change', function(e) {
+                                            });
+                                            sizeSelect.addEventListener('change', (e) => {
                                                 
-                                                [].map.call(imgs, function(img) {
+                                                [].map.call(imgs, (img) => {
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
                                         } catch (e) {
-                                            console.error(e)
-                                            console.error('Swatches didnt load yet')
+                                            return false;
                                         }
                                 {% endif %}
                             {% when 'image' %}
                                 {% if block.settings.mobile_static_img %}
-                                    [].map.call(imgs, function(img) {
+                                    [].map.call(imgs, (img) => {
                                         img.classList.add('f-loaded');
                                     });
                                     try {
                                         [...swatches].map(swatch => {
-                                            swatch.addEventListener('click', function(e) {
-                                                [].map.call(imgs, function(img) {
-                                                    console.log('mobile static image click');
-                                                    [...card.querySelectorAll('.static-video-desktop')].map(video => video.classList.add('d-none'))
+                                            swatch.addEventListener('click', (e) => {
+                                                [].map.call(imgs, (img) => {
+                                                    [...card.querySelectorAll('.static-video-desktop')].map(video => video.classList.add('d-none'));
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
                                         });
-                                        sizeSelect.addEventListener('change', function(e) {
+                                        sizeSelect.addEventListener('change', (e) => {
                                             
-                                            [].map.call(imgs, function(img) {
+                                            [].map.call(imgs, (img) => {
                                                 img.classList.remove('f-loaded');
                                             });
                                         });
                                     } catch (e) {
-                                        console.error('Swatches didnt load yet')
                                     }
                                 {% endif %}
                         {% endcase %}
                     {% else %}
-                        [].map.call(imgs, function(img) {
+                        [].map.call(imgs, (img) => {
                             img.classList.remove('f-loaded');
                             img.classList.remove('d-none');
                         });
@@ -84,92 +98,92 @@
                             {% when 'video' %}
                                 {% if block.settings.desktop_static_video %}
                                     if(!link.querySelector('.static-video-desktop')) {
+                                        let videoId = Math.floor(100000000 + Math.random() * 900000000);
                                         link.innerHTML += `
-                                            <video autoplay muted loop class="static-video-desktop">
+                                            <video autoplay muted loop playsinline class="static-video-desktop" id="${videoId}">
                                                 <source src="{{- block.settings.desktop_static_video.sources[1].url -}}" type="video/mp4">
                                             </video>
                                         `;
+                                        {% comment %} document.getElementById(videoId).play(); {% endcomment %}
                                     }
                                     try {
                                             [...swatches].map(swatch => {
-                                                swatch.addEventListener('click', function(e) {
-                                                    console.log('desktop static video click');
-                                                    [].map.call(imgs, function(img) {
-                                                        [...card.querySelectorAll('.static-video-desktop')].map( function(video){
-                                                            console.log('hidding video');
+                                                swatch.addEventListener('click', (e) => {
+                                                    [].map.call(imgs, (img) => {
+                                                        [...card.querySelectorAll('.static-video-desktop')].map( (video) =>{
                                                             video.classList.add('d-none');
-                                                        })
+                                                        });
                                                         img.classList.remove('f-loaded');
                                                     });
                                                 });
-                                            })
-                                            sizeSelect.addEventListener('change', function(e) {
+                                            });
+                                            sizeSelect.addEventListener('change', (e) => {
                                                 
-                                                [].map.call(imgs, function(img) {
+                                                [].map.call(imgs, (img) => {
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
                                         } catch (e) {
-                                            console.error('Swatches didnt load yet')
+                                            return false;
                                         }
                                 {% endif %}
                             {% when 'image' %}
                                 {% if block.settings.desktop_static_img %}
-                                    [].map.call(imgs, function(img) {
+                                    [].map.call(imgs, (img) => {
                                         img.classList.add('f-loaded');
                                     });
     
                                     try {
                                         [...swatches].map(swatch => {
-                                            swatch.addEventListener('click', function(e) {
-                                                console.log('desktop static img click');
-                                                [].map.call(imgs, function(img) {
-                                                    console.log('hidding image');
+                                            swatch.addEventListener('click', (e) => {
+                                                [].map.call(imgs, (img) => {
                                                     img.classList.remove('f-loaded');
                                                 });
                                             });
                                         });
-                                        sizeSelect.addEventListener('change', function(e) {
+                                        sizeSelect.addEventListener('change', (e) => {
                                             
-                                            [].map.call(imgs, function(img) {
+                                            [].map.call(imgs, (img) => {
                                                 img.classList.remove('f-loaded');
                                             });
                                         });
                                     } catch (e) {
-                                        console.error('Swatches didnt load yet')
                                     }
                                 {% endif %}
                         {% endcase %}
                     {% else %}
-                        [].map.call(imgs, function(img) {
+                        [].map.call(imgs, (img) => {
                             img.classList.remove('f-loaded');
                             img.classList.remove('d-none');
                         });
                     {% endif %}
                 }
             }, 0);
-        }
+        };
+
         setTimeout(() => {
             changeTheProductImage_{{ block.settings.index }}();
             window.addEventListener('load', changeTheProductImage_{{ block.settings.index }});
-        document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
-        
-        window.addEventListener("resize", changeTheProductImage_{{ block.settings.index }});
-        document.addEventListener("shopify:section:load", changeTheProductImage_{{ block.settings.index }});
-        document.addEventListener("shopify:section:change", changeTheProductImage_{{ block.settings.index }});
-        document.addEventListener('page:load', changeTheProductImage_{{ block.settings.index }});
-        document.addEventListener('page:change', changeTheProductImage_{{ block.settings.index }});
-        let radioLinks_{{ block.settings.index }} = document.querySelectorAll('a.filter__collection');
-        [].map.call(radioLinks_{{ block.settings.index }}, function(radioLink) {
-            radioLink.addEventListener('click', function(e) {
-                setTimeout(() => {
-                    console.log('after radio clicked');
-                    changeTheProductImage_{{ block.settings.index }}();
-                }, 2000);
-            })
-        });
+            document.addEventListener("DOMContentLoaded", changeTheProductImage_{{ block.settings.index }});
+            
+            window.addEventListener("resize", changeTheProductImage_{{ block.settings.index }});
+            document.addEventListener("shopify:section:load", changeTheProductImage_{{ block.settings.index }});
+            document.addEventListener("shopify:section:change", changeTheProductImage_{{ block.settings.index }});
+            document.addEventListener('page:load', changeTheProductImage_{{ block.settings.index }});
+            document.addEventListener('page:change', changeTheProductImage_{{ block.settings.index }});
+            let radioLinks_{{ block.settings.index }} = document.querySelectorAll('a.filter__collection');
+            [].map.call(radioLinks_{{ block.settings.index }}, (radioLink) => {
+                radioLink.addEventListener('click', (e) => {
+                    setTimeout(() => {
+                        changeTheProductImage_{{ block.settings.index }}();
+                    }, 2000);
+                });
+            });
         }, 0);
-    });
+    };
+</script>
+<script>
+    window.addEventListener("load", loadStaticBlock_{{ block.settings.index }});
 </script>
 <style>
 {% if block.settings.enable_static_for_desktop == true %}

@@ -1,5 +1,5 @@
 {%- liquid
-    assign opt1 = current_variant.option1 | handleize
+    assign opt1 = current_variant.option1 | downcase | handleize
     assign starter_bundle = collections.all.products | where: 'data-handle', 'starter-bundle'
     assign starter_true = true
 -%}
@@ -73,8 +73,11 @@
                 class="
                     product-label
                     product-label--badge
-                    value__{{saleBadge}}{% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %} 
-                    {% if saleBadge == true %} product-label--active badge-active{% endif %} 
+                    value__{{saleBadge}}
+                    {% if saleBadge != false %}
+                        {% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% assign test1 = true %}{% endif %} 
+                        {% if saleBadge == true %} product-label--active badge-active{% assign test2 = true %}{% endif %} 
+                    {% endif %}
                     {% if text_tilt == true %}product-label--badge-tilt{% endif %}
                     {% if template contains 'product'%}
                         {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}
@@ -91,8 +94,9 @@
                         {% endif %}
                     {% endif %}
                 "
-                {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
-                {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
+
+                {% if saleBadge != true and saleBadge != false %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
+                {% if saleBadge-bundle != true and saleBadge-bundle != false %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
             >
                 {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and settings.sale-badge-text-starter != blank %}  
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}

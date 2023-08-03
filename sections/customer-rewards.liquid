@@ -10,10 +10,11 @@
     <div class="account-rewards">
         <h1 class="account-info__title">Your Rewards Balance</h1>
 
-        {% include 'swell-my-rewards' %}
+        {% include 'swell-my-rewards', referralHeading: section.settings.title, referralDetails: section.settings.text %}
 
         <script>    
-            const referralDetails = "{{ section.settings.swell-referral-details | replace: '<p>', '' | replace: '</p>', '<br>' }}";
+            const referralHeading = "{{ section.settings.title }}";
+            const referralDetails = "{{ section.settings.text }}";
         </script>
     </div>
 </section>
@@ -23,11 +24,25 @@
         "name": "Account Rewards",
         "settings": [
             {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Give $25, Get $25"
+            },
+            {
                 "type": "richtext",
-                "id": "swell-referral-details",
+                "id": "text",
                 "label": "Referral details",
                 "default": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!</p><p>Make. It. Rain.</p>"
             }
         ]
     }
 {% endschema %}
+
+<script type="text/javascript">
+    setInterval(function() {
+      var swellThanksExists = document.querySelector(".swell-referral-thanks") !== null;
+      var customSwellHeader = document.querySelector(".swell-referral-content");
+      if (swellThanksExists) customSwellHeader.style.display = "none";
+    }, 500);
+</script>

@@ -221,7 +221,7 @@
               cartGamification: false
           }
           </script>
-        <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+        <script class="test-it" src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
         <!-- Add to cart AJAX Script -->
 <script>
   window.addEventListener('load', function() {
@@ -272,7 +272,8 @@
    <!-- Extend -- Render Extend SDK Configuration script -->
         {% render 'extend-configuration' %}
         <!-- Extend -- End Extend code -->
-  </head>
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+</head>
   
       <body class="template-{{ template | replace: '.', '-' }}">
           {% unless settings.speed_debug %}
@@ -287,6 +288,9 @@
               {% section 'gwp' %}
               {%- if template != 'cart' -%}
                   {% section 'cart' %}
+                  <div style="display: none;">
+                    {% section 'cart-pair-upsell' %}
+                  </div>
               {%- endif -%}
   
               <section class="header__container">
@@ -324,41 +328,52 @@
           const addLabelToCollectionProductUnit = e => {
               if(document.querySelector('html').clientWidth < 900) {
                 console.log('addLabelToCollectionProductUnit')
-                  if([...document.querySelectorAll('.countdown-sale-badge-label')].length < 1) {
-                      
-                      let products = document.querySelectorAll('.product-unit.product-unit--add-sale-badge');
-                      [...products].map((productUnit, index) => {
-                          let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
-                          let newLabelTextBadge = document.createTextNode('{{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}');
-                          let newLabel = document.createElement('p');
-  
-                          newLabel.setAttribute('class', 'countdown-sale-badge-label');        
-                          newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2,11) + index}`);
-                          if(productUnit.classList.contains('customBadge-class')) {
-                            newLabel.setAttribute('class', 'countdown-sale-badge-label starter-customize');
-                            newLabel.appendChild(newLabelTextBadge);
-                            productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
-                          } else {
-                            newLabel.appendChild(newLabelText);
-                          }
-                          
-                          
-                          let intervalId = setInterval( () => {
-                              console.log('trying add sale badge wrapper');
-                              if(productUnit.querySelector('.sale-badge-wrapper')) {
-                                  clearInterval(intervalId);
-                                  if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.countdown-sale-badge-label')].length < 1) {
-                                      if(productUnit.classList.contains('customBadge-class')) {
-                                        newLabel.appendChild(newLabelTextBadge);
-                                        productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
-                                      }  
-
-                                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel)
-                                  }
-                              }                            
-                          }, 1500);
-                      });
-                  }
+                let countdownSaleBadgeLabels = document.querySelectorAll('.countdown-sale-badge-label');
+                if (countdownSaleBadgeLabels.length < 1) {
+                  let products = document.querySelectorAll('.product-unit.product-unit--add-sale-badge');
+                  products.forEach((productUnit, index) => {
+                    let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
+                    let newLabelTextBadge = document.createTextNode('{{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}');
+                    let newLabel = document.createElement('p');
+                    let badgeElements =  productUnit.querySelector('.product-label--badge');
+                    console.log(badgeElements)
+                     
+                    newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2, 11) + index}`);
+                
+                    if (productUnit.classList.contains('customBadge-class')) {
+                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
+                    } else {
+                      newLabel.appendChild(badgeElements);
+                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
+                    }
+                
+                    /*
+                    if (!productUnit.querySelector('.sale-badge-wrapper')) {
+                      // If the sale-badge-wrapper does not exist, create it and append it after product-unit-rows div
+                      const saleBadgeWrapper = document.createElement('div');
+                      saleBadgeWrapper.classList.add('sale-badge-wrapper');
+                      const productUnitRows = productUnit.querySelector('.product-unit-rows');
+                      if (productUnitRows) {
+                        productUnitRows.insertAdjacentElement('afterend', saleBadgeWrapper);
+                      } else {
+                        productUnit.appendChild(saleBadgeWrapper);
+                      }
+                    }*/
+                    
+                
+                    
+                      if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.product-label--badge')].length < 1) {
+                        
+                        if (productUnit.classList.contains('customBadge-class')) {
+                          productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements);
+                        }
+                
+                        productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements);
+                      }
+                    
+                  });
+                }
+                
               } else {
                   [...document.querySelectorAll('.countdown-sale-badge-label')].map(countdownSaleBadgeLabel => countdownSaleBadgeLabel.parentNode.removeChild(countdownSaleBadgeLabel));
               }

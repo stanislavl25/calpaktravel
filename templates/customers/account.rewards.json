@@ -9,7 +9,8 @@
     "customer-rewards": {
       "type": "customer-rewards",
       "settings": {
-        "swell-referral-details": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get $25 off your next order!<\/p><p>Make. It. Rain.<\/p>"
+        "title": "Give $25, Get $25",
+        "text": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get 500 points ($25) for each successful referral! Keep referring friends, and keep stacking credit.<\/p><p>Make. It. Rain.<\/p>"
       }
     }
   },
