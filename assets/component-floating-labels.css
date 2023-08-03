@@ -209,9 +209,9 @@
 }
 
 body .floating-labels .product-label--sale {
-    color: var(--sale-accent);
-    border-color: var(--sale-accent);
-    background: var(--sale-background);
+    color: var(--sale-accent)!important;
+    border-color: var(--sale-accent)!important;
+    background: var(--sale-background)!important;
 }
 body .floating-labels .product-label--sale .custom-dash {
     border: 2px dotted black;
