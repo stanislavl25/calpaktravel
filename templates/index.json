@@ -72,7 +72,7 @@
           "type": "text-block",
           "disabled": true,
           "settings": {
-            "title": "Art of Packing",
+            "title": "Free Shipping",
             "description": "<p>Shop organizers for your summer travels<\/p>",
             "main-link": "shopify:\/\/collections\/organizers",
             "button-text": "Shop Organizers",
@@ -88,7 +88,7 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Summer_Arrivals2362-5_1.jpg",
+            "image": "shopify:\/\/shop_images\/IMG_0049-3.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/organizers",
             "title": "",
@@ -104,7 +104,7 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1161-2_1.jpg",
+            "image": "shopify:\/\/shop_images\/IMG_0046-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/organizers",
             "title": "",
