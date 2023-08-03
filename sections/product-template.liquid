@@ -43,7 +43,7 @@
     assign option2_arg = false
     assign early_access = false
     assign current_variant = product.variants | first
-    
+
     if request_arg.size == 4
         assign request_args = request_arg[3] | split: ','
         if request_arg[3] == 'early-access'
@@ -171,7 +171,7 @@
                 assign finalSale = tagSpl[1] | downcase | split: ';'
             endif
         endif
-        
+
         if settings.extra-sale-enabled
             if settings.extra-sale-tag == tagSpl[0]
                 if tagSpl.size == 1
@@ -283,7 +283,7 @@
                           document.querySelector('#pdp__views-counter').innerHTML = views_final;
                         } catch {}try {
                           document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final;
-                        
+
 
 
                       } catch{}})
@@ -462,7 +462,15 @@
             </script>
           {% endif %}
           {%- when 'description' -%}
-          {% assign description_title = section.settings.description-title %}
+
+        {%- else -%}
+          {% render 'pdp-promo' with block, current_variant: current_variant %}
+        {%- endcase -%}
+      {%- endfor -%}
+    {% endform %}
+
+    {% render 'pdp-upsell', title: "Complete Your Set", current_variant: current_variant %}
+    {% assign description_title = section.settings.description-title %}
           {% assign specifications_title = section.settings.specifications-title %}
           {% assign warranty_title = section.settings.warranty-title %}
           {% render 'pdp-description'
@@ -470,13 +478,6 @@
            specifications_title: specifications_title,
            warranty_title: warranty_title,
            current_variant: current_variant %}
-        {%- else -%}
-          {% render 'pdp-promo' with block, current_variant: current_variant %}
-        {%- endcase -%}
-      {%- endfor -%}
-    {% endform %}
-
-    {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
   </main>
 
 </section>

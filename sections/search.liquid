@@ -1,167 +1,203 @@
-<link rel="stylesheet" href="{{ 'component-search-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-search-popup.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'">
 <noscript>{{ 'component-search-popup.css' | asset_url | stylesheet_tag }}</noscript>
 
-<section class="menu-popup menu-popup--search" data-status="init" data-src="{{ 'search.js' | asset_url }}">
-    <div class="search-popup__overlay"></div>
-    <div class="search-popup__content">
-        <div class="search__top">
-            <button aria-label="Close Search" class="menu-close menu-close--search" title="Close"></button>
-            <form class="search-form" action="/" method="get">
-                <button aria-label="Perform Search" class="search-button" type="submit"><img loading="lazy" src="{{ 'icon-search.svg' | asset_url }}"></button>
-                <div class="search-input__container">
-                    <input class="search-input" required="required" type="text" name="s">
+<section
+  class="menu-popup menu-popup--search"
+  data-status="init"
+  data-src="{{ 'search.js' | asset_url }}">
+  <div class="search-popup__overlay"></div>
+  <div class="search-popup__content">
+    <div class="search__top">
+      <button
+        aria-label="Close Search"
+        class="menu-close menu-close--search"
+        title="Close"></button>
+      <form
+        class="search-form"
+        action="/"
+        method="get">
+        <button
+          aria-label="Perform Search"
+          class="search-button"
+          type="submit"><img loading="lazy" src="{{ 'icon-search.svg' | asset_url }}"></button>
+        <div class="search-input__container">
+          <input
+            class="search-input"
+            required="required"
+            type="text"
+            name="s">
 
-                    <div class="search-placeholders" data-num="0">
-                        <div class="search-placeholders__inner"></div>
-                    </div>
-                </div>
-            </form>
+          <div class="search-placeholders" data-num="0">
+            <div class="search-placeholders__inner"></div>
+          </div>
         </div>
-        <div class="menu-popup__content search-section" data-id="init">
-            <div class="menu-popup__main">
-                {%- if section.settings.welcome-collection != blank -%}
-                <div class="content-section">
-                    {%- if section.settings.welcome-title != blank -%}
-                    <div class="content-section__title">{{- section.settings.welcome-title | strip_html | escape -}}</div>
-                    {%- endif -%}
+      </form>
+    </div>
+    <div class="menu-popup__content search-section" data-id="init">
+      <div class="menu-popup__main">
+        {%- if section.settings.welcome-collection != blank -%}
+          <div class="content-section">
+            {%- if section.settings.welcome-title != blank -%}
+              <div class="content-section__title">{{- section.settings.welcome-title | strip_html | escape -}}</div>
+            {%- endif -%}
 
-                    <div class="products__grid products__grid--flex">
-                        {%- liquid
+            <div class="products__grid products__grid--flex">
+              {%- liquid
                             for product in section.settings.welcome-collection.products limit: 6
                                 render 'product-unit' with product, wishlist: true, quick_view: section.settings.welcome-quick-view, sizes: '(min-width: 901px) 20vw, 50vw'
                             endfor
                         -%}
-                    </div>
-                </div>
-                {%- endif -%}
             </div>
-            <aside class="menu-side">
-                <div class="menu-popup__collections-buttons">
-                    <section class="content-section">
-                        <div class="content-section__title">Search by Category</div>
-                        <div class="search__collections-buttons">
-                            {%- for category in section.settings.search-by-category -%}
-                                <a class="button button--secondary" data-handle="{{ category.handle }}" href="{{ category.url }}"><span>{{ category.title | strip_html | escape }}</span></a>
-                            {%- endfor -%}
-                        </div>
-                    </section>
-                </div>
-            </aside>
+          </div>
+        {%- endif -%}
+      </div>
+      <aside class="menu-side">
+        <div class="menu-popup__collections-buttons">
+          <section class="content-section">
+            <div class="content-section__title">Search by Category</div>
+            <div class="search__collections-buttons">
+              {%- for category in section.settings.search-by-category -%}
+                <a
+                  class="button button--secondary"
+                  data-handle="{{ category.handle }}"
+                  href="{{ category.url }}">
+                  <span>{{ category.title | strip_html | escape }}</span>
+                </a>
+              {%- endfor -%}
+            </div>
+          </section>
         </div>
-        <div class="menu-popup__content search-section" data-id="empty">
-            <div class="search__empty-message">Your search for "<span class="search-term"></span>" didn't return any results. Please try again or browse below.</div>
-            <div class="menu-popup__main">
-                {%- if section.settings.empty-collection != blank -%}
-                <div class="content-section">
-                    {%- if section.settings.empty-title != blank -%}
-                    <div class="content-section__title">{{- section.settings.empty-title | strip_html | escape -}}</div>
-                    {%- endif -%}
+      </aside>
+    </div>
+    <div class="menu-popup__content search-section" data-id="empty">
+      <div class="search__empty-message">Your search for "<span class="search-term"></span>" didn't return any results. Please try again or browse below.</div>
+      <div class="menu-popup__main">
+        {%- if section.settings.empty-collection != blank -%}
+          <div class="content-section">
+            {%- if section.settings.empty-title != blank -%}
+              <div class="content-section__title">{{- section.settings.empty-title | strip_html | escape -}}</div>
+            {%- endif -%}
 
-                    <div class="products__grid products__grid--flex">
-                        {%- liquid
+            <div class="products__grid products__grid--flex">
+              {%- liquid
                             for product in section.settings.empty-collection.products limit: 6
                                 render 'product-unit' with product, wishlist: true, quick_view: section.settings.empty-quick-view, sizes: '(min-width: 901px) 20vw, 50vw'
                             endfor
                         -%}
-                    </div>
-                </div>
-                {%- endif -%}
             </div>
-            <aside class="menu-side">
-                <div class="menu-popup__collections-buttons">
-                    <section class="content-section">
-                        <div class="content-section__title">Search by Category</div>
-                        <div class="search__collections-buttons">
-                            {%- for category in section.settings.search-by-category -%}
-                                <a class="button button--secondary" data-handle="{{ category.handle }}" href="{{ category.url }}"><span>{{ category.title | strip_html | escape }}</span></a>
-                            {%- endfor -%}
-                        </div>
-                    </section>
-                </div>
-            </aside>
-        </div>
-
-        <nav class="menu-popup__mobile-nav" data-page="0">
-            <ul>
-                <li><button data-target="0">Products <span class="search-num"></span></button></li>
-                <li><button data-target="1">Collections <span class="search-col-num"></span></button></li>
-            </ul>
-        </nav>
-
-        <div class="menu-popup__content search-section" data-id="results">
-            <div class="menu-popup__main">
-                <div class="content-section">
-                    <div class="content-section__title">
-                        Products <span class="search-num"></span>
-                    </div>
-                    <div class="products__grid"></div>
-                </div>
+          </div>
+        {%- endif -%}
+      </div>
+      <aside class="menu-side">
+        <div class="menu-popup__collections-buttons">
+          <section class="content-section">
+            <div class="content-section__title">Search by Category</div>
+            <div class="search__collections-buttons">
+              {%- for category in section.settings.search-by-category -%}
+                <a
+                  class="button button--secondary"
+                  data-handle="{{ category.handle }}"
+                  href="{{ category.url }}">
+                  <span>{{ category.title | strip_html | escape }}</span>
+                </a>
+              {%- endfor -%}
             </div>
-            <aside class="menu-side">
-                <section class="content-section content-section--collections">
-                    <div class="content-section__title">Collections <span class="search-col-num"></span></div>
-                    <div class="search__cards"></div>
-                </section>
-
-                <section class="content-section content-section--stories">
-                    <div class="content-section__title">Stories ()</div>
-                    <div class="search__cards"></div>
-                </section>
-            </aside>
+          </section>
         </div>
+      </aside>
     </div>
+
+    <nav class="menu-popup__mobile-nav" data-page="0">
+      <ul>
+        <li>
+          <button data-target="0">Products
+            <span class="search-num"></span>
+          </button>
+        </li>
+        <li>
+          <button data-target="1">Collections
+            <span class="search-col-num"></span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="menu-popup__content search-section" data-id="results">
+      <div class="menu-popup__main">
+        <div class="content-section">
+          <div class="content-section__title">
+            Products
+            <span class="search-num"></span>
+          </div>
+          <div class="products__grid search-product-sec"></div>
+        </div>
+      </div>
+      <aside class="menu-side">
+        <section class="content-section content-section--collections">
+          <div class="content-section__title">Collections
+            <span class="search-col-num"></span>
+          </div>
+          <div class="search__cards"></div>
+        </section>
+
+        <section class="content-section content-section--stories">
+          <div class="content-section__title">Stories ()</div>
+          <div class="search__cards"></div>
+        </section>
+      </aside>
+    </div>
+  </div>
 </section>
 
 {% schema %}
-    {
-        "name": "Search",
-        "class": "shopify-section--search",
-        "settings": [
-            {
-                "type": "collection_list",
-                "id": "search-by-category",
-                "label": "Search by category"
-            },
-            {
-                "type": "header",
-                "content": "Welcome screen"
-            },
-            {
-                "type": "text",
-                "id": "welcome-title",
-                "label": "Product list title"
-            },
-            {
-                "type": "collection",
-                "id": "welcome-collection",
-                "label": "Products to show on welcome screen"
-            },
-            {
-                "type": "checkbox",
-                "id": "welcome-quick-view",
-                "label": "Enable quick view",
-                "default": true
-            },
-            {
-                "type": "header",
-                "content": "No results"
-            },
-            {
-                "type": "text",
-                "id": "empty-title",
-                "label": "Product list title"
-            },
-            {
-                "type": "collection",
-                "id": "empty-collection",
-                "label": "Products to show when nothing found"
-            },
-            {
-                "type": "checkbox",
-                "id": "empty-quick-view",
-                "label": "Enable quick view",
-                "default": true
-            }
-        ]
-    }
+  {
+    "name": "Search",
+    "class": "shopify-section--search",
+    "settings": [
+      {
+        "type": "collection_list",
+        "id": "search-by-category",
+        "label": "Search by category"
+      },
+      {
+        "type": "header",
+        "content": "Welcome screen"
+      },
+      {
+        "type": "text",
+        "id": "welcome-title",
+        "label": "Product list title"
+      },
+      {
+        "type": "collection",
+        "id": "welcome-collection",
+        "label": "Products to show on welcome screen"
+      }, {
+        "type": "checkbox",
+        "id": "welcome-quick-view",
+        "label": "Enable quick view",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "No results"
+      }, {
+        "type": "text",
+        "id": "empty-title",
+        "label": "Product list title"
+      }, {
+        "type": "collection",
+        "id": "empty-collection",
+        "label": "Products to show when nothing found"
+      }, {
+        "type": "checkbox",
+        "id": "empty-quick-view",
+        "label": "Enable quick view",
+        "default": true
+      }
+    ]
+  }
 {% endschema %}

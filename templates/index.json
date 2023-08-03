@@ -7,42 +7,48 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-4.jpg"
           }
         },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
           "type": "collection",
           "settings": {
             "collection": "sale",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
           "type": "collection",
           "settings": {
             "collection": "luggage",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-2-3.jpg"
           }
         },
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce": {
           "type": "collection",
           "settings": {
             "collection": "carry-on-luggage",
-            "title": "Carry-On"
+            "title": "Carry-On",
+            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO__0583-6.jpg"
           }
         },
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2": {
           "type": "collection",
           "settings": {
             "collection": "checked-in-luggage",
-            "title": "Checked"
+            "title": "Checked",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods_20249-4_1.jpg"
           }
         },
         "69fb0fb6-9c79-400a-bb23-2f808700224d": {
           "type": "collection",
           "settings": {
             "collection": "bags",
-            "title": ""
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Shot_7.jpg"
           }
         }
       },
@@ -131,8 +137,8 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Get back at it!",
-            "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.  <\/p>",
+            "title": "Use code BACKTOIT for 10% OFF!",
+            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
             "main-link": "shopify:\/\/collections\/back-to-school",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
@@ -291,7 +297,8 @@
         "97749904-2195-42da-9b4e-7a6f7995c1ca"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": false,
+        "add-to-cart": true
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {

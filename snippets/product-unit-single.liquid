@@ -183,7 +183,7 @@
 
     {%- for color in unique_color_values -%}
       {% if color != blank %}
-        <div id="product-card__{{ forloop.index }}"
+    <div id="product-card__{{ forloop.index }} {% if forloop.first == true%}product-card-border-left{% endif %}"
           data-suffix="{{ product.template_suffix }}"
           data-handle="{{ product.handle }}"
           data-id="{{ product.id }}"
@@ -197,7 +197,7 @@
             data-early-access="{{ early_access }}"
           {%- endif -%}
           data-variant="{{ variant.id }}"
-          class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
+          class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na product-unit--jw{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
 
           <div class="product-unit__image-wrapper breakdown {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
             {%- if quick_view == true -%}
@@ -311,7 +311,8 @@
                 <div class="button-msg-add">Add to Bag</div>
                 <div class="button-msg-adding">Adding...</div>
                 <div class="button-msg-added">Added!</div>
-                <div class="button-msg-na">Not Available</div>
+                <div class="button-msg-so">Sold Out</div>
+                <div class="button-msg-jw">Join Waitlist</div>
               </button>
             </div>
           {%- endif -%}

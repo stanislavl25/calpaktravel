@@ -21,7 +21,7 @@ const initializeSections = () => {
         { selector: '.pdp__upsell', differentSwatches: false },
         { selector: '.product-grid', differentSwatches: false },
         { selector: '.featured-col__lists', differentSwatches: false },
-        { selector: '.shopify-section--featured-collections', differentSwatches: true }
+        //{ selector: '.shopify-section--featured-collections', differentSwatches: true }
     ];
 
     sections.map(section => processSection(section));

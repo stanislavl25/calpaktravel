@@ -1,6 +1,6 @@
 .pdp__upsell {
     padding: 0 21px;
-    margin: 50px -21px 0;
+    margin: 20px -21px 50px;
 }
 
 .pdp__upsell .product-unit:not(.product-unit--loaded) .product-unit__image img {

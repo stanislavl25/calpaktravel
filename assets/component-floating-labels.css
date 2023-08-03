@@ -164,8 +164,12 @@
     right: 24px;
 }
 
+.menu-popup--search.menu-popup--visible .product-label--badge.product-label--active {
+    display: none !important;
+}
+
 @media screen and (max-width:649px) {
-    .menu-popup--search.menu-popup--visible .product-label--badge.product-label--active, .product-label--badge.badge-active {
+    .product-label--badge.badge-active {
         display: none;
     }
     .pdp__gallery-container > .product-label--badge.product-label--active, 

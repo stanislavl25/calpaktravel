@@ -272,7 +272,8 @@
    <!-- Extend -- Render Extend SDK Configuration script -->
         {% render 'extend-configuration' %}
         <!-- Extend -- End Extend code -->
-  </head>
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/j0R3HMDaDyhf40m2xcICbQ" async></script>
+</head>
   
       <body class="template-{{ template | replace: '.', '-' }}">
           {% unless settings.speed_debug %}
@@ -324,6 +325,15 @@
   
   {% if settings.countdown-label-collection-enabled and template contains 'collection'%}
       <script>
+          const restoreSaleBadgePostion = () => {
+            if (document.querySelector('html').clientWidth > 900) {
+              let products = document.querySelectorAll('.product-unit.product-unit--add-sale-badge');
+              products.forEach((productUnit, index) => {
+                let badgeElements =  productUnit.querySelector('.product-label--badge');
+                productUnit.querySelector('.product-unit__image-wrapper').appendChild(badgeElements);
+              })
+            }
+          }
           const addLabelToCollectionProductUnit = e => {
               if(document.querySelector('html').clientWidth < 900) {
                 console.log('addLabelToCollectionProductUnit')
@@ -345,21 +355,7 @@
                       newLabel.appendChild(badgeElements);
                       productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
                     }
-                
-                    /*
-                    if (!productUnit.querySelector('.sale-badge-wrapper')) {
-                      // If the sale-badge-wrapper does not exist, create it and append it after product-unit-rows div
-                      const saleBadgeWrapper = document.createElement('div');
-                      saleBadgeWrapper.classList.add('sale-badge-wrapper');
-                      const productUnitRows = productUnit.querySelector('.product-unit-rows');
-                      if (productUnitRows) {
-                        productUnitRows.insertAdjacentElement('afterend', saleBadgeWrapper);
-                      } else {
-                        productUnit.appendChild(saleBadgeWrapper);
-                      }
-                    }*/
-                    
-                
+
                     
                       if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.product-label--badge')].length < 1) {
                         
@@ -375,6 +371,7 @@
                 
               } else {
                   [...document.querySelectorAll('.countdown-sale-badge-label')].map(countdownSaleBadgeLabel => countdownSaleBadgeLabel.parentNode.removeChild(countdownSaleBadgeLabel));
+                  restoreSaleBadgePostion();
               }
           };
   
