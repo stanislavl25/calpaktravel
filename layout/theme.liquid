@@ -345,7 +345,6 @@
                     let newLabelTextBadge = document.createTextNode('{{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}');
                     let newLabel = document.createElement('p');
                     let badgeElements =  productUnit.querySelector('.product-label--badge');
-                    console.log(badgeElements)
                      
                     newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2, 11) + index}`);
                 

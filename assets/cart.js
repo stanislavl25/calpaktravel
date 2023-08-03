@@ -103,16 +103,12 @@ function updateCartItems(items, callback, always) {
     });
     // Extend - End code
 }
-
+if (cartShippingGift) {
+    document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
+}
 function gamificationInit() {
     const { subtotal, goals, gifts, wrapper, limit } = settings["cartGamification"];
 
-    if (cartShippingGift) {
-        if (gifts.length) {
-            document.querySelector('.cart__gamification').classList.add('cart__gamification--has-gifts');
-        }
-    }
-    
 
     document.querySelector(wrapper).innerHTML = '';
     goals.forEach( item => {
