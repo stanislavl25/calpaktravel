@@ -333,6 +333,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
 
         current_variant = match || backupMatch;
+        //console.log(current_variant);
         variantAutoSelected = false;
 
         const handle = target.getAttribute('data-handle');
@@ -1159,6 +1160,7 @@ function activateVideoContainer(video) {
 
         video.innerHTML = `<iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="${url}"></iframe>`;
         video.classList.add('video-iframe-container--loaded');
+
     }
 }
 
@@ -1441,7 +1443,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 { selector: '.pdp__upsell', differentSwatches: false },
                 { selector: '.product-grid', differentSwatches: false },
                 { selector: '.featured-col__lists', differentSwatches: false },
-                { selector: '.shopify-section--featured-collections', differentSwatches: true },
+                //{ selector: '.shopify-section--featured-collections', differentSwatches: true },
                 { selector: '.cart__upsell-items', differentSwatches: true }
             ];
         
@@ -1566,7 +1568,6 @@ aria.Listbox.prototype.focusLastItem = function () {
     this.focusItem(itemList[itemList.length - 1]);
   }
 };
-
 
 aria.Listbox.prototype.checkKeyPress = function (evt) {
   var key = evt.which || evt.keyCode;

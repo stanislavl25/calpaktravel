@@ -8,7 +8,7 @@
           "settings": {
             "collection": "best-sellers",
             "title": "",
-            "image": "shopify:\/\/shop_images\/Shot_12.jpg"
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-4.jpg"
           }
         },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
@@ -16,7 +16,7 @@
           "settings": {
             "collection": "sale",
             "title": "",
-            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO__0859-7.jpg"
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
@@ -40,7 +40,7 @@
           "settings": {
             "collection": "checked-in-luggage",
             "title": "Checked",
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0055A-34-3.jpg"
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods_20249-4_1.jpg"
           }
         },
         "69fb0fb6-9c79-400a-bb23-2f808700224d": {
@@ -48,7 +48,7 @@
           "settings": {
             "collection": "bags",
             "title": "",
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2-3.jpg"
+            "image": "shopify:\/\/shop_images\/Shot_7.jpg"
           }
         }
       },
@@ -137,8 +137,8 @@
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
           "settings": {
-            "title": "Get back at it!",
-            "description": "<p>Use code BACKTOIT to get 10% off Lunch Bags, Backpacks, Tech Organizers & more.  <\/p>",
+            "title": "Use code BACKTOIT for 10% OFF!",
+            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
             "main-link": "shopify:\/\/collections\/back-to-school",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
@@ -297,7 +297,8 @@
         "97749904-2195-42da-9b4e-7a6f7995c1ca"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": false,
+        "add-to-cart": true
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {
