@@ -312,7 +312,6 @@
             transform: rotate(-90deg);
         }
 
-        .hot-deals-text-container-top,
         .hot-deals-text .countdown-timer,
         .hot-deals-text .desktop,
         .hot-deals-banner-text-wrapper .countdown-timer {
@@ -375,9 +374,7 @@
         document.addEventListener('DOMContentLoaded', (event) => {
             setTimeout(function() {
                 let countdownTimer = document.querySelector('.countdown-timer');
-                let hotDealsText = document.querySelector('.hot-deals-text-container-top');
                 countdownTimer.style.display = 'block';
-                hotDealsText.style.display = 'block';
             }, 3000);
         });
     </script>
