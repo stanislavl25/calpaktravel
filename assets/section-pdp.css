@@ -1063,3 +1063,7 @@ ul#exp_elem_list {
 .pdp__upsell .color-swatch {
     flex: 0 0 28px !important;
 }
+
+.pdp__upsell .product-unit__colors--quickadd {
+    width: 90%;
+}
