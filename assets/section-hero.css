@@ -20,7 +20,7 @@
     grid-template-rows: 1fr;
 }
 
-.hero--3 .hero__block:nth-child(2) {
+.hero--3 .hero__block-1 {
     grid-row: span 2;
 }
 
@@ -158,4 +158,23 @@
     .hero__block-button {
         margin-top: 20px;
     }
+
+    .hero--mobile-4 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .hero--mobile-4 .hero__block {
+        width: 100%;
+    }
+
+    .hero--mobile-4 .hero__block-mobile-0 {
+        width: calc(50% - var(--gap)/2);
+    }
+
+    .hero--mobile-4 .hero__block-mobile-1 {
+        width: calc(50% - var(--gap)/2);
+    }
+
+
 }

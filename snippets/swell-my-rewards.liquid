@@ -11,7 +11,13 @@
 </div>
 
 {% comment %} Referal form {% endcomment %}
-<div class="swell-referral-main-content"><div class="swell-referral"></div></div>
+<div class="swell-referral-main-content">
+    <div class="swell-referral-content">
+        <h2>{{ referralHeading }}</h2>
+        {{ referralDetails }}
+    </div>
+    <div class="swell-referral"></div>
+</div>
 
 {% comment %} Referals table {% endcomment %}
 <h2 class="your-ref-h2">Your Referrals</h2>
