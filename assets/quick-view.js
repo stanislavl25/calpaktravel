@@ -13,6 +13,7 @@ function getQuickViewProduct(link, variant) {
 }
 
 function setQuickViewContent(data, variant, qvParent) {
+
     qvParent.querySelector('.qv__body-inner').innerHTML = data.layout;
 
     const target = qvParent.querySelector('.pdp__variants');
@@ -25,14 +26,6 @@ function setQuickViewContent(data, variant, qvParent) {
     } catch( e ) { console.log('No QV meta!')}
 
     setProductData(product, meta, target, variant);
-
-    if(isset(fbq)) fbq('track', 'ViewContent', {
-        content_name: product.title,
-        content_ids: [product.id],
-        content_type: 'product',
-        value: product.price / 100,
-        currency: 'USD'
-    });
 
     const productForm = qvParent.querySelector('.shopify-product-form');
     if(productForm) productForm.addEventListener('submit', async function(e) {
@@ -53,8 +46,9 @@ function setQuickViewContent(data, variant, qvParent) {
     const gallerySlider = qvParent.querySelector('.qv__gallery-inner');
     const galleryThumbsSldier = qvParent.querySelector('.qv__gallery-thumbs-inner');
 
-    let variantTypeEl = qvParent.querySelector('.pdp__variants .pdp__variant-type');
-    if(variantTypeEl) pdpCreateTypeSelect(variantTypeEl, product, true);
+    let variantSizeEl = qvParent.querySelector('.pdp__variants .pdp__variant-size');
+    if(variantSizeEl) selectLoad(true, product.handle)
+    
 
     variantUpdateProcess(target);
 
@@ -96,7 +90,7 @@ async function getQuickView(link, variant = false) {
 
     let promises = [];
     if(typeof variantUpdateProcess == 'undefined') promises.push(loadScript(scripts.variants));
-    if(typeof pdpCreateTypeSelect == 'undefined') {
+    if(typeof pdpCreateSizeSelect == 'undefined') {
         promises.push(loadScript(scripts.pdp));
         promises.push(loadStyle(styles.pdp));
         promises.push(loadStyle(styles.pdpGallery));
