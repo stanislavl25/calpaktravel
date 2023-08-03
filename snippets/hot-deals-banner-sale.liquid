@@ -146,7 +146,11 @@
     {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
         .hot-deals-text-container-top,
         .hot-deals-text .countdown-timer {
-            display: block;
+            display: block!important;
+        }
+
+        .hot-deals-text {
+            background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
         }
 
         .hot-deals-text .countdown-timer {
@@ -182,7 +186,6 @@
 
     .collection-image-banner-video,
     .collection-image-banner-image {
-        {% comment %} right: 0; {% endcomment %}
         top: 0;
         width: 100%;
         border-radius: 9px;
@@ -366,6 +369,7 @@
             padding-inline: 14px;
             padding-block: 11px;
         }
+        .hot-deals-banner-text-wrapper .countdown-timer,
         .collection-filters__control.collection-filter-with-banner {
             display: none;
         }
@@ -375,4 +379,3 @@
         }
     }
 </style>
-<script>console.lot("settings.hot-deals-countdown-time", {{settings.hot-deals-countdown-time}})</script>
