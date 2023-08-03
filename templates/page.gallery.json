@@ -40,10 +40,9 @@
     },
     "9e736b42-87eb-41b3-babb-b3df77ad04a5": {
       "type": "community-gallery-content-block",
-      "disabled": true,
       "settings": {
         "video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4",
-        "video_height": 600,
+        "video_height": 1000,
         "quote": "\"Very cute and functional. I love it! Very unique and cute for a lunch bag but also very spacious and has good insulation.\"",
         "reviewer": "<p>— ISABEL C.<\/p>",
         "quote_height": 200,
