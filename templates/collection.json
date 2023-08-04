@@ -953,40 +953,6 @@
             ]
           }
         },
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33": {
-          "type": "hot-deals-banner",
-          "settings": {
-            "display": "both",
-            "collection_list": [
-              "bags",
-              "all",
-              "luggage",
-              "organizers",
-              "accessories",
-              "sale"
-            ],
-            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
-            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
-            "row": "1",
-            "row_mobile": "1",
-            "banner-text-color": "#000000",
-            "banner-text-background-color": "#ff0000",
-            "featured_products": [
-              "padded-laptop-sleeve",
-              "starter-bundle",
-              "luka-mini-belt-bag",
-              "compakt-duffel-bag",
-              "compakt-small-garment-bag",
-              "clear-luggage-cover",
-              "astyll-carry-on-luggage",
-              "astyll-large-luggage",
-              "astyll-2-piece-luggage-set",
-              "astyll-3-piece-luggage-set",
-              "silk-travel-set",
-              "hotel-calpak-robe"
-            ]
-          }
-        },
         "004c300c-cbfd-42d4-b36d-d32f6356e801": {
           "type": "module",
           "settings": {
@@ -1383,6 +1349,41 @@
             "video": "shopify:\/\/files\/videos\/BTS_VIDEO-1.mp4"
           }
         },
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33": {
+          "type": "hot-deals-banner",
+          "settings": {
+            "display": "both",
+            "collection_list": [
+              "bags",
+              "all",
+              "luggage",
+              "organizers",
+              "accessories",
+              "sale"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/HotDealsCountdownTimer.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
+            "row": "1",
+            "row_mobile": "1",
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ff0000",
+            "featured_products": [
+              "padded-laptop-sleeve",
+              "starter-bundle",
+              "luka-mini-belt-bag",
+              "compakt-duffel-bag",
+              "compakt-small-garment-bag",
+              "clear-luggage-cover",
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-2-piece-luggage-set",
+              "astyll-3-piece-luggage-set",
+              "silk-travel-set",
+              "hotel-calpak-robe"
+            ]
+          }
+        },
         "a196e0f6-213b-4650-b73d-78a1eb2245c1": {
           "type": "hot-deals-banner-sale",
           "settings": {
@@ -1398,6 +1399,37 @@
             "row_mobile": "12",
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ffffff",
+            "featured_products": [
+              "padded-laptop-sleeve",
+              "starter-bundle",
+              "luka-mini-belt-bag",
+              "compakt-duffel-bag",
+              "compakt-small-garment-bag",
+              "clear-luggage-cover",
+              "astyll-carry-on-luggage",
+              "astyll-large-luggage",
+              "astyll-2-piece-luggage-set",
+              "astyll-3-piece-luggage-set",
+              "silk-travel-set",
+              "hotel-calpak-robe"
+            ]
+          }
+        },
+        "76e8e1f9-787b-4c9f-a539-538966f41ebe": {
+          "type": "hot-deals-banner-school",
+          "settings": {
+            "display": "both",
+            "collection_list": [
+              "back-to-college",
+              "back-to-school"
+            ],
+            "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
+            "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/HotDealsCountdownTimer.gif",
+            "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
+            "row": "7",
+            "row_mobile": "12",
+            "banner-text-color": "#000",
+            "banner-text-background-color": "#FFF",
             "featured_products": [
               "padded-laptop-sleeve",
               "starter-bundle",
@@ -1436,7 +1468,6 @@
         "5a9fc48f-6b94-416e-88c7-3325d24efb85",
         "7f629c14-61ca-4cfa-b514-756101b71ede",
         "26121484-6047-4828-919f-49c8e5363c7d",
-        "531f4f21-bb35-4123-a4c9-2725fdd92f33",
         "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
@@ -1455,7 +1486,9 @@
         "f4023f5b-a395-4272-8ef7-b5ab9ed77348",
         "cf5b65fb-cea3-46e7-9866-2e2c4464c75b",
         "42852222-c14c-4d5c-a974-bdecd91dc4e0",
-        "a196e0f6-213b-4650-b73d-78a1eb2245c1"
+        "531f4f21-bb35-4123-a4c9-2725fdd92f33",
+        "a196e0f6-213b-4650-b73d-78a1eb2245c1",
+        "76e8e1f9-787b-4c9f-a539-538966f41ebe"
       ],
       "settings": {
         "wishlist": true,
