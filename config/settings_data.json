@@ -897,6 +897,7 @@
         "blocks": {
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -925,7 +926,6 @@
           },
           "652fae05-e012-48a0-bd05-eebda8839bc2": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -940,7 +940,6 @@
           },
           "44595217-2033-4341-98cf-4fc74fd48e3d": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
