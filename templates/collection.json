@@ -511,6 +511,37 @@
     "product-grid-section-id": {
       "type": "product-grid",
       "blocks": {
+        "b401a37d-55aa-49b7-b987-45893897281b": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
+            "link": "shopify:\/\/collections\/back-to-school",
+            "title": "Back to School ",
+            "text": "<p>Use code: BACKTOIT for 10% OFF!<\/p><p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
+            "show-for-collections": [
+              "all",
+              "best-sellers",
+              "sale",
+              "in-stock-ready-to-deliver",
+              "luggage",
+              "carry-on-luggage",
+              "bags",
+              "makeup-bags",
+              "organizers",
+              "accessories"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 1,
+            "column": 1,
+            "row-mob": 1
+          }
+        },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
           "settings": {
@@ -535,40 +566,9 @@
             "text-color": "#000000",
             "starts-on": "",
             "ends-on": "",
-            "row": 3,
-            "column": 1,
+            "row": 4,
+            "column": 4,
             "row-mob": 4
-          }
-        },
-        "b401a37d-55aa-49b7-b987-45893897281b": {
-          "type": "promo",
-          "disabled": true,
-          "settings": {
-            "banner": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
-            "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/12_16_2022_Indoor_Lifestyle_CALPAK_Lavender_0161-2_1.jpg",
-            "link": "shopify:\/\/products\/starter-bundle",
-            "title": "Don't miss: 45% off the Starter Bundle",
-            "text": "<p>Dive into summer with every travel essential you need, now only $299.<\/p><p><a href=\"\/products\/starter-bundle\" title=\"Starter Bundle\">Shop Now<\/a><\/p>",
-            "show-for-collections": [
-              "all",
-              "best-sellers",
-              "sale",
-              "in-stock-ready-to-deliver",
-              "luggage",
-              "carry-on-luggage",
-              "bags",
-              "makeup-bags",
-              "organizers",
-              "accessories"
-            ],
-            "background": "#e4dfd5",
-            "text-color": "#000000",
-            "starts-on": "",
-            "ends-on": "",
-            "row": 2,
-            "column": 1,
-            "row-mob": 2
           }
         },
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5": {
@@ -1426,8 +1426,8 @@
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
             "row": "7",
             "row_mobile": "12",
-            "banner-text-color": "#000",
-            "banner-text-background-color": "#FFF",
+            "banner-text-color": "#000000",
+            "banner-text-background-color": "#ffffff",
             "featured_products": [
               "padded-laptop-sleeve",
               "starter-bundle",
@@ -1446,8 +1446,8 @@
         }
       },
       "block_order": [
-        "64e7da40-e05d-412d-809b-024b8aa13efb",
         "b401a37d-55aa-49b7-b987-45893897281b",
+        "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
         "8faf4caf-1276-4186-8468-5d0516de3da7",
