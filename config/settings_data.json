@@ -429,6 +429,22 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Free standard shipping on all orders!<\/p>",
+              "only-for-guests": false
+            }
+          },
+          "1c718884-a708-4c2b-a791-a06f37dcf23e": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Free standard shipping on all orders in contiguous US. <\/p>",
+              "only-for-guests": false
+            }
+          },
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
             "settings": {
@@ -457,14 +473,6 @@
               "only-for-guests": true
             }
           },
-          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
-            "type": "notification",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Orders $100 and over get free standard shipping.<\/p>",
-              "only-for-guests": false
-            }
-          },
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d": {
             "type": "notification",
             "disabled": true,
@@ -475,11 +483,12 @@
           }
         },
         "block_order": [
+          "58c64c20-f997-4806-98c1-48dbdac32ff7",
+          "1c718884-a708-4c2b-a791-a06f37dcf23e",
           "04bc2b17-2375-4de8-af63-63c2c120af5a",
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
-          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
         "settings": {
@@ -886,6 +895,21 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Free shipping on all orders!<\/p>",
+              "url": "",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
             "settings": {
@@ -942,29 +966,14 @@
               "background": "#f7f177",
               "text-color": ""
             }
-          },
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
-            "type": "promo-bar-line",
-            "disabled": true,
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Free shipping on all orders $100 or more!<\/p>",
-              "url": "",
-              "background": "#f7f177",
-              "text-color": ""
-            }
           }
         },
         "block_order": [
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
           "62b6d713-dd1b-4386-a18e-6932387e7112",
           "652fae05-e012-48a0-bd05-eebda8839bc2",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
-          "7d3bbce9-7dd8-473d-958c-bf75d4555902",
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f"
+          "7d3bbce9-7dd8-473d-958c-bf75d4555902"
         ],
         "settings": {
           "show": "everywhere",
