@@ -73,7 +73,7 @@
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
         "title-above": "LIMITED TIME",
-        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!<\/p>",
+        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!*<\/p>",
         "hide": false,
         "product_list": [
 
@@ -87,7 +87,7 @@
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "terms_text": "See Terms & Conditions",
+        "terms_text": "* Terms & Conditions",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
