@@ -139,7 +139,6 @@
 
   .hot-deals-text-container-top {
     height: 100%;
-    background-image: url('{{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }}');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -296,7 +295,7 @@
       display: block;
       padding: 4px 12px !important;
       color: white;
-      background: {{ block.settings.banner-text-background-color }}
+      background: var(--extra-sale-accent)
       ;
       border-radius: 6px;
     }

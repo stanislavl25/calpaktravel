@@ -3,7 +3,9 @@
     assign starter_bundle = collections.all.products | where: 'data-handle', 'starter-bundle'
     assign starter_true = true
 -%}
+
 {%- if settings.sale-badge-enabled -%}
+
     {%- liquid
         if settings.sale-badge-tag == blank
             assign saleBadge = true
@@ -68,15 +70,17 @@
             endif
         -%}
 
+
+
         {% if settings.badge_display == 'both' %}
-            <div 
+            <div
                 class="
                     product-label
                     product-label--badge
                     value__{{saleBadge}}
                     {% if saleBadge != false %}
-                        {% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% assign test1 = true %}{% endif %} 
-                        {% if saleBadge == true %} product-label--active badge-active{% assign test2 = true %}{% endif %} 
+                        {% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% assign test1 = true %}{% endif %}
+                        {% if saleBadge == true %} product-label--active badge-active{% assign test2 = true %}{% endif %}
                     {% endif %}
                     {% if text_tilt == true %}product-label--badge-tilt{% endif %}
                     {% if template contains 'product'%}
@@ -84,12 +88,12 @@
                         {% if badge_placement_bottom_desktop == true %} product-label--badge-desktop-bottom{% endif %}
                         {% if badge_placement_top_mobile == true %} product-label--badge-mobile-top{% endif %}
                         {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
-                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}
                         starter-customize custom-dash
                         {% endif %}
                     {% else %}
                         product-label--badge-collection-page
-                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}    
+                        {% if saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}
                         starter-customize custom-dash
                         {% endif %}
                     {% endif %}
@@ -98,7 +102,7 @@
                 {% if saleBadge != true and saleBadge != false %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                 {% if saleBadge-bundle != true and saleBadge-bundle != false %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
             >
-                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and settings.sale-badge-text-starter != blank %}  
+                {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and settings.sale-badge-text-starter != blank %}
                     {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                 {%  else %}
                     {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
@@ -111,17 +115,17 @@
                         border: 1px dashed black !important;
                         color: {{ settings.starter__customizer-badge-text }} !important;
                     }
-                    
+
                 </style>
             {% endif %}
         {% elsif settings.badge_display == 'product' %}
-            {% if template contains 'product' %} 
-                <div 
+            {% if template contains 'product' %}
+                <div
                     class="
                         product-label
                         product-label--badge
-                        value__{{saleBadge}}{% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %} 
-                        {% if saleBadge == true %} product-label--active badge-active{% endif %} 
+                        value__{{saleBadge}}{% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %}
+                        {% if saleBadge == true %} product-label--active badge-active{% endif %}
                         {% if text_tilt == true %}product-label--badge-tilt{% endif %}
                         {% if template contains 'product'%}
                             {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}
@@ -130,7 +134,7 @@
                             {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
                         {% else %}
                             product-label--badge-collection-page
-                            {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                            {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}
                             starter-customize custom-dash
                             {% endif %}
                         {% endif %}
@@ -138,7 +142,7 @@
                     {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                     {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
                 >
-                    {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}  
+                    {% unless saleBadge-bundle != false and settings.sale-msg-starter != false and template contains 'collection' %}
                         {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                     {%  else %}
                         {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
@@ -155,13 +159,13 @@
                 {% endif %}
             {% endif %}
         {% elsif settings.badge_display == 'collection' %}
-            {% if template contains 'collection' %} 
-                <div 
+            {% if template contains 'collection' %}
+                <div
                     class="
                         product-label
                         product-label--badge
-                        value__{{saleBadge}}{% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %} 
-                        {% if saleBadge == true %} product-label--active badge-active{% endif %} 
+                        value__{{saleBadge}}{% if saleBadge contains opt1 and saleBadge != true %} product-label--active badge-active{% endif %}
+                        {% if saleBadge == true %} product-label--active badge-active{% endif %}
                         {% if text_tilt == true %}product-label--badge-tilt{% endif %}
                         {% if template contains 'product'%}
                             {% if badge_placement_top_desktop == true %} product-label--badge-desktop-top{% endif %}
@@ -170,7 +174,7 @@
                             {% if badge_placement_bottom_mobile == true %} product-label--badge-mobile-bottom{% endif %}
                         {% else %}
                             product-label--badge-collection-page
-                            {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}    
+                            {% if saleBadge-bundle != false and settings.sale-msg-starter != false %}
                             starter-customize custom-dash
                             {% endif %}
                         {% endif %}
@@ -178,7 +182,7 @@
                     {% if saleBadge != true %}data-options="{{ saleBadge | join: ' ' }}"{% endif %}
                     {% if saleBadge-bundle != true %}data-options="{{ saleBadge-bundle | join: ' ' }}"{% endif %}
                 >
-                    {% unless saleBadge-bundle != false and template contains 'collection' and settings.sale-msg-starter != false%}  
+                    {% unless saleBadge-bundle != false and template contains 'collection' and settings.sale-msg-starter != false%}
                         {{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}
                     {%  else %}
                         {{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}
@@ -195,7 +199,7 @@
                 {% endif %}
             {% endif %}
         {% endif %}
-        
+
 
     {%- endif -%}
 {%- endif -%}
@@ -212,7 +216,7 @@
     -%}
 
     {%- if hotDealsVariants != false -%}
-        <div class="product-label product-label--hot-deal hot-deals-badge product-label--badge-mobile-top product-label--badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+        <div style="display: none !important;" class="product-label product-label--hot-deal hot-deals-badge product-label--badge-mobile-top product-label--badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
             {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
             Hot Deal
         </div>
@@ -318,8 +322,8 @@
                     assign discounted = false
                 endif
             -%}
-        
-            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %}{% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}    
+
+            <div class="product-label{% unless discounted%} product-label--hidden{% endunless %}{% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}
                 starter-customize{% endif %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
                 {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
                 {{- saleMessage | escape | replace: '%%', discount -}}
@@ -424,7 +428,7 @@
             Preorder
         </div>
     {%- endif -%}
-        
+
     {%- unless collection == settings.new-arrivals and location == 'list' -%}
         {%- liquid
             assign new = false
@@ -455,7 +459,7 @@
     {%- endunless -%}
 
     {% comment %}
-        CHECK THE PRODUCT-GRID.LIQUID  FOR THIS VARIABLE 
+        CHECK THE PRODUCT-GRID.LIQUID  FOR THIS VARIABLE
         IT WAS DEFINED THERE BC WE NEEDED TO COUNT THE TIMES OF NUMBER AND RENDER SHOPIFY TAG DONT ALLOW
 
         PRODUCT-GRID.LIQUID RENDERS PRODUCT-UNIT.LIQUID
