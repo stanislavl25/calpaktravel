@@ -903,8 +903,8 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Free shipping on all orders!<\/p>",
-              "url": "",
+              "content": "<p>Free shipping on all orders!*<\/p>",
+              "url": "shopify:\/\/pages\/promotion-terms",
               "background": "#f7f177",
               "text-color": ""
             }
