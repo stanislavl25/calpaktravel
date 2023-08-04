@@ -432,7 +432,7 @@
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
             "type": "notification",
             "settings": {
-              "text": "<p>Free standard shipping on all orders!*<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions Apply<\/a><\/p>",
+              "text": "<p>Free standard shipping on all orders!* <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions Apply<\/a><\/p>",
               "only-for-guests": false
             }
           },
