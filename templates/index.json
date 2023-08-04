@@ -70,7 +70,6 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "FREE shipping!",
             "description": "<p>For a limited time, get free standard shipping.<\/p>",
@@ -86,7 +85,6 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/IMG_0049-3.jpg",
             "video": "",
@@ -102,7 +100,6 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/IMG_0046-2.jpg",
             "video": "",
