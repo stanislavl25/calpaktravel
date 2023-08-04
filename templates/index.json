@@ -71,7 +71,7 @@
           "type": "text-block",
           "settings": {
             "title": "FREE shipping!",
-            "description": "<p>For a limited time, get free standard shipping.<\/p>",
+            "description": "<p>For a limited time, get free standard shipping.*<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
             "main-link": "shopify:\/\/collections\/all",
             "button-text": "Shop All",
             "add-link-to-button-only": true,
