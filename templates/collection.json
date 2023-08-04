@@ -1478,17 +1478,17 @@
             "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
             "link": "shopify:\/\/collections\/back-to-school",
             "title": "Code: BACKTOIT for 10% OFF!",
-            "text": "",
+            "text": "<p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
             "show-for-collections": [
-
+              "sale"
             ],
             "background": "#e4dfd5",
             "text-color": "#000",
             "starts-on": "",
             "ends-on": "",
-            "row": 1,
+            "row": 2,
             "column": 1,
-            "row-mob": 1
+            "row-mob": 2
           }
         }
       },
