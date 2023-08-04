@@ -546,8 +546,8 @@
             "video": "",
             "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
             "link": "shopify:\/\/collections\/back-to-school",
-            "title": "Back to School ",
-            "text": "<p>Use code: BACKTOIT for 10% OFF!<\/p><p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
+            "title": "Use code: BACKTOIT for 10% OFF!",
+            "text": "<p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
             "show-for-collections": [
               "all",
               "best-sellers",
