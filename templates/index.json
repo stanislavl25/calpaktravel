@@ -66,7 +66,6 @@
     },
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
@@ -130,9 +129,11 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Use code BACKTOIT for 10% OFF!",
             "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
@@ -148,6 +149,7 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_55533bc3-6cfe-4c7b-8dc3-0dc4075ff3df.jpg",
             "video": "",
@@ -163,6 +165,7 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235177_9aa04390-3a2a-48da-b0e1-0d5b00196232.jpg",
             "video": "",
