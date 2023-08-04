@@ -546,12 +546,11 @@
             "video": "",
             "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
             "link": "shopify:\/\/collections\/back-to-school",
-            "title": "Use code: BACKTOIT for 10% OFF!",
-            "text": "<p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
+            "title": "Code: BACKTOIT for 10% OFF!",
+            "text": "<p>Select items<\/p><p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
             "show-for-collections": [
               "all",
               "best-sellers",
-              "sale",
               "in-stock-ready-to-deliver",
               "luggage",
               "carry-on-luggage",
@@ -564,9 +563,9 @@
             "text-color": "#000000",
             "starts-on": "",
             "ends-on": "",
-            "row": 2,
+            "row": 1,
             "column": 1,
-            "row-mob": 2
+            "row-mob": 1
           }
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
@@ -1470,6 +1469,27 @@
               "hotel-calpak-robe"
             ]
           }
+        },
+        "2bef465f-5c2d-44c1-a49e-c18d780fe913": {
+          "type": "promo",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
+            "link": "shopify:\/\/collections\/back-to-school",
+            "title": "Code: BACKTOIT for 10% OFF!",
+            "text": "",
+            "show-for-collections": [
+
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 1,
+            "column": 1,
+            "row-mob": 1
+          }
         }
       },
       "block_order": [
@@ -1513,7 +1533,8 @@
         "42852222-c14c-4d5c-a974-bdecd91dc4e0",
         "531f4f21-bb35-4123-a4c9-2725fdd92f33",
         "a196e0f6-213b-4650-b73d-78a1eb2245c1",
-        "76e8e1f9-787b-4c9f-a539-538966f41ebe"
+        "76e8e1f9-787b-4c9f-a539-538966f41ebe",
+        "2bef465f-5c2d-44c1-a49e-c18d780fe913"
       ],
       "settings": {
         "wishlist": true,
