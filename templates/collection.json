@@ -72,7 +72,7 @@
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
         "title-above": "LIMITED TIME",
-        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
+        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!<\/p>",
         "hide": false,
         "product_list": [
 
@@ -82,7 +82,7 @@
         ],
         "section-id": "",
         "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/back-to-school",
+        "cta_url": "shopify:\/\/collections\/all",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
