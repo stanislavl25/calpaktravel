@@ -17,9 +17,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
+            "form_type": "iframe",
             "iframe-url": "https:\/\/calpak.attn.tv\/p\/Lhz\/landing-page",
+            "klaviyo_id": "",
+            "vertical_alignment": "center",
             "height": "600",
-            "height-mobile": "400"
+            "height-mobile": "500"
           }
         }
       },
@@ -39,7 +42,9 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers",
-            "title": ""
+            "title": "",
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         }
       },
@@ -47,7 +52,8 @@
         "94643254-b42b-41a1-beab-db1490c76688"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": true,
+        "add-to-cart": false
       }
     }
   },
