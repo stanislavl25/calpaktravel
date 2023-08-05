@@ -213,14 +213,36 @@
 }
 
 body .floating-labels .product-label--sale {
-    color: var(--sale-badge-color)!important;
-    border-color: var(--sale-badge-color)!important;
-    background: var(--sale-badge-bg)!important;
-    border-style: dashed !important;
+    color: var(--extra-sale-accent)!important;
+    border-color: var(--extra-sale-accent)!important;
+
 }
 body .floating-labels .product-label--sale .custom-dash {
     border: 2px dotted black;
 }
+
+body .floating-labels .product-label--sale.starter-customize {
+    color: black!important;
+    border-color: black !important;
+}
+
+body .hot-deals-banner-wrapper-sale .floating-labels .product-label--sale.starter-customize {
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+    background-color: #f7f7f7 !important;
+    border-style: solid !important;
+}
+
+body .hot-deals-banner-wrapper .floating-labels .product-label--sale.starter-customize {
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+    background-color: #f7f7f7 !important;
+    border-style: solid !important;
+}
+
+
+
+
 
 body .floating-labels .product-label--extra-sale {
     color: var(--extra-sale-accent);
