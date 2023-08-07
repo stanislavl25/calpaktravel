@@ -44,7 +44,7 @@
       {
         "type": "checkbox",
         "id": "show-cart-gamification",
-        "label": "Enable Gift with Purchase",
+        "label": "Enable Express Shipping",
         "default": true
       },
       {
