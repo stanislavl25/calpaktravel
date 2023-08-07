@@ -758,11 +758,11 @@ a.color-swatch--active::after {
 }
 
 .color-sunset {
-    --background: #f81562; 
+    --background: #f81562;
 }
 
 .color-slate {
-    --background: #5E6263; 
+    --background: #5E6263;
 }
 
 .color-milk-marble {
@@ -869,10 +869,12 @@ a.color-swatch--active::after {
     background: #F08247;
 }
 .hot-deals-banner-wrapper a.color-swatch.slide.hot-deal.show-hotdeal,
-.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal.show-hotdeal {
+.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal.show-hotdeal,
+.hot-deals-banner-wrapper-school a.color-swatch.slide.hot-deal.show-hotdeal {
     display: block;
 }
 .hot-deals-banner-wrapper a.color-swatch.slide.hot-deal,
-.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal {
+.hot-deals-banner-wrapper-sale a.color-swatch.slide.hot-deal,
+.hot-deals-banner-wrapper-school a.color-swatch.slide.hot-deal {
     display: none;
 }
