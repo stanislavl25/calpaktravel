@@ -82,3 +82,15 @@ a.promotion-banner__link {
         padding: 12px 20px;
     }
 }
+
+.hot-deal-badge.product-label--active {
+    display: none !important;
+}
+
+.hot-deals-banner-wrapper-sale .hot-deal-badge.product-label--active {
+    display: flex !important;
+}
+
+.hot-deals-banner-wrapper .hot-deal-badge.product-label--active {
+    display: flex !important;
+}

@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-    
+
     {%- if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled -%}
         <div class="countdown-timer hot-deals-mobile-countdown-wrapper" data-time="{{- timeLeft -}}" style="display: none;">{{timeLeft}}</div>
     {%- endif -%}
@@ -30,9 +30,10 @@
         <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
         <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
         <div class="slider slider--scrollbar">
-            
+
             {%- for product in block.settings.featured_products -%}
-                {%- render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, wishlist: true, class: 'slide', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels, index: forloop.index -%}
+
+                {%- render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, wishlist: true, class: 'slide', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: true, index: forloop.index -%}
             {%- endfor -%}
         </div>
     </div>
@@ -120,7 +121,6 @@
 
     .hot-deals-banner-wrapper-sale .hot-deals-text-container-top {
         height: 100%;
-        background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -179,6 +179,7 @@
         display: none;
         align-items: center;
         position: relative;
+        border: 1px solid var(--extra-sale-accent);
         grid-column: 1 / span 5;
         grid-row: {{ block.settings.row }} / span 1;
         overflow: hidden!important;
@@ -198,7 +199,7 @@
         grid-column: 1 / span 2;
         display: flex;
         flex-direction: column;
-        
+
         /* CUSTOMIZER GIVEN CSS*/
         color: {{ block.settings.banner-text-color }};
     }
@@ -208,7 +209,7 @@
         border-bottom: none!important
     }
 
-    .hot-deals-banner-text {        
+    .hot-deals-banner-text {
         color: {{ block.settings.banner-text-color }};
     }
 
@@ -238,7 +239,7 @@
         margin-inline: 18px;
         padding-block: 18px;
     }
-    
+
     .collection-filters-banner.collection-filters--active {
         top: unset;
         bottom: 0;
@@ -267,9 +268,9 @@
             }
         }
         {% endfor %}
-    {% else %} 
-        
-    {% endif %}  
+    {% else %}
+
+    {% endif %}
 
     @media (max-width: 1200px) {
         .hot-deals-text .countdown-timer {
@@ -282,13 +283,17 @@
             display: block;
             padding: 4px 12px!important;
             color: white;
-            background: {{ block.settings.banner-text-background-color }};
+            background: var(--extra-sale-accent);
             border-radius: 6px;
+        }
+
+        .hot-deals-banner-text-wrapper {
+            overflow: hidden;
         }
 
         .hot-deals-banner-wrapper-sale {
             grid-column: 1 / span 3;
-            overflow: visible!important;
+            overflow: hidden!important;
             grid-row: {{ block.settings.row_mobile }} / span 1;
         }
 
@@ -312,6 +317,12 @@
             height: 90%;
             background-size: contain;
             margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .hot-deals-banner-text-wrapper {
+            background: #ff0000 !important;
         }
 
         .hot-deals-banner-text {

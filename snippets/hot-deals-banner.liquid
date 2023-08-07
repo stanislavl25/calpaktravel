@@ -130,6 +130,7 @@
     width: 100%;
     height: 100%;
     justify-content: space-between;
+
     flex-direction: column;
     display: flex;
     background-size: cover; /* The image will cover the full width and height of the div */
@@ -139,7 +140,6 @@
 
   .hot-deals-text-container-top {
     height: 100%;
-    background-image: url('{{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }}');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -257,6 +257,21 @@
     top: unset;
     bottom: 0;
   }
+
+  {% if settings.hot-deals-ends != blank and countdownTimer == true and settings.hot-deals-countdown-enabled %}
+
+
+    .hot-deals-text {
+        background-image: url({{ block.settings.hot-deals-header-image-desktop-countdown-1 | img_url: 'master' }});
+    }
+
+
+  {% else %}
+      .hot-deals-text {
+          background-image: url({{ block.settings.hot-deals-header-image-desktop | img_url: 'master' }});
+      }
+  {% endif %}
+
   {% if block.settings.collection_list != empty %}
     {% for collection_item in block.settings.collection_list %}
       .{{ collection_item.handle }}.hot-deals-banner-wrapper {
@@ -296,7 +311,7 @@
       display: block;
       padding: 4px 12px !important;
       color: white;
-      background: {{ block.settings.banner-text-background-color }}
+      background: var(--extra-sale-accent)
       ;
       border-radius: 6px;
     }
