@@ -240,6 +240,13 @@ body .hot-deals-banner-wrapper .floating-labels .product-label--sale.starter-cus
     border-style: solid !important;
 }
 
+body .hot-deals-banner-wrapper-school .floating-labels .product-label--sale.starter-customize {
+    color: #ff0000 !important;
+    border-color: #ff0000 !important;
+    background-color: #f7f7f7 !important;
+    border-style: solid !important;
+}
+
 
 
 
