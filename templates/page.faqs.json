@@ -73,6 +73,7 @@
         },
         "dc6ab9d8-f7e9-4f33-80cd-830d4a96017f": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "title": "How much is shipping?",
             "answer": "<p>For orders shipping within the contiguous US,  we offer free standard ground shipping for all orders above $100. For orders below the $100 shipping threshold, a $7.95 standard shipping flat rate is applied.<\/p><p>For Hawaii and Alaska orders, we offer a flat rate shipping fee, shipped via FedEx 2Day Air or FedEx Priority Overnight. The shipping fees are as follows:<\/p><p>Bags\/Accessories: <\/p><ul><li>FedEx 2nd Day Air: $24.95<\/li><li>FedEx Priority Overnight: $34.95<\/li><\/ul><p>Luggage* & Hat Boxes: <\/p><ul><li>FedEx 2nd Day Air: $49.95<\/li><li>FedEx Priority Overnight: $99.95<\/li><\/ul><p>*Including Stevyn Rolling Duffel and Stevyn Large Rolling Duffel<\/p><p>Please note, the shipping fee will be determined by the largest item on your order.<\/p>",
@@ -82,11 +83,10 @@
         },
         "c11c733f-2f29-4fab-b8ef-7a13393465f6": {
           "type": "faq",
-          "disabled": true,
           "settings": {
             "title": "How much is shipping?",
-            "answer": "<p>We are happy to offer free shipping for all orders over $75. All other orders will ship for a flat rate of $7.95.<\/p>",
-            "popanswer": "",
+            "answer": "<p><em>For a limited time, we are offering free standard shipping on all orders within the contiguous US.<\/em><\/p><p><em>For Hawaii and Alaska orders, we offer a flat rate shipping fee, shipped via FedEx 2Day Air or FedEx Priority Overnight. The shipping fees are as follows:Bags\/Accessories: <\/em><\/p><ul><li><em>FedEx 2nd Day Air: $24.95<\/em><\/li><li><em>FedEx Priority Overnight: $34.95<\/em><\/li><\/ul><p><em>Luggage* & Hat Boxes: <\/em><\/p><ul><li><em>FedEx 2nd Day Air: $49.95<\/em><\/li><li><em>FedEx Priority Overnight: $99.95<\/em><\/li><\/ul><p><em>*Including Stevyn Rolling Duffel and Stevyn Large Rolling DuffelPlease note, the shipping fee will be determined by the largest item on your order.<\/em><\/p>",
+            "popanswer": "<p data-mce-fragment=\"1\">For a limited time, we are offering free standard shipping on all orders within the contiguous US.<\/p>\n<p data-mce-fragment=\"1\">For Hawaii and Alaska orders, we offer a flat rate shipping fee, shipped via FedEx 2Day Air or FedEx Priority Overnight. The shipping fees are as follows:<\/p>\n<p data-mce-fragment=\"1\">Bags\/Accessories: <\/p>\n<ul data-mce-fragment=\"1\">\n<li data-mce-fragment=\"1\">FedEx 2nd Day Air: $24.95<\/li>\n<li data-mce-fragment=\"1\">FedEx Priority Overnight: $34.95<\/li>\n<\/ul>\n<p data-mce-fragment=\"1\">Luggage* & Hat Boxes: <\/p>\n<ul data-mce-fragment=\"1\">\n<li data-mce-fragment=\"1\">FedEx 2nd Day Air: $49.95<\/li>\n<li data-mce-fragment=\"1\">FedEx Priority Overnight: $99.95<\/li>\n<\/ul>\n<p style=\"font-size: 12px;\" data-mce-fragment=\"1\">*Including Stevyn Rolling Duffel and Stevyn Large Rolling Duffel<\/p>\n<p data-mce-fragment=\"1\">Please note, the shipping fee will be determined by the largest item on your order.<\/p>",
             "hide": false
           }
         },

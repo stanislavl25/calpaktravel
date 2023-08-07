@@ -12,6 +12,7 @@ function renderColorGroups(productVariantSelects) {
     filterGroupList.innerHTML = '';
     // filterGroupList.classList.remove('loading-animation');
     for(let color in color_groups) {
+        console.log(color);
         let found = false;
         let count = 0;
         for(let i = 0; i < productVariantSelects.length; i++) {
@@ -144,7 +145,7 @@ function initFilter() {
 
     const filters = document.querySelector('.collection-filters');
     if(filters) filters.classList.add('collection-filters--loaded');
-    
+
     Promise.all(promises).then(() => {
         const productVariantSelects = filteredContainer.querySelectorAll('.product-unit .variant-select');
         renderColorGroups(productVariantSelects);
@@ -159,9 +160,9 @@ async function filterUnitByColor(product, colors) {
      * CHCECK IF COLORS LENGHT > 1
      * CLONE THE PRODUCT COLORS LENGTH TIMES
      * *ISSUE EVENT LISTENERS*
-     * CHECK THE RESPECTIVLY SWATCH FOR EACH CLONE 
+     * CHECK THE RESPECTIVLY SWATCH FOR EACH CLONE
      */
-    
+
     const unitColors = product.querySelectorAll('.color-swatch');
     let unitColorValues = [];
 
@@ -254,7 +255,7 @@ async function getProductsFilteredByCategory(activeParentCollection) {
             let index = activeParentCollection.getAttribute('data-index');
 
             // activeParentCollection.querySelector('i').innerHTML = '';
-            
+
             allSubcollections.forEach(allSubcollection => {
                 allSubcollection.classList.remove('filter__collection--active', 'slide', 'slide--last');
                 if(allSubcollection.getAttribute('data-group') != index) allSubcollection.classList.remove('filter__collection--selected');
@@ -270,12 +271,12 @@ async function getProductsFilteredByCategory(activeParentCollection) {
                         filterSubCollections[i].classList.add('filter__collection--active', 'slide');
                 }
             } else document.querySelector('.filter__collections').classList.remove('filter__collections--active');
-            
+
             if(activeParentCollection.hasAttribute('data-products')) {
                 filteredProducts = activeParentCollection.getAttribute('data-products').split(',');
             } else if(activeParentCollection.hasAttribute('data-collection')) {
                 const collectionList = await fetch(`/collections/${activeParentCollection.getAttribute('data-collection')}/products.json?limit=250`).then(response => response.json());
-    
+
                 filteredProducts = [];
                 collectionList.products.forEach(product => filteredProducts.push(product.id + ''));
                 activeParentCollection.setAttribute('data-products', filteredProducts.join(','));
@@ -284,25 +285,25 @@ async function getProductsFilteredByCategory(activeParentCollection) {
             document.querySelector('.filter__collections').classList.remove('filter__collections--active');
             allSubcollections.forEach(allSubcollection => allSubcollection.classList.remove('filter__collection--selected'));
         }
-        
+
         let activeCollection = document.querySelector('.filter__collection--selected');
         if(!activeCollection) activeCollection = document.querySelector('.collections-category--active');
         let subCol = false;
         if(activeCollection) {
             subCol = activeCollection.classList.contains('filter__collection--sub');
-            
+
             if(subCol || (activeCollection.hasAttribute('data-products') && activeCollection.classList.contains('filter__collection'))) {
                 let productList = [];
-                
+
                 if(activeCollection.hasAttribute('data-products')) {
                     productList = activeCollection.getAttribute('data-products').split(',');
                 } else if(activeCollection.hasAttribute('data-collection')) {
                     const collectionList = await fetch(`/collections/${activeCollection.getAttribute('data-collection')}/products.json?limit=250`).then(response => response.json());
-                    
+
                     collectionList.products.forEach(product => productList.push(product.id + ''));
                     activeCollection.setAttribute('data-products', productList.join(','));
                 }
-                
+
                 if(subCol && filteredProducts) {
                     let updatedList = [];
                     productList.forEach(product => {
@@ -311,7 +312,7 @@ async function getProductsFilteredByCategory(activeParentCollection) {
                     filteredProducts = updatedList;
                 } else filteredProducts = productList;
             } else {
-                if(activeCollection.hasAttribute('data-collection')) {                    
+                if(activeCollection.hasAttribute('data-collection')) {
                     const pageHeader = document.querySelector('.shopify-section--page-header');
                     const sections = [
                             filteredContainer.getAttribute('id').replace('shopify-section-', ''),
@@ -336,10 +337,10 @@ async function getProductsFilteredByCategory(activeParentCollection) {
                     const newHeader = new DOMParser().parseFromString(sectionContents[sections[1]], 'text/html').querySelector('.page__header').innerHTML;
 
                     document.querySelector('.page__header').innerHTML = newHeader;
-                    
+
                     // const pageTitle = document.querySelector('.page__header .page__title');
                     // if(pageTitle && collection.heading) pageTitle.innerHTML = collection.heading;
-                    
+
                     // const pageDescription = document.querySelector('.page__header .page__description');
                     // if(pageDescription && collection.description) pageDescription.innerHTML = collection.description;
                 }
@@ -356,20 +357,20 @@ async function applyFilter(source = false) {
     let filtered = false;
 
     console.log('appling filter');
-    
+
     [...productUnits].map( productUnit => {
         if(productUnit.getAttribute('data-clone')) {
             productUnit.remove()
         }
     });
-    
+
     //// COLLECTIONS ////
     let filteredProducts = false;
     if(source == 'collections') {
         const activeCategory = document.querySelector('.collections-category--active');
         filteredProducts = await getProductsFilteredByCategory(activeCategory);
     }
-    
+
     if(filteredProducts !== false) {
         resetFilter();
         initFilter();
@@ -402,7 +403,7 @@ async function applyFilter(source = false) {
     }
 
     // if(activeCategory) {
-    //     if(filteredProducts === false) 
+    //     if(filteredProducts === false)
     //         activeCategory.querySelector('i').innerHTML = productUnits.length;
     //     else activeCategory.querySelector('i').innerHTML = categoryProductCount;
     // }
