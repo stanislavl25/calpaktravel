@@ -33,7 +33,7 @@
 
             {%- for product in block.settings.featured_products -%}
 
-                {%- render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, wishlist: true, class: 'slide', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: true, index: forloop.index -%}
+                {%- render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, hot_deal:'sale', all_sizes: true, add_to_cart: true, wishlist: true, class: 'slide', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: true, index: forloop.index -%}
             {%- endfor -%}
         </div>
     </div>

@@ -153,7 +153,7 @@
         else if timeLeft < 0
             assign countdownTimer = false
         endif
-    endif 
+    endif
 -%}
 
 {%- unless cancelDisplay -%}
@@ -191,7 +191,7 @@
         {% render 'product-floating-labels', product: product, current_variant: current_variant, location: location, best_seller: best_seller %}
       {%- endif -%}
 
-      {% comment %}     
+      {% comment %}
       {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
       <div class="product-unit__reviews">
       {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
@@ -205,8 +205,8 @@
 
             <div class="product-unit__size-component">
               <input type="text" class="product-unit__size-component">
-              <input id="product-unit__size-component--{{ product.handle }}" type="checkbox" />
-              <label for="product-unit__size-component--{{ product.handle }}" class="product-unit__select--seleted"></label>
+              <input id="product-unit__size-component--{{ product.handle }}{% if hot_deal %}-{{ hot_deal }}{% endif %}" type="checkbox" />
+              <label for="product-unit__size-component--{{ product.handle }}{% if hot_deal %}-{{ hot_deal }}{% endif %}" class="product-unit__select--seleted"></label>
               <div
                 data-position="{{ option.position }}"
                 class="product-unit__sizes{% if all_colors_quickadd == true %} product-unit__sizes--all{% endif %}"
@@ -265,7 +265,7 @@
                 if img_preload == blank
                     assign img_preload = false
                 endif
-                
+
                 if current_variant.metafields.custom.hover_image == blank
                     if current_variant.featured_image != blank
                         assign img = current_variant.featured_image
@@ -327,7 +327,7 @@
             Hot Deal
         </div>
     {%- endif -%}
-      
+
     {% comment %} {%- if hotDealsVariants contains opt1 -%}
     <div class="product-label hot-deals-countdown-wrapper">
     <label>Sale ends</label>
