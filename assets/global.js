@@ -924,7 +924,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         swatches.appendChild(colorValue);
     }
-
     if(allColors) {
         swatches.classList.add('slider');
         const sliderWrapper = swatches.parentNode;

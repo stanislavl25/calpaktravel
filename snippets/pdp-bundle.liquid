@@ -1,0 +1,36 @@
+</form> {%- comment -%}THIS IS TO CLOSE THE MAIN FORM - DO NOT DELETE IN ORDER FOR THIS TO WORK{%- endcomment -%}
+{% if bundle_product != blank or bundle_product != null %}
+    {% assign bundle_product = all_products[bundle_product] %}
+    {{ 'component-bundle.css' | asset_url | stylesheet_tag }}
+
+    <section class="pdp-bundle hidden">
+        <form id="bundle-form" method="post" action="/cart/add"  enctype="multipart/form-data">
+        <div class="flex">
+                <div class="col info-section">
+                    <p>Make it a set</p>
+                    <div class="bundle-price">
+                        <span class="price">{{ current_variant.price | plus: bundle_product.price_max | money_without_trailing_zeros }}</span>
+                    </div>
+                    <button id="bundle-button" class="button button--secondary button--bundle" type="button"><span class="button-text">Add Bundle to Bag</span></button>
+                </div> 
+                <div class="col">
+                    <div class="current-variant">
+                        {% assign opt1 = current_variant.option1 %}
+                        {% render 'product-unit' with product, init_option1: opt1, all_colors_quickadd: true, all_colors: true, quick_add: false, class: 'slide main-product', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', add_to_cart: true %}
+                    </div>
+                </div> 
+                <div class="col">
+                    <div class="current-variant">
+                        {% assign opt1 = bundle_product.option1 %}
+                        {% render 'product-unit' with bundle_product, init_option1: opt1, all_colors_quickadd: true, all_colors: true, quick_add: false, class: 'slide', sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', add_to_cart: true %}
+                    </div>
+                </div> 
+                <div class="mobile-button">
+                    
+                    <button id="bundle-button-mobile" class="button button--secondary button--bundle" type="button"><span class="button-text">Add Bundle to Bag - <span class="price">{{ current_variant.price | plus: bundle_product.price_max | money_without_trailing_zeros }}</span></span></button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <script src="{{ 'component-bundle.js' | asset_url }}" defer></script>
+{% endif %}
