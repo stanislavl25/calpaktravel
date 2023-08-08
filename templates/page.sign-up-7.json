@@ -18,12 +18,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "form_type": "iframe",
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/MB9\/landing-page",
-            "klaviyo_id": "",
+            "form_type": "klaviyo",
+            "iframe-url": "",
+            "klaviyo_id": "QNrAfr",
             "vertical_alignment": "center",
-            "height": "600",
-            "height-mobile": "700"
+            "height": "500",
+            "height-mobile": "300"
           }
         }
       },
@@ -44,7 +44,8 @@
           "settings": {
             "collection": "best-sellers",
             "title": "",
-            "hide-form-labels": false
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         }
       },
@@ -52,7 +53,8 @@
         "94643254-b42b-41a1-beab-db1490c76688"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": true,
+        "add-to-cart": false
       }
     }
   },
