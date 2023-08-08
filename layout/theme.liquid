@@ -350,67 +350,6 @@
       
   
   
-  {% if settings.countdown-label-collection-enabled and template contains 'collection'%}
-      <script>
-          const restoreSaleBadgePostion = () => {
-            if (document.querySelector('html').clientWidth > 900) {
-              let products = document.querySelectorAll('.product-unit.product-unit--add-sale-badge');
-              products.forEach((productUnit, index) => {
-                let badgeElements =  productUnit.querySelector('.product-label--badge');
-                productUnit.querySelector('.product-unit__image-wrapper').appendChild(badgeElements);
-              })
-            }
-          }
-          const addLabelToCollectionProductUnit = e => {
-              if(document.querySelector('html').clientWidth < 900) {
-                console.log('addLabelToCollectionProductUnit')
-                let countdownSaleBadgeLabels = document.querySelectorAll('.countdown-sale-badge-label');
-                if (countdownSaleBadgeLabels.length < 1) {
-                  let products = document.querySelectorAll('.product-unit.product-unit--add-sale-badge');
-                  products.forEach((productUnit, index) => {
-                    let newLabelText = document.createTextNode('{{- settings.sale-badge-text | escape | newline_to_br | replace: '%%', discount -}}');
-                    let newLabelTextBadge = document.createTextNode('{{- settings.sale-badge-text-starter | escape | newline_to_br | replace: '%%', discount -}}');
-                    let newLabel = document.createElement('p');
-                    let badgeElements =  productUnit.querySelector('.product-label--badge');
-                     
-                    newLabel.setAttribute('id', `countdown-sale-badge-label-${Math.random().toString().slice(2, 11) + index}`);
-                
-                    if (productUnit.classList.contains('customBadge-class')) {
-                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
-                    } else {
-                      newLabel.appendChild(badgeElements);
-                      productUnit.querySelector('.sale-badge-wrapper').appendChild(newLabel);
-                    }
-
-                    
-                      if ([...productUnit.querySelector('.sale-badge-wrapper').querySelectorAll('.product-label--badge')].length < 1) {
-                        
-                        if (productUnit.classList.contains('customBadge-class')) {
-                          productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements);
-                        }
-                
-                        productUnit.querySelector('.sale-badge-wrapper').appendChild(badgeElements);
-                      }
-                    
-                  });
-                }
-                
-              } else {
-                  [...document.querySelectorAll('.countdown-sale-badge-label')].map(countdownSaleBadgeLabel => countdownSaleBadgeLabel.parentNode.removeChild(countdownSaleBadgeLabel));
-                  restoreSaleBadgePostion();
-              }
-          };
-  
-          document.addEventListener("DOMContentLoaded", addLabelToCollectionProductUnit);
-          window.addEventListener("resize", addLabelToCollectionProductUnit);
-          document.addEventListener("shopify:section:load", addLabelToCollectionProductUnit);
-          try {
-              addLabelToCollectionProductUnit();
-          } catch(e) {
-              setTimeout(addLabelToCollectionProductUnit, 1000);
-          }
-      </script>
-  {% endif %}
 
   {% if template == 'index' %}
     <script src="{{ 'handlebars-v4.0.5.js' | asset_url }}"  defer="defer"></script>

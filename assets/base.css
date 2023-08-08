@@ -820,8 +820,11 @@ body.swym-modal-active:not(.modal-open) {
   a[aria-label="Powered by Bazaarvoice - Opens in new tab"] {
   display: none;
 }
-.product-unit__colors--quickadd {
-  margin-bottom: 10px;
+/* .product-unit__colors--quickadd {
+} */
+
+.product-unit__main-content {
+  margin-bottom: auto;
 }
 #shopify-section-promo-bar {
   z-index: 3;

@@ -201,7 +201,8 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
     if(isProductUnit) collection = target.getAttribute('data-collection');
 
-
+    const selectSize = target.querySelector('.button-msg-add');
+    const selectSizeItems = target.querySelector('.product-unit__title .product-link');
     const hasSizeSelector = target.querySelector('.product-unit__sizes') ? true: false;
     tags.forEach(tag => {
         let tg = handleize(tag);
@@ -580,9 +581,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 const sizesContainer = selects.querySelector('.sizes-container');
                 const component = target.querySelector('.product-unit__select--seleted');
                 const atcBtn = target.querySelector('.product-unit__button');
-
-                console.log
-
                 for (const size in sizes) {
                     if(size == '_count') continue;
 
@@ -619,27 +617,27 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 }
                 if (window.innerWidth < 900){
                     atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
-                 target.addEventListener('mouseover', (e) => {
-                    component.classList.add('hovered');
-                });
-                target.addEventListener('mouseout', (e) => {
-                    if(!component.classList.contains('focused')){
-                        component.classList.remove('hovered');
-                    }
-                });
-                component.addEventListener('click', (e) => {
-                    component.classList.toggle('focused');
-                });
-                atcBtn.addEventListener('click', (e) => {
-                    component.classList.add('focused');
-                    atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
-                    atcBtn.classList.add('ready');
-                });
-
-                const sizeSwatches = target.querySelectorAll('.size-swatch');
-                sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
-                    component.classList.remove('focused');
-                }));
+                    target.addEventListener('mouseover', (e) => {
+                        component.classList.add('hovered');
+                    });
+                    target.addEventListener('mouseout', (e) => {
+                        if(!component.classList.contains('focused')){
+                            component.classList.remove('hovered');
+                        }
+                    });
+                    component.addEventListener('click', (e) => {
+                        component.classList.toggle('focused');
+                    });
+                    atcBtn.addEventListener('click', (e) => {
+                        component.classList.add('focused');
+                        atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
+                        atcBtn.classList.add('ready');
+                    });
+                
+                    const sizeSwatches = target.querySelectorAll('.size-swatch');
+                    sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
+                        component.classList.remove('focused');
+                    }));
                 } else {
                     const checkSelected = target.querySelector('.product-unit--quickadd .product-unit__size-component label');
                     target.addEventListener('mouseover', (e) => {
@@ -835,6 +833,13 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         const sizesContainer = selects.querySelector('.sizes-container');
         const component = target.querySelector('.product-unit__select--seleted');
         const atcBtn = target.querySelector('.product-unit__button');
+        const sizeInput = target.querySelector('.product-unit--quickadd .product-unit__size-component input[type=checkbox]');
+        if (window.innerWidth < 900) {
+            if(selectSizeItems.innerHTML.includes('Clear Luggage Cover') || selectSizeItems.innerHTML.includes('Padded Laptop Sleeve')) {
+                target.querySelector('.button-msg-add').textContent="Select Size";
+            }
+        }
+        
         for (const size in sizes) {
             if(size == '_count') continue;
 
@@ -869,7 +874,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
         if (window.innerWidth < 900){
             atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'none';
-         target.addEventListener('mouseover', (e) => {
+            target.addEventListener('mouseover', (e) => {
             component.classList.add('hovered');
         });
         target.addEventListener('mouseout', (e) => {
@@ -882,10 +887,18 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         });
         atcBtn.addEventListener('click', (e) => {
             component.classList.add('focused');
+            const addToCartButton = atcBtn.querySelector('.button--add-to-cart');
+            if (addToCartButton.style.pointerEvents === 'none') {
+                sizeInput.checked = true;
+              } else {
+                sizeInput.checked = false;
+              }
             atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
             atcBtn.classList.add('ready');
+            if(selectSize.innerHTML.includes('Select Size')) {
+                target.querySelector('.button-msg-add').textContent="Add to Bag";
+            }
         });
-
         const sizeSwatches = target.querySelectorAll('.size-swatch');
         sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
             component.classList.remove('focused');
@@ -928,7 +941,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         swatches.classList.add('slider');
         const sliderWrapper = swatches.parentNode;
         sliderWrapper.setAttribute('data-slide', 4);
-        sliderWrapper.setAttribute('data-slide-mob', 3);
+        sliderWrapper.setAttribute('data-slide-mob', 2);
         sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
         sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
 
@@ -1091,36 +1104,43 @@ window.addEventListener("click", async (e) => {
         };
 
         let prnt = e.target.closest('.product-unit');
-        if(prnt) {
-            prnt.classList.add('adding-to-cart');
-            const select = prnt.querySelector('.variant-select');
-            variant_id = select.value;
-            mod.final = select.options[select.selectedIndex].hasAttribute('data-final-sale');
-            mod.preorder = select.options[select.selectedIndex].getAttribute('data-preorder');
-        } else {
-            variant_id = e.target.getAttribute('data-id');
-            mod.final = e.target.hasAttribute('data-final');
-            mod.preorder = e.target.getAttribute('data-preorder');
-        }
-
-        if(!variant_id) return;
-
-        if(typeof openCart == 'undefined') await activateCart();
-
-        addToCart(variant_id, 1, (data) => {
-            updateCart(data);
-            openCart();
-
-            if(prnt && prnt.classList.contains('adding-to-cart')) {
-                prnt.classList.add('added-to-cart');
-
-                setTimeout(() => {
-                    prnt.classList.remove('added-to-cart');
-                }, 3000);
+        console.log('DOUGLAS')
+        console.log(prnt.classList.contains('product-unit--jw'))
+        if(!prnt.classList.contains('product-unit--jw')) {
+            if(prnt) {
+                prnt.classList.add('adding-to-cart');
+                const select = prnt.querySelector('.variant-select');
+                variant_id = select.value;
+                mod.final = select.options[select.selectedIndex].hasAttribute('data-final-sale');
+                mod.preorder = select.options[select.selectedIndex].getAttribute('data-preorder');
+            } else {
+                variant_id = e.target.getAttribute('data-id');
+                mod.final = e.target.hasAttribute('data-final');
+                mod.preorder = e.target.getAttribute('data-preorder');
             }
-        }, () => {
-            if(prnt) prnt.classList.remove('adding-to-cart');
-        }, mod.final, mod.preorder);
+
+            if(!variant_id) return;
+
+            if(typeof openCart == 'undefined') await activateCart();
+
+            addToCart(variant_id, 1, (data) => {
+                updateCart(data);
+                openCart();
+
+                if(prnt && prnt.classList.contains('adding-to-cart')) {
+                    prnt.classList.add('added-to-cart');
+
+                    setTimeout(() => {
+                        prnt.classList.remove('added-to-cart');
+                    }, 3000);
+                }
+            }, () => {
+                if(prnt) prnt.classList.remove('adding-to-cart');
+            }, mod.final, mod.preorder);
+        } else {
+            let link = prnt.querySelector('.join-waitlist').getAttribute('href')
+            window.location.href = link
+        }
     }
 
     closeAllDropdowns();
@@ -1390,7 +1410,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 swatches.classList.add('slider');
                 const sliderWrapper = swatches.parentNode;
                 sliderWrapper.setAttribute('data-slide', 4);
-                sliderWrapper.setAttribute('data-slide-mob', 3);
+                sliderWrapper.setAttribute('data-slide-mob', 2);
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
 
