@@ -18,12 +18,12 @@
         "0bc689b6-de7a-43f7-93f6-3ac6950da0c7": {
           "type": "form",
           "settings": {
-            "form_type": "klaviyo",
-            "iframe-url": "",
-            "klaviyo_id": "QNrAfr",
+            "form_type": "iframe",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/Bbb\/landing-page",
+            "klaviyo_id": "",
             "vertical_alignment": "center",
-            "height": "300",
-            "height-mobile": "300"
+            "height": "600",
+            "height-mobile": "600"
           }
         }
       },
