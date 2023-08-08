@@ -1048,3 +1048,46 @@ span.shipping-custom-msg {
 .sale-badge-wrapper p {
   margin: 0;
 }
+
+/** css collection description read more **/
+
+.page__description.moreBTN_wrap {
+  overflow: hidden;
+  position: relative;
+  max-height: 50px;
+  animation: fadeIn 3s linear 0s both;
+  -webkit-animation: fadeIn 3s linear 0s both;
+}
+.moreButton {
+  position: absolute;
+  bottom: 5px;
+  overflow: hidden;
+  color: #111;
+  min-height: 20px;
+  height: calc(2200% - 1144px);
+  max-height: 22px;
+  text-align: right;
+  right: 0;
+  padding-left: 32px;
+  background-image: -webkit-gradient(linear,left top,right top,from(hsla(0,0%,100%,0)),color-stop(35%,#fff));
+  background-image: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 35%);
+  letter-spacing: .12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+@media (min-width: 600px){
+  .moreButton {
+      display: none;
+  }
+  .page__description.moreBTN_wrap {
+    max-height: none;
+  }
+}
+.page__description.moreBTN_wrap.showFull {
+  max-height: unset;
+}
+.page__description.moreBTN_wrap.showFull .moreButton{
+  display: none;
+}
+
+/** css collection description read more **/

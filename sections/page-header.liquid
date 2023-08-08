@@ -12,7 +12,10 @@
     </h1>
 
 {% if template contains 'collection' %}
-    <div class="page__description">{{- collection.description -}}</div>
+    <div class="page__description moreBTN_wrap">
+        {{- collection.description -}}
+        <div class="moreButton">...more</div>
+    </div>
 {% else %}
     <div class="page__description">{{- section.settings.text -}}</div>
 {% endif %}
