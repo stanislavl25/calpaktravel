@@ -424,31 +424,6 @@
         document.querySelector('.abandon-container').classList.remove('hidden');
     };
 
-    const endrockExperiment = (experimentId) => {
-        return new Promise((resolve) => {
-          (async () => {
-            if (window.dataLayer) {
-              await window.dataLayer.push({ event: "optimize.activate" });
-            }
-      
-            // Set a timeout to stop checking for the variant after 10 seconds
-            const timeoutId = setTimeout(() => {
-              clearInterval(intervalId);
-              resolve('0');
-            }, 10000);
-      
-            // Use setInterval to check for the variant every 100ms
-            const intervalId = setInterval(() => {
-              if (window.google_optimize !== undefined) {
-                clearInterval(intervalId);
-                clearTimeout(timeoutId);
-                resolve(window.google_optimize.get(experimentId) ?? '0');
-              }
-            }, 100);
-          })();
-        });
-      };
-
     function initExperiment(){
         console.log('Experiment Running: Autodisplay Sidecart');
         fetch('/cart.js')

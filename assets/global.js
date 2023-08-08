@@ -835,9 +835,6 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         const sizesContainer = selects.querySelector('.sizes-container');
         const component = target.querySelector('.product-unit__select--seleted');
         const atcBtn = target.querySelector('.product-unit__button');
-
-        console.log
-
         for (const size in sizes) {
             if(size == '_count') continue;
 
@@ -1871,10 +1868,10 @@ aria.Listbox.prototype.focusItem = function (element) {
   var variant_handle = element.getAttribute('data-producthandle');
   var quickView =  document.querySelector('ul.'+parentUlClass).getAttribute("is-quickview");
   if(quickView == 'false') {
-            location.href = url + '/' + variant_handle;
-    } else {
-            getQuickView(url, variant_handle);
-    }
+      location.href = url + '/' + variant_handle;
+  } else {
+      getQuickView(url, variant_handle);
+  }
   element.classList.add('focused');
   this.listboxNode.setAttribute('aria-activedescendant', element.id);
   this.activeDescendant = element.id;
