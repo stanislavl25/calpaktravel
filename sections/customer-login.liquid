@@ -70,7 +70,7 @@
                 <a href="{{ routes.account_register_url }}" class="transparent-button">Register</a>
             </div>
 
-            {%- if recover_success == true -%}
+            {%- if form.posted_successfully == true -%}
                 <div class="customer__page-cta customer__page-cta--success">
                     We have sent you an e-mail containing your password reset link and instructions. Follow the link to reset your password.
                 </div>
@@ -106,7 +106,7 @@
         "name": "Customer Login",
         "class": "shopify-section--customer-login",
         "settings": [
-        
+
         ]
     }
 {% endschema %}
