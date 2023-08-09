@@ -321,6 +321,7 @@
     }
     .active-filters-nav {
         display: flex;
+        justify-content: space-between;
     }
 
     .collection-filters__inner {
@@ -433,5 +434,14 @@
 
     .collections-menu:empty {
         display: none;
+    }
+    .collection-filters--open .collection-filter__activators,
+    .collection-filters--open .collection-view
+    {
+        display: none;
+    }
+    .active-filters-nav .filter-btns{
+        gap: 15px;
+    display: flex;
     }
 }

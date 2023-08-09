@@ -44,6 +44,10 @@ if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filt
 
     filters.setAttribute('aria-expanded', true);
     filters.classList.add('collection-filters--active');
+
+    const filterbanner = document.querySelector('.collection-filters__control');
+    filterbanner.classList.add('collection-filters--open');
+
 }));
 
 /////////////////////// Filter collections activators ///////////////////////

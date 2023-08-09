@@ -298,7 +298,8 @@
       ],
       "settings": {
         "quick-view": false,
-        "add-to-cart": true
+        "add-to-cart": true,
+        "select_card_layout": "layout2"
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {

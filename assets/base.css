@@ -778,24 +778,6 @@ body.swym-modal-active:not(.modal-open) {
   }
 }
 
-@media (max-width: 400px) {
-  /* CSS styles for screens less than 400px wide */
-  .collection-filter__activators button.filter__activator {
-    font-size: 0.8rem;
-  }
-  .collection-view {
-    font-size: 0.8rem;
-  }
-}
-@media (max-width: 325px) {
-  /* CSS styles for screens less than 325px wide */
-  .collection-filter__activators button.filter__activator {
-    font-size: 0.55rem;
-  }
-  .collection-view {
-    font-size: 0.55rem;
-  }
-}
 .display-none {
   display: none !important;
 }
