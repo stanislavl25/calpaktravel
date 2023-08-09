@@ -1091,3 +1091,11 @@ span.shipping-custom-msg {
 }
 
 /** css collection description read more **/
+
+.yotpo-vip-tiers-container .yotpo-vip-tier {
+  border-radius: 10px;
+}
+
+.yotpo-vip-tiers-widget .yotpo-active .yotpo-vip-current-status {
+  margin-bottom: 10px;
+}
