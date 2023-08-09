@@ -415,7 +415,7 @@
         "button-quick-view": false,
         "button-link": "shopify:\/\/collections\/summer-arrivals",
         "background": "#ff6b0e",
-        "text-color": "{{ shop.brand.colors.primary[1].background }}",
+        "text-color": "#000",
         "accent-color": "#ffffff",
         "pictured-product-display": "top",
         "featured-collection": "new-arrivals",
