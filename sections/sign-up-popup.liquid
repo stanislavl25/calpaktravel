@@ -1,0 +1,32 @@
+{% schema %}
+    {
+        "name": "Sign up popup",
+        "class": "section__sign-up-popup",
+        "settings": [
+            {
+                "type": "text",
+                "id": "klaviyo-id",
+                "label": "Klaviyo Form ID"
+            },
+            {
+                "type": "text",
+                "id": "button-class",
+                "label": "Button class that triggers popup"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Sign up popup"
+            }
+        ]
+    }
+{% endschema %}
+
+<script type="text/javascript">
+    const klaviyoPopup = document.querySelector('[data-testid="klaviyo-form-{{ section.settings.klaviyo-id }}}"]');
+    klaviyoPopup.display="none";
+
+    document.querySelector(".{{ section.settings.button-class }}").addEventListener("click", function (){
+        klaviyoPopup.display="flex"
+    })
+</script>

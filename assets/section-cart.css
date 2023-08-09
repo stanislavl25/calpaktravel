@@ -226,7 +226,7 @@
 }
 
 .cart__items-title {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.25em;
   margin: 0;
 }
@@ -1109,7 +1109,9 @@ border-radius: 8px;
 .cart__item .product-label {
   margin: 6px 0;
 }
-
+.product-unit{
+  margin-bottom: 1rem;
+}
 .cart-page .slider {
   column-gap: 18px;
 }

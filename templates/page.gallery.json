@@ -4,6 +4,7 @@
       "type": "page-header",
       "settings": {
         "title": "We love to see you going places",
+        "display": "both",
         "title-size": "small",
         "text": "<p>Show us how you get there with CALPAK. Tag us @calpak #calpaktravel on <a>Instagram<\/a> and <a href=\"#\">TikTok<\/a> to bring us along for the ride.<\/p>",
         "button-text": "",
@@ -30,13 +31,33 @@
         "height-percent": 20,
         "text-alignment": "left",
         "text-color-scheme": "white",
-        "background": "#c5c5c5"
+        "background": "#c5c5c5",
+        "query-match": true,
+        "yotpo": false,
+        "signed-in-button-text": "",
+        "signed-in-link": ""
+      }
+    },
+    "9e736b42-87eb-41b3-babb-b3df77ad04a5": {
+      "type": "community-gallery-content-block",
+      "disabled": true,
+      "settings": {
+        "video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4",
+        "video_height": 800,
+        "quote": "\"Very cute and functional. I love it! Very unique and cute for a lunch bag but also very spacious and has good insulation.\"",
+        "reviewer": "<p>— ISABEL C.<\/p>",
+        "quote_height": 200,
+        "lifestyle_image_1": "shopify:\/\/shop_images\/Rectangle_3710_9e4b0fa4-6094-4e91-84b5-94c28d364e40.png",
+        "life_style_image_1_height": 349,
+        "lifestyle_image_2": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24525_Hi_1080x_2e18fddf-e2b9-4dc3-bacc-db0a6cbb447e.webp",
+        "life_style_image_2_height": 350
       }
     }
   },
   "order": [
     "page-header",
     "1ac6c6c2-28e6-4d80-aedc-790db9c1f245",
-    "banner"
+    "banner",
+    "9e736b42-87eb-41b3-babb-b3df77ad04a5"
   ]
 }
