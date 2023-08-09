@@ -27,6 +27,17 @@
     min-height: 100%;
 }
 
+@media (max-width: 450px) {
+    .sign-up__form iframe {
+        min-height: unset;
+        height: 400px;
+        position: relative;
+        transform: none;
+    }
+
+
+}
+
 .sign-up__video {
     position: relative;
     background: #000;
@@ -135,7 +146,7 @@
     .sign-up__section--mob-stack {
         flex-direction: column;
     }
-    
+
     .sign-up__section--mob-stack-reverse {
         flex-direction: column-reverse;
     }
@@ -153,7 +164,7 @@
     .sign-up__video--keep-proportions .sign-up__video-container {
         transform: none;
         top: 0;
-    } 
+    }
 
     .sign-up__message-title {
         font-size: 18px;
