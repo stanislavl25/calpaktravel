@@ -309,9 +309,9 @@
           "settings": {
             "dropdown-title": "The Weekend Explorer",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st00613a-35.jpg",
-            "button-text": "",
-            "main-link": "",
-            "pictured_product": "",
+            "button-text": "Shop Weekenders",
+            "main-link": "shopify:\/\/collections\/weekenders",
+            "pictured_product": "shopify:\/\/products\/haven-laptop-tote-bag",
             "product_title": "",
             "product_list": [
               "ambeur-carry-on-luggage",
@@ -327,8 +327,8 @@
             "dropdown-title": "The Long Distance Planner",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0053A-33.jpg",
             "button-text": "Shop Now",
-            "main-link": "shopify:\/\/collections\/2022-essentials",
-            "pictured_product": "",
+            "main-link": "shopify:\/\/collections\/luggage",
+            "pictured_product": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
             "product_title": "",
             "product_list": [
               "ambeur-2-piece-luggage-set",
