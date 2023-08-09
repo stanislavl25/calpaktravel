@@ -1,25 +1,29 @@
-.community-galery-content-block__container {
+.community-gallery-content-block__container {
     padding: 10px;
     margin: 0 auto;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
 }
 
-.community-galery-content-block__container > * {
+.community-gallery-content-block__container > * {
     flex-wrap: wrap;
     overflow: hidden;
     border-radius: 9px;
-    height: 150px;
-    width: 48%;
-    margin: 1%;
+    width: 47%;
+    margin: 1.25%;
     position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.community-gallery-content-block__container > * >*:first-child {
+    margin-bottom: var(--gap);
+}
+
+.community-gallery-content-block__container .video-container {
+    border-radius: 9px;
 }
 
 .curalate-gallery__video video,
-.curalate-gallery__lifestyle-image-1 img,
-.curalate-gallery__lifestyle-image-2 img {
+.curalate-gallery__lifestyle-image img {
     width: 100%;
     border-radius: 9px;
 }
@@ -29,6 +33,7 @@
     border-radius: 9px;
     border: 1px dashed orange;
     line-height: 130%;
+    position: relative;
 }
 
 .curalate-gallery__quote-text {
@@ -48,8 +53,8 @@
         display: block;
     }
 
-    .community-galery-content-block__container > * {
-        width: 98%;
+    .community-gallery-content-block__container > * {
+        width: 97%;
         margin-bottom: var(--gap);
     }
 }
