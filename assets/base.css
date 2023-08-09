@@ -1034,6 +1034,21 @@ span.shipping-custom-msg {
   margin: 0;
 }
 
+/** css privacy policy page **/
+
+.shopify-policy__body h2{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.shopify-policy__body h3{
+  margin-bottom: 15px;
+}
+.shopify-policy__body h1.Polaris-Text--headingMd_lwjt4{
+  display: none;
+}
+
+/** css privacy policy page **/
+
 /** css collection description read more **/
 
 .page__description.moreBTN_wrap {
