@@ -4,12 +4,12 @@
 }
 
 .shopify-section--product-grid .hot-deals-badge.product-label--active {
-    width: 80px;
-    height: 80px;
+    width: 74px;
+    height: 74px;
     font-size: 14px;
-    right: 0px;
-    top: 0;
-    position: inherit;
+    right: 11.01px;
+    top: calc(100% - 85.45px);
+    z-index: 4;
 }
 
 .shopify-section--product-grid .product-link.hot-deals--active img {
