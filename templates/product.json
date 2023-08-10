@@ -492,6 +492,24 @@
             "upsell-accent": "#000000"
           }
         },
+        "f392bb93-4d98-4ed4-b0c9-55810f6a6cfe": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "luka-expandable-laptop-tote"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_164205.jpg",
+            "title": "",
+            "text": "<p>Learn more about Luka Expandable Laptop Tote<\/p>",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "vu7xyzAR0cuuZNvh6Kf8"
+          }
+        },
         "609ee977-939e-4747-af83-eacb42d0ad15": {
           "type": "image-banner",
           "settings": {
@@ -582,6 +600,24 @@
             "live-show-id": "UyPgfTRj5jFKjNalO47r"
           }
         },
+        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "haven-laptop-tote-bag"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_163413.jpg",
+            "title": "",
+            "text": "<p>Learn more about Haven Laptop Tote Bag<\/p>",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "SykX6pHPtWCBoMAh6ivV"
+          }
+        },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
           "disabled": true,
@@ -628,24 +664,6 @@
           "settings": {
             "product_bundle": "{{ product.metafields.custom.bundle_product.value }}"
           }
-        },
-        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1": {
-          "type": "image-banner",
-          "settings": {
-            "product-list": [
-              "haven-laptop-tote-bag"
-            ],
-            "collection-list": [
-
-            ],
-            "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_163413.jpg",
-            "title": "",
-            "text": "<p>Learn more about Haven Laptop Tote Bag<\/p>",
-            "button-text": "Watch Now",
-            "button-url": "",
-            "live-show-id": "SykX6pHPtWCBoMAh6ivV"
-          }
         }
       },
       "block_order": [
@@ -665,16 +683,17 @@
         "fd410b66-3632-41fb-9a75-d309019c7a59",
         "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f",
         "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
+        "f392bb93-4d98-4ed4-b0c9-55810f6a6cfe",
         "609ee977-939e-4747-af83-eacb42d0ad15",
         "026c61b0-4539-4a2f-a594-103373e53f33",
         "fba8edac-a83c-48c9-ba08-22d65938ea46",
         "30269348-dcfa-4428-9971-cb8ddf310676",
         "a65f1e63-d801-46ae-a66f-55f5865a26c5",
+        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7",
-        "97d27d50-9e40-4997-bb24-8d06fe532207",
-        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1"
+        "97d27d50-9e40-4997-bb24-8d06fe532207"
       ],
       "settings": {
         "hide-single-size": true,
