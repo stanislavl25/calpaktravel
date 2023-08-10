@@ -228,6 +228,10 @@
     gap: 30px;
 }
 
+.pdp__info .product-label--disclaimer {
+    display: block!important;
+}
+
 .pdp__breadcrumbs {
     position: absolute;
     top: var(--gap);
@@ -259,7 +263,6 @@
 .pdp__breadcrumbs span {
   color: #000;
 }
-
 
 .pdp__breadcrumbs span:not(:first-child)::before,
 .pdp__breadcrumbs a:not(:first-child)::before {

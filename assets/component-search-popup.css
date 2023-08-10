@@ -156,6 +156,10 @@
     max-height: calc(100vh - 142px);
 }
 
+.menu-popup__content.search-section .product-label--final {
+    display: none!important;
+}
+
 .content-section--stories {
     border-top: 1px dashed #AEAEAE;
     display: none;
@@ -224,7 +228,11 @@
     right: 24px;
 }
 
-/* @media (max-width: 1727px) {
+.search-popup__content .product-label--final {
+    display: none;
+}
+
+@media (max-width: 1727px) {
     .products__grid--flex .product-unit {
         flex: 0 0 calc(20% * 5 / 6);
     }
