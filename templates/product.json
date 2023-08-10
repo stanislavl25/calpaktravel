@@ -40,8 +40,8 @@
         "cta_link_mobile": "none",
         "cta_url_mobile": "",
         "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000",
-        "cta_background_mobile": "#fff",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
@@ -125,8 +125,8 @@
         "cta_link_mobile": "none",
         "cta_url_mobile": "",
         "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000",
-        "cta_background_mobile": "#fff",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
@@ -161,8 +161,8 @@
         "cta_link_mobile": "none",
         "cta_url_mobile": "",
         "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000",
-        "cta_background_mobile": "#fff",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": ""
@@ -197,8 +197,8 @@
         "cta_link_mobile": "none",
         "cta_url_mobile": "",
         "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000",
-        "cta_background_mobile": "#fff",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": ""
@@ -233,8 +233,8 @@
         "cta_link_mobile": "none",
         "cta_url_mobile": "",
         "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000",
-        "cta_background_mobile": "#fff",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": ""
@@ -511,6 +511,23 @@
             "live-show-id": "qGLyId9BJd957hWhUZqT"
           }
         },
+        "026c61b0-4539-4a2f-a594-103373e53f33": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "luka-duffel"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "title": "",
+            "text": "<p>Learn More About Luka Duffel<\/p>",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "oj559WtJIFxszaCpLNWU"
+          }
+        },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
           "disabled": true,
@@ -577,6 +594,7 @@
         "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f",
         "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
         "609ee977-939e-4747-af83-eacb42d0ad15",
+        "026c61b0-4539-4a2f-a594-103373e53f33",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7",
