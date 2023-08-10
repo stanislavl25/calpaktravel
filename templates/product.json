@@ -497,51 +497,18 @@
           "disabled": true,
           "settings": {
             "product-list": [
-              "luka-duffel",
-              "insulated-lunch-bag",
-              "stevyn-duffel",
-              "kaya-laptop-backpack",
-              "haven-laptop-tote-bag",
-              "terra-26l-backpack-duffel",
-              "luka-belt-bag",
-              "luka-key-pouch",
-              "luka-laptop-backpack",
-              "luka-mini-backpack",
-              "luka-mini-belt-bag",
-              "luka-expandable-laptop-tote",
-              "compakt-duffel-bag",
-              "compakt-tote-bag",
-              "car-organizer",
-              "water-bottle-holder",
-              "hue-duffel",
-              "packing-cubes-5-piece-set",
-              "large-clear-cosmetic-case",
-              "medium-clear-cosmetics-case",
-              "small-clear-cosmetics-case",
-              "tech-organizer",
-              "medium-compression-packing-cubes",
-              "compakt-large-garment-bag",
-              "compakt-small-garment-bag",
-              "power-luggage-tag",
-              "jewelry-case",
-              "hue-carry-on-luggage-with-pocket",
-              "ambeur-carry-on-luggage",
-              "hue-carry-on-luggage",
-              "ambeur-mini-carry-on-luggage",
-              "hue-mini-carry-on-luggage",
-              "luka-mini-carry-on-luggage",
-              "trnk-mini-carry-on-luggage"
+              "kaya-laptop-backpack"
             ],
             "collection-list": [
-              "mothers-day"
+
             ],
             "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/Frame_35_3.png",
-            "title": "Mother's Day Live Event",
-            "text": "<p>Buy 2+ eligible products and get 15% OFF<\/p><p><\/p>",
+            "image": "shopify:\/\/shop_images\/chrome_oNtIWY4af0.png",
+            "title": "Watch Now",
+            "text": "<p>Learn More About Kaya Laptop Backpack<\/p><p><\/p>",
             "button-text": "Watch Now",
-            "button-url": "shopify:\/\/collections\/mothers-day",
-            "live-show-id": "g1uCrKHQO89bR8znTmpY"
+            "button-url": "",
+            "live-show-id": "qGLyId9BJd957hWhUZqT"
           }
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
