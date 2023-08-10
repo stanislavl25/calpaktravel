@@ -494,7 +494,6 @@
         },
         "609ee977-939e-4747-af83-eacb42d0ad15": {
           "type": "image-banner",
-          "disabled": true,
           "settings": {
             "product-list": [
               "kaya-laptop-backpack"
