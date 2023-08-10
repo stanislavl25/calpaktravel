@@ -506,9 +506,7 @@
     padding-left: 5px;
 }
 .card-layout2 .product-unit__wishlist .wishlist__button{
-    position: relative;
-    right: 0;
-    top: 0;
+    right: 21px;
 }
 .card-layout2 .product-unit__colors--all .round-icon--next {
     right: -6px;
@@ -832,6 +830,9 @@ section.featured-col__lists.tabs__target .product-unit__button .button--add-to-c
     }
     .button--add-to-cart .product-unit__row {
         display: none;
+    }
+    .card-layout2 .product-unit__wishlist .wishlist__button{
+        right: 10px;
     }
 }
 
