@@ -504,7 +504,7 @@
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/chrome_oNtIWY4af0.png",
             "title": "",
-            "text": "<p>Learn More About Kaya Laptop Backpack<\/p><p><\/p>",
+            "text": "<p>Learn more about Kaya Laptop Backpack<\/p><p><\/p>",
             "button-text": "Watch Now",
             "button-url": "",
             "live-show-id": "qGLyId9BJd957hWhUZqT"
@@ -522,7 +522,7 @@
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_161809.jpg",
             "title": "",
-            "text": "<p>Learn More About Luka Duffel<\/p>",
+            "text": "<p>Learn more about Luka Duffel<\/p>",
             "button-text": "Watch Now",
             "button-url": "",
             "live-show-id": "oj559WtJIFxszaCpLNWU"
@@ -540,7 +540,7 @@
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_162152.jpg",
             "title": "",
-            "text": "<p>Learn More About Tech Organizer<\/p>",
+            "text": "<p>Learn more about Tech Organizer<\/p>",
             "button-text": "Watch Now",
             "button-url": "",
             "live-show-id": ""
@@ -558,10 +558,28 @@
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_162606.jpg",
             "title": "",
-            "text": "<p>Learn More About Insulated Lunch Bag<\/p>",
+            "text": "<p>Learn more about Insulated Lunch Bag<\/p>",
             "button-text": "Watch Now",
             "button-url": "",
             "live-show-id": "gj3eCgxbgZJ1SN5nx9GF"
+          }
+        },
+        "a65f1e63-d801-46ae-a66f-55f5865a26c5": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "luka-laptop-backpack"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_163007.jpg",
+            "title": "",
+            "text": "<p>Learn more about Luka Laptop Backpack<\/p>",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "UyPgfTRj5jFKjNalO47r"
           }
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
@@ -611,22 +629,21 @@
             "product_bundle": "{{ product.metafields.custom.bundle_product.value }}"
           }
         },
-        "a65f1e63-d801-46ae-a66f-55f5865a26c5": {
+        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1": {
           "type": "image-banner",
           "settings": {
             "product-list": [
-              "luka-laptop-backpack"
+              "haven-laptop-tote-bag"
             ],
             "collection-list": [
 
             ],
             "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_163007.jpg",
             "title": "",
-            "text": "<p>Learn more about Luka Laptop Backpack<\/p>",
+            "text": "<p>Learn more about Haven Laptop Tote Bag<\/p>",
             "button-text": "Watch Now",
             "button-url": "",
-            "live-show-id": "UyPgfTRj5jFKjNalO47r"
+            "live-show-id": "SykX6pHPtWCBoMAh6ivV"
           }
         }
       },
@@ -651,11 +668,12 @@
         "026c61b0-4539-4a2f-a594-103373e53f33",
         "fba8edac-a83c-48c9-ba08-22d65938ea46",
         "30269348-dcfa-4428-9971-cb8ddf310676",
+        "a65f1e63-d801-46ae-a66f-55f5865a26c5",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7",
         "97d27d50-9e40-4997-bb24-8d06fe532207",
-        "a65f1e63-d801-46ae-a66f-55f5865a26c5"
+        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1"
       ],
       "settings": {
         "hide-single-size": true,
