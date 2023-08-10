@@ -243,16 +243,6 @@
     "product-template": {
       "type": "product-template",
       "blocks": {
-        "ef919b9c-2309-4d2f-a855-59983014b88b": {
-          "type": "flash-sale",
-          "settings": {
-          }
-        },
-        "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
-          "type": "variants",
-          "settings": {
-          }
-        },
         "38dd47f4-7ad6-4f58-9949-bd511635652e": {
           "type": "title",
           "settings": {
@@ -263,6 +253,16 @@
               "medium-clear-cosmetics-case",
               "tech-organizer"
             ]
+          }
+        },
+        "ef919b9c-2309-4d2f-a855-59983014b88b": {
+          "type": "flash-sale",
+          "settings": {
+          }
+        },
+        "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
+          "type": "variants",
+          "settings": {
           }
         },
         "3f584821-31db-42cb-941c-f61866a361a0": {
@@ -593,9 +593,9 @@
         }
       },
       "block_order": [
+        "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "ef919b9c-2309-4d2f-a855-59983014b88b",
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
-        "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "3f584821-31db-42cb-941c-f61866a361a0",
         "db84d3cc-deea-45c6-a0ee-81ddf2509239",
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f",
