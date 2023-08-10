@@ -618,6 +618,24 @@
             "live-show-id": "SykX6pHPtWCBoMAh6ivV"
           }
         },
+        "5235966f-ad49-4a8f-88b5-cadc961afccf": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "tablet-tech-organizer"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_164528.jpg",
+            "title": "",
+            "text": "<p>Learn more about Tablet Tech Organizer<\/p>",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "Aov2lJ8yJWUJg1cY5oAO"
+          }
+        },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
           "type": "image-banner",
           "disabled": true,
@@ -665,22 +683,22 @@
             "product_bundle": "{{ product.metafields.custom.bundle_product.value }}"
           }
         },
-        "5235966f-ad49-4a8f-88b5-cadc961afccf": {
+        "c3543abc-88ae-4b6d-ba65-6eb5a6e62023": {
           "type": "image-banner",
           "settings": {
             "product-list": [
-              "tablet-tech-organizer"
+              "terra-26l-backpack-duffel"
             ],
             "collection-list": [
 
             ],
             "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_164528.jpg",
+            "image": "shopify:\/\/shop_images\/Screenshot_2023-08-10_164807.jpg",
             "title": "",
-            "text": "<p>Learn more about Tablet Tech Organizer<\/p>",
+            "text": "<p>Learn more about Terra 26L Laptop Backpack Duffel<\/p>",
             "button-text": "Watch Now",
             "button-url": "",
-            "live-show-id": "Aov2lJ8yJWUJg1cY5oAO"
+            "live-show-id": "4waGHtmzHjVQvqZYGpdA"
           }
         }
       },
@@ -708,11 +726,12 @@
         "30269348-dcfa-4428-9971-cb8ddf310676",
         "a65f1e63-d801-46ae-a66f-55f5865a26c5",
         "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1",
+        "5235966f-ad49-4a8f-88b5-cadc961afccf",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7",
         "97d27d50-9e40-4997-bb24-8d06fe532207",
-        "5235966f-ad49-4a8f-88b5-cadc961afccf"
+        "c3543abc-88ae-4b6d-ba65-6eb5a6e62023"
       ],
       "settings": {
         "hide-single-size": true,
