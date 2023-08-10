@@ -4,6 +4,7 @@
       "type": "page-header",
       "settings": {
         "title": "Refer a Friend",
+        "display": "both",
         "title-size": "small",
         "text": "",
         "button-text": "",
@@ -15,8 +16,6 @@
       "settings": {
         "title": "Give $25, Get $25",
         "content": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get 500 points ($25) for each successful referral! Keep referring friends, and keep stacking credit.<\/p>",
-        "title": "Refer a Friend",
-        "content": "<p>Send a friend $25 off their first qualifying CALPAK order ($150+), and you'll get 500 points ($25) for each successful referral! Keep referring friends, and keep stacking credit.<\/p>",
         "image": "shopify:\/\/shop_images\/WEB_IMAGE_REFER-A-FRIEND_MOBILE.jpg"
       }
     }
@@ -26,4 +25,3 @@
     "page-refer"
   ]
 }
-

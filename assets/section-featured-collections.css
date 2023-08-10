@@ -33,10 +33,6 @@
     margin-bottom: var(--gap);
 }
 
-.shopify-section--pdp-featured div#product-card__ {
-    margin-bottom: 0!important;
-}
-
 .shopify-section--pdp-featured .product-unit:not(.product-unit--loaded) .product-unit__image img {
     display: none;
 }

@@ -5,15 +5,13 @@
       "blocks": {
         "a8423ff2-0c56-4c37-9b0c-44abd997cd52": {
           "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
         "a8423ff2-0c56-4c37-9b0c-44abd997cd52"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "faq": {
       "type": "wonderment-faq",
@@ -174,9 +172,7 @@
           "type": "collection",
           "settings": {
             "collection": "best-sellers-for-the-homepage",
-            "title": "You May Also LIke",
-            "hide-form-labels": false,
-            "dont-hide-flash-sale": true
+            "title": "You May Also LIke"
           }
         }
       },
@@ -210,21 +206,6 @@
         "background-color": "#f7f177"
       }
     },
-    "6f0d173c-5c22-4941-8991-d12dff090640": {
-      "type": "banner",
-      "settings": {
-        "title": "",
-        "text": "",
-        "button-text": "",
-        "link": "",
-        "link-for-button": false,
-        "height": "image",
-        "height-percent": 50,
-        "text-alignment": "left",
-        "text-color-scheme": "white",
-        "background": "#e4dfd5"
-      }
-    },
     "c42e716c-2167-4137-99f9-b1659668d08f": {
       "type": "featured-collections",
       "blocks": {
@@ -233,36 +214,28 @@
           "disabled": true,
           "settings": {
             "collection": "luggage-sets",
-            "title": "Luggage",
-            "hide-form-labels": false,
-            "dont-hide-flash-sale": true
+            "title": "Luggage"
           }
         },
         "402374fa-d84c-4a1e-a483-4e94e7b612dd": {
           "type": "collection",
           "settings": {
             "collection": "organizers",
-            "title": "Organizers",
-            "hide-form-labels": false,
-            "dont-hide-flash-sale": true
+            "title": "Organizers"
           }
         },
         "0b074500-02ca-43f5-90b4-4356eeddc8ae": {
           "type": "collection",
           "settings": {
             "collection": "bags",
-            "title": "Bags",
-            "hide-form-labels": false,
-            "dont-hide-flash-sale": true
+            "title": "Bags"
           }
         },
         "d78a452e-222d-401d-823d-71638a9c5052": {
           "type": "collection",
           "settings": {
             "collection": "accessories",
-            "title": "Accessories",
-            "hide-form-labels": false,
-            "dont-hide-flash-sale": true
+            "title": "Accessories"
           }
         }
       },
@@ -285,7 +258,6 @@
     "fairing",
     "f3f4e5ae-2891-45a7-b420-03d796dce663",
     "4391c69e-487c-4b92-87ea-ec7adeef2d2c",
-    "6f0d173c-5c22-4941-8991-d12dff090640",
     "c42e716c-2167-4137-99f9-b1659668d08f"
   ]
 }

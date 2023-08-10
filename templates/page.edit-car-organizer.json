@@ -4,7 +4,6 @@
       "type": "page-header",
       "settings": {
         "title": "The Car Organizer: It Gets You There Without The Mess",
-        "display": "both",
         "title-size": "medium",
         "text": "",
         "button-text": "",
@@ -32,7 +31,6 @@
       "type": "page-header",
       "settings": {
         "title": "",
-        "display": "both",
         "title-size": "small",
         "text": "<p>According to a study conducted by the Harvard Health Watch, Americans spend roughly 101 minutes in their car every day, which adds up to about 615 hours every year. With a busy schedule and a lot of movement, it can be really hard to keep your car and your personal items in a neat and organized condition.<br\/><br\/>The tangled jumper cables you know you shouldn't remove, the toolbox your dad gave you, and the beach towel you always have \"just in case,\" have a place to live now: in the Car Organizer. The Car Organizer is your back seat, front seat, middle seat, and trunk companion, making road trips, every day trips, and commutes feel like a breeze.<\/p>",
         "button-text": "",
@@ -48,15 +46,13 @@
             "title": "Grocery buddy",
             "description": "<p>Reusable bags have been our best friend this year, but the Car Organizer brought us home. If you've ever made a sharp turn and heard the tell-tale sign of fruits and vegetables rolling around, then look no further. Your back seats will thank you later.<\/p>",
             "button-text": "Shop now",
-            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/dune",
-            "description-2": ""
+            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/dune"
           }
         },
         "a87d873e-9354-43ee-b0e6-1e4e71d48e03": {
           "type": "product",
           "settings": {
-            "product": "car-organizer",
-            "show-add-to-cart": false
+            "product": "car-organizer"
           }
         },
         "1b775b70-f16b-4f85-a218-760455abe4b0": {
@@ -81,8 +77,7 @@
         "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
           "type": "product",
           "settings": {
-            "product": "car-organizer",
-            "show-add-to-cart": false
+            "product": "car-organizer"
           }
         },
         "999f1999-abe3-4175-b42f-0de5ff5d695e": {
@@ -97,8 +92,7 @@
             "title": "Dog days are here",
             "description": "<p>A day at the beach, a day at the park, or a day on the road is so much better with the Car Organizer. With a wipeable, water-resistant interior, you can take this baby on all your outdoor adventures and still keep your car interior nice and neat.<\/p>",
             "button-text": "Shop now",
-            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/slate",
-            "description-2": ""
+            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/slate"
           }
         }
       },
@@ -123,8 +117,7 @@
         "a287b1a0-8211-4968-8c6e-cf978c7ca164": {
           "type": "product",
           "settings": {
-            "product": "car-organizer",
-            "show-add-to-cart": false
+            "product": "car-organizer"
           }
         },
         "7660996b-e6c8-47ca-975e-231768f160cd": {
@@ -133,8 +126,7 @@
             "title": "Mom on the move",
             "description": "<p>Instead of having three to four different bags holding all of your on-the-go essentials, we give you one: the Car Organizer. With each compartment having two mesh pockets on either side, you can stay organized and prepared. Nothing needs to be left behind.<\/p>",
             "button-text": "Shop Now",
-            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/maroon",
-            "description-2": ""
+            "button-link": "https:\/\/www.calpaktravel.com\/products\/car-organizer\/maroon"
           }
         }
       },
@@ -240,74 +232,6 @@
       "settings": {
         "background-color": "#f7f177"
       }
-    },
-    "64cd1497-deec-4cf6-b45c-9ee50968e1c3": {
-      "type": "section-blog-image-text-feature",
-      "blocks": {
-        "1a475480-4222-42b6-a69c-8b32ee19a630": {
-          "type": "link",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/CAR-ORGANIZER-DAISY-LIFESTYLE2.jpg",
-            "title": "title 1",
-            "description": "<p>sfsfsdfsdfd<\/p>"
-          }
-        },
-        "7db9067f-032c-4d47-9e09-e394f06cf3ab": {
-          "type": "link",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/AMBEUR-VANITY-CASE-COPPER-LIFESTYLE1.jpg",
-            "title": "title 2",
-            "description": "<p>fsdfsdfsdfs sfsefsdf sfdsvds ddsdsfsdfsd f<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "1a475480-4222-42b6-a69c-8b32ee19a630",
-        "7db9067f-032c-4d47-9e09-e394f06cf3ab"
-      ],
-      "settings": {
-        "title": "testing",
-        "gap": true
-      }
-    },
-    "a7fbeebe-cc5f-485e-a806-2adfe7a77478": {
-      "type": "section-blog-text-product-feature",
-      "blocks": {
-        "0941192e-7ebb-4256-a575-3ad689850aa3": {
-          "type": "text",
-          "settings": {
-            "title": "tiutlead ask",
-            "text": "<p>Experience the Thrill of Trying Anything!<\/p>",
-            "background-color": "#6aabb6"
-          }
-        },
-        "bfcb8a7a-7d57-48d8-8480-ea29d8475803": {
-          "type": "product",
-          "settings": {
-            "product": "ambeur-large-luggage"
-          }
-        },
-        "16fce86a-c84a-43cc-841b-dbf0d68077f1": {
-          "type": "product",
-          "settings": {
-            "product": "car-organizer"
-          }
-        },
-        "d3f22aa8-568d-4ddc-918a-3a4c8588fe75": {
-          "type": "product",
-          "settings": {
-            "product": "ambeur-mini-carry-on-luggage"
-          }
-        }
-      },
-      "block_order": [
-        "0941192e-7ebb-4256-a575-3ad689850aa3",
-        "bfcb8a7a-7d57-48d8-8480-ea29d8475803",
-        "16fce86a-c84a-43cc-841b-dbf0d68077f1",
-        "d3f22aa8-568d-4ddc-918a-3a4c8588fe75"
-      ],
-      "settings": {
-      }
     }
   },
   "order": [
@@ -320,8 +244,6 @@
     "5372914e-497a-472d-afe7-6eff29c2227b",
     "527e243a-89fe-4b09-a1c3-6f94af8ccc86",
     "6d36577b-6bf7-41d0-9fd0-c2663c060865",
-    "02c6670f-9b20-4c50-900b-68043f886691",
-    "64cd1497-deec-4cf6-b45c-9ee50968e1c3",
-    "a7fbeebe-cc5f-485e-a806-2adfe7a77478"
+    "02c6670f-9b20-4c50-900b-68043f886691"
   ]
 }

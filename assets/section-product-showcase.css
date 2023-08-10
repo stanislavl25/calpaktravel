@@ -59,10 +59,6 @@
     font-weight: 400;
 }
 
-.product-showcase .product-label--final {
-    display: none;
-}
-
 @media (max-width: 900px) {
     .product-showcase {
         display: flex;
