@@ -94,8 +94,7 @@
     top: 35px;
 }
 
-.shopify-section--pdp-featured .product-label--promo,
-.shopify-section--pdp-featured .product-label--final {
+.shopify-section--pdp-featured .product-label--promo {
     display: none;
 }
 .slider .product-label--badge.product-label--badge-collection-page {

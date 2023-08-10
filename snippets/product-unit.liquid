@@ -2,7 +2,6 @@
     assign product = product-unit
     assign hotDealsTag = false
     assign hotDealsVariants = false
-    assign finalSale = false
 
     if product.product != blank
         assign product = product.product
@@ -111,30 +110,6 @@
         endfor
     endif
 
-    if settings.final-sale-text == true
-        assign disclaimerTagHandle = settings.product-disclaimer-tag | handleize
-        for tag in product.tags
-            assign tagSpl = tag | split: ':'
-            assign handle = tagSpl[0] | handleize
-
-            if 'final-sale' == handle
-                if tagSpl.size == 1
-                    assign finalSale = true
-                else
-                    assign finalSale = tagSpl[1] | downcase | split: ';'
-                endif
-            endif
-            
-            if disclaimerTagHandle == handle
-                if tagSpl.size == 1
-                    assign disclaimer = true
-                else
-                    assign disclaimer = tagSpl[1] | downcase | split: ';'
-                endif
-            endif
-        endfor
-    endif
-
     if settings.sale-badge-tag == blank
             assign saleBadge = true
         else
@@ -150,22 +125,6 @@
                 endif
             endfor
     endif
-
-    if settings.final-sale-text
-        for tag in product.tags
-            assign tagSpl = tag | split: ':'
-            assign handle = tagSpl[0] | handleize
-
-            if 'final-sale' == handle
-                if tagSpl.size == 1
-                    assign finalSale = true
-                else
-                    assign finalSale = tagSpl[1] | downcase | split: ';'
-                endif
-            endif
-        endfor
-    endif
-
     if settings.sale-badge-tag-bundle == blank
             assign saleBadge-bundle = true
         else
@@ -194,7 +153,6 @@
         else if timeLeft < 0
             assign countdownTimer = false
         endif
-    endif
     endif
 -%}
 
@@ -380,7 +338,7 @@
       {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
             render 'flash-sale-label', current_variant: current_variant, product: product
-            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true, add_to_cart: add_to_cart
+            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
         endif
     -%}
 
