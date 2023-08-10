@@ -105,6 +105,10 @@
     transition: opacity 0.2s;
 }
 
+.product-grid--breakdown.product-grid--gap .product-unit__wishlist .wishlist__button {
+    top: 3px;
+}
+
 .wishlist__button * {
     pointer-events: none;
 }

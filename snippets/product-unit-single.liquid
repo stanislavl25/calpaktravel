@@ -308,11 +308,16 @@
             <div class="product-unit__colors--quickadd"></div>
             <div class="product-unit__button">
               <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
-                <div class="button-msg-add">Add to Bag - </div>
+                <div class="button-msg-add">Add to Bag</div>
                 <div class="button-msg-adding">Adding...</div>
                 <div class="button-msg-added">Added!</div>
                 <div class="button-msg-so">Sold Out</div>
-                <div class="button-msg-jw">Join Waitlist</div>
+                <div class="button-msg-jw">
+                  <a
+                    class="join-waitlist product-link"
+                    style="text-decoration: none"
+                    href="{{ product.url }}">Join Waitlist</a>
+                </div>
               </button>
             </div>
           {%- endif -%}
