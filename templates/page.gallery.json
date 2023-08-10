@@ -40,17 +40,41 @@
     },
     "9e736b42-87eb-41b3-babb-b3df77ad04a5": {
       "type": "community-gallery-content-block",
-      "disabled": true,
+      "blocks": {
+        "5365f0b5-bfbb-4ef2-b688-ad1a7a9cf768": {
+          "type": "video",
+          "settings": {
+            "video1": "https:\/\/vimeo.com\/847464826"
+          }
+        },
+        "4bc21976-4376-4e67-88f7-46b8f5fb3724": {
+          "type": "quote",
+          "settings": {
+            "quote": "CALPAK has the most functional everyday bag on the market",
+            "reviewer": "<p>Ashley Purchased: <a href=\"\/products\/luka-belt-bag\" title=\"Luka Belt Bag\">Luka Belt Bag<\/a><\/p>",
+            "quote_height": 200
+          }
+        },
+        "5b7ef5e7-9a58-47ef-ad44-deec212988e9": {
+          "type": "lifestyle_image",
+          "settings": {
+            "lifestyle_image": "shopify:\/\/shop_images\/which-toiletry-bag-is-right-for-you.jpg"
+          }
+        },
+        "836b8d07-9b2f-42c3-b3c5-2964040f7d7d": {
+          "type": "lifestyle_image",
+          "settings": {
+            "lifestyle_image": "shopify:\/\/shop_images\/EASILY-SLIPS-ON-CALPAK-LUGGAGE.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "5365f0b5-bfbb-4ef2-b688-ad1a7a9cf768",
+        "4bc21976-4376-4e67-88f7-46b8f5fb3724",
+        "5b7ef5e7-9a58-47ef-ad44-deec212988e9",
+        "836b8d07-9b2f-42c3-b3c5-2964040f7d7d"
+      ],
       "settings": {
-        "video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4",
-        "video_height": 800,
-        "quote": "\"Very cute and functional. I love it! Very unique and cute for a lunch bag but also very spacious and has good insulation.\"",
-        "reviewer": "<p>— ISABEL C.<\/p>",
-        "quote_height": 200,
-        "lifestyle_image_1": "shopify:\/\/shop_images\/Rectangle_3710_9e4b0fa4-6094-4e91-84b5-94c28d364e40.png",
-        "life_style_image_1_height": 349,
-        "lifestyle_image_2": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24525_Hi_1080x_2e18fddf-e2b9-4dc3-bacc-db0a6cbb447e.webp",
-        "life_style_image_2_height": 350
       }
     }
   },
