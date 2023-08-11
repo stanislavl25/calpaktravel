@@ -155,3 +155,17 @@
         flex: 0 0 75%;
       }
 }
+
+.hide--desktop {
+    display: none !important;
+  }
+
+  @media (max-width: 900px) {
+    .hide--desktop {
+      display: block !important;
+    }
+
+    .hide--mobile {
+      display: none !important;
+    }
+  }

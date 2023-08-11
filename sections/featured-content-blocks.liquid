@@ -72,9 +72,9 @@
         {%- if block.settings.button-text != blank -%}
         <div class="floating-link">
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                <span class="hide--mobile">{{- section.settings.button-text | strip_html | escape -}}</span>
+                <span class="hide--mobile">Shop Now</span>
                 {% assign temp = block.settings.product_title | split: ' ' %}
-                <span class="hide--desktop">Shop {{ temp[0] }}</span>
+                <span class="hide--desktop">Shop {{ block.settings.product_title }}</span>
             </a>
 
             {% if block.settings.product_title != blank %}

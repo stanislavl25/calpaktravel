@@ -42,6 +42,7 @@
   .content-blocks--mobile-stacked .floating-link .button:not(:last-child) {
     width: 100%;
     margin: 0;
+    font-weight: bold;
   }
 
   .content-blocks--mobile-stacked .floating-link__pictured {
