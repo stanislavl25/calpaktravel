@@ -17,7 +17,7 @@
     else
         assign size_m = '80vw'
     endif
-    
+
     assign size = '(min-width: 901px) ' | append: size_d | append: ', ' | append: size_m
 -%}
 {% for block in section.blocks %}
@@ -72,7 +72,9 @@
         {%- if block.settings.button-text != blank -%}
         <div class="floating-link">
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                <span>{{- block.settings.button-text | escpe -}}</span>
+                <span class="hide--mobile">{{- section.settings.button-text | strip_html | escape -}}</span>
+                {% assign temp = block.settings.product_title | split: ' ' %}
+                <span class="hide--desktop">Shop {{ temp[0] }}</span>
             </a>
 
             {% if block.settings.product_title != blank %}

@@ -1099,4 +1099,18 @@ span.shipping-custom-msg {
 img.accessibility-img{
   margin: 0px !important;
 }
-/** end Page CALPAK Accessibility Statement **/	
+/** end Page CALPAK Accessibility Statement **/
+
+.hide--desktop {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .hide--desktop {
+    display: block;
+  }
+
+  .hide--mobile {
+    display: none;
+  }
+}
