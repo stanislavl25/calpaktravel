@@ -903,7 +903,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Free standard shipping on all orders!*<\/p>",
+              "content": "<p>Free standard shipping on all orders!* ((coundown))<\/p>",
               "url": "",
               "background": "#f7f177",
               "text-color": ""
@@ -917,7 +917,7 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>10% off back-to-school bags ((coundown))<\/p>",
+              "content": "<p>10% off back-to-school bags<\/p>",
               "url": "shopify:\/\/collections\/back-to-school",
               "background": "#f7f177",
               "text-color": ""
