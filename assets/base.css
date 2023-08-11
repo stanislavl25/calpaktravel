@@ -1099,4 +1099,31 @@ span.shipping-custom-msg {
 img.accessibility-img{
   margin: 0px !important;
 }
-/** end Page CALPAK Accessibility Statement **/	
+/** end Page CALPAK Accessibility Statement **/
+
+.free-gift__selector-product .hot-deals-badge.product-label--active,
+.free-gift__selector-product .product-label--final {
+  display: none !important;
+}
+
+.free-gift__selector .product-unit__colors--quickadd:before {
+  margin-top: 0;
+  left: -80px;
+}
+
+.free-gift__selector-product .product-unit--quickadd .product-unit__colors--all {
+  margin-bottom: 0;
+}
+
+.free-gift__selector-product .product-unit__colors--all .round-icon--next {
+  right: -20px;
+}
+
+.free-gift__selector-product .product-unit__swatches-container {
+  left: 30px;
+}
+
+.free-gift__selector-product .product-unit__colors--all .round-icon--prev {
+  left: -25px;
+}
+
