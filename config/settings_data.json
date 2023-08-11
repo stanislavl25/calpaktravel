@@ -446,6 +446,7 @@
           },
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Use code: BACKTOIT to get 10% off <a href=\"\/collections\/back-to-school\" title=\"Back to School\">Back To School Items!<\/a><\/p>",
               "only-for-guests": false
