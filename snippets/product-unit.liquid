@@ -125,6 +125,22 @@
                 endif
             endfor
     endif
+
+    if settings.final-sale-text
+        for tag in product.tags
+            assign tagSpl = tag | split: ':'
+            assign handle = tagSpl[0] | handleize
+
+            if 'final-sale' == handle
+                if tagSpl.size == 1
+                    assign finalSale = true
+                else
+                    assign finalSale = tagSpl[1] | downcase | split: ';'
+                endif
+            endif
+        endfor
+    endif
+
     if settings.sale-badge-tag-bundle == blank
             assign saleBadge-bundle = true
         else
@@ -229,7 +245,6 @@
               </div>
             </div>
           {%- endif -%}
-
         {%- endfor -%}
       {% endif %}
 
@@ -292,6 +307,13 @@
 
     <div class="product-unit__colors--quickadd"></div>
 
+    {%- if finalSale != false -%}
+      <div class="product-label product-label--final {% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
+          {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
+          <strong>This item is Final Sale</strong>
+      </div>
+    {%- endif -%}
+
     <div class="product-unit__main-content">
       <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
         <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
@@ -338,7 +360,7 @@
       {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
             render 'flash-sale-label', current_variant: current_variant, product: product
-            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
+            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true, add_to_cart: add_to_cart
         endif
     -%}
 

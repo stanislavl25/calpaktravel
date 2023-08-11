@@ -449,6 +449,11 @@
     opacity: 0;
 } */
 
+.product-label:not(.product-label--active).product-label--preorder,
+.product-label:not(.product-label--active)[data-options] {
+    display: none;
+}
+
 .button-msg-adding,
 .button-msg-added,
 .button-msg-jw,
