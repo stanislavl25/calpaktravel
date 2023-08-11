@@ -677,13 +677,13 @@
           "disabled": true,
           "settings": {
             "product-list": [
-
+              "silk-travel-set"
             ],
             "collection-list": [
               "all"
             ],
-            "show-for-all": true,
-            "image": "shopify:\/\/shop_images\/IMG_9016-2_1.jpg",
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Video.png",
             "title": "Watch Live Demo",
             "text": "<p>Learn how to get a FREE Luka Key Pouch on your next order<\/p><p><\/p>",
             "button-text": "Tune In Now",
