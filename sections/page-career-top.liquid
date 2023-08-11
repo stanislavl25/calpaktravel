@@ -5,7 +5,7 @@
       <img class="image-hero__image hide--mobile" src="{{ section.settings.main_image | img_url: 'master' }}">
       <img class="image-hero__image hide--desktop" src="{{ section.settings.main_image_mobile | img_url: 'master' }}">
     </div>
-    <a href="#grnhse_app" class="open-position__btn">
+    <a href="#" id="job_board_btn" class="open-position__btn">
       <span>Open Positions</span>
       {% render 'icon-arrow-down' %}
     </a>
@@ -33,6 +33,16 @@
     </div>
   {% endfor %}
 </div>
+
+<script>
+ const jobBtn = document.getElementById('job_board_btn');
+ jobBtn.addEventListener('click', function(e){
+  e.preventDefault();
+  document.querySelector('#grnhse_app').scrollIntoView({
+      behavior: 'smooth'
+  });
+ })
+</script>
 
 
 {% schema %}
