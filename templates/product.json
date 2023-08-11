@@ -539,8 +539,8 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_3.jpg",
-            "title": "",
-            "text": "<p>Learn more about Luka Duffel<\/p>",
+            "title": "Learn more about Luka Duffel",
+            "text": "",
             "button-text": "Watch Now",
             "button-url": "",
             "live-show-id": "oj559WtJIFxszaCpLNWU"
