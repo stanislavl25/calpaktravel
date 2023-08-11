@@ -172,14 +172,15 @@ function gamificationInit() {
 
 function setFreeGiftsByProduct(items) {
 
-    console.log('freegiftsselector');
+
+
     document.querySelectorAll(`.free-gift__selector`).forEach(selector => selector.classList.remove('free-gift__selector--active'));
     document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--complete');
 
     // If any gift disable choose gifts
     const gifts_in_cart = items.filter( item => item.properties?._gift == 'true');
     if(gifts_in_cart.length) {
-        console.log('freegiftsselector has gift');
+
         document.querySelectorAll(`.free-gift__selector`).forEach(selector => selector.classList.add('free-gift__selector--applied'));
         document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--reached');
         document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--complete');
@@ -197,7 +198,7 @@ function setFreeGiftsByProduct(items) {
         document.querySelector('.cart__gam-verbose').innerHTML = current_message;
         document.querySelector(".cart__gam-verbose--gift").innerHTML = "";
     } else {
-        console.log('freegiftsselector needs gift');
+
         if(settings.cartGamification.gifts.length){
             for(let x in settings.cartGamification.gifts) {
                 //const giftKey = items.find(item => item.product_id == settings.cartGamification.gifts[x].key);
@@ -249,7 +250,7 @@ function setFreeGiftsByProduct(items) {
 
 function validateGifts () {
 
-    console.log(cartItems);
+
 
     let clean_items = {};
     const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true' && item.properties?._related != null);
@@ -384,8 +385,7 @@ function setGamificationProducts( gifts ) {
                     }
                 }
             } else {
-                console.log("recalc gift products");
-                console.log(cartItems);
+
                 validateGifts(cartItems);
                 // Free gifts
                 setFreeGiftsByProduct(cartItems);
@@ -397,7 +397,8 @@ function setGamificationProducts( gifts ) {
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
 
-    console.log("gaminication progress recalculate");
+
+
     /*
         !!!!!!!!!!!!!!!!!!
         CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
