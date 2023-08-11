@@ -1091,3 +1091,12 @@ span.shipping-custom-msg {
 }
 
 /** css collection description read more **/
+
+/** start Page CALPAK Accessibility Statement **/
+.text-center{
+  text-align: center !important;
+}
+img.accessibility-img{
+  margin: 0px !important;
+}
+/** end Page CALPAK Accessibility Statement **/	
