@@ -4,7 +4,7 @@ let cartShippingGift = document.querySelector('.cart__gamification-gifts');
 function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false) {
     if(typeof final_sale == 'undefined') final_sale = false;
     if(typeof preorder == 'undefined') preorder = false;
-   
+
     let items = typeof variant_id == 'object' ? variant_id : [{
         id: variant_id,
         quantity: quantity,
@@ -123,7 +123,7 @@ function gamificationInit() {
         document.querySelector(wrapper).innerHTML += goalTemplate;
     });
 
-    
+
 
 
 
@@ -165,19 +165,21 @@ function gamificationInit() {
                     activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
                 });
             });
-            
+
         }
     });
 }
 
 function setFreeGiftsByProduct(items) {
 
+    console.log('freegiftsselector');
     document.querySelectorAll(`.free-gift__selector`).forEach(selector => selector.classList.remove('free-gift__selector--active'));
     document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--complete');
 
     // If any gift disable choose gifts
     const gifts_in_cart = items.filter( item => item.properties?._gift == 'true');
     if(gifts_in_cart.length) {
+        console.log('freegiftsselector has gift');
         document.querySelectorAll(`.free-gift__selector`).forEach(selector => selector.classList.add('free-gift__selector--applied'));
         document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--reached');
         document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--complete');
@@ -195,6 +197,7 @@ function setFreeGiftsByProduct(items) {
         document.querySelector('.cart__gam-verbose').innerHTML = current_message;
         document.querySelector(".cart__gam-verbose--gift").innerHTML = "";
     } else {
+        console.log('freegiftsselector needs gift');
         if(settings.cartGamification.gifts.length){
             for(let x in settings.cartGamification.gifts) {
                 //const giftKey = items.find(item => item.product_id == settings.cartGamification.gifts[x].key);
@@ -202,6 +205,8 @@ function setFreeGiftsByProduct(items) {
                 if(giftKey){
                     try {
                         document.querySelector(`.free-gift__selector[data-key="${settings.cartGamification.gifts[x].key}"]`).classList.add('free-gift__selector--active');
+                        document.querySelector(`.free-gift__selector[data-key="${settings.cartGamification.gifts[x].key}"]`).classList.remove('free-gift__selector--applied');
+                        document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--reached');
                         document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--complete');
                         let current_message = document.querySelector('.cart__gam-verbose').innerHTML;
                         if(current_message.slice(-16) == 'and a FREE gift!'){
@@ -224,7 +229,7 @@ function setFreeGiftsByProduct(items) {
         }
     }
 
-    /*  
+    /*
       // Clean gifts from cart if exists
         let clean_items = {};
         const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
@@ -239,10 +244,12 @@ function setFreeGiftsByProduct(items) {
             });
         }
     */
-    
+
 }
 
 function validateGifts () {
+
+    console.log(cartItems);
 
     let clean_items = {};
     const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true' && item.properties?._related != null);
@@ -282,7 +289,7 @@ function setGiftFunctions () {
         checkSlider(sliderWrapper.querySelector('.slider'));
     });
 
- 
+
     document.querySelectorAll('.free-gift__selector .product-unit__image.product-link').forEach((link, index) => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -299,7 +306,7 @@ function setGiftFunctions () {
     document.addEventListener('click', event => {
         if (event.target.matches(".free-gift__selector .color-swatch")) {
             //alert("select the color");
-            
+
             const giftSelector = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
             giftSelector.classList.add('free-gift__selector--applied');
             document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--reached');
@@ -328,63 +335,69 @@ function setGamificationProducts( gifts ) {
     const always = () => {};
     let items = [];
 
-    window.fetch('/cart.js', {
-        credentials: 'same-origin',
-        method: 'GET',
-    })
-    .then((response) => response.json())
-    .then((cart) => {
+    setTimeout(function(){
+        window.fetch('/cart.js', {
+            credentials: 'same-origin',
+            method: 'GET',
+        })
+        .then((response) => response.json())
+        .then((cart) => {
 
-        window.cartItems = cart.items;
-        if (!cartShippingGift) {
-            // Disable gift gamification by cart total
-            if(gifts.length == 0) {
-                
-                // Clean gifts from cart if exists
-                let clean_items = {};
-                const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
+            window.cartItems = cart.items;
+            if (!cartShippingGift) {
+                // Disable gift gamification by cart total
+                if(gifts.length == 0) {
 
-                gifts_in_cart.forEach( gift => {
-                    clean_items[gift.id] = 0;
-                });
+                    // Clean gifts from cart if exists
+                    let clean_items = {};
+                    const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
 
-                if(Object.keys(clean_items).length) {
-                    updateCartItems(clean_items, (data) => {
-                        updateCart(data);
+                    gifts_in_cart.forEach( gift => {
+                        clean_items[gift.id] = 0;
                     });
-                }
 
-            } else {
-
-                gifts.forEach(gift => {
-                    if(!cartItems.find(item => item.properties?._gift == 'true')){
-                        items.push({
-                            id: gift,
-                            quantity: 1,
-                            properties: {
-                                '_gift': 'true'
-                            }
+                    if(Object.keys(clean_items).length) {
+                        updateCartItems(clean_items, (data) => {
+                            updateCart(data);
                         });
                     }
-                });
-                
-                if (items.length > 0) {
-                    addToCart(items, 1, (data) => {
-                        updateCart(data);
-                        activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
+
+                } else {
+
+                    gifts.forEach(gift => {
+                        if(!cartItems.find(item => item.properties?._gift == 'true')){
+                            items.push({
+                                id: gift,
+                                quantity: 1,
+                                properties: {
+                                    '_gift': 'true'
+                                }
+                            });
+                        }
                     });
-                } 
+
+                    if (items.length > 0) {
+                        addToCart(items, 1, (data) => {
+                            updateCart(data);
+                            activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
+                        });
+                    }
+                }
+            } else {
+                console.log("recalc gift products");
+                console.log(cartItems);
+                validateGifts(cartItems);
+                // Free gifts
+                setFreeGiftsByProduct(cartItems);
             }
-        } else {
-            validateGifts();
-            // Free gifts 
-            setFreeGiftsByProduct(cartItems);
-        }
-       
-    });
+
+        });
+    }, 2000)
 }
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
+
+    console.log("gaminication progress recalculate");
     /*
         !!!!!!!!!!!!!!!!!!
         CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
@@ -448,7 +461,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     });
 
     setGamificationProducts(goalsGifts);
-    
+
     let verboseTemplate = '';
     let verboseTemplateGift = ''
     if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
@@ -544,7 +557,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 //     });
 
 //     setGamificationProducts(goalsGifts);
-    
+
 //     let verboseTemplate = '';
 //     if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
 //         for(let x in goalsVerbose) {
@@ -567,7 +580,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 //     gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
 
 //     if (gamificationPercent == 100) {
-    
+
 //         const verboseGoals = goals[goals.length - 1].title;
 //         document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! <br> <b>You got ${ verboseGoals }!</b>`;
 
@@ -618,7 +631,7 @@ function setFreeShippingProgress(cart) {
 
 function setHeaderItemCounter(cart) {
     let bag = document.querySelector('.header__bag-icon')
-    
+
     if(cart.item_count == 0) bag.classList.remove('header__bag-icon--full');
     else bag.classList.add('header__bag-icon--full');
 
@@ -657,9 +670,9 @@ function updateCart(data, jsonIncluded = false) {
     let cart;
     if(jsonIncluded) cart = data;
     else cart = JSON.parse(stripHTML(data.sections['cart-json']));
-    
+
     const cartContainer = document.querySelector('.cart__container, .cart-page');
-    
+
     if(cart.item_count == 0) cartContainer.classList.add('cart__container--empty');
     else cartContainer.classList.remove('cart__container--empty');
 
@@ -668,7 +681,7 @@ function updateCart(data, jsonIncluded = false) {
     let checkShipping = document.querySelector('.cart__free-shipping')
     checkShipping ? freeShipping = setFreeShippingProgress(cart) : setGamificationProgress(cart.items_subtotal_price, cart);
 
-    
+
     let totalPrice = cart.total_price;
     if(!freeShipping) totalPrice += 795;
 
@@ -693,17 +706,17 @@ function updateCart(data, jsonIncluded = false) {
          } else {
              document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--half');
          }
-     });	
- 
+     });
+
      cartItems.forEach(function(item) {
- 
+
          if (item.properties?._gift == 'true') {
          reorderedCartItems.unshift(item);
          } else {
          reorderedCartItems.push(item);
          }
      });
- 
+
      data.items = reorderedCartItems;
      document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
    }
@@ -733,7 +746,7 @@ function openCart() {
     document.body.classList.add('modal-open');
 
     updateCartGWPs();
-    
+
     if(isset(localStorage.getItem('guest_checkout')) && localStorage.getItem('guest_checkout')) {
         document.querySelector('.cart__footer .button--checkout').setAttribute('href', '/checkout');
     }
@@ -810,7 +823,7 @@ window.addEventListener("click", async (e) => {
         btn.classList.add('cart__undo-wishlist--working');
         addToCart(wishlistFromCartItem.variant_id, wishlistFromCartItem.qty, (data) => {
             updateCart(data);
-            
+
             cartContainer.classList.remove('cart__container--wishlist');
         }, () => {
             btn.classList.remove('cart__undo-wishlist--working');
