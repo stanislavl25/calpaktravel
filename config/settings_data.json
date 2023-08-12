@@ -96,8 +96,8 @@
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/products\/padded-laptop-sleeve",
-              "block-title": "Last Chance: $29.99 for ANY Laptop Sleeve",
+              "button-url": "shopify:\/\/collections\/back-to-school",
+              "block-title": "Back To School",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
