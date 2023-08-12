@@ -1505,6 +1505,7 @@
         },
         "2bef465f-5c2d-44c1-a49e-c18d780fe913": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
             "video": "",
