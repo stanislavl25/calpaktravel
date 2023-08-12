@@ -118,6 +118,7 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
@@ -132,11 +133,10 @@
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "Use code BACKTOIT for 10% OFF!",
-            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "title": "Everyone's Favorite Duffel",
+            "description": "<p>9 pockets, 1 shoe compartment, endless possibilities. <\/p>",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
@@ -148,7 +148,6 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_55533bc3-6cfe-4c7b-8dc3-0dc4075ff3df.jpg",
             "video": "",
@@ -164,7 +163,6 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235177_9aa04390-3a2a-48da-b0e1-0d5b00196232.jpg",
             "video": "",
@@ -184,7 +182,6 @@
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197"
       ],
-      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
