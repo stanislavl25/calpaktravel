@@ -299,6 +299,7 @@ function setGiftFunctions () {
             link.parentNode.parentNode.parentNode.classList.add('free-gift__selector-product--active')
         });
         if (index == 1) {
+            document.querySelectorAll('.free-gift__selector-product').forEach(selector => selector.classList.remove('free-gift__selector-product--active'))
             link.parentNode.parentNode.parentNode.classList.add('free-gift__selector-product--active');
         }
     });

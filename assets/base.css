@@ -986,6 +986,10 @@ body.swym-modal-active:not(.modal-open) {
   pointer-events: all;
 }
 
+.free-gift__selector-product .product-unit__title {
+  height: 36px;
+}
+
 .free-gift__selector
   .free-gift__selector-product--active
   .product-unit__image:after {
