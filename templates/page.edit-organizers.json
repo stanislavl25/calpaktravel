@@ -25,7 +25,7 @@
           "settings": {
             "title": "Weekend Getaways",
             "text": "<p>While we LOVE road trips—making playlists, eating snacks, stopping for that scenic money shot—we don't love messy seats. Control the chaos in the back seat with our Car Organizer, or opt for the TRNK Vanity Case which might make car travel feel just that little bit more luxurious. <\/p>",
-            "background-color": "#ffffff"
+            "background-color": "#eae9e1"
           }
         },
         "6c7722ab-16ec-4d92-ae90-9eef6ca6eb1c": {
@@ -48,11 +48,32 @@
       ],
       "settings": {
       }
+    },
+    "7fe0a6fd-439a-45d2-a7a9-b856199795f6": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "09c7edc2-89a7-4964-8063-b011266fa40e": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_4321.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "09c7edc2-89a7-4964-8063-b011266fa40e"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
     }
   },
   "order": [
     "page-header",
     "de55c006-6953-4117-a117-d3c99a23b3c2",
-    "d4a2f37a-cefc-4432-a891-1031cab8cf1c"
+    "d4a2f37a-cefc-4432-a891-1031cab8cf1c",
+    "7fe0a6fd-439a-45d2-a7a9-b856199795f6"
   ]
 }
