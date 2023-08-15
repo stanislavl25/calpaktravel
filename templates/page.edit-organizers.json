@@ -3,21 +3,56 @@
     "page-header": {
       "type": "page-header",
       "settings": {
-        "title": "{{ page.title }}",
+        "title": "How to master the art of packing",
+        "display": "both",
         "title-size": "medium",
-        "text": "",
+        "text": "<p>Get smart and discover the best organizers according to your destination<\/p>",
         "button-text": "",
         "button-link": ""
       }
     },
     "de55c006-6953-4117-a117-d3c99a23b3c2": {
       "type": "page-content",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "d4a2f37a-cefc-4432-a891-1031cab8cf1c": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "db54d916-7f04-4eac-adf0-e11d0bcf7038": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "",
+            "background-color": "#ffffff"
+          }
+        },
+        "6c7722ab-16ec-4d92-ae90-9eef6ca6eb1c": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "ac778ee9-f050-425b-8ce9-bcb98191d009": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "db54d916-7f04-4eac-adf0-e11d0bcf7038",
+        "6c7722ab-16ec-4d92-ae90-9eef6ca6eb1c",
+        "ac778ee9-f050-425b-8ce9-bcb98191d009"
+      ],
       "settings": {
       }
     }
   },
   "order": [
     "page-header",
-    "de55c006-6953-4117-a117-d3c99a23b3c2"
+    "de55c006-6953-4117-a117-d3c99a23b3c2",
+    "d4a2f37a-cefc-4432-a891-1031cab8cf1c"
   ]
 }
