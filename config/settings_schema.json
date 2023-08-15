@@ -42,10 +42,23 @@
         "unit": "$"
       },
       {
-        "type": "checkbox",
-        "id": "show-cart-gamification",
-        "label": "Enable Express Shipping",
-        "default": true
+        "type": "select",
+        "id": "cart-gamification-select",
+        "label": "Cart Gamification Select",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "shipping",
+            "label": "Shipping"
+          },
+          {
+            "label": "GWP",
+            "value": "gwp"
+          }
+        ]
       },
       {
         "type": "header",

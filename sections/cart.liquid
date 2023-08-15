@@ -32,7 +32,7 @@
       assign gamification_progress = total_price | times: 100 | divided_by: progress_limit
     -%}
 
-    {% if settings.show-cart-gamification != true %}
+    {% if settings.cart-gamification-select == 'none' %}
       {%- liquid
         assign free_shipping = settings.free-shipping | times: 100
         if cart.requires_shipping
@@ -70,7 +70,7 @@
       {%- comment -%}
       {% render 'cart-free-shipping', gamification_progress: gamification_progress, free_shipping: free_shipping %}
       {%- endcomment -%}
-      {% if settings.show-cart-gamification == true %}
+      {% if settings.cart-gamification-select == 'shipping' %}
         <div class="cart__gamification">
           <div class="cart__gamification-msg">
             <div class="cart__gam-verbose"></div>
@@ -114,7 +114,7 @@
     <div class="cart__body-mobile-main">
       <div class="cart__body-main">
         <div class="cart__body-top">
-          {% if settings.show-cart-gamification == true %}
+          {% if settings.cart-gamification-select == 'shipping' %}
             {%- for block in section.blocks -%}
               {% if block.type == 'gamification-gift' %}
                 {% render 'cart-free-gift', product_key: block.settings.gift_key, product_keys: block.settings.gift_keys, products: block.settings.gift_available %}
@@ -321,7 +321,7 @@
 
 
     window.settings["cartWishlistTimeout"] = {{ section.settings.wishlist-timeout }};
-    {% if settings.show-cart-gamification == true %}
+    {% if settings.cart-gamification-select == 'shipping' %}
     window.settings["cartGamification"] = {
         subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
         wrapper: '.cart__gamification-goals',
