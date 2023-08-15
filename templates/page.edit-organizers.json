@@ -107,6 +107,44 @@
       ],
       "settings": {
       }
+    },
+    "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "fc2268da-b4e1-4e76-a9ff-28667194af41": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_3680.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "fc2268da-b4e1-4e76-a9ff-28667194af41"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
+    },
+    "d99da5bd-367d-40a0-8ca1-38ea7013cdcb": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "8aa78039-b8c0-499a-a779-3f60ffad16b2": {
+          "type": "text",
+          "settings": {
+            "title": "Hiking Excursion",
+            "text": "<p>Packing for an al-fresco adventure? Our Compression Packing Cubes help you make the most of limited space, while our water-resistant Terra Hanging Toiletry bag fits all your skin and hygiene essentials—you can even hang it on a branch next to your tent.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "8aa78039-b8c0-499a-a779-3f60ffad16b2"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -114,6 +152,8 @@
     "de55c006-6953-4117-a117-d3c99a23b3c2",
     "d4a2f37a-cefc-4432-a891-1031cab8cf1c",
     "7fe0a6fd-439a-45d2-a7a9-b856199795f6",
-    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71"
+    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71",
+    "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90",
+    "d99da5bd-367d-40a0-8ca1-38ea7013cdcb"
   ]
 }
