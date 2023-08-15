@@ -68,12 +68,52 @@
         "title": "",
         "gap": false
       }
+    },
+    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "8b51563f-97c9-43b0-8641-4380376e5142": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce": {
+          "type": "text",
+          "settings": {
+            "title": "Wedding Season",
+            "text": "<p>Take the wrinkles out of wedding travel with our Compakt Garment Bags, designed to protect the dress at all costs, and our Clear Cosmetics Case—made to take your full skincare routine with you. If you're the type to travel with all the jewels, or you're the designated ring bearer, you can organize it all with our best-selling Jewelry Case. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "8b51563f-97c9-43b0-8641-4380376e5142",
+        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156",
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9",
+        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "page-header",
     "de55c006-6953-4117-a117-d3c99a23b3c2",
     "d4a2f37a-cefc-4432-a891-1031cab8cf1c",
-    "7fe0a6fd-439a-45d2-a7a9-b856199795f6"
+    "7fe0a6fd-439a-45d2-a7a9-b856199795f6",
+    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71"
   ]
 }
