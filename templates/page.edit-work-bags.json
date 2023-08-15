@@ -75,7 +75,7 @@
       ],
       "settings": {
         "title": "",
-        "gap": false
+        "gap": true
       }
     },
     "30df859e-f87a-4608-8ab1-2f861247d03c": {
@@ -109,6 +109,67 @@
       ],
       "settings": {
       }
+    },
+    "ba569e2c-059b-40b0-b17b-2babab763755": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "f19cedf2-0874-4b19-a897-519e62908296": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_1.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "3ccfdf9e-0ce9-469b-be0e-f3345904f242": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_1.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "f19cedf2-0874-4b19-a897-519e62908296",
+        "3ccfdf9e-0ce9-469b-be0e-f3345904f242"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "1a32fb16-2411-49b8-906c-8b6281813f8d": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "e1031c1a-be73-436d-aee5-42eedd580e40": {
+          "type": "text",
+          "settings": {
+            "title": "Backpacks for coffee-shop compliments",
+            "text": "<p>Prepare for serious coffee shop side-eye & compliments! Our best-selling Kaya Laptop Backpack and Luka Laptop Backpack are the perfect hands-free options for the remote worker and independent spirit who does their best thinking while out and about in new locations. Ultra-spacious and super stylish, they're the ultimate \"where did you get your bag from\" backpacks.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "104ff1f8-c462-4a3e-b782-c72a6eb6c035": {
+          "type": "product",
+          "settings": {
+            "product": "kaya-laptop-backpack"
+          }
+        },
+        "e415a49d-4ca9-4885-baa0-2b7fa0aa934d": {
+          "type": "product",
+          "settings": {
+            "product": "luka-laptop-backpack"
+          }
+        }
+      },
+      "block_order": [
+        "e1031c1a-be73-436d-aee5-42eedd580e40",
+        "104ff1f8-c462-4a3e-b782-c72a6eb6c035",
+        "e415a49d-4ca9-4885-baa0-2b7fa0aa934d"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -116,6 +177,8 @@
     "de55c006-6953-4117-a117-d3c99a23b3c2",
     "02a05c59-d3d0-46d2-8122-417b47dc80bd",
     "6a14e297-e57e-4b9f-875b-268ba332ba78",
-    "30df859e-f87a-4608-8ab1-2f861247d03c"
+    "30df859e-f87a-4608-8ab1-2f861247d03c",
+    "ba569e2c-059b-40b0-b17b-2babab763755",
+    "1a32fb16-2411-49b8-906c-8b6281813f8d"
   ]
 }
