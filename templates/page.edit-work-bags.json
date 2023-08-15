@@ -3,21 +3,56 @@
     "page-header": {
       "type": "page-header",
       "settings": {
-        "title": "{{ page.title }}",
+        "title": "Get down to business with these work bags",
+        "display": "both",
         "title-size": "medium",
-        "text": "",
+        "text": "<p>Meet our most functional and stylish work bags and accessories—designed to help you organize your work day.<\/p>",
         "button-text": "",
         "button-link": ""
       }
     },
     "de55c006-6953-4117-a117-d3c99a23b3c2": {
       "type": "page-content",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "02a05c59-d3d0-46d2-8122-417b47dc80bd": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "4bb76173-a262-471c-b5ec-a236078aa25a": {
+          "type": "text",
+          "settings": {
+            "title": "Duffel bags for the daily grind",
+            "text": "<p>Our ultra-spacious Luka Duffel and Terra Laptop Backpack duffel were designed for the hustle and bustle, and will help you hop from your yoga studio, to the office, and even to a lunch date with total ease. Blending style and functionality, they'll become your new BFFs for morning subway routines.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "97ab8d37-cee5-4cb7-828c-8ff20952d6ef": {
+          "type": "product",
+          "settings": {
+            "product": "luka-duffel"
+          }
+        },
+        "7d2eaa5f-0789-4696-aa0a-2dd317500d3e": {
+          "type": "product",
+          "settings": {
+            "product": "terra-26l-backpack-duffel"
+          }
+        }
+      },
+      "block_order": [
+        "4bb76173-a262-471c-b5ec-a236078aa25a",
+        "97ab8d37-cee5-4cb7-828c-8ff20952d6ef",
+        "7d2eaa5f-0789-4696-aa0a-2dd317500d3e"
+      ],
       "settings": {
       }
     }
   },
   "order": [
     "page-header",
-    "de55c006-6953-4117-a117-d3c99a23b3c2"
+    "de55c006-6953-4117-a117-d3c99a23b3c2",
+    "02a05c59-d3d0-46d2-8122-417b47dc80bd"
   ]
 }
