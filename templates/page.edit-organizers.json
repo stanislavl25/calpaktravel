@@ -138,10 +138,24 @@
             "text": "<p>Packing for an al-fresco adventure? Our Compression Packing Cubes help you make the most of limited space, while our water-resistant Terra Hanging Toiletry bag fits all your skin and hygiene essentials—you can even hang it on a branch next to your tent.<\/p>",
             "background-color": "#eae9e1"
           }
+        },
+        "8856e16b-2031-4da2-b8c0-46cce5d47d67": {
+          "type": "product",
+          "settings": {
+            "product": "medium-compression-packing-cubes"
+          }
+        },
+        "4cde1ad0-c53a-49ff-ae7b-119b27a035d2": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
         }
       },
       "block_order": [
-        "8aa78039-b8c0-499a-a779-3f60ffad16b2"
+        "8aa78039-b8c0-499a-a779-3f60ffad16b2",
+        "8856e16b-2031-4da2-b8c0-46cce5d47d67",
+        "4cde1ad0-c53a-49ff-ae7b-119b27a035d2"
       ],
       "settings": {
       }
