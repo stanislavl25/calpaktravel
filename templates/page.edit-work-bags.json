@@ -170,6 +170,74 @@
       ],
       "settings": {
       }
+    },
+    "e3136ce6-ca9e-48a7-bfa6-de605910b0d4": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "921d6a16-3aba-48b0-9b89-8725d99d8036": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_2.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "d5f66216-fe5c-4ddb-95df-a1621683b044": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_2.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "921d6a16-3aba-48b0-9b89-8725d99d8036",
+        "d5f66216-fe5c-4ddb-95df-a1621683b044"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
+    },
+    "e25056e6-542c-48ea-b0ad-7d1e6c0dede1": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "7485317e-1353-42ae-95c6-d8a8c4807fff": {
+          "type": "product",
+          "settings": {
+            "product": "padded-laptop-sleeve"
+          }
+        },
+        "5aa0441c-19e4-4d08-bdd2-0b49772e0cac": {
+          "type": "product",
+          "settings": {
+            "product": "tech-organizer"
+          }
+        },
+        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64": {
+          "type": "product",
+          "settings": {
+            "product": "insulated-lunch-bag"
+          }
+        },
+        "c54a38fe-f4d2-4f71-a68a-014dc017bf11": {
+          "type": "text",
+          "settings": {
+            "title": "Accessories for organization",
+            "text": "<p>CALPAK accessories help to level up your organization even more. Save money and bring lunch to work every day in our stylish Insulated Lunch Bag, and show your most prized tech possessions a little love with our Tech Organizers that control the cable chaos, plus our Padded Sleeves that keep your laptop bump and scratch free while you're on the move. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "7485317e-1353-42ae-95c6-d8a8c4807fff",
+        "5aa0441c-19e4-4d08-bdd2-0b49772e0cac",
+        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64",
+        "c54a38fe-f4d2-4f71-a68a-014dc017bf11"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -179,6 +247,8 @@
     "6a14e297-e57e-4b9f-875b-268ba332ba78",
     "30df859e-f87a-4608-8ab1-2f861247d03c",
     "ba569e2c-059b-40b0-b17b-2babab763755",
-    "1a32fb16-2411-49b8-906c-8b6281813f8d"
+    "1a32fb16-2411-49b8-906c-8b6281813f8d",
+    "e3136ce6-ca9e-48a7-bfa6-de605910b0d4",
+    "e25056e6-542c-48ea-b0ad-7d1e6c0dede1"
   ]
 }
