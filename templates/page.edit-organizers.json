@@ -148,7 +148,7 @@
         "4cde1ad0-c53a-49ff-ae7b-119b27a035d2": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "terra-hanging-toiletry-bag"
           }
         }
       },
@@ -156,6 +156,65 @@
         "8aa78039-b8c0-499a-a779-3f60ffad16b2",
         "8856e16b-2031-4da2-b8c0-46cce5d47d67",
         "4cde1ad0-c53a-49ff-ae7b-119b27a035d2"
+      ],
+      "settings": {
+      }
+    },
+    "fd5d5168-5a30-477f-bd64-cbec459f8ccd": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_4337.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
+    },
+    "ae5f6413-e32c-4603-b188-44f0017a9824": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "9366d4d3-e259-45ec-a5e9-045887666c89": {
+          "type": "product",
+          "settings": {
+            "product": "compakt-shoe-bag-set"
+          }
+        },
+        "13d1c719-084c-40d0-8b39-fae24cfdda05": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "eca9662d-d658-4113-b901-dd219e22fc38": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "text": "",
+            "background-color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "9366d4d3-e259-45ec-a5e9-045887666c89",
+        "13d1c719-084c-40d0-8b39-fae24cfdda05",
+        "eca9662d-d658-4113-b901-dd219e22fc38",
+        "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6"
       ],
       "settings": {
       }
@@ -168,6 +227,8 @@
     "7fe0a6fd-439a-45d2-a7a9-b856199795f6",
     "5b1536d5-0aec-46f3-aea4-5fe2666e5e71",
     "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90",
-    "d99da5bd-367d-40a0-8ca1-38ea7013cdcb"
+    "d99da5bd-367d-40a0-8ca1-38ea7013cdcb",
+    "fd5d5168-5a30-477f-bd64-cbec459f8ccd",
+    "ae5f6413-e32c-4603-b188-44f0017a9824"
   ]
 }
