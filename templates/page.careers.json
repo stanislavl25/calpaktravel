@@ -1,8 +1,43 @@
 {
   "sections": {
     "page-header": {
-      "type": "page-career-top"
-
+      "type": "page-career-top",
+      "blocks": {
+        "92177123-ae02-4436-b4e5-c74312356205": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3878_1.png"
+          }
+        },
+        "e606ae41-7eca-42be-a0fd-d9e3420e60ae": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3696_1_8ef433e8-5aef-4f57-b02c-044f72c142df.png"
+          }
+        },
+        "f566a261-e714-4aed-9119-932698dc18b3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_3572_1.png"
+          }
+        },
+        "e3625a2b-284d-4c1d-8ff3-7d0478e10603": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3879_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "92177123-ae02-4436-b4e5-c74312356205",
+        "e606ae41-7eca-42be-a0fd-d9e3420e60ae",
+        "f566a261-e714-4aed-9119-932698dc18b3",
+        "e3625a2b-284d-4c1d-8ff3-7d0478e10603"
+      ],
+      "settings": {
+        "title": "Going places since 1989, CALPAK exists for those who welcome the unknown, who seek the new, and find joy in the journey.",
+        "content": "<p>As an employer, CALPAK is dedicated to fostering a dynamic and inclusive work environment. We believe in the power of teamwork, creativity, and continuous growth. We value our employees' unique perspectives and provide opportunities for professional development and advancement. Joining our team means becoming part of a vibrant community that shares a passion for travel and a drive to create exceptional products.<br\/><br\/>If you are looking to be part of an innovative and fast-paced company that values creativity, collaboration, and a customer-centric mindset, CALPAK is the perfect place for you. Join us in shaping the future of travel and making a difference in the lives of travelers around the world.<\/p>"
+      }
     }
   },
   "order": [
