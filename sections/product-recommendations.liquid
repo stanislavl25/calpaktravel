@@ -43,12 +43,12 @@
 
 <div
   class="product-recommendations"
-  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=5&intent=related"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=5&intent={{ section.settings.products_source }}"
 >
   {%- if recommendations.performed? and recommendations.products_count > 0 -%}
-    {% if recommendations.intent == 'related' %}
+    {% if section.settings.products_source == 'related' %}
       <h2>You may also like</h2>
-    {% elsif recommendations.intent == 'complementary' %}
+    {% elsif section.settings.products_source == 'complementary' %}
       <h2>Pair it with</h2>
     {% endif %}
 
@@ -94,6 +94,23 @@
 {% schema %}
   {
     "name": "Product recommendations",
+    "settings": [
+      {
+        "type": "select",
+        "id": "products_source",
+        "label": "Products",
+        "options": [
+          {
+            "value": "complementary",
+            "label": "Complementary"
+          },
+          {
+            "value": "related",
+            "label": "Related"
+          }
+        ]
+      }
+    ],
     "presets": [
       {
         "name": "Product Recommendations"
