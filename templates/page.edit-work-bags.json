@@ -48,11 +48,74 @@
       ],
       "settings": {
       }
+    },
+    "6a14e297-e57e-4b9f-875b-268ba332ba78": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "02d90a6d-365c-41a9-882a-01b537080b44": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "f52cb077-9f49-4945-b767-cdb96053aa44": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "02d90a6d-365c-41a9-882a-01b537080b44",
+        "f52cb077-9f49-4945-b767-cdb96053aa44"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
+    },
+    "30df859e-f87a-4608-8ab1-2f861247d03c": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "41c48456-aaf0-4974-8ef0-173319daa977": {
+          "type": "product",
+          "settings": {
+            "product": "haven-laptop-tote-bag"
+          }
+        },
+        "e50650dd-60ae-49e3-974f-4002de12d717": {
+          "type": "product",
+          "settings": {
+            "product": "luka-expandable-laptop-tote"
+          }
+        },
+        "5ee478d6-5f09-420a-8788-33fa221c8111": {
+          "type": "text",
+          "settings": {
+            "title": "Laptop totes for go-getters",
+            "text": "<p>If you're adverse to the idea of a laptop bag, the ultra-stylish Haven Tote and Luka Expandable Laptop Tote will convince you otherwise. With their minimal designs, roomy interiors, and laptop sleeves—these are the ideal bags for the go-getter who loves putting together a business-casual work look as much as they love feeling organized on the job.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "41c48456-aaf0-4974-8ef0-173319daa977",
+        "e50650dd-60ae-49e3-974f-4002de12d717",
+        "5ee478d6-5f09-420a-8788-33fa221c8111"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "page-header",
     "de55c006-6953-4117-a117-d3c99a23b3c2",
-    "02a05c59-d3d0-46d2-8122-417b47dc80bd"
+    "02a05c59-d3d0-46d2-8122-417b47dc80bd",
+    "6a14e297-e57e-4b9f-875b-268ba332ba78",
+    "30df859e-f87a-4608-8ab1-2f861247d03c"
   ]
 }
