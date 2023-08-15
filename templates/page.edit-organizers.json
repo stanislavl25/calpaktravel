@@ -198,15 +198,15 @@
         "eca9662d-d658-4113-b901-dd219e22fc38": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "packing-cubes-5-piece-set"
           }
         },
         "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6": {
           "type": "text",
           "settings": {
-            "title": "",
-            "text": "",
-            "background-color": "#ffffff"
+            "title": "International Adventures",
+            "text": "<p>An overseas trip requires some jet set *looks*, and that should mean packing all the pieces you love. Bring  plus the Compakt Shoe Bag Set—to fit your favorite pairs, without the dreaded bulk.<\/p>",
+            "background-color": "#eae9e1"
           }
         }
       },
