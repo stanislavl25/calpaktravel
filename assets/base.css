@@ -1099,3 +1099,11 @@ span.shipping-custom-msg {
 .yotpo-vip-tiers-widget .yotpo-active .yotpo-vip-current-status {
   margin-bottom: 10px;
 }
+
+.yotpo-vip-tiers-progress-bar-wrapper {
+  border-radius: 10px;
+}
+
+.yotpo-vip-current-status {
+  border-radius: 10px;
+}
