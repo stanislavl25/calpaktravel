@@ -84,6 +84,7 @@
           },
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Back to School",
               "submenu-number": 1,
@@ -93,6 +94,7 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -103,6 +105,32 @@
               "link-for-button": false,
               "text-color-scheme": "white",
               "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "c2f5d1d7-bb20-46b8-907b-ca4b0034662b": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Shop: Featured: Labor Day Sale",
+              "submenu-number": 1,
+              "collection": "sale",
+              "block-title": "Explore Labor Day Sale"
+            }
+          },
+          "5f3d2d0e-fd4b-4971-b003-6c638e31c4f2": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Featured",
+              "submenu-number": 1,
+              "button-url": "shopify:\/\/collections\/sale",
+              "block-title": "Up to 60% OFF",
+              "description": "",
+              "button-text": "Shop Now",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/AO2A7970-2-3.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -327,6 +355,8 @@
           "ffee1719-c9f6-40e7-9c68-523341ac114f",
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6",
           "e331480d-2d4f-4d45-9833-0284975a6965",
+          "c2f5d1d7-bb20-46b8-907b-ca4b0034662b",
+          "5f3d2d0e-fd4b-4971-b003-6c638e31c4f2",
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
