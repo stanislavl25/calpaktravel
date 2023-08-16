@@ -277,6 +277,26 @@
       ],
       "settings": {
       }
+    },
+    "e19ad8bc-04bd-4b10-99e5-aa57c70c3969": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "4d37fa7a-e156-43dc-8a5f-daa9435ab8e3": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_4351.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "4d37fa7a-e156-43dc-8a5f-daa9435ab8e3"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
     }
   },
   "order": [
@@ -290,6 +310,7 @@
     "fd5d5168-5a30-477f-bd64-cbec459f8ccd",
     "ae5f6413-e32c-4603-b188-44f0017a9824",
     "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf",
-    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22"
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22",
+    "e19ad8bc-04bd-4b10-99e5-aa57c70c3969"
   ]
 }
