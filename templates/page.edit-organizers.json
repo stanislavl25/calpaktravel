@@ -218,6 +218,65 @@
       ],
       "settings": {
       }
+    },
+    "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "9399e90c-0f2b-49cc-9864-6c86e9359b7e": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_4338.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "9399e90c-0f2b-49cc-9864-6c86e9359b7e"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
+    },
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "18ec01ab-5faf-4232-96a3-2a47b76a6b54": {
+          "type": "text",
+          "settings": {
+            "title": "WFV (Work From Vacation)",
+            "text": "<p>We're big advocates for OOO, but sometimes the laptop just has to come with. Stay organized and work from anywhere with our Tech Organizer that keeps chargers, headphones, and more all in one place, plus our Padded Laptop Sleeve that will keep your prized tech possession safe and scratch-free.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "6e838602-da09-425f-860e-cc2e3465d27f": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "14fff4a5-7da2-41dc-831b-936723a1446e": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "18ec01ab-5faf-4232-96a3-2a47b76a6b54",
+        "6e838602-da09-425f-860e-cc2e3465d27f",
+        "14fff4a5-7da2-41dc-831b-936723a1446e",
+        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -229,6 +288,8 @@
     "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90",
     "d99da5bd-367d-40a0-8ca1-38ea7013cdcb",
     "fd5d5168-5a30-477f-bd64-cbec459f8ccd",
-    "ae5f6413-e32c-4603-b188-44f0017a9824"
+    "ae5f6413-e32c-4603-b188-44f0017a9824",
+    "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf",
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22"
   ]
 }
