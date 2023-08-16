@@ -1096,8 +1096,16 @@ span.shipping-custom-msg {
   border-radius: 10px;
 }
 
-.yotpo-vip-tiers-widget .yotpo-active .yotpo-vip-current-status {
-  margin-bottom: 10px;
+.yotpo-vip-tiers-widget .yotpo-vip-tier-container {
+  margin-top: 0 !important;
+}
+
+.yotpo-vip-tiers-widget .yotpo-has-status-tag .yotpo-vip-tier {
+  border: 1px solid #aeaeae !important;
+}
+
+.yotpo-vip-tiers-widget .yotpo-has-status-tag.yotpo-active .yotpo-vip-tier {
+  border: 1px solid #000 !important;
 }
 
 .yotpo-vip-tiers-progress-bar-wrapper {
@@ -1106,4 +1114,8 @@ span.shipping-custom-msg {
 
 .yotpo-vip-current-status {
   border-radius: 10px;
+}
+
+.yotpo-vip-tier {
+  bor
 }
