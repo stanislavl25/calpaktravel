@@ -462,7 +462,7 @@
             "type": "notification",
             "disabled": true,
             "settings": {
-              "text": "<p>Use code: BACKTOIT to get 10% off <a href=\"\/collections\/back-to-school\" title=\"Back to School\">Back To School Items!<\/a><\/p>",
+              "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
               "only-for-guests": false
             }
           },
