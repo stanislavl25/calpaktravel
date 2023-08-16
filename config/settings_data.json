@@ -719,21 +719,6 @@
       "mobile-menu": {
         "type": "mobile-menu",
         "blocks": {
-          "adc05d65-da10-4314-9243-585b3e5e1c66": {
-            "type": "media-block",
-            "settings": {
-              "title": "Shop: All",
-              "menu": "shop",
-              "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-5.jpg",
-              "link": "shopify:\/\/collections\/all",
-              "media-title": "",
-              "description": "",
-              "button-text": "Shop All",
-              "link-for-button": true,
-              "text-color-scheme": "white"
-            }
-          },
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
             "disabled": true,
@@ -747,6 +732,21 @@
               "description": "",
               "button-text": "Shop Labor Day Sale",
               "link-for-button": false,
+              "text-color-scheme": "white"
+            }
+          },
+          "adc05d65-da10-4314-9243-585b3e5e1c66": {
+            "type": "media-block",
+            "settings": {
+              "title": "Shop: All",
+              "menu": "shop",
+              "submenu-number": 0,
+              "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-5.jpg",
+              "link": "shopify:\/\/collections\/all",
+              "media-title": "",
+              "description": "",
+              "button-text": "Shop All",
+              "link-for-button": true,
               "text-color-scheme": "white"
             }
           },
@@ -837,8 +837,8 @@
           }
         },
         "block_order": [
-          "adc05d65-da10-4314-9243-585b3e5e1c66",
           "04605ea0-0820-4c21-b443-99943fd24488",
+          "adc05d65-da10-4314-9243-585b3e5e1c66",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
           "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
