@@ -1,0 +1,361 @@
+{
+  "sections": {
+    "page-header": {
+      "type": "page-header",
+      "settings": {
+        "title": "How to master the art of packing",
+        "display": "both",
+        "title-size": "medium",
+        "text": "<p>Get smart and discover the best organizers according to your destination<\/p>",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
+    "de55c006-6953-4117-a117-d3c99a23b3c2": {
+      "type": "page-content",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "d4a2f37a-cefc-4432-a891-1031cab8cf1c": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "db54d916-7f04-4eac-adf0-e11d0bcf7038": {
+          "type": "text",
+          "settings": {
+            "title": "Weekend Getaways",
+            "text": "<p>While we LOVE road trips—making playlists, eating snacks, stopping for that scenic money shot—we don't love messy seats. Control the chaos in the back seat with our Car Organizer, or opt for the TRNK Vanity Case which might make car travel feel just that little bit more luxurious. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "6c7722ab-16ec-4d92-ae90-9eef6ca6eb1c": {
+          "type": "product",
+          "settings": {
+            "product": "trnk-vanity-case"
+          }
+        },
+        "ac778ee9-f050-425b-8ce9-bcb98191d009": {
+          "type": "product",
+          "settings": {
+            "product": "car-organizer"
+          }
+        }
+      },
+      "block_order": [
+        "db54d916-7f04-4eac-adf0-e11d0bcf7038",
+        "6c7722ab-16ec-4d92-ae90-9eef6ca6eb1c",
+        "ac778ee9-f050-425b-8ce9-bcb98191d009"
+      ],
+      "settings": {
+      }
+    },
+    "7fe0a6fd-439a-45d2-a7a9-b856199795f6": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "09c7edc2-89a7-4964-8063-b011266fa40e": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_52766b18-4460-444a-b8dd-e5f29683edf5.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "b6a7e147-2ab0-4f45-ac32-9687a58bff8b": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_a6522e80-7c55-45cd-962f-207716e49b1e.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "09c7edc2-89a7-4964-8063-b011266fa40e",
+        "b6a7e147-2ab0-4f45-ac32-9687a58bff8b"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "8b51563f-97c9-43b0-8641-4380376e5142": {
+          "type": "product",
+          "settings": {
+            "product": "large-clear-cosmetic-case"
+          }
+        },
+        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156": {
+          "type": "product",
+          "settings": {
+            "product": "compakt-large-garment-bag"
+          }
+        },
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9": {
+          "type": "product",
+          "settings": {
+            "product": "jewelry-case"
+          }
+        },
+        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce": {
+          "type": "text",
+          "settings": {
+            "title": "Wedding Season",
+            "text": "<p>Take the wrinkles out of wedding travel with our Compakt Garment Bags, designed to protect the dress at all costs, and our Clear Cosmetics Case—made to take your full skincare routine with you. If you're the type to travel with all the jewels, or you're the designated ring bearer, you can organize it all with our best-selling Jewelry Case. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "8b51563f-97c9-43b0-8641-4380376e5142",
+        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156",
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9",
+        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce"
+      ],
+      "settings": {
+      }
+    },
+    "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "fc2268da-b4e1-4e76-a9ff-28667194af41": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_1_d9a5ae93-fd45-4eef-a33d-d6183b2c0f00.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "f08df9a9-30a2-488f-978b-207ca01f34db": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_1_50c81043-3d86-453f-982d-489f415f4d83.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "fc2268da-b4e1-4e76-a9ff-28667194af41",
+        "f08df9a9-30a2-488f-978b-207ca01f34db"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "d99da5bd-367d-40a0-8ca1-38ea7013cdcb": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "8aa78039-b8c0-499a-a779-3f60ffad16b2": {
+          "type": "text",
+          "settings": {
+            "title": "Hiking Excursion",
+            "text": "<p>Packing for an al-fresco adventure? Our Compression Packing Cubes help you make the most of limited space, while our water-resistant Terra Hanging Toiletry bag fits all your skin and hygiene essentials—you can even hang it on a branch next to your tent.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "8856e16b-2031-4da2-b8c0-46cce5d47d67": {
+          "type": "product",
+          "settings": {
+            "product": "medium-compression-packing-cubes"
+          }
+        },
+        "4cde1ad0-c53a-49ff-ae7b-119b27a035d2": {
+          "type": "product",
+          "settings": {
+            "product": "terra-hanging-toiletry-bag"
+          }
+        }
+      },
+      "block_order": [
+        "8aa78039-b8c0-499a-a779-3f60ffad16b2",
+        "8856e16b-2031-4da2-b8c0-46cce5d47d67",
+        "4cde1ad0-c53a-49ff-ae7b-119b27a035d2"
+      ],
+      "settings": {
+      }
+    },
+    "fd5d5168-5a30-477f-bd64-cbec459f8ccd": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_2_a6bdb7bf-0c9b-42e8-94c9-722b331c5cbb.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "1e7efe36-e49d-4462-921d-8053e7873341": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_2_45a38c5f-445d-4f40-8330-f6af12b7b91b.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6",
+        "1e7efe36-e49d-4462-921d-8053e7873341"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "ae5f6413-e32c-4603-b188-44f0017a9824": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "9366d4d3-e259-45ec-a5e9-045887666c89": {
+          "type": "product",
+          "settings": {
+            "product": "compakt-shoe-bag-set"
+          }
+        },
+        "13d1c719-084c-40d0-8b39-fae24cfdda05": {
+          "type": "product",
+          "settings": {
+            "product": "sunglasses-case"
+          }
+        },
+        "eca9662d-d658-4113-b901-dd219e22fc38": {
+          "type": "product",
+          "settings": {
+            "product": "packing-cubes-5-piece-set"
+          }
+        },
+        "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6": {
+          "type": "text",
+          "settings": {
+            "title": "International Adventures",
+            "text": "<p>An overseas trip requires some jet set *looks*, and that should mean packing all the pieces you love. Bring  plus the Compakt Shoe Bag Set—to fit your favorite pairs, without the dreaded bulk.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "9366d4d3-e259-45ec-a5e9-045887666c89",
+        "13d1c719-084c-40d0-8b39-fae24cfdda05",
+        "eca9662d-d658-4113-b901-dd219e22fc38",
+        "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6"
+      ],
+      "settings": {
+      }
+    },
+    "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "9399e90c-0f2b-49cc-9864-6c86e9359b7e": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_3_3d9c101e-b170-4694-8f89-120f02267a09.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "22d16b22-d3ec-42d3-acab-3926e16f9295": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_3_6a910916-1e5f-4b22-9736-a9f4e1f15031.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "9399e90c-0f2b-49cc-9864-6c86e9359b7e",
+        "22d16b22-d3ec-42d3-acab-3926e16f9295"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "18ec01ab-5faf-4232-96a3-2a47b76a6b54": {
+          "type": "text",
+          "settings": {
+            "title": "WFV (Work From Vacation)",
+            "text": "<p>We're big advocates for OOO, but sometimes the laptop just has to come with. Stay organized and work from anywhere with our Tech Organizer that keeps chargers, headphones, and more all in one place, plus our Padded Laptop Sleeve that will keep your prized tech possession safe and scratch-free.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "6e838602-da09-425f-860e-cc2e3465d27f": {
+          "type": "product",
+          "settings": {
+            "product": "tech-organizer"
+          }
+        },
+        "14fff4a5-7da2-41dc-831b-936723a1446e": {
+          "type": "product",
+          "settings": {
+            "product": "padded-laptop-sleeve"
+          }
+        },
+        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7": {
+          "type": "product",
+          "settings": {
+            "product": "tablet-tech-organizer"
+          }
+        }
+      },
+      "block_order": [
+        "18ec01ab-5faf-4232-96a3-2a47b76a6b54",
+        "6e838602-da09-425f-860e-cc2e3465d27f",
+        "14fff4a5-7da2-41dc-831b-936723a1446e",
+        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7"
+      ],
+      "settings": {
+      }
+    },
+    "e19ad8bc-04bd-4b10-99e5-aa57c70c3969": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "4d37fa7a-e156-43dc-8a5f-daa9435ab8e3": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_4.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "82e51e40-b701-4c31-b04d-e08c231e7376": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_4.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "4d37fa7a-e156-43dc-8a5f-daa9435ab8e3",
+        "82e51e40-b701-4c31-b04d-e08c231e7376"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    }
+  },
+  "order": [
+    "page-header",
+    "de55c006-6953-4117-a117-d3c99a23b3c2",
+    "d4a2f37a-cefc-4432-a891-1031cab8cf1c",
+    "7fe0a6fd-439a-45d2-a7a9-b856199795f6",
+    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71",
+    "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90",
+    "d99da5bd-367d-40a0-8ca1-38ea7013cdcb",
+    "fd5d5168-5a30-477f-bd64-cbec459f8ccd",
+    "ae5f6413-e32c-4603-b188-44f0017a9824",
+    "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf",
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22",
+    "e19ad8bc-04bd-4b10-99e5-aa57c70c3969"
+  ]
+}

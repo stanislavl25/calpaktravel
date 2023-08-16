@@ -3,21 +3,282 @@
     "page-header": {
       "type": "page-header",
       "settings": {
-        "title": "{{ page.title }}",
+        "title": "Get down to business with these work bags",
+        "display": "both",
         "title-size": "medium",
-        "text": "",
+        "text": "<p>Meet our most functional and stylish work bags and accessories—designed to help you organize your work day.<\/p>",
         "button-text": "",
         "button-link": ""
       }
     },
     "de55c006-6953-4117-a117-d3c99a23b3c2": {
       "type": "page-content",
+      "disabled": true,
       "settings": {
+      }
+    },
+    "02a05c59-d3d0-46d2-8122-417b47dc80bd": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "4bb76173-a262-471c-b5ec-a236078aa25a": {
+          "type": "text",
+          "settings": {
+            "title": "Duffel bags for the daily grind",
+            "text": "<p>Our ultra-spacious Luka Duffel and Terra Laptop Backpack duffel were designed for the hustle and bustle, and will help you hop from your yoga studio, to the office, and even to a lunch date with total ease. Blending style and functionality, they'll become your new BFFs for morning subway routines.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "97ab8d37-cee5-4cb7-828c-8ff20952d6ef": {
+          "type": "product",
+          "settings": {
+            "product": "luka-duffel"
+          }
+        },
+        "7d2eaa5f-0789-4696-aa0a-2dd317500d3e": {
+          "type": "product",
+          "settings": {
+            "product": "terra-26l-backpack-duffel"
+          }
+        }
+      },
+      "block_order": [
+        "4bb76173-a262-471c-b5ec-a236078aa25a",
+        "97ab8d37-cee5-4cb7-828c-8ff20952d6ef",
+        "7d2eaa5f-0789-4696-aa0a-2dd317500d3e"
+      ],
+      "settings": {
+      }
+    },
+    "6a14e297-e57e-4b9f-875b-268ba332ba78": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "02d90a6d-365c-41a9-882a-01b537080b44": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "f52cb077-9f49-4945-b767-cdb96053aa44": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "02d90a6d-365c-41a9-882a-01b537080b44",
+        "f52cb077-9f49-4945-b767-cdb96053aa44"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "30df859e-f87a-4608-8ab1-2f861247d03c": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "41c48456-aaf0-4974-8ef0-173319daa977": {
+          "type": "product",
+          "settings": {
+            "product": "haven-laptop-tote-bag"
+          }
+        },
+        "e50650dd-60ae-49e3-974f-4002de12d717": {
+          "type": "product",
+          "settings": {
+            "product": "luka-expandable-laptop-tote"
+          }
+        },
+        "5ee478d6-5f09-420a-8788-33fa221c8111": {
+          "type": "text",
+          "settings": {
+            "title": "Laptop totes for go-getters",
+            "text": "<p>If you're adverse to the idea of a laptop bag, the ultra-stylish Haven Tote and Luka Expandable Laptop Tote will convince you otherwise. With their minimal designs, roomy interiors, and laptop sleeves—these are the ideal bags for the go-getter who loves putting together a business-casual work look as much as they love feeling organized on the job.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "41c48456-aaf0-4974-8ef0-173319daa977",
+        "e50650dd-60ae-49e3-974f-4002de12d717",
+        "5ee478d6-5f09-420a-8788-33fa221c8111"
+      ],
+      "settings": {
+      }
+    },
+    "ba569e2c-059b-40b0-b17b-2babab763755": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "f19cedf2-0874-4b19-a897-519e62908296": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_1.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "3ccfdf9e-0ce9-469b-be0e-f3345904f242": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_1.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "f19cedf2-0874-4b19-a897-519e62908296",
+        "3ccfdf9e-0ce9-469b-be0e-f3345904f242"
+      ],
+      "settings": {
+        "title": "",
+        "gap": true
+      }
+    },
+    "1a32fb16-2411-49b8-906c-8b6281813f8d": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "e1031c1a-be73-436d-aee5-42eedd580e40": {
+          "type": "text",
+          "settings": {
+            "title": "Backpacks for coffee-shop compliments",
+            "text": "<p>Prepare for serious coffee shop side-eye & compliments! Our best-selling Kaya Laptop Backpack and Luka Laptop Backpack are the perfect hands-free options for the remote worker and independent spirit who does their best thinking while out and about in new locations. Ultra-spacious and super stylish, they're the ultimate \"where did you get your bag from\" backpacks.<\/p>",
+            "background-color": "#eae9e1"
+          }
+        },
+        "104ff1f8-c462-4a3e-b782-c72a6eb6c035": {
+          "type": "product",
+          "settings": {
+            "product": "kaya-laptop-backpack"
+          }
+        },
+        "e415a49d-4ca9-4885-baa0-2b7fa0aa934d": {
+          "type": "product",
+          "settings": {
+            "product": "luka-laptop-backpack"
+          }
+        }
+      },
+      "block_order": [
+        "e1031c1a-be73-436d-aee5-42eedd580e40",
+        "104ff1f8-c462-4a3e-b782-c72a6eb6c035",
+        "e415a49d-4ca9-4885-baa0-2b7fa0aa934d"
+      ],
+      "settings": {
+      }
+    },
+    "e3136ce6-ca9e-48a7-bfa6-de605910b0d4": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "921d6a16-3aba-48b0-9b89-8725d99d8036": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_2.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "d5f66216-fe5c-4ddb-95df-a1621683b044": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_2.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "921d6a16-3aba-48b0-9b89-8725d99d8036",
+        "d5f66216-fe5c-4ddb-95df-a1621683b044"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
+      }
+    },
+    "e25056e6-542c-48ea-b0ad-7d1e6c0dede1": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "7485317e-1353-42ae-95c6-d8a8c4807fff": {
+          "type": "product",
+          "settings": {
+            "product": "padded-laptop-sleeve"
+          }
+        },
+        "5aa0441c-19e4-4d08-bdd2-0b49772e0cac": {
+          "type": "product",
+          "settings": {
+            "product": "tech-organizer"
+          }
+        },
+        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64": {
+          "type": "product",
+          "settings": {
+            "product": "insulated-lunch-bag"
+          }
+        },
+        "c54a38fe-f4d2-4f71-a68a-014dc017bf11": {
+          "type": "text",
+          "settings": {
+            "title": "Accessories for organization",
+            "text": "<p>CALPAK accessories help to level up your organization even more. Save money and bring lunch to work every day in our stylish Insulated Lunch Bag, and show your most prized tech possessions a little love with our Tech Organizers that control the cable chaos, plus our Padded Sleeves that keep your laptop bump and scratch free while you're on the move. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "7485317e-1353-42ae-95c6-d8a8c4807fff",
+        "5aa0441c-19e4-4d08-bdd2-0b49772e0cac",
+        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64",
+        "c54a38fe-f4d2-4f71-a68a-014dc017bf11"
+      ],
+      "settings": {
+      }
+    },
+    "e4d8018e-96ff-4f01-9ada-24e1a3abe220": {
+      "type": "section-blog-image-text-feature",
+      "blocks": {
+        "ff934816-2e53-429d-862a-b102158856c6": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_3.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "5aa5628c-7e5a-4f49-bf19-49f5a892223a": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_3.jpg",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "ff934816-2e53-429d-862a-b102158856c6",
+        "5aa5628c-7e5a-4f49-bf19-49f5a892223a"
+      ],
+      "settings": {
+        "title": "",
+        "gap": false
       }
     }
   },
   "order": [
     "page-header",
-    "de55c006-6953-4117-a117-d3c99a23b3c2"
+    "de55c006-6953-4117-a117-d3c99a23b3c2",
+    "02a05c59-d3d0-46d2-8122-417b47dc80bd",
+    "6a14e297-e57e-4b9f-875b-268ba332ba78",
+    "30df859e-f87a-4608-8ab1-2f861247d03c",
+    "ba569e2c-059b-40b0-b17b-2babab763755",
+    "1a32fb16-2411-49b8-906c-8b6281813f8d",
+    "e3136ce6-ca9e-48a7-bfa6-de605910b0d4",
+    "e25056e6-542c-48ea-b0ad-7d1e6c0dede1",
+    "e4d8018e-96ff-4f01-9ada-24e1a3abe220"
   ]
 }
