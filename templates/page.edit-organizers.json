@@ -55,14 +55,23 @@
         "09c7edc2-89a7-4964-8063-b011266fa40e": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_4321.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_52766b18-4460-444a-b8dd-e5f29683edf5.jpg",
+            "title": "",
+            "description": ""
+          }
+        },
+        "b6a7e147-2ab0-4f45-ac32-9687a58bff8b": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_a6522e80-7c55-45cd-962f-207716e49b1e.jpg",
             "title": "",
             "description": ""
           }
         }
       },
       "block_order": [
-        "09c7edc2-89a7-4964-8063-b011266fa40e"
+        "09c7edc2-89a7-4964-8063-b011266fa40e",
+        "b6a7e147-2ab0-4f45-ac32-9687a58bff8b"
       ],
       "settings": {
         "title": "",
