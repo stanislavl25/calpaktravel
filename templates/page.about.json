@@ -70,7 +70,11 @@
         "height-percent": 50,
         "text-alignment": "center",
         "text-color-scheme": "black",
-        "background": "#ffffff"
+        "background": "#ffffff",
+        "query-match": true,
+        "yotpo": false,
+        "signed-in-button-text": "",
+        "signed-in-link": ""
       }
     },
     "a64e8714-8090-4b0a-a8d1-f520a82bb4c1": {
@@ -154,7 +158,11 @@
         "height-percent": 50,
         "text-alignment": "center",
         "text-color-scheme": "black",
-        "background": "#ffffff"
+        "background": "#ffffff",
+        "query-match": true,
+        "yotpo": false,
+        "signed-in-button-text": "",
+        "signed-in-link": ""
       }
     },
     "07ba8d1b-d32a-444a-a37a-03484ec31f2d": {
@@ -284,8 +292,8 @@
           "settings": {
             "dropdown-title": "The Everyday Wanderluster",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st00404a-31.jpg",
-            "button-text": "Shop All",
-            "main-link": "shopify:\/\/collections\/backpacks",
+            "button-text": "Shop Now",
+            "main-link": "shopify:\/\/collections\/crossbody-bags",
             "pictured_product": "shopify:\/\/products\/luka-belt-bag",
             "product_title": "Luka Belt Bag",
             "product_list": [
@@ -301,10 +309,10 @@
           "settings": {
             "dropdown-title": "The Weekend Explorer",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st00613a-35.jpg",
-            "button-text": "",
-            "main-link": "",
-            "pictured_product": "",
-            "product_title": "",
+            "button-text": "Shop Now",
+            "main-link": "shopify:\/\/collections\/weekenders",
+            "pictured_product": "shopify:\/\/products\/haven-laptop-tote-bag",
+            "product_title": "Haven Laptop Tote Bag",
             "product_list": [
               "ambeur-carry-on-luggage",
               "ambeur-vanity-case",
@@ -319,9 +327,9 @@
             "dropdown-title": "The Long Distance Planner",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0053A-33.jpg",
             "button-text": "Shop Now",
-            "main-link": "shopify:\/\/collections\/2022-essentials",
-            "pictured_product": "",
-            "product_title": "",
+            "main-link": "shopify:\/\/collections\/luggage",
+            "pictured_product": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
+            "product_title": "Ambeur 3-Piece Luggage Set",
             "product_list": [
               "ambeur-2-piece-luggage-set",
               "ambeur-3-piece-luggage-set",

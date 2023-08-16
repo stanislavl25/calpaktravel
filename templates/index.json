@@ -118,6 +118,7 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
@@ -129,15 +130,13 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "Use code BACKTOIT for 10% OFF!",
-            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "title": "Everyone's Favorite Duffel",
+            "description": "<p>9 pockets, 1 shoe compartment, endless possibilities. <\/p>",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
@@ -149,11 +148,11 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_55533bc3-6cfe-4c7b-8dc3-0dc4075ff3df.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "title": "",
             "description": "",
             "button-text": "",
@@ -165,11 +164,11 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235177_9aa04390-3a2a-48da-b0e1-0d5b00196232.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "title": "",
             "description": "",
             "button-text": "",
@@ -192,6 +191,48 @@
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
         "close-color-scheme": "white"
+      }
+    },
+    "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75": {
+      "type": "featured-collections",
+      "blocks": {
+        "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": "Best Sellers",
+            "hide-form-labels": true,
+            "dont-hide-flash-sale": false
+          }
+        },
+        "02f79c4f-6737-4220-a31c-992d094df8ee": {
+          "type": "collection",
+          "settings": {
+            "collection": "new-arrivals",
+            "title": "New In",
+            "hide-form-labels": true,
+            "dont-hide-flash-sale": false
+          }
+        },
+        "97749904-2195-42da-9b4e-7a6f7995c1ca": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": "On Sale",
+            "hide-form-labels": true,
+            "dont-hide-flash-sale": false
+          }
+        }
+      },
+      "block_order": [
+        "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684",
+        "02f79c4f-6737-4220-a31c-992d094df8ee",
+        "97749904-2195-42da-9b4e-7a6f7995c1ca"
+      ],
+      "settings": {
+        "quick-view": false,
+        "add-to-cart": true,
+        "select_card_layout": "layout2"
       }
     },
     "c77438d3-e596-410d-9341-7eea51a24a37": {
@@ -258,47 +299,6 @@
         "mobile-layout": "stacked",
         "button-text": "",
         "button-link": ""
-      }
-    },
-    "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75": {
-      "type": "featured-collections",
-      "blocks": {
-        "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-sellers",
-            "title": "Best Sellers",
-            "hide-form-labels": true,
-            "dont-hide-flash-sale": false
-          }
-        },
-        "02f79c4f-6737-4220-a31c-992d094df8ee": {
-          "type": "collection",
-          "settings": {
-            "collection": "new-arrivals",
-            "title": "New In",
-            "hide-form-labels": true,
-            "dont-hide-flash-sale": false
-          }
-        },
-        "97749904-2195-42da-9b4e-7a6f7995c1ca": {
-          "type": "collection",
-          "settings": {
-            "collection": "sale",
-            "title": "On Sale",
-            "hide-form-labels": true,
-            "dont-hide-flash-sale": false
-          }
-        }
-      },
-      "block_order": [
-        "552e8ee9-0d10-4df0-ad75-eb6c7b6b9684",
-        "02f79c4f-6737-4220-a31c-992d094df8ee",
-        "97749904-2195-42da-9b4e-7a6f7995c1ca"
-      ],
-      "settings": {
-        "quick-view": false,
-        "add-to-cart": true
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {
@@ -414,7 +414,7 @@
         "button-quick-view": false,
         "button-link": "shopify:\/\/collections\/summer-arrivals",
         "background": "#ff6b0e",
-        "text-color": "{{ shop.brand.colors.primary[1].background }}",
+        "text-color": "#000000",
         "accent-color": "#ffffff",
         "pictured-product-display": "top",
         "featured-collection": "new-arrivals",
@@ -565,8 +565,8 @@
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd",
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
-    "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
+    "c77438d3-e596-410d-9341-7eea51a24a37",
     "951d1a57-9c08-4431-a932-aafbc04369f5",
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",

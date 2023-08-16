@@ -8,8 +8,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
         "hide": true,
         "product_list": [
           "compakt-zippered-pouch-set",
@@ -29,12 +27,24 @@
 
         ],
         "section-id": "",
+        "title-above": "LAST CHANCE",
+        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/back-to-school",
         "cta_text": "Shop Back to School",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "See Terms & Conditions",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -46,8 +56,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
         "hide": false,
         "product_list": [
 
@@ -56,24 +64,35 @@
 
         ],
         "section-id": "",
+        "title-above": "LAST CHANCE",
+        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/back-to-school",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "See Terms & Conditions",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
     "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!*<\/p>",
         "hide": false,
         "product_list": [
 
@@ -82,12 +101,24 @@
 
         ],
         "section-id": "",
+        "title-above": "LAST CHANCE",
+        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!*<\/p>",
+        "mobile-title-above": "LAST CHANCE",
+        "font_size_title_above": 16,
+        "mobile-main-text": "<p>FREE standard shipping on all orders!*<\/p>",
+        "font_size_main_text": 16,
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/all",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "* Terms & Conditions",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -541,6 +572,7 @@
       "blocks": {
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
             "video": "",
@@ -570,6 +602,7 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055_1.jpg",
             "video": "",
@@ -1472,6 +1505,7 @@
         },
         "2bef465f-5c2d-44c1-a49e-c18d780fe913": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
             "video": "",
@@ -1483,7 +1517,7 @@
               "sale"
             ],
             "background": "#e4dfd5",
-            "text-color": "#000",
+            "text-color": "#000000",
             "starts-on": "",
             "ends-on": "",
             "row": 2,

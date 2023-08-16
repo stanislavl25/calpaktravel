@@ -144,6 +144,7 @@ function variantUpdateProcess(target) {
                 productContainer.classList.add('product-unit--so')
             } else {
                 productContainer.classList.add('product-unit--jw')
+                
             }
         } else {
             productContainer.classList.remove('product-unit--na');

@@ -345,17 +345,64 @@ window.addEventListener("load", () => {
         const pdpSubmitSection = document.querySelector('.pdp__submit-container');
         const floatingPDPSubmit = document.querySelector('.pdp__floating-submit');
         const signUpSection = document.querySelector('.shopify-section--contact-form');
-        if(floatingPDPSubmit && pdpSubmitSection) {
-            let observer = new IntersectionObserver(function(entries){
-                entries.forEach(entry => {
-                    if (entry.intersectionRatio > 0) {
-                        floatingPDPSubmit.classList.remove('pdp__floating-submit--active');
-                    } else floatingPDPSubmit.classList.add('pdp__floating-submit--active');
-                });
-            }, {threshold: 0, rootMargin: '0px'});
+        
+        if (floatingPDPSubmit && pdpSubmitSection) {
+            let prevScroll = window.scrollY;
 
-            observer.observe(pdpSubmitSection);
+            function handleScroll() {
+                const currentScroll = window.scrollY;
+
+                if (currentScroll < prevScroll) {
+                    floatingPDPSubmit.classList.add('pdp__floating-submit--active');
+                } else {
+                    floatingPDPSubmit.classList.remove('pdp__floating-submit--active');
+                }
+
+                prevScroll = currentScroll;
+            }
+
+            // Delete it when the test ends and keep the variant that won
+            endrockExperiment('RknArfG6RdGncjedAaNC7g').then(variant => {
+                switch (variant) {
+                    case '1':
+                        // New Variant
+                        console.log('Experiment Running: Sticky ATC on PDP');
+                        const observerVariant = new IntersectionObserver(
+                            (entries) => {
+                                entries.forEach((entry) => {
+                                    if (entry.intersectionRatio > 0) {
+                                        window.removeEventListener('scroll', handleScroll);
+                                        floatingPDPSubmit.classList.remove('pdp__floating-submit--active');
+                                    } else {
+                                        window.addEventListener('scroll', handleScroll);
+                                    }
+                                });
+                            },
+                            { threshold: 0, rootMargin: '0px' }
+                        );
+                        observerVariant.observe(pdpSubmitSection);
+                        break;
+                    case '0':
+                    default:
+                        // Default Variant
+                        const observer = new IntersectionObserver(
+                            (entries) => {
+                                entries.forEach((entry) => {
+                                    if (entry.intersectionRatio > 0) {
+                                        floatingPDPSubmit.classList.remove('pdp__floating-submit--active');
+                                    } else {
+                                        floatingPDPSubmit.classList.add('pdp__floating-submit--active');
+                                    }
+                                });
+                            },
+                            { threshold: 0, rootMargin: '0px' }
+                        );
+                        observer.observe(pdpSubmitSection);
+                        break;
+                }
+            })
         }
+
         if(signUpSection) {
             let observer = new IntersectionObserver(function(entries){
                 entries.forEach(entry => {
@@ -386,7 +433,6 @@ window.addEventListener("load", () => {
             const wideMedia = cont.querySelectorAll('.pdp__media--wide');
             if(wideMedia.length > 1) for(let i = 1; i < wideMedia.length; i++) wideMedia[i].classList.remove('pdp__media--wide');
             const allMedia = cont.querySelectorAll('.pdp__media.pdp__media--active');
-
             if(allMedia.length % 2 == 0) {
                 allMedia[allMedia.length - 1].classList.add('pdp__media--wide');
             }
@@ -536,6 +582,15 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
 
         let activeMedia = pdpGallery.querySelectorAll('.pdp__media--active');
         activeMedia[0].classList.add('pdp__media--wide');
+        
+        // Start pdpFloting Dinamic Image
+        const currentFirstImageSrc = document.querySelector('.pdp__gallery .pdp__media--wide img')?.src
+        const pdpFlotingImage = document.querySelector('.pdp2__floating--image img')
+        if(currentFirstImageSrc){
+        pdpFlotingImage.src = currentFirstImageSrc
+        }
+        // End pdpFloting Dinamic Image
+
         if(!isQuickView) {
             let mediaLimit = setupGalleryMediaLimit(newMedia);
             if(mediaLimit && mediaLimit > 0) {

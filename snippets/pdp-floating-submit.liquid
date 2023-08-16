@@ -1,14 +1,94 @@
 <section class="pdp__floating-submit">
-    <div class="pdp__floating-submit-inner">
-        <div class="pdp__floating-add-to-cart">
-            <div class="pdp__floating-title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</div>
-            <div class="pdp__floating-labels">
-                {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
-            </div>
-            {% render 'pdp-submit-row', current_variant: current_variant, wishlist: wishlist %}
+  <div class="pdp__floating-submit-inner pdp2__floating-submit-inner">
+    <div class="pdp__floating-add-to-cart">
+        <div class="pdp__floating-title">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</div>
+        <div class="pdp__floating-labels">
+            {% render 'product-form-labels', location: 'pdp', current_variant: current_variant %}
         </div>
-    
-        {% render 'pdp-waitlist' %}
-    
+        {% render 'pdp-submit-row', current_variant: current_variant, wishlist: wishlist %}
     </div>
+
+    <div class="pdp2__floating-add-to-cart" style="display: none;">
+      <div class="pdp2__floating--image">
+        <img src="" alt="" width="105" height="128" loading="lazy">
+      </div>
+      <div class="pdp2__floating--body">
+        <span class="pdp2__floating--title">
+          {{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
+        </span>
+        {% assign size_items = product.metafields.custom.select_size_products.value %}
+
+        {% if product.metafields.custom.select_size_products != blank %}
+            <div class="pdp2__floating--selectContainer">
+                <select name="pdp-floating-submit-select">
+                    <option>
+                        {% if product.metafields.custom.select_size_name != blank %}
+                            {{ product.metafields.custom.select_size_name }} -
+                        {% else %}
+                            {{ product.title }} -
+                        {% endif %}
+                        {{ current_variant.price | money_without_trailing_zeros }}
+                    </option>
+
+                    {% for size_item in size_items %}
+                        {% if size_item.handle != product.handle %}
+                            <option
+                                value="/products/{{ size_item.handle }}/{{ current_variant.title | handle }}"
+                            >
+                                {% if size_item.metafields.custom.select_size_name != blank %}
+                                    {{ size_item.metafields.custom.select_size_name }}
+                                {% else %}
+                                    {{ size_item.title }}
+                                {% endif %}
+                                -
+                                {% if size_item.available %}
+                                    {% if size_item.handle == product.handle %}
+                                        {{ current_variant.price | money_without_trailing_zeros }}
+                                    {% else %}
+                                        {{ size_item.price | money_without_trailing_zeros }}
+                                    {% endif %}
+                                {% else %}
+                                Out Of Stock
+                                {%- endif %}
+                            </option>
+                        {% endif %} 
+
+                    {%- endfor -%}
+                </select>
+            </div>
+        {% endif %}
+
+        {% render 'pdp-submit-row', current_variant: current_variant, wishlist: wishlist %}
+      </div>
+    </div>
+
+    {% render 'pdp-waitlist' %}
+  </div>
 </section>
+
+<script>
+    const pdpFloatingSubmitSelect = document.querySelector('[name="pdp-floating-submit-select"]')
+
+    pdpFloatingSubmitSelect.onchange = ({ target: { value } }) => {
+        location.href = value
+    }
+
+    // Delete it when the test ends and keep the variant that won
+    endrockExperiment('RknArfG6RdGncjedAaNC7g').then((variant) => {
+        const oldPdpFloating = document.querySelector('.pdp__floating-add-to-cart')
+        const newPdpFloating = document.querySelector('.pdp2__floating-add-to-cart')
+
+        const modifyElements = () => {
+            if(variant === '1' && window.innerWidth < 900) {
+                oldPdpFloating.style.display = 'none'
+                newPdpFloating.style.display = 'flex'
+            } else {
+                oldPdpFloating.style.display = 'contents'
+                newPdpFloating.style.display = 'none'
+            }
+        }
+
+        window.onresize = modifyElements
+        modifyElements()
+    })
+</script>

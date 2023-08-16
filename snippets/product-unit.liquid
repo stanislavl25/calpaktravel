@@ -173,7 +173,7 @@
     data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-    class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false and settings.sale-msg-starter != false %} customBadge-class {% endif %}">
+    class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false and settings.sale-msg-starter != false %} customBadge-class {% endif %}{% if cardlayout %} card-{{ cardlayout}}{% endif %}">
     <div class="product-unit__image-wrapper splash {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
       {%- if quick_view == true -%}
         <a
@@ -290,62 +290,62 @@
       </div>
     {%- endif -%}
 
-    {% comment %} <div class="product-unit__colors--quickadd"></div> {% endcomment %}
+    <div class="product-unit__colors--quickadd"></div>
 
-    <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
-      <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
-    </div>
-
-    {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
-      <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
-    {%- endif -%}
-
-    {% comment %} {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
-    <div class="product-unit__reviews">
-    {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-    </div>
-    {%- endif -%} {% endcomment %}
-
-    {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
-      <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
-    {%- endif -%}
-
-    <div class="product-unit__row">
-      <div class="product-unit__price">
-        {%- if current_variant.compare_at_price > current_variant.price -%}
-          <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-          <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-        {%- else -%}
-          <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-        {%- endif -%}
+    <div class="product-unit__main-content">
+      <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
+        <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
       </div>
-    </div>
 
-    {%- if hotDealsVariants != false and settings.hot-deals-badge-enabled -%}
-        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
-            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
-            Hot Deal
+      {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
+        <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
+      {%- endif -%}
+
+      {% comment %} {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+      <div class="product-unit__reviews">
+      {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+      </div>
+      {%- endif -%} {% endcomment %}
+
+      {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
+        <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
+      {%- endif -%}
+
+      <div class="product-unit__row">
+        <div class="product-unit__price">
+          {%- if current_variant.compare_at_price > current_variant.price -%}
+            <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+            <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+          {%- else -%}
+            <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+          {%- endif -%}
         </div>
-    {%- endif -%}
+      </div>
 
-    {% comment %} {%- if hotDealsVariants contains opt1 -%}
-    <div class="product-label hot-deals-countdown-wrapper">
-    <label>Sale ends</label>
-    <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
-    </div>
-    {%- endif -%} {% endcomment %}
+      {%- if hotDealsVariants != false and settings.hot-deals-badge-enabled -%}
+        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}" {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+          Hot Deal
+        </div>
+      {%- endif -%}
 
-    {%- liquid
+      {% comment %} {%- if hotDealsVariants contains opt1 -%}
+      <div class="product-label hot-deals-countdown-wrapper">
+      <label>Sale ends</label>
+      <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+      </div>
+      {%- endif -%} {% endcomment %}
+
+      {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
             render 'flash-sale-label', current_variant: current_variant, product: product
             render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
         endif
     -%}
 
-    <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
+      <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
+    </div>
     {%- if add_to_cart == true -%}
 
-      <div class="product-unit__colors--quickadd"></div>
 
       <div class="product-unit__button">
         <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
@@ -353,19 +353,25 @@
           <div class="button-msg-adding">Adding...</div>
           <div class="button-msg-added">Added!</div>
           <div class="button-msg-so">Sold Out</div>
-          <div class="button-msg-jw">Join Waitlist</div>
-          {% comment %} <div class="button-msg-na">Not Available</div>
-          <div class="product-unit__row">
-          <div class="product-unit__price">
-          {%- if current_variant.compare_at_price > current_variant.price -%}
-          <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s><b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-          {%- else -%}
-          <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-          {%- endif -%}
+          <div class="button-msg-jw">
+            <a
+              class="join-waitlist product-link"
+              style="text-decoration: none"
+              href="{{ product.url }}">Join Waitlist</a>
           </div>
-          </div> {% endcomment %}
+          {% comment %} <div class="button-msg-na">Not Available</div>{% endcomment %}
+          <div class="product-unit__row">
+            <div class="product-unit__price">
+              {%- if current_variant.compare_at_price > current_variant.price -%}
+                <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+              {%- else -%}
+                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+              {%- endif -%}
+            </div>
+          </div>
         </button>
       </div>
     {%- endif -%}
-</div>
+  </div>
 {% endunless %}

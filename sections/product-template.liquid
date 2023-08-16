@@ -461,16 +461,8 @@
               });
             </script>
           {% endif %}
-          {%- when 'description' -%}
-
-        {%- else -%}
-          {% render 'pdp-promo' with block, current_variant: current_variant %}
-        {%- endcase -%}
-      {%- endfor -%}
-    {% endform %}
-
-    {% render 'pdp-upsell', title: "Complete Your Set", current_variant: current_variant %}
-    {% assign description_title = section.settings.description-title %}
+        {%- when 'description' -%}
+          {% assign description_title = section.settings.description-title %}
           {% assign specifications_title = section.settings.specifications-title %}
           {% assign warranty_title = section.settings.warranty-title %}
           {% render 'pdp-description'
@@ -478,6 +470,15 @@
            specifications_title: specifications_title,
            warranty_title: warranty_title,
            current_variant: current_variant %}
+        {% when 'set-bundle' %}
+          {% render 'pdp-bundle', current_variant: current_variant, bundle_product: block.settings.product_bundle %}
+        {%- else -%}
+          {% render 'pdp-promo' with block, current_variant: current_variant %}
+        {%- endcase -%}
+      {%- endfor -%}
+    {% endform %}
+
+    {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
   </main>
 
 </section>
@@ -918,6 +919,18 @@
             "id": "product-list",
             "label": "Exclusions list"
           }
+        ]
+      },
+      {
+        "type": "set-bundle",
+        "name": "Set Bundle",
+        "limit": 1,
+        "settings": [
+            {
+                "type": "product",
+                "id": "product_bundle",
+                "label": "Bundle Product"
+            }
         ]
       }
     ]

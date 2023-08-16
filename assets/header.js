@@ -172,3 +172,9 @@ if(mobileMenuActivator) mobileMenuActivator.addEventListener('click', async func
 
     openMenu('shop');
 });
+
+let moreButton = document.querySelector('.moreButton');
+moreButton.addEventListener('click', function() {
+	let moreButtonWrap = document.querySelector('.moreBTN_wrap');
+	moreButtonWrap.classList.add('showFull');
+});

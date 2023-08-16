@@ -5,6 +5,9 @@
     z-index: 2;
 }
 
+.product-grid .product-unit__swatches {
+    max-width: calc(28px * 9);
+}
 
 .product-unit__swatches-container {
     position: absolute;
@@ -13,18 +16,25 @@
     gap: 3px;
 }
 
-.product-unit__swatches-container::before {
+.product-grid .product-unit__swatches-container {
+    position: relative;
+}
+
+ .product-unit__swatches-container::before {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
+    content: '';
     border-radius: 20px;
     background: #f7f7f7;
-    content: '';
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s;
+}
+.product-grid .product-unit__swatches-container::before {
+    background: none;
 }
 
 .product-unit__swatches-container::after {
@@ -47,6 +57,10 @@
 .product-unit:focus-within .product-unit__swatches-container,
 .product-unit:hover .product-unit__swatches-container {
     opacity: 1
+}
+
+.menu-side .product-unit__swatches-container  {
+    left: -6px;
 }
 
 .color-swatch {
@@ -140,12 +154,6 @@ a.color-swatch--active::after {
     position: absolute;
     transform: translate(-50%, -50%) rotate(-45deg);
     z-index: 3;
-}
-
-.color-stone.product-option--na::before,
-.color-white-bandana.product-option--na::before,
-.color-white.product-option--na::before {
-    border-color: #000;
 }
 
 .extra-colors {

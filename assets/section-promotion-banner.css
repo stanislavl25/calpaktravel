@@ -16,7 +16,7 @@
 }
 
 .promotion-banner__section--hidden {
-    display: none;
+    display: none !important;
 }
 
 .promotion-banner__title {
@@ -93,4 +93,15 @@ a.promotion-banner__link {
 
 .hot-deals-banner-wrapper .hot-deal-badge.product-label--active {
     display: flex !important;
+}
+.show-mobile{
+    display: none;
+}
+@media (max-width:575px){
+    .show-mobile{
+        display: flex;
+    }
+    .show-desktop{
+        display: none;
+    }
 }

@@ -443,6 +443,9 @@ if(closeFilters.length > 0) closeFilters.forEach(closeFilter => closeFilter.addE
     }
     filters.setAttribute('aria-expanded', false);
     filters.classList.remove('collection-filters--active');
+
+    const filterbanner = document.querySelector('.collection-filters__control');
+    filterbanner.classList.remove('collection-filters--open');
 }));
 
 const resetFilterButtons = document.querySelectorAll('.filter__reset');
