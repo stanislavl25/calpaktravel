@@ -67,15 +67,23 @@
             "title": "",
             "description": ""
           }
+        },
+        "99a103a3-d7b1-4d90-8b63-fc6b38eda274": {
+          "type": "link",
+          "settings": {
+            "title": "",
+            "description": ""
+          }
         }
       },
       "block_order": [
         "09c7edc2-89a7-4964-8063-b011266fa40e",
-        "b6a7e147-2ab0-4f45-ac32-9687a58bff8b"
+        "b6a7e147-2ab0-4f45-ac32-9687a58bff8b",
+        "99a103a3-d7b1-4d90-8b63-fc6b38eda274"
       ],
       "settings": {
         "title": "",
-        "gap": false
+        "gap": true
       }
     },
     "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
