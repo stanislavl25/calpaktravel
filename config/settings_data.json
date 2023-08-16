@@ -450,19 +450,19 @@
               "only-for-guests": true
             }
           },
-          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
-            "type": "notification",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Free standard shipping on all orders!* <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions Apply<\/a><\/p>",
-              "only-for-guests": false
-            }
-          },
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
             "disabled": true,
             "settings": {
               "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
+              "only-for-guests": false
+            }
+          },
+          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Free standard shipping on all orders!* <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions Apply<\/a><\/p>",
               "only-for-guests": false
             }
           },
@@ -487,8 +487,8 @@
           "1c718884-a708-4c2b-a791-a06f37dcf23e",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
-          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "04bc2b17-2375-4de8-af63-63c2c120af5a",
+          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
@@ -919,8 +919,8 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Last Chance to get FREE Shipping!* ((countdown))<\/p>",
-              "url": "",
+              "content": "<p>Goodbye summer! Get Up to 60% off NOW<\/p>",
+              "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
             }
