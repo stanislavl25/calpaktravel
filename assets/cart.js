@@ -188,7 +188,7 @@ function setFreeGiftsByProduct(items) {
         let current_message = document.querySelector('.cart__gam-verbose').innerHTML;
         if(current_message.slice(-16) == 'and a FREE gift!'){
             if(document.querySelector('.cart__gam-verbose').innerHTML.slice(0,9) == 'Congrats!') {
-                current_message = `${current_message.slice(0, -1)}`;
+                current_message = current_message
             } else {
                 current_message = `Congrats! ${current_message}`;
             }
@@ -393,7 +393,7 @@ function setGamificationProducts( gifts ) {
             }
 
         });
-    }, 2000)
+    }, 500)
 }
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
