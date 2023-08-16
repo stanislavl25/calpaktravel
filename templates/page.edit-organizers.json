@@ -188,10 +188,19 @@
             "title": "",
             "description": ""
           }
+        },
+        "1e7efe36-e49d-4462-921d-8053e7873341": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_2_45a38c5f-445d-4f40-8330-f6af12b7b91b.jpg",
+            "title": "",
+            "description": ""
+          }
         }
       },
       "block_order": [
-        "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6"
+        "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6",
+        "1e7efe36-e49d-4462-921d-8053e7873341"
       ],
       "settings": {
         "title": "",
