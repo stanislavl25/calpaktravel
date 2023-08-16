@@ -734,8 +734,7 @@ body.swym-modal-active:not(.modal-open) {
 }
 
 .modal-open #attentive_overlay {
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
 }
 
 .login-popup__container {

@@ -584,9 +584,11 @@ function pdpGalleryUpdate(pdpGrid, option, isQuickView) {
         activeMedia[0].classList.add('pdp__media--wide');
         
         // Start pdpFloting Dinamic Image
-        const currentFirstImageSrc = document.querySelector('.pdp__gallery .pdp__media--wide img').src
+        const currentFirstImageSrc = document.querySelector('.pdp__gallery .pdp__media--wide img')?.src
         const pdpFlotingImage = document.querySelector('.pdp2__floating--image img')
+        if(currentFirstImageSrc){
         pdpFlotingImage.src = currentFirstImageSrc
+        }
         // End pdpFloting Dinamic Image
 
         if(!isQuickView) {
