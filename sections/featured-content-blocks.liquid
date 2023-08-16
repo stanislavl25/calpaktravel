@@ -74,7 +74,7 @@
             <a href="{{ block.settings.target_link }}" class="button button--secondary">
                 <span class="hide--mobile">Shop Now</span>
                 {% assign temp = block.settings.product_title | split: ' ' %}
-                <span class="hide--desktop">Shop {{ block.settings.product_title }}</span>
+                <span class="hide--desktop">{{ block.settings.button_text_mobile }}</span>
             </a>
 
             {% if block.settings.product_title != blank %}
@@ -213,6 +213,11 @@
                         "type": "text",
                         "id": "product_title",
                         "label": "Product Title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button_text_mobile",
+                        "label": "Button Text for Mobile"
                     },
                     {
                         "type": "header",
