@@ -69,6 +69,7 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Labor Day Sale",
             "description": "<p>Wave goodbye to summer with up to 60% off best-sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
@@ -84,6 +85,7 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0868-3-3.jpg",
             "video": "",
@@ -99,6 +101,7 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/IMG_9868-3.jpg",
             "video": "",
