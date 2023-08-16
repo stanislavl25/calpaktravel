@@ -298,6 +298,19 @@
     }
 }
 
+@media screen and (max-width: 1370px){
+    .menu-side .product-unit__colors .product-unit__colors-text {
+        bottom: -7px;
+        color: var(--gray);
+        font-size: 14px;
+        position: absolute;
+        transition: opacity .3s;
+        display: flex;
+        gap: 4px;
+    }
+    
+}
+
 @media (max-width: 1536px) {
     .menu-popup--shop .menu-side .media-grid {
         display: none;

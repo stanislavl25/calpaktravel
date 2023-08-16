@@ -5,7 +5,7 @@
     "favicon": "shopify:\/\/shop_images\/favicon_dc3a819d-7bb4-417a-8564-c3c9166fc5c8.png",
     "best-sellers": "best-sellers",
     "new-arrivals": "new-arrivals",
-    "free-shipping": 0,
+    "free-shipping": 75,
     "show-cart-gamification": false,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
     "product-disclaimer": false,
@@ -19,26 +19,26 @@
     "extra-sale-text-pdp": "New - %% off",
     "extra-sale-text": "New - %% off",
     "flash-sale-enabled": false,
-    "flash-sale-tag": "",
+    "flash-sale-tag": "flash-sale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "",
-    "flash-sale-ends": "",
+    "flash-sale-starts": "Aug 15, 2023 10am",
+    "flash-sale-ends": "Aug 17, 2023 10am",
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
-    "sale-badge-enabled": true,
+    "sale-badge-enabled": false,
     "sale-badge-text-tilt": false,
-    "countdown-label-collection-enabled": true,
+    "countdown-label-collection-enabled": false,
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
-    "sale-badge-tag": "btsbadge",
-    "sale-badge-text": "Code: BACKTOIT",
+    "sale-badge-tag": "",
+    "sale-badge-text": "",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": true,
-    "sale-badge-tag-bundle": "laptoppromo",
+    "sale-badge-tag-bundle": "",
     "starter-bundle-badge": "",
-    "sale-badge-text-starter": "LIMITED TIME",
+    "sale-badge-text-starter": "",
     "sale-badge-hide-textog": false,
     "starter__customizer-badge": "#f7f177",
     "hot-deals-badge-enabled": true,
@@ -47,11 +47,11 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "",
     "chk-msg-text": "",
-    "sale-msg-enabled": true,
-    "sale-msg-pdp-only": true,
-    "sale-msg-tag": "backtoschool",
-    "sale-msg-highlighted": "Code: BACKTOIT",
-    "sale-msg-message": "Get 10% off best-selling back-to-school styles",
+    "sale-msg-enabled": false,
+    "sale-msg-pdp-only": false,
+    "sale-msg-tag": "",
+    "sale-msg-highlighted": "",
+    "sale-msg-message": "",
     "sale-msg-main-col-text": "#707070",
     "type_light_font": "futura_n3",
     "type_body_font": "futura_n4",
@@ -96,8 +96,8 @@
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/products\/padded-laptop-sleeve",
-              "block-title": "Something to set your alarm for: $29.99 for ANY Laptop Sleeve",
+              "button-url": "shopify:\/\/collections\/back-to-school",
+              "block-title": "Back To School Essentials",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
@@ -350,9 +350,9 @@
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": true,
-          "live-start-time": "August 8, 2023 4:00PM",
-          "live-end-time": "August 8, 2023 5:00PM"
+          "live": false,
+          "live-start-time": "August 14, 2023 10:00AM",
+          "live-end-time": "August 14, 2023 11:00AM"
         }
       },
       "footer": {
@@ -429,33 +429,10 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
-          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
-            "type": "notification",
-            "settings": {
-              "text": "<p>Free standard shipping on all orders!* <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions Apply<\/a><\/p>",
-              "only-for-guests": false
-            }
-          },
           "1c718884-a708-4c2b-a791-a06f37dcf23e": {
             "type": "notification",
-            "disabled": true,
             "settings": {
-              "text": "<p>Free standard shipping on all orders in contiguous US. <\/p>",
-              "only-for-guests": false
-            }
-          },
-          "04bc2b17-2375-4de8-af63-63c2c120af5a": {
-            "type": "notification",
-            "settings": {
-              "text": "<p>Use code: BACKTOIT to get 10% off <a href=\"\/collections\/back-to-school\" title=\"Back to School\">Back To School Items!<\/a><\/p>",
-              "only-for-guests": false
-            }
-          },
-          "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154": {
-            "type": "notification",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Contiguous US orders $100 and over get free standard shipping.<\/p>",
+              "text": "<p>Contiguous US orders $75 and over to get free standard shipping.<\/p>",
               "only-for-guests": false
             }
           },
@@ -473,6 +450,30 @@
               "only-for-guests": true
             }
           },
+          "58c64c20-f997-4806-98c1-48dbdac32ff7": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Free standard shipping on all orders!* <a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">Terms and Conditions Apply<\/a><\/p>",
+              "only-for-guests": false
+            }
+          },
+          "04bc2b17-2375-4de8-af63-63c2c120af5a": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Use code: BACKTOIT to get 10% off <a href=\"\/collections\/back-to-school\" title=\"Back to School\">Back To School Items!<\/a><\/p>",
+              "only-for-guests": false
+            }
+          },
+          "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Contiguous US orders $100 and over get free standard shipping.<\/p>",
+              "only-for-guests": false
+            }
+          },
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d": {
             "type": "notification",
             "disabled": true,
@@ -483,12 +484,12 @@
           }
         },
         "block_order": [
-          "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "1c718884-a708-4c2b-a791-a06f37dcf23e",
-          "04bc2b17-2375-4de8-af63-63c2c120af5a",
-          "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
+          "58c64c20-f997-4806-98c1-48dbdac32ff7",
+          "04bc2b17-2375-4de8-af63-63c2c120af5a",
+          "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
         ],
         "settings": {
@@ -690,7 +691,6 @@
         "blocks": {
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -706,6 +706,7 @@
           },
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Back to School",
               "menu": "shop",
@@ -895,20 +896,6 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Free standard shipping on all orders!*<\/p>",
-              "url": "",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
             "settings": {
@@ -917,8 +904,23 @@
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>10% off back-to-school bags<\/p>",
-              "url": "shopify:\/\/collections\/back-to-school",
+              "content": "<p>Free standard shipping on orders $75 or more!<\/p>",
+              "url": "",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Last Chance to get FREE Shipping!* ((countdown))<\/p>",
+              "url": "",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -970,8 +972,8 @@
           }
         },
         "block_order": [
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
           "62b6d713-dd1b-4386-a18e-6932387e7112",
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
           "652fae05-e012-48a0-bd05-eebda8839bc2",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
           "7d3bbce9-7dd8-473d-958c-bf75d4555902"
@@ -982,9 +984,9 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": false,
+          "countdown-active": true,
           "countdown-show": "48",
-          "countdown-to": "July 7, 2023 11:00am"
+          "countdown-to": "August 14, 2023 11:00am"
         }
       }
     },

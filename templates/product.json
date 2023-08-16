@@ -8,8 +8,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
         "hide": true,
         "product_list": [
           "compakt-zippered-pouch-set",
@@ -28,12 +26,24 @@
 
         ],
         "section-id": "",
+        "title-above": "LIMITED TIME",
+        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "wrap",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -45,8 +55,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Mother's Day Promo",
-        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
         "hide": true,
         "product_list": [
           "luka-toiletry-bag",
@@ -103,12 +111,24 @@
 
         ],
         "section-id": "",
+        "title-above": "Mother's Day Promo",
+        "main-text": "<p>Buy 2 selected items (or more), get 15% off using code MOM15<\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "cta",
         "cta_url": "shopify:\/\/collections\/mothers-day",
         "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
@@ -119,8 +139,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "",
-        "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
         "hide": true,
         "product_list": [
 
@@ -129,12 +147,24 @@
 
         ],
         "section-id": "pdp-promo-new",
+        "title-above": "",
+        "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — for first trips and far away<br\/>with code <em>ROOKIE15<\/em><\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": ""
       }
     },
@@ -145,8 +175,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "",
-        "main-text": "<p>Frequent flyer? Everything you need in one Starter Bundle, now <strong>15% off<\/strong> <br\/>for a very limited time with code <em>JETSET15<\/em><\/p>",
         "hide": true,
         "product_list": [
 
@@ -155,12 +183,24 @@
 
         ],
         "section-id": "pdp-promo-traveller",
+        "title-above": "",
+        "main-text": "<p>Frequent flyer? Everything you need in one Starter Bundle, now <strong>15% off<\/strong> <br\/>for a very limited time with code <em>JETSET15<\/em><\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": ""
       }
     },
@@ -171,8 +211,6 @@
         "background": "#f7f177",
         "text-color": "#000000",
         "bold-text-background": "#ffffff",
-        "title-above": "Limited time!",
-        "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — luggage for family travels with code  <em>TOGETHER15<\/em><\/p>",
         "hide": true,
         "product_list": [
 
@@ -181,23 +219,30 @@
 
         ],
         "section-id": "pdp-promo-family",
+        "title-above": "Limited time!",
+        "main-text": "<p>Get <strong>15% off<\/strong> the Starter Bundle — luggage for family travels with code  <em>TOGETHER15<\/em><\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
         "cta_link": "none",
         "cta_url": "",
         "cta_text": "Click here",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
         "terms_text": "Terms and conditions apply",
+        "terms_text_mobile": "Terms and conditions apply",
         "terms_url": ""
       }
     },
     "product-template": {
       "type": "product-template",
       "blocks": {
-        "ef919b9c-2309-4d2f-a855-59983014b88b": {
-          "type": "flash-sale",
-          "settings": {
-          }
-        },
         "38dd47f4-7ad6-4f58-9949-bd511635652e": {
           "type": "title",
           "settings": {
@@ -208,6 +253,11 @@
               "medium-clear-cosmetics-case",
               "tech-organizer"
             ]
+          }
+        },
+        "ef919b9c-2309-4d2f-a855-59983014b88b": {
+          "type": "flash-sale",
+          "settings": {
           }
         },
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
@@ -223,6 +273,10 @@
         "db84d3cc-deea-45c6-a0ee-81ddf2509239": {
           "type": "arrival",
           "settings": {
+            "available-products": [
+
+            ],
+            "text": ""
           }
         },
         "d7de01ae-60eb-48a9-b30b-a1a965fec41f": {
@@ -438,56 +492,184 @@
             "upsell-accent": "#000000"
           }
         },
-        "609ee977-939e-4747-af83-eacb42d0ad15": {
+        "f392bb93-4d98-4ed4-b0c9-55810f6a6cfe": {
           "type": "image-banner",
-          "disabled": true,
           "settings": {
             "product-list": [
-              "luka-duffel",
-              "insulated-lunch-bag",
-              "stevyn-duffel",
-              "kaya-laptop-backpack",
-              "haven-laptop-tote-bag",
-              "terra-26l-backpack-duffel",
-              "luka-belt-bag",
-              "luka-key-pouch",
-              "luka-laptop-backpack",
-              "luka-mini-backpack",
-              "luka-mini-belt-bag",
-              "luka-expandable-laptop-tote",
-              "compakt-duffel-bag",
-              "compakt-tote-bag",
-              "car-organizer",
-              "water-bottle-holder",
-              "hue-duffel",
-              "packing-cubes-5-piece-set",
-              "large-clear-cosmetic-case",
-              "medium-clear-cosmetics-case",
-              "small-clear-cosmetics-case",
-              "tech-organizer",
-              "medium-compression-packing-cubes",
-              "compakt-large-garment-bag",
-              "compakt-small-garment-bag",
-              "power-luggage-tag",
-              "jewelry-case",
-              "hue-carry-on-luggage-with-pocket",
-              "ambeur-carry-on-luggage",
-              "hue-carry-on-luggage",
-              "ambeur-mini-carry-on-luggage",
-              "hue-mini-carry-on-luggage",
-              "luka-mini-carry-on-luggage",
-              "trnk-mini-carry-on-luggage"
+              "luka-expandable-laptop-tote"
             ],
             "collection-list": [
-              "mothers-day"
+
             ],
             "show-for-all": false,
-            "image": "shopify:\/\/shop_images\/Frame_35_3.png",
-            "title": "Mother's Day Live Event",
-            "text": "<p>Buy 2+ eligible products and get 15% OFF<\/p><p><\/p>",
+            "image": "shopify:\/\/shop_images\/Frame_1_3.jpg",
+            "title": "Learn more about Luka Expandable Laptop Tote",
+            "text": "",
             "button-text": "Watch Now",
-            "button-url": "shopify:\/\/collections\/mothers-day",
-            "live-show-id": "g1uCrKHQO89bR8znTmpY"
+            "button-url": "",
+            "live-show-id": "lAWkbwcph21eRM7GP28M"
+          }
+        },
+        "609ee977-939e-4747-af83-eacb42d0ad15": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "kaya-laptop-backpack"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_2_4.jpg",
+            "title": "Learn more about Kaya Laptop Backpack",
+            "text": "<p><\/p><p><\/p>",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "qGLyId9BJd957hWhUZqT"
+          }
+        },
+        "026c61b0-4539-4a2f-a594-103373e53f33": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "luka-duffel"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_3_3.jpg",
+            "title": "Learn more about Luka Duffel",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "oj559WtJIFxszaCpLNWU"
+          }
+        },
+        "fba8edac-a83c-48c9-ba08-22d65938ea46": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "tech-organizer"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_4_3.jpg",
+            "title": "Learn more about Tech Organizer",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "dr1UJOoqO5VstJNbhfHx"
+          }
+        },
+        "30269348-dcfa-4428-9971-cb8ddf310676": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "insulated-lunch-bag"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_5_2.jpg",
+            "title": "Learn more about Insulated Lunch Bag",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "gj3eCgxbgZJ1SN5nx9GF"
+          }
+        },
+        "a65f1e63-d801-46ae-a66f-55f5865a26c5": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "luka-laptop-backpack"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_6_2.jpg",
+            "title": "Learn more about Luka Laptop Backpack",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "3Tle874i87nJ7GyIakcG"
+          }
+        },
+        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "haven-laptop-tote-bag"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_7_2.jpg",
+            "title": "Learn more about Haven Laptop Tote Bag",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "SdMYgGeAGUU0tZZX0IPV"
+          }
+        },
+        "5235966f-ad49-4a8f-88b5-cadc961afccf": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "tablet-tech-organizer"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_8_1.jpg",
+            "title": "Learn more about Tablet Tech Organizer",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "9dAudyaICJTrmZwjNWHF"
+          }
+        },
+        "c3543abc-88ae-4b6d-ba65-6eb5a6e62023": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "terra-26l-backpack-duffel"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_9_2.jpg",
+            "title": "Learn more about Terra 26L Laptop Backpack Duffel",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "4waGHtmzHjVQvqZYGpdA"
+          }
+        },
+        "168a627e-cd95-40c0-865a-be60cd479810": {
+          "type": "image-banner",
+          "settings": {
+            "product-list": [
+              "padded-laptop-sleeve"
+            ],
+            "collection-list": [
+
+            ],
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Frame_10_3.jpg",
+            "title": "Learn more about Padded Laptop Sleeve",
+            "text": "",
+            "button-text": "Watch Now",
+            "button-url": "",
+            "live-show-id": "15142pxIq6ss8LLP5cKE"
           }
         },
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63": {
@@ -495,13 +677,13 @@
           "disabled": true,
           "settings": {
             "product-list": [
-
+              "silk-travel-set"
             ],
             "collection-list": [
               "all"
             ],
-            "show-for-all": true,
-            "image": "shopify:\/\/shop_images\/IMG_9016-2_1.jpg",
+            "show-for-all": false,
+            "image": "shopify:\/\/shop_images\/Video.png",
             "title": "Watch Live Demo",
             "text": "<p>Learn how to get a FREE Luka Key Pouch on your next order<\/p><p><\/p>",
             "button-text": "Tune In Now",
@@ -539,8 +721,8 @@
         }
       },
       "block_order": [
-        "ef919b9c-2309-4d2f-a855-59983014b88b",
         "38dd47f4-7ad6-4f58-9949-bd511635652e",
+        "ef919b9c-2309-4d2f-a855-59983014b88b",
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
         "3f584821-31db-42cb-941c-f61866a361a0",
         "db84d3cc-deea-45c6-a0ee-81ddf2509239",
@@ -555,7 +737,16 @@
         "fd410b66-3632-41fb-9a75-d309019c7a59",
         "9ddeb33b-4fa9-47e4-bebd-88d5c7062c2f",
         "d3d5496b-1b23-45d3-a5d8-4cce0a1c417b",
+        "f392bb93-4d98-4ed4-b0c9-55810f6a6cfe",
         "609ee977-939e-4747-af83-eacb42d0ad15",
+        "026c61b0-4539-4a2f-a594-103373e53f33",
+        "fba8edac-a83c-48c9-ba08-22d65938ea46",
+        "30269348-dcfa-4428-9971-cb8ddf310676",
+        "a65f1e63-d801-46ae-a66f-55f5865a26c5",
+        "c5b8bf65-57a4-4bc1-aabd-821b3413ceb1",
+        "5235966f-ad49-4a8f-88b5-cadc961afccf",
+        "c3543abc-88ae-4b6d-ba65-6eb5a6e62023",
+        "168a627e-cd95-40c0-865a-be60cd479810",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
         "460a526f-69ed-4d68-89c4-1b9152dcadf7",
@@ -568,9 +759,9 @@
         "gallery-limit-reapply": true,
         "description-title": "Description",
         "specifications-title": "Specifications",
-        "specifications": "<p>{{ product.metafields.custom.specifications | metafield_tag }}<\/p>",
+        "specifications": "{{ product.metafields.custom.specifications | metafield_tag }}",
         "warranty-title": "Warranty and Return Policy",
-        "warranty-product-level": "<p>{{ product.metafields.custom.warranty_text | metafield_tag }}<\/p>",
+        "warranty-product-level": "{{ product.metafields.custom.warranty_text | metafield_tag }}",
         "warranty-and-return": "<ul><li>Covered by the <a href=\"https:\/\/www.calpaktravel.com\/pages\/product-guarantee\">2-Year Limited CALPAK Warranty<\/a><\/li><li>Please check the Return Policy <a href=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\" title=\"https:\/\/www.calpaktravel.com\/pages\/faq#faq-returns-and-exchanges-2\">here<\/a><\/li><\/ul>",
         "quick-view": true,
         "addtocart-button": false
@@ -618,7 +809,6 @@
     },
     "9e2ed880-175f-4740-86df-747013cfd296": {
       "type": "featured-content-blocks",
-      "disabled": true,
       "blocks": {
         "783be409-c32d-4f7e-8318-271228487232": {
           "type": "block",
@@ -655,6 +845,7 @@
         "783be409-c32d-4f7e-8318-271228487232",
         "98837313-7152-48c3-aeed-7dcfe119dbc9"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "gap": true,
