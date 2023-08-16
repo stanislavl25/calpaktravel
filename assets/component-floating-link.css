@@ -49,4 +49,12 @@
     display: none;
   }
 
+  .floating-link-mobile {
+    flex-grow: 1;
+  }
+
+  .floating-link-mobile a {
+    width: 100%;
+  }
+
 }

@@ -71,8 +71,8 @@
 
         {%- if block.settings.button-text != blank -%}
         <div class="floating-link">
-            <div class="hide--desktop">
-                <a href="{{ block.settings.button_url_mobile }}" class="button button--secondary">
+            <div class="hide--desktop floating-link-mobile">
+                <a href="{{ block.settings.button_url_mobile }}" class="button button--secondary" >
                     {% assign temp = block.settings.product_title | split: ' ' %}
                     {{ block.settings.button_text_mobile }}
                 </a>
