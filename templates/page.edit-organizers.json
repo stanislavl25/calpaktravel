@@ -127,10 +127,19 @@
             "title": "",
             "description": ""
           }
+        },
+        "f08df9a9-30a2-488f-978b-207ca01f34db": {
+          "type": "link",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_1_50c81043-3d86-453f-982d-489f415f4d83.jpg",
+            "title": "",
+            "description": ""
+          }
         }
       },
       "block_order": [
-        "fc2268da-b4e1-4e76-a9ff-28667194af41"
+        "fc2268da-b4e1-4e76-a9ff-28667194af41",
+        "f08df9a9-30a2-488f-978b-207ca01f34db"
       ],
       "settings": {
         "title": "",
@@ -175,7 +184,7 @@
         "b72f0e42-b6b3-4ac2-94db-ec9eb75d8bf6": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_4337.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_2_a6bdb7bf-0c9b-42e8-94c9-722b331c5cbb.jpg",
             "title": "",
             "description": ""
           }
