@@ -70,10 +70,10 @@
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
           "settings": {
-            "title": "FREE shipping!",
-            "description": "<p>For a limited time, get free standard shipping.*<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
-            "main-link": "shopify:\/\/collections\/all",
-            "button-text": "Shop All",
+            "title": "Labor Day Sale",
+            "description": "<p>Wave goodbye to summer with up to 60% off best-sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
+            "main-link": "shopify:\/\/collections\/sale",
+            "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
             "show-condition": "always",
