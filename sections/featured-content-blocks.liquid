@@ -71,11 +71,18 @@
 
         {%- if block.settings.button-text != blank -%}
         <div class="floating-link">
-            <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                <span class="hide--mobile">Shop Now</span>
-                {% assign temp = block.settings.product_title | split: ' ' %}
-                <span class="hide--desktop">{{ block.settings.button_text_mobile }}</span>
-            </a>
+            <div class="hide--desktop">
+                <a href="{{ block.settings.button_url_mobile }}" class="button button--secondary">
+                    {% assign temp = block.settings.product_title | split: ' ' %}
+                    {{ block.settings.button_text_mobile }}
+                </a>
+            </div>
+            <div class="hide--mobile">
+                <a href="{{ block.settings.target_link }}" class="button button--secondary">
+                    {{ block.settings.button-text }}
+                </a>
+            </div>
+
 
             {% if block.settings.product_title != blank %}
             <div class="floating-link__pictured">
@@ -215,9 +222,18 @@
                         "label": "Product Title"
                     },
                     {
+                        "type": "header",
+                        "content": "Mobile Button"
+                    },
+                    {
                         "type": "text",
                         "id": "button_text_mobile",
                         "label": "Button Text for Mobile"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button_url_mobile",
+                        "label": "Button Url for Mobile"
                     },
                     {
                         "type": "header",
