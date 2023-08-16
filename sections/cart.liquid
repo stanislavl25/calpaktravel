@@ -64,6 +64,17 @@
         progress
       {%- endif -%}">
 
+      {% if settings.cart-gamification-select == 'gwp' %}
+        {%- for block in section.blocks -%}
+          {% if block.type == 'gamification-gift' %}
+            {% if block.settings.announcement != blank %}
+              <div class="free-gift__announcement">
+                {{ block.settings.announcement }}
+              </div>
+            {% endif %}
+          {% endif %}
+        {%- endfor -%}
+      {% endif %}
 
       {% render 'cart-promo', blocks: section.blocks, position: 'top' %}
 
@@ -91,6 +102,26 @@
           </div>
           <div class="cart__gamification-goals"></div>
         </div>
+      {% elsif settings.cart-gamification-select == 'gwp' %}
+        <div class="cart__gamification">
+          <div class="cart__gamification-msg">
+            <div class="cart__gam-verbose"></div>
+            <div class="cart__gam-progress">
+              You're only
+              <span class="shipping-value">
+                {{- free_shipping | minus: cart.total_price | money_without_trailing_zeros | round -}}
+              </span>
+              away from free shipping!
+            </div>
+            <div class="cart__gam-success">Congrats, you get free shipping!</div>
+          </div>
+          <div class="cart__gamification-progress">
+            <div class="cart__gamification-indicator" style="--gamification-progress: {{ gamification_progress }}%;"></div>
+          </div>
+          <div class="cart__gamification-goals"></div>
+          <div class="cart__gamification-gifts"></div>
+          <div class="cart__gam-verbose--gift"></div>
+        </div>
         {% else %}
           {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
       {% endif %}
@@ -114,7 +145,7 @@
     <div class="cart__body-mobile-main">
       <div class="cart__body-main">
         <div class="cart__body-top">
-          {% if settings.cart-gamification-select == 'shipping' %}
+          {% if settings.cart-gamification-select == 'gwp' %}
             {%- for block in section.blocks -%}
               {% if block.type == 'gamification-gift' %}
                 {% render 'cart-free-gift', product_key: block.settings.gift_key, product_keys: block.settings.gift_keys, products: block.settings.gift_available %}
@@ -338,6 +369,35 @@
                 {% endif %}
             {%- endfor -%}
         ]
+    };
+          {% endif %}
+          {% if settings.cart-gamification-select == 'gwp' %}
+
+    window.settings["cartGamification"] = {
+      subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
+      wrapper: '.cart__gamification-goals',
+      limit: {{ section.settings.max_value }},
+      goals: [{%- for block in section.blocks -%}
+          {% if block.type == 'gamification-goal' %}
+            {
+              title: '{{ block.settings.title }}',
+              value: {{ block.settings.value }},
+              icon: `{{ block.settings.icon }}`,
+              product: '{{ block.settings.gift.selected_or_first_available_variant.id }}'
+            }{%- unless forloop.last == true -%},{%- endunless -%}{% endif %}
+        {%- endfor -%}] ,
+      gifts: [{%- for block in section.blocks -%}
+          {% if block.type == 'gamification-gift' %}
+            {
+              keys: [{% for gift_product in block.settings.gift_keys %}{{ gift_product.id }}
+                  {%- unless forloop.last == true -%},{%- endunless -%}{% endfor %}],
+              key: '{{ block.settings.gift_key.id }}',
+              icon: `{{ block.settings.icon }}`,
+              selected: ''
+            }
+            {%- unless forloop.last == true -%},{%- endunless -%}{% endif %}
+        {%- endfor -%}]
+
     };
           {% endif %}
 

@@ -39,9 +39,9 @@
         {%- endif -%}
 
 
-        {%- unless gwpItem -%}
+
         <a href="{{ item.url_to_remove }}" class="cart__item-remove" title="Remove"><img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17"></a>
-        {%- endunless -%}
+
 
         <div class="cart__item-title">
             {{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}
@@ -76,7 +76,7 @@
                     {%- endif -%}
                 </div>
             </div>
-            
+
             {%- if item.product.handle != 'gift-card' -%}
                 {%- if item.variant.option1 != blank -%}
                 <div class="cart__item-option cart__item-option--1">{{- item.variant.option1 | downcase | escape -}}</div>
@@ -103,8 +103,8 @@
                     data-id="{{ item.product.id }}"
                     data-variant="{{ item.variant_id }}"
                     class="slide product-unit{% if item.product.selected_or_first_available_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}"
-                    >    
-                    {%- for option in item.product.options_with_values -%}   
+                    >
+                    {%- for option in item.product.options_with_values -%}
                         {%- assign optionLow = option.name | downcase -%}
 
                         {%- if optionLow == 'color' -%}
@@ -125,17 +125,17 @@
                             else
                                 assign img_lazy = false
                             endif
-            
+
                             if img_preload == blank
                                 assign img_preload = false
                             endif
-                            
+
                             if item.product.selected_or_first_available_variant.featured_image != blank
                                 assign img = item.product.selected_or_first_available_variant.featured_image
                             else
                                 assign img = item.product.featured_image
                             endif
-            
+
                             render 'image' with img, lazy: img_lazy, preload: img_preload, no_wrapper: true, sizes: sizes
                         -%}
                     </a>
@@ -148,7 +148,7 @@
 
             {%- endif -%}
 
-        
+
             {%- if item.properties['_final-sale'] == 'true' or item.properties['_final-sale'] == true -%}
                 <div class="product-label product-label--final"><strong>This item is Final Sale</strong></div>
             {%- endif -%}

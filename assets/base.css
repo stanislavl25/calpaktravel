@@ -778,24 +778,6 @@ body.swym-modal-active:not(.modal-open) {
   }
 }
 
-@media (max-width: 400px) {
-  /* CSS styles for screens less than 400px wide */
-  .collection-filter__activators button.filter__activator {
-    font-size: 0.8rem;
-  }
-  .collection-view {
-    font-size: 0.8rem;
-  }
-}
-@media (max-width: 325px) {
-  /* CSS styles for screens less than 325px wide */
-  .collection-filter__activators button.filter__activator {
-    font-size: 0.55rem;
-  }
-  .collection-view {
-    font-size: 0.55rem;
-  }
-}
 .display-none {
   display: none !important;
 }
@@ -820,8 +802,11 @@ body.swym-modal-active:not(.modal-open) {
   a[aria-label="Powered by Bazaarvoice - Opens in new tab"] {
   display: none;
 }
-.product-unit__colors--quickadd {
-  margin-bottom: 10px;
+/* .product-unit__colors--quickadd {
+} */
+
+.product-unit__main-content {
+  margin-bottom: auto;
 }
 #shopify-section-promo-bar {
   z-index: 3;
@@ -1001,6 +986,10 @@ body.swym-modal-active:not(.modal-open) {
   pointer-events: all;
 }
 
+.free-gift__selector-product .product-unit__title {
+  height: 36px;
+}
+
 .free-gift__selector
   .free-gift__selector-product--active
   .product-unit__image:after {
@@ -1047,4 +1036,99 @@ span.shipping-custom-msg {
 }
 .sale-badge-wrapper p {
   margin: 0;
+}
+
+/** css privacy policy page **/
+
+.shopify-policy__body h2{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.shopify-policy__body h3{
+  margin-bottom: 15px;
+}
+.shopify-policy__body h1.Polaris-Text--headingMd_lwjt4{
+  display: none;
+}
+
+/** css privacy policy page **/
+
+/** css collection description read more **/
+
+.page__description.moreBTN_wrap {
+  overflow: hidden;
+  position: relative;
+  max-height: 50px;
+  animation: fadeIn 3s linear 0s both;
+  -webkit-animation: fadeIn 3s linear 0s both;
+}
+.moreButton {
+  position: absolute;
+  bottom: 5px;
+  overflow: hidden;
+  color: #111;
+  min-height: 20px;
+  height: calc(2200% - 1144px);
+  max-height: 22px;
+  text-align: right;
+  right: 0;
+  padding-left: 32px;
+  background-image: -webkit-gradient(linear,left top,right top,from(hsla(0,0%,100%,0)),color-stop(35%,#fff));
+  background-image: linear-gradient(90deg,hsla(0,0%,100%,0),#fff 35%);
+  letter-spacing: .12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+@media (min-width: 600px){
+  .moreButton {
+      display: none;
+  }
+  .page__description.moreBTN_wrap {
+    max-height: none;
+  }
+}
+.page__description.moreBTN_wrap.showFull {
+  max-height: unset;
+}
+.page__description.moreBTN_wrap.showFull .moreButton{
+  display: none;
+}
+
+/** css collection description read more **/
+
+/** start Page CALPAK Accessibility Statement **/
+.text-center{
+  text-align: center !important;
+}
+img.accessibility-img{
+  margin: 0px !important;
+}
+/** end Page CALPAK Accessibility Statement **/
+
+
+
+.free-gift__selector-product .hot-deals-badge.product-label--active,
+.free-gift__selector-product .product-label--final {
+  display: none !important;
+}
+
+.free-gift__selector .product-unit__colors--quickadd:before {
+  margin-top: 0;
+  left: -80px;
+}
+
+.free-gift__selector-product .product-unit--quickadd .product-unit__colors--all {
+  margin-bottom: 0;
+}
+
+.free-gift__selector-product .product-unit__colors--all .round-icon--next {
+  right: -20px;
+}
+
+.free-gift__selector-product .product-unit__swatches-container {
+  left: 30px;
+}
+
+.free-gift__selector-product .product-unit__colors--all .round-icon--prev {
+  left: -25px;
 }
