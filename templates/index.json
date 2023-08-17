@@ -251,6 +251,24 @@
     "c77438d3-e596-410d-9341-7eea51a24a37": {
       "type": "featured-content-blocks",
       "blocks": {
+        "3ce9a9a9-d183-4376-b57f-4d8f028f64b0": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/best-sellers",
+            "title": "Best Sellers",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/products\/kaya-laptop-backpack",
+            "product_title": "Kaya Laptop Backpack",
+            "button_text_mobile": "Shop Best Sellers",
+            "button_url_mobile": "shopify:\/\/collections\/best-sellers",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0042A-3.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/LUKA-DUFFEL-CHOCOLATE-FRONT_cac25a15-b34f-4597-a957-77c746b5eaf4.jpg"
+          }
+        },
         "d9543652-11c5-4789-9a4c-e6288bdf2eca": {
           "type": "block",
           "settings": {
@@ -260,30 +278,13 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/ambeur-collection",
             "product_title": "Ambeur Collection",
-            "button_text_mobile": "",
-            "button_url_mobile": "",
+            "button_text_mobile": "Shop Luggage",
+            "button_url_mobile": "shopify:\/\/collections\/luggage",
             "image": "shopify:\/\/shop_images\/5X3A0397-4.jpg",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/5X3A0397-4.jpg"
-          }
-        },
-        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e": {
-          "type": "block",
-          "settings": {
-            "target_link": "shopify:\/\/collections\/bags",
-            "title": "Bags",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/collections\/luka-collection",
-            "product_title": "Luka Collection",
-            "button_text_mobile": "",
-            "button_url_mobile": "",
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
+            "image_mobile": "shopify:\/\/shop_images\/AMBUER-FRONT-POCKET-CARRY-ON-SIDE_SILVER_aaf49878-735c-4662-9dc8-b8df29764fc9.jpg"
           }
         },
         "700226a3-3f37-4ff5-8158-d8903d803420": {
@@ -295,20 +296,39 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/packing-cubes",
             "product_title": "Packing Cubes",
-            "button_text_mobile": "",
-            "button_url_mobile": "",
+            "button_text_mobile": "Shop Organizers",
+            "button_url_mobile": "shopify:\/\/collections\/organizers",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
             "video": "",
             "video-ratio-w": "16",
             "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5.jpg"
+            "image_mobile": "shopify:\/\/shop_images\/PACKING-CUBES-DAISY_1_8dfa0c40-1644-4a16-8f02-b05b9d414eae.jpg"
+          }
+        },
+        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/bags",
+            "title": "Bags",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/collections\/luka-collection",
+            "product_title": "Luka Collection",
+            "button_text_mobile": "Shop Bags",
+            "button_url_mobile": "shopify:\/\/collections\/bags",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/Laptop-Tote-Bag-Birch-1_cfe1f89c-fd1f-4bb7-b2da-bd38d70485ca.jpg"
           }
         }
       },
       "block_order": [
+        "3ce9a9a9-d183-4376-b57f-4d8f028f64b0",
         "d9543652-11c5-4789-9a4c-e6288bdf2eca",
-        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e",
-        "700226a3-3f37-4ff5-8158-d8903d803420"
+        "700226a3-3f37-4ff5-8158-d8903d803420",
+        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e"
       ],
       "settings": {
         "heading": "",

@@ -1128,6 +1128,11 @@ span.shipping-custom-msg {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+body.template-product, body.template-collection{
+  position: relative !important;
+  overflow: auto !important;
+  top: auto !important;
+}
 
 /** start Page CALPAK Accessibility Statement **/
 .text-center{
