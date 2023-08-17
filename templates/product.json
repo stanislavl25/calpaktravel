@@ -783,6 +783,12 @@
         ]
       }
     },
+    "1af003dc-82a6-479c-a559-6b4512365acb": {
+      "type": "product-recommendations",
+      "settings": {
+        "products_source": "related"
+      }
+    },
     "pdp-featured-collection": {
       "type": "pdp-featured-collection",
       "settings": {
@@ -870,6 +876,7 @@
     "product-template",
     "pdp-product-features",
     "4de958ad-7312-48b5-bf6e-957bddedfa79",
+    "1af003dc-82a6-479c-a559-6b4512365acb",
     "pdp-featured-collection",
     "167267170152804e97",
     "9e2ed880-175f-4740-86df-747013cfd296"
