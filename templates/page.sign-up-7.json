@@ -19,11 +19,11 @@
           "type": "form",
           "settings": {
             "form_type": "iframe",
-            "iframe-url": "https:\/\/calpak.attn.tv\/p\/MB9\/landing-page",
+            "iframe-url": "https:\/\/calpak.attn.tv\/p\/Bbb\/landing-page",
             "klaviyo_id": "",
             "vertical_alignment": "center",
             "height": "600",
-            "height-mobile": "700"
+            "height-mobile": "600"
           }
         }
       },
@@ -44,7 +44,8 @@
           "settings": {
             "collection": "best-sellers",
             "title": "",
-            "hide-form-labels": false
+            "hide-form-labels": false,
+            "dont-hide-flash-sale": true
           }
         }
       },
@@ -52,7 +53,8 @@
         "94643254-b42b-41a1-beab-db1490c76688"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": true,
+        "add-to-cart": false
       }
     }
   },

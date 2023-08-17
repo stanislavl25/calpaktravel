@@ -312,7 +312,12 @@
                 <div class="button-msg-adding">Adding...</div>
                 <div class="button-msg-added">Added!</div>
                 <div class="button-msg-so">Sold Out</div>
-                <div class="button-msg-jw">Join Waitlist</div>
+                <div class="button-msg-jw">
+                  <a
+                    class="join-waitlist product-link"
+                    style="text-decoration: none"
+                    href="{{ product.url }}">Join Waitlist</a>
+                </div>
               </button>
             </div>
           {%- endif -%}

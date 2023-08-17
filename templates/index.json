@@ -19,6 +19,15 @@
             "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "sale",
+            "title": "Labor Day Sale",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
+          }
+        },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
           "type": "collection",
           "settings": {
@@ -55,6 +64,7 @@
       "block_order": [
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
@@ -69,11 +79,12 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
-            "title": "FREE shipping!",
-            "description": "<p>For a limited time, get free standard shipping.*<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
-            "main-link": "shopify:\/\/collections\/all",
-            "button-text": "Shop All",
+            "title": "Labor Day Sale",
+            "description": "<p>Wave goodbye to summer with up to 60% off best-sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
+            "main-link": "shopify:\/\/collections\/sale",
+            "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
             "show-condition": "always",
@@ -84,10 +95,11 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_0049-3.jpg",
+            "image": "shopify:\/\/shop_images\/190325_CALPAK_Kaya_4862_Hi-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/organizers",
+            "main-link": "shopify:\/\/collections\/sale",
             "title": "",
             "description": "",
             "button-text": "",
@@ -99,10 +111,11 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_0046-2.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0868-3-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/organizers",
+            "main-link": "shopify:\/\/collections\/sale",
             "title": "",
             "description": "",
             "button-text": "",
@@ -118,6 +131,7 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
@@ -129,15 +143,13 @@
     },
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209": {
       "type": "hero",
-      "disabled": true,
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
-            "title": "Use code BACKTOIT for 10% OFF!",
-            "description": "<p>Shop best-selling back-to-school styles.  <\/p>",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "title": "Everyone's Favorite Duffel",
+            "description": "<p>9 pockets, 1 shoe compartment, endless possibilities. <\/p>",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
@@ -149,11 +161,11 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL2079_55533bc3-6cfe-4c7b-8dc3-0dc4075ff3df.jpg",
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "title": "",
             "description": "",
             "button-text": "",
@@ -165,11 +177,11 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235177_9aa04390-3a2a-48da-b0e1-0d5b00196232.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
+            "image-mobile": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/back-to-school",
+            "main-link": "shopify:\/\/products\/luka-duffel",
             "title": "",
             "description": "",
             "button-text": "",
@@ -192,72 +204,6 @@
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
         "close-color-scheme": "white"
-      }
-    },
-    "c77438d3-e596-410d-9341-7eea51a24a37": {
-      "type": "featured-content-blocks",
-      "blocks": {
-        "d9543652-11c5-4789-9a4c-e6288bdf2eca": {
-          "type": "block",
-          "settings": {
-            "target_link": "shopify:\/\/collections\/luggage",
-            "title": "Luggage",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/collections\/ambeur-collection",
-            "product_title": "Ambeur Collection",
-            "image": "shopify:\/\/shop_images\/5X3A0397-4.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/5X3A0397-4.jpg"
-          }
-        },
-        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e": {
-          "type": "block",
-          "settings": {
-            "target_link": "shopify:\/\/collections\/bags",
-            "title": "Bags",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/collections\/luka-collection",
-            "product_title": "Luka Collection",
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9"
-          }
-        },
-        "700226a3-3f37-4ff5-8158-d8903d803420": {
-          "type": "block",
-          "settings": {
-            "target_link": "shopify:\/\/collections\/organizers",
-            "title": "Organizers",
-            "description": "",
-            "button-text": "Shop now",
-            "pictured_product": "shopify:\/\/collections\/packing-cubes",
-            "product_title": "Packing Cubes",
-            "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
-            "video": "",
-            "video-ratio-w": "16",
-            "video-ratio-h": "9",
-            "image_mobile": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "d9543652-11c5-4789-9a4c-e6288bdf2eca",
-        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e",
-        "700226a3-3f37-4ff5-8158-d8903d803420"
-      ],
-      "settings": {
-        "heading": "",
-        "gap": false,
-        "general-layout": "text-media",
-        "content-position": "stretch",
-        "mobile-layout": "stacked",
-        "button-text": "",
-        "button-link": ""
       }
     },
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75": {
@@ -298,7 +244,80 @@
       ],
       "settings": {
         "quick-view": false,
-        "add-to-cart": true
+        "add-to-cart": true,
+        "select_card_layout": "layout2"
+      }
+    },
+    "c77438d3-e596-410d-9341-7eea51a24a37": {
+      "type": "featured-content-blocks",
+      "blocks": {
+        "d9543652-11c5-4789-9a4c-e6288bdf2eca": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/luggage",
+            "title": "Luggage",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/collections\/ambeur-collection",
+            "product_title": "Ambeur Collection",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
+            "image": "shopify:\/\/shop_images\/5X3A0397-4.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/5X3A0397-4.jpg"
+          }
+        },
+        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/bags",
+            "title": "Bags",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/collections\/luka-collection",
+            "product_title": "Luka Collection",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9"
+          }
+        },
+        "700226a3-3f37-4ff5-8158-d8903d803420": {
+          "type": "block",
+          "settings": {
+            "target_link": "shopify:\/\/collections\/organizers",
+            "title": "Organizers",
+            "description": "",
+            "button-text": "Shop now",
+            "pictured_product": "shopify:\/\/collections\/packing-cubes",
+            "product_title": "Packing Cubes",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
+            "video": "",
+            "video-ratio-w": "16",
+            "video-ratio-h": "9",
+            "image_mobile": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "d9543652-11c5-4789-9a4c-e6288bdf2eca",
+        "9c0034de-15d7-4b59-b00f-58f2cca2ff6e",
+        "700226a3-3f37-4ff5-8158-d8903d803420"
+      ],
+      "settings": {
+        "heading": "",
+        "gap": false,
+        "general-layout": "text-media",
+        "content-position": "stretch",
+        "mobile-layout": "stacked",
+        "button-text": "",
+        "button-link": ""
       }
     },
     "951d1a57-9c08-4431-a932-aafbc04369f5": {
@@ -414,7 +433,7 @@
         "button-quick-view": false,
         "button-link": "shopify:\/\/collections\/summer-arrivals",
         "background": "#ff6b0e",
-        "text-color": "{{ shop.brand.colors.primary[1].background }}",
+        "text-color": "#000000",
         "accent-color": "#ffffff",
         "pictured-product-display": "top",
         "featured-collection": "new-arrivals",
@@ -505,6 +524,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/large-clear-cosmetic-case",
             "product_title": "Large Clear Cosmetics Case",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Toiletry_Bags-2.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -520,6 +541,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/medium-compression-packing-cubes",
             "product_title": "Compression Packing Cubes",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Packing_Cubes.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -565,8 +588,8 @@
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd",
     "70ef0b82-13fe-4218-85ed-a77bc3d3b827",
     "6762b2de-f9c8-4aa7-8a0f-8dea665f3209",
-    "c77438d3-e596-410d-9341-7eea51a24a37",
     "91f3e891-a5b2-492c-8f8c-70fa2f4f2d75",
+    "c77438d3-e596-410d-9341-7eea51a24a37",
     "951d1a57-9c08-4431-a932-aafbc04369f5",
     "0a12070c-f2e2-4dc3-9c25-d58335ef48d0",
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",

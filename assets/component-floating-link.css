@@ -13,8 +13,12 @@
     z-index: 2;
 }
 @media screen and (max-width: 900px){
-  .floating-link {
+  .content-blocks--mobile-stacked .floating-link {
     height: auto;
+    padding: 0;
+    position: relative;
+    left: 0;
+    margin-top: 10px;
 }
 }
 .floating-link--top {
@@ -32,4 +36,25 @@
 
 .floating-link .button:not(:last-child) {
   margin-right: 15px;
+}
+
+@media screen and (max-width: 900px){
+  .content-blocks--mobile-stacked .floating-link .button:not(:last-child) {
+    width: 100%;
+    margin: 0;
+    white-space: break-spaces;
+  }
+
+  .content-blocks--mobile-stacked .floating-link__pictured {
+    display: none;
+  }
+
+  .floating-link-mobile {
+    flex-grow: 1;
+  }
+
+  .floating-link-mobile a {
+    width: 100%;
+  }
+
 }
