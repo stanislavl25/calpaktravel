@@ -461,6 +461,7 @@
         "blocks": {
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
               "only-for-guests": false
