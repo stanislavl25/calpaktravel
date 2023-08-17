@@ -459,6 +459,14 @@
       "notifications": {
         "type": "notifications",
         "blocks": {
+          "04bc2b17-2375-4de8-af63-63c2c120af5a": {
+            "type": "notification",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
+              "only-for-guests": false
+            }
+          },
           "1c718884-a708-4c2b-a791-a06f37dcf23e": {
             "type": "notification",
             "settings": {
@@ -478,14 +486,6 @@
             "settings": {
               "text": "<p>Enjoy 10% OFF your first order. <a href=\"\/pages\/sign-up-page\" title=\"Sign-Up\">Subscribe now<\/a><\/p>",
               "only-for-guests": true
-            }
-          },
-          "04bc2b17-2375-4de8-af63-63c2c120af5a": {
-            "type": "notification",
-            "disabled": true,
-            "settings": {
-              "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
-              "only-for-guests": false
             }
           },
           "58c64c20-f997-4806-98c1-48dbdac32ff7": {
@@ -514,10 +514,10 @@
           }
         },
         "block_order": [
+          "04bc2b17-2375-4de8-af63-63c2c120af5a",
           "1c718884-a708-4c2b-a791-a06f37dcf23e",
           "e43ed852-3a63-40ae-bb57-bbe85071c91e",
           "91c42567-a70f-469a-9cec-9f14f8d69477",
-          "04bc2b17-2375-4de8-af63-63c2c120af5a",
           "58c64c20-f997-4806-98c1-48dbdac32ff7",
           "af3d1b3a-dad8-45b8-8d09-1bd3bcfa0154",
           "40c7a72f-b224-4b2d-b9c8-f1659004f76d"
@@ -928,6 +928,7 @@
         "blocks": {
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -942,7 +943,6 @@
           },
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
