@@ -461,6 +461,7 @@
         "blocks": {
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
+            "disabled": true,
             "settings": {
               "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
               "only-for-guests": false
@@ -927,6 +928,7 @@
         "blocks": {
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -941,7 +943,6 @@
           },
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
