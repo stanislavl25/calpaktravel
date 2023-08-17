@@ -1120,6 +1120,10 @@ span.shipping-custom-msg {
   max-width: 876px !important;
 }
 
+.yotpo-vip-tiers-container .VueCarousel-inner {
+  padding-bottom: 20px;
+}
+
 .yotpo-vip-current-status {
   border-radius: 10px;
   margin-bottom: 10px;
