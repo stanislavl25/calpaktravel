@@ -68,7 +68,7 @@
         {%- for block in section.blocks -%}
           {% if block.type == 'gamification-gift' %}
             {% if block.settings.announcement != blank %}
-              <div class="free-gift__announcement">
+              <div class="free-gift__announcement" style="display: none;">
                 {{ block.settings.announcement }}
               </div>
             {% endif %}
@@ -356,7 +356,7 @@
     window.settings["cartGamification"] = {
         subtotal: {{ cart.items_subtotal_price | divided_by: 100 }},
         wrapper: '.cart__gamification-goals',
-        limit: {{ section.settings.max_value }},
+        limit: {{ settings.shipping_max_value }},
         goals: [
             {%- for block in section.blocks -%}
                 {% if block.type == 'gamification-goal' %}

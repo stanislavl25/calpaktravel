@@ -61,6 +61,12 @@
         ]
       },
       {
+        "type": "text",
+        "id": "shipping_max_value",
+        "label": "Expedited Shipping Max Value",
+        "default": "300"
+      },
+      {
         "type": "header",
         "content": "Save for later"
       },
