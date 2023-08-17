@@ -1115,6 +1115,11 @@ span.shipping-custom-msg {
   border-radius: 10px;
 }
 
+.yotpo-vip-tiers-widget .yotpo-vip-tiers-progress-bar-wrapper {
+  width: unset !important;
+  max-width: 876px !important;
+}
+
 .yotpo-vip-current-status {
   border-radius: 10px;
   margin-bottom: 10px;
