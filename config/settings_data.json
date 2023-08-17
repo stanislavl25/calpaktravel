@@ -84,7 +84,6 @@
           },
           "c2f5d1d7-bb20-46b8-907b-ca4b0034662b": {
             "type": "featured-collection",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Labor Day Sale",
               "submenu-number": 1,
@@ -94,7 +93,6 @@
           },
           "5f3d2d0e-fd4b-4971-b003-6c638e31c4f2": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -112,6 +110,7 @@
           },
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Back to School",
               "submenu-number": 1,
@@ -121,6 +120,7 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -928,7 +928,6 @@
         "blocks": {
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -943,6 +942,7 @@
           },
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
