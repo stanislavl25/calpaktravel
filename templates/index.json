@@ -19,6 +19,15 @@
             "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "sale",
+            "title": "Labor Day Sale",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
+          }
+        },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
           "type": "collection",
           "settings": {
@@ -55,6 +64,7 @@
       "block_order": [
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
@@ -250,6 +260,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/ambeur-collection",
             "product_title": "Ambeur Collection",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/5X3A0397-4.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -266,6 +278,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/luka-collection",
             "product_title": "Luka Collection",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -281,6 +295,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/packing-cubes",
             "product_title": "Packing Cubes",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -508,6 +524,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/large-clear-cosmetic-case",
             "product_title": "Large Clear Cosmetics Case",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Toiletry_Bags-2.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -523,6 +541,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/medium-compression-packing-cubes",
             "product_title": "Compression Packing Cubes",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Packing_Cubes.jpg",
             "video": "",
             "video-ratio-w": "16",
