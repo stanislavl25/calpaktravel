@@ -1095,6 +1095,12 @@ span.shipping-custom-msg {
 
 /** css collection description read more **/
 
+body.template-product, body.template-collection{
+  position: relative !important;
+  overflow: auto !important;
+  top: auto !important;
+} 
+
 /** start Page CALPAK Accessibility Statement **/
 .text-center{
   text-align: center !important;
