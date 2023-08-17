@@ -34,7 +34,7 @@
     <div class="blog-image-text-section">
         {%- if block.settings.image != blank -%}
             <div class="blog-image-text-section__image">
-                {% render 'image' with block.settings.image, lazy: true, sizes: '250px' %}
+                {% render 'image' with block.settings.image, lazy: true, sizes: master   %}
             </div>
         {%- endif -%}
 

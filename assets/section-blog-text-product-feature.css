@@ -14,11 +14,11 @@
 .blog-text-product-feature__block-text {
     padding: 40px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-    border-radius: 9px 0 0 9px;
+    overflow: scroll;
 }
 
 .blog-image-text-feature__title {
@@ -43,9 +43,14 @@
         height: 100%;
         align-items: flex-start;
         padding: 20px;
+        height: auto!important;
     }
 
     .blog-text-product-feature__block-text .blog-image-text-feature__title {
         display: none;
+    }
+
+    .blog-text-product-feature__block-text-container {
+        grid-column: span 2!important;
     }
 }

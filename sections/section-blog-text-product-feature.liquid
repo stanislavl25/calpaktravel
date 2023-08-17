@@ -16,8 +16,8 @@
                         <div class="blog-text-product-feature__mobile" style="background: {{ block.settings.background-color }}">
                             <h3 class="blog-image-text-feature__title">{{ block.settings.title }}</h3>
                         </div>
-                        <div class="blog-text-product-feature__block">
-                            <div class="blog-text-product-feature__block-text" style="background: {{ block.settings.background-color }}">
+                        <div class="blog-text-product-feature__block blog-text-product-feature__block-text-container" style="grid-column: span {{ 4 | minus: section.blocks.size | plus: 1 }}">
+                            <div class="blog-text-product-feature__block-text" style="background: {{ block.settings.background-color }}; border-radius: {% if forloop.index == section.blocks.size %}0 9px 9px 0{%elsif forloop.index == 1%}9px 0 0 9px{%endif%}">
                                 <h3 class="blog-image-text-feature__title">{{ block.settings.title }}</h3>
                                 {{ block.settings.text }}
                             </div>
