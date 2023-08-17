@@ -1,6 +1,6 @@
 .shopify-section--blog-text-product-feature {
     margin: var(--section-gap) 0;
-    padding: 0 var(--gap);
+    padding: 0 calc(var(--gap) / 2);
 }
 
 .blog-text-product-feature__mobile {
