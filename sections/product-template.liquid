@@ -236,15 +236,15 @@
               {%- endif -%}
 
               {% render 'okendo-reviews-product-rating-summary', product: product %}
-
-              <!-- <div class="pdp__reviews-cont">
+{% comment %}
+              <div class="pdp__reviews-cont">
                 <a href="{{ product.url }}/reviews" class="pdp__reviews">
                   {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
                     {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
                   {%- endif -%}
                 </a>
-              </div> -->
-
+              </div>
+{% endcomment %}
 
 
               {%- comment -%}Purchased and Views widget{%- endcomment -%}
