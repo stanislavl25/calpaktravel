@@ -786,7 +786,7 @@
     "1af003dc-82a6-479c-a559-6b4512365acb": {
       "type": "product-recommendations",
       "settings": {
-        "products_source": "related"
+        "products_source": "complementary"
       }
     },
     "pdp-featured-collection": {
