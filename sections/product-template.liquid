@@ -235,6 +235,8 @@
                 </div>
               {%- endif -%}
 
+              {% render 'okendo-reviews-product-rating-summary', product: product %}
+{% comment %}
               <div class="pdp__reviews-cont">
                 <a href="{{ product.url }}/reviews" class="pdp__reviews">
                   {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
@@ -242,7 +244,7 @@
                   {%- endif -%}
                 </a>
               </div>
-
+{% endcomment %}
 
 
               {%- comment -%}Purchased and Views widget{%- endcomment -%}
