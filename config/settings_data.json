@@ -35,7 +35,7 @@
     "sale-badge-tag": "laborday",
     "sale-badge-text": "Early Access Labor Day",
     "sale-badge-bg": "#f7f177",
-    "sale-msg-starter": true,
+    "sale-msg-starter": false,
     "sale-badge-tag-bundle": "",
     "starter-bundle-badge": "",
     "sale-badge-text-starter": "",
