@@ -159,6 +159,10 @@
     font-size: 14px;
 }
 
+.cart__upsell .product-unit__main-content .product-label--final {
+    display: none;
+}
+
 .pdp__upsell .product-label--badge.product-label--active,
 .cart__empty .product-label--badge.product-label--active {
     top: 24px;
