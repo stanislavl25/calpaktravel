@@ -1095,11 +1095,44 @@ span.shipping-custom-msg {
 
 /** css collection description read more **/
 
+.yotpo-vip-tiers-container .yotpo-vip-tier {
+  border-radius: 10px;
+}
+
+.yotpo-vip-tiers-widget .yotpo-vip-tier-container {
+  margin-top: 0 !important;
+}
+
+.yotpo-vip-tiers-widget .yotpo-has-status-tag .yotpo-vip-tier {
+  border: 1px solid #aeaeae !important;
+}
+
+.yotpo-vip-tiers-widget .yotpo-has-status-tag.yotpo-active .yotpo-vip-tier {
+  border: 1px solid #000 !important;
+}
+
+.yotpo-vip-tiers-progress-bar-wrapper {
+  border-radius: 10px;
+}
+
+.yotpo-vip-tiers-widget .yotpo-vip-tiers-progress-bar-wrapper {
+  width: unset !important;
+  max-width: 876px !important;
+}
+
+.yotpo-vip-tiers-container .VueCarousel-inner {
+  padding-bottom: 20px;
+}
+
+.yotpo-vip-current-status {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 body.template-product, body.template-collection{
   position: relative !important;
   overflow: auto !important;
   top: auto !important;
-} 
+}
 
 /** start Page CALPAK Accessibility Statement **/
 .text-center{
