@@ -767,6 +767,12 @@
         "addtocart-button": false
       }
     },
+    "bfe3a6fc-dc68-4840-ad8a-a6256686f902": {
+      "type": "product-recommendations",
+      "settings": {
+        "products_source": "related"
+      }
+    },
     "pdp-product-features": {
       "type": "pdp-product-features",
       "settings": {
@@ -859,12 +865,6 @@
         "button-text": "",
         "button-link": ""
       }
-    },
-    "bfe3a6fc-dc68-4840-ad8a-a6256686f902": {
-      "type": "product-recommendations",
-      "settings": {
-        "products_source": "complementary"
-      }
     }
   },
   "order": [
@@ -874,11 +874,11 @@
     "540d183a-8e53-44d1-b0af-7bf139d703fe",
     "ecc3fbac-a921-4e45-ae26-eefa37d24b6f",
     "product-template",
+    "bfe3a6fc-dc68-4840-ad8a-a6256686f902",
     "pdp-product-features",
     "4de958ad-7312-48b5-bf6e-957bddedfa79",
     "pdp-featured-collection",
     "167267170152804e97",
-    "9e2ed880-175f-4740-86df-747013cfd296",
-    "bfe3a6fc-dc68-4840-ad8a-a6256686f902"
+    "9e2ed880-175f-4740-86df-747013cfd296"
   ]
 }
