@@ -1014,7 +1014,7 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": true,
+          "countdown-active": false,
           "countdown-show": "48",
           "countdown-to": "August 14, 2023 11:00am"
         }
