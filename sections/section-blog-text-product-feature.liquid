@@ -2,6 +2,7 @@
     .blog-text-product-feature__blocks {
         display: grid;
         grid-template-columns: repeat({{ section.blocks.size }}, minmax(0, 1fr));
+        gap: var(--gap);
     }
 </style>
 
@@ -12,12 +13,24 @@
         <div class="blog-text-product-feature__blocks">
             {% for block in section.blocks %}
                 {% case block.type %}
+                    {% when 'product' %}
+                        {% assign product_count = product_count | plus: 1 %}
+                {% endcase %}
+            {% endfor %}
+            {% for block in section.blocks %}
+                {% case block.type %}
                     {% when 'text' %}
                         <div class="blog-text-product-feature__mobile" style="background: {{ block.settings.background-color }}">
                             <h3 class="blog-image-text-feature__title">{{ block.settings.title }}</h3>
                         </div>
+                        <span class="blog-text-product-feature__mobile-text" style="grid-column: {% if product_count == 3%}span 1{% else %}span 2{% endif %}">{{ block.settings.text }}</span>
+                {% endcase %}
+            {% endfor %}
+            {% for block in section.blocks %}
+                {% case block.type %}
+                    {% when 'text' %}
                         <div class="blog-text-product-feature__block blog-text-product-feature__block-text-container" style="grid-column: span {{ 4 | minus: section.blocks.size | plus: 1 }}">
-                            <div class="blog-text-product-feature__block-text" style="background: {{ block.settings.background-color }}; border-radius: {% if forloop.index == section.blocks.size %}0 9px 9px 0{%elsif forloop.index == 1%}9px 0 0 9px{%endif%}">
+                            <div class="blog-text-product-feature__block-text" style="background: {{ block.settings.background-color }}">
                                 <h3 class="blog-image-text-feature__title">{{ block.settings.title }}</h3>
                                 {{ block.settings.text }}
                             </div>

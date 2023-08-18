@@ -15,10 +15,32 @@
         }
     {% endif %}
 
+    @media (min-width: 900px) {
+        .blog-image-text-section.mobile {
+            display: none;
+        }
+        .blog-image-text-section.desktop {
+            display: block;
+        }
+        .blog-image-text-section.both {
+            display: block;
+        }
+    }
+
     @media (max-width: 900px) {
         .blog-image-text-section__title,
         .blog-image-text-section__description {
             padding: 0;
+        }
+
+        .blog-image-text-section.desktop {
+            display: none;
+        }
+        .blog-image-text-section.mobile {
+            display: block;
+        }
+        .blog-image-text-section.both {
+            display: block;
         }
     }
 </style>
@@ -31,23 +53,23 @@
 
 <div class="blog-image-text-feature">
     {%- for block in section.blocks -%}
-    <div class="blog-image-text-section">
-        {%- if block.settings.image != blank -%}
-            <div class="blog-image-text-section__image">
-                {% render 'image' with block.settings.image, lazy: true, sizes: master   %}
-            </div>
-        {%- endif -%}
-
-        {%- if block.settings.title != blank -%}
-            <div class="blog-image-text-section__title blog-image-text-feature__title">{{- block.settings.title | escape -}}</div>
-        {%- endif -%}
-
-        {%- if block.settings.description != blank -%}
-            <div class="blog-image-text-section__description">
-                {{- block.settings.description -}}
-            </div>
-        {%- endif -%}
-    </div>
+        <div class="blog-image-text-section {{ block.settings.display_on }}">
+            {%- if block.settings.image != blank -%}
+                <div class="blog-image-text-section__image">
+                    {% render 'image' with block.settings.image, lazy: true, sizes: master %}
+                </div>
+            {%- endif -%}
+    
+            {%- if block.settings.title != blank -%}
+                <div class="blog-image-text-section__title blog-image-text-feature__title">{{- block.settings.title | escape -}}</div>
+            {%- endif -%}
+    
+            {%- if block.settings.description != blank -%}
+                <div class="blog-image-text-section__description">
+                    {{- block.settings.description -}}
+                </div>
+            {%- endif -%}
+        </div>
     {%- endfor -%}
 </div>
 
@@ -78,6 +100,26 @@
                         "type": "image_picker",
                         "id": "image",
                         "label": "Image"
+                    },
+                    {
+                        "type": "select",
+                        "label": "Display on",
+                        "id": "display_on",
+                        "options": [
+                          {
+                            "value": "desktop",
+                            "label": "Desktop"
+                          },
+                          {
+                            "value": "mobile",
+                            "label": "Mobile"
+                          },
+                          {
+                            "value": "both",
+                            "label": "Desktop and Mobile"
+                          }
+                        ],
+                        "default": "both"
                     },
                     {
                         "type": "text",

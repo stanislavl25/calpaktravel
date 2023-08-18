@@ -9,6 +9,7 @@
     line-height: 1.25em;
     text-decoration: none;
     margin-bottom: var(--gap);
+
 }
 
 .blog-image-text-feature {
@@ -41,6 +42,10 @@
     
     .blog-image-text-section {
         margin-bottom: calc(var(--gap) * 4);
+    }
+
+    .blog-text-product-feature__block-text-container {
+        display: none;
     }
 
     .blog-image-text-section img {
