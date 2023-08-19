@@ -461,7 +461,6 @@
         "blocks": {
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
-            "disabled": true,
             "settings": {
               "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
               "only-for-guests": false
@@ -926,6 +925,20 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
+            "type": "promo-bar-line",
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Goodbye summer! Get Up to 60% off NOW<\/p>",
+              "url": "shopify:\/\/collections\/sale",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
             "settings": {
@@ -936,21 +949,6 @@
               "other": false,
               "content": "<p>Free standard shipping on orders $75 or more!<\/p>",
               "url": "",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
-            "type": "promo-bar-line",
-            "disabled": true,
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Goodbye summer! Get Up to 60% off NOW<\/p>",
-              "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -1002,8 +1000,8 @@
           }
         },
         "block_order": [
-          "62b6d713-dd1b-4386-a18e-6932387e7112",
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
+          "62b6d713-dd1b-4386-a18e-6932387e7112",
           "652fae05-e012-48a0-bd05-eebda8839bc2",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
           "7d3bbce9-7dd8-473d-958c-bf75d4555902"
