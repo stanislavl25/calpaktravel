@@ -82,7 +82,7 @@
           "disabled": true,
           "settings": {
             "title": "Labor Day Sale",
-            "description": "<p>Wave goodbye to summer with up to 60% off best-sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
+            "description": "<p>Wave goodbye to summer with up to 60% off best sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
             "main-link": "shopify:\/\/collections\/sale",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
