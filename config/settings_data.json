@@ -26,9 +26,9 @@
     "flash-sale-countdown": "48",
     "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
-    "sale-badge-enabled": false,
+    "sale-badge-enabled": true,
     "sale-badge-text-tilt": false,
-    "countdown-label-collection-enabled": false,
+    "countdown-label-collection-enabled": true,
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
     "badge_display": "both",
@@ -47,8 +47,8 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "",
     "chk-msg-text": "",
-    "sale-msg-enabled": false,
-    "sale-msg-pdp-only": false,
+    "sale-msg-enabled": true,
+    "sale-msg-pdp-only": true,
     "sale-msg-tag": "laborday",
     "sale-msg-highlighted": "Labor Day Sale:",
     "sale-msg-message": "Shop Up to 60% off NOW!",
@@ -84,7 +84,6 @@
           },
           "c2f5d1d7-bb20-46b8-907b-ca4b0034662b": {
             "type": "featured-collection",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Labor Day Sale",
               "submenu-number": 1,
@@ -94,7 +93,6 @@
           },
           "5f3d2d0e-fd4b-4971-b003-6c638e31c4f2": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -112,6 +110,7 @@
           },
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Back to School",
               "submenu-number": 1,
@@ -121,6 +120,7 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -720,7 +720,6 @@
         "blocks": {
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Shop Labor Day Sale",
               "menu": "shop",
@@ -736,6 +735,7 @@
           },
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
