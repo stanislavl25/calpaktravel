@@ -29,11 +29,11 @@
         "cta_background": "#ffffff",
         "cta_link_mobile": "none",
         "cta_url_mobile": "",
-        "cta_text_mobile": "Click here",
+        "cta_text_mobile": "",
         "cta_color_mobile": "#000000",
         "cta_background_mobile": "#ffffff",
         "terms_text": "See Terms & Conditions",
-        "terms_text_mobile": "Terms and conditions apply",
+        "terms_text_mobile": "",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
     },
