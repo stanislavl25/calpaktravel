@@ -691,9 +691,9 @@ border-radius: 8px;
   .cart__gam-verbose > b {
     font-size: 17px;
   }
-  .cart__gam-verbose > br {
+  /* .cart__gam-verbose > br {
     display: none;
-  }
+  } */
 }
 
 .cart__gam-progress,

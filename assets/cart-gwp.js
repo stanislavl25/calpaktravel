@@ -190,10 +190,10 @@ function setFreeGiftsByProduct(items) {
             if(document.querySelector('.cart__gam-verbose').innerHTML.slice(0,9) == 'Congrats!') {
                 current_message = current_message
             } else {
-                current_message = `Congrats! ${current_message}`;
+                current_message = `Congrats!<br> ${current_message}`;
             }
         } else {
-            current_message = `Congrats! ${current_message.slice(0, -1)} and a FREE gift!`;
+            current_message = `Congrats!<br> ${current_message.slice(0, -1)} and a FREE gift!`;
         }
         document.querySelector('.cart__gam-verbose').innerHTML = current_message;
         document.querySelector(".cart__gam-verbose--gift").innerHTML = "";
@@ -214,10 +214,10 @@ function setFreeGiftsByProduct(items) {
                             if(document.querySelector('.cart__gam-verbose').innerHTML.slice(0,9) == 'Congrats!') {
                                 current_message = `${current_message.slice(0, -1)}`;
                             } else {
-                                current_message = `Congrats! ${current_message}`;
+                                current_message = `Congrats!<br> ${current_message}`;
                             }
                         } else {
-                            current_message = `Congrats! ${current_message.slice(0, -1)} and a FREE gift!`;
+                            current_message = `Congrats!<br> ${current_message.slice(0, -1)} and a FREE gift!`;
                         }
                         document.querySelector('.cart__gam-verbose').innerHTML = current_message;
                         document.querySelector(
@@ -456,7 +456,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
     const cartGifts = document.querySelector('.cart__gamification-gifts');
     const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
     let freeShippingStarts = -1;
-    if(goals.length) freeShippingStarts = goals.find(goal => goal.title == 'FREE shipping').value * 100;
+    if(goals.length) freeShippingStarts = goals.find(goal => goal.title == 'free standard shipping').value * 100;
 
 
     cartGoals.innerHTML = '';
