@@ -13,7 +13,7 @@
     z-index: 2;
 }
 @media screen and (max-width: 900px){
-  .floating-link {
+  .content-blocks--mobile-stacked .floating-link {
     height: auto;
   }
   .content-blocks--mobile-grid .floating-link {

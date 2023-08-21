@@ -503,7 +503,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_1_3.jpg",
-            "title": "Learn more about Luka Expandable Laptop Tote",
+            "title": "All about the Luka Expandable Tote",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -521,7 +521,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_2_4.jpg",
-            "title": "Learn more about Kaya Laptop Backpack",
+            "title": "All about the Kaya Laptop Backpack",
             "text": "<p><\/p><p><\/p>",
             "button-text": "Watch Now",
             "button-url": "",
@@ -539,7 +539,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_3_3.jpg",
-            "title": "Learn more about Luka Duffel",
+            "title": "All about the Luka Duffel",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -557,7 +557,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_4_3.jpg",
-            "title": "Learn more about Tech Organizer",
+            "title": "All about the Tech Organizer",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -575,7 +575,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_5_2.jpg",
-            "title": "Learn more about Insulated Lunch Bag",
+            "title": "All about the Insulated Lunch Bag",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -593,7 +593,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_6_2.jpg",
-            "title": "Learn more about Luka Laptop Backpack",
+            "title": "All about the Luka Laptop Backpack",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -611,7 +611,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_7_2.jpg",
-            "title": "Learn more about Haven Laptop Tote Bag",
+            "title": "All about the Haven Laptop Tote Bag",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -629,7 +629,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_8_1.jpg",
-            "title": "Learn more about Tablet Tech Organizer",
+            "title": "All about the Tablet Tech Organizer",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -647,7 +647,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_9_2.jpg",
-            "title": "Learn more about Terra 26L Laptop Backpack Duffel",
+            "title": "All about the Terra 26L Laptop Backpack Duffel",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -665,7 +665,7 @@
             ],
             "show-for-all": false,
             "image": "shopify:\/\/shop_images\/Frame_10_3.jpg",
-            "title": "Learn more about Padded Laptop Sleeve",
+            "title": "All about the Padded Laptop Sleeve",
             "text": "",
             "button-text": "Watch Now",
             "button-url": "",
@@ -819,6 +819,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/ambeur-medium-luggage",
             "product_title": "Medium Luggage",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/210401_CALPAK_Q2_MB_24714_Hi.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -834,6 +836,8 @@
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/ambeur-3-piece-luggage-set",
             "product_title": "Product title",
+            "button_text_mobile": "",
+            "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/210330_CALPAK_Q223891_Hi.jpg",
             "video": "",
             "video-ratio-w": "16",
@@ -855,6 +859,12 @@
         "button-text": "",
         "button-link": ""
       }
+    },
+    "63572ada-ee3a-4a92-9763-bc823a735435": {
+      "type": "product-recommendations",
+      "settings": {
+        "products_source": "complementary"
+      }
     }
   },
   "order": [
@@ -868,6 +878,7 @@
     "4de958ad-7312-48b5-bf6e-957bddedfa79",
     "pdp-featured-collection",
     "167267170152804e97",
-    "9e2ed880-175f-4740-86df-747013cfd296"
+    "9e2ed880-175f-4740-86df-747013cfd296",
+    "63572ada-ee3a-4a92-9763-bc823a735435"
   ]
 }
