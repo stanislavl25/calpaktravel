@@ -317,7 +317,9 @@
           {%- when 'flash-sale' -%}
           {% render 'flash-sale-label', current_variant: current_variant %}
           {%- when 'yotpo-loyalty' -%}
+          {% unless product.collections contains 'no-yotpo' %}
           {% render 'yotpo-loyalty-points-banner', product_exclusion_list: block.settings.product-list, collection_exclusion_list: block.settings.collection-list, show-for-all: block.settings.show-for-all %}
+          {% endunless %}
           {%- when 'product-labels' -%}
           <section class="pdp__form-labels">
             {% render 'product-form-labels', location: 'pdp', current_variant: current_variant, finalSale: finalSale %}
