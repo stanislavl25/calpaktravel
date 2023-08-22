@@ -73,8 +73,12 @@
         <div class="floating-link">
             <div class="hide--desktop floating-link-mobile">
                 <a href="{{ block.settings.button_url_mobile }}" class="button button--secondary" >
-                    {% assign temp = block.settings.product_title | split: ' ' %}
-                    {{ block.settings.button_text_mobile }}
+
+                    {% if section.settings.mobile-layout == 'grid' %}
+                        {{ block.settings.button_text_mobile }}
+                    {% else %}
+                        {{ block.settings.button-text }}
+                    {% endif %}
                 </a>
             </div>
             <div class="hide--mobile">
@@ -163,6 +167,10 @@
                     {
                         "value": "scrollable",
                         "label": "Scrollable list"
+                    },
+                    {
+                        "value": "grid",
+                        "label": "Grid"
                     }
                 ],
                 "default": "stacked"
