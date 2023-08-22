@@ -335,7 +335,7 @@
         "gap": false,
         "general-layout": "text-media",
         "content-position": "stretch",
-        "mobile-layout": "stacked",
+        "mobile-layout": "grid",
         "button-text": "",
         "button-link": ""
       }
