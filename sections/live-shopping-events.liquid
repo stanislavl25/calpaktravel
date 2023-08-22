@@ -1,0 +1,114 @@
+{{ 'section-live-shopping-events.css' | asset_url | stylesheet_tag }}
+
+<div class="live-shopping-events">
+  <h2>Live Shopping</h2>
+  {% if section.settings.description %}
+  <div class="description">{{ section.settings.description }}</div>
+  {% endif %}
+  <div class="slider__wrapper slider__wrapper--buttons-side">
+    <button
+      aria-label="Show previous slide"
+      class="slider__control button-tri-left slider__control--prev"
+      title="Previous"></button>
+    <button
+      aria-label="Show next slide"
+      class="slider__control button-tri-right slider__control--next"
+      title="Next"></button>
+    <div class="events-slider slider slider--scrollbar">
+      {% for block in section.blocks %}
+        {% assign event_date = block.settings.date | date: "%s" %}
+        {% assign now_date = "now" | date: "%s" %}
+        <div class="event-item">
+          <a href="{{ block.settings.event_link }}" class="event-image">
+            <img src="{{ block.settings.image | img_url: '512x' }}" alt="{{ block.settings.image.alt }}">
+            <div class="watch-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+                <circle cx="21" cy="21" r="21" fill="black" fill-opacity="0.4"/>
+                <path d="M30.0132 21L16.6913 30.0933L16.6913 11.9067L30.0132 21Z" fill="white"/>
+              </svg>
+            </div>
+          </a>
+          <div class="event-title">
+            {{ block.settings.title }}
+          </div>
+          <div class="event-date">
+            {% render 'icon-date' %}
+            <span>{{ block.settings.date }}</span>
+          </div>
+          <div class="event-time" {% if now_date > event_date %}style="display: none;"{% endif %}>
+            {% render 'icon-time' %}
+            <span>{{ block.settings.start_time }} - {{ block.settings.end_time }}</span>
+          </div>
+          <a href="{{ block.settings.event_link }}" class="button">
+            {% if now_date > event_date %}
+              Watch Now
+            {% else %}
+              Notify Me
+            {% endif %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Live Shopping Events",
+  "settings": [
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Event",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        },
+        {
+          "type": "text",
+          "id": "start_time",
+          "label": "Start Time"
+        },
+        {
+          "type": "text",
+          "id": "end_time",
+          "label": "End Time"
+        },
+        {
+          "type": "url",
+          "id": "event_link",
+          "label": "Event Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Live Shopping Events"
+    }
+  ]
+}
+{% endschema %}
