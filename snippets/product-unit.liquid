@@ -307,7 +307,7 @@
 
     <div class="product-unit__colors--quickadd"></div>
 
-    {%- if finalSale != false -%}
+    {%- if finalSale != false and add_to_cart == true-%}
       <div class="product-label product-label--final {% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
           {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
           <strong>This item is Final Sale</strong>
