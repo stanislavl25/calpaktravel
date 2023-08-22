@@ -4,6 +4,16 @@
     assign starter_true = true
 -%}
 
+{%- liquid
+    assign hotDealsVariants = false
+    for tag in product.tags
+        assign splitted_tag = tag | split: ":"
+        if splitted_tag[0] == 'hot-deals'
+            assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+        endif
+    endfor
+-%}
+
 {%- if settings.sale-badge-enabled -%}
 
     {%- liquid
@@ -69,10 +79,32 @@
                 assign discount = '<span class="dscnt"></span>'
             endif
         -%}
+        {%- liquid
+        assign collections_excluded = settings.select_collection | map: "handle" 
+        assign collectiondisplay = false 
+        assign user_tag = settings.customers-tag
+        if collections_excluded != blank
+            if collections_excluded contains collection_slug
+                assign collectiondisplay = true
+            endif
+        else
+             assign collectiondisplay = true    
+        endif
 
-
-
-        {% if settings.badge_display == 'both' %}
+        assign productdisplay = false
+        if collections_excluded != blank
+            for collection_slug in collections_excluded
+            if product_collection_slug contains collection_slug
+                assign productdisplay = true
+            endif
+            endfor
+        else
+            assign productdisplay = true    
+       endif
+     -%}
+     
+        {% if settings.badge_display == 'both' and hotDealsVariants == false%}
+        {% if collectiondisplay == true or productdisplay == true %}
             <div
                 class="
                     product-label
@@ -117,7 +149,9 @@
                     }
 
                 </style>
+
             {% endif %}
+          {% endif %}
         {% elsif settings.badge_display == 'product' %}
             {% if template contains 'product' %}
                 <div
@@ -159,7 +193,9 @@
                 {% endif %}
             {% endif %}
         {% elsif settings.badge_display == 'collection' %}
-            {% if template contains 'collection' %}
+            {% if template contains 'collection' and hotDealsVariants == false %}
+         {% if collectiondisplay == true %}
+            
                 <div
                     class="
                         product-label
@@ -197,6 +233,8 @@
                         }
                     </style>
                 {% endif %}
+            
+            {% endif %}
             {% endif %}
         {% endif %}
 
@@ -205,16 +243,6 @@
 {%- endif -%}
 
 {%- if settings.hot-deals-badge-enabled -%}
-    {%- liquid
-        assign hotDealsVariants = false
-        for tag in product.tags
-            assign splitted_tag = tag | split: ":"
-            if splitted_tag[0] == 'hot-deals'
-                assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
-            endif
-        endfor
-    -%}
-
     {%- if hotDealsVariants != false -%}
         <div class="hot-deal-badge product-label product-label--hot-deal hot-deals-badge product-label--badge-mobile-top product-label--badge {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
             {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
@@ -325,7 +353,7 @@
 
             <div class="product-label{% unless discounted%} product-label--hidden{% endunless %}{% if settings.sale-msg-starter != false and  settings.sale-badge-tag-bundle != blank and saleBadge-bundle != false  and template contains 'collection' %}
                 starter-customize{% endif %} product-label--sale{% if sale contains opt1 and sale != true %} product-label--active{% endif %}"
-                {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}>
+                {% if sale != true %}data-options="{{ sale | join: ' ' }}"{% endif %}> 
                 {{- saleMessage | escape | replace: '%%', discount -}}
             </div>
         {%- endif -%}
@@ -456,7 +484,7 @@
                 {%- if new == true-%}New{%- else -%}New Color{%- endif -%}
             </div>
         {%- endif -%}
-    {%- endunless -%}
+    {%- endunless -%} 
 
     {% comment %}
         CHECK THE PRODUCT-GRID.LIQUID  FOR THIS VARIABLE

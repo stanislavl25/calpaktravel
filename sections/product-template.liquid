@@ -34,7 +34,7 @@
 <noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
-<script src="{{ 'product-overlay.js' | asset_url }}" defer ></script>
+<script src="{{ 'product-overlay.js' | asset_url }}" defer></script>
 <script src="{{ 'fancybox.js' | asset_url }}" defer></script>
 <script src="{{ 'pdp.js' | asset_url }}" defer="defer"></script>
 {%- liquid
@@ -200,7 +200,16 @@
   </div>
 
   <aside class="pdp__gallery-container">
-    {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
+    {% assign collection_list = '' %}
+    {% for collection in product.collections %}
+
+      {% unless forloop.last %}
+        {% assign collection_list = collection_list | append: collection.handle | append: ',' %}
+      {% else %}
+        {% assign collection_list = collection_list | append: collection.handle %}
+      {% endunless %}
+    {% endfor %}
+    {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp', product_collection_slug: collection_list %}
     {% render 'pdp-gallery', current_variant: current_variant %}
     <button aria-label="Show all product media" class="pdp-gallery__more-btn">
       <span>See more images (<em class="img-num">2</em>)</span>
@@ -236,15 +245,15 @@
               {%- endif -%}
 
               {% render 'okendo-reviews-product-rating-summary', product: product %}
-{% comment %}
+              {% comment %}
               <div class="pdp__reviews-cont">
-                <a href="{{ product.url }}/reviews" class="pdp__reviews">
-                  {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
-                    {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-                  {%- endif -%}
-                </a>
+              <a href="{{ product.url }}/reviews" class="pdp__reviews">
+              {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+              {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+              {%- endif -%}
+              </a>
               </div>
-{% endcomment %}
+              {% endcomment %}
 
 
               {%- comment -%}Purchased and Views widget{%- endcomment -%}
@@ -256,8 +265,7 @@
                                         endif
                                     endfor
                                 -%}
-              {% if enable %}
-                <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
+                {% if enable %}<div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"> </div>
                 <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
                 <script>
                   document.addEventListener('DOMContentLoaded', function() {
@@ -285,6 +293,7 @@
                           document.querySelector('#pdp__views-counter').innerHTML = views_final;
                         } catch {}try {
                           document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final;
+                        
 
 
 
@@ -463,7 +472,7 @@
               });
             </script>
           {% endif %}
-        {%- when 'description' -%}
+          {%- when 'description' -%}
           {% assign description_title = section.settings.description-title %}
           {% assign specifications_title = section.settings.specifications-title %}
           {% assign warranty_title = section.settings.warranty-title %}
@@ -472,7 +481,7 @@
            specifications_title: specifications_title,
            warranty_title: warranty_title,
            current_variant: current_variant %}
-        {% when 'set-bundle' %}
+          {% when 'set-bundle' %}
           {% render 'pdp-bundle', current_variant: current_variant, bundle_product: block.settings.product_bundle %}
         {%- else -%}
           {% render 'pdp-promo' with block, current_variant: current_variant %}
@@ -922,17 +931,16 @@
             "label": "Exclusions list"
           }
         ]
-      },
-      {
+      }, {
         "type": "set-bundle",
         "name": "Set Bundle",
         "limit": 1,
         "settings": [
-            {
-                "type": "product",
-                "id": "product_bundle",
-                "label": "Bundle Product"
-            }
+          {
+            "type": "product",
+            "id": "product_bundle",
+            "label": "Bundle Product"
+          }
         ]
       }
     ]
