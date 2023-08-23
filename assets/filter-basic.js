@@ -43,6 +43,14 @@ if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filt
     else filters.setAttribute('data-tab', 'color');
 
     filters.setAttribute('aria-expanded', true);
+    e.target.setAttribute('aria-expanded', true);
+
+    setTimeout(() => {
+        if(e.target.classList.contains('filter__activator')){
+            filters.querySelector('.sort-input').focus();
+        }
+    }, 600);
+    
     filters.classList.add('collection-filters--active');
 
     const filterbanner = document.querySelector('.collection-filters__control');
@@ -51,7 +59,7 @@ if(filterActivators.length > 0) filterActivators.forEach(filterActivator => filt
 }));
 
 /////////////////////// Filter collections activators ///////////////////////
-const filterCategories = document.querySelectorAll('button.collections-category');
+const filterCategories = document.querySelectorAll('.collections-category');
 filterCategories.forEach(filterCategory => filterCategory.addEventListener('click', async (e) => {
     const target = e.target.closest('.collections-category');
     const prnt = target.closest('.collections-menu');

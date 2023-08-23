@@ -295,10 +295,10 @@
           <div class="product-unit__row">
             <div class="product-unit__price">
               {%- if current_variant.compare_at_price > current_variant.price -%}
-                <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                <s><span class="sr-only">Original price: </span>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+                <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
               {%- else -%}
-                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
               {%- endif -%}
             </div>
           </div>
@@ -308,7 +308,7 @@
             <div class="product-unit__colors--quickadd"></div>
             <div class="product-unit__button">
               <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
-                <div class="button-msg-add">Add to Bag</div>
+                <div class="button-msg-add">Add to Bag - </div>
                 <div class="button-msg-adding">Adding...</div>
                 <div class="button-msg-added">Added!</div>
                 <div class="button-msg-so">Sold Out</div>

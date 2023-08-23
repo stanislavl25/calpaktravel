@@ -27,7 +27,7 @@
                     <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
                 </nav>
             </div>
-            <div class="slider">
+            <div class="slider" aria-label="carousel" role="region">
                 {%- liquid
                     for product in section.settings.collection.products limit: 20
                         render 'product-unit' with product, wishlist: section.settings.wishlist, class: 'slide', quick_view: section.settings.quick_view, sizes: '300px'

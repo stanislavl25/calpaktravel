@@ -5,17 +5,18 @@
       "blocks": {
         "a8423ff2-0c56-4c37-9b0c-44abd997cd52": {
           "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
         "a8423ff2-0c56-4c37-9b0c-44abd997cd52"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "faq": {
       "type": "wonderment-faq",
-      "disabled": true,
       "blocks": {
         "faq-getting-started": {
           "type": "section_heading",
@@ -90,6 +91,7 @@
         "shipping-cost-question",
         "return-policy-question"
       ],
+      "disabled": true,
       "settings": {
         "show_answers": false,
         "text_size": 100,
@@ -110,7 +112,6 @@
     },
     "products": {
       "type": "wonderment-featured-collection",
-      "disabled": true,
       "blocks": {
         "41e4dea9-bebf-4b14-9c48-e35f1cea3f19": {
           "type": "collection",
@@ -128,6 +129,7 @@
       "block_order": [
         "41e4dea9-bebf-4b14-9c48-e35f1cea3f19"
       ],
+      "disabled": true,
       "settings": {
         "per_row": 3,
         "show_arrows": true,
@@ -166,7 +168,6 @@
     },
     "f3f4e5ae-2891-45a7-b420-03d796dce663": {
       "type": "featured-collections",
-      "disabled": true,
       "blocks": {
         "5c2da729-5932-4472-bfdf-7910edc68794": {
           "type": "collection",
@@ -179,13 +180,13 @@
       "block_order": [
         "5c2da729-5932-4472-bfdf-7910edc68794"
       ],
+      "disabled": true,
       "settings": {
         "quick-view": false
       }
     },
     "4391c69e-487c-4b92-87ea-ec7adeef2d2c": {
       "type": "content-slider",
-      "disabled": true,
       "blocks": {
         "351b58ba-0299-4f1b-b313-792b1d6e902a": {
           "type": "slide",
@@ -202,6 +203,7 @@
       "block_order": [
         "351b58ba-0299-4f1b-b313-792b1d6e902a"
       ],
+      "disabled": true,
       "settings": {
         "background-color": "#f7f177"
       }

@@ -1,5 +1,6 @@
 {{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
 
+
 <noscript>
   <style>
     body .shopify-section--pdp-featured .product-unit:not(.product-unit--loaded) .product-unit__image img {
@@ -8,6 +9,8 @@
   </style>
 </noscript>
 
+
+<div id="floating-submit"></div>
 {% if product.metafields.custom.featured_collection != blank %}
   {%- assign featured_collection = collections[product.metafields.custom.featured_collection] -%}
   <div class="pdp-featured-collection-title">Explore the {{ featured_collection.title | escape }}</div>
@@ -30,22 +33,22 @@
 {% endif %}
 
 {% schema %}
-    {
-        "name": "Featured Collection",
-        "class": "shopify-section--pdp-featured",
-        "settings": [
-            {
-                "type": "checkbox",
-                "id": "quick-view",
-                "label": "Enable Quick View",
-                "default": false
-            },
-            {
-                "type": "checkbox",
-                "id": "addtocart-button",
-                "label": "Enable Add to Cart",
-                "default": false
-            }
-        ]
-    }
+  {
+      "name": "Featured Collection",
+      "class": "shopify-section--pdp-featured",
+      "settings": [
+          {
+              "type": "checkbox",
+              "id": "quick-view",
+              "label": "Enable Quick View",
+              "default": false
+          },
+          {
+              "type": "checkbox",
+              "id": "addtocart-button",
+              "label": "Enable Add to Cart",
+              "default": false
+          }
+      ]
+  }
 {% endschema %}

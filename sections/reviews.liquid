@@ -2,9 +2,15 @@
 
 <link rel="stylesheet" href="{{ 'component-star-rating.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'component-star-rating.css' | asset_url | stylesheet_tag }}</noscript>
-
+{% assign count = 0 %}
+{% for block in section.blocks %}
+    {% assign count = count | plus: 1 %}
+{% endfor %}
 {% if section.blocks.size > 0 %}
-<div class="slider__wrapper--reviews slider__wrapper slider__wrapper--start">
+
+<div class="slider__wrapper--reviews slider__wrapper slider__wrapper--start" role="region" aria-label="Quotes carousel" tabindex="0">
+<span class="sr-only">This is a carousel with rotating slides. Use Next button to play or pause the auto-rotation, or jump to a slide with the slide dots.</span>
+<button class="play-pause-reviews" aria-label="Pause slider">&#10074;&#10074;<span class="visually-hidden">Pause slide rotation</span></button>
     <div class="reviews__slide-spacer">
         {%- for block in section.blocks -%}
         <div class="reviews__slide">
@@ -16,14 +22,14 @@
         </div>
         {%- endfor -%}
     </div>
-    <div class="slider__dots">
+    <ul class="slider__dots">
         {%- for block in section.blocks -%}
-        <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}"></div>
+        <li class="slider__dot" aria-label="Go to slide {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="-1"></li>
         {%- endfor -%}
-    </div>
+    </ul>
     <div class="reviews__slider slider slider--vertical-on-desktop" data-autoslide="4">
         {% for block in section.blocks %}
-        <div class="reviews__slide slide">
+        <div role="group" class="reviews__slide slide {% if forloop.first %} reviews__slide--active{% endif %}" data-index="{{ forloop.index0 }}" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}" aria-label="Slide {{ forloop.index }} of {{count}}">
             {% render 'review-content' with block as block, no_wrapper: true %}
         </div>
         {% endfor %}

@@ -91,10 +91,12 @@
     max-height: 100%;
 }
 
-.search__collections-buttons {
+.search__collections-buttons ul {
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap);
+    list-style: none;
+    padding: 0;
 }
 
 .menu-popup--search:not([data-status="results"]) .search-section[data-id="results"],

@@ -17,6 +17,7 @@
     min-width: 0;
     border-radius: 9px;
     overflow: hidden;
+    z-index: -2;
 }
 
 .collection-showcase__media img {

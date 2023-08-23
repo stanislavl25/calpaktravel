@@ -308,10 +308,12 @@
           {% unless settings.speed_debug %}
           <div class="header-container">
           {% section 'promo-bar' %}
-          {% section 'header' %}
+          <div class="header-wrap" aria-modal="true" role="dialog" aria-labelledby="mobile-menu-label-h2">
+            {% section 'header' %}
+            {% section 'mobile-menu' %}
+          </div>
 
               {% render 'wishlist-popup' %}
-              {% section 'mobile-menu' %}
               {% section 'search' %}
 
               {% section 'gwp' %}

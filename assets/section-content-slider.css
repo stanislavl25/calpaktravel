@@ -60,7 +60,7 @@
     width: 22px;
     height: 22px;
     display: inline-block;
-    border: 1px solid #aeaeae;
+    border: 1px solid #626262;
     transition: border-color 0.3s, background 0.3s;
     border-radius: 50%;
 }

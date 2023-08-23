@@ -61,12 +61,19 @@ window.addEventListener("click", (e) => {
         e.preventDefault();
         let wrapper = e.target.closest('.slider__wrapper');
         let gap = 0;
-        let slideNum = 2;
+        let slideNum = 1;
+        const btnPrev = wrapper.querySelector('.slider__control--prev');
+        const btnNext = wrapper.querySelector('.slider__control--next');
+
+        btnNext.setAttribute('aria-label', 'Next slide');
+        btnPrev.setAttribute('aria-label', 'Previous slide');
+
         if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
         if(wrapper.hasAttribute('data-slide')) slideNum = Number(wrapper.getAttribute('data-slide'));
         if(window.innerWidth <= 900 && wrapper.hasAttribute('data-slide-mob')) slideNum = Number(wrapper.getAttribute('data-slide-mob'));
         let slider = wrapper.querySelector('.slider');
         let firstSlide = slider.querySelector('.slide');
+        const sliderItems = Array.from(document.querySelectorAll('.product-unit'));
 
         if(!firstSlide) firstSlide = slider.querySelector('*');
     
@@ -82,6 +89,23 @@ window.addEventListener("click", (e) => {
                 currentPage += slideNum;
                 currentScroll = currentPage * slideWidth + gap;
                 slider.scrollLeft = currentScroll;
+                for(let i=0; i < sliderItems.length; i++){
+                    let isVisible =
+                                    sliderItems[i].offsetLeft >= currentScroll &&
+                                    sliderItems[i].offsetLeft < currentScroll + slider.clientWidth - 1;
+                    
+                    
+                    if(firstSlide) {
+                        sliderItems[i].setAttribute('aria-hidden', 'false')
+                    }
+                    if(isVisible) {
+                        sliderItems[i].setAttribute('aria-hidden', 'false');
+                        sliderItems[i].setAttribute('tabindex', '0');
+                    } else {
+                        sliderItems[i].setAttribute('aria-hidden', 'true');
+                        sliderItems[i].setAttribute('tabindex', '-1');
+                    }
+                }
             } else if(currentPage > maxPage) {
                 currentPage = maxPage;
                 currentScroll = maxScroll;
@@ -97,6 +121,27 @@ window.addEventListener("click", (e) => {
     
             currentScroll = currentPage * slideWidth - gap;
             slider.scrollLeft = currentScroll;
+            for(let i=0; i < sliderItems.length; i++){
+                let isVisible =
+                sliderItems[i].offsetLeft <= currentScroll &&
+                sliderItems[i].offsetLeft > currentScroll - slider.clientWidth;
+                
+                
+                if(firstSlide) {
+                    sliderItems[i].setAttribute('aria-hidden', 'true')
+                }
+                if(isVisible) {
+                    sliderItems[i].setAttribute('aria-hidden', 'false');
+                    sliderItems[i].setAttribute('tabindex', '0');
+                }else if(!isVisible) {
+                    sliderItems[i].setAttribute('aria-hidden', 'true');
+                    sliderItems[i].setAttribute('tabindex', '-1');
+                }
+                 else {
+                    sliderItems[i].setAttribute('aria-hidden', 'true');
+                    sliderItems[i].setAttribute('tabindex', '-1');
+                }
+            }
         }
     
         if(maxScroll - currentScroll < 20) {
@@ -110,6 +155,18 @@ window.addEventListener("click", (e) => {
             wrapper.classList.add('slider__wrapper--start');
             wrapper.classList.remove('slider__wrapper--end');
         } else wrapper.classList.remove('slider__wrapper--start');
+
+        if(wrapper.classList.contains('slider__wrapper--start')){
+            btnPrev.setAttribute('disabled', 'disabled');
+        } else {
+            btnPrev.removeAttribute('disabled');
+        }
+
+        if(wrapper.classList.contains('slider__wrapper--end')){
+            btnNext.setAttribute('disabled', 'disabled');
+        } else {
+            btnNext.removeAttribute('disabled');
+        }
     }
     // let timesTryed = 0;
     // setTimeout(() => {
@@ -173,9 +230,13 @@ function moveToSlide(slider, currentPage = 0, sliderCheckNum = 0) {
 function sliderThumbClick(thumb, indexFilter = false, sliderCheckNum = 0) {
     const slider = thumb.closest('.slider');
     const actives = slider.querySelectorAll('.slide--selected');
-    if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
+    if(actives.length > 0) actives.forEach(active => {
+        active.classList.remove('slide--selected')
+        active.removeAttribute('aria-current');
+    });
     
     thumb.classList.add('slide--selected');
+    thumb.setAttribute('aria-current', 'true');
 
     let index = getIndexWithSelector(thumb, '.slide');
     if(indexFilter !== false) index = indexFilter(index);
@@ -356,13 +417,42 @@ function runSlider(slider, autoslide) {
             }, 1000);
         }
 
-        // let dots = wrapper.querySelectorAll('.slider__dot');
-        // if(dots.length) {
-        //     for(let i = 0; i < dots.length; i++) dots[i].classList.remove('slider__dot--active');
-        //     dots[currentPage].classList.add('slider__dot--active');
-        // }
+        let dots = wrapper.querySelectorAll('.slider__dot');
+        if(dots.length) {
+            for(let i = 0; i < dots.length; i++){
+                dots[i].classList.remove('slider__dot--active');
+                dots[i].setAttribute('aria-current','false');
+                dots[currentPage].classList.add('slider__dot--active');
+                dots[currentPage].setAttribute('aria-current','true');
+                const slides = document.querySelectorAll('.reviews__slider .reviews__slide');
+                for(let i = 0; i < slides.length; i++){
+                    if(slides[i].getAttribute('data-index') == currentPage) {
+                        slides[i].classList.add('reviews__slide--active');
+                        slides[i].setAttribute("tabindex", "0");
+                        slides[i].setAttribute("aria-hidden", "false");
+                        const childNodes = slides[i].querySelectorAll('a, button');
+                        console.log(childNodes);
+                        childNodes.forEach(child => {
+                            child.setAttribute("tabindex", "0");
+                            child.setAttribute("aria-hidden", "false");
+                        });
+                    } else {
+                        slides[i].classList.remove('reviews__slide--active');
+                        slides[i].setAttribute("tabindex", "-1");
+                        slides[i].setAttribute("aria-hidden", "true");
+                        const childNodes = slides[i].querySelectorAll('a, button'); 
+                        console.log(childNodes);
+                        childNodes.forEach(child => {
+                            child.setAttribute("tabindex", "-1");
+                            child.setAttribute("aria-hidden", "true");
+                        });
+                    }
+                }
+            }
+        }
 
     }, autoslide * 1000);
+    
 }
 
 const sliderDots = document.querySelectorAll('.slider__dot');
@@ -376,7 +466,11 @@ if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventList
         if(dots[i] == e.target) {
             index = i;
             dots[i].classList.add('slider__dot--active');
-        } else dots[i].classList.remove('slider__dot--active');
+            dots[i].setAttribute('aria-current','true');
+        } else {
+            dots[i].classList.remove('slider__dot--active');
+            dots[i].setAttribute('aria-current','false');
+        }
     }
 
     moveToSlide(wrapper.querySelector('.slider'), index);

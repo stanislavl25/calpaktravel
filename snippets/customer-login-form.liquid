@@ -7,9 +7,10 @@
     {%- endif -%}
 
     <section class="field__list">
+    <p class="input-required">* Indicates a required field<p>
         <div class="field">
             <label for="CustomerEmail">
-                Email
+                Email*
             </label>   
             <input
                 type="email"
@@ -29,8 +30,8 @@
             <div class="field field--password">
                 <button type="button" class="show-password" title="Shop password"><span class="show-password__cta">View</span> <span class="visually-hidden">password</span></button>
                 <label for="CustomerPassword">
-                    Password
-                </label>       
+                    Password*
+                </label>     
                 <input
                     class="field__input"
                     type="password"
@@ -38,6 +39,7 @@
                     name="customer[password]"
                     id="CustomerPassword"
                     autocomplete="current-password"
+                    required="true'"
                     {% if form.errors contains 'form' %}
                         aria-invalid="true"
                     {% endif %}>
@@ -59,6 +61,7 @@
             }));
             </script>
         {%- endif -%}
+        
     </section>
 
     {%- if form.password_needed and checkout != true -%}
@@ -67,6 +70,15 @@
             Forgot your password?
         </a>
     </div>
+    {%- endif -%}
+
+    {%- if form.errors -%}
+        {{ form.errors | default_errors }}
+        <script>
+            document.getElementById('CustomerEmail').focus();
+            document.getElementById('CustomerEmail').setAttribute('id', 'default-error-show');
+            document.querySelector('#customer_login > div.errors > ul > li').setAttribute('aria-describedby', 'default-error-show');
+        </script>
     {%- endif -%}
 
     <div class="form__submit">

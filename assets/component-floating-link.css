@@ -12,6 +12,12 @@
     height: 42px;
     z-index: 2;
 }
+.floating-link a[aria-labelledby="content-block-title"] {
+  display: none;
+}
+.floating-link__pictured p {
+  margin: 0;
+}
 @media screen and (max-width: 900px){
   .content-blocks--mobile-stacked .floating-link {
     height: auto;

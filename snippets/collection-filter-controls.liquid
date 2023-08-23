@@ -1,12 +1,17 @@
 <div class="collection-filters__control">
     <div class="collection-filter__activators">
-        <button aria-controls="collection-filters" aria-label="Sort product list" class="filter__activator filter__activator--sort">
-            Sort by <i></i>
-        </button>
-
-        <button aria-controls="collection-filters" aria-label="Filter products by color" class="filter__activator filter__activator--color">
+    <ul>
+        <li>
+        <button aria-label="Filter products by color" class="filter__activator filter__activator--color" aria-controls="collection-filters" aria-expanded="false">
             Color <i></i>
         </button>
+        </li>
+        <li>
+        <button aria-label="Sort product list" class="filter__activator filter__activator--sort" aria-controls="collection-filters" aria-expanded="false">
+            Sort by <i></i>
+        </button>
+        </li>
+    </ul>
     </div>
     <div class="collections-menu">
         {%- liquid
@@ -71,7 +76,7 @@
         </button>
     </div>
     <div class="current-filters">
-        <div class="current-filters-list"></div>
+        <ul class="current-filters-list"></ul>
         <button aria-label="Clear all filters" class="filter__reset current-filters-clear">
             Clear All
         </button>

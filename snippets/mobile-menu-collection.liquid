@@ -14,11 +14,12 @@
         </div>
 
         <nav class="slider__nav">
-            <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" title="Previous"></button>
-            <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" title="Next"></button>
+            <button aria-label="Show previous slide" class="slider__control tri-left slider__control--prev" aria-label="Previous slide" title="Previous"></button>
+            <button aria-label="Show next slide" class="slider__control tri-right slider__control--next" aria-label="Next slide" title="Next"></button>
         </nav>
     </div>
-    <div class="slider">
+    <div class="slider" aria-label="carousel" role="region">
+        <span class="sr-only">This is a static carousel, use next and previous buttons to navigate and move the slider.</span>
         {%- liquid
             for product in collection.products limit: 12
                 render 'product-unit' with product, wishlist: true, class: 'slide', sizes: '50vw'

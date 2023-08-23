@@ -17,7 +17,6 @@
     },
     "faq": {
       "type": "wonderment-faq",
-      "disabled": true,
       "blocks": {
         "faq-getting-started": {
           "type": "section_heading",
@@ -92,6 +91,7 @@
         "shipping-cost-question",
         "return-policy-question"
       ],
+      "disabled": true,
       "settings": {
         "show_answers": false,
         "text_size": 100,

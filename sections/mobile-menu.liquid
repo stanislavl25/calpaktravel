@@ -1,22 +1,22 @@
 <link rel="stylesheet" href="{{ 'section-mobile-menu.css' | asset_url }}" media="print" onload="this.media='screen and (max-width: 900px)'">
 
 <noscript>{{ 'section-mobile-menu.css' | asset_url | stylesheet_tag }}</noscript>
-
-<div class="mobile-menu">
+<h2 id="mobile-menu-label-h2" class="visually-hidden">Mobile menu</h2>
+<header class="mobile-menu" aria-labelledby="mobile-menu-label-h2" aria-label="mobile menu">
     <button aria-label="Close mobile menu" class="menu-close menu-close--mobile-menu" title="Close"></button>
     <div class="mobile-menu__inner">
-        <div class="mobile-menu__nav">
+        <div id="shop__mobile_tabpanel" class="mobile-menu__nav mb-tabpanel" aria-labelledby="shop__mobile_tab" tabindex="0" role="tabpanel">
             {% if section.settings.shop-menu != blank %}
                 {% render 'slide-menu' with section.settings.shop-menu, type: "shop" %}
             {% endif %}
         </div>
-        <div class="mobile-menu__nav">
+        <div id="discover__mobile_tabpanel" class="mobile-menu__nav mb-tabpanel" aria-labelledby="discover__mobile_tab" tabindex="0">
             {% if section.settings.discover-menu != blank %}
                 {% render 'slide-menu' with section.settings.discover-menu, type: "discover" %}
             {% endif %}
         </div>
     </div>
-</div>
+</header>
 
 {% schema %}
     {

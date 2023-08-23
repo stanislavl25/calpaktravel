@@ -11,6 +11,7 @@
 }
 
 .pdp__promo-title {
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
@@ -71,6 +72,8 @@
 .pdp-promo__price a,
 .pdp-promo__media a {
     text-decoration: none;
+    font-size: 1rem;
+    line-height: 1;
 }
 
 .pdp-promo__media .ratio-container {
@@ -90,6 +93,8 @@
     font-size: 36px;
     letter-spacing: -0.02em;
     line-height: 1em;
+    margin:0;
+    font-weight: 500;
 }
 
 .pdp-promo__text a:not(.button) {

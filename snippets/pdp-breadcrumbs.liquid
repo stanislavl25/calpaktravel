@@ -1,12 +1,12 @@
-<a href="{{ shop.url }}/collections/all">All</a>
+<li><a href="{{ shop.url }}/collections/all"><span class="circle-icon" aria-hidden="true"></span>All</a></li>
 
 {%- if product.metafields.custom.parent_collections != blank -%}
     {%- for col in product.metafields.custom.parent_collections.value -%}
-        <a href="{{ col.url }}">{{- col.title | escape -}}</a>
+        <li><a href="{{ col.url }}"><span class="circle-icon" aria-hidden="true"></span>{{- col.title | escape -}}</a></li>
     {%- endfor -%}
 {%- else -%}
     {% if product_type contains 'luggage' %}
-        <a href="/collections/luggage">Luggage</a>
+        <li><a href="/collections/luggage"><span class="circle-icon" aria-hidden="true"></span>Luggage</a></li>
     {% endif %}
 {%- endif -%}
 
@@ -17,9 +17,9 @@
 {% comment %}
     changed to only display product.title
 {% if current_product_group_type != blank %}
-    <span>{{ current_product_group_type }}</span>
+    <span><span class="circle-icon" aria-hidden="true"></span>{{ current_product_group_type }}</span>
 {% else %}
-    <span>{{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}</span>
+    <li><span class="circle-icon" aria-hidden="true"></span>{{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}</li>
 {% endif %}
 {% endcomment %}
 

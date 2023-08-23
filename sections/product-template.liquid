@@ -1,6 +1,6 @@
 {{ 'section-pdp.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-pdp-gallery.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true, media: "screen and (max-width: 900px)" }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true, media: 'screen and (max-width: 900px)' }}
 {{ 'component-star-rating.css' | asset_url | stylesheet_tag }}
 {{ 'component-pdp-promo.css' | asset_url | stylesheet_tag }}
 
@@ -31,7 +31,6 @@
   onload="this.media='all'">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
 <script src="{{ 'product-overlay.js' | asset_url }}" defer></script>
@@ -101,17 +100,17 @@
         endif
     endif
 
-    assign featured_collection = false
-    if product.metafields.custom.featured_collection != blank
-        assign featured_collection = collections[product.metafields.custom.featured_collection]
-    endif
+  assign featured_collection = false
+  if product.metafields.custom.featured_collection != blank
+    assign featured_collection = collections[product.metafields.custom.featured_collection]
+  endif
 
     assign current_product_group_type = false
     assign has_more_product_types = false
     assign product_type = product.type | downcase
 
-    if featured_collection != false and product_type contains 'luggage'
-        assign types = 'Mini Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Carry-On,Medium Luggage,Large Luggage,Trunk Luggage,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
+  if featured_collection != false and product_type contains 'luggage'
+    assign types = 'Mini Carry-On,Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Medium Luggage,Large,Trunk,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
 
         for type in types
             if product.title contains type
@@ -138,13 +137,13 @@
         endif
     endif
 
-    if current_variant.metafields.custom.preorder != blank
-        assign preorder = current_variant.metafields.custom.preorder
-    elsif product.metafields.custom.preorder != blank
-        assign preorder = product.metafields.custom.preorder
-    else
-        assign preorder = false
-    endif
+  if current_variant.metafields.custom.preorder != blank
+    assign preorder = current_variant.metafields.custom.preorder
+  elsif product.metafields.custom.preorder != blank
+    assign preorder = product.metafields.custom.preorder
+  else
+    assign preorder = false
+  endif
 
     assign description_reviews_split = false
     if product.metafields.custom.description_reviews != blank
@@ -293,7 +292,7 @@
                           document.querySelector('#pdp__views-counter').innerHTML = views_final;
                         } catch {}try {
                           document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final;
-                        
+
 
 
 
@@ -472,7 +471,7 @@
               });
             </script>
           {% endif %}
-          {%- when 'description' -%}
+        {%- when 'description' -%}
           {% assign description_title = section.settings.description-title %}
           {% assign specifications_title = section.settings.specifications-title %}
           {% assign warranty_title = section.settings.warranty-title %}

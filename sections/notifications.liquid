@@ -1,24 +1,28 @@
-<div class="notifications-popup">
-    <div class="notifications-content">
+<div class="notifications-popup" role="dialog" aria-modal="true" aria-label="Notifications" aria-labelledby="modal-heading">
+    <div id="modal-heading" class="notifications-content">
         {%- assign count = 0 -%}
-        <ul class="list-unstyled notifications-list">
         {%- for block in section.blocks -%}
             {%- if customer and block.settings.only-for-guests -%}{%- continue -%}{%- endif -%}
-            <div class="notification" data-id="{{ block.id }}">
-                {{ block.settings.text }}
-            </div>
             {%- assign count = count | plus: 1 -%}
         {%- endfor -%}
-        </ul>
         <div class="notifications-header">
             <span class="notifications-icon" title="Notifications">
                 {% render 'icon-notifications' %}
             </span>
-            <span>
+            <button role="button" class="menu-close menu-close--notifications" tabindex="2" autofocus="true" title="Close" aria-label="close"></button>
+            <h2 id="modal-heading" style="font-size:1rem;">
                 Notifications ({{ count }})
-            </span>
-            <a href="#" class="menu-close menu-close--notifications" title="Close"></a>
+            </h2>
         </div>
+        <ul class="list-unstyled notifications-list">
+        {%- for block in section.blocks -%}
+            {%- if customer and block.settings.only-for-guests -%}{%- continue -%}{%- endif -%}
+            <li class="notification" data-id="{{ block.id }}">
+                {{ block.settings.text }}
+            </li>
+        {%- endfor -%}
+        </ul>
+
     </div>
 </div>
 

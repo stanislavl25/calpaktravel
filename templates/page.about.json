@@ -1,5 +1,15 @@
 {
   "sections": {
+    "199333b6-edb4-4a02-bc11-be1d5005df31": {
+      "type": "page-header",
+      "settings": {
+        "title": "About us",
+        "title-size": "small",
+        "text": "",
+        "button-text": "",
+        "button-link": ""
+      }
+    },
     "e2590150-c984-4231-93dc-f0baf3390bd4": {
       "type": "video",
       "disabled": true,
@@ -61,7 +71,7 @@
     "09d0df49-64b7-45c2-9ef4-3220eed6bb3e": {
       "type": "banner",
       "settings": {
-        "title": "CALPAK is a bag company for every day and far away. ",
+        "title": "CALPAK is a bag company for every day and far away",
         "text": "<p>We bring utility and a playful spirit to our unique designs, to help you discover the joy of getting there. <\/p>",
         "button-text": "",
         "link": "",
@@ -353,6 +363,7 @@
     }
   },
   "order": [
+    "199333b6-edb4-4a02-bc11-be1d5005df31",
     "e2590150-c984-4231-93dc-f0baf3390bd4",
     "004e8da5-fa18-482b-9e48-1809383edbea",
     "09d0df49-64b7-45c2-9ef4-3220eed6bb3e",

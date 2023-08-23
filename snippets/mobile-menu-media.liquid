@@ -1,11 +1,11 @@
 {%- assign block = mobile-menu-media -%}
 
-<li class="slide-menu-item slide-menu-item--media">
+<li class="slide-menu-item slide-menu-item--media " role="tab">
     {%- unless block.settings.link-for-button -%}
-    <a href="{{- block.settings.link -}}">
+    <a href="{% if block.settings.link %}{{- block.settings.link -}}{% else %}#{% endif %}">
     {%- endunless-%}
 
-    {%- render 'image' with block.settings.image, lazy: true, sizes: '100vw' -%}
+    {%- render 'image' with block.settings.image, lazy: true, sizes: '100vw', alt: 'Collection page banner' -%}
 
     <div class="slide-menu__media-info slide-menu__media-info--color-{{ block.settings.text-color-scheme }}">
         {%- if block.settings.media-title != blank -%}

@@ -31,6 +31,7 @@
     display: none;
 }
 .pdp__gallery-container > .product-label--badge.product-label--active,
+.pdp__gallery-container > .product-label--badge.product-label--active,
 .product-label--badge.badge-active {
     width: 117px;
     height: 117px;
@@ -310,7 +311,7 @@ body .floating-labels .product-label--extra-sale {
         color: #000;
         text-align: left;
         padding-inline: 6px 6px;
-        margin-top: 64px;
+        margin-top: 8px;
         margin-bottom: 0px;
         position: absolute; 
         bottom: 0;

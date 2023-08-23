@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
         let anchor = document.querySelector(`.scroll-anchor[id="${hash.replace('#', '')}"]`);
         if(anchor) {
             anchor.closest('.accordion').classList.add('accordion--active');
+            //anchor.closest('.accordion').setAttribute('aria-expanded', 'true');
             anchor.closest('.faq-category-container').classList.add('faq-category-container--active');
         }
     }
@@ -52,7 +53,7 @@ if(faqCatTitles.length) {
     let faq_nav = document.querySelector('.faq-navigation');
 
     if(faq_nav) for(let i = 0; i < faqCatTitles.length; i++) {
-        faq_nav.innerHTML += '<a class="slide button button--secondary" href="#faq--' + handleize(faqCatTitles[i].innerHTML) + '"><span>' + faqCatTitles[i].innerHTML + '</span></a>';
+        faq_nav.innerHTML += '<h3><a class="slide button button--secondary" href="#faq--' + handleize(faqCatTitles[i].innerHTML) + '"><span>' + faqCatTitles[i].innerHTML + '</span></a></h3>';
 
         faqCatTitles[i].addEventListener('click', function(e) {
             e.preventDefault();

@@ -44,7 +44,7 @@
 {%- if show -%}
 <section class="pdp__promo-section pdp__promo-section--{{ block.type }}">
     {%- if block.settings.heading != blank -%}
-        <div class="pdp__promo-title">
+        <h2 class="pdp__promo-title">
             {%- liquid
                 assign set_product = block.settings.product
                 assign heading = block.settings.heading
@@ -63,154 +63,112 @@
 
                 echo heading | escape
             -%}
-        </div>
+        </h2>
     {%- endif -%}
+
     {% assign block_counter = 0 %} 
-    {% assign block_counter = block_counter | plus: 1 %}
+    {% assign block_counter = block_counter | plus: 1 %}    
     {% assign block_class = 'block-' | append: block_counter %}
-<div id="block-{{ block.id }}" class="pdp-promo {% if block.settings.upsell-background !=blank %} upsell-background {% endif %} {% if block.settings.border-dash !=false %}custom-dash {% endif %}">
-    {%- case block.type -%}
-        {%- when 'upsell-banner' -%}
-            {%- liquid
-                assign set_product = block.settings.product
-                assign current_variant = set_product.selected_or_first_available_variant
-            -%}
-            <div class="pdp-promo__content">
-                <div class="pdp-promo__media">
-                    <a tabindex="-1" href="{{ set_product.url }}">
-                    {%- if block.settings.image-override != blank -%}
-                        {%- render 'image' with block.settings.image-override, sizes: '86px', lazy: true -%}
-                    {%- elsif current_variant.featured_image != blank -%}
-                        {%- render 'image' with current_variant.featured_image, sizes: '86px', lazy: true -%}
-                    {%- else -%}
-                        {%- render 'image' with set_product.featured_image, sizes: '86px', lazy: true -%}
-                    {%- endif -%}
-                    </a>
-                </div>
-            
-                <div class="pdp-promo__price">
-                    <span>
-                        <a href="{{ set_product.url }}">
-                            {%- if block.settings.title-override != blank -%}
-                                {{- block.settings.title-override | escape -}}
-                            {%- else -%}
-                                {{- set_product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
-                            {%- endif -%}
-                        </a>
-                    </span>
-                    <span>
-                        {% if set_product.compare_at_price > set_product.price %}
-                        <s>{{ set_product.compare_at_price | money_without_trailing_zeros }}</s>
-                        {% endif %}
-                        {{ set_product.price | money_without_trailing_zeros }}
-                    </span>
-                </div>
-            </div>
-            
-            <a
-                {% if block.settings.button-behaviour == 'follow-link' %}
-                href="{{ block.settings.button-url }}"
-                {% else %}
-                href="{{ set_product.url }}"
-                {% endif %}
-
-                {% if block.settings.button-behaviour == 'add-to-cart' %}
-                    data-id="{{ current_variant.id }}"
-                    {% if current_variant.metafields.custom.preorder != blank %}
-                        data-preorder="{{- set_product.selected_or_first_available_variant.custom.preorder -}}"
-                    {% elsif set_product.metafields.custom.preorder != blank %}
-                        data-preorder="{{- set_product.metafields.custom.preorder -}}"
-                    {% endif %}
-
+    <ul style="list-style:none; padding:0;">
+        <li id="block-{{ block.id }}" class="pdp-promo {% if block.settings.upsell-background !=blank %} upsell-background {% endif %} {% if block.settings.border-dash !=false %}custom-dash {% endif %}" role="group" aria-label="item">
+            {%- case block.type -%}
+                {%- when 'upsell-banner' -%}
                     {%- liquid
-                        assign opt1 = current_variant.option1 | handleize
-                        
-                        assign finalSale = false
-                        for tag in set_product.tags
-                            assign tagSpl = tag | split: ':'
-                            assign handle = tagSpl[0] | handleize
-                            if 'final-sale' == handle
-                                if tagSpl.size == 1
-                                    assign finalSale = true
-                                else
-                                    assign finalSale = tagSpl[1] | downcase | split: ';'
-                                endif
-                            endif
-                        endfor
-
-                        if finalSale contains opt1 and finalSale != true and finalSale != false
-                            assign finalSale = true
-                        endif
+                        assign set_product = block.settings.product
+                        assign current_variant = set_product.selected_or_first_available_variant
                     -%}
+                    <div class="pdp-promo__content">
+                        <div class="pdp-promo__media">
+                            <a tabindex="-1" href="{{ set_product.url }}">
+                            {%- if block.settings.image-override != blank -%}
+                                {%- render 'image' with block.settings.image-override, sizes: '86px', lazy: true -%}
+                            {%- elsif current_variant.featured_image != blank -%}
+                                {%- render 'image' with current_variant.featured_image, sizes: '86px', lazy: true -%}
+                            {%- else -%}
+                                {%- render 'image' with set_product.featured_image, sizes: '86px', lazy: true -%}
+                            {%- endif -%}
+                            </a>
+                        </div>
                     
-                    {% if finalSale %}
-                        data-final
-                    {% endif %}
-                {% endif %}
+                        <div class="pdp-promo__price">
+                            <h3>
+                                <a href="{{ set_product.url }}">
+                                    {%- if block.settings.title-override != blank -%}
+                                        {{- block.settings.title-override | escape -}}
+                                    {%- else -%}
+                                        {{- set_product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
+                                    {%- endif -%}
+                                </a>
+                            </h3>
+                            <span>
+                                {% if set_product.compare_at_price > set_product.price %}
+                                <span class="sr-only">Original price</span>
+                                <s>{{ set_product.compare_at_price | money_without_trailing_zeros }}</s>
+                                {% endif %}
+                                <span class="sr-only">Current price</span>
+                                <b>{{ set_product.price | money_without_trailing_zeros }}</b>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <a
+                        {% if block.settings.button-behaviour == 'follow-link' %}
+                        href="{{ block.settings.button-url }}"
+                        {% else %}
+                        href="{{ set_product.url }}"
+                        {% endif %}
 
-                class="button button--secondary{% if block.settings.button-behaviour == 'add-to-cart' %} button--add-to-cart{% elsif block.settings.button-behaviour == 'quick-view' %} quick-view__link{% endif %}"
-                >
-                <span>{{ block.settings.button-text | escape }}{% if block.settings.include-price %} {{ set_product.price | money_without_trailing_zeros }}{% endif %}</span>
-            </a>
-        {%- when 'points' -%}
-            <div class="pdp-promo__media">
-                {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
-            </div>
-            <div class="pdp-promo__text-block">
-                {%- assign points = current_variant.price | divided_by: 100 | floor -%}
-                {%- assign repl = '<span class="yt-points">' | append: points | append: '</span>' -%}
-                {{- block.settings.text | replace: '[points]', repl -}}
-            </div>
-        {%- when 'image-banner' -%}
-            <div class="pdp-promo__media">
+                        {% if block.settings.button-behaviour == 'add-to-cart' %}
+                            data-id="{{ current_variant.id }}"
+                            {% if current_variant.metafields.custom.preorder != blank %}
+                                data-preorder="{{- set_product.selected_or_first_available_variant.custom.preorder -}}"
+                            {% elsif set_product.metafields.custom.preorder != blank %}
+                                data-preorder="{{- set_product.metafields.custom.preorder -}}"
+                            {% endif %}
 
-                {%- if block.settings.live-show-id != blank -%}
-                {%- if liveShowShown == false -%}
-                    <script>
-                    (function() {
-                        if (!window.initBambuserLiveShopping){
-                            window.initBambuserLiveShopping = function(item) { window.initBambuserLiveShopping.queue.push(item) }; window.initBambuserLiveShopping.queue = [];
-                            var scriptNode = document.createElement('script');
-                            scriptNode['src'] = 'https://lcx-embed.bambuser.com/powered-by-bambuser-theme/embed.js';
-                            document.body.appendChild(scriptNode);
-                        }
-                    })();
-                    </script> 
-                {%- endif -%}
-                {%- assign liveShowShown = true -%}
-                <a class="button-img-block" data-live="{{ block.settings.live-show-id }}">
-                {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
-                </a>
-                <script>
-                    (function() {
-                        window.initBambuserLiveShopping({
-                            showId: '{{ block.settings.live-show-id }}',
-                            node: document.querySelector('.button-img-block[data-live="{{ block.settings.live-show-id }}"]'),
-                            type: "overlay",
-                        });
-                    })();
-                </script>
-            {%- else -%}
-                <a href="{{ block.settings.button-url }}">
-                 {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
-                </a>
-            {%- endif -%}
+                            {%- liquid
+                                assign opt1 = current_variant.option1 | handleize
+                                
+                                assign finalSale = false
+                                for tag in set_product.tags
+                                    assign tagSpl = tag | split: ':'
+                                    assign handle = tagSpl[0] | handleize
+                                    if 'final-sale' == handle
+                                        if tagSpl.size == 1
+                                            assign finalSale = true
+                                        else
+                                            assign finalSale = tagSpl[1] | downcase | split: ';'
+                                        endif
+                                    endif
+                                endfor
 
+                                if finalSale contains opt1 and finalSale != true and finalSale != false
+                                    assign finalSale = true
+                                endif
+                            -%}
+                            
+                            {% if finalSale %}
+                                data-final
+                            {% endif %}
+                        {% endif %}
 
-            </div>
-            <div class="pdp-promo__text-block">
-                {%- if block.settings.title != blank -%}
-                <div class="pdp-promo__title">
-                    {{- block.settings.title | escape -}}
-                </div>
-                {%- endif -%}
-                {%- if block.settings.text != blank -%}
-                <div class="pdp-promo__text">
-                    {{- block.settings.text -}}
-                </div>
-                {%- endif -%}
-                {%- if block.settings.button-text != blank -%}
-                    {%- if block.settings.live-show-id != blank -%}
+                        class="button button--secondary{% if block.settings.button-behaviour == 'add-to-cart' %} button--add-to-cart{% elsif block.settings.button-behaviour == 'quick-view' %} quick-view__link{% endif %}"
+                        >
+                        <span>{{ block.settings.button-text | escape }}{% if block.settings.include-price %} {{ set_product.price | money_without_trailing_zeros }}{% endif %}</span>
+                    </a>
+                {%- when 'points' -%}
+                    <div class="pdp-promo__media">
+                        {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+                    </div>
+                    <div class="pdp-promo__text-block">
+                        {%- assign points = current_variant.price | divided_by: 100 | floor -%}
+                        {%- assign repl = '<span class="yt-points">' | append: points | append: '</span>' -%}
+                        {{- block.settings.text | replace: '[points]', repl -}}
+                    </div>
+                {%- when 'image-banner' -%}
+                    <div class="pdp-promo__media">
+
+                        {%- if block.settings.live-show-id != blank -%}
                         {%- if liveShowShown == false -%}
                             <script>
                             (function() {
@@ -224,37 +182,84 @@
                             </script> 
                         {%- endif -%}
                         {%- assign liveShowShown = true -%}
-                        <span class="button button--secondary" data-live="{{ block.settings.live-show-id }}"><span>{{- block.settings.button-text | escape -}}</span></span>
+                        <a class="button-img-block" data-live="{{ block.settings.live-show-id }}">
+                        {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+                        </a>
                         <script>
                             (function() {
                                 window.initBambuserLiveShopping({
                                     showId: '{{ block.settings.live-show-id }}',
-                                    node: document.querySelector('.button[data-live="{{ block.settings.live-show-id }}"]'),
+                                    node: document.querySelector('.button-img-block[data-live="{{ block.settings.live-show-id }}"]'),
                                     type: "overlay",
                                 });
                             })();
                         </script>
                     {%- else -%}
-                        <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+                        <a href="{{ block.settings.button-url }}">
+                        {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 21vw, 50vw', lazy: true -%}
+                        </a>
                     {%- endif -%}
-                {%- endif -%}
-            </div>
-        {%- when 'text-banner' -%}
-            {%- if block.settings.title != blank -%}
-            <div class="pdp-promo__title">
-                {{- block.settings.title | escape -}}
-            </div>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-            <div class="pdp-promo__text">
-                {{- block.settings.text -}}
-            </div>
-            {%- endif -%}
-            {%- if block.settings.button-text != blank -%}
-            <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
-            {%- endif -%}
-    {%- endcase -%}
-    </div>
+
+
+                    </div>
+                    <div class="pdp-promo__text-block">
+                        {%- if block.settings.title != blank -%}
+                        <h3 class="pdp-promo__title">
+                            {{- block.settings.title | escape -}}
+                        </h3>
+                        {%- endif -%}
+                        {%- if block.settings.text != blank -%}
+                        <div class="pdp-promo__text">
+                            {{- block.settings.text -}}
+                        </div>
+                        {%- endif -%}
+                        {%- if block.settings.button-text != blank -%}
+                            {%- if block.settings.live-show-id != blank -%}
+                                {%- if liveShowShown == false -%}
+                                    <script>
+                                    (function() {
+                                        if (!window.initBambuserLiveShopping){
+                                            window.initBambuserLiveShopping = function(item) { window.initBambuserLiveShopping.queue.push(item) }; window.initBambuserLiveShopping.queue = [];
+                                            var scriptNode = document.createElement('script');
+                                            scriptNode['src'] = 'https://lcx-embed.bambuser.com/powered-by-bambuser-theme/embed.js';
+                                            document.body.appendChild(scriptNode);
+                                        }
+                                    })();
+                                    </script> 
+                                {%- endif -%}
+                                {%- assign liveShowShown = true -%}
+                                <span class="button button--secondary" data-live="{{ block.settings.live-show-id }}"><span>{{- block.settings.button-text | escape -}}</span></span>
+                                <script>
+                                    (function() {
+                                        window.initBambuserLiveShopping({
+                                            showId: '{{ block.settings.live-show-id }}',
+                                            node: document.querySelector('.button[data-live="{{ block.settings.live-show-id }}"]'),
+                                            type: "overlay",
+                                        });
+                                    })();
+                                </script>
+                            {%- else -%}
+                                <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+                            {%- endif -%}
+                        {%- endif -%}
+                    </div>
+                {%- when 'text-banner' -%}
+                    {%- if block.settings.title != blank -%}
+                    <h3 class="pdp-promo__title">
+                        {{- block.settings.title | escape -}}
+                    </h3>
+                    {%- endif -%}
+                    {%- if block.settings.text != blank -%}
+                    <div class="pdp-promo__text">
+                        {{- block.settings.text -}}
+                    </div>
+                    {%- endif -%}
+                    {%- if block.settings.button-text != blank -%}
+                    <a class="button button--secondary" href="{{ block.settings.button-url }}"><span>{{- block.settings.button-text | escape -}}</span></a>
+                    {%- endif -%}
+            {%- endcase -%}
+        </li>
+    </ul>
 </section>
     <style>
         #block-{{ block.id }}.upsell-background {

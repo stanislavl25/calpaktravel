@@ -1,7 +1,7 @@
 .customer__page--form form{ 
     position: relative; 
 } 
-.form__field-line {
+.form__field-line .floating-label {
     display: flex;
     box-shadow: 0 0 0 1px #000;
     border-radius: 9px;
@@ -10,7 +10,7 @@
 
 .field__input {
     height: 42px;
-    border: 1px solid #aeaeae;
+    border: 1px solid #939393;
     border-radius: 9px;
     font-family: var(--font-body-family);
     font-style: var(--font-body-style);
@@ -191,7 +191,7 @@
 }
 
 @media (max-width: 768px) {
-    .form__field-line {
+    .form__field-line .floating-label {
       flex-wrap: wrap;
       box-shadow: none;
     }
@@ -200,7 +200,7 @@
         font-size: 14px;
     }
 
-    .form__field-line button {
+    .form__field-line .floating-label button {
       width: 100%;
       margin-top: 10px;
     }

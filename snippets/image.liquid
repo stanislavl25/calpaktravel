@@ -45,13 +45,21 @@
     
 
     if asset == true
-        echo image | asset_img_url: 'master' | img_tag
+        echo image | asset_img_url: 'master' | img_tag: alt
     elsif image != blank
         if zoom == true
-            echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: alt, class: 'img-zoom'
+            if ada_alt
+                echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: '', class: 'img-zoom'
+            else
+                echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: alt, class: 'img-zoom'
+            endif
         endif
-
-        echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', preload: preload, alt: alt, loading: loading, class: img_class
+            
+        if ada_alt
+            echo image | image_url: width: nil | image_tag: sizes: '100vw', widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', loading: 'lazy', alt: '', class: 'img-zoom'
+        else
+            echo image | image_url: width: nil | image_tag: sizes: sizes, widths: '100, 180, 300, 450, 650, 800, 1000, 1200, 1600, 2000', preload: preload, alt: alt, loading: loading, class: img_class
+        endif
     endif
 %}
 

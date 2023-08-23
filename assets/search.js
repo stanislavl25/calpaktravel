@@ -325,6 +325,8 @@ function getMatchedVariants(product, search, colors, visible_variants, ambiguity
 function createSearchItem(product, available, matchedVariant, products_target,productorder = 500) {
     let newItem = document.createElement('div');
     newItem.classList.add('search-result__product');
+    newItem.setAttribute('role','option');
+    newItem.setAttribute('id',`product-wrap--${product.handle}`);
     let variant = '';
     if(matchedVariant[1]) variant = handleize(matchedVariant[1].option1);
 
@@ -496,6 +498,7 @@ function searchProductsForMatches(products, search, color_search, ambiguity, or,
 
 function fillSearchProducts(results, container, search, color_search, ambiguity, or, sale,el) {
     const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
+        container.querySelector('#search-form').setAttribute('aria-expanded', 'true');
     if(products_target && typeof results.products != 'undefined') {
         const products = results.products;
         products_target.innerHTML = '';
@@ -1035,3 +1038,24 @@ mobileNavButtons.forEach(mobileNavButton => mobileNavButton.addEventListener('cl
     const target = this.getAttribute('data-target');
     this.closest('.menu-popup__mobile-nav').setAttribute('data-page', target);
 }));
+                                                        
+const searchContainer = document.querySelector('.menu-popup--search');
+const firstFocusableElementSearch = searchContainer.querySelector('.menu-close--search');
+const lastFocusableElementSearch = searchContainer.querySelector('.search__collections-buttons > a:last-child');
+// Close the dialog when 'Escape' key is pressed.
+  searchContainer.addEventListener('keydown', function(e) {
+    if(e.key == 'Escape') {
+      closeHeaderSearch();
+    }
+  });
+  
+  // Trap keyboard focus by moving focus to the first or last focusable element when the user tries to tab (or "backwards" tab) past them.
+  searchContainer.addEventListener('keydown', function(e) {
+    if(e.target == firstFocusableElementSearch && e.key == 'Tab' && e.shiftKey) {
+      e.preventDefault();
+      lastFocusableElementSearch.focus();
+    } else if(e.target == lastFocusableElementSearch && e.key == 'Tab' && !e.shiftKey) {
+      e.preventDefault();
+      firstFocusableElementSearch.focus();
+    }
+  });                           

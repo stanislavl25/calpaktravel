@@ -36,14 +36,14 @@
         <main class="cart-page__body">
             <h1 class="cart__items-title">Your items (<span class="cart__count">{{ cart.item_count }}</span>)</h1>
             <div class="cart__items-container">
-                <div class="cart__items">
+                <ul class="cart__items unstyled-list">
                     {%- render 'cart-item' for cart.items, cart_page: true -%}
-                </div>
+                </ul>
             </div>
-        </main>
+        </div>
         <aside class="cart-sidebar">
             {% render 'cart-free-shipping', free_shipping_progress: free_shipping_progress, free_shipping: free_shipping %}
-            <div class="cart-sidebar__title">Order Summary</div>
+            <h2 class="cart-sidebar__title">Order Summary</h2>
             <div class="cart__body-bottom">
                 {%- if customer == blank -%}
                 <div class="cart__rewards"><a href="{{ routes.account_url }}">Sign in</a> to see your rewards</div>
@@ -61,12 +61,13 @@
                 </dl>
             </div>
             <div class="cart__footer-total">
-                <dl class="cart__total-row cart__total-row--total">
-                    <dt class="cart__total-name">Estimated Total</dt>
-                    <dd class="cart__total-value">
-                        {{- totalPrice | money_without_trailing_zeros -}}
-                    </dd>
-                </dl>
+                <div class="cart__total-row">
+                    <ul class="cart-ul-list">
+                        <li class="cart__total-name cart__total-row--subtotal">Subtotal <span class="cart__total-value">{{- cart.items_subtotal_price | money_without_trailing_zeros -}}</span></li>
+                        <li class="cart__total-name cart__total-row--shipping">Shipping <span class="cart__total-value">$7.95</span></li>   
+                        <li class="cart__total-name cart__total-row--total">Estimated Total <span class="cart__total-value">{{- totalPrice | money_without_trailing_zeros -}}</span></li>  
+                    </ul>                    
+                </div>
                 <div class="cart__4-payments{% if totalPrice <= 5000 %} cart__4-payments--limit{% endif %}">
                     <span>4 easy payments
                         <span class="spc__msg-amnt">

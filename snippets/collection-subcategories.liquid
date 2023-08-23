@@ -1,73 +1,32 @@
 <div class="collection-categories__wrapper slider__wrapper">
-  <button
-    aria-label="Show previous slide"
-    class="slider__control button-tri-left slider__control--prev"
-    title="Previous"
-  ></button>
-  <button
-    aria-label="Show next slide"
-    class="slider__control button-tri-right slider__control--next"
-    title="Next"
-  ></button>
-  {%- liquid
-    assign filter = false
-    assign selectedParent = 0
-    assign selectedInside = 0
-    assign parentCategoryNum = 0
-    assign subcategoryNum = 0
-    assign subcategoryCount = 0
-    assign showSub = false
-    for block in section.blocks
-      if block.type == 'category'
-        assign parentCategoryNum = parentCategoryNum | plus: 1
-        assign subcategoryNum = 0
-        if block.settings.selected and filter
-          assign selectedParent = parentCategoryNum
-          continue
-        elsif filter == false and block.settings.collection.handle == collection.handle
-          assign selectedParent = parentCategoryNum
-          continue
-        endif
-      else
-        assign subcategoryNum = subcategoryNum | plus: 1
-        if block.settings.collection.handle == collection.handle and filter == false
-          assign selectedParent = parentCategoryNum
-          assign selectedInside = subcategoryNum
-        endif
-        if selectedParent == parentCategoryNum
-          assign subcategoryCount = subcategoryCount | plus: 1
-        endif
-      endif
-    endfor
-
-    if subcategoryCount > 0 and filter == false
-      assign showSub = true
-    endif
-
-    assign text_only = section.settings['text-only']
-    if collection.handle == 'all'
-      assign text_only = true
-    endif
-  -%}
-  <section class="filter__collections{% if radio_only %} filter__collection--text-only{% endif %}{% if showSub %} filter__collections--active{% endif %}{% if selectedInside > 0 %} filter__collections--focus{% endif %} slider slider--scrollbar">
-    {%- assign num = 0 -%}
-    {%- assign numInside = 0 -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'category' -%}
-        {%- assign num = num | plus: 1 -%}
-        {%- assign numInside = 0 -%}
-        {% assign radio_only = block.settings.radio_only %}
-        {%- continue -%}
-      {%- else -%}
-        {%- assign numInside = numInside | plus: 1 -%}
-      {%- endif -%}
-      <a
-        href="{% if block.settings.collection != blank %}{{ block.settings.collection.url }}{% else %}{{ collection.url }}{% endif %}"
-        data-group="{{ num }}"
-        class="filter__collection{% if radio_only %} filter__collection--text-only{% endif %}{% if selectedParent == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}{% if selectedInside == numInside %} filter__collection--selected filter__collection--selected-init{% endif %}"
-        {% if block.settings.product_list != blank %}
-          data-products="
-            {%- for product in block.settings.product_list -%}
+    <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
+    <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
+    {%- liquid
+        assign selected = 0
+        assign showSub = false
+        for block in section.blocks
+            if block.settings.selected and block.type == 'category'
+                assign selected = forloop.index
+                continue
+            endif
+            if selected > 0
+                if block.type != 'category'
+                    assign showSub = true
+                endif
+                break
+            endif
+        endfor
+    -%}
+    <section class="filter__collections{% if showSub %} filter__collections--active{% endif %} slider slider--scrollbar">
+        {%- assign num = 0 -%}
+        {%- for block in section.blocks -%}
+            {%- if block.type == 'category' -%}
+                {%- assign num = num | plus: 1 -%}
+                {%- continue -%}
+            {%- endif -%}
+        <div data-group="{{ num }}"
+            class="filter__collection{% if selected == num %} filter__collection--active slide{% endif %}{% if block.settings.filter-in-parent %} filter__collection--sub{% endif %}"
+            {% if block.settings.product_list != blank %}data-products="{%- for product in block.settings.product_list -%}
                 {%- unless forloop.first -%},{%- endunless -%}{{- product.id -}}
             {%- endfor -%}
           "
@@ -111,6 +70,6 @@
           <div class="filter__collection-desc">{{- block.settings.description -}}</div>
         {%- endif -%}
       </a>
-    {%- endfor -%}
-  </section>
+        {%- endfor -%}
+    </section>
 </div>

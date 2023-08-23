@@ -156,6 +156,15 @@
     margin-bottom: 3px;
     font-weight: var(--font-body-weight-bold);
     line-height: 1.25em;
+    position: relative;
+}
+
+.product-grid--gap .product-unit__colors-text {
+    display: none;
+}
+
+.product-grid--gap .product-unit__colors-text {
+    display: none;
 }
 
 .product-grid--gap .product-unit__colors-text {
@@ -168,6 +177,12 @@
 
 .product-unit__title a {
     text-decoration: none;
+    font-weight: var(--font-body-weight);
+}
+.product-unit__title h3{
+    font-weight: normal;
+    margin: 0;
+    font-size: 1rem;
     font-weight: var(--font-body-weight);
 }
 
