@@ -15,6 +15,7 @@
     text-align: center;
     padding: 12px 0;
     display: none;
+    line-height: 24px;
 }
 
 .blog-text-product-feature__block-text {
@@ -25,6 +26,7 @@
     flex-direction: column;
     gap: var(--gap);
     border-radius: 9px;
+    line-height: 24px;
 }
 
 .blog-image-text-feature__title {
