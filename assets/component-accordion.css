@@ -41,9 +41,7 @@
 .accordion--active .accordion__content {
     display: block;
 }
-.accordion__title h3{
-    font-size: 16px;
-}
+
 .accordion__title {
     position: relative;
     font-size: 16px;
@@ -55,8 +53,11 @@
     z-index: 1;
     text-decoration: inherit;
     display: block;
-width:100%;
-text-align: left;
+    width:100%;
+    text-align: left;
+}
+.accordion__title h2, .accordion__title h3 {
+    font-size: 16px;
 }
 
 .accordion--active .accordion__title,
