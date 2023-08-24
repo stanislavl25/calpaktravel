@@ -384,8 +384,8 @@
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
           "live": true,
-          "live-start-time": "August 24, 2023 12:00PM",
-          "live-end-time": "August 24, 2023 1:00PM"
+          "live-start-time": "August 24, 2023 12:00pm",
+          "live-end-time": "August 24, 2023 1:00pm"
         }
       },
       "footer": {
