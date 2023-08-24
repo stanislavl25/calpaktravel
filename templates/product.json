@@ -712,12 +712,6 @@
           "type": "description",
           "settings": {
           }
-        },
-        "97d27d50-9e40-4997-bb24-8d06fe532207": {
-          "type": "set-bundle",
-          "settings": {
-            "product_bundle": "{{ product.metafields.custom.bundle_product.value }}"
-          }
         }
       },
       "block_order": [
@@ -749,8 +743,7 @@
         "168a627e-cd95-40c0-865a-be60cd479810",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
         "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
-        "460a526f-69ed-4d68-89c4-1b9152dcadf7",
-        "97d27d50-9e40-4997-bb24-8d06fe532207"
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7"
       ],
       "settings": {
         "hide-single-size": true,
