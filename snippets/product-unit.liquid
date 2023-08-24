@@ -315,7 +315,7 @@
     {%- endif -%} {% endcomment %}
 
     {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
-      <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
+      <p class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</p>
     {%- endif -%}
 
     <div class="product-unit__row">
@@ -355,7 +355,7 @@
     {%- if add_to_cart == true -%}
 
 
-      <div class="product-unit__button product-unit__button--active">
+      <div class="product-unit__button">
         <button class="button button--tertiary button--add-to-cart">
           <div class="button-msg-add">Add to Bag</div>
           <div class="button-msg-adding">Adding...</div>

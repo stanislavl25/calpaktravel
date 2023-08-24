@@ -44,7 +44,8 @@
 
                 {% if block.settings.product_title != blank %}
                 <div class="floating-link__pictured">
-                    Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+                    <p>Pictured:</p>
+                    {% if  block.settings.pictured_product !=blank %}<a class="pirc" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title -}}</a>{% endif %}
                 </div>
                 {% endif %}
             </div>

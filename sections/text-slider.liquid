@@ -22,7 +22,7 @@
         {%- for block in section.blocks -%}
             <li class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}">
                 {% if block.settings.text != empty %}
-                <button aria-label="Go to slide {{ forloop.index }}">{% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px', alt:'squarespace logo' %}</button>
+                <button aria-label="Go to slide {{ block.settings.text | strip_html | escape }} {{ forloop.index }}">{% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px', alt:'squarespace logo' %}</button>
                 {% else %}
                 <button aria-label="Go to slide {{ forloop.index }}">{% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px', alt:'squarespace logo' %}</button>
                 {% endif %}

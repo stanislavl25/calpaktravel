@@ -285,7 +285,7 @@
           </div>
 
           {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
-            <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
+            <p class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</p>
           {%- endif -%}
 
           {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
