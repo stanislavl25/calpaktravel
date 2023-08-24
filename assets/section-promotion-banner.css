@@ -94,6 +94,10 @@ a.promotion-banner__link {
 .hot-deals-banner-wrapper .hot-deal-badge.product-label--active {
     display: flex !important;
 }
+
+.product-grid.sale .hot-deal-badge.product-label--active {
+    display: flex !important;
+}
 .show-mobile{
     display: none;
 }
