@@ -123,8 +123,8 @@ a.color-swatch--active::after {
 }
 
 .color-swatch-sale.product-option--na::before {
-    height: 0;
-    border-radius: 0;
+  /*  height: 0;
+    border-radius: 0; */
 }
 
 .color-swatch img {

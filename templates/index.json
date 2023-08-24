@@ -3,14 +3,6 @@
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
       "type": "scrollable-menu",
       "blocks": {
-        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
-          "type": "collection",
-          "settings": {
-            "collection": "sale",
-            "title": "Labor Day Sale",
-            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
-          }
-        },
         "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
           "type": "collection",
           "settings": {
@@ -21,10 +13,18 @@
         },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "sale",
             "title": "",
+            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
+          }
+        },
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "sale",
+            "title": "Labor Day Sale",
             "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
@@ -62,9 +62,9 @@
         }
       },
       "block_order": [
-        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
@@ -79,12 +79,15 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Labor Day Sale",
-            "description": "<p>Wave goodbye to summer with up to 60% off best sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
+            "description": "<p>Wave goodbye to summer with up to 60% off best-sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
             "main-link": "shopify:\/\/collections\/sale",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
+            "promo-link": "",
+            "promo-text": "",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -94,8 +97,9 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame-2_f02bf224-abef-4f7d-89a7-ae56af60a550.gif",
+            "image": "shopify:\/\/shop_images\/190325_CALPAK_Kaya_4862_Hi-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
@@ -109,9 +113,9 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_3759_3.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/Frame_3_1_52330812-fd0d-4df6-b8ce-ec2facdd3c0e.jpg",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0868-3-2.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
             "title": "",
@@ -129,9 +133,10 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
-        "height-limit": 85,
+        "height-limit": 105,
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
@@ -143,13 +148,14 @@
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "Everyone's Favorite Duffel",
             "description": "<p>9 pockets, 1 shoe compartment, endless possibilities. <\/p>",
             "main-link": "shopify:\/\/products\/luka-duffel",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
+            "promo-link": "https:\/\/www.calpaktravel.com\/pages\/promotion-terms",
+            "promo-text": "Terms and Conditions",
             "show-screens": "all",
             "show-condition": "always",
             "text-alignment": "center",
@@ -159,7 +165,6 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
             "image-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
@@ -176,7 +181,6 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
             "image-mobile": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
@@ -197,7 +201,6 @@
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197"
       ],
-      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,

@@ -4,7 +4,6 @@
       "type": "page-header",
       "settings": {
         "title": "Full Transparency",
-        "display": "both",
         "title-size": "medium",
         "text": "<p>Raise your hand if you’ve ever picked up your luggage from baggage claim, and found it all beat up. Yup. We know. We’ve been there, too. That’s why when you asked for luggage covers, we just couldn’t say no. New Clear Luggage Covers have arrived! Here are three reasons why you need them ASAP.<\/p>",
         "button-text": "",
@@ -25,11 +24,7 @@
         "height-percent": 50,
         "text-alignment": "left",
         "text-color-scheme": "white",
-        "background": "#e4dfd5",
-        "query-match": true,
-        "yotpo": false,
-        "signed-in-button-text": "",
-        "signed-in-link": ""
+        "background": "#e4dfd5"
       }
     },
     "1f99bbab-9088-4b64-97fc-691a6215dd7d": {
@@ -53,8 +48,7 @@
             "title": "They Protect Your Luggage",
             "description": "<p>Traveling is already stressful enough. These covers are designed to protect your luggage, and keep them scratch-free. So go ahead and take that nap, order a glass of wine, and just relax on the way to your destination.<\/p>",
             "button-text": "Shop now",
-            "button-link": "shopify:\/\/products\/clear-luggage-cover",
-            "description-2": ""
+            "button-link": "shopify:\/\/products\/clear-luggage-cover"
           }
         }
       },
@@ -76,21 +70,19 @@
             "title": "Clear Luggage Covers",
             "description": "<p>Carry-on - 20\" <\/p><p>Medium - 24\"<\/p><p>Large - 28\"<\/p><p>Trunk - 30\"<\/p><p>Set of 2 - Carry-on and Large<\/p><p>Set of 3 - Carry-on, Medium, and Large<\/p>",
             "button-text": "Shop now",
-            "button-link": "shopify:\/\/products\/clear-luggage-cover",
-            "description-2": ""
+            "button-link": "shopify:\/\/products\/clear-luggage-cover"
           }
         },
         "fee484ee-f5df-4901-9f01-e3d59e60b79f": {
           "type": "product",
           "settings": {
-            "product": "clear-luggage-cover",
-            "show-add-to-cart": false
+            "product": "clear-luggage-cover"
           }
         },
         "999f1999-abe3-4175-b42f-0de5ff5d695e": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_3294.jpg"
+            "image": "shopify:\/\/shop_images\/Rectangle_3294.png"
           }
         }
       },
@@ -105,6 +97,7 @@
     },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
+      "disabled": true,
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",
@@ -129,7 +122,6 @@
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
         "6baef4b6-c263-4d78-a19b-84732571f4bc"
       ],
-      "disabled": true,
       "settings": {
         "title": "More stories"
       }

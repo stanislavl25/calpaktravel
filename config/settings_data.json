@@ -33,10 +33,10 @@
     "mobile-badge-placement": "top",
     "badge_display": "collection",
     "select_collection": [
-
+      "labor-day-early-access-collection"
     ],
-    "sale-badge-tag": "salebadge",
-    "sale-badge-text": "Labor Day Sale",
+    "sale-badge-tag": "laborday",
+    "sale-badge-text": "Early Access Labor Day",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": false,
     "sale-badge-tag-bundle": "",
@@ -50,11 +50,11 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "",
     "chk-msg-text": "",
-    "sale-msg-enabled": true,
-    "sale-msg-pdp-only": true,
-    "sale-msg-tag": "laborday",
-    "sale-msg-highlighted": "Labor Day Sale:",
-    "sale-msg-message": "Shop Up to 60% off NOW!",
+    "sale-msg-enabled": false,
+    "sale-msg-pdp-only": false,
+    "sale-msg-tag": "",
+    "sale-msg-highlighted": "",
+    "sale-msg-message": "",
     "sale-msg-main-col-text": "#707070",
     "type_light_font": "futura_n3",
     "type_body_font": "futura_n4",
@@ -87,22 +87,24 @@
           },
           "c2f5d1d7-bb20-46b8-907b-ca4b0034662b": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Labor Day Sale",
               "submenu-number": 1,
               "collection": "sale",
-              "block-title": "Explore Labor Day Sale"
+              "block-title": "Shop Labor Day Sale"
             }
           },
           "5f3d2d0e-fd4b-4971-b003-6c638e31c4f2": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
               "button-url": "shopify:\/\/collections\/sale",
               "block-title": "Up to 60% OFF",
               "description": "",
-              "button-text": "Shop Labor Day Sale",
+              "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
               "image": "shopify:\/\/shop_images\/AO2A7970-2-3.jpg",
@@ -113,7 +115,6 @@
           },
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
             "type": "featured-collection",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Back to School",
               "submenu-number": 1,
@@ -123,7 +124,6 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
@@ -316,7 +316,7 @@
               "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Frame_1_1_df411491-e59f-4542-aa0c-00574ff6cda1.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_1_1_df411491-e59f-4542-aa0c-00574ff6cda1.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -326,7 +326,7 @@
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Frame_35_4.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel",
               "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -378,14 +378,14 @@
           "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": true,
-          "live-start-time": "August 24, 2023 12:00pm",
-          "live-end-time": "August 24, 2023 1:00pm"
+          "live": false,
+          "live-start-time": "August 24, 2023 12:00PM",
+          "live-end-time": "August 24, 2023 1:00PM"
         }
       },
       "footer": {
@@ -464,8 +464,9 @@
         "blocks": {
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
+            "disabled": true,
             "settings": {
-              "text": "<p>Up to 60% off best sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
+              "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
               "only-for-guests": false
             }
           },
@@ -723,6 +724,7 @@
         "blocks": {
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Shop Labor Day Sale",
               "menu": "shop",
@@ -738,7 +740,6 @@
           },
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
@@ -821,7 +822,7 @@
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Frame_35_4.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel.",
               "description": "<p>Our CALPAK duffels shines in its own unique way.<\/p>",
               "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -851,7 +852,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -928,20 +929,6 @@
       "promo-bar": {
         "type": "promo-bar",
         "blocks": {
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
-            "type": "promo-bar-line",
-            "settings": {
-              "everywhere": true,
-              "homepage": false,
-              "collections": false,
-              "pdp": false,
-              "other": false,
-              "content": "<p>Goodbye summer! Get Up to 60% off NOW<\/p>",
-              "url": "shopify:\/\/collections\/sale",
-              "background": "#f7f177",
-              "text-color": ""
-            }
-          },
           "62b6d713-dd1b-4386-a18e-6932387e7112": {
             "type": "promo-bar-line",
             "settings": {
@@ -952,6 +939,21 @@
               "other": false,
               "content": "<p>Free standard shipping on orders $75 or more!<\/p>",
               "url": "",
+              "background": "#f7f177",
+              "text-color": ""
+            }
+          },
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
+            "type": "promo-bar-line",
+            "disabled": true,
+            "settings": {
+              "everywhere": true,
+              "homepage": false,
+              "collections": false,
+              "pdp": false,
+              "other": false,
+              "content": "<p>Goodbye summer! Get Up to 60% off NOW<\/p>",
+              "url": "shopify:\/\/collections\/sale",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -1003,8 +1005,8 @@
           }
         },
         "block_order": [
-          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
           "62b6d713-dd1b-4386-a18e-6932387e7112",
+          "b2e335e7-f994-4ad9-8b75-77d7e3494d9f",
           "652fae05-e012-48a0-bd05-eebda8839bc2",
           "44595217-2033-4341-98cf-4fc74fd48e3d",
           "7d3bbce9-7dd8-473d-958c-bf75d4555902"
@@ -1015,7 +1017,7 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": false,
+          "countdown-active": true,
           "countdown-show": "48",
           "countdown-to": "August 14, 2023 11:00am"
         }
