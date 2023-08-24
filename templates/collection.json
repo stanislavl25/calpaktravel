@@ -1,7 +1,44 @@
 {
   "sections": {
+    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c": {
+      "type": "promotion-banner",
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "title-above": "Limited Time",
+        "main-text": "<p>Up to 60% off best sellers in the Labor Day Sale <\/p>",
+        "mobile-title-above": "Limited Time",
+        "font_size_title_above": 16,
+        "mobile-main-text": "<p>Up to 60% off Labor Day Sale<\/p>",
+        "font_size_main_text": 16,
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/sale",
+        "cta_text": "Shop Sale",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "cta_link_mobile": "cta",
+        "cta_url_mobile": "shopify:\/\/collections\/sale",
+        "cta_text_mobile": "Shop Sale",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
+        "terms_text": "* Terms & Conditions",
+        "terms_text_mobile": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -74,43 +111,6 @@
         "cta_color_mobile": "#000000",
         "cta_background_mobile": "#ffffff",
         "terms_text": "See Terms & Conditions",
-        "terms_text_mobile": "Terms and conditions apply",
-        "terms_url": "shopify:\/\/pages\/promotion-terms"
-      }
-    },
-    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c": {
-      "type": "promotion-banner",
-      "disabled": true,
-      "settings": {
-        "preload": true,
-        "background": "#f7f177",
-        "text-color": "#000000",
-        "bold-text-background": "#ffffff",
-        "hide": false,
-        "product_list": [
-
-        ],
-        "collection_list": [
-
-        ],
-        "section-id": "",
-        "title-above": "LAST CHANCE",
-        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!*<\/p>",
-        "mobile-title-above": "LAST CHANCE",
-        "font_size_title_above": 16,
-        "mobile-main-text": "<p>FREE standard shipping on all orders!*<\/p>",
-        "font_size_main_text": 16,
-        "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/all",
-        "cta_text": "Shop Now",
-        "cta_color": "#000000",
-        "cta_background": "#ffffff",
-        "cta_link_mobile": "none",
-        "cta_url_mobile": "",
-        "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000000",
-        "cta_background_mobile": "#ffffff",
-        "terms_text": "* Terms & Conditions",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
@@ -1589,9 +1589,9 @@
     }
   },
   "order": [
+    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c",
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
-    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5d2317b7-1cdb-4bdb-a129-65bf15cbaf07",
