@@ -1,4 +1,24 @@
+{%- assign page_url = content_for_header | split:'"pageurl":"' | last | split:'"' | first | split: request.host | last | replace:'\/','/' | replace:'%20',' ' | replace:'\u0026','&'  -%}
+{% assign param = blank %}
+
+{%- for i in (1..1) -%}
+
+  {%- unless page_url contains "?" -%}{% break %}{%- endunless -%}
+  {%- assign query_string = page_url | split:'?' | last -%}
+  {%- assign qry_parts= query_string | split:'&' -%}
+
+  {%- for part in qry_parts -%}
+    {%- assign key_and_value = part | split:'=' -%}
+    {%- if key_and_value.size > 1 -%}
+      {% if key_and_value[0] == 'gh_jid' %}
+        {% assign param = key_and_value[1] %}
+      {% endif %}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
 <h1 class="section-title">CALPAK Careers</h1>
+{% if param == blank %}
 <div class="career-page-top">
   <div class="image-hero">
     <div class="image-wrap">
@@ -24,8 +44,10 @@
     {% endfor %}
   </div>
 </div>
+{% endif %}
 <div id="grnhse_app"><div class="loading-animation"></div></div>
 <script src="https://boards.greenhouse.io/embed/job_board/js?for=calpakakacaliforniapakinternational"></script>
+{% if param == blank %}
 <div class="image-grid hide--desktop">
   {% for block in section.blocks %}
     <div class="image-grid__item">
@@ -33,6 +55,8 @@
     </div>
   {% endfor %}
 </div>
+{% endif %}
+
 
 <script>
  const jobBtn = document.getElementById('job_board_btn');
