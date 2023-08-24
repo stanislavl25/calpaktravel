@@ -320,6 +320,10 @@ a.color-swatch--active::after {
     --background: #AC6879;
 }
 
+.color-cranberry {
+    --background: #D35A5A;
+}
+
 .color-bubblegum {
     --background: #FFB3E7;
 }
