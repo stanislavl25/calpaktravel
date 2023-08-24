@@ -852,7 +852,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "mothers-day-menu",
+          "shop-menu": "shop",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -931,7 +931,6 @@
         "blocks": {
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
