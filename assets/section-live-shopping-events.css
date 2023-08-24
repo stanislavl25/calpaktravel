@@ -118,3 +118,10 @@
     font-size: 22px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+
+  .live-shopping-events .slider__wrapper--buttons-side .button-tri-left, .live-shopping-events .slider__wrapper--buttons-side .button-tri-right {
+    display: block;
+  }
+}
