@@ -3,6 +3,15 @@
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
       "type": "scrollable-menu",
       "blocks": {
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "sale",
+            "title": "Labor Day Sale",
+            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
+          }
+        },
         "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
           "type": "collection",
           "settings": {
@@ -16,15 +25,6 @@
           "settings": {
             "collection": "sale",
             "title": "",
-            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
-          }
-        },
-        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": "sale",
-            "title": "Labor Day Sale",
             "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
           }
         },
@@ -62,9 +62,9 @@
         }
       },
       "block_order": [
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
-        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
