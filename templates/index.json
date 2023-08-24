@@ -79,7 +79,6 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "Labor Day Sale",
             "description": "<p>Wave goodbye to summer with up to 60% off best sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
@@ -95,7 +94,6 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Petal-HavenTote-OnPillars-6.jpg",
             "video": "",
@@ -111,7 +109,6 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1831-3.jpg",
             "video": "",
@@ -131,7 +128,6 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
-      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
@@ -146,6 +142,7 @@
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
             "title": "Everyone's Favorite Duffel",
             "description": "<p>9 pockets, 1 shoe compartment, endless possibilities. <\/p>",
@@ -161,6 +158,7 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
             "image-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
@@ -177,6 +175,7 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
             "image-mobile": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
@@ -197,6 +196,7 @@
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
