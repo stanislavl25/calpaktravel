@@ -131,7 +131,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 105,
+        "height-limit": 80,
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
