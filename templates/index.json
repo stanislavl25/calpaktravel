@@ -5,7 +5,6 @@
       "blocks": {
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "sale",
             "title": "Labor Day Sale",
@@ -22,6 +21,7 @@
         },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "sale",
             "title": "",
