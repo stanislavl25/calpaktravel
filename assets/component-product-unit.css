@@ -111,7 +111,7 @@
     right: 0;
 }
 
-.product-grid--breakdown.product-grid--gap .product-unit__wishlist .wishlist__button {
+.product-grid--gap .breakdown-variant .product-unit__wishlist .wishlist__button {
     top: 3px;
 }
 

@@ -489,7 +489,7 @@ currentFilters.addEventListener('click', function(e) {
 function trappingColorFilterFocus(){
     let previousElement = ( document.activeElement || document.body );
     const firstFocusableElement = document.querySelector('#collection-filters > div > fieldset > ul > li:nth-child(1) > fieldset > input');
-    const lastFocusableElement = document.querySelector('#collection-filters .filters__close.close_btn');
+    const lastFocusableElement = document.querySelector('.collection-filters .filters__close.close_btn');
     const qvBody = document.querySelector('#collection-filters');
     qvBody.addEventListener('keydown', function(e) {
     if(e.target === firstFocusableElement && e.key === 'Tab' && e.shiftKey) {
@@ -500,11 +500,13 @@ function trappingColorFilterFocus(){
         firstFocusableElement.focus();
     }
     });
+    if (lastFocusableElement) {
+        lastFocusableElement.addEventListener('click', function(e) {
+            previousElement.focus();
+            previousElement = null;
+            });
+    }
 
-    lastFocusableElement.addEventListener('click', function(e) {
-        previousElement.focus();
-        previousElement = null;
-        });
 }
 setTimeout(() => {
     trappingColorFilterFocus();

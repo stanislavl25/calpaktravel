@@ -1565,7 +1565,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const loadQuickAdd = () => {
             document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
             document.querySelector('.product-grid').classList.add('product-grid--gap');
-            document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
+            document.querySelectorAll('.product-grid .product-unit').forEach(product => {
+              product.classList.add('product-unit--quickadd');
+              if (product.classList.contains('product-unit--loaded')) {
+                const buttonsload = product.querySelector('product-unit__button')
+                buttonsload.classList.add('product-unit__button--active');
+              }
+            });
             document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
                 colors.classList.add('product-unit__colors--all', 'slide');
                 colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
@@ -1579,8 +1585,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
 
-
-                console.log('check slide')
                 checkSlider(sliderWrapper.querySelector('.slider'));
             });
         }
