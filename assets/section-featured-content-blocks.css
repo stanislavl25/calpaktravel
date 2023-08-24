@@ -51,6 +51,12 @@
     }
 }
 
+@media (min-width: 901px) {
+    .content-blocks--desktop-grid .content-block__info {
+        display: none;
+    }
+}
+
 .content-block__title {
     font-size: 36px;
     letter-spacing: -0.02em;
@@ -152,6 +158,16 @@
 
     .content-blocks--mobile-scrollable .content-block {
       flex: 0 0 60%;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .content-blocks--desktop-grid {
+        gap: 10px;
+    }
+
+    .content-blocks--desktop-grid .content-block__media {
+        border-radius: 9px !important;
     }
 }
 

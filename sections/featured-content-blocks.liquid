@@ -9,7 +9,7 @@
     <h2 class="content-blocks__title">{{- section.settings.heading | strip_html | escape -}}</h2>
 {% endif %}
 
-<div class="content-blocks content-blocks--{{ section.settings.content-position }} content-blocks--{{ section.settings.general-layout }} content-blocks--mobile-{{ section.settings.mobile-layout }}{% if section.settings.gap %} content-blocks--gap{% endif %}">
+<div class="content-blocks content-blocks--{{ section.settings.content-position }} content-blocks--{{ section.settings.general-layout }} content-blocks--desktop-{{ section.settings.desktop-layout }} content-blocks--mobile-{{ section.settings.mobile-layout }}{% if section.settings.gap %} content-blocks--gap{% endif %}">
 {%- liquid
     assign size_d = 100 | divided_by: section.blocks.size | round: 4 | append: 'vw'
     if section.settings.mobile-layout == 'stacked'
@@ -154,6 +154,22 @@
                     }
                 ],
                 "default": "stretch"
+            },
+            {
+                "type": "select",
+                "id": "desktop-layout",
+                "label": "Desktop Layout",
+                "options": [
+                    {
+                        "value": "list",
+                        "label": "List"
+                    },
+                    {
+                        "value": "grid",
+                        "label": "Grid"
+                    }
+                ],
+                "default": "list"
             },
             {
                 "type": "select",
