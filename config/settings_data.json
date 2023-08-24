@@ -33,10 +33,10 @@
     "mobile-badge-placement": "top",
     "badge_display": "collection",
     "select_collection": [
-      "labor-day-early-access-collection"
+
     ],
     "sale-badge-tag": "laborday",
-    "sale-badge-text": "Early Access Labor Day",
+    "sale-badge-text": "Labor Day Sale",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": false,
     "sale-badge-tag-bundle": "",
@@ -50,8 +50,8 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "",
     "chk-msg-text": "",
-    "sale-msg-enabled": false,
-    "sale-msg-pdp-only": false,
+    "sale-msg-enabled": true,
+    "sale-msg-pdp-only": true,
     "sale-msg-tag": "laborday",
     "sale-msg-highlighted": "Labor Day Sale:",
     "sale-msg-message": "Shop Up to 60% off NOW!",
