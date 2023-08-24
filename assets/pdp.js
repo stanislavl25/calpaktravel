@@ -327,10 +327,6 @@ window.addEventListener("load", () => {
     checkPDPSwatches();
     
     
-    replaceFloatingSubmitSection();
-
-
-    replaceFloatingSubmitSection();
 
     const bambuserButton = document.querySelector('.bambuser__live-activator button');
     if(bambuserButton) bambuserButton.addEventListener('click', function(e) {

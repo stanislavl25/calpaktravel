@@ -455,7 +455,7 @@ function runSlider(slider, autoslide) {
     
 }
 
-const sliderDots = document.querySelectorAll('.slider__dot');
+const sliderDots = document.querySelectorAll('.slider__dot button');
 if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', e => {
     let index = 0;
     let dots = e.target.parentNode.querySelectorAll('.slider__dot');
@@ -475,3 +475,37 @@ if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventList
 
     moveToSlide(wrapper.querySelector('.slider'), index);
 }));
+
+const changeSlides = e => {
+    let index = 0;
+    let dots;
+    let wrapper;
+    let thisDot;
+    if(e.target.tagName.toLowerCase() === 'button') {
+        thisDot = e.target.parentNode;
+        dots = e.target.parentNode.parentNode.querySelectorAll('.slider__dot');
+        wrapper = e.target.parentNode.closest('.slider__wrapper');
+    } else {
+        thisDot = e.target;
+        dots = e.target.parentNode.querySelectorAll('.slider__dot');
+        wrapper = e.target.closest('.slider__wrapper');
+    }
+    if(!wrapper) return;
+
+    for(let i = 0; i < dots.length; i++) {
+        if(dots[i] == thisDot) {
+            index = i;
+            dots[i].classList.add('slider__dot--active');
+            dots[i].setAttribute('aria-current','true');
+        } else {
+            dots[i].classList.remove('slider__dot--active');
+            dots[i].setAttribute('aria-current','false');
+        }
+    }
+
+    moveToSlide(wrapper.querySelector('.slider'), index);
+};
+if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', changeSlides));
+
+const sliderDotsButton = document.querySelectorAll('.slider__dot button');
+if(sliderDots.length > 0) sliderDots.forEach(sliderDotButton => sliderDotButton.addEventListener('click', changeSlides));
