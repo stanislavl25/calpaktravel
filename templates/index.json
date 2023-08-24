@@ -110,7 +110,7 @@
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_3_1_52330812-fd0d-4df6-b8ce-ec2facdd3c0e.jpg",
+            "image": "shopify:\/\/shop_images\/Group_3759.jpg",
             "image-mobile": "shopify:\/\/shop_images\/Frame_3_1_52330812-fd0d-4df6-b8ce-ec2facdd3c0e.jpg",
             "video": "",
             "main-link": "shopify:\/\/collections\/sale",
@@ -131,7 +131,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 80,
+        "height-limit": 85,
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
