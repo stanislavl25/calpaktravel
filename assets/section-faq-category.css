@@ -27,6 +27,7 @@
 .faq-category-container .accordion {
   padding: 12px 10px;
   border-bottom: 2px dotted #aeaeae;
+  margin-bottom: 0px;
 }
 
 .faq-category-container .accordion:first-child {

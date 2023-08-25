@@ -1,0 +1,121 @@
+{{ 'section-product-grid.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-star-rating.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-star-rating.css' | asset_url | stylesheet_tag }}</noscript>
+
+<link rel="stylesheet" href="{{ 'component-color-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- if section.blocks.size > 0 -%}
+<link rel="stylesheet" href="{{ 'component-promo-unit.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-promo-unit.css' | asset_url | stylesheet_tag }}</noscript>
+<link rel="stylesheet" href="{{ 'section-featured-content-blocks.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-featured-content-blocks.css' | asset_url | stylesheet_tag }}</noscript>
+<link rel="stylesheet" href="{{ 'component-floating-link.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-floating-link.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}
+
+<style>
+.product-recommendations {
+  margin: calc(2 * var(--section-gap)) 0;
+  padding: 0 var(--gap);
+  text-align: center;
+}
+
+.product-recommendations h2 {
+  margin-bottom: 30px;
+}
+
+.product-recommendations ul {
+  padding: 0;
+  text-align: left;
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .product-recommendations ul {
+    gap: 0;
+  }
+  .product-recommendations ul .product-unit {
+    flex: 0 0 50%;
+  }
+}
+
+.product-recommendations .product-label--final {
+  display: none !important;
+}
+
+.product-recommendations .product-label--hot-deal {
+  display: none !important;
+}
+
+</style>
+
+<div
+  class="product-recommendations"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=5&intent={{ section.settings.products_source }}"
+>
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    {% if section.settings.products_source == 'related' %}
+      <h2>You may also like</h2>
+    {% elsif section.settings.products_source == 'complementary' %}
+      <h2>Pair it with</h2>
+    {% endif %}
+
+    <ul class="product-grid slider slider--scrollbar" data-slider-on="mobile">
+      {%- for product in recommendations.products -%}
+        {% render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index   %}
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% javascript %}
+
+
+  const productRecommendationsSection = document.querySelector('.product-recommendations');
+  const url = productRecommendationsSection.dataset.url;
+
+    fetch(url)
+      .then(response => response.text())
+      .then(text => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('.product-recommendations');
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch(e => {
+        console.error(e);
+      });
+{% endjavascript %}
+
+
+{% schema %}
+  {
+    "name": "Product recommendations",
+    "settings": [
+      {
+        "type": "select",
+        "id": "products_source",
+        "label": "Products",
+        "options": [
+          {
+            "value": "complementary",
+            "label": "Complementary"
+          },
+          {
+            "value": "related",
+            "label": "Related"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Recommendations"
+      }
+    ]
+  }
+{% endschema %}

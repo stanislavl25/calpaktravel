@@ -155,6 +155,11 @@
             display: none;
         }
     }
+    .product-grid {
+        margin: unset;
+        padding: unset;
+        list-style: none;
+    }
 </style>
 
 {%- liquid
@@ -191,7 +196,7 @@
     endfor
 -%}
 
-<section class="product-grid {{ collection.handle }} {% if collectionbreakdown == true and section.settings.breakdown-collection != blank %}product-grid--breakdown{% endif %}">
+<ul class="product-grid {{ collection.handle }} {% if collectionbreakdown == true and section.settings.breakdown-collection != blank %}product-grid--breakdown{% endif %}">
 
     {%- liquid 
         assign limitProducts = 200
@@ -219,9 +224,9 @@
                 if collectionbreakdown == true and section.settings.breakdown-collection != blank
                     render 'product-unit-single' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
                 elsif forloop.index <= 5
-                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index
+                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, img_lazy: false, img_preload: true, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index, isList: true
                 else
-                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index  
+                    render 'product-unit' with product, in_collection: collection, all_colors_quickadd: true, all_sizes: true, add_to_cart: true, class: 'slide', wishlist: section.settings.wishlist, quick_view: section.settings.quickview, show_luggage_size: show_luggage_size, show_short_info: show_short_info, sizes: sizes, early_access: early_access, best_seller: best_seller, index: index, isList: true
                 endif
             endfor
         endpaginate
@@ -276,7 +281,7 @@
             endcase
         endfor
     -%}
-</section>
+</ul>
 <div class="product-grid__empty-text">
     <h3>No matching products found</h3>
 </div>

@@ -5,7 +5,7 @@
 
 <section class="promo-collection promo-collection--{{ section.id }}">
     {%- if section.settings.title != blank -%}
-        <div class="promo-collection__title">{{- section.settings.title | escape -}}</div>
+    <h2 class="promo-collection__title">{{- section.settings.title | escape -}}</h2>
     {%- endif -%}
     {%- if section.settings.description != blank -%}
         <div class="promo-collection__description">{{- section.settings.description -}}</div>
@@ -15,18 +15,18 @@
         <button aria-label="Show previous slide" class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
         <button aria-label="Show next slide" class="slider__control button-tri-right slider__control--next" title="Next"></button>
 
-        <div class="promo-collection__products slider slider--scrollbar" data-slider-on="mobile">
+        <ul class="promo-collection__products slider slider--scrollbar" data-slider-on="mobile">
             {%- liquid
                 assign desktopWidth = 50 | divided_by: section.settings.columns
                 assign sizes = '(min-width: 901px) ' | append: desktopWidth | append: 'vw, (min-width: 651px) 33.33vw, 50vw'
                 if section.settings.product_list != blank
-                    render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, sizes: sizes, class: "slide"
+                    render 'product-unit' for section.settings.product_list, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, sizes: sizes, class: "slide", isList: true
                 elsif section.settings.featured-collection != blank
                     if section.settings.collection-limit == 0
-                        render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes, class: "slide"
+                        render 'product-unit' for section.settings.featured-collection.products, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes, class: "slide", isList: true
                     else
                         for product in section.settings.featured-collection.products limit: section.settings.collection-limit
-                            render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes, class: "slide"
+                            render 'product-unit' with product, wishlist: true, quick_view: section.settings.quick-view, floatingLabels: section.settings.product-labels, in_collection: section.settings.featured-collection, sizes: sizes, class: "slide", isList: true
                         endfor
                     endif
                 endif
@@ -38,7 +38,7 @@
                 </a>
             </div>
             {%- endif -%}
-        </div>
+        </ul>
     </div>
     <div class="promo-collection__media">
         {%- if section.settings.media-link != blank -%}<a href="{{- section.settings.media-link -}}">{%- endif -%}
@@ -72,7 +72,11 @@
                 href="{{ product.url }}"
                 class="button button--secondary quick-view__link"
                 {% else %}
-                href="{{ section.settings.button-link }}"
+                {% if section.settings.button-link != blank %}
+                  href="{{ section.settings.button-link }}"
+                {% else %}
+                  href="#"
+                {% endif %}
                 class="button button--secondary"
                 {% endif %}
                 >

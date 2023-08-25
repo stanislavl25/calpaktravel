@@ -3,7 +3,7 @@
 
 <script src="{{ 'cookies.js' | asset_url }}" defer="defer"></script>
 
-<div class="cookies-popup{% if section.settings.overlay %} cookies-popup--overlay{% endif %}">
+<div class="cookies-popup{% if section.settings.overlay %} cookies-popup--overlay{% endif %}" role="region" aria-label="cookie consent banner">
     {%- if section.settings.overlay -%}
     <div class="cookies-popup__overlay"></div>
     {%- endif -%}

@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 
-.text-dropdown__value::after {
+.text-dropdown__value span::after {
     position: absolute;
     right: 0;
     top: 50%;
@@ -46,6 +46,7 @@
     line-height: 1.2em;
     cursor: pointer;
     white-space: nowrap;
+    list-style: none;
 }
 
 .text-dropdown__option--selected {
@@ -56,10 +57,11 @@
     opacity: 1;
     transform: none;
     pointer-events: all;
+    z-index: 100;
 }
 
 @media (max-width: 900px) {
-    .text-dropdown__value::after {
+    .text-dropdown__value span::after {
         border-width: 7px 5px;
         top: 45%;
     }

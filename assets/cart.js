@@ -4,7 +4,7 @@ let cartShippingGift = document.querySelector('.cart__gamification-gifts');
 function addToCart(variant_id, quantity, callback, always, final_sale = false, preorder = false) {
     if(typeof final_sale == 'undefined') final_sale = false;
     if(typeof preorder == 'undefined') preorder = false;
-   
+
     let items = typeof variant_id == 'object' ? variant_id : [{
         id: variant_id,
         quantity: quantity,
@@ -123,7 +123,7 @@ function gamificationInit() {
         document.querySelector(wrapper).innerHTML += goalTemplate;
     });
 
-    
+
 
 
 
@@ -165,12 +165,14 @@ function gamificationInit() {
                     activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
                 });
             });
-            
+
         }
     });
 }
 
 function setFreeGiftsByProduct(items) {
+
+
 
     document.querySelectorAll(`.free-gift__selector`).forEach(selector => selector.classList.remove('free-gift__selector--active'));
     document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--complete');
@@ -178,6 +180,7 @@ function setFreeGiftsByProduct(items) {
     // If any gift disable choose gifts
     const gifts_in_cart = items.filter( item => item.properties?._gift == 'true');
     if(gifts_in_cart.length) {
+
         document.querySelectorAll(`.free-gift__selector`).forEach(selector => selector.classList.add('free-gift__selector--applied'));
         document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--reached');
         document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--complete');
@@ -185,7 +188,7 @@ function setFreeGiftsByProduct(items) {
         let current_message = document.querySelector('.cart__gam-verbose').innerHTML;
         if(current_message.slice(-16) == 'and a FREE gift!'){
             if(document.querySelector('.cart__gam-verbose').innerHTML.slice(0,9) == 'Congrats!') {
-                current_message = `${current_message.slice(0, -1)}`;
+                current_message = current_message
             } else {
                 current_message = `Congrats! ${current_message}`;
             }
@@ -195,6 +198,7 @@ function setFreeGiftsByProduct(items) {
         document.querySelector('.cart__gam-verbose').innerHTML = current_message;
         document.querySelector(".cart__gam-verbose--gift").innerHTML = "";
     } else {
+
         if(settings.cartGamification.gifts.length){
             for(let x in settings.cartGamification.gifts) {
                 //const giftKey = items.find(item => item.product_id == settings.cartGamification.gifts[x].key);
@@ -202,6 +206,8 @@ function setFreeGiftsByProduct(items) {
                 if(giftKey){
                     try {
                         document.querySelector(`.free-gift__selector[data-key="${settings.cartGamification.gifts[x].key}"]`).classList.add('free-gift__selector--active');
+                        document.querySelector(`.free-gift__selector[data-key="${settings.cartGamification.gifts[x].key}"]`).classList.remove('free-gift__selector--applied');
+                        document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--reached');
                         document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--complete');
                         let current_message = document.querySelector('.cart__gam-verbose').innerHTML;
                         if(current_message.slice(-16) == 'and a FREE gift!'){
@@ -224,7 +230,7 @@ function setFreeGiftsByProduct(items) {
         }
     }
 
-    /*  
+    /*
       // Clean gifts from cart if exists
         let clean_items = {};
         const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
@@ -239,10 +245,12 @@ function setFreeGiftsByProduct(items) {
             });
         }
     */
-    
+
 }
 
 function validateGifts () {
+
+
 
     let clean_items = {};
     const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true' && item.properties?._related != null);
@@ -282,7 +290,7 @@ function setGiftFunctions () {
         checkSlider(sliderWrapper.querySelector('.slider'));
     });
 
- 
+
     document.querySelectorAll('.free-gift__selector .product-unit__image.product-link').forEach((link, index) => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -291,6 +299,7 @@ function setGiftFunctions () {
             link.parentNode.parentNode.parentNode.classList.add('free-gift__selector-product--active')
         });
         if (index == 1) {
+            document.querySelectorAll('.free-gift__selector-product').forEach(selector => selector.classList.remove('free-gift__selector-product--active'))
             link.parentNode.parentNode.parentNode.classList.add('free-gift__selector-product--active');
         }
     });
@@ -299,7 +308,7 @@ function setGiftFunctions () {
     document.addEventListener('click', event => {
         if (event.target.matches(".free-gift__selector .color-swatch")) {
             //alert("select the color");
-            
+
             const giftSelector = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
             giftSelector.classList.add('free-gift__selector--applied');
             document.querySelector(`.cart__gamification-gifts`).classList.add('cart__gamification-gifts--reached');
@@ -323,68 +332,117 @@ function setGiftFunctions () {
     });
 }
 
-function setGamificationProducts( gifts ) {
+function setGamificationProducts( gifts, goalsVerbose, items_subtotal_price ) {
 
     const always = () => {};
     let items = [];
+    const { goals, limit } = settings["cartGamification"];
+    const gamificationIndicator = document.querySelector('.cart__gamification-indicator');
 
-    window.fetch('/cart.js', {
-        credentials: 'same-origin',
-        method: 'GET',
-    })
-    .then((response) => response.json())
-    .then((cart) => {
+    setTimeout(function(){
+        window.fetch('/cart.js', {
+            credentials: 'same-origin',
+            method: 'GET',
+        })
+        .then((response) => response.json())
+        .then((cart) => {
 
-        window.cartItems = cart.items;
-        if (!cartShippingGift) {
-            // Disable gift gamification by cart total
-            if(gifts.length == 0) {
-                
-                // Clean gifts from cart if exists
-                let clean_items = {};
-                const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
+            window.cartItems = cart.items;
+            if (!cartShippingGift) {
+                // Disable gift gamification by cart total
+                if(gifts.length == 0) {
 
-                gifts_in_cart.forEach( gift => {
-                    clean_items[gift.id] = 0;
-                });
+                    // Clean gifts from cart if exists
+                    let clean_items = {};
+                    const gifts_in_cart = cartItems.filter( item => item.properties?._gift == 'true');
 
-                if(Object.keys(clean_items).length) {
-                    updateCartItems(clean_items, (data) => {
-                        updateCart(data);
+                    gifts_in_cart.forEach( gift => {
+                        clean_items[gift.id] = 0;
                     });
-                }
 
-            } else {
-
-                gifts.forEach(gift => {
-                    if(!cartItems.find(item => item.properties?._gift == 'true')){
-                        items.push({
-                            id: gift,
-                            quantity: 1,
-                            properties: {
-                                '_gift': 'true'
-                            }
+                    if(Object.keys(clean_items).length) {
+                        updateCartItems(clean_items, (data) => {
+                            updateCart(data);
                         });
                     }
-                });
-                
-                if (items.length > 0) {
-                    addToCart(items, 1, (data) => {
-                        updateCart(data);
-                        activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
+
+                } else {
+
+                    gifts.forEach(gift => {
+                        if(!cartItems.find(item => item.properties?._gift == 'true')){
+                            items.push({
+                                id: gift,
+                                quantity: 1,
+                                properties: {
+                                    '_gift': 'true'
+                                }
+                            });
+                        }
                     });
-                } 
+
+                    if (items.length > 0) {
+                        addToCart(items, 1, (data) => {
+                            updateCart(data);
+                            activateProductUnit(document.querySelector(".cart__item--gift .product-unit"));
+                        });
+                    }
+                }
+            } else {
+                let verboseTemplate = '';
+                let verboseTemplateGift = ''
+                if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
+                    for(let x in goalsVerbose) {
+                        let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get`;
+                        if (goalsVerbose[x].status == 'complete') {
+                            verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
+                            verboseTemplateGift += `Add any <a href="/collections/3-piece-luggage-sets">3-piece luggage set</a> to get a <strong>FREE</strong> gift (up to $98 value)!`;
+                            document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
+                            document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--partial');
+                        } else {
+                            verboseTemplate += `${prefix} ${goalsVerbose[x].goal}! `;
+                            document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
+                        }
+                    }
+                } else {
+                    const toFixedPrice = goalsVerbose[0].value;
+                    verboseTemplate =
+                    `You are $${toFixedPrice.toFixed(2)} away from ${goalsVerbose[0].goal}!`.replace(
+                        "FREE",
+                        "<b>FREE</b>"
+                    );
+                    document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
+                }
+
+                document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;
+                document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
+
+
+
+                let gamificationPercent = (items_subtotal_price * 100) / (limit * 100);
+                if(gamificationPercent > 100) gamificationPercent = 100;
+                gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
+
+                if (gamificationPercent == 100) {
+                    const verboseGoals = goals[goals.length - 1].title;
+                    document.querySelector(
+                    ".cart__gam-verbose"
+                    ).innerHTML = `You got ${verboseGoals}!`;
+
+                }
+
+                validateGifts(cartItems);
+                // Free gifts
+                setFreeGiftsByProduct(cartItems);
             }
-        } else {
-            validateGifts();
-            // Free gifts 
-            setFreeGiftsByProduct(cartItems);
-        }
-       
-    });
+
+        });
+    }, 500)
 }
 
 function setGamificationProgress(items_subtotal_price, cart = {}) {
+
+
+
     /*
         !!!!!!!!!!!!!!!!!!
         CAUSES AN INFINITE LOOP WHEN GAMIFICATION IS DISABLED IN SETTINGS!!!
@@ -447,45 +505,12 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
         cartGifts.innerHTML += giftTemplate;
     });
 
-    setGamificationProducts(goalsGifts);
-    
-    let verboseTemplate = '';
-    let verboseTemplateGift = ''
-    if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
-        for(let x in goalsVerbose) {
-            let prefix = x == 0 ? `You are $${goalsVerbose[x].value} away from` : `Add $${goalsVerbose[x].value} to get`;
-            if (goalsVerbose[x].status == 'complete') {
-                verboseTemplate += `You got ${goalsVerbose[x].goal}! <br>`;
-                verboseTemplateGift += `Add any <a href="/collections/3-piece-luggage-sets">3-piece luggage set</a> to get a <strong>FREE</strong> gift (up to $98 value)!`;
-                document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
-                document.querySelector('.free-gift__announcement').classList.add('free-gift__announcement--partial');
-            } else {
-                verboseTemplate += `${prefix} ${goalsVerbose[x].goal}! `;
-                document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
-            }
-        }
-    } else {
-        const toFixedPrice = goalsVerbose[0].value;
-        verboseTemplate =
-          `You are $${toFixedPrice.toFixed(2)} away from ${goalsVerbose[0].goal}!`.replace(
-            "FREE",
-            "<b>FREE</b>"
-          );
-          document.querySelector('.free-gift__announcement').classList.remove('free-gift__announcement--partial');
-    }
+    setGamificationProducts(goalsGifts, goalsVerbose, items_subtotal_price);
 
-    document.querySelector('.cart__gam-verbose').innerHTML = verboseTemplate;
-    document.querySelector('.cart__gam-verbose--gift').innerHTML = verboseTemplateGift;
+    const verboseMessage = document.querySelector('.cart__gam-verbose').innerHTML;
 
-    let gamificationPercent = (items_subtotal_price * 100) / (limit * 100);
-    if(gamificationPercent > 100) gamificationPercent = 100;
-    gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
+    if(verboseMessage.indexOf('You got FREE shipping and a FREE gift') === -1) {
 
-    if (gamificationPercent == 100) {
-        const verboseGoals = goals[goals.length - 1].title;
-        document.querySelector(
-          ".cart__gam-verbose"
-        ).innerHTML = `You got ${verboseGoals}!`;
 
     }
 
@@ -544,7 +569,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 //     });
 
 //     setGamificationProducts(goalsGifts);
-    
+
 //     let verboseTemplate = '';
 //     if ( goalsVerbose.filter(goal => goal.status == 'complete').length > 0) {
 //         for(let x in goalsVerbose) {
@@ -567,7 +592,7 @@ function setGamificationProgress(items_subtotal_price, cart = {}) {
 //     gamificationIndicator.style.setProperty('--gamification-progress', `${gamificationPercent}%`);
 
 //     if (gamificationPercent == 100) {
-    
+
 //         const verboseGoals = goals[goals.length - 1].title;
 //         document.querySelector('.cart__gam-verbose').innerHTML = `Congrats! <br> <b>You got ${ verboseGoals }!</b>`;
 
@@ -609,16 +634,18 @@ function setFreeShippingProgress(cart) {
         if(!freeShippingIndicator) return false;
 
         freeShippingIndicator.style.setProperty('--shipping-progress', `${freeShippingPercent}%`);
+        freeShippingIndicator.setAttribute('aria-valuenow', `${freeShippingPercent}`);
 
         if(freeShippingPercent > 0) cartContainer.querySelector('.shipping-value').innerHTML = formatPrice((freeShippingStarts - cart.items_subtotal_price) / 100);
     });
+    
 
     return freeShippingPercent == 100;
 }
 
 function setHeaderItemCounter(cart) {
     let bag = document.querySelector('.header__bag-icon')
-    
+
     if(cart.item_count == 0) bag.classList.remove('header__bag-icon--full');
     else bag.classList.add('header__bag-icon--full');
 
@@ -657,9 +684,9 @@ function updateCart(data, jsonIncluded = false) {
     let cart;
     if(jsonIncluded) cart = data;
     else cart = JSON.parse(stripHTML(data.sections['cart-json']));
-    
+
     const cartContainer = document.querySelector('.cart__container, .cart-page');
-    
+
     if(cart.item_count == 0) cartContainer.classList.add('cart__container--empty');
     else cartContainer.classList.remove('cart__container--empty');
 
@@ -668,7 +695,7 @@ function updateCart(data, jsonIncluded = false) {
     let checkShipping = document.querySelector('.cart__free-shipping')
     checkShipping ? freeShipping = setFreeShippingProgress(cart) : setGamificationProgress(cart.items_subtotal_price, cart);
 
-    
+
     let totalPrice = cart.total_price;
     if(!freeShipping) totalPrice += 795;
 
@@ -693,17 +720,17 @@ function updateCart(data, jsonIncluded = false) {
          } else {
              document.querySelector(`.cart__gamification-gifts`).classList.remove('cart__gamification-gifts--half');
          }
-     });	
- 
+     });
+
      cartItems.forEach(function(item) {
- 
+
          if (item.properties?._gift == 'true') {
          reorderedCartItems.unshift(item);
          } else {
          reorderedCartItems.push(item);
          }
      });
- 
+
      data.items = reorderedCartItems;
      document.querySelector('.cart__items-container').innerHTML = data.sections['cart-items'];
    }
@@ -733,7 +760,7 @@ function openCart() {
     document.body.classList.add('modal-open');
 
     updateCartGWPs();
-    
+
     if(isset(localStorage.getItem('guest_checkout')) && localStorage.getItem('guest_checkout')) {
         document.querySelector('.cart__footer .button--checkout').setAttribute('href', '/checkout');
     }
@@ -810,7 +837,7 @@ window.addEventListener("click", async (e) => {
         btn.classList.add('cart__undo-wishlist--working');
         addToCart(wishlistFromCartItem.variant_id, wishlistFromCartItem.qty, (data) => {
             updateCart(data);
-            
+
             cartContainer.classList.remove('cart__container--wishlist');
         }, () => {
             btn.classList.remove('cart__undo-wishlist--working');
@@ -895,6 +922,49 @@ async function cartItemMoveToWishlist(target) {
         cartContainer.classList.remove('cart__container--wishlist');
     }, settings.cartWishlistTimeout * 1000);
 }
+
+function trappingCartFocus(){
+    const firstFocusableElement = document.querySelector('.cart__container .close-button--cart');
+    const lastFocusableElement = document.querySelector('.cart__container .button--checkout');
+    const qvBody = document.querySelector('.cart__container .cart__body');
+    const qvOverlay = document.querySelector('.cart__container .cart__overlay');
+    qvBody.addEventListener('keydown', function(e) {
+    if(e.target === firstFocusableElement && e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        lastFocusableElement.focus();
+    } else if(e.target === lastFocusableElement && e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        firstFocusableElement.focus();
+    }
+    });
+
+    firstFocusableElement.addEventListener('click', function(e) {
+        previousElement.focus();
+        previousElement = null;
+        });
+    qvOverlay.addEventListener('click', function(e) {
+        previousElement.focus();
+        previousElement = null;
+        });
+}
+setTimeout(() => {
+    trappingCartFocus();
+}, 10);
+
+window.addEventListener('load', function() {
+console.log('cart js loaded');
+    setTimeout(() => {
+        const svgs = document.querySelectorAll('svg');
+        const btnPay = document.querySelectorAll('.dynamic-checkout__content div[role="button"], .dynamic-checkout__content iframe');
+        [].map.call(svgs, (svg) => {
+            svg.setAttribute('aria-hidden', 'true');
+        });
+        [].map.call(btnPay, (btn) => {
+            btn.setAttribute('role', 'link');
+            btn.setAttribute('tabindex', '0');
+        });
+    }, 1500);
+});
 
 /* eslint-disable no-undef */
 function support() {

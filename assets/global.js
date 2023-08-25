@@ -3,20 +3,20 @@
 const color_groups = {
 
     'black': ['black', 'trnk-black', 'matte-black', 'ambeur-black', 'luka-black', 'brushed-black', 'wavy', 'eclipse', 'cheetah', 'plaid', 'obsidian', 'onyx', 'midnight-marble'],
-    'pink': ['pink', 'watermelon', 'modern-abstract', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink', 'pink-grid'],
+    'pink': ['pink', 'watermelon', 'modern-abstract', 'dragonfruit', 'cranberry', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink', 'pink-grid'],
     'rose-gold': ['rose-gold', 'rosewood-tie-dye', 'jen-pink'],
     'brown': ['papaya', 'ginger', 'khaki', 'taupe', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee', 'copper'],
     'beige': ['beige', 'white-sands', 'nude', 'linen', 'speckle', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
     'print': ['astrology', 'trnk-almond', 'trnk-espresso', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity', 'orchid-fields', 'green-checkerboard', 'pink-grid'],
     'lavender': ['lavender', 'orchid', 'amethyst', 'things-between', 'groovy-blue', 'bloom', 'orchid-fields'],
     'green': ['pale-green', 'khaki', 'modern-abstract', 'palm', 'green-apple', 'kiwi', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive', 'green-checkerboard'],
-    'blue': ['astrology', 'aqua', 'lagoon', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
+    'blue': ['astrology', 'aqua', 'lagoon', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'stargaze', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
     'orange': ['orange', 'papaya', 'orange-grid', 'retro-sunset', 'pumpkin', 'canyon'],
-    'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold', 'copper'],
+    'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'stargaze', 'rose-gold', 'copper'],
     'white': ['white', 'white-sands', 'linen', 'dove-grey', 'bloom', 'sky-tie-dye', 'sky-tie-dye-wash', 'white-bandana', 'confetti', 'cream', 'gold-marble', 'milk-marble', 'terrazzo', 'stone'],
     'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow'],
     'grey': ['grey', 'taupe', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
-    'red': ['red', 'brick', 'watermelon', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid', 'cabernet'],
+    'red': ['red', 'brick', 'watermelon', 'terracotta', 'cranberry', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid', 'cabernet'],
 
 
 
@@ -159,8 +159,11 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
 
     const activeButtons = nav.querySelectorAll('.tabs__button--active');
     activeButtons.forEach(active => active.classList.remove('tabs__button--active'));
-
+    activeButtons.forEach(active => active.setAttribute('aria-selected','false'));
+    activeButtons.forEach(active => active.setAttribute('tabindex','-1'));
     e.target.classList.add('tabs__button--active');
+    e.target.setAttribute('aria-selected','true');
+    e.target.setAttribute('tabindex','0');
 
 
     const activeContent = tabsContainer.querySelectorAll('.tabs__content--active');
@@ -176,6 +179,106 @@ for(let i = 0; i < tabButtons.length; i++) tabButtons[i].addEventListener('click
         tryUpdateProcessTheProductUnits();
     }, 3000);
 });
+
+/* Tab keyboard navigation */
+let tablist, tabs, tabpanels;
+let focusedTabIndex = 0;
+
+window.addEventListener('DOMContentLoaded', function(e) {
+  tablist = document.querySelector('#featured-col__navigation');
+  tabs = document.querySelectorAll('#featured-col__navigation .tabs__button');
+  tabpanels = document.querySelectorAll('#featured-col__navigation .tabs__content');
+  
+if(tablist){
+      // Focus previous/next tabs using Left and Right arrow keys
+  tablist.addEventListener('keydown', function(e) {
+    switch(e.key) {
+      case 'ArrowLeft':
+        focusPreviousTab();
+        break;
+        
+      case 'ArrowRight':
+        focusNextTab();
+        break;
+        
+      case 'Home':  // optional
+        e.preventDefault();  // prevent page scroll
+        focusFirstTab();
+        break;
+        
+      case 'End':  // optional
+        e.preventDefault();  // prevent page scroll
+        focusLastTab();
+        break;
+    }
+  });
+}
+  
+  // Activate tabs when they are clicked (also handles Enter and Space keys)
+  /*tabs.forEach(function(tab) {
+    tab.addEventListener('click', function(e) {
+      nextTabIndex = Array.prototype.slice.call(tabs).indexOf(e.target);
+      selectTab(nextTabIndex);
+    });
+  });*/
+});
+
+
+/**
+  Tab selection
+*/
+function focusPreviousTab() {  
+  if(focusedTabIndex > 0) {
+    focusedTabIndex -= 1;
+  } else {
+    focusedTabIndex = tabs.length - 1;
+  }
+  
+  tabs[focusedTabIndex].focus();
+}
+
+function focusNextTab() {
+  if(focusedTabIndex < tabs.length - 1) {
+    focusedTabIndex += 1;
+  } else {
+    focusedTabIndex = 0;
+  }
+  
+  tabs[focusedTabIndex].focus();
+}
+
+function focusFirstTab() {
+  focusedTabIndex = 0;
+  tabs[focusedTabIndex].focus();
+}
+
+function focusLastTab() {
+  focusedTabIndex = tabs.length - 1;
+  tabs[focusedTabIndex].focus();
+}
+
+function selectTab(index) {
+  // Deactivate all tabs
+  tabs.forEach(function(tab) {
+    tab.setAttribute('aria-selected', false);
+    tab.setAttribute('tabindex', -1);
+  });
+  
+  // Activate only the requested tab, and set focus to it
+  tabs[index].setAttribute('aria-selected', true);
+  tabs[index].setAttribute('tabindex', 0);
+  tabs[index].focus();
+  focusedTabIndex = index;
+  
+  // Hide all tabpanels
+  tabpanels.forEach(function(tabpanel) {
+    tabpanel.classList.remove('is-visible');
+  });
+  
+  // Show only the tabpanel for the requested tab
+  var nextTabpanel = document.querySelector('#' + tabs[index].getAttribute('aria-controls'));
+  nextTabpanel.classList.add('is-visible');
+}
 
 /////////////////////// END TABS /////////////////////////
 
@@ -498,7 +601,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
             } else {
                 lazySrcset.setAttribute('srcset', lazyloadImageSrcset(img));
             }
-
+            let altHover = target.querySelector('.product-unit__image img').getAttribute('alt');
             if(hover) {
                 let hoverImg = document.createElement('img');
                 hoverImg.setAttribute('src', hover);
@@ -506,6 +609,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 hoverImg.setAttribute('sizes', target.querySelector('.product-unit__image img').getAttribute('sizes'));
                 hoverImg.classList.add('img-hover');
                 hoverImg.setAttribute('loading', 'eager');
+                hoverImg.setAttribute('alt', altHover);
                 target.querySelector('.product-unit__image').appendChild(hoverImg);
                 if(target.parentNode.classList.contains('free-gift__selector-product')) {
                     hoverImg.remove();
@@ -713,11 +817,16 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         href="${url}"
                         data-value="${varHandle}"
                         title="${capitalize(variant.option1)}"
+                        role="radio"
+                        tabindex="${(swatchesCheck.indexOf(variant.option1) > 0 ? '-1' : '0')}"
+                        aria-label="go to ${varHandle} Color Swatch"
+                        aria-checked="false"
                         class="color-swatch color-${varHandle}${activeSwatch?' color-swatch--active':''}${colors[varHandle].available?'':' product-option--na'} ${varOnSale=="true" && productOnSale==false ?'color-swatch-sale':''}">
                             ` + img + `
+                        <input type="radio" style="display: none"/><label class="visually-hidden">${capitalize(variant.option1)}</label>
                         </a>`;
                 }
-            }
+            }  
         });
 
         const swatchesGroupsEl = target.querySelector('.pdp__swatches-groups');
@@ -729,9 +838,14 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 <div class="pdp__swatches">${swatchesElements[i]}</div>
             </div>`;
         }
-
+        swatchesGroupsEl.querySelector('.color-swatch').setAttribute('aria-checked', 'false');
         const activeSwatch = swatchesGroupsEl.querySelector(`.color-swatch[data-value="${handleize(current_variant.option1)}"]`);
-        if(activeSwatch) activeSwatch.classList.add('color-swatch--active');
+        if(activeSwatch){
+            activeSwatch.classList.add('color-swatch--active');
+            activeSwatch.setAttribute('aria-checked', 'true');
+        }else {
+            activeSwatch.setAttribute('aria-checked', 'false');
+        }
         return;
     }
 
@@ -763,16 +877,25 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         el.setAttribute('data-value', color);
         el.setAttribute('data-available', colors[color].available);
         el.setAttribute('data-first-variant-id', colors[color].first_variant_id);
-
+        el.setAttribute('aria-label', colors[color].title);
+        el.setAttribute('type', 'radio');
+        el.setAttribute('tabindex', '-1');
+        el.setAttribute('aria-hidden', 'true');
+        el.setAttribute('aria-checked', 'false');
+        el.setAttribute('role', 'radio');
         if(colors[color].available === false) el.classList.add('product-option--na');
 
         if(colors[color].selected === true) {
             el.classList.add('color-swatch--active');
             currentColor = colors[color].title;
-            if(!variantAutoSelected) el.classList.add('color-swatch--first');
+            if(!variantAutoSelected) {
+                el.classList.add('color-swatch--first');
 
             const productLinks = target.querySelectorAll('.product-link, .quick-view__link');
             productLinks.forEach(productLink => productLink.setAttribute('href', url));
+                el.setAttribute('tabindex', '0');
+                el.setAttribute('aria-checked', 'true');
+            }
         }
         let match = 0;
             const productTags = product.tags;
@@ -819,6 +942,9 @@ function setProductData(product, meta, target, current_variant_id = false, init1
 
         swatches.appendChild(el);
     }
+
+    swatches.insertAdjacentHTML('afterbegin', `<h2 class="swatch-container-label sr-only" id="radiogroup__${product.handle}">Select a color</h2>`);
+    swatches.setAttribute('aria-labelledby', `radiogroup__${product.handle}`);
     document.querySelectorAll('.color_index__0').forEach(function(el){
          el.click();
         })
@@ -936,16 +1062,36 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         colorValue.innerHTML = currentColor.toLowerCase();
 
         swatches.appendChild(colorValue);
+         // select first four swatches and set attribute to aria-hidden="false", other swatches set to aria-hidden="true"
+         let swatchesChildren = swatches.children;
+         setTimeout(() => {
+             for(let i = 0; i < swatchesChildren.length; i++) {
+                 if(i == 1) {
+                     swatchesChildren[i].setAttribute('aria-hidden', 'false');
+                     swatchesChildren[i].setAttribute('tabindex', '0');
+                 } else if(i <= 4 && i !== 1) {
+                     swatchesChildren[i].setAttribute('aria-hidden', 'false');
+                     swatchesChildren[i].setAttribute('tabindex', '-1');
+                 } else {
+                     swatchesChildren[i].setAttribute('aria-hidden', 'true');
+                     swatchesChildren[i].setAttribute('tabindex', '-1');
+                 }
+             }
+         }, 1000);
     }
+
     if(allColors) {
         swatches.classList.add('slider');
         const sliderWrapper = swatches.parentNode;
+        const prevBtnAll = `<button class="round-icon slider__control slider__control--prev round-icon--prev" aria-label="Previous slide" title="Previous"></button>`;
+        const nextBtnAll = `<button class="round-icon slider__control slider__control--next round-icon--next" aria-label="Next slide" title="Next"></button>`;
         sliderWrapper.setAttribute('data-slide', 4);
-        sliderWrapper.setAttribute('data-slide-mob', 2);
+        sliderWrapper.setAttribute('data-slide-mob', 3);
         sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
         sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
 
         checkSlider(sliderWrapper.querySelector('.slider'));
+
     }
 
     if( !allColors ) {
@@ -965,18 +1111,23 @@ function setProductData(product, meta, target, current_variant_id = false, init1
         }
     }
     /* Join Waitlist label - update URL */
-    const colorSwatches = target.querySelectorAll('.product-unit__swatches .color-swatch');
-    [].map.call(colorSwatches, (colorSwatch) => {
-    colorSwatch.addEventListener('click', (e) => {
-        if(e.target.classList.contains('product-option--na')) {
-            const swatchUrl = e.target.getAttribute('href');
-            const labelWaitlist = target.querySelector('.product-label.product-label--na a');
-            if(labelWaitlist) {
-                labelWaitlist.setAttribute('href', swatchUrl);
-            }
-            }
-        });
-    });
+   const colorSwatches = target.querySelectorAll('.product-unit__swatches .color-swatch');
+
+[].map.call(colorSwatches, (colorSwatch) => {
+  colorSwatch.addEventListener('click', (e) => {
+    const clickedSwatch = e.target;
+
+    if (clickedSwatch.classList.contains('product-option--na')) {
+      const swatchUrl = clickedSwatch.getAttribute('href');
+      const labelWaitlist = target.querySelector('.product-label.product-label--na a');
+
+      if (labelWaitlist) {
+        labelWaitlist.setAttribute('href', swatchUrl);
+      }
+    }
+  });
+});
+
 }
 
 function activateProductUnit(target) {
@@ -984,6 +1135,7 @@ function activateProductUnit(target) {
         return;
     }
     const handle = target.getAttribute('data-handle');
+
 
     if(window.debug) console.log('Init product', handle);
 
@@ -994,10 +1146,19 @@ function activateProductUnit(target) {
             setProductData(data.product, data.metafields, target, target.getAttribute('data-variant'), target.getAttribute('data-init-1'));
             [...target.querySelectorAll('.splash')].map(splash => splash.classList.remove('splash'));
             target.classList.add('product-unit--loaded');
+            target.setAttribute("tabindex", "0");
+            target.setAttribute("aria-hidden", "false");
+            if(target.querySelector('.wishlist__button')) target.querySelector('.wishlist__button').setAttribute("tabindex", "0");
+            if(target.querySelector('.quick-view__link')) target.querySelector('.quick-view__link').setAttribute("tabindex", "0");
+            target.querySelector('.product-unit__image.product-link').setAttribute("tabindex", "0");
+            [...target.querySelectorAll('.color-swatch')].map((swatch) => {
+                swatch.setAttribute("tabindex", "0");
+                swatch.setAttribute("aria-hidden", "false");
+            });
             if(window.debug) console.log('Done product', handle);
             resolve(true);
         });
-    })
+    })  
 }
 
 function closeAllDropdowns() {
@@ -1080,7 +1241,10 @@ window.addEventListener("click", async (e) => {
         }
 
         const actives = e.target.closest('.swatches-container').querySelectorAll('.color-swatch--active');
-        actives.forEach( active => active.classList.remove('color-swatch--active') );
+        actives.forEach( active => {
+            active.classList.remove('color-swatch--active'); 
+            active.setAttribute('aria-checked', 'false');
+        });
         e.target.classList.add('color-swatch--active');
 
         variantUpdateProcess(e.target);
@@ -1177,8 +1341,8 @@ function activateVideoContainer(video) {
                 console.error('Error:', error);
             });
         }
-
-        video.innerHTML = `<iframe allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="${url}"></iframe>`;
+        if(product.title){ var videoTitleIframe = product.title + ' product video' } else { var videoTitleIframe = 'Product video' }
+        video.innerHTML = `<iframe title="${videoTitleIframe}" allow="autoplay; fullscreen" allowfullscreen="" width="100%" height="100%" frameborder="0" src="${url}"></iframe>`;
         video.classList.add('video-iframe-container--loaded');
 
     }
@@ -1263,6 +1427,7 @@ if(bagLink) bagLink.addEventListener('click', async function(e){
     e.preventDefault();
     if(typeof openCart == 'undefined') await activateCart();
     openCart();
+    document.querySelector('.close-button.close-button--cart').focus();
 });
 
 function activateCart() {
@@ -1400,7 +1565,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const loadQuickAdd = () => {
             document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
             document.querySelector('.product-grid').classList.add('product-grid--gap');
-            document.querySelectorAll('.product-grid .product-unit').forEach(product => product.classList.add('product-unit--quickadd'));
+            document.querySelectorAll('.product-grid .product-unit').forEach(product => {
+              product.classList.add('product-unit--quickadd');
+              if (product.classList.contains('product-unit--loaded')) {
+                const buttonsload = product.querySelector('product-unit__button')
+                buttonsload.classList.add('product-unit__button--active');
+              }
+            });
             document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
                 colors.classList.add('product-unit__colors--all', 'slide');
                 colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
@@ -1414,8 +1585,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 sliderWrapper.innerHTML += `<button class="round-icon slider__control slider__control--prev round-icon--prev" title="Previous"></button><button class="round-icon slider__control slider__control--next round-icon--next" title="Next"></button>`;
                 sliderWrapper.classList.add('slider__wrapper', 'slider__wrapper--start');
 
-
-                console.log('check slide')
                 checkSlider(sliderWrapper.querySelector('.slider'));
             });
         }
@@ -1526,11 +1695,546 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
 
         // On section-blog-text-product-feature, match the height of the text block to the image
-        const matchTextHeight = window.getComputedStyle(document.querySelector('.shopify-section--blog-text-product-feature a.product-unit__image')).getPropertyValue('padding-top');
-        const textBlock = document.querySelector('.blog-text-product-feature__block-text');
-        textBlock.style.height = matchTextHeight;
+        const blogText = document.querySelectorAll('.shopify-section--blog-text-product-feature a.product-unit__image');
+
+        blogText.forEach((element) => {
+          const matchTextHeight = window.getComputedStyle(element).getPropertyValue('padding-top');
+          const textBlocks = document.querySelectorAll('.blog-text-product-feature__block-text');
+
+          textBlocks.forEach((textBlock) => {
+            textBlock.style.height = matchTextHeight;
+          });
+        });
+});
+const getAllElementAtributes = (element) => {
+    return element.getAttributeNames().map(attrName => ({key: attrName, value: element.getAttribute(attrName)}));
+}; 
+
+
+const changeHtmlTagType = (element, htmlTag) => {
+    let newElement = document.createElement(htmlTag);
+    [...element.classList].map(oldClass => {
+        newElement.classList.add(oldClass);
+    });
+
+    [...getAllElementAtributes(element)].map(({key, value}) => {
+        newElement.setAttribute(key, value)
+    })
+
+    newElement.onclick = element.onclick;
+    newElement.innerHTML = element.innerHTML;
+    element.parentNode.appendChild(newElement);
+    element.parentNode.removeChild(element);
+    return newElement
+};
+
+// global ADA fixes
+window.addEventListener("DOMContentLoaded", () => {
+    function selectPreviousColorButton(colorButton) {
+        var index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+        
+        if(index > 0) {
+          selectColorButton(colorButtons[index - 1]);
+        } else {
+          selectColorButton(colorButtons[colorButtons.length - 1]);
+        }
+      }
+      
+      function selectNextColorButton(colorButton) {
+        var index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+        
+        if(index < colorButtons.length - 1) {
+          selectColorButton(colorButtons[index + 1]);
+        } else {
+          selectColorButton(colorButtons[0]);
+        }
+      }
+      
+      function selectColorButton(colorButton) {
+        // Deselect all other color buttons
+        colorButtons.forEach(function(otherColorButton) {
+          otherColorButton.setAttribute('tabindex', -1);
+          otherColorButton.setAttribute('aria-checked', false);
+        });
+        
+        // Select the provided color button
+        colorButton.setAttribute('tabindex', 0);
+        colorButton.setAttribute('aria-checked', true);
+        colorButton.focus();
+
+    const productUnitWrapper = document.querySelectorAll('.product-unit');
+    [].map.call(productUnitWrapper, function (item) {
+        function handleMouseOutAndBlur() {
+            const swatches = item.querySelector('.product-unit__swatches');
+            const ariaHidden = swatches.getAttribute('aria-hidden');
+        
+            if (ariaHidden === 'true') {
+                swatches.setAttribute('aria-hidden', 'false');
+            } else {
+                swatches.setAttribute('aria-hidden', 'true');
+            }
+        }
+        
+        item.addEventListener('mouseout', handleMouseOutAndBlur);
+        item.addEventListener('blur', handleMouseOutAndBlur);
+    });
+
+    const slideWrapper = document.querySelectorAll('.featured-col__lists');
+    if(slideWrapper) {
+        [].map.call(slideWrapper, function (panel) {
+            const controls = panel.querySelectorAll('.slider__control');
+            panel.addEventListener('mouseover', () => {
+                [].map.call(controls, (control) => {
+                    control.setAttribute('aria-expanded', 'true');
+                });    
+            });
+            panel.addEventListener('mouseout', () => {
+                [].map.call(controls, (control) => {
+                    control.setAttribute('aria-expanded', 'false');
+                });    
+            });
+            const spanNext = document.createElement('span');
+            spanNext.className = 'visually-hidden';
+            spanNext.textContent = 'Slider control next';
+            const spanPrev = document.createElement('span');
+            spanPrev.className = 'visually-hidden';
+            spanPrev.textContent = 'Slider control previous';
+            const buttonNext = panel.querySelector('.slider__control--next');
+            const buttonPrev = panel.querySelector('.slider__control--prev');
+            buttonNext.insertAdjacentElement('beforeend', spanNext);
+            buttonPrev.insertAdjacentElement('beforeend', spanPrev);
+            buttonNext.setAttribute('aria-label', 'Next Slide');
+            buttonPrev.setAttribute('aria-label', 'Previous Slide');
+        });
+
+    }
+
+    document.querySelector('div.cart__footer-total > div > svg').removeAttribute("aria-hidden");
+
+    const headerBannerShopifySection = document.getElementById('shopify-section-header-banner')
+    headerBannerShopifySection.setAttribute('aria-label', 'announcement') 
+    headerBannerShopifySection.setAttribute('role', 'region') 
+    
+    let a = document.querySelectorAll('.content-block > .floating-link > a .span-simulating-button')
+    console.log(a);
+    [...a].map(ac => ac.parentElement.replaceWith(...ac.parentElement.childNodes))
+
+
+    let pdp__payments_svgs = document.querySelectorAll('.pdp__payments svg');
+    if(pdp__payments_svgs) {
+        [...pdp__payments_svgs].map((pdp__payments_svg) => {
+            pdp__payments_svg.setAttribute('role', 'img')
+            let randomId = Math.floor(Math.pow(10, 8-1) + Math.random() * 9 * Math.pow(10, 8-1));
+
+            pdp__payments_svg.insertAdjacentHTML('beforeend', `<title id="${randomId}">External Payment Logo</title>`)
+            pdp__payments_svg.setAttribute('aria-labelledby', randomId)
+        }) 
+    }
+
+
+    const skipButton = document.getElementById('skip-content-btn');
+    skipButton.addEventListener("click", () => {
+        document.getElementById('MainContent').focus();
+    });
+
+    setTimeout(() => {
+        const shopPayButtons = document.querySelectorAll('.shop-pay-logo');
+        [...shopPayButtons].map( shopPayButton => {
+            shopPayButton.setAttribute('role', 'img')
+            let randomId = Math.floor(Math.pow(10, 8-1) + Math.random() * 9 * Math.pow(10, 8-1));
+
+            shopPayButton.insertAdjacentHTML('beforeend', `<title id="${randomId}">Shop Pay Logo</title>`)
+            shopPayButton.setAttribute('aria-labelledby', randomId)
+        });
+    }, 1000)
+
+    setTimeout(()=> {
+        if(window.location.pathname === '/pages/corporate-gifting') {
+            const ratio_containers = document.querySelectorAll('.logo-block');
+            if(ratio_containers.length > 1) {
+                const newParent = changeHtmlTagType(document.querySelector('.text-and-logos__inner-logos'), 'ul');
+                newParent.style.listStyle = 'none';
+                [...newParent.querySelectorAll('.logo-block')].map((ratio_container, index, { length }) => {
+                    changeHtmlTagType(ratio_container, 'li')
+                    return ratio_container
+                })
+            }
+            [...document.querySelectorAll('.ratio-container img')].map(image => image.setAttribute('alt', 'SQUARESPACE Logo'))
+            
+            const textSlider = document.querySelector('.shopify-section--text--slider');
+            textSlider.setAttribute('role', 'region');
+            textSlider.setAttribute('aria-label', 'carousel');
+        
+            let screenReaderForCarrousel = `<span class="sr-only">This is a carousel with quotes and a track of thumbnails below. Select any of the image buttons to change the main slide above</span>`;
+            textSlider.insertAdjacentHTML('afterbegin', screenReaderForCarrousel);
+        
+            [...textSlider.querySelectorAll('.slide.text-slider__slide')].map((slide, index, { length }) => {
+                slide.setAttribute("aria-label", `Slide ${index+1} of ${length}`);
+                slide.setAttribute("role", 'group');
+            });
+        
+            [...textSlider.querySelectorAll('.slider__dots .slider__dot button')].map((slideDot, index, { length }) => {
+                slideDot.setAttribute("aria-label", `Go to slide ${index+1}`)
+                slideDot.querySelector('button img').setAttribute('alt', 'SQUARESPACE Logo');
+            });
+        }
+    }, 2000)
+
+
+    if(window.location.pathname === '/') {
+        [...document.querySelectorAll('.hero__block--media-block .ratio-container img')].map(heroImage => {
+            heroImage.setAttribute('alt', '');
+        });
+        
+        [...document.querySelectorAll('.hero__media img')].map(heroNavImage => {
+            heroNavImage.setAttribute('alt', '');
+        });
+        [...document.querySelectorAll('.nav-hero__item-image')].map(heroNavImage => {
+            heroNavImage.setAttribute('alt', '');
+        });
+    }
+    if(window.location.pathname === '/pages/rewards') {
+        [...document.querySelectorAll('.hero__block--media-block .ratio-container img')].map(heroImage => {
+            heroImage.setAttribute('alt', '');
+        });
+        
+        [...document.querySelectorAll('.hero__media img')].map(heroNavImage => {
+            heroNavImage.setAttribute('alt', '');
+        });
+        [...document.querySelectorAll('.nav-hero__item-image')].map(heroNavImage => {
+            heroNavImage.setAttribute('alt', '');
+        });
+        setTimeout(() => {
+            const yotpoTitle = document.querySelector('.yotpo-headline .yotpo-inner-text');
+            const ytpContent = yotpoTitle.innerHTML;
+            const ytpStyle = yotpoTitle.getAttribute('style');
+            const ytpClass = yotpoTitle.getAttribute('class');
+            const ytpHead = document.createElement('h2');
+            ytpHead.innerHTML = ytpContent;
+            ytpHead.setAttribute('style', ytpStyle);
+            ytpHead.setAttribute('class', ytpClass);
+            yotpoTitle.replaceWith(ytpHead);
+        }, 2000);
+        setTimeout(() => {
+            const yotpoTitle = document.querySelector('.yotpo-container-headline');
+            const ytpContent = yotpoTitle.innerHTML;
+            const ytpStyle = yotpoTitle.getAttribute('style');
+            const ytpClass = yotpoTitle.getAttribute('class');
+            const ytpHead = document.createElement('h2');
+            ytpHead.innerHTML = ytpContent;
+            ytpHead.setAttribute('style', ytpStyle);
+            ytpHead.setAttribute('class', ytpClass);
+            yotpoTitle.replaceWith(ytpHead);
+        }, 2000);
+        setTimeout(() => {
+            const yotpoTitles = document.querySelectorAll('.yotpo-headline');
+            [].map.call(yotpoTitles, yotpoTitle => {
+                const ytpContent = yotpoTitle.innerHTML;
+                const ytpStyle = yotpoTitle.getAttribute('style');
+                const ytpClass = yotpoTitle.getAttribute('class');
+                const ytpHead = document.createElement('h2');
+                ytpHead.innerHTML = ytpContent;
+                ytpHead.setAttribute('style', ytpStyle);
+                ytpHead.setAttribute('class', ytpClass);
+                yotpoTitle.replaceWith(ytpHead);
+            })       
+        }, 2000);
+        setTimeout(() => {
+            const yotpoTitles = document.querySelectorAll('#yotpoReferralTitleText');
+            [].map.call(yotpoTitles, yotpoTitle => {
+                const ytpContent = yotpoTitle.innerHTML;
+                const ytpStyle = yotpoTitle.getAttribute('style');
+                const ytpClass = yotpoTitle.getAttribute('class');
+                const ytpHead = document.createElement('h2');
+                ytpHead.innerHTML = ytpContent;
+                ytpHead.setAttribute('style', ytpStyle);
+                ytpHead.setAttribute('class', ytpClass);
+                yotpoTitle.replaceWith(ytpHead);
+            })       
+        }, 2000);
+        
+    }
+
+    if(window.location.pathname === '/pages/about-us') {
+        [...document.querySelectorAll('.content-slider__nav-slide.slide')].map((slide, index, { length }) => {
+            slide.setAttribute("aria-label", `Slide ${index+1} of ${length}`);
+            slide.setAttribute("role", 'group');
+        });
+        [...document.querySelectorAll('.content-slider__main-slide.slide')].map((slide, index, { length }) => {
+            slide.setAttribute("aria-label", `Slide ${index+1} of ${length}`);
+            slide.setAttribute("role", 'group');
+        });
+        [...document.querySelectorAll('.content-slider__main-slide.slide content-slider__main-media content-slider__media ratio-container img')].map((slideImage, index, { length }) => {
+            slideImage.setAttribute('alt', '');
+        });
+    }
+
+
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        var isEscape = false;
+        if ("key" in evt) {
+            isEscape = (evt.key === "Escape" || evt.key === "Esc");
+        } else {
+            isEscape = (evt.keyCode === 27);
+        }
+        if (isEscape) {
+            closeCart()
+        }
+    }
+
+    setTimeout(()=>{
+        const slider = document.querySelector('.cart__upsell-items.slider');
+        [...slider.querySelectorAll('.product-unit.slide')].map((slide, index, { length }) => {
+            slide.setAttribute("aria-label", `Slide ${index+1} of ${length}`);
+            slide.setAttribute("role", 'group');
+        });
+    }, 1000)
+}
+});
+    // ADA custom radio JS solution for keyboard navigation - Promo - Featured
+    
+function customRadioButtonsPromo(){
+    const swatchesKeyContainerUnit = document.querySelectorAll('.promo-collection .product-unit .product-unit__swatches'); 
+    [].map.call(swatchesKeyContainerUnit, (container => {
+    customRadioKeyboardNav(container);
+    }));      
+}
+    
+   function customRadioButtonsFeatured(){
+    const swatchesKeyContainerUnit = document.querySelectorAll('.featured-col__lists .product-unit .product-unit__swatches'); 
+  [].map.call(swatchesKeyContainerUnit, (container => {
+    customRadioKeyboardNav(container);        
+  }));    
+}
+
+function customRadioButtonsQuickAdd(){
+    const swatchesKeyContainerUnit = document.querySelectorAll('.product-unit__colors--quickadd'); 
+  [].map.call(swatchesKeyContainerUnit, (container => {
+    customRadioKeyboardNav(container);  
+    //console.log(container.querySelectorAll('.product-unit__swatches .color-swatch'));      
+  }));    
+}
+
+function customMenuTabDesk(){
+    const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom'); 
+  [].map.call(swatchesKeyContainerUnit, (container => {
+    customTabKeyboardNav(container);        
+  }));
+        
+}
+
+window.addEventListener('load', () => {
+setTimeout(()=>{
+    customRadioButtonsPromo();
+    customRadioButtonsFeatured();
+    customRadioButtonsQuickAdd();
+}, 500)
 });
 
+// End ADA custom radio JS solution for keyboard navigation - promo - Featured
+
+const navActivator = document.querySelector('.menu-popup__activator');
+[].map.call(navActivator, (activator => {
+    activator.addEventListener('click', function(e) {
+        setTimeout(()=>{
+            customRadioButtonsUnit();
+        }, 500)
+    });
+}));
+
+const doublePicturedLink = document.querySelectorAll('.floating-link__pictured a:first-child');
+[].map.call(doublePicturedLink, (link => {
+    link.remove();
+}));
+
+
+window.addEventListener('load', () => {
+    document.querySelector('#shop__mobile_tab').addEventListener('click', () => {
+        document.querySelector('#shop__mobile_tab').setAttribute('aria-selected', 'true');
+        document.querySelector('#discover__mobile_tab').setAttribute('aria-selected', 'false');
+    });
+    document.querySelector('#discover__mobile_tab').addEventListener('click', () => {
+        document.querySelector('#shop__mobile_tab').setAttribute('aria-selected', 'false');
+        document.querySelector('#discover__mobile_tab').setAttribute('aria-selected', 'true');
+    });
+});
+/*
+const sliderItems = document.querySelectorAll('.slider .product-unit.slide');
+
+function isItemVisible(item) {
+  const rect = item.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+
+  // Check if the item is outside the viewport
+  if (rect.top > viewportHeight || rect.bottom < 0) {
+    return false;
+  }
+
+  return true;
+}
+
+sliderItems.forEach((item) => {
+  if (!isItemVisible(item)) {
+    item.setAttribute('aria-hidden', 'true');
+    item.setAttribute('tabindex', '0')
+  }else {
+    item.setAttribute('aria-hidden', 'false');
+        item.setAttribute('tabindex', '-1');
+  }
+});
+*/
+const searchForm = document.getElementById("search-form");
+
+searchForm.addEventListener("focus", function () {
+  searchForm.removeAttribute("aria-hidden");
+});
+
+searchForm.addEventListener("blur", function () {
+  searchForm.setAttribute("aria-hidden", "true");
+});
+/*
+window.addEventListener('keyup', () => {
+    console.log('key', document.activeElement);
+});
+window.addEventListener('click', () => {
+    console.log('click', document.activeElement);
+});*/
+
+/* GENERAL RADIO BUTTONS KAYBOARD NAVIGATION */
+function customRadioKeyboardNav(container) {
+
+    container.addEventListener('keyup', function(e) {
+        
+        let colorButtons = container.querySelectorAll('.color-swatch');
+        [].map.call(colorButtons, (colorButton) => {
+            colorButton.addEventListener('click', function(e) {
+                selectColorButton(e.target);
+            });
+        });
+          switch(e.key) {
+            case 'ArrowUp':
+            case 'ArrowLeft':
+                e.preventDefault();
+              selectPreviousColorButton(e.target);
+              break;
+              
+            case 'ArrowDown':
+            case 'ArrowRight':
+                e.preventDefault();
+              selectNextColorButton(e.target);
+              break;
+              
+            case ' ':
+            case '':
+            case 'Enter':
+                e.preventDefault();
+              selectColorButton(e.target);
+              e.target.click();
+              break;
+          }
+          // secondary functions
+        function selectPreviousColorButton(colorButton) {
+            let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+            
+            if(index > 0) {
+              selectColorButton(colorButtons[index - 1]);
+            } else {
+              selectColorButton(colorButtons[colorButtons.length - 1]);
+            }
+          }
+          
+          function selectNextColorButton(colorButton) {
+            let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+            
+            if(index < colorButtons.length - 1) {
+              selectColorButton(colorButtons[index + 1]);
+            } else {
+              selectColorButton(colorButtons[0]);
+            }
+          }
+          
+          function selectColorButton(colorButton) {
+            // Deselect all other color buttons 
+            colorButtons.forEach(function(otherColorButton) {
+              otherColorButton.setAttribute('tabindex', '-1');
+              otherColorButton.setAttribute('aria-checked', false);
+            });
+            
+            // Select the provided color button
+            colorButton.setAttribute('tabindex', '0');
+            colorButton.setAttribute('aria-checked', true);
+            colorButton.focus();
+          }
+        });
+}
+function customTabKeyboardNav(container) {
+      
+    container.addEventListener('keyup', function(e) {
+
+        let colorButtons = container.querySelectorAll('li > a');
+        [].map.call(colorButtons, (colorButton) => {
+            colorButton.addEventListener('click', function(e) {
+                selectColorButton(e.target);
+            });
+        });
+ 
+          switch(e.key) {
+            case 'ArrowUp':
+            case 'ArrowLeft':
+                e.preventDefault();
+              selectPreviousColorButton(e.target);
+              break;
+              
+            case 'ArrowDown':
+            case 'ArrowRight':
+                e.preventDefault();
+              selectNextColorButton(e.target);
+              break;
+              
+            case ' ':
+            case '':
+            case 'Enter':
+                e.preventDefault();
+              selectColorButton(e.target);
+              e.target.click();
+              break;
+          }
+          // secondary functions
+        function selectPreviousColorButton(colorButton) {
+            let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+            
+            if(index > 0) {
+              selectColorButton(colorButtons[index - 1]);
+            } else {
+              selectColorButton(colorButtons[colorButtons.length - 1]);
+            }
+          }
+          
+          function selectNextColorButton(colorButton) {
+            let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+            
+            if(index < colorButtons.length - 1) {
+              selectColorButton(colorButtons[index + 1]);
+            } else {
+              selectColorButton(colorButtons[0]);
+            }
+          }
+          
+          function selectColorButton(colorButton) {
+            // Deselect all other color buttons 
+            colorButtons.forEach(function(otherColorButton) {
+              otherColorButton.setAttribute('tabindex', '-1');
+              otherColorButton.setAttribute('aria-checked', false);
+            });
+            
+            // Select the provided color button
+            colorButton.setAttribute('tabindex', '0');
+            colorButton.setAttribute('aria-checked', true);
+            colorButton.focus();
+          }
+        });
+}
 
 /* Code start for custom product size dropdown */
 'use strict';
@@ -2344,6 +3048,820 @@ aria.Utils.bindMethods = function (object /* , ...methodNames */) {
 };
 
 /* Code end for custom product size dropdown */
+
+
+/* Code start for custom product size dropdown */
+'use strict';
+var aria = aria || {};
+
+aria.Listbox = function (listboxNode) {
+  this.listboxNode = listboxNode;
+  this.activeDescendant = this.listboxNode.getAttribute(
+    'aria-activedescendant'
+  );
+  this.multiselectable = this.listboxNode.hasAttribute('aria-multiselectable');
+  this.moveUpDownEnabled = false;
+  this.siblingList = null;
+  this.startRangeIndex = 0;
+  this.upButton = null;
+  this.downButton = null;
+  this.moveButton = null;
+  this.keysSoFar = '';
+  this.handleFocusChange = function () {};
+  this.handleItemChange = function () {};
+  this.registerEvents();
+};
+
+aria.Listbox.prototype.registerEvents = function () {
+  this.listboxNode.addEventListener('focus', this.setupFocus.bind(this));
+  this.listboxNode.addEventListener('keydown', this.checkKeyPress.bind(this));
+  this.listboxNode.addEventListener('click', this.checkClickItem.bind(this));
+
+  if (this.multiselectable) {
+    this.listboxNode.addEventListener(
+      'mousedown',
+      this.checkMouseDown.bind(this)
+    );
+  }
+};
+
+aria.Listbox.prototype.setupFocus = function () {
+  if (this.activeDescendant) {
+    return;
+  }
+};
+
+aria.Listbox.prototype.focusFirstItem = function () {
+  var firstItem = this.listboxNode.querySelector('[role="option"]');
+
+  if (firstItem) {
+    this.focusItem(firstItem);
+  }
+};
+
+aria.Listbox.prototype.focusLastItem = function () {
+  var itemList = this.listboxNode.querySelectorAll('[role="option"]');
+
+  if (itemList.length) {
+    this.focusItem(itemList[itemList.length - 1]);
+  }
+};
+
+aria.Listbox.prototype.checkKeyPress = function (evt) {
+  var key = evt.which || evt.keyCode;
+  var lastActiveId = this.activeDescendant;
+  var allOptions = this.listboxNode.querySelectorAll('[role="option"]');
+  var currentItem =
+    document.getElementById(this.activeDescendant) || allOptions[0];
+  var nextItem = currentItem;
+
+  if (!currentItem) {
+    return;
+  }
+
+  switch (key) {
+    case aria.KeyCode.PAGE_UP:
+    case aria.KeyCode.PAGE_DOWN:
+      if (this.moveUpDownEnabled) {
+        evt.preventDefault();
+
+        if (key === aria.KeyCode.PAGE_UP) {
+          this.moveUpItems();
+        } else {
+          this.moveDownItems();
+        }
+      }
+
+      break;
+    case aria.KeyCode.UP:
+    case aria.KeyCode.DOWN:
+      if (!this.activeDescendant) {
+        // focus first option if no option was previously focused, and perform no other actions
+        this.focusItem(currentItem);
+        break;
+      }
+
+      if (this.moveUpDownEnabled && evt.altKey) {
+        evt.preventDefault();
+        if (key === aria.KeyCode.UP) {
+          this.moveUpItems();
+        } else {
+          this.moveDownItems();
+        }
+        return;
+      }
+
+      if (key === aria.KeyCode.UP) {
+        nextItem = this.findPreviousOption(currentItem);
+      } else {
+        nextItem = this.findNextOption(currentItem);
+      }
+
+      if (nextItem && this.multiselectable && event.shiftKey) {
+        this.selectRange(this.startRangeIndex, nextItem);
+      }
+
+      if (nextItem) {
+        this.focusItem(nextItem);
+        evt.preventDefault();
+      }
+
+      break;
+    case aria.KeyCode.HOME:
+      evt.preventDefault();
+      this.focusFirstItem();
+
+      if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
+        this.selectRange(this.startRangeIndex, 0);
+      }
+      break;
+    case aria.KeyCode.END:
+      evt.preventDefault();
+      this.focusLastItem();
+
+      if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
+        this.selectRange(this.startRangeIndex, allOptions.length - 1);
+      }
+      break;
+    case aria.KeyCode.SHIFT:
+      this.startRangeIndex = this.getElementIndex(currentItem, allOptions);
+      break;
+    case aria.KeyCode.SPACE:
+      evt.preventDefault();
+      this.toggleSelectItem(nextItem);
+      break;
+    case aria.KeyCode.BACKSPACE:
+    case aria.KeyCode.DELETE:
+    case aria.KeyCode.RETURN:
+      if (!this.moveButton) {
+        return;
+      }
+
+      var keyshortcuts = this.moveButton.getAttribute('aria-keyshortcuts');
+      if (key === aria.KeyCode.RETURN && keyshortcuts.indexOf('Enter') === -1) {
+        return;
+      }
+      if (
+        (key === aria.KeyCode.BACKSPACE || key === aria.KeyCode.DELETE) &&
+        keyshortcuts.indexOf('Delete') === -1
+      ) {
+        return;
+      }
+
+      evt.preventDefault();
+
+      var nextUnselected = nextItem.nextElementSibling;
+      while (nextUnselected) {
+        if (nextUnselected.getAttribute('aria-selected') != 'true') {
+          break;
+        }
+        nextUnselected = nextUnselected.nextElementSibling;
+      }
+      if (!nextUnselected) {
+        nextUnselected = nextItem.previousElementSibling;
+        while (nextUnselected) {
+          if (nextUnselected.getAttribute('aria-selected') != 'true') {
+            break;
+          }
+          nextUnselected = nextUnselected.previousElementSibling;
+        }
+      }
+
+      this.moveItems();
+
+      if (!this.activeDescendant && nextUnselected) {
+        this.focusItem(nextUnselected);
+      }
+      break;
+    case 65:
+      // handle control + A
+      if (this.multiselectable && (evt.ctrlKey || evt.metaKey)) {
+        evt.preventDefault();
+        this.selectRange(0, allOptions.length - 1);
+        break;
+      }
+    // fall through
+    default:
+      var itemToFocus = this.findItemToFocus(key);
+      if (itemToFocus) {
+        this.focusItem(itemToFocus);
+      }
+      break;
+  }
+
+  if (this.activeDescendant !== lastActiveId) {
+    this.updateScroll();
+  }
+};
+
+aria.Listbox.prototype.findItemToFocus = function (key) {
+  var itemList = this.listboxNode.querySelectorAll('[role="option"]');
+  var character = String.fromCharCode(key);
+  var searchIndex = 0;
+
+  if (!this.keysSoFar) {
+    for (var i = 0; i < itemList.length; i++) {
+      if (itemList[i].getAttribute('id') == this.activeDescendant) {
+        searchIndex = i;
+      }
+    }
+  }
+  this.keysSoFar += character;
+  this.clearKeysSoFarAfterDelay();
+
+  var nextMatch = this.findMatchInRange(
+    itemList,
+    searchIndex + 1,
+    itemList.length
+  );
+  if (!nextMatch) {
+    nextMatch = this.findMatchInRange(itemList, 0, searchIndex);
+  }
+  return nextMatch;
+};
+
+/* Return the index of the passed element within the passed array, or null if not found */
+aria.Listbox.prototype.getElementIndex = function (option, options) {
+  var allOptions = Array.prototype.slice.call(options); // convert to array
+  var optionIndex = allOptions.indexOf(option);
+
+  return typeof optionIndex === 'number' ? optionIndex : null;
+};
+
+/* Return the next listbox option, if it exists; otherwise, returns null */
+aria.Listbox.prototype.findNextOption = function (currentOption) {
+  var allOptions = Array.prototype.slice.call(
+    this.listboxNode.querySelectorAll('[role="option"]')
+  ); // get options array
+  var currentOptionIndex = allOptions.indexOf(currentOption);
+  var nextOption = null;
+
+  if (currentOptionIndex > -1 && currentOptionIndex < allOptions.length - 1) {
+    nextOption = allOptions[currentOptionIndex + 1];
+  }
+
+  return nextOption;
+};
+
+/* Return the previous listbox option, if it exists; otherwise, returns null */
+aria.Listbox.prototype.findPreviousOption = function (currentOption) {
+  var allOptions = Array.prototype.slice.call(
+    this.listboxNode.querySelectorAll('[role="option"]')
+  ); // get options array
+  var currentOptionIndex = allOptions.indexOf(currentOption);
+  var previousOption = null;
+
+  if (currentOptionIndex > -1 && currentOptionIndex > 0) {
+    previousOption = allOptions[currentOptionIndex - 1];
+  }
+
+  return previousOption;
+};
+
+aria.Listbox.prototype.clearKeysSoFarAfterDelay = function () {
+  if (this.keyClear) {
+    clearTimeout(this.keyClear);
+    this.keyClear = null;
+  }
+  this.keyClear = setTimeout(
+    function () {
+      this.keysSoFar = '';
+      this.keyClear = null;
+    }.bind(this),
+    500
+  );
+};
+
+aria.Listbox.prototype.findMatchInRange = function (
+  list,
+  startIndex,
+  endIndex
+) {
+  // Find the first item starting with the keysSoFar substring, searching in
+  // the specified range of items
+  for (var n = startIndex; n < endIndex; n++) {
+    var label = list[n].innerText;
+    if (label && label.toUpperCase().indexOf(this.keysSoFar) === 0) {
+      return list[n];
+    }
+  }
+  return null;
+};
+
+aria.Listbox.prototype.checkClickItem = function (evt) {
+  if (evt.target.getAttribute('role') !== 'option') {
+    return;
+  }
+
+  this.focusItem(evt.target);
+  this.toggleSelectItem(evt.target);
+  this.updateScroll();
+
+  if (this.multiselectable && evt.shiftKey) {
+    this.selectRange(this.startRangeIndex, evt.target);
+  }
+};
+
+aria.Listbox.prototype.checkMouseDown = function (evt) {
+  if (
+    this.multiselectable &&
+    evt.shiftKey &&
+    evt.target.getAttribute('role') === 'option'
+  ) {
+    evt.preventDefault();
+  }
+};
+
+aria.Listbox.prototype.toggleSelectItem = function (element) {
+  if (this.multiselectable) {
+    element.setAttribute(
+      'aria-selected',
+      element.getAttribute('aria-selected') === 'true' ? 'false' : 'true'
+    );
+
+    this.updateMoveButton();
+  }
+};
+
+aria.Listbox.prototype.defocusItem = function (element) {
+  if (!element) {
+    return;
+  }
+  if (!this.multiselectable) {
+    element.removeAttribute('aria-selected');
+  }
+  element.classList.remove('focused');
+};
+
+aria.Listbox.prototype.focusItem = function (element) {
+  console.log(this.activeDescendant);
+  this.defocusItem(document.getElementById(this.activeDescendant));
+  if (!this.multiselectable) {
+    element.setAttribute('aria-selected', 'true');
+  }
+  let product_handle = element.getAttribute('value');
+  const parentUlClass = element.parentNode.classList[1];
+  let url = `/products/${product_handle}`;
+  var variant_handle = element.getAttribute('data-producthandle');
+  var quickView =  document.querySelector('ul.'+parentUlClass).getAttribute("is-quickview");
+  if(quickView == 'false') {
+      location.href = url + '/' + variant_handle;
+  } else {
+      getQuickView(url, variant_handle);
+  }
+  element.classList.add('focused');
+  this.listboxNode.setAttribute('aria-activedescendant', element.id);
+  this.activeDescendant = element.id;
+
+  if (!this.multiselectable) {
+    this.updateMoveButton();
+  }
+
+  this.checkUpDownButtons();
+  this.handleFocusChange(element);
+};
+
+aria.Listbox.prototype.checkInRange = function (index, start, end) {
+  var rangeStart = start < end ? start : end;
+  var rangeEnd = start < end ? end : start;
+
+  return index >= rangeStart && index <= rangeEnd;
+};
+
+aria.Listbox.prototype.selectRange = function (start, end) {
+  // get start/end indices
+  var allOptions = this.listboxNode.querySelectorAll('[role="option"]');
+  var startIndex =
+    typeof start === 'number' ? start : this.getElementIndex(start, allOptions);
+  var endIndex =
+    typeof end === 'number' ? end : this.getElementIndex(end, allOptions);
+
+  for (var index = 0; index < allOptions.length; index++) {
+    var selected = this.checkInRange(index, startIndex, endIndex);
+    allOptions[index].setAttribute('aria-selected', selected + '');
+  }
+
+  this.updateMoveButton();
+};
+
+/**
+ * Check for selected options and update moveButton, if applicable
+ */
+aria.Listbox.prototype.updateMoveButton = function () {
+  if (!this.moveButton) {
+    return;
+  }
+
+  if (this.listboxNode.querySelector('[aria-selected="true"]')) {
+    this.moveButton.setAttribute('aria-disabled', 'false');
+  } else {
+    this.moveButton.setAttribute('aria-disabled', 'true');
+  }
+};
+
+/**
+ * Check if the selected option is in view, and scroll if not
+ */
+aria.Listbox.prototype.updateScroll = function () {
+  var selectedOption = document.getElementById(this.activeDescendant);
+  if (
+    selectedOption &&
+    this.listboxNode.scrollHeight > this.listboxNode.clientHeight
+  ) {
+    var scrollBottom =
+      this.listboxNode.clientHeight + this.listboxNode.scrollTop;
+    var elementBottom = selectedOption.offsetTop + selectedOption.offsetHeight;
+    if (elementBottom > scrollBottom) {
+      this.listboxNode.scrollTop =
+        elementBottom - this.listboxNode.clientHeight;
+    } else if (selectedOption.offsetTop < this.listboxNode.scrollTop) {
+      this.listboxNode.scrollTop = selectedOption.offsetTop;
+    }
+  }
+};
+
+/**
+ * @description
+ *  Enable/disable the up/down arrows based on the activeDescendant.
+ */
+aria.Listbox.prototype.checkUpDownButtons = function () {
+  var activeElement = document.getElementById(this.activeDescendant);
+
+  if (!this.moveUpDownEnabled) {
+    return;
+  }
+
+  if (!activeElement) {
+    this.upButton.setAttribute('aria-disabled', 'true');
+    this.downButton.setAttribute('aria-disabled', 'true');
+    return;
+  }
+
+  if (this.upButton) {
+    if (activeElement.previousElementSibling) {
+      this.upButton.setAttribute('aria-disabled', false);
+    } else {
+      this.upButton.setAttribute('aria-disabled', 'true');
+    }
+  }
+
+  if (this.downButton) {
+    if (activeElement.nextElementSibling) {
+      this.downButton.setAttribute('aria-disabled', false);
+    } else {
+      this.downButton.setAttribute('aria-disabled', 'true');
+    }
+  }
+};
+
+aria.Listbox.prototype.addItems = function (items) {
+  if (!items || !items.length) {
+    return;
+  }
+
+  items.forEach(
+    function (item) {
+      this.defocusItem(item);
+      this.toggleSelectItem(item);
+      this.listboxNode.append(item);
+    }.bind(this)
+  );
+
+  if (!this.activeDescendant) {
+    this.focusItem(items[0]);
+  }
+
+  this.handleItemChange('added', items);
+};
+
+aria.Listbox.prototype.deleteItems = function () {
+  var itemsToDelete;
+
+  if (this.multiselectable) {
+    itemsToDelete = this.listboxNode.querySelectorAll('[aria-selected="true"]');
+  } else if (this.activeDescendant) {
+    itemsToDelete = [document.getElementById(this.activeDescendant)];
+  }
+
+  if (!itemsToDelete || !itemsToDelete.length) {
+    return [];
+  }
+
+  itemsToDelete.forEach(
+    function (item) {
+      item.remove();
+
+      if (item.id === this.activeDescendant) {
+        this.clearActiveDescendant();
+      }
+    }.bind(this)
+  );
+
+  this.handleItemChange('removed', itemsToDelete);
+
+  return itemsToDelete;
+};
+
+aria.Listbox.prototype.clearActiveDescendant = function () {
+  this.activeDescendant = null;
+  this.listboxNode.setAttribute('aria-activedescendant', null);
+
+  this.updateMoveButton();
+  this.checkUpDownButtons();
+};
+
+aria.Listbox.prototype.moveUpItems = function () {
+  if (!this.activeDescendant) {
+    return;
+  }
+
+  var currentItem = document.getElementById(this.activeDescendant);
+  var previousItem = currentItem.previousElementSibling;
+
+  if (previousItem) {
+    this.listboxNode.insertBefore(currentItem, previousItem);
+    this.handleItemChange('moved_up', [currentItem]);
+  }
+
+  this.checkUpDownButtons();
+};
+
+aria.Listbox.prototype.moveDownItems = function () {
+  if (!this.activeDescendant) {
+    return;
+  }
+
+  var currentItem = document.getElementById(this.activeDescendant);
+  var nextItem = currentItem.nextElementSibling;
+
+  if (nextItem) {
+    this.listboxNode.insertBefore(nextItem, currentItem);
+    this.handleItemChange('moved_down', [currentItem]);
+  }
+
+  this.checkUpDownButtons();
+};
+
+aria.Listbox.prototype.moveItems = function () {
+  if (!this.siblingList) {
+    return;
+  }
+
+  var itemsToMove = this.deleteItems();
+  this.siblingList.addItems(itemsToMove);
+};
+
+aria.Listbox.prototype.enableMoveUpDown = function (upButton, downButton) {
+  this.moveUpDownEnabled = true;
+  this.upButton = upButton;
+  this.downButton = downButton;
+  upButton.addEventListener('click', this.moveUpItems.bind(this));
+  downButton.addEventListener('click', this.moveDownItems.bind(this));
+};
+
+aria.Listbox.prototype.setupMove = function (button, siblingList) {
+  this.siblingList = siblingList;
+  this.moveButton = button;
+  button.addEventListener('click', this.moveItems.bind(this));
+};
+
+aria.Listbox.prototype.setHandleItemChange = function (handlerFn) {
+  this.handleItemChange = handlerFn;
+};
+
+aria.Listbox.prototype.setHandleFocusChange = function (focusChangeHandler) {
+  this.handleFocusChange = focusChangeHandler;
+};
+
+'use strict';
+
+window.addEventListener('load', function () {
+  if(typeof product !== "undefined"){
+    selectLoad(false, product.handle)
+  }
+});
+
+function selectLoad (createTypeSelectProductQuickView = false, product_handle) {
+    let quickView = createTypeSelectProductQuickView;
+    let producthandle = product_handle;
+    if(product_handle)
+    {
+      var button = document.querySelector('.dropdown-'+product_handle);
+    var exListbox = new aria.Listbox(document.querySelector('.dropdownlist-'+product_handle));
+    new aria.ListboxButton(button, exListbox, quickView, producthandle);
+    }else{
+    var button = document.querySelector('.dropdown-box');
+    var exListbox = new aria.Listbox(document.querySelector('.dropdownlist_box'));
+    new aria.ListboxButton(button, exListbox, quickView, producthandle);
+    }
+  }
+var aria = aria || {};
+
+aria.ListboxButton = function (button, listbox, quickView, producthandle) {
+  this.button = button;
+  this.listbox = listbox;
+  this.quickView = quickView;
+  this.producthandle = producthandle;
+  this.registerEvents();
+};
+
+aria.ListboxButton.prototype.registerEvents = function () {
+  // Add a property to store the state of the listbox
+  this.listboxOpen = false;
+  this.button.addEventListener('click', this.toggleListbox.bind(this));
+  this.button.addEventListener('keyup', this.checkShow.bind(this));
+  this.listbox.listboxNode.addEventListener(
+    'blur',
+    this.hideListbox.bind(this)
+  );
+  this.listbox.listboxNode.addEventListener(
+    'keydown',
+    this.checkHide.bind(this)
+  );
+  //this.listbox.setHandleFocusChange(this.onFocusChange.bind(this));
+};
+
+aria.ListboxButton.prototype.toggleListbox = function () {
+  if (this.listboxOpen) {
+    // Listbox is open, so close it
+    this.hideListbox();
+  } else {
+    // Listbox is closed, so open it
+    this.showListbox();
+  }
+  // Toggle the state
+  this.listboxOpen = !this.listboxOpen;
+};
+
+aria.ListboxButton.prototype.checkShow = function (evt) {
+  var key = evt.which || evt.keyCode;
+
+  switch (key) {
+    case aria.KeyCode.UP:
+    case aria.KeyCode.DOWN:
+      evt.preventDefault();
+      this.showListbox();
+      this.listbox.checkKeyPress(evt);
+      break;
+  }
+};
+
+aria.ListboxButton.prototype.checkHide = function (evt) {
+  var key = evt.which || evt.keyCode;
+
+  switch (key) {
+    case aria.KeyCode.RETURN:
+    case aria.KeyCode.ESC:
+      evt.preventDefault();
+      this.hideListbox();
+      this.button.focus();
+      break;
+  }
+};
+
+aria.ListboxButton.prototype.showListbox = function () {
+  aria.Utils.removeClass(this.listbox.listboxNode, 'hidden');
+  this.button.setAttribute('aria-expanded', 'true');
+  this.listbox.listboxNode.focus();
+  document.querySelector('ul.dropdownlist-'+this.producthandle).setAttribute("is-quickview",this.quickView)
+};
+
+aria.ListboxButton.prototype.hideListbox = function () {
+  aria.Utils.addClass(this.listbox.listboxNode, 'hidden');
+  this.button.removeAttribute('aria-expanded');
+};
+
+// aria.ListboxButton.prototype.onFocusChange = function (focusedItem) {
+//   this.button.innerText = focusedItem.innerText;
+// };
+'use strict';
+/**
+ * @namespace aria
+ */
+
+var aria = aria || {};
+aria.KeyCode = {
+  BACKSPACE: 8,
+  TAB: 9,
+  RETURN: 13,
+  SHIFT: 16,
+  ESC: 27,
+  SPACE: 32,
+  PAGE_UP: 33,
+  PAGE_DOWN: 34,
+  END: 35,
+  HOME: 36,
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40,
+  DELETE: 46,
+};
+
+aria.Utils = aria.Utils || {};
+
+// Polyfill src https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+aria.Utils.matches = function (element, selector) {
+  if (!Element.prototype.matches) {
+    Element.prototype.matches =
+      Element.prototype.matchesSelector ||
+      Element.prototype.mozMatchesSelector ||
+      Element.prototype.msMatchesSelector ||
+      Element.prototype.oMatchesSelector ||
+      Element.prototype.webkitMatchesSelector ||
+      function (s) {
+        var matches = element.parentNode.querySelectorAll(s);
+        var i = matches.length;
+        while (--i >= 0 && matches.item(i) !== this) {
+          // empty
+        }
+        return i > -1;
+      };
+  }
+
+  return element.matches(selector);
+};
+
+aria.Utils.remove = function (item) {
+  if (item.remove && typeof item.remove === 'function') {
+    return item.remove();
+  }
+  if (
+    item.parentNode &&
+    item.parentNode.removeChild &&
+    typeof item.parentNode.removeChild === 'function'
+  ) {
+    return item.parentNode.removeChild(item);
+  }
+  return false;
+};
+
+aria.Utils.isFocusable = function (element) {
+  if (element.tabIndex < 0) {
+    return false;
+  }
+
+  if (element.disabled) {
+    return false;
+  }
+
+  switch (element.nodeName) {
+    case 'A':
+      return !!element.href && element.rel != 'ignore';
+    case 'INPUT':
+      return element.type != 'hidden';
+    case 'BUTTON':
+    case 'SELECT':
+    case 'TEXTAREA':
+      return true;
+    default:
+      return false;
+  }
+};
+
+aria.Utils.getAncestorBySelector = function (element, selector) {
+  if (!aria.Utils.matches(element, selector + ' ' + element.tagName)) {
+    // Element is not inside an element that matches selector
+    return null;
+  }
+
+  // Move up the DOM tree until a parent matching the selector is found
+  var currentNode = element;
+  var ancestor = null;
+  while (ancestor === null) {
+    if (aria.Utils.matches(currentNode.parentNode, selector)) {
+      ancestor = currentNode.parentNode;
+    } else {
+      currentNode = currentNode.parentNode;
+    }
+  }
+
+  return ancestor;
+};
+
+aria.Utils.hasClass = function (element, className) {
+  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.className);
+};
+
+aria.Utils.addClass = function (element, className) {
+  if (!aria.Utils.hasClass(element, className)) {
+    element.className += ' ' + className;
+  }
+};
+
+aria.Utils.removeClass = function (element, className) {
+  var classRegex = new RegExp('(\\s|^)' + className + '(\\s|$)');
+  element.className = element.className.replace(classRegex, ' ').trim();
+};
+
+aria.Utils.bindMethods = function (object /* , ...methodNames */) {
+  var methodNames = Array.prototype.slice.call(arguments, 1);
+  methodNames.forEach(function (method) {
+    object[method] = object[method].bind(object);
+  });
+};
+
+/* Code end for custom product size dropdown */ 
 const reloadStaticBlocks = () => {
     [...document.querySelectorAll('.static-block-script')].map(script => {
         let scriptInnerHtml = script.innerText;

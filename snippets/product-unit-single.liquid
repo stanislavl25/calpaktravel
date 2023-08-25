@@ -197,7 +197,7 @@
             data-early-access="{{ early_access }}"
           {%- endif -%}
           data-variant="{{ variant.id }}"
-          class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na product-unit--jw{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
+          class="product-unit product-unit breakdown-variant{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if variant.available == false %} product-unit--na product-unit--jw{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}">
 
           <div class="product-unit__image-wrapper breakdown {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
             {%- if quick_view == true -%}
@@ -285,7 +285,7 @@
           </div>
 
           {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
-            <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
+            <p class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</p>
           {%- endif -%}
 
           {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
@@ -295,10 +295,10 @@
           <div class="product-unit__row">
             <div class="product-unit__price">
               {%- if current_variant.compare_at_price > current_variant.price -%}
-                <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                <s><span class="sr-only">Original price: </span>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+                <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
               {%- else -%}
-                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
+                <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
               {%- endif -%}
             </div>
           </div>
@@ -316,7 +316,8 @@
                   <a
                     class="join-waitlist product-link"
                     style="text-decoration: none"
-                    href="{{ product.url }}">Join Waitlist</a>
+                    href="{{ product.url }}">Join Waitlist
+                  </a>
                 </div>
               </button>
             </div>

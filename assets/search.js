@@ -7,6 +7,27 @@ if(headerSearchPlaceholders) {
     searchPlaceholders.setAttribute('data-num', headerSearchPlaceholders.parentNode.getAttribute('data-num'));
     searchPlaceholders.querySelector('.search-placeholders__inner').innerHTML = headerSearchPlaceholders.innerHTML;
 }
+var searchtitle = document.querySelector('.search-section .search_title');
+var mobilesearchTitle = document.querySelector('.menu-popup__mobile-nav .mobile-header');
+
+const color_groups_search = {
+
+    'black': ['black', 'trnk-black', 'matte-black', 'ambeur-black', 'luka-black', 'brushed-black', 'wavy', 'eclipse', 'cheetah', 'plaid', 'obsidian', 'onyx', 'midnight-marble'],
+    'pink': ['pink', 'watermelon', 'modern-abstract', 'dragonfruit', 'pink-sand', 'rose', 'retro-sunset', 'pink-gold', 'pink-n-gold', 'canyon', 'guava', 'petal', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'things-between', 'bloom', 'rose-quartz', 'rosewood', 'bubblegum', 'blush', 'blush-pink', 'bon-voyage', 'terracotta', 'aurora-pink', 'confetti', 'floral', 'rose-gold', 'shimmer-pink', 'stripe', 'sunset', 'mauve', 'sorbet', 'jen-pink', 'shell-pink', 'pink-grid'],
+    'rose-gold': ['rose-gold', 'rosewood-tie-dye', 'jen-pink'],
+    'brown': ['papaya', 'ginger', 'khaki', 'taupe', 'walnut', 'espresso', 'trnk-espresso', 'sand-tide', 'pumpkin', 'gingham', 'mocha', 'rust', 'cognac', 'eclipse', 'cheetah', 'chocolate', 'hazel', 'sand-tie-dye', 'sand-tie-dye-wash', 'bronze', 'kaya-bronze', 'caramel', 'leopard', 'burgundy', 'toffee', 'copper'],
+    'beige': ['beige', 'white-sands', 'nude', 'linen', 'speckle', 'dune', 'sand-tide', 'gingham', 'oatmeal', 'cappuccino-tie-dye', 'polka-dot', 'sand-tie-dye', 'sand-tie-dye-wash', 'trnk-almond', 'trnk-nude', 'cream', 'gold-marble', 'sand', 'stone', 'terrazzo', 'bronze', 'kaya-bronze', 'birch'],
+    'print': ['astrology', 'trnk-almond', 'trnk-espresso', 'wavy', 'sand-tide', 'daisy', 'cloud', 'gingham', 'rosewood-tie-dye', 'cappuccino-tie-dye', 'flora', 'polka-dot', 'cheetah', 'things-between', 'plaid', 'bloom', 'confetti', 'sand-tie-dye', 'sand-tie-dye-wash', 'sky-tie-dye', 'sky-tie-dye-wash', 'floral', 'gold-marble', 'retro-sunset', 'leopard', 'groovy-blue', 'midnight-marble', 'milk-marble', 'palm-leaf', 'stars', 'stripe', 'sunset', 'terrazzo','mustard-bandana', 'white-bandana', 'tutti-fruity', 'orchid-fields', 'green-checkerboard', 'pink-grid'],
+    'lavender': ['lavender', 'orchid', 'amethyst', 'things-between', 'bloom', 'orchid-fields'],
+    'green': ['pale-green', 'khaki', 'modern-abstract', 'palm', 'green-apple', 'kiwi', 'honeydew', 'pistachio', 'sage', 'jade', 'kale', 'forest', 'celery', 'juniper', 'daisy', 'emerald', 'mint', 'sage', 'hue-olive', 'kaya-olive', 'palm-leaf', 'moss', 'groovy-blue', 'olive', 'green-checkerboard'],
+    'blue': ['astrology', 'aqua', 'lagoon', 'hydrangea', 'marine', 'winter-sky', 'cloud', 'mist', 'arctic', 'periwinkle', 'cobalt', 'atlantic', 'glacier', 'things-between', 'sky-tie-dye', 'sky-tie-dye-wash', 'denim', 'navy', 'deep-sea', 'sky', 'groovy-blue', 'wild-n-free', 'wild-free', 'wild-n-free', 'fly-girl', 'palm-leaf', 'stars', 'sunset', 'bermuda', 'bluebell'],
+    'orange': ['orange', 'papaya', 'orange-grid', 'retro-sunset', 'pumpkin', 'canyon'],
+    'metallic': ['bronze', 'kaya-bronze', 'gold', 'silver', 'rose-gold', 'copper'],
+    'white': ['white', 'white-sands', 'linen', 'dove-grey', 'bloom', 'sky-tie-dye', 'sky-tie-dye-wash', 'white-bandana', 'confetti', 'cream', 'gold-marble', 'milk-marble', 'terrazzo', 'stone'],
+    'yellow': ['celery', 'mustard-bandana', 'honey', 'gold', 'stripe', 'sunset', 'pear', 'lemonade', 'dijon', 'yellow'],
+    'grey': ['grey', 'taupe', 'charcoal-grey', 'trnk-grey', 'cool-grey', 'charcoal', 'iron', 'dove-grey', 'slate', 'silver-stardust', 'ash'],
+    'red': ['red', 'brick', 'watermelon', 'terracotta', 'rose', 'merlot', 'rosewood', 'retro-sunset', 'poppy', 'burgundy', 'sedona', 'maroon', 'pink-grid', 'cabernet'],
+};
 
 const seachSynonymsTerms = [
     'purple',
@@ -14,6 +35,7 @@ const seachSynonymsTerms = [
     'cyprus',
     'computer',
     'animal',
+    'leopard',
     'round',
     'suitcase',
     'usb',
@@ -25,7 +47,11 @@ const seachSynonymsTerms = [
     'baby',
     'hatbox',
     'passport',
-    'toiletries'
+    'toiletries',
+    'merch',
+    'back',
+    'sunglasses',
+    'bloom'
 ];
 const seachSynonymsValues = [
     'lavender',
@@ -33,20 +59,29 @@ const seachSynonymsValues = [
     'hue',
     'laptop',
     'cheetah',
-    'baye',
+    'cheetah',
+    'hat box',
     'luggage',
     'power',
-    'bloom',
+    'daisy',
     'hue',
     'hue',
     'hue',
     'luka duffel',
     'luka duffel',
-    'baye',
+    'hat box',
     'kaya wallet',
-    'toiletry'
+    'toiletry',
+    'merchandise',
+    'backpack',
+    'travel accessories case',
+    'daisy'
 ];
 
+const collectionarray = ['Best Sellers','Work essentials','New Arrivals','Travel Essentials','Back to School','Back to College','Packing Cubes','Summer Arrivals', 'Apparel','checked','cross body bag','crossbody','carry-on','cosmetics case','makeup'];
+const lowercaseArray = collectionarray.map(item => item.toLowerCase());
+
+const collectionslug = ['best-sellers','back-to-office','new-arrivals','travel-essentials','back-to-school','back-to-college','packing-cubes','summer-arrivals', 'apparel','checked-in-luggage','crossbody-bags','crossbody-bags','carry-on-luggage','makeup-bags','makeup-bags']
 let searchInput = document.querySelectorAll('.search-input');
 let searchForms = document.querySelectorAll('.search-form');
 let searchOverlay = document.querySelector('.search-popup__overlay');
@@ -258,11 +293,11 @@ function getMatchedVariants(product, search, colors, visible_variants, ambiguity
                 let variant = visible_variants[i];
                 let option1 = handleize(variant.option1);
                 
-                for( var key in color_groups ) {
+                for( var key in color_groups_search ) {
                     const sim = similarity2(search_word, key.replace('-', ' ')) - j * 0.02;
                     if((!sale || (variant.compare_at_price * 1) > (variant.price * 1)) && sim > 0.9 && (color_match.length == 0 || color_match[0] < sim) ) {
-                        for( let k = 0; k < color_groups[key].length; k++ ) {
-                            if(color_groups[key][k] == option1) {
+                        for( let k = 0; k < color_groups_search[key].length; k++ ) {
+                            if(color_groups_search[key][k] == option1) {
                                 color_match[0] = sim * 0.9;
                                 color_match[1] = variant;
                                 color_match[2] = orderAffectedBySim;
@@ -287,9 +322,11 @@ function getMatchedVariants(product, search, colors, visible_variants, ambiguity
     return best_match;
 }
 
-function createSearchItem(product, available, matchedVariant, products_target) {
+function createSearchItem(product, available, matchedVariant, products_target,productorder = 500) {
     let newItem = document.createElement('div');
     newItem.classList.add('search-result__product');
+    newItem.setAttribute('role','option');
+    newItem.setAttribute('id',`product-wrap--${product.handle}`);
     let variant = '';
     if(matchedVariant[1]) variant = handleize(matchedVariant[1].option1);
 
@@ -311,15 +348,29 @@ function createSearchItem(product, available, matchedVariant, products_target) {
         }
     });
 
-    let order = 500;
-    if(typeof matchedVariant[2] != 'undefined') order -= Math.round(matchedVariant[2] * matchedVariant[0] * 200);
-    if(typeof matchedVariant[3] != 'undefined') order += matchedVariant[3] * 50;
-    if(!available) order += 100;
-    if(product.title.indexOf('Luggage Cover') > -1) order = 200;
-    newItem.style.order = order;
+    if(productorder >= 500){
+        let order = productorder;
+        if(typeof matchedVariant[2] != 'undefined') order -= Math.round(matchedVariant[2] * matchedVariant[0] * 200);
+        if(typeof matchedVariant[3] != 'undefined') order += matchedVariant[3] * 50;
+        if(!available) order += 100;
+        newItem.style.order = order;
+    }else{
+        newItem.style.order = productorder;
+    }
+    
 }
 
-function searchProductsForMatches(products, search, color_search, ambiguity, or, sale, products_target) {
+function multiSearchOr(text, searchWords){
+    var regex = searchWords
+        .map(word => "(?=.*\\b" + word + "\\b)")
+        .join('');
+    var searchExp = new RegExp(regex, "gi");
+    return (searchExp.test(text))? true : false;
+}
+
+const productfirst = ['Compression Packing Cubes','Mini Clear Cosmetics Case','Clear Cosmetics','Terra Toiletry Bag','Tech Organizer','Hue Carry-On','Hue Mini Carry-On'];
+const productfirstlowsercase = productfirst.map(item => item.toLowerCase());
+function searchProductsForMatches(products, search, color_search, ambiguity, or, sale, products_target,el) {
     let found = 0;
     for(let i = 0; i < products.length; i++) {
         let product = products[i];
@@ -360,16 +411,94 @@ function searchProductsForMatches(products, search, color_search, ambiguity, or,
         if(!matchedVariant) continue;
         
         found++;
-
-        createSearchItem(product, count_available > 0, matchedVariant, products_target);
+        var producttitle = product.title.toLowerCase();
+        let productorder;
+        
+        if(producttitle == el.toLowerCase()){
+            productorder = 1;
+        }
+        else if(el.toLowerCase() == 'small clear cosmetics case + medium clear cosmetics case'){
+            if(producttitle.includes('small') || producttitle.includes('medium')){
+                productorder = 1;
+            }
+        }
+        else if(el.toLowerCase() == 'medium clear cosmetics case + small clear cosmetics case'){
+            if(producttitle.includes('medium clear cosmetics case')){
+                productorder = 1;
+            }
+            if(producttitle.includes('small clear cosmetics case')){
+                productorder = 2;
+            }
+        }
+        else if(el.toLowerCase() == 'backpack')
+        {
+            if(producttitle.includes('kaya')){
+                productorder = 1;
+            }
+        }
+        else if(el.toLowerCase() == 'travel backpack')
+        {
+            if(producttitle.includes('travel')){
+                productorder = 1;
+            }
+        }
+        else if(el.toLowerCase() == 'baye small hat box' || el.toLowerCase() == 'baye mini'){
+            if(producttitle.includes('small hat box')){
+                productorder = 1;
+            }
+        }
+        else if(el.toLowerCase() == 'tech organizer')
+        {
+            if(producttitle.includes('tech organizer')){
+                productorder = 1;
+            }
+            if(producttitle.includes('laptop sleeve')){
+                productorder = 2;
+            }
+        }
+        else if(el.toLowerCase() == 'mini clear cosmetics case')
+        {
+            if(producttitle == 'small clear cosmetics case'){
+            productorder = 1;
+            }
+        }
+        else if(el.toLowerCase() == 'large' || el.toLowerCase() == 'medium'){
+            if(producttitle.includes('luggage')){
+                productorder = 1;
+            }
+            if(producttitle.includes('hat box')){
+                productorder = 2;
+            }
+        }
+        else if(producttitle.includes(el.toLowerCase()))
+        {
+            productorder = 2;
+        }
+        else if(el.toLowerCase() == 'terra toiletry bag')
+        {
+            if(producttitle == 'terra hanging toiletry bag'){
+            productorder = 3;
+            }
+        }
+       
+        if(el.toLowerCase() == 'shoe compartment')
+        {
+            if(producttitle == 'luka mini backpack'){
+                product = ''
+            }
+        }
+        if(product != '')
+        {
+        createSearchItem(product, count_available > 0, matchedVariant, products_target,productorder);
+        }
     }
 
     return found;
 }
 
-function fillSearchProducts(results, container, search, color_search, ambiguity, or, sale) {
+function fillSearchProducts(results, container, search, color_search, ambiguity, or, sale,el) {
     const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
-
+        container.querySelector('#search-form').setAttribute('aria-expanded', 'true');
     if(products_target && typeof results.products != 'undefined') {
         const products = results.products;
         products_target.innerHTML = '';
@@ -377,18 +506,21 @@ function fillSearchProducts(results, container, search, color_search, ambiguity,
         let products_found = 0;
 
         // Looking for both SEARCH and COLOR terms
-        products_found = searchProductsForMatches(products, search, color_search, ambiguity, or, sale, products_target);
+        products_found = searchProductsForMatches(products, search, color_search, ambiguity, or, sale, products_target,el);
 
         if(search.length > 0 && color_search.length > 0) {
             // If nothing found -- ignore colors and look for SEARCH terms only
-            if(products_found == 0) products_found = searchProductsForMatches(products, search, [], ambiguity, or, sale, products_target);
+            if(products_found == 0) products_found = searchProductsForMatches(products, search, [], ambiguity, or, sale, products_target,el);
 
             // If nothing found -- ignore search and look for COLOR terms only
-            if(products_found == 0) products_found = searchProductsForMatches(products, [], color_search, ambiguity, or, sale, products_target);
+            if(products_found == 0) products_found = searchProductsForMatches(products, [], color_search, ambiguity, or, sale, products_target,el);
         }
 
+        console.log(products_found);
         if(products_found == 0) container.setAttribute('data-status', 'empty');
         else {
+            searchtitle.style.display = 'block';
+            //mobilesearchTitle.classList.add = 'show_mobile';
             const searchNums = container.querySelectorAll('.search-num');
             searchNums.forEach(searchNum => searchNum.innerHTML = products_found);
             container.setAttribute('data-status', 'results');
@@ -403,9 +535,11 @@ function fillSearchProducts(results, container, search, color_search, ambiguity,
     }
 }
 
-function fillSearchResults(results, container) {
+function fillSearchResults(results, container, searchparam) {
     const collectionsTarget = container.querySelector('.content-section--collections');
     let collectionsFound = 0;
+    let searchparameter = searchparam;
+    
     if(collectionsTarget && typeof results.collections != 'undefined') {
         const collections = results.collections;
         const collectionsTargetGrid = collectionsTarget.querySelector('.search__cards');
@@ -436,6 +570,37 @@ function fillSearchResults(results, container) {
         const searchNums = container.querySelectorAll('.search-col-num');
         if(collectionsFound > 0) searchNums.forEach(searchNum => searchNum.innerHTML = collectionsFound);
     }
+    if(typeof results.pages != 'undefined') {
+        const pages = results.pages;
+        var pagegrid = container.querySelector('.pages-grid');
+        searchtitle.style.display = 'none';
+        mobilesearchTitle.style.setProperty('display', 'none');
+        if(pages.length > 0) {
+        
+        container.setAttribute('data-status', 'results');
+        for(let i = 0; i < pages.length; i++) {
+            let page = pages[i];
+            if(searchparameter.toLowerCase() == 'warranty'){
+                pagegrid.innerHTML = `<div class="pages-grid-inner"><a href="/pages/${page.handle}#faq--warranty"><h2>${page.title}</h2><p>${page.body}</p></a></div>`
+            }else{
+            pagegrid.innerHTML = `<div class="pages-grid-inner"><a href="/pages/${page.handle}"><h2>${page.title}</h2><p>${page.body}</p></a></div>`
+            }
+        }
+    }
+    }else{
+        toggle();
+        window.onresize = function() {
+            toggle();
+        }
+        function toggle() {
+            if (window.innerWidth < 900) {
+                mobilesearchTitle.style.setProperty('display', 'block');
+            }
+        }
+        var pagegrid = container.querySelector('.pages-grid');
+        pagegrid.innerHTML ="";
+    }
+   
 
     if(collectionsFound == 0) container.classList.add('menu-popup--no-side');
 }
@@ -446,20 +611,20 @@ function colorMatch(word) {
 
     if(word == 'on' || word == 'silk' || word == 'hand' || word == 'robe') return false;
 
-    for( var key in color_groups ) {
+    for( var key in color_groups_search ) {
         let sim = similarity2(word, key.replace('-', ' '));
 
         if(sim >= limit) {
             results.push([key, sim]);
         }
 
-        for( let j = 0; j < color_groups[key].length; j++ ) {
-            if(color_groups[key][j].indexOf('luka-') === 0 || color_groups[key][j].indexOf('hue-') === 0 || color_groups[key][j].indexOf('jen-') === 0 || color_groups[key][j].indexOf('ambeur-') === 0 || color_groups[key][j].indexOf('kaya-') === 0 || color_groups[key][j].indexOf('trnk-') === 0) continue;
+        for( let j = 0; j < color_groups_search[key].length; j++ ) {
+            if(color_groups_search[key][j].indexOf('luka-') === 0 || color_groups_search[key][j].indexOf('hue-') === 0 || color_groups_search[key][j].indexOf('jen-') === 0 || color_groups_search[key][j].indexOf('ambeur-') === 0 || color_groups_search[key][j].indexOf('kaya-') === 0 || color_groups_search[key][j].indexOf('trnk-') === 0) continue;
 
-            let sim = similarity2(word, color_groups[key][j].replace('-', ' '));
+            let sim = similarity2(word, color_groups_search[key][j].replace('-', ' '));
 
             if(sim >= limit) {
-                results.push([color_groups[key][j], sim]);
+                results.push([color_groups_search[key][j], sim]);
             }
         }
     }
@@ -489,15 +654,20 @@ function searchProcessQuery(split) {
     }
 
     if(similarity2('cross', unsplited) > 0.9 || similarity2('crossbody', unsplited) > 0.9) {
-        split = ['wallet', 'belt'];
+        split = ['wallet', 'belt','water','Stevyn Mini Crossbody Bag'];
         or = true;
+    }
+
+    if(similarity2('Underseat', unsplited) > 0.9 || similarity2('Under seat', unsplited) > 0.9) {
+        split = ['Mini carry'];
+        or = false;
     }
 
     if(similarity2('car organizer', unsplited) >= 0.9) {
         split = ['car organizer', 'tech organizer', 'compakt zipper'];
         or = true;
     } else if(similarity2('organizer', unsplited) >= 0.9) {
-        split = ['cubes', 'organizer', 'case', 'toiletry'];
+        split = ['organizer', 'cubes', 'case', 'toiletry'];
         or = true;
     }
 
@@ -520,8 +690,18 @@ function searchProcessQuery(split) {
         or = true;
     }
 
+    if(similarity2('shoe compartment', unsplited) >= 0.9) {
+        split = ['shoe compartment','luka duffel', 'stevyn duffel', 'luka backpack'];
+        or = true;
+    }
+
     if(similarity2('cosmetics case', unsplited) >= 0.9) {
         split = ['cosmetics', 'hat', 'hue toiletry', 'luka toiletry'];
+        or = true;
+    }
+
+    if(similarity2('travel backpack', unsplited) >= 0.95) {
+        split = ['backpack'];
         or = true;
     }
 
@@ -530,6 +710,16 @@ function searchProcessQuery(split) {
         or = true;
     }
 
+    if(similarity2('baye small hat box', unsplited) >= 0.95) {
+        split = ['hat box','small','hat'];
+        or = true;
+    }
+    if(similarity2('baye mini', unsplited) >= 0.95) {
+        split = ['hat box','baye mini'];
+        or = true;
+    }
+    
+    console.log("splitt",split,"or",or);
     return [split, or];
 }
 
@@ -540,15 +730,25 @@ function getAllProducts() {
 function fillCollectionSearch(handle, container) {
     fetch(`/collections/${handle}/products.json`).then(response => response.json()).then(data => {
         if(data.products != null && typeof data.products != 'undefined') {
+            searchtitle.style.display = 'block';
+            //mobilesearchTitle.classList.add = 'show_mobile';
+            const searchNums = container.querySelectorAll('.search-num');
+            searchNums.forEach(searchNum => searchNum.innerHTML = data.products.length);
             if(data.products.length > 0) {
                 const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
                 products_target.innerHTML = '';
                 container.setAttribute('data-status', 'results');
                 for(let i = 0; i < data.products.length; i++) {
-                    createSearchItem(data.products[i], data.products[i].available, [0, false], products_target);
+                   // var producttitle = product.title.toLowerCase();
+                    let productorder;
+                    createSearchItem(data.products[i], data.products[i].available, [0, false], products_target,productorder);
                 }
             }
+            else{
+            container.setAttribute('data-status', 'empty')
         }
+        }
+        
     });
 }
 
@@ -573,16 +773,34 @@ async function performSearch(el) {
     let searchType = 'normal';
 
     let searchTextLC = s.toLowerCase().replace("'s", 's');
-
+    if(lowercaseArray.includes(searchTextLC)){
+        const foundIndex = lowercaseArray.indexOf(searchTextLC);
+        const collectionurl = collectionslug[foundIndex];
+       const data = await fetch(`/collections.json?limit=250`).then(response => response.json())
+        if(data && data.collections && data.collections.length > 0){
+            let iscollectionslug = data.collections.some((item)=>item.handle == collectionurl)
+            if(!iscollectionslug) {
+                searchTextLC = 'collection:new-arrivals'
+            }  
+            else{
+                searchTextLC = 'collection:'+collectionurl
+            }
+        }
+        else{
+            searchTextLC = 'collection:'+collectionurl
+        }
+       
+    }
     if(searchTextLC.indexOf(':')) {
         const searchExpl = searchTextLC.split(':');
         if(searchExpl[0] == 'collection') {
             searchType = 'collection';
             s = searchExpl[1];
             fillCollectionSearch(searchExpl[1], container);
+            fetch(`/search/suggest.json?q=${encodeURIComponent(s)}&resources[limit_scope]=each&resources[type]=collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container,el.value.trim()));
+            return
         }
     }
-
     let splitInit = searchTextLC.match(/\b(\w+)\b/g);
     if(!splitInit) return;
     
@@ -719,9 +937,6 @@ async function performSearch(el) {
         container.setAttribute('data-status', 'init');
         return;
     }
-
-    console.log(search, color_search, ambiguity, or, sale);
-
     let terms = container.querySelectorAll('.search-term');
     terms.forEach(term => term.innerHTML = stripHTML(s));
         
@@ -730,12 +945,19 @@ async function performSearch(el) {
         all_products_cache = await getAllProducts();
         form.classList.remove('search-form--loading');
     }
+    console.log(color_search);
 
-    if(searchType == 'normal') fillSearchProducts(all_products_cache, container, search, color_search, ambiguity, or, sale);
+    if(searchType == 'normal') fillSearchProducts(all_products_cache, container, search, color_search, ambiguity, or, sale,el.value.trim());
 
     //// COLLECTIONS AND ARTICLES ////    
     container.classList.remove('menu-popup--no-side');
-    fetch(`/search/suggest.json?q=${encodeURIComponent(s)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container));
+    if(s.toLowerCase() == 'faq' || s.toLowerCase() == 'warranty'){
+        s = 'questions'
+        fetch(`/search/suggest.json?q=${encodeURIComponent(s)}&resources[limit_scope]=each&resources[type]=page,collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container,el.value.trim()));
+    }else{
+         fetch(`/search/suggest.json?q=${encodeURIComponent(s)}&resources[limit_scope]=each&resources[type]=collection&resources[limit]=10`).then(response => response.json()).then(response => fillSearchResults(response.resources.results, container,el.value.trim()));
+    }
+   
 }
 
 // function openHeaderSearch() {
@@ -816,3 +1038,24 @@ mobileNavButtons.forEach(mobileNavButton => mobileNavButton.addEventListener('cl
     const target = this.getAttribute('data-target');
     this.closest('.menu-popup__mobile-nav').setAttribute('data-page', target);
 }));
+                                                        
+const searchContainer = document.querySelector('.menu-popup--search');
+const firstFocusableElementSearch = searchContainer.querySelector('.menu-close--search');
+const lastFocusableElementSearch = searchContainer.querySelector('.search__collections-buttons > a:last-child');
+// Close the dialog when 'Escape' key is pressed.
+  searchContainer.addEventListener('keydown', function(e) {
+    if(e.key == 'Escape') {
+      closeHeaderSearch();
+    }
+  });
+  
+  // Trap keyboard focus by moving focus to the first or last focusable element when the user tries to tab (or "backwards" tab) past them.
+  searchContainer.addEventListener('keydown', function(e) {
+    if(e.target == firstFocusableElementSearch && e.key == 'Tab' && e.shiftKey) {
+      e.preventDefault();
+      lastFocusableElementSearch.focus();
+    } else if(e.target == lastFocusableElementSearch && e.key == 'Tab' && !e.shiftKey) {
+      e.preventDefault();
+      firstFocusableElementSearch.focus();
+    }
+  });                           

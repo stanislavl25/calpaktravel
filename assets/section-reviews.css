@@ -110,12 +110,16 @@
     font-weight: var(--font-body-weight);
     font-style: var(--font-body-style-italic);
 }
-
-.review-slide__review--quotes p:first-child::before {
+.review-slide__review--quotes {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+.review-slide__review--quotes p:first-child q::before {
     content: '“';
 }
 
-.review-slide__review--quotes p:last-child::after {
+.review-slide__review--quotes p:last-child q::after {
     content: '”';
 }
 
@@ -126,6 +130,8 @@
     flex-direction: column;
     right: var(--gap);
     z-index: 5;
+    list-style:none;
+    padding:0;
 }
 
 .review-slide__reviews {

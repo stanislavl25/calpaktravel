@@ -43,15 +43,19 @@
   -%}
 </div>
 
-<nav class="nav-hero__nav">
-  {%- for block in section.blocks -%}
-    <a class="nav-hero__item" data-target="{{ block.settings.section-scroll }}">
-      <div class="nav-hero__item-image">
-        {% render 'image' with block.settings.image, no_wrapper: true, sizes: '130px' %}
-      </div>
-      <div class="nav-hero__item-title">{{- block.settings.title | escape -}}</div>
-    </a>
-  {%- endfor -%}
+<nav class="nav-hero__nav" aria-label="breadcrumbs">
+  <ul style="list-style: none">
+    {%- for block in section.blocks -%}
+      <li>
+        <a href="#" class="nav-hero__item" data-target="{{ block.settings.section-scroll }}">
+          <div class="nav-hero__item-image">
+              {% render 'image' with block.settings.image, no_wrapper: true, sizes: '130px' alt: 'about our mission, history and community' %}
+          </div>
+          <h3 class="nav-hero__item-title">{{- block.settings.title | escape -}}</h3>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
 </nav>
 
 {% schema %}

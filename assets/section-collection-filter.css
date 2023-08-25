@@ -101,9 +101,12 @@
     margin: 0 var(--gap);
 }
 
-.collection-filter__activators {
+.collection-filter__activators, .collection-filter__activators > ul {
     display: flex;
     gap: 20px;
+    list-style: none;
+    margin:0;
+    padding:0;
 }
 
 .filter__activator {
@@ -193,14 +196,15 @@
     grid-column: span 3;
     display: flex;
     gap: 10px;
-    padding-top: 8px;
-    flex-wrap: wrap;
 }
 
 .current-filters-list {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .current-filters-list:empty {
@@ -268,6 +272,8 @@
     border-top: 1px dashed #AEAEAE;
     padding: var(--gap) 0;
     border-bottom: 1px dashed #aeaeae;
+    list-style: none;
+    margin: 0;
 }
 
 .filter__buttons .button {
@@ -313,6 +319,18 @@
 
 .filter__collection {
     display: none;
+}
+
+.sort-fieldset {
+    width: max-content;
+    height: 24px;
+}
+.sort-legend {
+    float: right;
+}
+.sort-input {
+    float: left;
+    margin-top: 3px!important;
 }
 
 @media (max-width: 900px) {

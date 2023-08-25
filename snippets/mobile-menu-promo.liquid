@@ -5,7 +5,7 @@
     {%- endunless -%}
     <div class="mobile-menu__promo">
         <div class="mobile-menu__promo-image">
-            {% render 'image' with block.settings.image, lazy: true, no_wrapper: true, sizes: '50vw' %}
+            {% render 'image' with block.settings.image, lazy: true, no_wrapper: true, sizes: '50vw', alt: block.settings.button-text %}
         </div>
         <div class="mobile-menu__promo-title mobile-menu-promo-text">
             {%- if block.settings.link-for-button -%}

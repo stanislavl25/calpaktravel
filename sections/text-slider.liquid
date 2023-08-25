@@ -1,28 +1,37 @@
+<span class="sr-only">This is a carrousel the controlers for this carrousel is the logo images. For the carrousel change you need to click in one of those logos</span>
 {{ 'section-text-slider.css' | asset_url | stylesheet_tag }}
 
 <div class="page-anchor"></div>
 
 <div class="text-slider__wrapper slider__wrapper text-slider__wrapper--{{ section.id }}">
-    <div class="slider">
+    <ul class="slider" style="list-style: none;" aria-label="carousel">
+        <span class="sr-only">This is a carrousel the controlers for this carrousel is the logo images. For the carrousel change you need to click in one of those logos</span>
         {%- for block in section.blocks -%}
-        <div class="slide text-slider__slide">
+        <li class="slide text-slider__slide" role="group" aria-label="slide {{forloop.index}} of 4">
             <div class="text-slider__slide-text">
-                {{- block.settings.text -}}
+                <blockquote>{{- block.settings.text -}}</blockquote>
             </div>
             <div class="text-slider__slide-image">
                 {% render 'image' with block.settings.nav-icon, lazy: true, sizes: '120px' %}
             </div>
-        </div>
+        </li>
         {%- endfor -%}
-    </div>
+    </ul>
 
-    <div class="slider__dots">
+    <ul class="slider__dots" style="list-style: none;" aria-label="navigation dots">
         {%- for block in section.blocks -%}
-            <div class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}">
-                {% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px' %}
-            </div>
+            <li class="slider__dot{% if forloop.first %} slider__dot--active{% endif %}">
+                {% if block.settings.text != empty %}
+                <button aria-label="Go to slide {{ block.settings.text | strip_html | escape }} {{ forloop.index }}">{% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px', alt:'squarespace logo' %}</button>
+                {% else %}
+                <button aria-label="Go to slide {{ forloop.index }}">{% render 'image' with block.settings.nav-icon, no_wrapper: true, lazy: true, sizes: '200px', alt:'squarespace logo' %}</button>
+                {% endif %}
+            </li>
+            <script>
+                console.log({{block.settings.nav-icon | json }})
+            </script>
         {%- endfor -%}
-    </div>
+    </ul>
 </div>
 
 {% style %}

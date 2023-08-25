@@ -482,6 +482,12 @@
         "default": "both"
       },
       {
+        "type": "collection_list",
+        "label": "Select Collection",
+        "id": "select_collection",
+        "info": "Sale Badge will display in selected collection."
+      },
+      {
         "type": "text",
         "id": "sale-badge-tag",
         "label": "Eligible products tag"

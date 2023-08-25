@@ -49,8 +49,8 @@
     position: absolute;
 }
 
-.tooltip:focus .tooltip__message,
-.tooltip:hover .tooltip__message {
+.tooltip:focus + .tooltip__message,
+.tooltip:hover + span {
     opacity: 1;
 }
 

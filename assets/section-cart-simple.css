@@ -332,6 +332,10 @@
     display: flex;
     border: 1px solid #000;
     border-radius: 6px;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
 }
 
 .qty-selector--no-control {
@@ -455,6 +459,7 @@
 .cart__free-ship-progress,
 .cart__free-ship-success {
     display: none;
+    font-size: 16px;
 }
 
 [data-status="progress"] .cart__free-ship-progress,

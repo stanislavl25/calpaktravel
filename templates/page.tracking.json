@@ -5,13 +5,15 @@
       "blocks": {
         "a8423ff2-0c56-4c37-9b0c-44abd997cd52": {
           "type": "shopify:\/\/apps\/wonderment\/blocks\/wonderBlock\/89d63369-6ee7-4097-ac41-8229c6f90001",
-          "settings": {}
+          "settings": {
+          }
         }
       },
       "block_order": [
         "a8423ff2-0c56-4c37-9b0c-44abd997cd52"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "faq": {
       "type": "wonderment-faq",

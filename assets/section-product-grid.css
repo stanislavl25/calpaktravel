@@ -61,7 +61,7 @@
     grid-row: var(--row);
     grid-column: var(--column) / span 2;
 }
-section.product-grid .product-unit .product-unit__main-content .product-unit__row {
+ul.product-grid .product-unit .product-unit__main-content .product-unit__row {
     display: none;
 }
 
@@ -103,10 +103,11 @@ section.product-grid .product-unit .product-unit__main-content .product-unit__ro
     .col-filter--larger-active ~ .shopify-section--product-grid .promo-unit {
         grid-column: span 1;
     }
-    section.product-grid .product-unit .product-unit__main-content .product-unit__row {
+    ul.product-grid .product-unit .product-unit__main-content .product-unit__row {
         display: block;
         margin-bottom: 3px;
     }
     
 }
+
 

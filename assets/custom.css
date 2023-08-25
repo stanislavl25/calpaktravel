@@ -1,0 +1,127 @@
+.section-title{
+  text-align: center;
+  margin: 50px 0;
+}
+.career-page-top .image-hero {
+  position: relative;
+}
+.career-page-top .image-wrap{
+  position: relative;
+  padding: 0 18px;
+  text-align: center;
+  line-height: 0;
+}
+.career-page-top .image-wrap::after{
+  content: "";
+  position: absolute;
+  background: linear-gradient(10deg, rgba(46, 41, 36, 0.9) 0%, rgba(46, 41, 36, 0) 100%);
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 100%;
+  border-radius: 9px;
+}
+.career-page-top .image-wrap img{
+  border-radius: 9px;
+  width: 100%;
+}
+.career-page-top .open-position__btn{
+  position: absolute;
+  width: 138px;
+  height: 42px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.career-page-top .subtitle{
+  max-width: 786px;
+  margin: auto;
+  font-family: var(--font-body-family);
+  font-size: 38px;
+  line-height: 49.5px;
+  text-align: center;
+  margin-top: 35px;
+}
+.career-page-top .description {
+  margin-top: 35px;
+}
+.career-page-top .description p {
+  max-width: 929px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  margin: 0 auto 15px;
+
+}
+.image-grid{
+  margin-top: 50px;
+  padding: 0 18px;
+  display: flex;
+  gap: 15px;
+}
+.image-grid__item{
+  flex-grow: 1;
+  line-height: 0;
+  margin-bottom: 11px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.image-grid img{
+  width: 100%;
+}
+
+.career-page-top .rich-text {
+  padding: 0 20px;
+}
+
+.hide--desktop {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    margin: 24px 0;
+    font-size: 40px;
+  }
+
+  .image-grid {
+    padding: 0 11px;
+    margin-top: 0px;
+  }
+
+  .career-page-top .image-wrap:after {
+    content: none;
+  }
+  .hide--desktop {
+    display: block !important;
+  }
+
+  .hide--mobile {
+    display: none !important;
+  }
+
+  .career-page-top .image-wrap {
+    padding: 0 11px;
+  }
+
+  .career-page-top .description {
+    margin-top: 20px;
+  }
+
+  .career-page-top .subtitle {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .image-grid {
+    flex-wrap: wrap;
+    gap: 11px;
+  }
+}

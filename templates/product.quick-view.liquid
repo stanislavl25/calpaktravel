@@ -103,9 +103,11 @@
     <div data-video-order="{{ product.metafields.custom.product_video_position }}" class="qv__gallery{% if current_variant.metafields.custom.featured_images == blank %} pdp__gallery--old{% endif %} slider__wrapper slider__wrapper--buttons-side">
         {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
 
-        <button class="slider__control button-tri-left slider__control--prev" title="Previous"></button>
-        <button class="slider__control button-tri-right slider__control--next" title="Next"></button>
+
+        <button class="slider__control button-tri-left slider__control--prev" title="Previous" aria-label="Previous"></button>
+        <button class="slider__control button-tri-right slider__control--next" title="Next" aria-label="Next"></button>
         <div data-nav=".qv__gallery-thumbs-inner" class="qv__gallery-inner slider slider--mobile-scrollbar">
+
             {%- render 'pdp-media-list', current_variant: current_variant, item_class: 'slide' -%}
         </div>
     </div>

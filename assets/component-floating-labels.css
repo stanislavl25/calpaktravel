@@ -31,6 +31,7 @@
     display: none;
 }
 .pdp__gallery-container > .product-label--badge.product-label--active,
+.pdp__gallery-container > .product-label--badge.product-label--active,
 .product-label--badge.badge-active {
     width: 117px;
     height: 117px;
@@ -66,10 +67,11 @@
 .product-label--badge.product-label--badge-collection-page {
     right: 11.01px;
     bottom: 11.01px;
-    width: 74px;
-    height: 74px;
+    width: 82px;
+    height: 82px;
     font-size: 14px;
     display: flex !important;
+    top: calc(100% - 85.45px);
 }
 
 .hot-deals-badge.product-label--active {

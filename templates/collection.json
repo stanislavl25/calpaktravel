@@ -1,53 +1,5 @@
 {
   "sections": {
-    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
-      "type": "promotion-banner",
-      "disabled": true,
-      "settings": {
-        "preload": true,
-        "background": "#f7f177",
-        "text-color": "#000000",
-        "bold-text-background": "#ffffff",
-        "hide": true,
-        "product_list": [
-          "compakt-zippered-pouch-set",
-          "haven-laptop-tote-bag",
-          "insulated-lunch-bag",
-          "kaya-laptop-backpack",
-          "luka-expandable-laptop-tote",
-          "luka-laptop-backpack",
-          "luka-duffel",
-          "terra-26l-backpack-duffel",
-          "tech-organizer",
-          "water-bottle-holder",
-          "padded-laptop-sleeve",
-          "tablet-tech-organizer"
-        ],
-        "collection_list": [
-
-        ],
-        "section-id": "",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
-        "mobile-title-above": "",
-        "font_size_title_above": 16,
-        "mobile-main-text": "",
-        "font_size_main_text": 16,
-        "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/back-to-school",
-        "cta_text": "Shop Back to School",
-        "cta_color": "#000000",
-        "cta_background": "#ffffff",
-        "cta_link_mobile": "none",
-        "cta_url_mobile": "",
-        "cta_text_mobile": "Click here",
-        "cta_color_mobile": "#000000",
-        "cta_background_mobile": "#ffffff",
-        "terms_text": "See Terms & Conditions",
-        "terms_text_mobile": "Terms and conditions apply",
-        "terms_url": "shopify:\/\/pages\/promotion-terms"
-      }
-    },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
       "disabled": true,
@@ -64,15 +16,57 @@
 
         ],
         "section-id": "",
-        "title-above": "LIMITED TIME",
-        "main-text": "<p>Beat the back to school rush—shop 10% off essentials with code: BACKTOIT<\/p>",
+        "title-above": "Limited Time",
+        "main-text": "<p>Up to 60% off best-sellers in the Labor Day Sale <\/p>",
         "mobile-title-above": "",
         "font_size_title_above": 16,
         "mobile-main-text": "",
         "font_size_main_text": 16,
         "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/back-to-school",
-        "cta_text": "Shop Now",
+        "cta_url": "shopify:\/\/collections\/sale",
+        "cta_text": "Shop Sale",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
+        "terms_text": "See Terms & Conditions",
+        "terms_text_mobile": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
+      "type": "promotion-banner",
+      "disabled": true,
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+          "bags",
+          "luggage",
+          "organizers",
+          "sale",
+          "accessories",
+          "all"
+        ],
+        "section-id": "",
+        "title-above": "Limited Time",
+        "main-text": "<p>Up to 60% off best-sellers in the Labor Day Sale <\/p>",
+        "mobile-title-above": "",
+        "font_size_title_above": 16,
+        "mobile-main-text": "",
+        "font_size_main_text": 16,
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/sale",
+        "cta_text": "Shop Sale",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
         "cta_link_mobile": "none",
@@ -87,6 +81,7 @@
     },
     "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c": {
       "type": "promotion-banner",
+      "disabled": true,
       "settings": {
         "preload": true,
         "background": "#f7f177",
@@ -100,9 +95,9 @@
 
         ],
         "section-id": "",
-        "title-above": "LIMITED TIME",
+        "title-above": "LAST CHANCE",
         "main-text": "<p>Don't miss out on FREE standard shipping on all orders!*<\/p>",
-        "mobile-title-above": "LIMITED TIME",
+        "mobile-title-above": "LAST CHANCE",
         "font_size_title_above": 16,
         "mobile-main-text": "<p>FREE standard shipping on all orders!*<\/p>",
         "font_size_main_text": 16,
@@ -577,7 +572,7 @@
             "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
             "link": "shopify:\/\/collections\/back-to-school",
             "title": "Code: BACKTOIT for 10% OFF!",
-            "text": "<p>Select items<\/p><p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
+            "text": "<p>Select items<\/p>",
             "show-for-collections": [
               "all",
               "best-sellers",
@@ -600,6 +595,7 @@
         },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055_1.jpg",
             "video": "",
@@ -865,7 +861,7 @@
           "type": "static",
           "settings": {
             "collection_list_display": [
-              "summer-arrivals"
+              "new-arrivals"
             ],
             "heading": "Desktop\/Mobile: Ambeur Vanity Case",
             "index": 8,
@@ -1502,6 +1498,7 @@
         },
         "2bef465f-5c2d-44c1-a49e-c18d780fe913": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
             "video": "",
@@ -1592,8 +1589,8 @@
     }
   },
   "order": [
-    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e",
+    "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
     "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",

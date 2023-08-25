@@ -5,10 +5,14 @@
   {% comment %} <button class="filter__reset">Clear All</button> {% endcomment %}
   <nav class="active-filters-nav">
     <div class="filter-btns">
-      <button
-        aria-controls="collection-filters"
-        aria-label="Activate product sort"
-        class="filter__activator filter__activator--sort">
+      <button aria-label="Activate color filter" class="filter__activator filter__activator--color"
+        aria-controls="collection-filters" 
+        aria-expanded="false">
+            Color <i></i>
+        </button>
+
+        <button aria-label="Activate product sort"
+        class="filter__activator filter__activator--sort" aria-controls="collection-filters"  aria-expanded="false">
         Sort by
         <i></i>
       </button>

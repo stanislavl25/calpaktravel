@@ -31,13 +31,30 @@ function renderColorGroups(productVariantSelects) {
         }
 
         if(found) {
-            let el = document.createElement('button');
+            let el = document.createElement('label');
             el.classList.add('filt-col-group');
             el.setAttribute('data-value', color);
-            el.style.setProperty('--filt-order', 200 - count);
+            el.setAttribute('tabindex', "0");
+            //el.style.setProperty('--filt-order', 200 - count);
             el.setAttribute('title', color);
-            el.innerHTML = `<span class="color-group color-group-${color}"></span>${color}`;
+            el.setAttribute('name', color);
+            el.setAttribute('id', color);
+            el.setAttribute('for', color);
+            
+            let elInput = document.createElement('input');
+            elInput.setAttribute('title', color);
+            elInput.classList.add('sr-only');
+            elInput.setAttribute('type', 'checkbox');
+            elInput.setAttribute('data-value', color);
+            elInput.setAttribute('value', color);
+            elInput.setAttribute('tabindex', "-1");
+            
+            el.appendChild(elInput)
+            el.insertAdjacentHTML( 'beforeend', `<span class="color-group color-group-${color}"></span>${color}` );
             filterGroupList.appendChild(el);
+            setTimeout(() => {
+                customRadioButtonsFilter();
+            }, 1000);
         }
     }
 
@@ -220,10 +237,10 @@ function updateCurrentFilters(colors = []) {
 
     if(colors.length > 0) {
         colors.forEach(color => {
-            let colorEl = `<button title="Remove" aria-label="Remove ${color} from active filters" class="current-filter" data-value="${color}">
+            let colorEl = `<li><button title="Remove" aria-label="Remove ${color} from active filters" class="current-filter" data-value="${color}">
                 <div class="color-group color-group-${color}"></div>
                 <div class="current-filter__remove"></div>
-            </button>`;
+            </button></li>`;
 
             currentFilters.innerHTML += colorEl;
         });
@@ -441,7 +458,12 @@ if(closeFilters.length > 0) closeFilters.forEach(closeFilter => closeFilter.addE
     if(filters.classList.contains('collection-filters-banner')) {
         document.querySelector('.shopify-section--collection-image-banner').classList.remove('banner-active');
     }
+    const filterActivators = document.querySelectorAll('.filter__activator');
     filters.setAttribute('aria-expanded', false);
+    filterActivators.forEach(filterActivator => {
+        filterActivator.setAttribute('aria-expanded', false)
+        filterActivator.setAttribute('aria-hidden', false)
+    } );
     filters.classList.remove('collection-filters--active');
 
     const filterbanner = document.querySelector('.collection-filters__control');
@@ -463,3 +485,42 @@ currentFilters.addEventListener('click', function(e) {
         applyFilter();
     }
 });
+
+function trappingColorFilterFocus(){
+    let previousElement = ( document.activeElement || document.body );
+    const firstFocusableElement = document.querySelector('#collection-filters > div > fieldset > ul > li:nth-child(1) > fieldset > input');
+    const lastFocusableElement = document.querySelector('.collection-filters .filters__close.close_btn');
+    const qvBody = document.querySelector('#collection-filters');
+    qvBody.addEventListener('keydown', function(e) {
+    if(e.target === firstFocusableElement && e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        lastFocusableElement.focus();
+    } else if(e.target === lastFocusableElement && e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        firstFocusableElement.focus();
+    }
+    });
+    if (lastFocusableElement) {
+        lastFocusableElement.addEventListener('click', function(e) {
+            previousElement.focus();
+            previousElement = null;
+            });
+    }
+
+}
+setTimeout(() => {
+    trappingColorFilterFocus();
+}, 100);
+
+   // ADA custom radio JS solution - Product Unit
+    
+function customRadioButtonsFilter(){
+    const swatchesKeyContainerUnit = document.querySelectorAll('.collection-filter__color-list'); 
+    [].map.call(swatchesKeyContainerUnit, (container => {
+        customRadioKeyboardNav(container);        
+    }));    
+}
+
+
+
+// End ADA custom radio JS solution - Product Unit

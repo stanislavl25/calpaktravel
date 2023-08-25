@@ -10,7 +10,7 @@
     endfor
 -%}
 {%- if numberOfButtons > 1 -%}
-  <nav class="featured-col__nav tabs__nav">
+  <nav id="featured-col__navigation" class="featured-col__nav tabs__nav" role="tablist">
     {%- for block in section.blocks -%}
 
       {%- assign collection = block.settings.collection -%}
@@ -18,20 +18,24 @@
         {%- continue -%}
       {%- endif -%}
 
-      <button
-        aria-label="Display tab #{{ forloop.index }}"
-        data-index="{{ forloop.index }}"
-        class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button"
-        data-index="{{ forloop.index }}">
-        {%- if block.settings.title != blank -%}
-          {{- block.settings.title | escape -}}
-        {%- else -%}
-          {{- collection.title | escape -}}
-        {%- endif -%}
-      </button>
+    <button
+      id="featured-col--btn-{{ forloop.index }}"
+      data-index="{{ forloop.index }}"
+      role="tab"
+      aria-controls="featured-col__navigation_panel__{{ forloop.index }}"
+      class="tabs__button{% if forloop.first %} tabs__button--active{% endif %} transparent-button"
+      aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+      tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+      data-index="{{ forloop.index }}">
+      {%- if block.settings.title != blank -%}
+        {{- block.settings.title | escape -}}
+      {%- else -%}
+        {{- collection.title | escape -}}
+      {%- endif -%}
+    </button>
 
-    {%- endfor -%}
-  </nav>
+  {%- endfor -%}
+</nav>
 {%- else -%}
   <h2 class="featured-col__title">
     {%- liquid
@@ -58,28 +62,35 @@
     {%- endif -%}
 
     <div
+      id="featured-col__navigation_panel__{{ forloop.index }}"
       data-index="{{ forloop.index }}"
       data-slide="2"
+      role="tabpanel" 
+      tabindex="0"
+      aria-labelledby="featured-col--btn-{{ forloop.index }}"
+      aria-label="featured products carousel"
       class="tabs__content{% if forloop.first %} tabs__content--active{% endif %} slider__wrapper slider__wrapper--buttons-side"
       data-index="{{ forloop.index }}">
+      <p class="sr-only">This is a carousel with manual rotation slides. Use tabs to change the product collection. Use Next and Previous buttons to navigate.</p>
       <button
         aria-label="Show previous slide"
         class="slider__control button-tri-left slider__control--prev"
         title="Previous"></button>
-      <button
-        aria-label="Show next slide"
-        class="slider__control button-tri-right slider__control--next"
-        title="Next"></button>
-      <div class="slider slider--scrollbar">
-        {%- if block.settings.hide-form-labels -%}
-          {%- assign floatingLabels = true -%}
-        {%- else -%}
-          {%- assign floatingLabels = nil -%}
-        {%- endif -%}
+      <div class="slider slider--scrollbar" role="region" aria-label="carousel">
+                {%- if block.settings.hide-form-labels -%}
+                    {%- assign floatingLabels = true -%}
+                {%- else -%}
+                    {%- assign floatingLabels = nil -%}
+                {%- endif -%}
+        {% assign totalProducts = 0 %}
         {%- for product in collection.products limit: 20 -%}
           {%- render 'product-unit' with product, in_collection: collection, wishlist: true, class: 'slide', all_colors_quickadd: true, all_sizes: true, add_to_cart: section.settings.add-to-cart, quick_view: section.settings.quick-view, sizes: '(min-width: 901px) 20vw, (min-width: 651px) 33.333%, 43vw', floatingLabels: floatingLabels, overrideFlashSale: block.settings.dont-hide-flash-sale, cardlayout: section.settings.select_card_layout -%}
         {%- endfor -%}
       </div>
+      <button
+        aria-label="Show next slide"
+        class="slider__control button-tri-right slider__control--next"
+        title="Next"></button>
     </div>
 
   {%- endfor -%}

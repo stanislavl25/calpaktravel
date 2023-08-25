@@ -43,7 +43,8 @@
     data-video="{{ video }}"
     data-vimeo-id="{{ video_id }}">
     {% if lazy != true %}
-      <iframe
+      <iframe 
+        title="Video player for video in product gallery" aria-label="Video player for video in product gallery"
         allow="autoplay; fullscreen"
         allowfullscreen=""
         width="100%"
@@ -52,7 +53,9 @@
         src="{{ video }}"></iframe>
     {% else %}
       <noscript>
-        <iframe
+        <iframe 
+          title="Video player for video in product gallery" 
+          aria-label="Video player for video in product gallery"
           allow="autoplay; fullscreen"
           allowfullscreen=""
           width="100%"

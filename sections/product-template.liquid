@@ -1,6 +1,6 @@
 {{ 'section-pdp.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'component-pdp-gallery.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true, media: "screen and (max-width: 900px)" }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true, media: 'screen and (max-width: 900px)' }}
 {{ 'component-star-rating.css' | asset_url | stylesheet_tag }}
 {{ 'component-pdp-promo.css' | asset_url | stylesheet_tag }}
 
@@ -31,10 +31,9 @@
   onload="this.media='all'">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <noscript>{{ 'component-color-swatch.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-tooltip.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-pdp-floating-submit.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-waitlist.css' | asset_url | stylesheet_tag }}</noscript>
-<script src="{{ 'product-overlay.js' | asset_url }}" defer ></script>
+<script src="{{ 'product-overlay.js' | asset_url }}" defer></script>
 <script src="{{ 'fancybox.js' | asset_url }}" defer></script>
 <script src="{{ 'pdp.js' | asset_url }}" defer="defer"></script>
 {%- liquid
@@ -101,17 +100,17 @@
         endif
     endif
 
-    assign featured_collection = false
-    if product.metafields.custom.featured_collection != blank
-        assign featured_collection = collections[product.metafields.custom.featured_collection]
-    endif
+  assign featured_collection = false
+  if product.metafields.custom.featured_collection != blank
+    assign featured_collection = collections[product.metafields.custom.featured_collection]
+  endif
 
     assign current_product_group_type = false
     assign has_more_product_types = false
     assign product_type = product.type | downcase
 
-    if featured_collection != false and product_type contains 'luggage'
-        assign types = 'Mini Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Carry-On,Medium Luggage,Large Luggage,Trunk Luggage,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
+  if featured_collection != false and product_type contains 'luggage'
+    assign types = 'Mini Carry-On,Carry-On,Carry-On Luggage with Hardshell Pocket,Carry-On Luggage with Pocket,Medium Luggage,Large,Trunk,2-Piece Set,3-Piece Set,2-Piece Luggage Set,3-Piece Luggage Set' | split: ','
 
         for type in types
             if product.title contains type
@@ -138,13 +137,13 @@
         endif
     endif
 
-    if current_variant.metafields.custom.preorder != blank
-        assign preorder = current_variant.metafields.custom.preorder
-    elsif product.metafields.custom.preorder != blank
-        assign preorder = product.metafields.custom.preorder
-    else
-        assign preorder = false
-    endif
+  if current_variant.metafields.custom.preorder != blank
+    assign preorder = current_variant.metafields.custom.preorder
+  elsif product.metafields.custom.preorder != blank
+    assign preorder = product.metafields.custom.preorder
+  else
+    assign preorder = false
+  endif
 
     assign description_reviews_split = false
     if product.metafields.custom.description_reviews != blank
@@ -200,7 +199,16 @@
   </div>
 
   <aside class="pdp__gallery-container">
-    {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp' %}
+    {% assign collection_list = '' %}
+    {% for collection in product.collections %}
+
+      {% unless forloop.last %}
+        {% assign collection_list = collection_list | append: collection.handle | append: ',' %}
+      {% else %}
+        {% assign collection_list = collection_list | append: collection.handle %}
+      {% endunless %}
+    {% endfor %}
+    {% render 'product-floating-labels', current_variant: current_variant, location: 'pdp', product_collection_slug: collection_list %}
     {% render 'pdp-gallery', current_variant: current_variant %}
     <button aria-label="Show all product media" class="pdp-gallery__more-btn">
       <span>See more images (<em class="img-num">2</em>)</span>
@@ -235,14 +243,16 @@
                 </div>
               {%- endif -%}
 
+              {% render 'okendo-reviews-product-rating-summary', product: product %}
+              {% comment %}
               <div class="pdp__reviews-cont">
-                <a href="{{ product.url }}/reviews" class="pdp__reviews">
-                  {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
-                    {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-                  {%- endif -%}
-                </a>
+              <a href="{{ product.url }}/reviews" class="pdp__reviews">
+              {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+              {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+              {%- endif -%}
+              </a>
               </div>
-
+              {% endcomment %}
 
 
               {%- comment -%}Purchased and Views widget{%- endcomment -%}
@@ -254,8 +264,7 @@
                                         endif
                                     endfor
                                 -%}
-              {% if enable %}
-                <div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"></div>
+                {% if enable %}<div id="pdp__views-counter" class="pdp__views-counter pdp__views-counter--hidden"> </div>
                 <div id="pdp__purchased-counter" class="pdp__purchased-counter pdp__purchased-counter--hidden"></div>
                 <script>
                   document.addEventListener('DOMContentLoaded', function() {
@@ -283,6 +292,7 @@
                           document.querySelector('#pdp__views-counter').innerHTML = views_final;
                         } catch {}try {
                           document.querySelector('#pdp__purchased-counter').innerHTML = purchased_final;
+
 
 
 
@@ -461,8 +471,16 @@
               });
             </script>
           {% endif %}
-        {%- when 'description' -%}
-          {% assign description_title = section.settings.description-title %}
+          {%- when 'description' -%}
+
+        {%- else -%}
+          {% render 'pdp-promo' with block, current_variant: current_variant %}
+        {%- endcase -%}
+      {%- endfor -%}
+    {% endform %}
+
+    {% render 'pdp-upsell', title: "Complete Your Set", current_variant: current_variant %}
+    {% assign description_title = section.settings.description-title %}
           {% assign specifications_title = section.settings.specifications-title %}
           {% assign warranty_title = section.settings.warranty-title %}
           {% render 'pdp-description'
@@ -470,15 +488,6 @@
            specifications_title: specifications_title,
            warranty_title: warranty_title,
            current_variant: current_variant %}
-        {% when 'set-bundle' %}
-          {% render 'pdp-bundle', current_variant: current_variant, bundle_product: block.settings.product_bundle %}
-        {%- else -%}
-          {% render 'pdp-promo' with block, current_variant: current_variant %}
-        {%- endcase -%}
-      {%- endfor -%}
-    {% endform %}
-
-    {% render 'pdp-upsell', title: "Pairs well with", current_variant: current_variant %}
   </main>
 
 </section>
@@ -919,18 +928,6 @@
             "id": "product-list",
             "label": "Exclusions list"
           }
-        ]
-      },
-      {
-        "type": "set-bundle",
-        "name": "Set Bundle",
-        "limit": 1,
-        "settings": [
-            {
-                "type": "product",
-                "id": "product_bundle",
-                "label": "Bundle Product"
-            }
         ]
       }
     ]

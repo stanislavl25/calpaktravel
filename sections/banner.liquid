@@ -2,8 +2,11 @@
 
 <div class="page-anchor"></div>
 
-<section class="banner-section banner-section--{{ section.settings.height }} banner-section--{{ section.id }}">
-    {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
+<section
+  role="region"
+  class="banner-section banner-section--{{ section.settings.height }} banner-section--{{ section.id }}"
+  aria-label="announcement">
+  {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
         {%- if section.settings.yotpo and customer -%}
             <a href="{{ section.settings.signed-in-link }}">
         {%- else -%}
@@ -12,6 +15,7 @@
     {%- endif -%}
 
     {%- liquid
+        assign alt = section.settings.image.alt | default: section.settings.title
         if section.settings.height == 'image'
             assign no_wrapper = false
         else
@@ -19,18 +23,18 @@
         endif
 
         if section.settings.image-mobile != blank and section.settings.image != blank
-            render 'image' with section.settings.image, class: 'hide-small', no_wrapper: no_wrapper
-            render 'image' with section.settings.image-mobile, class: 'hide-large', no_wrapper: no_wrapper
+            render 'image' with section.settings.image, class: 'hide-small', no_wrapper: no_wrapper, alt: alt
+            render 'image' with section.settings.image-mobile, class: 'hide-large', no_wrapper: no_wrapper, alt: alt
         elsif section.settings.image != blank
-            render 'image' with section.settings.image, no_wrapper: no_wrapper
+            render 'image' with section.settings.image, no_wrapper: no_wrapper, alt: alt
         elsif section.settings.image-mobile != blank
-            render 'image' with section.settings.image-mobile, no_wrapper: no_wrapper
+            render 'image' with section.settings.image-mobile, no_wrapper: no_wrapper, alt: alt
         endif
     -%}
     <div class="banner-section__content banner-section__content--{{ section.settings.text-color-scheme }} banner-section__content--{{ section.settings.text-alignment }}">
-        {%- if section.settings.title != blank -%}
-            <div class="banner-section__title">{{- section.settings.title | escape -}}</div>
-        {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="banner-section__title">{{- section.settings.title | escape -}}</h2>
+      {%- endif -%}
 
         {%- if section.settings.text != blank and section.settings.yotpo != true and customer != true -%}
             <div class="banner-section__text">{{- section.settings.text -}}</div>
@@ -61,17 +65,19 @@
     </div>
     {%- if section.settings.link-for-button == false and section.settings.link != blank -%}
     </a>
-    {%- endif -%}
+  {%- endif -%}
 </section>
 
 {% style %}
-.banner-section--{{ section.id }} {
-    background: {{section.settings.background }};
+  .banner-section--{{ section.id }}{
+    background: {{ section.settings.background }}
+    ;
 
     {%- if section.settings.height == 'custom' -%}
-    min-height: {{ section.settings.height-percent }}vw;
+      min-height: {{ section.settings.height-percent }}
+      vw;
     {%- endif -%}
-}
+  }
 {% endstyle %}
 
 {% schema %}

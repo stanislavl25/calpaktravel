@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
   <head>
+      <script src="https://rapid-cdn.yottaa.com/rapid/lib/Wj61WP6TdVcgKg.js"></script>
   {% comment %} https://upsaddresscheck.herokuapp.com/?address1=21600%20Hawthorne%20Boulevard&address2=&city=New%20York&state=CA&zip=90503 {% endcomment %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -31,7 +32,7 @@
   </script>
   <!-- End Snap Pixel Code -->
 
-  {% include '3wh-gtm' %}
+  {% comment %} {% include '3wh-gtm' %} {% endcomment %}
 
       <!-- Anti-flicker snippet (recommended) -->
     <style>.async-hide { opacity: 0 !important} </style>
@@ -101,7 +102,6 @@
     {% section 'gwp' %}
 
     {% section 'checkout-promos' %}
-
     <script>document.body.classList.add('step--' + Shopify.Checkout.step);</script>
 
     <!-- Google Tag Manager (noscript) -->
@@ -289,7 +289,8 @@
 
     {% if customer != blank and customer.default_address != blank %}
     <script>
-        if(Shopify.Checkout.step == 'contact_information') {
+      document.querySelector('#checkout_shipping_address_id').setAttribute('autocomplete', 'country-name');
+      if(Shopify.Checkout.step == 'contact_information') {
             if(!document.querySelector('#checkout_shipping_address_id option[value="{{ customer.default_address.id }}"]')) {
                 let json = '{{ customer.default_address | json }}';
                 document.querySelector('#checkout_shipping_address_id').innerHTML = '<option value="{{ customer.default_address.id }}" data-properties=\'' + json.replaceAll("'", "\\'") + '\'>{{ customer.default_address.address1 }} {{ customer.default_address.address2 }}, {{ customer.default_address.city }} {{ customer.default_address.province_code }} {{ customer.default_address.zip }}, {{ customer.default_address.country }} ({{ customer.default_address.first_name }} {{ customer.default_address.last_name }})</option>' + document.querySelector('#checkout_shipping_address_id').innerHTML;
@@ -408,5 +409,36 @@ Output.cart = cart
   </script>
   <!-- Ends Narvar Script -->
 {% endif %}
+    <!-- custom checkout scripts for ADA -->
+    <style>
+    a {
+        font-weight: 700;
+        color: #43808E;
+        text-decoration: underline;
+    }
+    </style>
+    <script>
+    $(document).ready(() => {
+      $('.blank-slate__icon').attr("aria-hidden", "true");
+      $('li.policy-list__item a').attr("role", "button");
+      setTimeout(() => {
+        $('div.dynamic-checkout__buttons > div > div:nth-child(2) > div > ul > li > div').attr("role", "link");
+        $('div.dynamic-checkout__buttons > div > div:nth-child(2) > div > ul > li > iframe').attr("role", "link");
+      }, 3000);
+    $('.policy-list__item a').click(() => {
+       setTimeout(() => {
+        $('body').append(`<style>
+        a {
+            font-weight: 700!important;
+            color: #43808E!important;
+            text-decoration: underline!important;
+        }
+        </style>
+          `);
+        }, 1000);
+        });
+    });
+    </script>
+    <!-- End custom checkout scripts for ADA -->
 </body>
 </html>

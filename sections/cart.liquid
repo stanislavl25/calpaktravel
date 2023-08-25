@@ -1,8 +1,8 @@
-<div class="cart__container{% if cart.item_count == 0 %} cart__container--empty{% endif %}">
+<div class="cart__container{% if cart.item_count == 0 %} cart__container--empty{% endif %}" aria-label="Cart Drawer" aria-modal="true" role="dialog">
   <div class="cart__overlay"></div>
   <div class="cart__body">
-    <a class="close-button close-button--cart" title="Close"></a>
-    {% render 'cart-empty', continue: section.settings['continue-shopping'] %}
+    <a class="close-button close-button--cart" title="Close" aria-label="Close" tabindex="0"></a>
+    {% render 'cart-empty' continue: section.settings['continue-shopping'] %}
 
     {%- liquid
       assign free_shipping = settings['free-shipping'] | times: 100
@@ -47,7 +47,7 @@
         else
             assign free_shipping_progress = 100
         endif
-        
+
         assign totalPrice = cart.total_price
         if free_shipping_progress < 100
             assign totalPrice = totalPrice | plus: 795
@@ -67,7 +67,7 @@
         {%- for block in section.blocks -%}
           {% if block.type == 'gamification-gift' %}
             {% if block.settings.announcement != blank %}
-              <div class="free-gift__announcement">
+              <div class="free-gift__announcement" style="display: none;">
                 {{ block.settings.announcement }}
               </div>
             {% endif %}
@@ -137,12 +137,12 @@
 
           <div class="cart__items-container">
             <pre class="hide">
-                
+
                 {{ cart.items[0].product.metafields.custom.pairs_cart_upsell }}
             </pre>
-            <div class="cart__items">
+            <ul class="cart__items" style="padding-left: 0px; margin-block: 0px;">
               {%- render 'cart-item' for cart.items -%}
-            </div>
+            </ul>
           </div>
 
           {% render 'cart-promo', blocks: section.blocks, position: 'under-products' %}
@@ -173,7 +173,7 @@
         id="cart_upsell"
         data-slide="4"
         data-slide-mob="2">
-        <div class="cart__upsell-title">{{- section.settings['featured-title'] | escape -}}</div>
+        <h2 style="font-size: 16px;" class="cart__upsell-title">{{- section.settings['featured-title'] | escape -}}</h2>
         <nav class="slider__nav">
           <button
             aria-label="Show previous slide"
@@ -185,6 +185,7 @@
             title="Next"></button>
         </nav>
         <div class="cart__upsell-items cart__upsell-items--ab-test-variant slider slider--scrollbar slider--vertical-on-desktop">
+          <span class="sr-only">Use the TAB key to move in to a slide, and out, to the next slide</span>
           {% assign listed_upsell = '' %}
           {% for cart_item in cart.items %}
             {% assign listed_upsell = listed_upsell | append: cart_item.product.id | append: '|'  %}
@@ -239,6 +240,7 @@
               {%- endfor -%}
             {%- endif -%}
           <div class="cart__upsell-items cart__upsell-items--ab-test-original slider slider--scrollbar slider--vertical-on-desktop">
+            <span class="sr-only">Use the TAB key to move in to a slide, and out, to the next slide</span>
             {%- if section.settings.product_list != blank -%}
               {%- for product in section.settings.product_list -%}
                 {% unless listed_upsell contains product.id %}
