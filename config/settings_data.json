@@ -185,37 +185,11 @@
               "block-title": "Explore Our Best Sellers"
             }
           },
-          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
-            "type": "shop-block",
-            "settings": {
-              "title": "Shop: Luggage Banner",
-              "submenu-number": 2,
-              "button-url": "shopify:\/\/products\/starter-bundle",
-              "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
-              "description": "",
-              "button-text": "Shop Now",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/AO2A7863-2.jpg",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
-          "52c25c9a-745f-42c5-8106-d8505dcb22b6": {
-            "type": "featured-collection",
-            "settings": {
-              "title": "Luggage - Carousel",
-              "submenu-number": 2,
-              "collection": "carry-on-luggage",
-              "block-title": "Which Carry-On Will You Pick?"
-            }
-          },
           "0d1bb8bf-16ca-4286-a210-0cc7d45304ad": {
             "type": "shop-block",
             "settings": {
               "title": "Shop: Bags",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "button-url": "shopify:\/\/products\/water-bottle-holder",
               "block-title": "Don't go hiking without it",
               "description": "",
@@ -232,9 +206,35 @@
             "type": "featured-collection",
             "settings": {
               "title": "Bags - Carousel",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "collection": "bags",
               "block-title": "Discover Bags Made For Every Occasion"
+            }
+          },
+          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Luggage Banner",
+              "submenu-number": 3,
+              "button-url": "shopify:\/\/products\/starter-bundle",
+              "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
+              "description": "",
+              "button-text": "Shop Now",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/AO2A7863-2.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "52c25c9a-745f-42c5-8106-d8505dcb22b6": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Luggage - Carousel",
+              "submenu-number": 3,
+              "collection": "carry-on-luggage",
+              "block-title": "Which Carry-On Will You Pick?"
             }
           },
           "61dca65a-4ff0-436a-a649-3f8acf379311": {
@@ -363,10 +363,10 @@
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
-          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
-          "52c25c9a-745f-42c5-8106-d8505dcb22b6",
           "0d1bb8bf-16ca-4286-a210-0cc7d45304ad",
           "062c0756-ce35-49c0-8dbf-7234727c215d",
+          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
+          "52c25c9a-745f-42c5-8106-d8505dcb22b6",
           "61dca65a-4ff0-436a-a649-3f8acf379311",
           "71883024-54fa-4ac9-958c-ce36bc9cf350",
           "22ae6a34-144b-4832-b323-ec83ee28af70",
@@ -763,24 +763,24 @@
               "override-title": "Explore Our Best Sellers"
             }
           },
-          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae": {
-            "type": "featured-collection",
-            "settings": {
-              "title": "SHOP: Luggage Collection Carousel",
-              "menu": "shop",
-              "submenu-number": 2,
-              "collection": "carry-on-luggage",
-              "override-title": "Which Carry-On Will You Pick?"
-            }
-          },
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74": {
             "type": "featured-collection",
             "settings": {
               "title": "SHOP: Bags Collection Carousel",
               "menu": "shop",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "collection": "trolley-pass-through",
               "override-title": "Discover Bags Made For Every Occasion"
+            }
+          },
+          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Luggage Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 3,
+              "collection": "carry-on-luggage",
+              "override-title": "Which Carry-On Will You Pick?"
             }
           },
           "2780beb4-0ab0-4333-a417-c3bb8c18a553": {
@@ -843,8 +843,8 @@
           "04605ea0-0820-4c21-b443-99943fd24488",
           "adc05d65-da10-4314-9243-585b3e5e1c66",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
-          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
+          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "2780beb4-0ab0-4333-a417-c3bb8c18a553",
           "4552f1b4-22d2-4133-8804-c2cfd261dae7",
           "657418bd-98df-44f4-9363-2b2a9c4cf77e",
