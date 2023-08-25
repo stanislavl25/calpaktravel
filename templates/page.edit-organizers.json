@@ -151,7 +151,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_1_50c81043-3d86-453f-982d-489f415f4d83.jpg",
-            "display_on": "both",
+            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -299,17 +299,27 @@
         "gap": true
       }
     },
-    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22": {
+    "2246dcef-75d9-451d-80c5-a7cce50025a3": {
       "type": "section-blog-text-product-feature",
       "blocks": {
-        "18ec01ab-5faf-4232-96a3-2a47b76a6b54": {
+        "ced1e069-5135-45f3-b6fc-c10010f562f9": {
           "type": "text",
           "settings": {
             "title": "WFV (Work From Vacation)",
             "text": "<p>We're big advocates for OOO, but sometimes the laptop just has to come with. Stay organized and work from anywhere with our Tech Organizer that keeps chargers, headphones, and more all in one place, plus our Padded Laptop Sleeve that will keep your prized tech possession safe and scratch-free.<\/p>",
             "background-color": "#eae9e1"
           }
-        },
+        }
+      },
+      "block_order": [
+        "ced1e069-5135-45f3-b6fc-c10010f562f9"
+      ],
+      "settings": {
+      }
+    },
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
         "6e838602-da09-425f-860e-cc2e3465d27f": {
           "type": "product",
           "settings": {
@@ -330,7 +340,6 @@
         }
       },
       "block_order": [
-        "18ec01ab-5faf-4232-96a3-2a47b76a6b54",
         "6e838602-da09-425f-860e-cc2e3465d27f",
         "14fff4a5-7da2-41dc-831b-936723a1446e",
         "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7"
@@ -382,6 +391,7 @@
     "fd5d5168-5a30-477f-bd64-cbec459f8ccd",
     "ae5f6413-e32c-4603-b188-44f0017a9824",
     "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf",
+    "2246dcef-75d9-451d-80c5-a7cce50025a3",
     "6d45a115-1dc2-48de-a4de-eaa8a6c62f22",
     "e19ad8bc-04bd-4b10-99e5-aa57c70c3969"
   ]
