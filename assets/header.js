@@ -63,10 +63,6 @@ for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListene
     const target = this.getAttribute('data-target');
     const header = document.querySelector('.shopify-section--header');
     const menu = document.querySelector('.menu-popup[data-id="' + target + '"]');
-    const navigation = document.querySelectorAll('.site-header__nav');
-    [].map.call(navigation, (nav) => {
-        nav.querySelector('ul').style.display = 'none';
-    });
 
     if(!menu) return;
 
@@ -152,14 +148,6 @@ menuDeactivators.forEach(menuDeactivator => menuDeactivator.addEventListener('cl
     }
     
     document.body.classList.remove('modal-open');
-
-    const navigation = document.querySelectorAll('.site-header__nav');
-    [].map.call(navigation, (nav) => {
-        nav.querySelector('ul').style.display = 'flex';
-    });
-    if(this.classList.contains('menu-close--mobile-menu')){
-        document.querySelector('.mobile-menu__activator.burger-link').focus();
-    }
 }));
 
 let subnavActivators = document.querySelectorAll('.subnav__activator');
@@ -237,168 +225,93 @@ const mobileMenuActivator = document.querySelector('.mobile-menu__activator');
 if(mobileMenuActivator) mobileMenuActivator.addEventListener('click', async function(e) {
     e.preventDefault();
     if(typeof openMenu == 'undefined') await loadScript(scripts.menu);
-    const navigation = document.querySelectorAll('.site-header__nav');
-    [].map.call(navigation, (nav) => {
-        nav.querySelector('ul').style.display = 'none';
-    });
+
     openMenu('shop');
-    document.querySelector('#shop__mobile_tab').focus();
 });
 
-/*move notifictions modal .notifications-popup, append right after to .header__notifications-link element*/
-window.addEventListener("load", () => {
-    const notificationsPopup = document.querySelector('.notifications-popup');
-    const headerNotificationsLink = document.querySelector('.header__notifications-link');
-    if(notificationsPopup && headerNotificationsLink) {
-        headerNotificationsLink.insertAdjacentElement('afterend', notificationsPopup);
-    }
-});
-const notificationsContainer = document.querySelector('.notifications-popup');
-const notificationsContainerActive = document.querySelector('.notifications-popup--active');
-const notifyButtonClose = document.querySelector('.menu-close--notifications');
-
-document.addEventListener('keydown', function(event) {
-  // Check if the target element has the class 'notifications-popup--active'
-  if (event.target === notificationsContainer) {
-    // Set focus on the close button
-    notifyButtonClose.focus();
-  }
-});
-
-if(notificationsContainer.querySelector('.notification > p > a') == null){
-  var firstFocusableElement = notificationsContainer.querySelector('.menu-close--notifications');
-} else {
-  var firstFocusableElement = notificationsContainer.querySelector('.notification > p > a');
-}
-
-const lastFocusableElement = notificationsContainer.querySelector('.menu-close--notifications');
-
-  // Trap keyboard focus by moving focus to the first or last focusable element when the user tries to tab (or "backwards" tab) past them.
-  notificationsContainer.addEventListener('keydown', function(e) {
-    if(e.target == firstFocusableElement && e.key == 'Tab' && e.shiftKey) {
-      e.preventDefault();
-      lastFocusableElement.focus();
-    } else if(e.target == lastFocusableElement && e.key == 'Tab' && !e.shiftKey) {
-      e.preventDefault();
-      firstFocusableElement.focus();
-    }
-  });    
-
-/*move notifictions modal ".menu-popup--shop", append right after to ".site-header__menu-item > a[data-target="shop"]" element*/
-window.addEventListener("load", () => {
-    const menuPopup = document.querySelector('.menu-popup.menu-popup--shop');
-    const headerShopLink = document.querySelector('#shopify-section-header ul.header__nav.header__nav--full > li a[data-target="shop"]');
-    if(menuPopup && headerShopLink) {
-        headerShopLink.insertAdjacentElement('afterend', menuPopup);
-    }
-
-    function trappingMobileMenuFocus(){
-        let previousElement = ( document.activeElement || document.body );
-        const firstFocusableElement = document.querySelector('#shop__mobile_tab');
-        const lastFocusableElement = document.querySelector('#discover__mobile_tabpanel > div > div > ul > li.slide-menu-item.slide-menu-item--edits > div:nth-child(3) > a');
-        const qvBody = document.querySelector('header.mobile-menu');
-        qvBody.addEventListener('keydown', function(e) {
-        if(e.target === firstFocusableElement && e.key === 'Tab' && e.shiftKey) {
-            e.preventDefault();
-            lastFocusableElement.focus();
-        } else if(e.target === lastFocusableElement && e.key === 'Tab' && !e.shiftKey) {
-            e.preventDefault();
-            firstFocusableElement.focus();
-        }
-        });
-    
-        firstFocusableElement.addEventListener('click', function(e) {
-            previousElement.focus();
-            previousElement = null;
-            });
-    }
-    setTimeout(() => {
-        trappingMobileMenuFocus();
-    }, 10);
-});
 
 
 // ADA swatches keyboard navigation
 function customMobileTabNavigation(){
-  const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom'); 
-  [].map.call(swatchesKeyContainerUnit, (container => {
-    customMobileKeyNav(container);
-  }));     
-}
-  setTimeout(()=>{
-      customMobileTabNavigation();
-  }, 500)
-
-/* GENERAL RADIO BUTTONS KAYBOARD NAVIGATION */
-function customMobileKeyNav(container) {
-    
-        
-  container.addEventListener('keyup', function(e) {
-      console.log(e.target);
-      let colorButtons = container.querySelectorAll('.menu-popup__activator');
-      [].map.call(colorButtons, (colorButton) => {
-          colorButton.addEventListener('click', function(e) {
-              selectColorButton(e.target);
-          });
-      });
-
-
+    const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom'); 
+    [].map.call(swatchesKeyContainerUnit, (container => {
+      customMobileKeyNav(container);
+    }));     
+  }
+    setTimeout(()=>{
+        customMobileTabNavigation();
+    }, 500)
+  
+  /* GENERAL RADIO BUTTONS KAYBOARD NAVIGATION */
+  function customMobileKeyNav(container) {
       
-        switch(e.key) {
-          case 'ArrowUp':
-          case 'ArrowLeft':
-            e.preventDefault();
-            selectPreviousColorButton(e.target);
-            break;
-            
-          case 'ArrowDown':
-          case 'ArrowRight':
-            e.preventDefault();
-            selectNextColorButton(e.target);
-            break;
-            
-          case ' ':
-            selectColorButton(e.target);
-            break;
-        }
-        // secondary functions
-      function selectPreviousColorButton(colorButton) {
-          let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
           
-          if(index > 0) {
-            selectColorButton(colorButtons[index - 1]);
-          } else {
-            selectColorButton(colorButtons[colorButtons.length - 1]);
-          }
-        }
+    container.addEventListener('keyup', function(e) {
+        console.log(e.target);
+        let colorButtons = container.querySelectorAll('.menu-popup__activator');
+        [].map.call(colorButtons, (colorButton) => {
+            colorButton.addEventListener('click', function(e) {
+                selectColorButton(e.target);
+            });
+        });
+  
+  
         
-        function selectNextColorButton(colorButton) {
-          let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-          
-          if(index < colorButtons.length - 1) {
-            selectColorButton(colorButtons[index + 1]);
-          } else {
-            selectColorButton(colorButtons[0]);
+          switch(e.key) {
+            case 'ArrowUp':
+            case 'ArrowLeft':
+              e.preventDefault();
+              selectPreviousColorButton(e.target);
+              break;
+              
+            case 'ArrowDown':
+            case 'ArrowRight':
+              e.preventDefault();
+              selectNextColorButton(e.target);
+              break;
+              
+            case ' ':
+              selectColorButton(e.target);
+              break;
           }
-        }
-        
-        function selectColorButton(colorButton) {
-          // Deselect all other color buttons 
-          colorButtons.forEach(function(otherColorButton) {
-            otherColorButton.setAttribute('tabindex', '-1');
-            otherColorButton.setAttribute('aria-checked', false);
-          });
+          // secondary functions
+        function selectPreviousColorButton(colorButton) {
+            let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+            
+            if(index > 0) {
+              selectColorButton(colorButtons[index - 1]);
+            } else {
+              selectColorButton(colorButtons[colorButtons.length - 1]);
+            }
+          }
           
-          // Select the provided color button
-          colorButton.setAttribute('tabindex', '0');
-          colorButton.setAttribute('aria-checked', true);
-          colorButton.focus();
-        }
-      });
-}
+          function selectNextColorButton(colorButton) {
+            let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
+            
+            if(index < colorButtons.length - 1) {
+              selectColorButton(colorButtons[index + 1]);
+            } else {
+              selectColorButton(colorButtons[0]);
+            }
+          }
+          
+          function selectColorButton(colorButton) {
+            // Deselect all other color buttons 
+            colorButtons.forEach(function(otherColorButton) {
+              otherColorButton.setAttribute('tabindex', '-1');
+              otherColorButton.setAttribute('aria-checked', false);
+            });
+            
+            // Select the provided color button
+            colorButton.setAttribute('tabindex', '0');
+            colorButton.setAttribute('aria-checked', true);
+            colorButton.focus();
+          }
+        });
+  }
 
-let moreButton = document.querySelector('.moreButton');
-moreButton.addEventListener('click', function() {
-	let moreButtonWrap = document.querySelector('.moreBTN_wrap');
-	moreButtonWrap.classList.add('showFull');
-});
+// let moreButton = document.querySelector('.moreButton');
+// moreButton.addEventListener('click', function() {
+// 	let moreButtonWrap = document.querySelector('.moreBTN_wrap');
+// 	moreButtonWrap.classList.add('showFull');
+// });

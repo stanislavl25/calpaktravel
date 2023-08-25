@@ -87,6 +87,8 @@
 .pdp__promo-section--image-banner .pdp-promo__title {
     font-weight: var(--font-body-weight-bold);
     margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.3em;
 }
 
 .pdp__promo-section--text-banner .pdp-promo__title {

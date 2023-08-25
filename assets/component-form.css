@@ -190,6 +190,11 @@
     height: 42px;
 }
 
+.field-form__links {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media (max-width: 768px) {
     .form__field-line .floating-label {
       flex-wrap: wrap;
@@ -217,6 +222,9 @@
     .form__field-line .field__input:nth-child(2) {
         border-top-right-radius: 9px;
         border-bottom-right-radius: 9px;
+    }
+    .field-form__links {
+        font-size: 14px;
     }
 }
 .field__meassage-notice{
