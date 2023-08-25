@@ -238,16 +238,16 @@
             "product": "compakt-shoe-bag-set"
           }
         },
-        "13d1c719-084c-40d0-8b39-fae24cfdda05": {
-          "type": "product",
-          "settings": {
-            "product": "sunglasses-case"
-          }
-        },
         "eca9662d-d658-4113-b901-dd219e22fc38": {
           "type": "product",
           "settings": {
             "product": "packing-cubes-5-piece-set"
+          }
+        },
+        "13d1c719-084c-40d0-8b39-fae24cfdda05": {
+          "type": "product",
+          "settings": {
+            "product": "medium-compression-packing-cubes"
           }
         },
         "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6": {
@@ -261,8 +261,8 @@
       },
       "block_order": [
         "9366d4d3-e259-45ec-a5e9-045887666c89",
-        "13d1c719-084c-40d0-8b39-fae24cfdda05",
         "eca9662d-d658-4113-b901-dd219e22fc38",
+        "13d1c719-084c-40d0-8b39-fae24cfdda05",
         "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6"
       ],
       "settings": {
@@ -337,12 +337,19 @@
           "settings": {
             "product": "tablet-tech-organizer"
           }
+        },
+        "c454c874-1141-409e-9446-85dd717c55f4": {
+          "type": "product",
+          "settings": {
+            "product": "compakt-zippered-pouch-set"
+          }
         }
       },
       "block_order": [
         "6e838602-da09-425f-860e-cc2e3465d27f",
         "14fff4a5-7da2-41dc-831b-936723a1446e",
-        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7"
+        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7",
+        "c454c874-1141-409e-9446-85dd717c55f4"
       ],
       "settings": {
       }
