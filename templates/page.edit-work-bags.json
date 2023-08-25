@@ -65,7 +65,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309.jpg",
-            "display_on": "both",
+            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -128,7 +128,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_1.jpg",
-            "display_on": "both",
+            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -191,7 +191,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_2.jpg",
-            "display_on": "both",
+            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -277,7 +277,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_3.jpg",
-            "display_on": "both",
+            "display_on": "desktop",
             "title": "",
             "description": ""
           }
