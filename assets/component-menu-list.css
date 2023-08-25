@@ -25,9 +25,9 @@
 .menu-item--active > button,
 .menu-item > a:hover,
 .menu-item > button:hover {
-    padding: 0 5px;
     border: 1px solid #000;
     border-radius: 9px;
+    background: #fff;
 }
 
 .menu-item--active > a,
