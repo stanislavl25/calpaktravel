@@ -101,16 +101,22 @@
     "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
       "type": "section-blog-text-product-feature",
       "blocks": {
-        "8b51563f-97c9-43b0-8641-4380376e5142": {
-          "type": "product",
-          "settings": {
-            "product": "large-clear-cosmetic-case"
-          }
-        },
         "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156": {
           "type": "product",
           "settings": {
             "product": "compakt-large-garment-bag"
+          }
+        },
+        "24d95ff6-3714-4067-bcbb-8451bd03de41": {
+          "type": "product",
+          "settings": {
+            "product": "small-clear-cosmetics-case"
+          }
+        },
+        "8b51563f-97c9-43b0-8641-4380376e5142": {
+          "type": "product",
+          "settings": {
+            "product": "large-clear-cosmetic-case"
           }
         },
         "4b7fc979-b11b-4523-9c5a-3149051d8db9": {
@@ -118,22 +124,13 @@
           "settings": {
             "product": "jewelry-case"
           }
-        },
-        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "title": "Wedding Season",
-            "text": "<p>Take the wrinkles out of wedding travel with our Compakt Garment Bags, designed to protect the dress at all costs, and our Clear Cosmetics Case—made to take your full skincare routine with you. If you're the type to travel with all the jewels, or you're the designated ring bearer, you can organize it all with our best-selling Jewelry Case. <\/p>",
-            "background-color": "#eae9e1"
-          }
         }
       },
       "block_order": [
-        "8b51563f-97c9-43b0-8641-4380376e5142",
         "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156",
-        "4b7fc979-b11b-4523-9c5a-3149051d8db9",
-        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce"
+        "24d95ff6-3714-4067-bcbb-8451bd03de41",
+        "8b51563f-97c9-43b0-8641-4380376e5142",
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9"
       ],
       "settings": {
       }
