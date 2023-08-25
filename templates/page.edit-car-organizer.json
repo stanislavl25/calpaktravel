@@ -182,7 +182,6 @@
     },
     "6d36577b-6bf7-41d0-9fd0-c2663c060865": {
       "type": "more-links",
-      "disabled": true,
       "blocks": {
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0": {
           "type": "link",
@@ -207,13 +206,13 @@
         "a5db392c-03b0-4799-979e-3ed8f7b4f3d0",
         "6baef4b6-c263-4d78-a19b-84732571f4bc"
       ],
+      "disabled": true,
       "settings": {
         "title": "More stories"
       }
     },
     "02c6670f-9b20-4c50-900b-68043f886691": {
       "type": "content-slider",
-      "disabled": true,
       "blocks": {
         "8afa7b7a-5b3a-4510-b60b-ba2192469cca": {
           "type": "slide",
@@ -229,6 +228,7 @@
       "block_order": [
         "8afa7b7a-5b3a-4510-b60b-ba2192469cca"
       ],
+      "disabled": true,
       "settings": {
         "background-color": "#f7f177"
       }

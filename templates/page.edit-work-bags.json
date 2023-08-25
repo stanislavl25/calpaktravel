@@ -56,6 +56,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -64,6 +65,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -117,6 +119,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_1.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -125,6 +128,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_1.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -178,6 +182,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_2.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -186,6 +191,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_2.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -198,6 +204,24 @@
       "settings": {
         "title": "",
         "gap": false
+      }
+    },
+    "71184b1d-f621-461b-86ca-7a0be7ebe720": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "3d920d97-150d-40fe-9af3-61bf2b65b4ee": {
+          "type": "text",
+          "settings": {
+            "title": "Accessories for organization",
+            "text": "<p>CALPAK accessories help to level up your organization even more. Save money and bring lunch to work every day in our stylish Insulated Lunch Bag, and show your most prized tech possessions a little love with our Tech Organizers that control the cable chaos, plus our Padded Sleeves that keep your laptop bump and scratch free while you're on the move. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "3d920d97-150d-40fe-9af3-61bf2b65b4ee"
+      ],
+      "settings": {
       }
     },
     "e25056e6-542c-48ea-b0ad-7d1e6c0dede1": {
@@ -215,26 +239,24 @@
             "product": "tech-organizer"
           }
         },
+        "c86a374f-06a8-455e-8a54-5d599f6a9733": {
+          "type": "product",
+          "settings": {
+            "product": "tablet-tech-organizer"
+          }
+        },
         "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64": {
           "type": "product",
           "settings": {
             "product": "insulated-lunch-bag"
-          }
-        },
-        "c54a38fe-f4d2-4f71-a68a-014dc017bf11": {
-          "type": "text",
-          "settings": {
-            "title": "Accessories for organization",
-            "text": "<p>CALPAK accessories help to level up your organization even more. Save money and bring lunch to work every day in our stylish Insulated Lunch Bag, and show your most prized tech possessions a little love with our Tech Organizers that control the cable chaos, plus our Padded Sleeves that keep your laptop bump and scratch free while you're on the move. <\/p>",
-            "background-color": "#eae9e1"
           }
         }
       },
       "block_order": [
         "7485317e-1353-42ae-95c6-d8a8c4807fff",
         "5aa0441c-19e4-4d08-bdd2-0b49772e0cac",
-        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64",
-        "c54a38fe-f4d2-4f71-a68a-014dc017bf11"
+        "c86a374f-06a8-455e-8a54-5d599f6a9733",
+        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64"
       ],
       "settings": {
       }
@@ -246,6 +268,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_3.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -254,6 +277,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_3.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -278,6 +302,7 @@
     "ba569e2c-059b-40b0-b17b-2babab763755",
     "1a32fb16-2411-49b8-906c-8b6281813f8d",
     "e3136ce6-ca9e-48a7-bfa6-de605910b0d4",
+    "71184b1d-f621-461b-86ca-7a0be7ebe720",
     "e25056e6-542c-48ea-b0ad-7d1e6c0dede1",
     "e4d8018e-96ff-4f01-9ada-24e1a3abe220"
   ]
