@@ -1695,9 +1695,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
 
         // On section-blog-text-product-feature, match the height of the text block to the image
-        const matchTextHeight = window.getComputedStyle(document.querySelector('.shopify-section--blog-text-product-feature a.product-unit__image')).getPropertyValue('padding-top');
-        const textBlock = document.querySelector('.blog-text-product-feature__block-text');
-        textBlock.style.height = matchTextHeight;
+        const blogText = document.querySelectorAll('.shopify-section--blog-text-product-feature a.product-unit__image');
+
+        blogText.forEach((element) => {
+          const matchTextHeight = window.getComputedStyle(element).getPropertyValue('padding-top');
+          const textBlocks = document.querySelectorAll('.blog-text-product-feature__block-text');
+
+          textBlocks.forEach((textBlock) => {
+            textBlock.style.height = matchTextHeight;
+          });
+        });
 });
 const getAllElementAtributes = (element) => {
     return element.getAttributeNames().map(attrName => ({key: attrName, value: element.getAttribute(attrName)}));
