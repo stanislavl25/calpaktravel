@@ -244,12 +244,6 @@
             "product": "packing-cubes-5-piece-set"
           }
         },
-        "13d1c719-084c-40d0-8b39-fae24cfdda05": {
-          "type": "product",
-          "settings": {
-            "product": "medium-compression-packing-cubes"
-          }
-        },
         "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6": {
           "type": "text",
           "settings": {
@@ -262,7 +256,6 @@
       "block_order": [
         "9366d4d3-e259-45ec-a5e9-045887666c89",
         "eca9662d-d658-4113-b901-dd219e22fc38",
-        "13d1c719-084c-40d0-8b39-fae24cfdda05",
         "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6"
       ],
       "settings": {
