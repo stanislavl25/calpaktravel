@@ -90,6 +90,10 @@
     transition: transform 0.3s;
 }
 
+.mobile-menu__inner .product-unit__main-content .product-label--final {
+    display: none;
+}
+
 .mobile-menu__nav {
     flex: 0 0 100%;
     flex-direction: column;
@@ -417,6 +421,7 @@
 
 .slide-menu-item .product-unit {
     flex: 0 0 50%;
+    width: 0%;
 }
 
 .slide-menu-item.slider__wrapper--start .slider__control--prev,

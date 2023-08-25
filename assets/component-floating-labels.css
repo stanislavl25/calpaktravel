@@ -96,7 +96,8 @@
     top: 35px;
 }
 
-.shopify-section--pdp-featured .product-label--promo {
+.shopify-section--pdp-featured .product-label--promo,
+.shopify-section--pdp-featured .product-label--final {
     display: none;
 }
 .slider .product-label--badge.product-label--badge-collection-page {
@@ -158,6 +159,10 @@
     width: 74px;
     height: 74px;
     font-size: 14px;
+}
+
+.cart__upsell .product-unit__main-content .product-label--final {
+    display: none;
 }
 
 .pdp__upsell .product-label--badge.product-label--active,

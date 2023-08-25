@@ -227,6 +227,10 @@
     flex-direction: column;
     gap: 30px;
 }
+
+.pdp__info .product-label--disclaimer {
+    display: block!important;
+}
 .pdp__breadcrumbs ul {
     display: flex;
     gap: 20px;
