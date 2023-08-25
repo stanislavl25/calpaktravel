@@ -56,6 +56,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_52766b18-4460-444a-b8dd-e5f29683edf5.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -64,6 +65,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_a6522e80-7c55-45cd-962f-207716e49b1e.jpg",
+            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -76,6 +78,24 @@
       "settings": {
         "title": "",
         "gap": true
+      }
+    },
+    "6582b949-5309-4e76-8e2f-4c77977d222a": {
+      "type": "section-blog-text-product-feature",
+      "blocks": {
+        "c985fa15-c540-4cf7-aace-b132f3b4f62c": {
+          "type": "text",
+          "settings": {
+            "title": "Wedding Season",
+            "text": "<p>Take the wrinkles out of wedding travel with our Compakt Garment Bags, designed to protect the dress at all costs, and our Clear Cosmetics Case—made to take your full skincare routine with you. If you're the type to travel with all the jewels, or you're the designated ring bearer, you can organize it all with our best-selling Jewelry Case. <\/p>",
+            "background-color": "#eae9e1"
+          }
+        }
+      },
+      "block_order": [
+        "c985fa15-c540-4cf7-aace-b132f3b4f62c"
+      ],
+      "settings": {
       }
     },
     "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
@@ -101,6 +121,7 @@
         },
         "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "title": "Wedding Season",
             "text": "<p>Take the wrinkles out of wedding travel with our Compakt Garment Bags, designed to protect the dress at all costs, and our Clear Cosmetics Case—made to take your full skincare routine with you. If you're the type to travel with all the jewels, or you're the designated ring bearer, you can organize it all with our best-selling Jewelry Case. <\/p>",
@@ -124,6 +145,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_1_d9a5ae93-fd45-4eef-a33d-d6183b2c0f00.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -132,6 +154,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_1_50c81043-3d86-453f-982d-489f415f4d83.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -185,6 +208,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_2_a6bdb7bf-0c9b-42e8-94c9-722b331c5cbb.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -193,6 +217,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_2_45a38c5f-445d-4f40-8330-f6af12b7b91b.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -253,6 +278,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_3_3d9c101e-b170-4694-8f89-120f02267a09.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -261,6 +287,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_3_6a910916-1e5f-4b22-9736-a9f4e1f15031.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -321,6 +348,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_4.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -329,6 +357,7 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_4.jpg",
+            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -349,6 +378,7 @@
     "de55c006-6953-4117-a117-d3c99a23b3c2",
     "d4a2f37a-cefc-4432-a891-1031cab8cf1c",
     "7fe0a6fd-439a-45d2-a7a9-b856199795f6",
+    "6582b949-5309-4e76-8e2f-4c77977d222a",
     "5b1536d5-0aec-46f3-aea4-5fe2666e5e71",
     "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90",
     "d99da5bd-367d-40a0-8ca1-38ea7013cdcb",
