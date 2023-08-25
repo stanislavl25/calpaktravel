@@ -133,7 +133,7 @@
       {%- if recover_success == true -%}
         <h2 class="customer__page-title">Reset my password</h2>
         <div class="customer__page-cta">
-    <p style=" {%- if form.posted_successfully == true -%}display: none;{%- endif -%}">Enter the email associated with your account</p>
+          <p style="{%- if form.posted_successfully != true -%}display: block; {%- else -%}display: none;{%- endif -%}">Enter the email associated with your account</p>
         </div>
         <div class="customer__page-cta customer__page-cta--success">
           We have sent you an e-mail containing your password reset link and instructions. Follow the link to reset your password.
