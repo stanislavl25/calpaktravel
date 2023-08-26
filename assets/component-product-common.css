@@ -293,6 +293,11 @@ div.product-label.product.label--memorial-day label {
     padding: 0 8px;
 }
 
+@media (min-width: 900px) {
+    .hot-deals-mobile {
+        display: none !important;
+    }
+}
 
 
 @media (max-width: 900px) {
