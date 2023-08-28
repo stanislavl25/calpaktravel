@@ -42,11 +42,11 @@
   line-height: 1;
 }
 
-@media (min-width: 901px) {
-  .floating-link__pictured {
-    text-align: right;
-  }
+
+.floating-link__pictured {
+  text-align: right;
 }
+
 
 .floating-link__pictured a {
     text-decoration: underline;

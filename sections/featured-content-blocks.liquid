@@ -73,17 +73,16 @@
         <div class="floating-link">
             <div class="hide--desktop floating-link-mobile">
                 <a href="{{ block.settings.button_url_mobile }}" class="button button--secondary" >
-
-                    {% if section.settings.mobile-layout == 'grid' %}
-                        {{ block.settings.button_text_mobile }}
-                    {% else %}
-                        {{ block.settings.button-text }}
-                    {% endif %}
+                    <span>
+                    {{ block.settings.button_text_mobile }}
+                    </span>
                 </a>
             </div>
             <div class="hide--mobile">
                 <a href="{{ block.settings.target_link }}" class="button button--secondary">
-                    {{ block.settings.button-text }}
+                    <span>
+                        {{ block.settings.button-text }}
+                    </span>
                 </a>
             </div>
 
