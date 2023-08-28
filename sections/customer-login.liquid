@@ -20,7 +20,7 @@
       <div class="customer__forgot-pass">
         <h2 class="customer__page-title">Reset my password</h2>
         <div class="customer__page-cta">
-          <p style="{%- if form.posted_successfully == true -%}display:none; {%- endif -%}">Enter the email associated with your account</p>
+          <p style="{%- if form.posted_successfully != true -%}display: block; {%- else -%}display: none;{%- endif -%}">Enter the email associated with your account</p>
         </div>
 
         {% render 'customer-recover-form' %}
@@ -82,7 +82,7 @@
     <div class="customer__forgot-pass">
       <h2 class="customer__page-title">Reset my password</h2>
       <div class="customer__page-cta">
-        <p>Enter the email associated with your account</p>
+        <p style="{%- if form.posted_successfully != true -%}display: block; {%- else -%}display: none;{%- endif -%}">Enter the email associated with your account</p>
       </div>
 
       {%- form 'recover_customer_password' -%}
