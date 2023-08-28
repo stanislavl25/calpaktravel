@@ -16,12 +16,12 @@
     <div class="collection-showcase__switch-text">{{- section.settings.text | escape -}}</div>
     <div class="text-dropdown" data-target=".collection-showcase__list--{{- section.id -}}">
         <label id="showcase_dropdown_label" class="visually-hidden" aria-labelledby="showcase_dropdown">Showcase featured designs</label>
-        <button id="showcase_dropdown" class="text-dropdown__value" aria-labelledby="{%- for block in section.blocks -%}text-dropdown__option__{{forloop.index}} {% endfor %}" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-activedescendant="text-dropdown__option__1">
+        <button id="showcase_dropdown" class="text-dropdown__value" aria-labelledby="text-dropdown__option__1" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-activedescendant="text-dropdown__option__1">
             {%- assign firstBlock = section.blocks | first -%}
             {{- firstBlock.settings.dropdown-title | escape -}}
             <span aria-hidden="true"><span>
         </button>
-        <ul class="text-dropdown__inner" role="listbox">
+        <ul id="text-dropdown__list" class="text-dropdown__inner" role="listbox">
             {%- for block in section.blocks -%}
             <li class="text-dropdown__option{% if forloop.first %} text-dropdown__option--selected{% endif %}" role="option" aria-selected="true">
                 <button id="text-dropdown__option__{{forloop.index}}">{{- block.settings.dropdown-title | escape -}}</button>
