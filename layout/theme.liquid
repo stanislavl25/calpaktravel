@@ -359,5 +359,9 @@
     <script src="{{ 'handlebars-v4.0.5.js' | asset_url }}"  defer="defer"></script>
     {% render 'welcome-back' %}
   {% endif %}
+
+  {% if template contains 'product' or template contains 'collection' %}
+    <script src="{{ 'component-recently-viewed.js' | asset_url }}" defer></script>
+  {% endif %}
   </body>
   </html>
