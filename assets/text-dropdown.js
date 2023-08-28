@@ -37,7 +37,6 @@ if(textDropdowns.length > 0) textDropdowns.forEach(textDropdown => {
     tdValue.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
-            this.click();
         }
         
         if (e.key === ' ') {
