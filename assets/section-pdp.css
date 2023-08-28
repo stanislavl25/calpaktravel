@@ -1103,3 +1103,11 @@ ul#exp_elem_list {
     content: "✓";
 }
 /* DROPDOWN STYLE end */
+
+.pdp__upsell .color-swatch {
+    flex: 0 0 28px !important;
+}
+
+.pdp__upsell .product-unit__colors--quickadd {
+    width: 90%;
+}
