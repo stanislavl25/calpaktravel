@@ -53,6 +53,20 @@
         endif
     endif
 -%}
+
+{%-liquid
+  if product_exclude_list != blank
+      for prod in product_exclude_list
+          if prod == product
+              assign show = false
+              break
+          endif
+      endfor
+  endif
+-%}
+{% for prod in product_exclude_list %}
+{{ prod.title }}
+{% endfor %}
 {%- if show -%}
   <div id="yotpo_loyalty_pdp">
     {% if customer %}
