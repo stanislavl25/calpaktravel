@@ -387,8 +387,12 @@
   width: 100%;
   content: "";
 }
-
 .cart__item-price b {
+  font-weight: var(--font-body-weight);
+  color: #000;
+}
+
+.cart__item-price span+b {
   font-weight: var(--font-body-weight);
   color: #ff0000;
 }
@@ -1060,6 +1064,9 @@ border-radius: 8px;
   }
   .cart__gam-verbose {
     padding: 0 25px;
+  }
+  .close-button--cart {
+    height: 32px;
   }
 }
 

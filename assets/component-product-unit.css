@@ -523,9 +523,11 @@
     z-index: 1;
     justify-content: space-between;
 }
-
+.tabs__content .product-unit .product-unit__colors--all .round-icon--next {
+    right: -5px;
+}
 .tabs__content .product-unit .product-unit__wishlist .wishlist__button {
-    right: 21px;
+    right: 7%;
 }
 
 .product-unit--quickadd .extra-colors {

@@ -1567,10 +1567,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.product-grid').classList.add('product-grid--gap');
             document.querySelectorAll('.product-grid .product-unit').forEach(product => {
               product.classList.add('product-unit--quickadd');
-              if (product.classList.contains('product-unit--loaded')) {
-                const buttonsload = product.querySelector('product-unit__button')
-                buttonsload.classList.add('product-unit__button--active');
-              }
             });
             document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
                 colors.classList.add('product-unit__colors--all', 'slide');

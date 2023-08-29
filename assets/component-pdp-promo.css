@@ -121,9 +121,3 @@
         margin-top: 0;
     }
 }
-
-@media (min-width: 1024px){
-    .pdp__promo-section {
-        margin-top: 1rem;
-    }
-}
