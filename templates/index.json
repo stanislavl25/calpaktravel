@@ -59,6 +59,14 @@
             "title": "",
             "image": "shopify:\/\/shop_images\/Shot_7.jpg"
           }
+        },
+        "4111bd46-fc19-4115-8246-79ab089db6c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "title": "Backpacks",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0042A-3_4f093335-fb3b-4ab0-8ec8-1dde29e51149.jpg"
+          }
         }
       },
       "block_order": [
@@ -68,7 +76,8 @@
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
-        "69fb0fb6-9c79-400a-bb23-2f808700224d"
+        "69fb0fb6-9c79-400a-bb23-2f808700224d",
+        "4111bd46-fc19-4115-8246-79ab089db6c3"
       ],
       "settings": {
         "display-menu": true
