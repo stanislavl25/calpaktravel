@@ -86,6 +86,7 @@
     top: 0;
     right: 0;
     top: 0px;
+    z-index: 2;
 }
 /* .product-unit:has(.product-unit__button--active) .product-unit__wishlist {
     top: 44px;
@@ -869,6 +870,15 @@ section.featured-col__lists.tabs__target .product-unit__button .button--add-to-c
     }
     .card-layout2 .product-unit__wishlist .wishlist__button{
         right: 10px;
+    }
+    .tabs__content .slider .product-unit__swatches-container .product-unit__swatches {
+        max-width: calc(4 * 28px);
+    }
+    .cart__upsell-items .product-unit__colors--all .product-unit__swatches-container {
+        width: 140px;
+    }
+    .cart__upsell-items .product-unit__colors--all .product-unit__swatches-container .product-unit__swatches {
+        max-width: calc(28px * 4);
     }
 }
 

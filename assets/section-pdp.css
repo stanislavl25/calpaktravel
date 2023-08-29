@@ -1001,7 +1001,7 @@ button.dropdown-box {
     padding: 10px 29px 10px 29px;
     max-width: 100%;
     width: 100%;
-    height: 42px;
+    height: 47px;
     border: 1px solid #000;
     border-radius: 9px;
     text-align: left;
@@ -1057,7 +1057,7 @@ button.dropdown-box+.dropdownlist_box {
     display: none;
 }
 ul#exp_elem_list {
-    margin-top: -8px;
+    margin-top: -3px;
 }
 .dropdownlist_box  {
     margin: 1em 0 0;

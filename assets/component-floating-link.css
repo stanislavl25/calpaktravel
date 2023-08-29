@@ -21,6 +21,7 @@
 @media screen and (max-width: 900px){
   .content-blocks--mobile-stacked .floating-link {
     height: auto;
+    gap: 7px;
   }
   .content-blocks--mobile-grid .floating-link {
     height: auto;
@@ -47,6 +48,7 @@
 
 .floating-link__pictured a {
     text-decoration: underline;
+    display: inline;
 }
 
 .floating-link .button:not(:last-child) {
