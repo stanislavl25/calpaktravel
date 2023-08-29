@@ -185,37 +185,11 @@
               "block-title": "Explore Our Best Sellers"
             }
           },
-          "0d1bb8bf-16ca-4286-a210-0cc7d45304ad": {
-            "type": "shop-block",
-            "settings": {
-              "title": "Shop: Bags",
-              "submenu-number": 2,
-              "button-url": "shopify:\/\/products\/water-bottle-holder",
-              "block-title": "Don't go hiking without it",
-              "description": "",
-              "button-text": "Shop Water Bottle Holder",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Rectangle_3871_1.png",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
-          "062c0756-ce35-49c0-8dbf-7234727c215d": {
-            "type": "featured-collection",
-            "settings": {
-              "title": "Bags - Carousel",
-              "submenu-number": 2,
-              "collection": "bags",
-              "block-title": "Discover Bags Made For Every Occasion"
-            }
-          },
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
             "type": "shop-block",
             "settings": {
               "title": "Shop: Luggage Banner",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "button-url": "shopify:\/\/products\/starter-bundle",
               "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
               "description": "",
@@ -232,9 +206,35 @@
             "type": "featured-collection",
             "settings": {
               "title": "Luggage - Carousel",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "collection": "carry-on-luggage",
               "block-title": "Which Carry-On Will You Pick?"
+            }
+          },
+          "0d1bb8bf-16ca-4286-a210-0cc7d45304ad": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Bags",
+              "submenu-number": 3,
+              "button-url": "shopify:\/\/products\/water-bottle-holder",
+              "block-title": "Don't go hiking without it",
+              "description": "",
+              "button-text": "Shop Water Bottle Holder",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/Rectangle_3871_1.png",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "062c0756-ce35-49c0-8dbf-7234727c215d": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Bags - Carousel",
+              "submenu-number": 3,
+              "collection": "bags",
+              "block-title": "Discover Bags Made For Every Occasion"
             }
           },
           "61dca65a-4ff0-436a-a649-3f8acf379311": {
@@ -259,7 +259,7 @@
             "settings": {
               "title": "Organizers - Carousel",
               "submenu-number": 4,
-              "collection": "makeup-bags",
+              "collection": "organizers",
               "block-title": "Find The Best Toiletry Bag For Traveling"
             }
           },
@@ -347,7 +347,7 @@
             "type": "edit",
             "settings": {
               "title": "Packing Cubes",
-              "image": "shopify:\/\/shop_images\/Frame_38_1_1.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_38_1.png",
               "edit-title": "Your favorite organizing tool",
               "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
@@ -363,10 +363,10 @@
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
-          "0d1bb8bf-16ca-4286-a210-0cc7d45304ad",
-          "062c0756-ce35-49c0-8dbf-7234727c215d",
           "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
           "52c25c9a-745f-42c5-8106-d8505dcb22b6",
+          "0d1bb8bf-16ca-4286-a210-0cc7d45304ad",
+          "062c0756-ce35-49c0-8dbf-7234727c215d",
           "61dca65a-4ff0-436a-a649-3f8acf379311",
           "71883024-54fa-4ac9-958c-ce36bc9cf350",
           "22ae6a34-144b-4832-b323-ec83ee28af70",
@@ -745,7 +745,7 @@
               "menu": "shop",
               "submenu-number": 0,
               "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-5.jpg",
-              "link": "shopify:\/\/collections\/best-sellers",
+              "link": "shopify:\/\/collections\/all",
               "media-title": "",
               "description": "",
               "button-text": "Shop All",
@@ -763,24 +763,24 @@
               "override-title": "Explore Our Best Sellers"
             }
           },
-          "00fbd845-d56c-44ed-b49d-b36e2e7b9b74": {
-            "type": "featured-collection",
-            "settings": {
-              "title": "SHOP: Bags Collection Carousel",
-              "menu": "shop",
-              "submenu-number": 2,
-              "collection": "bags",
-              "override-title": "Discover Bags Made For Every Occasion"
-            }
-          },
           "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae": {
             "type": "featured-collection",
             "settings": {
               "title": "SHOP: Luggage Collection Carousel",
               "menu": "shop",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "collection": "carry-on-luggage",
               "override-title": "Which Carry-On Will You Pick?"
+            }
+          },
+          "00fbd845-d56c-44ed-b49d-b36e2e7b9b74": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Bags Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 3,
+              "collection": "trolley-pass-through",
+              "override-title": "Discover Bags Made For Every Occasion"
             }
           },
           "2780beb4-0ab0-4333-a417-c3bb8c18a553": {
@@ -843,8 +843,8 @@
           "04605ea0-0820-4c21-b443-99943fd24488",
           "adc05d65-da10-4314-9243-585b3e5e1c66",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
-          "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
           "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
+          "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
           "2780beb4-0ab0-4333-a417-c3bb8c18a553",
           "4552f1b4-22d2-4133-8804-c2cfd261dae7",
           "657418bd-98df-44f4-9363-2b2a9c4cf77e",
