@@ -67,6 +67,14 @@
             "title": "Backpacks",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0042A-3_4f093335-fb3b-4ab0-8ec8-1dde29e51149.jpg"
           }
+        },
+        "362872c0-7216-4058-b7dd-9ea455af3c06": {
+          "type": "collection",
+          "settings": {
+            "collection": "duffel",
+            "title": "Duffels",
+            "image": "shopify:\/\/shop_images\/CALPACK_HOLIDAY2035-2.jpg"
+          }
         }
       },
       "block_order": [
@@ -77,7 +85,8 @@
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
         "69fb0fb6-9c79-400a-bb23-2f808700224d",
-        "4111bd46-fc19-4115-8246-79ab089db6c3"
+        "4111bd46-fc19-4115-8246-79ab089db6c3",
+        "362872c0-7216-4058-b7dd-9ea455af3c06"
       ],
       "settings": {
         "display-menu": true
