@@ -83,6 +83,14 @@
             "title": "Makeup Bags",
             "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO__0959-7.jpg"
           }
+        },
+        "f6463f35-c9f6-478e-98df-9f3118414909": {
+          "type": "collection",
+          "settings": {
+            "collection": "packing-cubes",
+            "title": "Packing Cubes",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-5.jpg"
+          }
         }
       },
       "block_order": [
@@ -95,7 +103,8 @@
         "69fb0fb6-9c79-400a-bb23-2f808700224d",
         "4111bd46-fc19-4115-8246-79ab089db6c3",
         "362872c0-7216-4058-b7dd-9ea455af3c06",
-        "2b8a58eb-0009-4905-980e-ebdf5174e34a"
+        "2b8a58eb-0009-4905-980e-ebdf5174e34a",
+        "f6463f35-c9f6-478e-98df-9f3118414909"
       ],
       "settings": {
         "display-menu": true
