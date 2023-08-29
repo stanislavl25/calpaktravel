@@ -91,6 +91,14 @@
             "title": "Packing Cubes",
             "image": "shopify:\/\/shop_images\/210608_CALPAK_LaptopTote_27115_Hi-4.jpg"
           }
+        },
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913": {
+          "type": "collection",
+          "settings": {
+            "collection": "organizers",
+            "title": "Organizers",
+            "image": "shopify:\/\/shop_images\/CALPAK_4.13_OFFICE0112-2.jpg"
+          }
         }
       },
       "block_order": [
@@ -104,7 +112,8 @@
         "4111bd46-fc19-4115-8246-79ab089db6c3",
         "362872c0-7216-4058-b7dd-9ea455af3c06",
         "2b8a58eb-0009-4905-980e-ebdf5174e34a",
-        "f6463f35-c9f6-478e-98df-9f3118414909"
+        "f6463f35-c9f6-478e-98df-9f3118414909",
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913"
       ],
       "settings": {
         "display-menu": true
