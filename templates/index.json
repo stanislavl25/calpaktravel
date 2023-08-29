@@ -99,6 +99,14 @@
             "title": "Organizers",
             "image": "shopify:\/\/shop_images\/CleanDesk-TechPouch-2.jpg"
           }
+        },
+        "32e50f94-5f97-4a2d-a987-14288f76d944": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": "Accessories",
+            "image": "shopify:\/\/shop_images\/Hollyridge_calpak0434A-2.jpg"
+          }
         }
       },
       "block_order": [
@@ -113,7 +121,8 @@
         "362872c0-7216-4058-b7dd-9ea455af3c06",
         "2b8a58eb-0009-4905-980e-ebdf5174e34a",
         "f6463f35-c9f6-478e-98df-9f3118414909",
-        "ad27f39e-da40-4f5d-ba4a-e7b308801913"
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913",
+        "32e50f94-5f97-4a2d-a987-14288f76d944"
       ],
       "settings": {
         "display-menu": true
