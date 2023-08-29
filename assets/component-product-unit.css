@@ -524,12 +524,19 @@
     justify-content: space-between;
 }
 
+.tabs__content .product-unit .product-unit__wishlist .wishlist__button {
+    right: 21px;
+}
+
 .product-unit--quickadd .extra-colors {
     display: none;
 }
 .product-unit--quickadd .product-unit__colors--all .product-unit__swatches-container {
     max-width:100%;
     opacity: 1;
+}
+.tabs__content .product-unit__colors--all .product-unit__swatches-container  {
+    max-width: 93%;
 }
 
 .product-unit--quickadd .product-unit__image-wrapper {
