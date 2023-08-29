@@ -56,7 +56,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_52766b18-4460-444a-b8dd-e5f29683edf5.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -65,7 +64,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_a6522e80-7c55-45cd-962f-207716e49b1e.jpg",
-            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -80,10 +78,28 @@
         "gap": true
       }
     },
-    "6582b949-5309-4e76-8e2f-4c77977d222a": {
+    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
       "type": "section-blog-text-product-feature",
       "blocks": {
-        "c985fa15-c540-4cf7-aace-b132f3b4f62c": {
+        "8b51563f-97c9-43b0-8641-4380376e5142": {
+          "type": "product",
+          "settings": {
+            "product": "large-clear-cosmetic-case"
+          }
+        },
+        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156": {
+          "type": "product",
+          "settings": {
+            "product": "compakt-large-garment-bag"
+          }
+        },
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9": {
+          "type": "product",
+          "settings": {
+            "product": "jewelry-case"
+          }
+        },
+        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce": {
           "type": "text",
           "settings": {
             "title": "Wedding Season",
@@ -93,44 +109,10 @@
         }
       },
       "block_order": [
-        "c985fa15-c540-4cf7-aace-b132f3b4f62c"
-      ],
-      "settings": {
-      }
-    },
-    "5b1536d5-0aec-46f3-aea4-5fe2666e5e71": {
-      "type": "section-blog-text-product-feature",
-      "blocks": {
-        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156": {
-          "type": "product",
-          "settings": {
-            "product": "compakt-large-garment-bag"
-          }
-        },
-        "24d95ff6-3714-4067-bcbb-8451bd03de41": {
-          "type": "product",
-          "settings": {
-            "product": "small-clear-cosmetics-case"
-          }
-        },
-        "8b51563f-97c9-43b0-8641-4380376e5142": {
-          "type": "product",
-          "settings": {
-            "product": "large-clear-cosmetic-case"
-          }
-        },
-        "4b7fc979-b11b-4523-9c5a-3149051d8db9": {
-          "type": "product",
-          "settings": {
-            "product": "jewelry-case"
-          }
-        }
-      },
-      "block_order": [
-        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156",
-        "24d95ff6-3714-4067-bcbb-8451bd03de41",
         "8b51563f-97c9-43b0-8641-4380376e5142",
-        "4b7fc979-b11b-4523-9c5a-3149051d8db9"
+        "6628f8f4-6b4f-4fba-ab0f-facc2e8f6156",
+        "4b7fc979-b11b-4523-9c5a-3149051d8db9",
+        "f0b791ac-8694-4eb4-9b79-2e4b8fbd61ce"
       ],
       "settings": {
       }
@@ -142,7 +124,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_1_d9a5ae93-fd45-4eef-a33d-d6183b2c0f00.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -151,7 +132,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_1_50c81043-3d86-453f-982d-489f415f4d83.jpg",
-            "display_on": "desktop",
             "title": "",
             "description": ""
           }
@@ -205,7 +185,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_2_a6bdb7bf-0c9b-42e8-94c9-722b331c5cbb.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -214,7 +193,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_2_45a38c5f-445d-4f40-8330-f6af12b7b91b.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -238,6 +216,12 @@
             "product": "compakt-shoe-bag-set"
           }
         },
+        "13d1c719-084c-40d0-8b39-fae24cfdda05": {
+          "type": "product",
+          "settings": {
+            "product": "sunglasses-case"
+          }
+        },
         "eca9662d-d658-4113-b901-dd219e22fc38": {
           "type": "product",
           "settings": {
@@ -255,6 +239,7 @@
       },
       "block_order": [
         "9366d4d3-e259-45ec-a5e9-045887666c89",
+        "13d1c719-084c-40d0-8b39-fae24cfdda05",
         "eca9662d-d658-4113-b901-dd219e22fc38",
         "f64a8e2d-85c4-4c0a-b5f3-d17bd496efb6"
       ],
@@ -268,7 +253,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_3_3d9c101e-b170-4694-8f89-120f02267a09.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -277,7 +261,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_3_6a910916-1e5f-4b22-9736-a9f4e1f15031.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -292,27 +275,17 @@
         "gap": true
       }
     },
-    "2246dcef-75d9-451d-80c5-a7cce50025a3": {
+    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22": {
       "type": "section-blog-text-product-feature",
       "blocks": {
-        "ced1e069-5135-45f3-b6fc-c10010f562f9": {
+        "18ec01ab-5faf-4232-96a3-2a47b76a6b54": {
           "type": "text",
           "settings": {
             "title": "WFV (Work From Vacation)",
             "text": "<p>We're big advocates for OOO, but sometimes the laptop just has to come with. Stay organized and work from anywhere with our Tech Organizer that keeps chargers, headphones, and more all in one place, plus our Padded Laptop Sleeve that will keep your prized tech possession safe and scratch-free.<\/p>",
             "background-color": "#eae9e1"
           }
-        }
-      },
-      "block_order": [
-        "ced1e069-5135-45f3-b6fc-c10010f562f9"
-      ],
-      "settings": {
-      }
-    },
-    "6d45a115-1dc2-48de-a4de-eaa8a6c62f22": {
-      "type": "section-blog-text-product-feature",
-      "blocks": {
+        },
         "6e838602-da09-425f-860e-cc2e3465d27f": {
           "type": "product",
           "settings": {
@@ -330,19 +303,13 @@
           "settings": {
             "product": "tablet-tech-organizer"
           }
-        },
-        "c454c874-1141-409e-9446-85dd717c55f4": {
-          "type": "product",
-          "settings": {
-            "product": "compakt-zippered-pouch-set"
-          }
         }
       },
       "block_order": [
+        "18ec01ab-5faf-4232-96a3-2a47b76a6b54",
         "6e838602-da09-425f-860e-cc2e3465d27f",
         "14fff4a5-7da2-41dc-831b-936723a1446e",
-        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7",
-        "c454c874-1141-409e-9446-85dd717c55f4"
+        "25542e1f-1e9a-4f2f-87ef-0b3fad3873c7"
       ],
       "settings": {
       }
@@ -354,7 +321,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3097_4.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -363,7 +329,6 @@
           "type": "link",
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_3309_4.jpg",
-            "display_on": "both",
             "title": "",
             "description": ""
           }
@@ -384,14 +349,12 @@
     "de55c006-6953-4117-a117-d3c99a23b3c2",
     "d4a2f37a-cefc-4432-a891-1031cab8cf1c",
     "7fe0a6fd-439a-45d2-a7a9-b856199795f6",
-    "6582b949-5309-4e76-8e2f-4c77977d222a",
     "5b1536d5-0aec-46f3-aea4-5fe2666e5e71",
     "33a8faf3-ed5d-41ec-afb5-6cbf28fd0f90",
     "d99da5bd-367d-40a0-8ca1-38ea7013cdcb",
     "fd5d5168-5a30-477f-bd64-cbec459f8ccd",
     "ae5f6413-e32c-4603-b188-44f0017a9824",
     "8951c8cf-dbe4-4dc4-88c8-c20085f52ebf",
-    "2246dcef-75d9-451d-80c5-a7cce50025a3",
     "6d45a115-1dc2-48de-a4de-eaa8a6c62f22",
     "e19ad8bc-04bd-4b10-99e5-aa57c70c3969"
   ]

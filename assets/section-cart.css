@@ -1122,3 +1122,14 @@ border-radius: 8px;
 .cart-page .slider .product-unit .product-unit__image-wrapper {
   border-radius: 9px;
 }
+
+/** QA: Checkout Buttons  8-28-23 **/
+@media (min-width: 600px){
+  .cart__footer .button--checkout {
+    margin-bottom: calc(var(--gap) / 2);
+  }
+  .cart__footer .cart__extra-checkout{
+    margin-bottom: initial;
+  }
+}
+/** QA: Checkout Buttons  8-28-23 **/
