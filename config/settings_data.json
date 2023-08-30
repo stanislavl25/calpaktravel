@@ -8,6 +8,7 @@
     "free-shipping": 75,
     "show-cart-gamification": false,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
+    "final-sale-text": true,
     "product-disclaimer": false,
     "product-disclaimer-no-final": true,
     "sale-enabled": true,
@@ -74,7 +75,6 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
-    "final-sale-text": true,
     "sale-text-pdp-mixed": "Up to %% off",
     "sale-text-col-mixed": "Up to %% off",
     "sections": {
