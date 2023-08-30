@@ -1561,6 +1561,7 @@ window.addEventListener("load", () => {
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('.product-grid')) { // !!!
+      const productGrid = document.querySelector('.product-grid');
         //quick add function
         const loadQuickAdd = () => {
             document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
@@ -1572,6 +1573,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 colors.classList.add('product-unit__colors--all', 'slide');
                 colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
             });
+            const productUnits = productGrid.querySelectorAll('.product-unit');
+
+          productUnits.forEach(productUnit => {
+            const colors = productUnit.querySelector('.product-unit__colors');
+
+            if (colors) {
+              // Find the quickadd colors container
+              const colorsQuickAdd = productUnit.querySelector('.product-unit__colors--quickadd');
+
+              if (colorsQuickAdd) {
+                if (!colorsQuickAdd.contains(colors)) {
+                  colors.classList.add('product-unit__colors--all', 'slide');
+                  
+                  colorsQuickAdd.appendChild(colors);
+                }
+              }
+            }
+            })
             document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
             document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
                 swatches.classList.add('slider');

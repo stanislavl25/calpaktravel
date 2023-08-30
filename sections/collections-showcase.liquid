@@ -39,14 +39,14 @@
             {%- if block.settings.button-text != blank -%}
             <div class="floating-link">
                 <a href="{{ block.settings.main-link }}" class="button button--secondary">
-                    <span>{{- block.settings.button-text | escpe -}}</span>
+                    <span>{{- block.settings.button-text | escape -}}</span>
                 </a>
 
                 {% if block.settings.product_title != blank %}
                 <div class="floating-link__pictured">
-                    <span>Pictured:
+                    Pictured:
                     {% if  block.settings.pictured_product !=blank %}<a class="pirc" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title -}}</a>{% endif %}
-                    </span>
+                
                 </div>
                 {% endif %}
             </div>

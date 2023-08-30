@@ -227,6 +227,7 @@
 
 .product-unit__colors--all .round-icon--next {
     right: 0;
+    width: 20px;
 }
 
 .slider__wrapper--start > .product-slider__header .slider__control--prev,
