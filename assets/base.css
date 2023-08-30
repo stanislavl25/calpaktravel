@@ -871,12 +871,7 @@ button.play-pause-reviews {
     font-size: 14px;
 
 }
-a:focus {
-    border: 1px solid #000;
-}
-div:focus {
-    border: 1px solid #000;
-}
+
 button:focus {
     border: 2px solid #000;
 }
