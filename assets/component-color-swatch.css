@@ -16,6 +16,10 @@
     gap: 3px;
 }
 
+.product-recommendations .product-grid .product-unit__swatches-container {
+    position: absolute;
+}
+
 .product-grid .product-unit__swatches-container {
     position: relative;
 }
