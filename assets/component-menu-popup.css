@@ -7,6 +7,9 @@
     overflow: hidden;
     z-index: 3;
 }
+.menu li:not(:first-child) div.submenu div:last-child {
+    text-decoration: underline;
+}
 
 /* body.modal-open #shopify-section-promo-bar {
     display: none;
