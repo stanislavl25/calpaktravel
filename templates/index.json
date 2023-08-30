@@ -3,20 +3,20 @@
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
       "type": "scrollable-menu",
       "blocks": {
-        "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-sellers",
-            "title": "",
-            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-4.jpg"
-          }
-        },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
           "type": "collection",
           "settings": {
             "collection": "sale",
             "title": "",
             "image": "shopify:\/\/shop_images\/Group_3788.jpg"
+          }
+        },
+        "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-4.jpg"
           }
         },
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
@@ -110,8 +110,8 @@
         }
       },
       "block_order": [
-        "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
+        "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "69fb0fb6-9c79-400a-bb23-2f808700224d",
         "362872c0-7216-4058-b7dd-9ea455af3c06",
