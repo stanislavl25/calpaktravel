@@ -1,175 +1,159 @@
 {%- liquid
-    assign product = product-unit
-    assign hotDealsTag = false
-    assign hotDealsVariants = false
+  assign product = product-unit
+  assign hotDealsTag = false
+  assign hotDealsVariants = false
 
-    if product.product != blank
-        assign product = product.product
-    endif
+  if product.product != blank
+      assign product = product.product
+  endif
 
-    assign cancelDisplay = false
-    assign hide = ''
+  assign cancelDisplay = false
+  assign hide = ''
 
-    if current_variant == blank
-        if in_collection != blank
-            assign firstSearch = 'first:' | append: in_collection.handle | append: ':'
-            assign limitSearch = in_collection.handle | append: ':'
+  if current_variant == blank
+      if in_collection != blank
+          assign firstSearch = 'first:' | append: in_collection.handle | append: ':'
+          assign limitSearch = in_collection.handle | append: ':'
 
-            for tag in product.tags
-                assign splitted_tag = tag | split: ":"
-                if splitted_tag[0] == 'hot-deals'
-                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
-                endif
+          for tag in product.tags
+              assign splitted_tag = tag | split: ":"
+              if splitted_tag[0] == 'hot-deals'
+                  assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+              endif
 
-                if tag contains 'hide:'
-                    assign val = tag | split: ":" | last
-                    unless hide == ''
-                        assign hide = hide | append: ';'
-                    endunless
-                    assign hide = hide | append: val
-                elsif tag contains firstSearch
-                    assign firstSearch = tag | replace: firstSearch, '' | handleize
-                    for variant in product.variants
-                        assign opt1 = variant.option1 | handleize
-                        if opt1 == firstSearch
-                            assign current_variant = variant
-                            break
-                        endif
-                    endfor
-                elsif tag contains limitSearch and current_variant == blank
-                    assign limitSearch = tag | replace: limitSearch, '' | split: ';' | first | handleize
-                    for variant in product.variants
-                        assign opt1 = variant.option1 | handleize
-                        if opt1 == limitSearch
-                            assign current_variant = variant
-                            break
-                        endif
-                    endfor
-                endif
-            endfor
-        endif
+              if tag contains 'hide:'
+                  assign val = tag | split: ":" | last
+                  unless hide == ''
+                      assign hide = hide | append: ';'
+                  endunless
+                  assign hide = hide | append: val
+              elsif tag contains firstSearch
+                  assign firstSearch = tag | replace: firstSearch, '' | handleize
+                  for variant in product.variants
+                      assign opt1 = variant.option1 | handleize
+                      if opt1 == firstSearch
+                          assign current_variant = variant
+                          break
+                      endif
+                  endfor
+              elsif tag contains limitSearch and current_variant == blank
+                  assign limitSearch = tag | replace: limitSearch, '' | split: ';' | first | handleize
+                  for variant in product.variants
+                      assign opt1 = variant.option1 | handleize
+                      if opt1 == limitSearch
+                          assign current_variant = variant
+                          break
+                      endif
+                  endfor
+              endif
+          endfor
+      endif
 
-        if hide != ''
-            assign hide = hide | split: ';'
-        endif
+      if hide != ''
+          assign hide = hide | split: ';'
+      endif
 
-        if current_variant == blank
-            assign current_variant = product.selected_or_first_available_variant
-        endif
+      if current_variant == blank
+          assign current_variant = product.selected_or_first_available_variant
+      endif
 
-        if early_access == 'only'
-            assign earlyAccessVariantFound = false
-            for var in product.variants
-                assign varOpt1 = var.option1 | handleize
-                if hide contains varOpt1
-                    continue
-                endif
-                if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
-                    assign current_variant = var
-                    assign earlyAccessVariantFound = true
-                    break
-                endif
-            endfor
+      if early_access == 'only'
+          assign earlyAccessVariantFound = false
+          for var in product.variants
+              assign varOpt1 = var.option1 | handleize
+              if hide contains varOpt1
+                  continue
+              endif
+              if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
+                  assign current_variant = var
+                  assign earlyAccessVariantFound = true
+                  break
+              endif
+          endfor
 
-            unless earlyAccessVariantFound
-                assign cancelDisplay = true
+          unless earlyAccessVariantFound
+              assign cancelDisplay = true
 
-            endunless
-        endif
-    endif
+          endunless
+      endif
+  endif
 
-    assign opt1 = current_variant.option1 | handleize
+  assign opt1 = current_variant.option1 | handleize
 
-    if location == blank
-        assign location = 'list'
-    endif
+  if location == blank
+      assign location = 'list'
+  endif
 
-    if sizes == false or sizes == blank
-        assign sizes = '(min-width: 1181px) 20vw, 25vw'
-    endif
+  if sizes == false or sizes == blank
+      assign sizes = '(min-width: 1181px) 20vw, 25vw'
+  endif
 
-    assign unit_url = product.url | append: '/'
-    if current_variant.metafields.custom.early_access and product.metafields.custom.early_access
-        assign unit_url = unit_url | append: 'early-access-'
-    endif
-    assign unit_url = unit_url | append: opt1
+  assign unit_url = product.url | append: '/'
+  if current_variant.metafields.custom.early_access and product.metafields.custom.early_access
+      assign unit_url = unit_url | append: 'early-access-'
+  endif
+  assign unit_url = unit_url | append: opt1
 
-    assign extraSale = false
-    if settings.extra-sale-enabled
-        for tag in product.tags
-            assign tagSpl = tag | split: ':'
-            assign handle = tagSpl[0] | handleize
+  assign extraSale = false
+  if settings.extra-sale-enabled
+      for tag in product.tags
+          assign tagSpl = tag | split: ':'
+          assign handle = tagSpl[0] | handleize
 
-            if settings.extra-sale-tag == tagSpl[0]
-                if tagSpl.size == 1
-                    assign extraSale = true
-                else
-                    assign extraSale = tagSpl[1] | downcase | split: ';'
-                endif
-            endif
-        endfor
-    endif
+          if settings.extra-sale-tag == tagSpl[0]
+              if tagSpl.size == 1
+                  assign extraSale = true
+              else
+                  assign extraSale = tagSpl[1] | downcase | split: ';'
+              endif
+          endif
+      endfor
+  endif
 
-    if settings.sale-badge-tag == blank
-            assign saleBadge = true
-        else
-            assign saleBadge = false
-            for tag in product.tags
-                assign tagSpl = tag | split: ':'
-                if settings.sale-badge-tag == tagSpl[0]
-                    if tagSpl.size == 1
-                        assign saleBadge = true
-                    else init_option1
-                        assign saleBadge = tagSpl[1] | downcase | split: ';'
-                    endif
-                endif
-            endfor
-    endif
+  if settings.sale-badge-tag == blank
+          assign saleBadge = true
+      else
+          assign saleBadge = false
+          for tag in product.tags
+              assign tagSpl = tag | split: ':'
+              if settings.sale-badge-tag == tagSpl[0]
+                  if tagSpl.size == 1
+                      assign saleBadge = true
+                  else init_option1
+                      assign saleBadge = tagSpl[1] | downcase | split: ';'
+                  endif
+              endif
+          endfor
+  endif
+  if settings.sale-badge-tag-bundle == blank
+          assign saleBadge-bundle = true
+      else
+          assign saleBadge-bundle = false
+          for tag in product.tags
+              assign tagSpl = tag | split: ':'
+              if settings.sale-badge-tag-bundle == tagSpl[0]
+                  if tagSpl.size == 1
+                      assign saleBadge-bundle = true
+                  else
+                      assign saleBadge-bundle = tagSpl[1] | downcase | split: ';'
+                  endif
+              endif
+          endfor
+  endif
 
-    if settings.final-sale-text
-        for tag in product.tags
-            assign tagSpl = tag | split: ':'
-            assign handle = tagSpl[0] | handleize
+  if settings.hot-deals-ends != blank
+      assign hotDealsTag = true
+      assign now = "now" | date: '%s' | times: 1
+      assign ends = settings.hot-deals-ends | date: '%s' | times: 1
+      assign timeLeft = ends | minus: now
+      assign countdownTimer = false
 
-            if 'final-sale' == handle
-                if tagSpl.size == 1
-                    assign finalSale = true
-                else
-                    assign finalSale = tagSpl[1] | downcase | split: ';'
-                endif
-            endif
-        endfor
-    endif
-
-    if settings.sale-badge-tag-bundle == blank
-            assign saleBadge-bundle = true
-        else
-            assign saleBadge-bundle = false
-            for tag in product.tags
-                assign tagSpl = tag | split: ':'
-                if settings.sale-badge-tag-bundle == tagSpl[0]
-                    if tagSpl.size == 1
-                        assign saleBadge-bundle = true
-                    else
-                        assign saleBadge-bundle = tagSpl[1] | downcase | split: ';'
-                    endif
-                endif
-            endfor
-    endif
-
-    if settings.hot-deals-ends != blank
-        assign hotDealsTag = true
-        assign now = "now" | date: '%s' | times: 1
-        assign ends = settings.hot-deals-ends | date: '%s' | times: 1
-        assign timeLeft = ends | minus: now
-        assign countdownTimer = false
-
-        if timeLeft < 172800
-            assign countdownTimer = true
-        else if timeLeft < 0
-            assign countdownTimer = false
-        endif
-    endif
+      if timeLeft < 172800
+          assign countdownTimer = true
+      else if timeLeft < 0
+          assign countdownTimer = false
+      endif
+  endif
 -%}
 
 {%- unless cancelDisplay -%}
@@ -314,12 +298,14 @@
 
     <div class="product-unit__colors--quickadd"></div>
 
+  {% comment %}
     {%- if finalSale != false and add_to_cart == true-%}
       <div class="product-label product-label--final {% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
           {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
           <strong>This item is Final Sale</strong>
       </div>
     {%- endif -%}
+  {% endcomment %}
 
     <div class="product-unit__main-content">
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">

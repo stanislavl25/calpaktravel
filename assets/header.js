@@ -310,8 +310,10 @@ function customMobileTabNavigation(){
         });
   }
 
-// let moreButton = document.querySelector('.moreButton');
-// moreButton.addEventListener('click', function() {
-// 	let moreButtonWrap = document.querySelector('.moreBTN_wrap');
-// 	moreButtonWrap.classList.add('showFull');
-// });
+ let moreButton = document.querySelector('.moreButton');
+ if (moreButton) {
+    moreButton.addEventListener('click', function() {
+        let moreButtonWrap = document.querySelector('.moreBTN_wrap');
+        moreButtonWrap.classList.add('showFull');
+    });
+ }

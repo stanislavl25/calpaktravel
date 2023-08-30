@@ -526,6 +526,14 @@
 .tabs__content .product-unit .product-unit__colors--all .round-icon--next {
     right: -5px;
 }
+.sale.hot-deals-banner-wrapper-sale .tabs__content .product-unit .product-unit__wishlist .wishlist__button {
+    top: 40px;
+    position: absolute;
+    right: 3%;
+}
+.sale.hot-deals-banner-wrapper-sale .tabs__content .product-unit__image-wrapper~.product-label {
+    display: none;
+}
 .tabs__content .product-unit .product-unit__wishlist .wishlist__button {
     right: 7%;
 }
@@ -888,6 +896,12 @@ section.featured-col__lists.tabs__target .product-unit__button .button--add-to-c
     }
     .cart__upsell-items .product-unit__colors--all .product-unit__swatches-container .product-unit__swatches {
         max-width: calc(28px * 4);
+    }
+    .hot-deals-banner-wrapper .tabs__content .product-unit__colors--all .product-unit__swatches-container {
+        width: 97%;
+    }
+    .hot-deals-banner-wrapper .tabs__content .slider .product-unit__swatches-container .product-unit__swatches {
+        max-width: calc(4 * 29px);
     }
 }
 
