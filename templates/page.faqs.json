@@ -183,6 +183,7 @@
         },
         "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "title": "I missed the sale!  Do you price match?",
             "answer": "<p>We're so happy you ordered with us! If an item you purchased from CALPAK is discounted within 5 days of the date of purchase, we will honor a one-time price adjustment on full-price purchases*, as long as the product is in stock and identical in size, color, and quantity.<br\/><br\/>*Please note items sold during the September Weekly Flash Sale or November Daily Deals are excluded from any price adjustments. CALPAK items sold on websites other than <a href=\"https:\/\/www.calpaktravel.com\/\" title=\"https:\/\/www.calpaktravel.com\/\">calpaktravel.com<\/a> are unfortunately also ineligible for price adjustments. See <a href=\"https:\/\/www.calpaktravel.com\/pages\/terms-conditions\" title=\"https:\/\/www.calpaktravel.com\/pages\/terms-conditions\">Terms and Conditions<\/a>.<\/p>",
