@@ -19,7 +19,7 @@
     "extra-sale-tag": "extrasale",
     "extra-sale-text-pdp": "New - %% off",
     "extra-sale-text": "New - %% off",
-    "flash-sale-enabled": true,
+    "flash-sale-enabled": false,
     "flash-sale-tag": "Final Sale",
     "flash-sale-text": "Sale Ends",
     "flash-sale-starts": "Aug 30, 2023 8am",
