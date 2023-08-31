@@ -163,16 +163,6 @@
             "hide": false
           }
         },
-        "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd": {
-          "type": "faq",
-          "disabled": true,
-          "settings": {
-            "title": "I missed the sale!  Do you price match?",
-            "answer": "<p>If an item you purchased from CALPAK is discounted within five (5) days of the date of purchase, we will honor a one-time price adjustment on full-price purchases.  <br\/><br\/>Items that are on sale on websites other than calpaktravel.com are ineligible for price adjustments.<br\/><br\/>The product must be in stock and identical in size, color, and quantity.<br\/><br\/>We are not able to apply any promo codes or rewards points to orders that have already been placed.  <\/p>",
-            "popanswer": "",
-            "hide": false
-          }
-        },
         "7b1579b5-4bf3-405c-bdba-7b97ae5faf40": {
           "type": "faq",
           "settings": {
@@ -187,6 +177,15 @@
           "settings": {
             "title": "I missed the sale! Do you price match?",
             "answer": "<p>We're so happy you ordered with us! If an item you purchased from CALPAK is discounted within 5 days of the date of purchase, we will honor a one-time price adjustment on full-price purchases, as long as the product is in stock and identical in size, color, and quantity.<br\/><br\/>Items that are on sale on websites other than <a href=\"https:\/\/calpaktravel.com\" title=\"https:\/\/calpaktravel.com\">calpaktravel.com<\/a> are unfortunately ineligible for price adjustments.<\/p>",
+            "popanswer": "",
+            "hide": false
+          }
+        },
+        "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd": {
+          "type": "faq",
+          "settings": {
+            "title": "I missed the sale!  Do you price match?",
+            "answer": "<p>We're so happy you ordered with us! If an item you purchased from CALPAK is discounted within 5 days of the date of purchase, we will honor a one-time price adjustment on full-price purchases*, as long as the product is in stock and identical in size, color, and quantity.<br\/><br\/>*Please note items sold during the September Weekly Flash Sale or November Daily Deals are excluded from any price adjustments. CALPAK items sold on websites other than <a href=\"https:\/\/calpaktravel.com\/\" target=\"_blank\">calpaktravel.com <\/a>are unfortunately also ineligible for price adjustments.  See <a href=\"https:\/\/www.calpaktravel.com\/pages\/terms-conditions\" title=\"https:\/\/www.calpaktravel.com\/pages\/terms-conditions\">Terms and Conditions<\/a>.<\/p>",
             "popanswer": "",
             "hide": false
           }
@@ -272,9 +271,9 @@
         "8fffe2bf-06b6-4238-bcd1-81406ab95d9a",
         "5cb1d05d-4fa6-41d8-9420-e5d0ee3f2cde",
         "3484c109-644c-4dd7-8430-ea7086c00c77",
-        "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd",
         "7b1579b5-4bf3-405c-bdba-7b97ae5faf40",
         "c65bb8a8-b7c9-421e-9a50-3752d82dd873",
+        "b1ed37f7-87eb-4f68-b1d3-1242f899d0dd",
         "92a7b381-d524-4fcc-b81f-d154038a0b58",
         "855fab7b-a226-4c8c-8fbd-5301f660eab6",
         "810ba513-b8aa-40e3-8937-95e81a250519",
