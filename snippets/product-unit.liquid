@@ -125,6 +125,22 @@
               endif
           endfor
   endif
+  
+  if settings.final-sale-text
+    for tag in product.tags
+        assign tagSpl = tag | split: ':'
+        assign handle = tagSpl[0] | handleize
+
+        if 'final-sale' == handle
+            if tagSpl.size == 1
+                assign finalSale = true
+            else
+                assign finalSale = tagSpl[1] | downcase | split: ';'
+            endif
+        endif
+    endfor
+  endif
+  
   if settings.sale-badge-tag-bundle == blank
           assign saleBadge-bundle = true
       else
