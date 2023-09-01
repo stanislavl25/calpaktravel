@@ -20,7 +20,7 @@
           "settings": {
             "form_type": "klaviyo",
             "iframe-url": "",
-            "klaviyo_id": "STW4Md",
+            "klaviyo_id": "VA9ag2",
             "vertical_alignment": "center",
             "height": "300",
             "height-mobile": "300"
@@ -54,7 +54,8 @@
       ],
       "settings": {
         "quick-view": true,
-        "add-to-cart": false
+        "add-to-cart": false,
+        "select_card_layout": "layout1"
       }
     }
   },
