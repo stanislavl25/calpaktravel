@@ -3904,3 +3904,18 @@ const recreateCRL8 = () => {
         })
     })
 };
+const btnWishlistfloat = document.querySelector('.pdp__floating-submit-inner .pdp__submit-row .button--pdp__wishlist');
+const mainWishlist = document.querySelector('.pdp__submit-container .pdp__submit .pdp__submit-row .button--pdp__wishlist')
+btnWishlistfloat.addEventListener('click', function() {
+  if(btnWishlistfloat.classList.contains('wishlist__button--added')) {
+    mainWishlist.setAttribute('title', 'Add to Wishlist');
+    mainWishlist.classList.remove('wishlist__button--added');
+    mainWishlist.classList.remove('wishlist__button--loading');
+  } else  {
+  
+    mainWishlist.setAttribute('title', 'Remove from Wishlist');
+    mainWishlist.classList.add('wishlist__button--added');
+    mainWishlist.classList.remove('wishlist__button--loading');
+  }
+})
+
