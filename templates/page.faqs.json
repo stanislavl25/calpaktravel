@@ -296,21 +296,21 @@
     "1637771182451529bb": {
       "type": "faq-category",
       "blocks": {
+        "0b2ae9fc-229e-4a1a-9c2f-6e69373d8310": {
+          "type": "faq",
+          "settings": {
+            "title": "How do I start the return process?",
+            "answer": "<p>We understand that you can have a change of heart once you receive your order. You can begin the returns and exchange process by visiting the <a href=\"https:\/\/www.calpaktravel.com\/apps\/returns\" target=\"_blank\">CALPAK Returns Page<\/a>. From here you can choose if you want to exchange your item for a different color or size, a different product, or just a refund.<br\/><br\/>For exchanges, you can try a new color \/ style \/ size for any item when selecting which items you’re sending back. This is based on available inventory. If we have it in stock, we’ll ship the new color \/ size right away!<br\/><br\/>Final sale items are not eligible for returns, but are eligible for a one-time exchange. Please note, items purchased during our September Weekly Flash Sales or November Daily Deals are not eligible for exchanges. All sales are final.<br\/><br\/>If you cannot find the email confirmation for your order, please contact us at <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a>for more help.<\/p>",
+            "popanswer": "",
+            "hide": false
+          }
+        },
         "63051eb2-cf09-42f0-8d83-3dc46b0ee212": {
           "type": "faq",
           "disabled": true,
           "settings": {
             "title": "How do I start the return process?",
             "answer": "<p>We understand that you can have a change of heart once you receive your order.  You can begin the returns and exchange process by visiting the <a href=\"https:\/\/www.calpaktravel.com\/apps\/returns\" target=\"_blank\" title=\"CALPAK Returns Page\">CALPAK Returns Page<\/a>. From here you can choose if you want to exchange your item for a different color or size, a different product, or just a refund. <br\/><br\/>For exchanges, you can try a new color \/ style \/ size for any item when selecting which items you’re sending back. This is based on available inventory. If we have it in stock, we’ll ship the new color \/ size right away!<br\/><br\/>If an item is marked Final Sale, prices are as marked and all sales are final.<br\/><br\/>If you cannot find the email confirmation for your order, please contact us at <a href=\"mailto:help@calpaks.com\" target=\"_blank\" title=\"mailto:help@calpaks.com\">help@calpaks.com<\/a> for more help.<\/p>",
-            "popanswer": "",
-            "hide": false
-          }
-        },
-        "0b2ae9fc-229e-4a1a-9c2f-6e69373d8310": {
-          "type": "faq",
-          "settings": {
-            "title": "How do I start the return process?",
-            "answer": "<p>We understand that you can have a change of heart once you receive your order. You can begin the returns and exchange process by visiting the <a href=\"https:\/\/www.calpaktravel.com\/apps\/returns\" target=\"_blank\">CALPAK Returns Page<\/a>. From here you can choose if you want to exchange your item for a different color or size, a different product, or just a refund.<br\/><br\/>For exchanges, you can try a new color \/ style \/ size for any item when selecting which items you’re sending back. This is based on available inventory. If we have it in stock, we’ll ship the new color \/ size right away!<br\/><br\/>Final sale items are not eligible for returns, but are eligible for a one-time exchange. Please note, items purchased during our September Weekly Flash Sales or November Daily Deals are not eligible for exchanges. All sales are final.<br\/><br\/>If you cannot find the email confirmation for your order, please contact us at <a href=\"mailto:help@calpaks.com\" target=\"_blank\">help@calpaks.com<\/a>for more help.<\/p>",
             "popanswer": "",
             "hide": false
           }
@@ -406,8 +406,18 @@
             "hide": false
           }
         },
+        "e07c2baf-4913-423b-a6a3-9c96f783f81e": {
+          "type": "faq",
+          "settings": {
+            "title": "Can I return something that is marked as final sale?",
+            "answer": "<p>Items that are marked as final sale are eligible for a one-time courtesy exchange but are not eligible for returns. Please note, items purchased during our September Weekly Flash Sales or November Daily Deals are not eligible for exchanges. All sales are final.<\/p>",
+            "popanswer": "",
+            "hide": false
+          }
+        },
         "f1386e4e-e0e5-4482-9cb9-6edfd65af7d8": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "title": "Can I return something that is marked as final sale?",
             "answer": "<p>Items that are marked as final sale are eligible for a one-time courtesy exchange but are not eligible for returns.<\/p>",
@@ -444,8 +454,8 @@
         }
       },
       "block_order": [
-        "63051eb2-cf09-42f0-8d83-3dc46b0ee212",
         "0b2ae9fc-229e-4a1a-9c2f-6e69373d8310",
+        "63051eb2-cf09-42f0-8d83-3dc46b0ee212",
         "d189c005-253e-4178-8469-c9b66e0e28ae",
         "2ad3a5b4-86c2-4223-ad8c-91d154029b3c",
         "b2cff9d1-52fc-4393-8524-acb649517df7",
@@ -456,6 +466,7 @@
         "b043ced1-ba1a-46c4-bea7-ef687450ba05",
         "1e00cd68-f654-4f17-93a4-42bc0179ee2b",
         "22dcfb29-5f65-42d8-8e29-07ddf82554aa",
+        "e07c2baf-4913-423b-a6a3-9c96f783f81e",
         "f1386e4e-e0e5-4482-9cb9-6edfd65af7d8",
         "48143e7b-ea5c-48e1-afcc-765f77253166",
         "6df10641-a0f9-4444-9a5a-76dbc6c32abf",
