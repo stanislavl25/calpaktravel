@@ -165,6 +165,23 @@
               <span class="cart__shipping-free">FREE</span>
             </dd>
           </dl>
+          <dl class="cart__total-row cart__total-row--total">
+            <dt class="cart__total-name">Estimated Total</dt>
+            <dd class="cart__total-value">
+              {{- totalPrice | money_without_trailing_zeros -}}
+            </dd>
+          </dl>
+        <div class="cart__4-payments{% if totalPrice <= 5000 %} cart__4-payments--limit{% endif %}">
+          <span>4 easy payments
+            <span class="spc__msg-amnt">
+              of
+              <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span>
+              with
+            </span>
+            <span class="spc__msg-limit">on orders over $50 with</span>
+          </span>
+          {% render 'icon-shop-pay' %}
+        </div>
         </div>
       </div>
 
@@ -288,23 +305,6 @@
         </div>
       {% endif %}
       <div class="cart__footer-total">
-        <dl class="cart__total-row cart__total-row--total">
-          <dt class="cart__total-name">Estimated Total</dt>
-          <dd class="cart__total-value">
-            {{- totalPrice | money_without_trailing_zeros -}}
-          </dd>
-        </dl>
-        <div class="cart__4-payments{% if totalPrice <= 5000 %} cart__4-payments--limit{% endif %}">
-          <span>4 easy payments
-            <span class="spc__msg-amnt">
-              of
-              <span class="cart__payments-amnt">{{ totalPrice | divided_by: 4 | money_without_trailing_zeros }}</span>
-              with
-            </span>
-            <span class="spc__msg-limit">on orders over $50 with</span>
-          </span>
-          {% render 'icon-shop-pay' %}
-        </div>
       </div>
       <a href="{% if customer == blank %}{{ routes.account_login_url }}/checkout{% else %}/checkout{% endif %}" class="button button--checkout">
         <span>Checkout</span>

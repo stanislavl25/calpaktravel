@@ -470,13 +470,20 @@
   justify-content: space-between;
 }
 
+.cart__total-row--shipping {
+  padding-bottom: var(--gap);
+}
 .cart__total-row--subtotal,
 .cart__total-row--total {
   font-weight: var(--font-body-weight-bold);
 }
 
-.cart__footer {
+.cart__total-row--total {
   border-top: 1px dashed #aeaeae;
+  padding-top: 10px;
+}
+
+.cart__footer {
   padding: var(--gap);
   display: flex;
   flex-direction: column;
