@@ -401,7 +401,7 @@
           "type": "review",
           "settings": {
             "name": "Lexi",
-            "review": "<p><strong>Perfect weekender. <\/strong>Holds a lot and is comfortable to carry. Easy to pack and get into with lots of pockets for organizing.<\/p>",
+            "review": "<p><strong>Perfect weekender. <\/strong>Holds a lot and is <em>comfortable <\/em>to carry. Easy to pack and get into with lots of pockets for organizing.<\/p>",
             "add-quotes": true,
             "stars": 4.9,
             "button-text": "Shop Now",
@@ -433,7 +433,7 @@
           "type": "review",
           "settings": {
             "name": "Laura B.",
-            "review": "<p><strong>Perfect backpack! <\/strong>I really like this bag. It is very comfortable and I can put all I want in it with all the space! So cool it was made with 27 recycled bottles!!<\/p>",
+            "review": "<p><strong>Perfect backpack! <\/strong>I really like this bag. It is <em>very comfortable <\/em>and I can put all I want in it with all the space! So cool it was made with 27 recycled bottles!!<\/p>",
             "add-quotes": true,
             "stars": 4.9,
             "button-text": "Shop Now",
@@ -513,9 +513,7 @@
         "featured-collection": "new-arrivals",
         "collection-limit": 6,
         "show-view-all": false,
-        "product_list": [
-
-        ],
+        "product_list": [],
         "columns": "3"
       }
     },
@@ -544,9 +542,7 @@
         "featured-collection": "summer-arrivals",
         "collection-limit": 6,
         "show-view-all": false,
-        "product_list": [
-
-        ],
+        "product_list": [],
         "columns": "3"
       }
     },

@@ -16,7 +16,34 @@
         endif
     -%}
 </div>
+
 <div class="reviews__slide-content">
+        
+    <div class="review-slide__CTA">
+        <div class="button">
+            {%- if block.settings.pictured-product != blank -%}
+                <span>
+                    {%- assign product = all_products[block.settings.pictured-product] -%}
+                    Shop <a href="{{ product.url }}" tabindex="-1">
+                        {%- if block.settings.pictured-product-title != blank -%}
+                            {{- block.settings.pictured-product-title | escape -}}
+                        {%- else -%}
+                            {{- product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape -}}
+                        {%- endif -%}
+                    </a>,
+                </span>
+                <span class="review-slide__pictured-price">
+                {%- if product.compare_at_price > product.price -%}
+                    <span class="sr-only">Original price</span>
+                    <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
+                {%- endif -%}
+                <span class="sr-only">Current price</span>
+                {{ product.price | money_without_trailing_zeros }}
+                </span>
+            {%- endif -%}
+        </div>
+    </div>
+
     <div class="review-slide__header">
         {%- if block.settings.pictured-product != blank -%}
         <div class="review-slide__pictured">
@@ -47,9 +74,10 @@
     <div class="review-slide__main">
         <div class="review-slide__review{% if block.settings.add-quotes %} review-slide__review--quotes{% endif %}">
             <p>
-                
-                <blockquote style="margin:0;"><span aria-hidden="true">“</span>{{ block.settings.review | strip_html }}<span aria-hidden="true">”</span></blockquote>
-                
+                <blockquote class="desktop"><span aria-hidden="true">“</span>{{ block.settings.review | strip_html }}<span aria-hidden="true">”</span></blockquote>
+            </p>
+            <p>
+                <blockquote class="mobile"><span aria-hidden="true">“</span>{{ block.settings.review }}<span aria-hidden="true">”</span></blockquote>
             </p>
         </div>
         {%- if block.settings.name != blank -%}
