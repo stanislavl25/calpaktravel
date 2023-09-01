@@ -569,12 +569,12 @@
           "type": "promo",
           "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
+            "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
-            "link": "shopify:\/\/collections\/back-to-school",
-            "title": "Code: BACKTOIT for 10% OFF!",
-            "text": "<p>Select items<\/p>",
+            "banner-mobile": "shopify:\/\/shop_images\/Frame_2_5.jpg",
+            "link": "",
+            "title": "It's a Flash Sale Live Event!",
+            "text": "<p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=xqx3dztZqBay2RZiH4jb\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=xqx3dztZqBay2RZiH4jb\">ADD TO CALENDAR<\/a><\/p>",
             "show-for-collections": [
               "all",
               "best-sellers",
