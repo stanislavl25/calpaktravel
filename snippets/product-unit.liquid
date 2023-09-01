@@ -298,14 +298,13 @@
 
     <div class="product-unit__colors--quickadd"></div>
 
-  {% comment %}
+
     {%- if finalSale != false and add_to_cart == true-%}
       <div class="product-label product-label--final {% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
           {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
           <strong>This item is Final Sale</strong>
       </div>
     {%- endif -%}
-  {% endcomment %}
 
     <div class="product-unit__main-content">
     <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
