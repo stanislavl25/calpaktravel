@@ -102,7 +102,7 @@
 }
 .product-grid--gap .product-unit__wishlist .wishlist__button {
     position: absolute;
-    right: 1px;
+    right: 5px;
     width: 18px;
     height: 18px;
     top: 39px;
@@ -226,7 +226,7 @@
 }
 
 .product-unit__colors--all .round-icon--next {
-    right: -1%;
+    right: 0;
 }
 
 .slider__wrapper--start > .product-slider__header .slider__control--prev,
