@@ -9,7 +9,7 @@
         </span>
         <ul style="list-style: none" class="slider slider-nav content-slider__nav" data-nav-for=".content-slider--{{ section.id }} .content-slider__main">
             {%- for block in section.blocks -%}
-            <li class="{% if forloop.first %} slide--selected{% endif %} content-slider__nav-slide slide" ><button {% if forloop.first %} aria-current="true"{% endif %}>{{- block.settings.title | escape -}}</button></li>
+            <li class="{% if forloop.first %} slide--selected{% endif %} content-slider__nav-slide slide" {% if forloop.first %} aria-current="true"{% endif %}>{{- block.settings.title | escape -}}</li>
             {%- endfor -%}
         </ul>
     </div>
