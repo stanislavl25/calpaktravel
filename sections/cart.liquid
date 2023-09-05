@@ -293,7 +293,7 @@
     </div>
 
     <div class="cart__footer">
-      {% if section.settings.courtesy-banner %}
+      {% if settings.show-courtesy-banner %}
         <div class="cart__courtesy-banner hide-mobile">
           <img src="{{ 'courtesy-banner-logo.png' | asset_url }}" alt="Courtesy banner logo">
           <div class="cart__courtesy-banner-text">
@@ -314,7 +314,7 @@
           const delayed_checkout_buttons = '{{ content_for_additional_checkout_buttons }}';
         </script>
       </div>
-      {% if section.settings.courtesy-banner %}
+      {% if settings.show-courtesy-banner %}
         <div class="cart__courtesy-banner hide-desktop">
           <div class="cart__courtesy-banner-text">
             <p class="cart__courtesy-banner-text-p">One Courtesy Exchange with Free Shipping!*</p>
