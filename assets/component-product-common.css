@@ -60,6 +60,10 @@
     margin-bottom: 5px;
 }
 
+.template-index .slider .product-unit__image-wrapper~.product-label {
+    display: none;
+}
+
 .product-unit__wishlist,
 .product-unit__colors,
 .quick-view__link--circle {

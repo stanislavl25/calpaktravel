@@ -23,7 +23,7 @@
     
     .header__nav--full {
         transform: translateY(-100%);
-        background: var(--yellow);x'x';
+        background: var(--yellow)x'x';
         opacity: 0;
         transition: background 0.3s;
         /* transition: opacity 0.3s, transform 0.3s; */
