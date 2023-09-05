@@ -42,6 +42,9 @@
         transform: none;
         opacity: 1;
     }
+    [data-menu="shop"] .header__nav--full {
+        background: var(--yellow);
+    }
 
     [data-menu="discover"] .header__nav--full {
         background: #fff;
