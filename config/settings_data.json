@@ -33,10 +33,10 @@
     "mobile-badge-placement": "top",
     "badge_display": "collection",
     "select_collection": [
-      "labor-day-early-access-collection"
+
     ],
-    "sale-badge-tag": "laborday",
-    "sale-badge-text": "Early Access Labor Day",
+    "sale-badge-tag": "",
+    "sale-badge-text": "Flash Sale\/Limited Time - Compakt Duo",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": false,
     "sale-badge-tag-bundle": "",
