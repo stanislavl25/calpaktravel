@@ -35,7 +35,7 @@
     "select_collection": [
 
     ],
-    "sale-badge-tag": "postcm",
+    "sale-badge-tag": "postcm-sale",
     "sale-badge-text": "Limited Time",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": false,
