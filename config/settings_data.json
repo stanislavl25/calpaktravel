@@ -1018,9 +1018,9 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": false,
-          "countdown-show": "48",
-          "countdown-to": "September 7, 2023 6:00pm"
+          "countdown-active": true,
+          "countdown-show": "always",
+          "countdown-to": "September 5, 2023 6:00pm"
         }
       }
     },
