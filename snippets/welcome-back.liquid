@@ -466,7 +466,11 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        initExperiment();
+        endrockExperiment('7uVKhso1Rc-GbZ6oUPJHxA').then(variant => {
+            if(variant === '1'){
+                initExperiment();
+            }   
+        });
     });
 
 </script>
