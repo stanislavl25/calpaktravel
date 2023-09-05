@@ -91,7 +91,7 @@
             "settings": {
               "title": "Shop: Featured: Best Sellers",
               "submenu-number": 1,
-              "collection": "sale",
+              "collection": "best-sellers",
               "block-title": "Explore Our Best Sellers"
             }
           },
