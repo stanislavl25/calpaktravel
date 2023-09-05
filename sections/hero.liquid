@@ -52,11 +52,6 @@
           {%- if block.settings.description != blank -%}
             <div class="hero__block-description">
               {{- block.settings.description | replace: '[name]', customer.first_name -}}
-              
-              {%- if block.settings.promo-terms-text != blank -%}
-                <p><a class="promo-link" href="{{ block.settings.promo-terms-link }}" title="Promotion Terms">{{- block.settings.promo-terms-text | escape -}}</a></p>
-              {%- endif -%}
-
             </div>
           {%- endif -%}
 
@@ -260,16 +255,6 @@
                         "id": "description",
                         "label": "Description",
                         "info": "Use [name] to show customer name, when available"
-                    },
-                    {
-                        "type": "url",
-                        "id": "promo-terms-link",
-                        "label": "Promotion Terms Link"
-                    },
-                    {
-                        "type": "text",
-                        "id": "promo-terms-text",
-                        "label": "Promotion Terms Text"
                     },
                     {
                         "type": "url",
