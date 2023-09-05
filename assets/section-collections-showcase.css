@@ -79,6 +79,9 @@
         font-size: 20px;
         white-space: nowrap;
     }
+    .collection-showcase__products .product-label--final span {
+        display: none;
+    }
 }
 
 @media (max-width: 410px) {

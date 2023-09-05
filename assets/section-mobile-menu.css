@@ -145,6 +145,17 @@
     height: 100%;
 }
 
+#discover__mobile_tabpanel .slide-menu__container .slide-menu:first-child {
+    gap: 10px;
+    padding-top: 10px;
+}
+
+#discover__mobile_tabpanel .slide-menu__container .slide-menu:first-child .slide-menu-item > a {
+    border: 1px solid;
+    border-radius: 9px;
+    padding: 0 5px;
+}
+
 .slide-menu .slide-menu {
     position: absolute;
     display: flex;

@@ -524,10 +524,6 @@
     justify-content: space-between;
 }
 
-.sale.hot-deals-banner-wrapper-sale .tabs__content .product-unit__image-wrapper~.product-label {
-    display: none;
-}
-
 .sale.hot-deals-banner-wrapper .tabs__content .product-unit .product-unit__wishlist .wishlist__button,
 .sale.hot-deals-banner-wrapper-sale .tabs__content .product-unit .product-unit__wishlist .wishlist__button {
     top: 40px;
