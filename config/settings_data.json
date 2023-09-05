@@ -8,7 +8,7 @@
     "free-shipping": 75,
     "show-cart-gamification": false,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
-    "final-sale-text": false,
+    "final-sale-text": true,
     "product-disclaimer": true,
     "product-disclaimer-no-final": true,
     "sale-enabled": true,
