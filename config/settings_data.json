@@ -7,7 +7,7 @@
     "new-arrivals": "new-arrivals",
     "free-shipping": 75,
     "show-cart-gamification": false,
-    "show-courtesy-banner": false,
+    "show-courtesy-banner": true,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
     "product-disclaimer": true,
     "product-disclaimer-no-final": true,
