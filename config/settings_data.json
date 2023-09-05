@@ -725,6 +725,7 @@
         "blocks": {
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Shop Compakt Duo Flash Sale",
               "menu": "shop",
@@ -733,14 +734,13 @@
               "link": "shopify:\/\/collections\/sale",
               "media-title": "",
               "description": "",
-              "button-text": "Shop Labor Day Sale",
+              "button-text": "Compakt Duo Flash Sale",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
           },
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
