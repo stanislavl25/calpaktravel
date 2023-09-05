@@ -128,6 +128,24 @@
     font-size: 15px;
   }
 
+  .live-shopping-events .button-tri-left, .live-shopping-events  .button-tri-right {
+    width: 25px;
+    height: 25px;
+    margin-top: -12px;
+  }
+
+  .live-shopping-events .button-tri-left:before, .live-shopping-events .button-tri-right:before {
+    border-width: 3px 6px;
+  }
+
+  .live-shopping-events .button-tri-left:before {
+    margin: -3px 0 0 -10px;
+  }
+
+  .live-shopping-events .button-tri-right:before {
+    margin: -3px 0 0 -3px;
+  }
+
 
 }
 
