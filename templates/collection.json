@@ -566,7 +566,6 @@
       "blocks": {
         "b401a37d-55aa-49b7-b987-45893897281b": {
           "type": "promo",
-          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
             "video": "",
