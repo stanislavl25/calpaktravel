@@ -7,16 +7,8 @@
           "type": "collection",
           "settings": {
             "collection": "sale",
-            "title": "Compakt Duo Flash Sale",
+            "title": "Compakt Duo",
             "image": "shopify:\/\/shop_images\/COMPAKT-DUO-PALM-LIFESTYLE1_f9fc065a-b2ed-4139-95f2-545b53390223.jpg"
-          }
-        },
-        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
-          "type": "collection",
-          "settings": {
-            "collection": "sale",
-            "title": "",
-            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
           }
         },
         "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
@@ -25,6 +17,14 @@
             "collection": "best-sellers",
             "title": "",
             "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-4.jpg"
+          }
+        },
+        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
           }
         },
         "69fb0fb6-9c79-400a-bb23-2f808700224d": {
@@ -110,8 +110,8 @@
       },
       "block_order": [
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
-        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
+        "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
         "69fb0fb6-9c79-400a-bb23-2f808700224d",
         "362872c0-7216-4058-b7dd-9ea455af3c06",
         "4111bd46-fc19-4115-8246-79ab089db6c3",
