@@ -19,10 +19,10 @@
     "extra-sale-text-pdp": "New - %% off",
     "extra-sale-text": "New - %% off",
     "flash-sale-enabled": true,
-    "flash-sale-tag": "postcm-sale",
+    "flash-sale-tag": "flash-sale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "September 5, 2023 12pm",
-    "flash-sale-ends": "September 5, 2023 6pm",
+    "flash-sale-starts": "September 7, 2023 12pm",
+    "flash-sale-ends": "September 7, 2023 6pm",
     "flash-sale-countdown": "24",
     "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
@@ -35,7 +35,7 @@
     "select_collection": [
 
     ],
-    "sale-badge-tag": "postcm-sale",
+    "sale-badge-tag": "flash-sale",
     "sale-badge-text": "LIMITED TIME",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": false,
