@@ -65,7 +65,7 @@
 }
 
 .live-shopping-events .event-title {
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.28;
   letter-spacing: -0.02em;
   margin-top: 10px;
@@ -73,7 +73,7 @@
 
 .live-shopping-events .event-date,
 .live-shopping-events .event-time {
-  margin-top: 8px;
+  margin: 8px 0;
   display: flex;
   gap: 5px;
   font-size: 16px;
@@ -86,9 +86,14 @@
   width: 160px;
 }
 
+.live-shopping-events .slider__control {
+  transform: none !important;
+}
+
 @media (max-width: 900px) {
   .live-shopping-events .event-item {
     flex: 0 0 50%;
+    padding-right: 8px;
   }
 
   .live-shopping-events {
@@ -117,6 +122,13 @@
   .live-shopping-events .event-title {
     font-size: 22px;
   }
+
+  .live-shopping-events .event-date,
+  .live-shopping-events .event-time {
+    font-size: 15px;
+  }
+
+
 }
 
 @media only screen and (max-width: 768px) {
