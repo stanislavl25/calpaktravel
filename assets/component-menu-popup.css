@@ -17,11 +17,11 @@
  } */
 
 
-@media (min-width: 1728px) {
+/* @media (min-width: 1728px) {
     .menu-popup.menu-popup--shop {
         height: auto;
     }
-}
+} */
 
 [data-menu="discover"] [data-target="discover"]::before,
 [data-menu="shop"] [data-target="shop"]::before {

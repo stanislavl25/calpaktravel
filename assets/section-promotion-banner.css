@@ -26,6 +26,10 @@
     text-align: center;
 }
 
+.product-recommendations .product-grid .hot-deal-badge.product-label--active {
+    display: none !important;
+}
+
 .promotion-banner__content {
     font-size: 36px;
     letter-spacing: -0.02em;

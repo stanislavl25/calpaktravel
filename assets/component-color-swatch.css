@@ -162,6 +162,21 @@ a.color-swatch--active::after {
     z-index: 3;
 }
 
+.product-recommendations .product-unit__swatches-container:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    border-radius: 20px;
+    background: #f7f7f7;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+
 .extra-colors {
     text-decoration: underline;
     font-size: 14px;

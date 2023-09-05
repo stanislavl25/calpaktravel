@@ -870,6 +870,10 @@ border-radius: 8px;
   height: 42px;
 }
 
+#dynamic-checkout-cart {
+  min-height: fit-content !important;
+}
+
 #dynamic-checkout-cart .shopify-cleanslate [data-shopify-buttoncontainer] {
   margin: 0 !important;
   gap: var(--gap);
