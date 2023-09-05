@@ -5,6 +5,7 @@
       "blocks": {
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "sale",
             "title": "Flash Sale",
