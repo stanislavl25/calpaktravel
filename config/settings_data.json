@@ -100,13 +100,13 @@
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "Up to 60% OFF",
+              "button-url": "",
+              "block-title": "Compakt Duo Flash Sale ENDS SOON",
               "description": "",
               "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/AO2A7970-2-3.jpg",
+              "image": "shopify:\/\/shop_images\/IMG_0841-8.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
