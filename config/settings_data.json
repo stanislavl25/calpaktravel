@@ -728,14 +728,14 @@
             "type": "media-block",
             "disabled": true,
             "settings": {
-              "title": "Shop: Shop Labor Day Sale",
+              "title": "Shop: Compakt Duo Flash Sale",
               "menu": "shop",
               "submenu-number": 0,
               "image": "shopify:\/\/shop_images\/AO2A7970-2-3.jpg",
-              "link": "shopify:\/\/collections\/sale",
-              "media-title": "",
+              "link": "",
+              "media-title": "Compakt Duo Flash Sale",
               "description": "",
-              "button-text": "Shop Labor Day Sale",
+              "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
