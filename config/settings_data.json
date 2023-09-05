@@ -932,7 +932,6 @@
         "blocks": {
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
-            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
