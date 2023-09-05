@@ -596,6 +596,7 @@
         },
         "af1d418f-75b0-469f-93ce-8fcba52a4cd7": {
           "type": "promo",
+          "disabled": true,
           "settings": {
             "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
             "video": "",
