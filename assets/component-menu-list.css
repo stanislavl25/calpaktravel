@@ -24,7 +24,7 @@
 }
 .menu-popup[data-id=discover] .menu-item > a:hover {
     border: 1px solid #000;
-
+    background: #f7f177;
 }
 
 .menu-item--active > a,

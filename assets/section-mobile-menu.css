@@ -347,6 +347,7 @@
 .slide-menu__edits-heading {
     align-self: flex-start;
     margin-bottom: -10px;
+    font-size: 16px;
 }
 
 .slide-menu__edit-image {
