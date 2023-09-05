@@ -134,8 +134,8 @@
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
           "settings": {
-            "title": "Compakt Duo Flash Sale",
-            "description": "<p>LIMITED TIME: 50% OFF<\/p>",
+            "title": "LIMITED TIME: 50% OFF",
+            "description": "<p>Compakt Duo Flash Sale is happening now!<\/p>",
             "promo-terms-link": "",
             "promo-terms-text": "",
             "main-link": "",
@@ -184,7 +184,6 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
-      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 105,
@@ -252,6 +251,7 @@
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 85,
