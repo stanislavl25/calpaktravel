@@ -594,6 +594,36 @@
             "row-mob": 1
           }
         },
+        "af1d418f-75b0-469f-93ce-8fcba52a4cd7": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/Frame_2_5.jpg",
+            "link": "",
+            "title": "Compakt Duo Flash Sale ENDS SOON",
+            "text": "",
+            "show-for-collections": [
+              "all",
+              "best-sellers",
+              "in-stock-ready-to-deliver",
+              "luggage",
+              "carry-on-luggage",
+              "bags",
+              "makeup-bags",
+              "organizers",
+              "accessories"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 1,
+            "column": 1,
+            "row-mob": 1
+          }
+        },
         "64e7da40-e05d-412d-809b-024b8aa13efb": {
           "type": "promo",
           "disabled": true,
@@ -1541,6 +1571,7 @@
       },
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
+        "af1d418f-75b0-469f-93ce-8fcba52a4cd7",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
