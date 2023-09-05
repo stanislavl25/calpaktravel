@@ -160,7 +160,6 @@
         },
         "645f5714-be29-44a4-9a15-aab469ecb101": {
           "type": "filter",
-          "disabled": true,
           "settings": {
             "heading": ". . . Back to School",
             "title": "Back to School",
@@ -569,12 +568,12 @@
           "type": "promo",
           "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
+            "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/Frame_2_5.jpg",
-            "link": "",
-            "title": "It's a Flash Sale Live Event!",
-            "text": "<p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=xqx3dztZqBay2RZiH4jb\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=xqx3dztZqBay2RZiH4jb\">ADD TO CALENDAR<\/a><\/p>",
+            "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
+            "link": "shopify:\/\/collections\/back-to-school",
+            "title": "Code: BACKTOIT for 10% OFF!",
+            "text": "<p>Select items<\/p>",
             "show-for-collections": [
               "all",
               "best-sellers",
@@ -1009,7 +1008,6 @@
         },
         "004c300c-cbfd-42d4-b36d-d32f6356e801": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1034,7 +1032,6 @@
         },
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1051,7 +1048,6 @@
         },
         "d069cb25-8ad8-48ef-baef-185bfbd99234": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1076,7 +1072,6 @@
         },
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1101,7 +1096,6 @@
         },
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1118,7 +1112,6 @@
         },
         "095699f0-711f-4640-a656-2b4741be09b6": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1143,7 +1136,6 @@
         },
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
           "type": "modular-section",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1172,7 +1164,6 @@
         },
         "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1197,7 +1188,6 @@
         },
         "ecee2052-9cc8-4273-af8e-35f65453ef8b": {
           "type": "curalate-gallery",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1212,7 +1202,6 @@
         },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1237,7 +1226,6 @@
         },
         "8896a19e-17ab-456f-9fdf-a352ee417a57": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1262,7 +1250,6 @@
         },
         "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81": {
           "type": "curalate-gallery",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1277,7 +1264,6 @@
         },
         "050aff0f-d374-422b-9637-2e44b6afb709": {
           "type": "static",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1294,7 +1280,6 @@
         },
         "8cac41f8-f309-41e1-a432-7669e4fbdc23": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1319,7 +1304,6 @@
         },
         "7800b009-d00e-429b-874b-48f584b59c5b": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1345,7 +1329,6 @@
         },
         "f4023f5b-a395-4272-8ef7-b5ab9ed77348": {
           "type": "modular-section",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1373,7 +1356,6 @@
         },
         "cf5b65fb-cea3-46e7-9866-2e2c4464c75b": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1398,7 +1380,6 @@
         },
         "42852222-c14c-4d5c-a974-bdecd91dc4e0": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1487,7 +1468,6 @@
         },
         "76e8e1f9-787b-4c9f-a539-538966f41ebe": {
           "type": "hot-deals-banner-school",
-          "disabled": true,
           "settings": {
             "display": "both",
             "collection_list": [
