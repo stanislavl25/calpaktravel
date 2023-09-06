@@ -80,6 +80,16 @@
         "id": "save-for-later-img",
         "label": "Show product image in the notification",
         "default": true
+      },
+      {
+        "type": "header",
+        "content": "Courtesy banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "courtesy-banner",
+        "label": "Display courtesy banner",
+        "default": false
       }
     ]
   },
