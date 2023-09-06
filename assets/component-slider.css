@@ -153,7 +153,7 @@
 
 .slider__wrapper--start > .slider__control--prev,
 .slider__wrapper--end > .slider__control--next {
-    opacity: 0.3;
+    opacity: 0;
     pointer-events: none;
 }
 
@@ -232,7 +232,7 @@
         border-top: none;
         border-left: 1px dashed #AEAEAE;
     }
-    
+
     .slider--vertical-on-desktop.slider--scrollbar::-webkit-scrollbar-thumb {
         height: 1px;
         width: 1px;
@@ -285,12 +285,12 @@
         height: 10px;
         border-bottom: 1px dashed #AEAEAE;
     }
-    
+
     .slider--mobile-scrollbar::-webkit-scrollbar-thumb {
         border-bottom: 1px solid #000;
         height: 10px;
         background: transparent;
-        margin-top: -2px;    
+        margin-top: -2px;
     }
 }
 
@@ -325,7 +325,7 @@
             --scroll-pos: 0%;
             position: relative;
         }
-        
+
         .slider__wrapper--nav {
             padding-bottom: 0;
         }
@@ -377,7 +377,7 @@
             all: initial !important;
             background: #7c7c7c !important;
         }
-        
+
         *::-webkit-scrollbar-button { all: initial !important; }
         *::-webkit-scrollbar-track { all: initial !important; }
         *::-webkit-scrollbar-track-piece { all: initial !important; }
