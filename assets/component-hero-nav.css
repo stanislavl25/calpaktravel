@@ -1,4 +1,7 @@
 .nav-hero__nav {
+    display: block;
+}
+.nav-hero__nav ul {
     padding: var(--gap);
     background: rgba(255, 255, 255, 0.75);
     gap: var(--gap);
@@ -59,7 +62,7 @@
 }
 
 @media (max-width: 900px) {
-    .nav-hero__nav {
+    .nav-hero__nav ul {
         flex-direction: row;
         transform: none;
         bottom: 0;

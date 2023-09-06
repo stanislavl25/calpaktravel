@@ -5,10 +5,11 @@
       "blocks": {
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
           "type": "collection",
+          "disabled": true,
           "settings": {
             "collection": "sale",
-            "title": "Labor Day Sale",
-            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
+            "title": "Flash Sale",
+            "image": "shopify:\/\/shop_images\/COMPAKT-DUO-PALM-LIFESTYLE1_f9fc065a-b2ed-4139-95f2-545b53390223.jpg"
           }
         },
         "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
@@ -21,11 +22,34 @@
         },
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "sale",
             "title": "",
-            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
+            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
+          }
+        },
+        "69fb0fb6-9c79-400a-bb23-2f808700224d": {
+          "type": "collection",
+          "settings": {
+            "collection": "bags",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0512_1-4.jpg"
+          }
+        },
+        "362872c0-7216-4058-b7dd-9ea455af3c06": {
+          "type": "collection",
+          "settings": {
+            "collection": "duffel",
+            "title": "Duffels",
+            "image": "shopify:\/\/shop_images\/CALPACK_HOLIDAY2035-3.jpg"
+          }
+        },
+        "4111bd46-fc19-4115-8246-79ab089db6c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "title": "Backpacks",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0042A-3_4f093335-fb3b-4ab0-8ec8-1dde29e51149.jpg"
           }
         },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
@@ -52,12 +76,36 @@
             "image": "shopify:\/\/shop_images\/Calpak_Royal_woods_20249-4_1.jpg"
           }
         },
-        "69fb0fb6-9c79-400a-bb23-2f808700224d": {
+        "2b8a58eb-0009-4905-980e-ebdf5174e34a": {
           "type": "collection",
           "settings": {
-            "collection": "bags",
-            "title": "",
-            "image": "shopify:\/\/shop_images\/Shot_7.jpg"
+            "collection": "cosmetics-cases",
+            "title": "Makeup Bags",
+            "image": "shopify:\/\/shop_images\/Calpak-KayaSummer1229.jpg"
+          }
+        },
+        "f6463f35-c9f6-478e-98df-9f3118414909": {
+          "type": "collection",
+          "settings": {
+            "collection": "packing-cubes",
+            "title": "Packing Cubes",
+            "image": "shopify:\/\/shop_images\/210608_CALPAK_LaptopTote_27115_Hi-4.jpg"
+          }
+        },
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913": {
+          "type": "collection",
+          "settings": {
+            "collection": "organizers",
+            "title": "Organizers",
+            "image": "shopify:\/\/shop_images\/Astrology-TechPouch-2.jpg"
+          }
+        },
+        "32e50f94-5f97-4a2d-a987-14288f76d944": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": "Accessories",
+            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0215-3.jpg"
           }
         }
       },
@@ -65,10 +113,16 @@
         "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
+        "69fb0fb6-9c79-400a-bb23-2f808700224d",
+        "362872c0-7216-4058-b7dd-9ea455af3c06",
+        "4111bd46-fc19-4115-8246-79ab089db6c3",
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
-        "69fb0fb6-9c79-400a-bb23-2f808700224d"
+        "2b8a58eb-0009-4905-980e-ebdf5174e34a",
+        "f6463f35-c9f6-478e-98df-9f3118414909",
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913",
+        "32e50f94-5f97-4a2d-a987-14288f76d944"
       ],
       "settings": {
         "display-menu": true
@@ -79,10 +133,11 @@
       "blocks": {
         "6b6690fe-fe86-46f9-be16-304c72f808d2": {
           "type": "text-block",
+          "disabled": true,
           "settings": {
-            "title": "Labor Day Sale",
-            "description": "<p>Wave goodbye to summer with up to 60% off best sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
-            "main-link": "shopify:\/\/collections\/sale",
+            "title": "LIMITED TIME: 50% OFF",
+            "description": "<p>Compakt Duo Flash Sale is happening now!<\/p>",
+            "main-link": "",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
@@ -94,10 +149,11 @@
         },
         "43bc22b6-f802-47c3-87c2-6f437780d388": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame-2_f02bf224-abef-4f7d-89a7-ae56af60a550.gif",
+            "image": "shopify:\/\/shop_images\/alis145-071-3.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/sale",
+            "main-link": "",
             "title": "",
             "description": "",
             "button-text": "",
@@ -109,11 +165,11 @@
         },
         "dfe207be-4840-46d8-ad62-ad355866c677": {
           "type": "media-block",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_3759_3.jpg",
-            "image-mobile": "shopify:\/\/shop_images\/Frame_3_1_52330812-fd0d-4df6-b8ce-ec2facdd3c0e.jpg",
+            "image": "shopify:\/\/shop_images\/alis145-075-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/sale",
+            "main-link": "",
             "title": "",
             "description": "",
             "button-text": "",
@@ -129,9 +185,10 @@
         "43bc22b6-f802-47c3-87c2-6f437780d388",
         "dfe207be-4840-46d8-ad62-ad355866c677"
       ],
+      "disabled": true,
       "settings": {
         "hero-height": "limited",
-        "height-limit": 85,
+        "height-limit": 105,
         "enable-sticky-promo": false,
         "promo-text": "",
         "promo-link": "",
@@ -143,7 +200,6 @@
       "blocks": {
         "ee068b0d-f69b-4136-8fef-be3ec21f588f": {
           "type": "text-block",
-          "disabled": true,
           "settings": {
             "title": "Everyone's Favorite Duffel",
             "description": "<p>9 pockets, 1 shoe compartment, endless possibilities. <\/p>",
@@ -159,7 +215,6 @@
         },
         "05c1be71-e898-478e-adad-1b2271f72d07": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
             "image-mobile": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234898_1-3_4578c06b-a1ec-46dd-bddf-9484237a2f50.jpg",
@@ -176,7 +231,6 @@
         },
         "488d30f2-0c2e-491b-88cc-600019715197": {
           "type": "media-block",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
             "image-mobile": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0543-5_3426481d-af6b-4d0e-ae73-465c0a5ea922.jpg",
@@ -197,10 +251,9 @@
         "05c1be71-e898-478e-adad-1b2271f72d07",
         "488d30f2-0c2e-491b-88cc-600019715197"
       ],
-      "disabled": true,
       "settings": {
         "hero-height": "limited",
-        "height-limit": 105,
+        "height-limit": 85,
         "enable-sticky-promo": false,
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",

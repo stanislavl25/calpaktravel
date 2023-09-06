@@ -91,6 +91,18 @@
     max-height: 100%;
 }
 
+.content-section__title {
+    margin-bottom: var(--gap);
+    font-size: 18px;
+}
+
+.search__collections-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    padding-top: var(--gap);
+}
+
 .search__collections-buttons ul {
     display: flex;
     flex-wrap: wrap;
@@ -224,6 +236,10 @@
     font-size: 14px;
     top: 24px;
     right: 24px;
+}
+
+.search-popup__content .product-label--final {
+    display: none;
 }
 
 /* @media (max-width: 1727px) {

@@ -1561,21 +1561,36 @@ window.addEventListener("load", () => {
 /* quickadd code from google optimize - product swatches - product unit */
 document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('.product-grid')) { // !!!
+      const productGrid = document.querySelector('.product-grid');
         //quick add function
         const loadQuickAdd = () => {
             document.querySelectorAll('.product-grid .quick-view__link').forEach(link => link.classList.add('hide'));
             document.querySelector('.product-grid').classList.add('product-grid--gap');
             document.querySelectorAll('.product-grid .product-unit').forEach(product => {
               product.classList.add('product-unit--quickadd');
-              if (product.classList.contains('product-unit--loaded')) {
-                const buttonsload = product.querySelector('product-unit__button')
-                buttonsload.classList.add('product-unit__button--active');
-              }
             });
             document.querySelectorAll('.product-grid .product-unit__colors').forEach(colors => {
                 colors.classList.add('product-unit__colors--all', 'slide');
                 colors.parentNode.parentNode.querySelector('.product-unit__colors--quickadd').append(colors)
             });
+            const productUnits = productGrid.querySelectorAll('.product-unit');
+
+          productUnits.forEach(productUnit => {
+            const colors = productUnit.querySelector('.product-unit__colors');
+
+            if (colors) {
+              // Find the quickadd colors container
+              const colorsQuickAdd = productUnit.querySelector('.product-unit__colors--quickadd');
+
+              if (colorsQuickAdd) {
+                if (!colorsQuickAdd.contains(colors)) {
+                  colors.classList.add('product-unit__colors--all', 'slide');
+                  
+                  colorsQuickAdd.appendChild(colors);
+                }
+              }
+            }
+            })
             document.querySelectorAll('.product-grid .product-unit__button').forEach(product => product.classList.add('product-unit__button--active'));
             document.querySelectorAll('.product-grid .product-unit__swatches').forEach(swatches => {
                 swatches.classList.add('slider');
@@ -1695,9 +1710,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('page:change', e => tryUpdateProcessTheProductUnits());
 
         // On section-blog-text-product-feature, match the height of the text block to the image
-        const matchTextHeight = window.getComputedStyle(document.querySelector('.shopify-section--blog-text-product-feature a.product-unit__image')).getPropertyValue('padding-top');
-        const textBlock = document.querySelector('.blog-text-product-feature__block-text');
-        textBlock.style.height = matchTextHeight;
+        const blogText = document.querySelectorAll('.shopify-section--blog-text-product-feature a.product-unit__image');
+
+        blogText.forEach((element) => {
+          const matchTextHeight = window.getComputedStyle(element).getPropertyValue('padding-top');
+          const textBlocks = document.querySelectorAll('.blog-text-product-feature__block-text');
+
+          textBlocks.forEach((textBlock) => {
+            textBlock.style.height = matchTextHeight;
+          });
+        });
 });
 const getAllElementAtributes = (element) => {
     return element.getAttributeNames().map(attrName => ({key: attrName, value: element.getAttribute(attrName)}));
@@ -3882,3 +3904,18 @@ const recreateCRL8 = () => {
         })
     })
 };
+const btnWishlistfloat = document.querySelector('.pdp__floating-submit-inner .pdp__submit-row .button--pdp__wishlist');
+const mainWishlist = document.querySelector('.pdp__submit-container .pdp__submit .pdp__submit-row .button--pdp__wishlist')
+btnWishlistfloat.addEventListener('click', function() {
+  if(btnWishlistfloat.classList.contains('wishlist__button--added')) {
+    mainWishlist.setAttribute('title', 'Add to Wishlist');
+    mainWishlist.classList.remove('wishlist__button--added');
+    mainWishlist.classList.remove('wishlist__button--loading');
+  } else  {
+  
+    mainWishlist.setAttribute('title', 'Remove from Wishlist');
+    mainWishlist.classList.add('wishlist__button--added');
+    mainWishlist.classList.remove('wishlist__button--loading');
+  }
+})
+

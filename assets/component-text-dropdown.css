@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 
-.text-dropdown__value span::after {
+.text-dropdown__value::after {
     position: absolute;
     right: 0;
     top: 50%;

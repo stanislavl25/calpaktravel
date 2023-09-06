@@ -55,7 +55,7 @@
         "02d90a6d-365c-41a9-882a-01b537080b44": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2_5d987003-ec9c-4096-ad25-b9a66c5c28f6.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3097.jpg",
             "title": "",
             "description": ""
           }
@@ -63,7 +63,7 @@
         "f52cb077-9f49-4945-b767-cdb96053aa44": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/3_ddf54acf-c93a-429c-b557-67cba4dcb524.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3309.jpg",
             "title": "",
             "description": ""
           }
@@ -116,7 +116,7 @@
         "f19cedf2-0874-4b19-a897-519e62908296": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/5_38454508-8b7b-4803-a3d5-603edeb7a7ef.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_1.jpg",
             "title": "",
             "description": ""
           }
@@ -124,7 +124,7 @@
         "3ccfdf9e-0ce9-469b-be0e-f3345904f242": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/4_cb05cc34-4f10-4dae-9ce4-2baac5bd6d04.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_1.jpg",
             "title": "",
             "description": ""
           }
@@ -177,7 +177,7 @@
         "921d6a16-3aba-48b0-9b89-8725d99d8036": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/6_ed8b0f07-bc9c-435d-83b4-1c1bb0601932.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_2.jpg",
             "title": "",
             "description": ""
           }
@@ -185,7 +185,7 @@
         "d5f66216-fe5c-4ddb-95df-a1621683b044": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/7_9da4c413-0857-4022-93ee-8c088a737eb2.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_2.jpg",
             "title": "",
             "description": ""
           }
@@ -198,24 +198,6 @@
       "settings": {
         "title": "",
         "gap": false
-      }
-    },
-    "b2df7196-7ecd-4de4-8dd7-184f82bb4c4c": {
-      "type": "section-blog-text-product-feature",
-      "blocks": {
-        "60858876-e295-471d-b82b-342ad18deef3": {
-          "type": "text",
-          "settings": {
-            "title": "Accessories for organization",
-            "text": "<p>CALPAK accessories help to level up your organization even more. Save money and bring lunch to work every day in our stylish Insulated Lunch Bag, and show your most prized tech possessions a little love with our Tech Organizers that control the cable chaos, plus our Padded Sleeves that keep your laptop bump and scratch free while you're on the move. <\/p>",
-            "background-color": "#eae9e1"
-          }
-        }
-      },
-      "block_order": [
-        "60858876-e295-471d-b82b-342ad18deef3"
-      ],
-      "settings": {
       }
     },
     "e25056e6-542c-48ea-b0ad-7d1e6c0dede1": {
@@ -233,24 +215,26 @@
             "product": "tech-organizer"
           }
         },
-        "6b3b1249-7d9c-4543-9ac4-ad8e9d8642a2": {
-          "type": "product",
-          "settings": {
-            "product": "tablet-tech-organizer"
-          }
-        },
         "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64": {
           "type": "product",
           "settings": {
             "product": "insulated-lunch-bag"
+          }
+        },
+        "c54a38fe-f4d2-4f71-a68a-014dc017bf11": {
+          "type": "text",
+          "settings": {
+            "title": "Accessories for organization",
+            "text": "<p>CALPAK accessories help to level up your organization even more. Save money and bring lunch to work every day in our stylish Insulated Lunch Bag, and show your most prized tech possessions a little love with our Tech Organizers that control the cable chaos, plus our Padded Sleeves that keep your laptop bump and scratch free while you're on the move. <\/p>",
+            "background-color": "#eae9e1"
           }
         }
       },
       "block_order": [
         "7485317e-1353-42ae-95c6-d8a8c4807fff",
         "5aa0441c-19e4-4d08-bdd2-0b49772e0cac",
-        "6b3b1249-7d9c-4543-9ac4-ad8e9d8642a2",
-        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64"
+        "ce8e0335-4bff-4bbd-94ea-f7b8c73cae64",
+        "c54a38fe-f4d2-4f71-a68a-014dc017bf11"
       ],
       "settings": {
       }
@@ -261,7 +245,7 @@
         "ff934816-2e53-429d-862a-b102158856c6": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/8_4297bb98-ca25-488e-8e80-fc31af540576.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3097_3.jpg",
             "title": "",
             "description": ""
           }
@@ -269,7 +253,7 @@
         "5aa5628c-7e5a-4f49-bf19-49f5a892223a": {
           "type": "link",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1_b8337746-9c5a-4c59-ab65-9545169c8a8d.jpg",
+            "image": "shopify:\/\/shop_images\/Rectangle_3309_3.jpg",
             "title": "",
             "description": ""
           }
@@ -294,7 +278,6 @@
     "ba569e2c-059b-40b0-b17b-2babab763755",
     "1a32fb16-2411-49b8-906c-8b6281813f8d",
     "e3136ce6-ca9e-48a7-bfa6-de605910b0d4",
-    "b2df7196-7ecd-4de4-8dd7-184f82bb4c4c",
     "e25056e6-542c-48ea-b0ad-7d1e6c0dede1",
     "e4d8018e-96ff-4f01-9ada-24e1a3abe220"
   ]

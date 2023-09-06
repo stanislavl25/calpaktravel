@@ -243,6 +243,11 @@
     "product-template": {
       "type": "product-template",
       "blocks": {
+        "ef919b9c-2309-4d2f-a855-59983014b88b": {
+          "type": "flash-sale",
+          "settings": {
+          }
+        },
         "38dd47f4-7ad6-4f58-9949-bd511635652e": {
           "type": "title",
           "settings": {
@@ -253,11 +258,6 @@
               "medium-clear-cosmetics-case",
               "tech-organizer"
             ]
-          }
-        },
-        "ef919b9c-2309-4d2f-a855-59983014b88b": {
-          "type": "flash-sale",
-          "settings": {
           }
         },
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1": {
@@ -315,7 +315,15 @@
             "collection-list": [
               "all"
             ],
-            "show-for-all": false
+            "show-for-all": false,
+            "exclude-list": [
+              "gift-card"
+            ]
+          }
+        },
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7": {
+          "type": "description",
+          "settings": {
           }
         },
         "48138d37-8473-4c57-adc6-882525675315": {
@@ -707,16 +715,11 @@
             "button-text": "Button link",
             "button-url": "#"
           }
-        },
-        "460a526f-69ed-4d68-89c4-1b9152dcadf7": {
-          "type": "description",
-          "settings": {
-          }
         }
       },
       "block_order": [
-        "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "ef919b9c-2309-4d2f-a855-59983014b88b",
+        "38dd47f4-7ad6-4f58-9949-bd511635652e",
         "310e7ecc-1a12-44ba-b98a-3ecf596eccd1",
         "3f584821-31db-42cb-941c-f61866a361a0",
         "db84d3cc-deea-45c6-a0ee-81ddf2509239",
@@ -724,6 +727,7 @@
         "de1468ed-2f65-4371-be8f-69be7e1dcec6",
         "355dabeb-9c30-46f5-9912-52a97ee1196e",
         "8c4ca839-12b1-4626-b0f8-93070d8350c1",
+        "460a526f-69ed-4d68-89c4-1b9152dcadf7",
         "48138d37-8473-4c57-adc6-882525675315",
         "97b58e16-1c05-46d6-a2e9-b83db6d82916",
         "a59119dd-3de7-40ba-8531-92996e1e14b0",
@@ -742,8 +746,7 @@
         "c3543abc-88ae-4b6d-ba65-6eb5a6e62023",
         "168a627e-cd95-40c0-865a-be60cd479810",
         "3ed10c2f-2e91-4254-9bec-9bc15805ea63",
-        "75a99ef6-7ca3-4335-bad4-dd2156d3efe8",
-        "460a526f-69ed-4d68-89c4-1b9152dcadf7"
+        "75a99ef6-7ca3-4335-bad4-dd2156d3efe8"
       ],
       "settings": {
         "hide-single-size": true,
@@ -774,6 +777,12 @@
         "collection_list": [
 
         ]
+      }
+    },
+    "1af003dc-82a6-479c-a559-6b4512365acb": {
+      "type": "product-recommendations",
+      "settings": {
+        "products_source": "related"
       }
     },
     "pdp-featured-collection": {
@@ -852,12 +861,6 @@
         "button-text": "",
         "button-link": ""
       }
-    },
-    "63572ada-ee3a-4a92-9763-bc823a735435": {
-      "type": "product-recommendations",
-      "settings": {
-        "products_source": "complementary"
-      }
     }
   },
   "order": [
@@ -869,9 +872,9 @@
     "product-template",
     "pdp-product-features",
     "4de958ad-7312-48b5-bf6e-957bddedfa79",
+    "1af003dc-82a6-479c-a559-6b4512365acb",
     "pdp-featured-collection",
     "167267170152804e97",
-    "9e2ed880-175f-4740-86df-747013cfd296",
-    "63572ada-ee3a-4a92-9763-bc823a735435"
+    "9e2ed880-175f-4740-86df-747013cfd296"
   ]
 }

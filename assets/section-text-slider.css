@@ -81,7 +81,6 @@
     }
 
     .text-slider__slide {
-        padding: 35px 25px;
         gap: 30px;
         justify-content: center;
     }

@@ -80,6 +80,16 @@
         "id": "save-for-later-img",
         "label": "Show product image in the notification",
         "default": true
+      },
+      {
+        "type": "header",
+        "content": "Courtesy banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "courtesy-banner",
+        "label": "Display courtesy banner",
+        "default": false
       }
     ]
   },
@@ -168,6 +178,15 @@
     "name": "Final Sale",
     "settings": [
       {
+        "type": "header",
+        "content": "Final sale"
+      },
+      {
+        "type": "checkbox",
+        "id": "final-sale-text",
+        "label": "Enable final sale text"
+      },
+      {
         "type": "color",
         "id": "final-sale-highlight-col",
         "label": "Final sale highlight",
@@ -187,7 +206,7 @@
       },
       {
         "type": "header",
-        "content": "No additional discount"
+        "content": "Eligible for additional discount"
       },
       {
         "type": "checkbox",

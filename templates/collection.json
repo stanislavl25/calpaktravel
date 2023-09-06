@@ -1,41 +1,5 @@
 {
   "sections": {
-    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c": {
-      "type": "promotion-banner",
-      "settings": {
-        "preload": true,
-        "background": "#f7f177",
-        "text-color": "#000000",
-        "bold-text-background": "#ffffff",
-        "hide": false,
-        "product_list": [
-
-        ],
-        "collection_list": [
-
-        ],
-        "section-id": "",
-        "title-above": "Limited Time",
-        "main-text": "<p>Up to 60% off best sellers in the Labor Day Sale <\/p>",
-        "mobile-title-above": "Limited Time",
-        "font_size_title_above": 16,
-        "mobile-main-text": "<p>Up to 60% off Labor Day Sale<\/p>",
-        "font_size_main_text": 16,
-        "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/sale",
-        "cta_text": "Shop Sale",
-        "cta_color": "#000000",
-        "cta_background": "#ffffff",
-        "cta_link_mobile": "cta",
-        "cta_url_mobile": "shopify:\/\/collections\/sale",
-        "cta_text_mobile": "Shop Sale",
-        "cta_color_mobile": "#000000",
-        "cta_background_mobile": "#ffffff",
-        "terms_text": "* Terms & Conditions",
-        "terms_text_mobile": "Terms and conditions apply",
-        "terms_url": "shopify:\/\/pages\/promotion-terms"
-      }
-    },
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e": {
       "type": "promotion-banner",
       "disabled": true,
@@ -53,24 +17,24 @@
         ],
         "section-id": "",
         "title-above": "Limited Time",
-        "main-text": "<p>Up to 60% off best sellers in the Labor Day Sale <\/p>",
-        "mobile-title-above": "",
+        "main-text": "<p>Compakt Duo Flash Sale<\/p>",
+        "mobile-title-above": "Limited Time",
         "font_size_title_above": 16,
-        "mobile-main-text": "",
+        "mobile-main-text": "<p>Compakt Duo Flash Sale<\/p>",
         "font_size_main_text": 16,
         "cta_link": "cta",
-        "cta_url": "shopify:\/\/collections\/sale",
-        "cta_text": "Shop Sale",
+        "cta_url": "",
+        "cta_text": "Shop Now",
         "cta_color": "#000000",
         "cta_background": "#ffffff",
-        "cta_link_mobile": "none",
+        "cta_link_mobile": "cta",
         "cta_url_mobile": "",
-        "cta_text_mobile": "",
+        "cta_text_mobile": "Shop Now",
         "cta_color_mobile": "#000000",
         "cta_background_mobile": "#ffffff",
-        "terms_text": "See Terms & Conditions",
+        "terms_text": "",
         "terms_text_mobile": "",
-        "terms_url": "shopify:\/\/pages\/promotion-terms"
+        "terms_url": ""
       }
     },
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c": {
@@ -111,6 +75,43 @@
         "cta_color_mobile": "#000000",
         "cta_background_mobile": "#ffffff",
         "terms_text": "See Terms & Conditions",
+        "terms_text_mobile": "Terms and conditions apply",
+        "terms_url": "shopify:\/\/pages\/promotion-terms"
+      }
+    },
+    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c": {
+      "type": "promotion-banner",
+      "disabled": true,
+      "settings": {
+        "preload": true,
+        "background": "#f7f177",
+        "text-color": "#000000",
+        "bold-text-background": "#ffffff",
+        "hide": false,
+        "product_list": [
+
+        ],
+        "collection_list": [
+
+        ],
+        "section-id": "",
+        "title-above": "LAST CHANCE",
+        "main-text": "<p>Don't miss out on FREE standard shipping on all orders!*<\/p>",
+        "mobile-title-above": "LAST CHANCE",
+        "font_size_title_above": 16,
+        "mobile-main-text": "<p>FREE standard shipping on all orders!*<\/p>",
+        "font_size_main_text": 16,
+        "cta_link": "cta",
+        "cta_url": "shopify:\/\/collections\/all",
+        "cta_text": "Shop Now",
+        "cta_color": "#000000",
+        "cta_background": "#ffffff",
+        "cta_link_mobile": "none",
+        "cta_url_mobile": "",
+        "cta_text_mobile": "Click here",
+        "cta_color_mobile": "#000000",
+        "cta_background_mobile": "#ffffff",
+        "terms_text": "* Terms & Conditions",
         "terms_text_mobile": "Terms and conditions apply",
         "terms_url": "shopify:\/\/pages\/promotion-terms"
       }
@@ -159,6 +160,7 @@
         },
         "645f5714-be29-44a4-9a15-aab469ecb101": {
           "type": "filter",
+          "disabled": true,
           "settings": {
             "heading": ". . . Back to School",
             "title": "Back to School",
@@ -567,12 +569,42 @@
           "type": "promo",
           "disabled": true,
           "settings": {
-            "banner": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20234831_1-4.jpg",
+            "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
             "video": "",
-            "banner-mobile": "shopify:\/\/shop_images\/7.11.CALPAK.BACKTOSCHOOL1391_1.jpg",
-            "link": "shopify:\/\/collections\/back-to-school",
-            "title": "Code: BACKTOIT for 10% OFF!",
-            "text": "<p>Select items<\/p><p><a href=\"\/collections\/back-to-school\" title=\"Back to School\">Shop Now<\/a><\/p>",
+            "banner-mobile": "shopify:\/\/shop_images\/Frame_2_5.jpg",
+            "link": "",
+            "title": "It's a Flash Sale Live Event!",
+            "text": "<p><a href=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=xqx3dztZqBay2RZiH4jb\" title=\"https:\/\/www.calpaktravel.com\/pages\/live-shopping?autoplayLiveShopping=xqx3dztZqBay2RZiH4jb\">ADD TO CALENDAR<\/a><\/p>",
+            "show-for-collections": [
+              "all",
+              "best-sellers",
+              "in-stock-ready-to-deliver",
+              "luggage",
+              "carry-on-luggage",
+              "bags",
+              "makeup-bags",
+              "organizers",
+              "accessories"
+            ],
+            "background": "#e4dfd5",
+            "text-color": "#000000",
+            "starts-on": "",
+            "ends-on": "",
+            "row": 1,
+            "column": 1,
+            "row-mob": 1
+          }
+        },
+        "af1d418f-75b0-469f-93ce-8fcba52a4cd7": {
+          "type": "promo",
+          "disabled": true,
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/Frame_1_4.jpg",
+            "video": "",
+            "banner-mobile": "shopify:\/\/shop_images\/Frame_2_5.jpg",
+            "link": "",
+            "title": "Compakt Duo Flash Sale ENDS SOON",
+            "text": "",
             "show-for-collections": [
               "all",
               "best-sellers",
@@ -749,8 +781,8 @@
               "kaya-mini-backpack",
               "kaya-laptop-backpack"
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3696-2-1.jpg",
-            "image_mobile": "shopify:\/\/shop_images\/Rectangle_3709.jpg"
+            "image": "shopify:\/\/shop_images\/Rectangle_3696-2.png",
+            "image_mobile": "shopify:\/\/shop_images\/Rectangle_3709.png"
           }
         },
         "5cc6dafd-9a03-497d-a746-581d39df58db": {
@@ -806,7 +838,7 @@
               "tablet-tech-organizer"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3704.png",
-            "image_mobile": "shopify:\/\/shop_images\/Rectangle_3711_1_f9c2eef3-9a8c-4f2c-845a-70d75adce809.jpg"
+            "image_mobile": "shopify:\/\/shop_images\/Rectangle_3711.png"
           }
         },
         "00502ff4-5f0b-4184-8f85-af5354461ebd": {
@@ -1007,6 +1039,7 @@
         },
         "004c300c-cbfd-42d4-b36d-d32f6356e801": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1031,6 +1064,7 @@
         },
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1047,6 +1081,7 @@
         },
         "d069cb25-8ad8-48ef-baef-185bfbd99234": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1071,6 +1106,7 @@
         },
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1095,6 +1131,7 @@
         },
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1111,6 +1148,7 @@
         },
         "095699f0-711f-4640-a656-2b4741be09b6": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1135,6 +1173,7 @@
         },
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
           "type": "modular-section",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1158,11 +1197,12 @@
               "tech-organizer",
               "luka-laptop-backpack"
             ],
-            "image_r": "shopify:\/\/shop_images\/TechOrganizer.gif"
+            "image_r": "shopify:\/\/shop_images\/TechOrganizer_1.gif"
           }
         },
         "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1187,6 +1227,7 @@
         },
         "ecee2052-9cc8-4273-af8e-35f65453ef8b": {
           "type": "curalate-gallery",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-school"
@@ -1201,6 +1242,7 @@
         },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1225,6 +1267,7 @@
         },
         "8896a19e-17ab-456f-9fdf-a352ee417a57": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1249,6 +1292,7 @@
         },
         "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81": {
           "type": "curalate-gallery",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1263,6 +1307,7 @@
         },
         "050aff0f-d374-422b-9637-2e44b6afb709": {
           "type": "static",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1279,6 +1324,7 @@
         },
         "8cac41f8-f309-41e1-a432-7669e4fbdc23": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1303,6 +1349,7 @@
         },
         "7800b009-d00e-429b-874b-48f584b59c5b": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1328,6 +1375,7 @@
         },
         "f4023f5b-a395-4272-8ef7-b5ab9ed77348": {
           "type": "modular-section",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1355,6 +1403,7 @@
         },
         "cf5b65fb-cea3-46e7-9866-2e2c4464c75b": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1379,6 +1428,7 @@
         },
         "42852222-c14c-4d5c-a974-bdecd91dc4e0": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "back-to-college"
@@ -1427,11 +1477,11 @@
               "compakt-small-garment-bag",
               "clear-luggage-cover",
               "astyll-carry-on-luggage",
-              "astyll-large-luggage",
               "astyll-2-piece-luggage-set",
               "astyll-3-piece-luggage-set",
               "silk-travel-set",
-              "hotel-calpak-robe"
+              "hotel-calpak-robe",
+              "astyll-large-luggage"
             ]
           }
         },
@@ -1445,8 +1495,8 @@
             "hot-deals-header-image-desktop": "shopify:\/\/shop_images\/HOTDEALS.gif",
             "hot-deals-header-image-desktop-countdown-1": "shopify:\/\/shop_images\/HotDealsCountdownTimer.gif",
             "hot-deals-header-image-mobile": "shopify:\/\/shop_images\/HotDealsMobile.gif",
-            "row": "1",
-            "row_mobile": "1",
+            "row": "2",
+            "row_mobile": "2",
             "banner-text-color": "#000000",
             "banner-text-background-color": "#ffffff",
             "featured_products": [
@@ -1459,14 +1509,15 @@
               "astyll-carry-on-luggage",
               "astyll-large-luggage",
               "astyll-2-piece-luggage-set",
-              "astyll-3-piece-luggage-set",
               "silk-travel-set",
-              "hotel-calpak-robe"
+              "hotel-calpak-robe",
+              "astyll-3-piece-luggage-set"
             ]
           }
         },
         "76e8e1f9-787b-4c9f-a539-538966f41ebe": {
           "type": "hot-deals-banner-school",
+          "disabled": true,
           "settings": {
             "display": "both",
             "collection_list": [
@@ -1521,6 +1572,7 @@
       },
       "block_order": [
         "b401a37d-55aa-49b7-b987-45893897281b",
+        "af1d418f-75b0-469f-93ce-8fcba52a4cd7",
         "64e7da40-e05d-412d-809b-024b8aa13efb",
         "7b7737e1-8df4-47f2-9ba0-90a7210ad5a5",
         "dc5110a5-b8d4-48a8-9af0-3d420c0f7d07",
@@ -1589,9 +1641,9 @@
     }
   },
   "order": [
-    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c",
     "c727b9a1-55c2-4d1d-8db0-a0cc8546616e",
     "5dd2ab00-ba44-4112-bab8-16d83a2d609c",
+    "bd81c59c-e5c1-4ff0-a165-a7bb5e3ae96c",
     "collection-filter",
     "30abf871-7ca5-49dc-b65e-778656d00be9",
     "5d2317b7-1cdb-4bdb-a129-65bf15cbaf07",

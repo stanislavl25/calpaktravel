@@ -4,7 +4,7 @@
 <div class="page-anchor"></div>
 
 <div class="text-slider__wrapper slider__wrapper text-slider__wrapper--{{ section.id }}">
-    <ul class="slider" style="list-style: none;" aria-label="carousel">
+    <ul class="slider" style="list-style: none; padding: 0" aria-label="carousel">
         <span class="sr-only">This is a carrousel the controlers for this carrousel is the logo images. For the carrousel change you need to click in one of those logos</span>
         {%- for block in section.blocks -%}
         <li class="slide text-slider__slide" role="group" aria-label="slide {{forloop.index}} of 4">

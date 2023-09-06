@@ -1,14 +1,27 @@
 "use strict";
 const expandedverify = () => {
     let textDropdowns = document.querySelectorAll('.text-dropdown');
+    const listTextDropdown = document.getElementById('text-dropdown__list');
+    const listItems = listTextDropdown.querySelectorAll('li');
+
     if(textDropdowns.length > 0) textDropdowns.forEach(textDropdown => {
         if(textDropdown.classList.contains('text-dropdown--active')) {
             textDropdown.querySelector('#showcase_dropdown').setAttribute("aria-expanded", "true");
         } else {
             textDropdown.querySelector('#showcase_dropdown').setAttribute("aria-expanded", "false");
         }
+        let selectedIndex = 1;
+        listItems.forEach((li, index) => {
+            if (li.classList.contains('text-dropdown__option--selected')) {
+                selectedIndex = index;
+                return;
+            }
+            textDropdown.querySelector('#showcase_dropdown').setAttribute("aria-labelledby", `text-dropdown__option__${selectedIndex}`);
+          });
     });
 }
+
+
 
 const textDropdowns = document.querySelectorAll('.text-dropdown:not(.text-dropdown--loaded)');
 if(textDropdowns.length > 0) textDropdowns.forEach(textDropdown => {
@@ -24,7 +37,6 @@ if(textDropdowns.length > 0) textDropdowns.forEach(textDropdown => {
     tdValue.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
             e.preventDefault();
-            this.click();
         }
         
         if (e.key === ' ') {

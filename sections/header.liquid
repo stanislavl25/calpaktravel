@@ -46,88 +46,44 @@
     });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function(){
-        var liveStatus = "{{ section.settings.live }}";
-        var liveLinkElement = document.querySelector('.header__live-link');
-
-        function getAdjustedDate(dateStr) {
-        var date = new Date(dateStr + ' PDT');
-            date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-            return date;
-        }
-    
-        var startTime = moment.tz("{{ section.settings['live-start-time'] }}", "MMMM DD, YYYY hh:mma", 'America/Los_Angeles').toDate();
-        var endTime = moment.tz("{{ section.settings['live-end-time'] }}", "MMMM DD, YYYY hh:mma", 'America/Los_Angeles').toDate();
-    
-        function updateLiveLink() {
-            var currentTime = new Date();
-            if(liveStatus == "true" && currentTime >= startTime && currentTime <= endTime) {
-              liveLinkElement.classList.add('header__live-link--active');
-            } else {
-              liveLinkElement.classList.remove('header__live-link--active');
-            }
-        }
-        
-        // Check and update immediately
-        updateLiveLink();
-        // Then keep checking every 15 seconds
-        setInterval(updateLiveLink, 15000);
-    });
-</script>
-
-<header class="site-header">
+<section class="site-header">
     <button id="skip-content-btn" tabindex="0">Skip to content</button>
     <nav class="site-header__nav" aria-label="primary">
-
         <div class="site-header__overlay"></div>
         {% render 'shop-menu' %}
         {% render 'discover-menu' %}
         <ul id="nav-header-top" class="header__nav header__nav--excerpt hide-large" role="tabpanel" aria-labelledby="site-header__menu-item-top" role="tablist">
-            <li class="site-header__menu-item site-header__menu-item-top">
+            <li class="site-header__menu-item">
                 <a aria-controls="nav-header-top" tabindex="0" role="button" href="#" class="mobile-menu__activator burger-link" data-target="shop">
                     Shop
                 </a>
             </li>
-            <li class="site-header__menu-item site-header__menu-item-top">
+            <li class="site-header__menu-item">
                 <a aria-controls="nav-header-top" tabindex="0" role="button" href="#" class="header__search-link">
                     <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
                 </a>
             </li>
         </ul>
         <ul id="nav-header-bottom" class="header__nav header__nav--full" aria-labelledby="site-header__menu-item-bottom">
-            <li class="site-header__menu-item site-header__menu-item-bottom">
-                <a id="shop__mobile_tab" aria-controls="shop__mobile_tabpanel" role="button" tabindex="0" href="#" class="menu-popup__activator" data-target="shop" >Shop</a>
+            <li class="site-header__menu-item">
+                <a id="shop__mobile_tab" aria-controls="shop__mobile_tabpanel" role="tab" tabindex="0" href="#" class="menu-popup__activator" data-target="shop">Shop</a>
             </li>
             <li class="site-header__menu-item">
                 <a href="{{ section.settings.sale_link }}" class="only-desktop" data-target="sale">Sale</a>
             </li>
-            <li class="site-header__menu-item site-header__menu-item-bottom">
-                <a id="discover__mobile_tab" aria-controls="discover__mobile_tabpanel"role="button" tabindex="0" href="#" class="menu-popup__activator" data-target="discover" >Discover</a>
+            <li class="site-header__menu-item">
+                <a id="discover__mobile_tab" aria-controls="discover__mobile_tabpanel" role="tab" tabindex="0" href="#" class="menu-popup__activator" data-target="discover">Discover</a>
             </li>
-            <li class="site-header__menu-item site-header__menu-item-bottom">
+            <li class="site-header__menu-item">
                 <a href="/pages/live-shopping" class="header__live-link" aria-label="Live shopping page">Live</a>
                 <span class="visually-hidden">Indicator for live event in progress</span>
             </li>
-            <li class="site-header__menu-item site-header__menu-item-bottom">
+            <li class="site-header__menu-item">
                 <a role="button" href="#" class="header__search-link">
                     <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
 
                     {%- assign placeholders = section.settings.placeholder-text | newline_to_br | split: '<br />' -%}
                     {%- if placeholders.size > 0 -%}
-                    <div class="search-placeholders sr-only" data-num="{{- placeholders.size -}}">
-                        <div class="search-placeholders__inner">
-                            {%- for placeholder in placeholders -%}
-                            <div class="search-placeholder"><em>{{- placeholder | escape -}}</em></div>
-                            {%- endfor -%}
-                            {%- if placeholders.size > 1 -%}
-                            <div class="search-placeholder"><em>{{- placeholders | first | escape -}}</em></div>
-                            {%- endif -%}
-                        </div>
-                    </div>
                     <div class="search-placeholders" data-num="{{- placeholders.size -}}">
                         <div class="search-placeholders__inner">
                             {%- for placeholder in placeholders -%}
@@ -191,7 +147,6 @@
                 <a href="#" class="header__notifications-link notifications-icon" role="button" title="Notifications" aria-label="notifications">
                     {% render 'icon-notifications' %}
                 </a>
-                <span class="visually-hidden">Indicator for unread notifications</span>
             </li>
             <li class="site-header__menu-item">
                 <a href="{% if customer == blank %}/pages/wishlist{% else %}{{ routes.account_url }}?view=wishlist{% endif %}" class="header__wishlist-link" title="Wishlist" aria-label="wishlist">
@@ -209,7 +164,7 @@
             </li>
         </ul>
     </nav>
-</header>
+</section>
 
 {% schema %}
 {

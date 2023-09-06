@@ -47,9 +47,9 @@
     <div class="review-slide__main">
         <div class="review-slide__review{% if block.settings.add-quotes %} review-slide__review--quotes{% endif %}">
             <p>
-                <span aria-hidden="true">“</span>
-                <blockquote style="margin:0;">{{ block.settings.review | strip_html }}</blockquote>
-                <span aria-hidden="true">“</span>
+                
+                <blockquote style="margin:0;"><span aria-hidden="true">“</span>{{ block.settings.review | strip_html }}<span aria-hidden="true">”</span></blockquote>
+                
             </p>
         </div>
         {%- if block.settings.name != blank -%}

@@ -498,7 +498,6 @@ function searchProductsForMatches(products, search, color_search, ambiguity, or,
 
 function fillSearchProducts(results, container, search, color_search, ambiguity, or, sale,el) {
     const products_target = container.querySelector('.search-section[data-id="results"] .products__grid');
-        container.querySelector('#search-form').setAttribute('aria-expanded', 'true');
     if(products_target && typeof results.products != 'undefined') {
         const products = results.products;
         products_target.innerHTML = '';

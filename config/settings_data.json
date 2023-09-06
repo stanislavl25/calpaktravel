@@ -7,9 +7,11 @@
     "new-arrivals": "new-arrivals",
     "free-shipping": 75,
     "show-cart-gamification": false,
+    "courtesy-banner": false,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
+    "final-sale-text": false,
     "product-disclaimer": false,
-    "product-disclaimer-no-final": true,
+    "product-disclaimer-no-final": false,
     "sale-enabled": true,
     "sale-tag": "postcm-sale",
     "sale-text-pdp": "%% off",
@@ -18,12 +20,12 @@
     "extra-sale-tag": "extrasale",
     "extra-sale-text-pdp": "New - %% off",
     "extra-sale-text": "New - %% off",
-    "flash-sale-enabled": false,
+    "flash-sale-enabled": true,
     "flash-sale-tag": "flash-sale",
     "flash-sale-text": "Sale Ends",
-    "flash-sale-starts": "Aug 15, 2023 10am",
-    "flash-sale-ends": "Aug 17, 2023 10am",
-    "flash-sale-countdown": "48",
+    "flash-sale-starts": "September 6, 2023 12pm",
+    "flash-sale-ends": "September 6, 2023 6pm",
+    "flash-sale-countdown": "24",
     "flash-sale-accent": "#f7f177",
     "flash-sale-text-col": "#000",
     "sale-badge-enabled": true,
@@ -35,8 +37,8 @@
     "select_collection": [
 
     ],
-    "sale-badge-tag": "salebadge",
-    "sale-badge-text": "Labor Day Sale",
+    "sale-badge-tag": "flash-sale",
+    "sale-badge-text": "LIMITED TIME",
     "sale-badge-bg": "#f7f177",
     "sale-msg-starter": false,
     "sale-badge-tag-bundle": "",
@@ -50,11 +52,11 @@
     "chk-msg-enabled": false,
     "sale-msg-code": "",
     "chk-msg-text": "",
-    "sale-msg-enabled": true,
-    "sale-msg-pdp-only": true,
-    "sale-msg-tag": "laborday",
-    "sale-msg-highlighted": "Labor Day Sale:",
-    "sale-msg-message": "Shop Up to 60% off NOW!",
+    "sale-msg-enabled": false,
+    "sale-msg-pdp-only": false,
+    "sale-msg-tag": "",
+    "sale-msg-highlighted": "",
+    "sale-msg-message": "",
     "sale-msg-main-col-text": "#707070",
     "type_light_font": "futura_n3",
     "type_body_font": "futura_n4",
@@ -88,24 +90,25 @@
           "c2f5d1d7-bb20-46b8-907b-ca4b0034662b": {
             "type": "featured-collection",
             "settings": {
-              "title": "Shop: Featured: Labor Day Sale",
+              "title": "Shop: Featured: Best Sellers",
               "submenu-number": 1,
-              "collection": "sale",
-              "block-title": "Explore Labor Day Sale"
+              "collection": "best-sellers",
+              "block-title": "Explore Our Best Sellers"
             }
           },
           "5f3d2d0e-fd4b-4971-b003-6c638e31c4f2": {
             "type": "shop-block",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/sale",
-              "block-title": "Up to 60% OFF",
+              "button-url": "",
+              "block-title": "Compakt Duo Flash Sale ENDS SOON",
               "description": "",
-              "button-text": "Shop Labor Day Sale",
+              "button-text": "Shop Now",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/AO2A7970-2-3.jpg",
+              "image": "shopify:\/\/shop_images\/IMG_0841-8.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -123,17 +126,16 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/back-to-school",
-              "block-title": "Back To School Essentials",
+              "button-url": "shopify:\/\/collections\/new-arrivals",
+              "block-title": "Shop Our Best Selling Luggage",
               "description": "",
-              "button-text": "Shop Now",
+              "button-text": "Shop New Arrivals",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055.jpg",
+              "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1183-2_da568be1-1e11-4c04-afb0-81332296ebc6.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -185,37 +187,11 @@
               "block-title": "Explore Our Best Sellers"
             }
           },
-          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
-            "type": "shop-block",
-            "settings": {
-              "title": "Shop: Luggage Banner",
-              "submenu-number": 2,
-              "button-url": "shopify:\/\/products\/starter-bundle",
-              "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
-              "description": "",
-              "button-text": "Shop Now",
-              "link-for-button": false,
-              "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/AO2A7863-2.jpg",
-              "video": "",
-              "video-ratio-w": "16",
-              "video-ratio-h": "9"
-            }
-          },
-          "52c25c9a-745f-42c5-8106-d8505dcb22b6": {
-            "type": "featured-collection",
-            "settings": {
-              "title": "Luggage - Carousel",
-              "submenu-number": 2,
-              "collection": "carry-on-luggage",
-              "block-title": "Which Carry-On Will You Pick?"
-            }
-          },
           "0d1bb8bf-16ca-4286-a210-0cc7d45304ad": {
             "type": "shop-block",
             "settings": {
               "title": "Shop: Bags",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "button-url": "shopify:\/\/products\/water-bottle-holder",
               "block-title": "Don't go hiking without it",
               "description": "",
@@ -232,9 +208,35 @@
             "type": "featured-collection",
             "settings": {
               "title": "Bags - Carousel",
-              "submenu-number": 3,
+              "submenu-number": 2,
               "collection": "bags",
               "block-title": "Discover Bags Made For Every Occasion"
+            }
+          },
+          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d": {
+            "type": "shop-block",
+            "settings": {
+              "title": "Shop: Luggage Banner",
+              "submenu-number": 3,
+              "button-url": "shopify:\/\/products\/starter-bundle",
+              "block-title": "Limited time: Take 45% off our 8-piece Starter Bundle",
+              "description": "",
+              "button-text": "Shop Now",
+              "link-for-button": false,
+              "text-color-scheme": "white",
+              "image": "shopify:\/\/shop_images\/AO2A7863-2.jpg",
+              "video": "",
+              "video-ratio-w": "16",
+              "video-ratio-h": "9"
+            }
+          },
+          "52c25c9a-745f-42c5-8106-d8505dcb22b6": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Luggage - Carousel",
+              "submenu-number": 3,
+              "collection": "carry-on-luggage",
+              "block-title": "Which Carry-On Will You Pick?"
             }
           },
           "61dca65a-4ff0-436a-a649-3f8acf379311": {
@@ -259,7 +261,7 @@
             "settings": {
               "title": "Organizers - Carousel",
               "submenu-number": 4,
-              "collection": "organizers",
+              "collection": "makeup-bags",
               "block-title": "Find The Best Toiletry Bag For Traveling"
             }
           },
@@ -316,7 +318,7 @@
               "button-text": "",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Frame_1_1_df411491-e59f-4542-aa0c-00574ff6cda1.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_1_1_df411491-e59f-4542-aa0c-00574ff6cda1.png",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
@@ -326,7 +328,7 @@
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Frame_35_4.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel",
               "description": "<p>While we can't pick favorites, each one of our CALPAK duffels shines in its own unique way—see how below. <\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -347,7 +349,7 @@
             "type": "edit",
             "settings": {
               "title": "Packing Cubes",
-              "image": "shopify:\/\/shop_images\/Frame_38_1.png",
+              "image": "shopify:\/\/shop_images\/Frame_38_1_1.jpg",
               "edit-title": "Your favorite organizing tool",
               "description": "<p>Packing cubes are the #1 tool for travel organization.<\/p>",
               "link": "https:\/\/www.calpaktravel.com\/pages\/packing-cubes-your-favorite-organizing-tool"
@@ -363,10 +365,10 @@
           "d354ff31-c668-4b29-8245-34b614309172",
           "0cfa375b-b76d-49c1-9e45-a4bd0b5ef896",
           "9bc35091-f1af-4ade-937e-7abddf8840bc",
-          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
-          "52c25c9a-745f-42c5-8106-d8505dcb22b6",
           "0d1bb8bf-16ca-4286-a210-0cc7d45304ad",
           "062c0756-ce35-49c0-8dbf-7234727c215d",
+          "0d4a5dc0-e6f9-40cd-95bf-2b9b139dbc3d",
+          "52c25c9a-745f-42c5-8106-d8505dcb22b6",
           "61dca65a-4ff0-436a-a649-3f8acf379311",
           "71883024-54fa-4ac9-958c-ce36bc9cf350",
           "22ae6a34-144b-4832-b323-ec83ee28af70",
@@ -378,14 +380,14 @@
           "491b71bb-f040-4310-a675-0e2f56ab7118"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "sale_link": "shopify:\/\/collections\/sale",
           "discover-menu": "discover",
           "edits-title": "Latest Stories",
           "placeholder-text": "Weekenders\nWork Essentials\nTravel Essentials",
-          "live": true,
-          "live-start-time": "August 24, 2023 12:00pm",
-          "live-end-time": "August 24, 2023 1:00pm"
+          "live": false,
+          "live-start-time": "September 7, 2023 12:00PM",
+          "live-end-time": "September 7, 2023 1:00PM"
         }
       },
       "footer": {
@@ -464,8 +466,9 @@
         "blocks": {
           "04bc2b17-2375-4de8-af63-63c2c120af5a": {
             "type": "notification",
+            "disabled": true,
             "settings": {
-              "text": "<p>Up to 60% off best sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
+              "text": "<p>Up to 60% off best-sellers in the <a href=\"\/collections\/sale\" title=\"Sale\">Labor Day Sale<\/a>!<\/p>",
               "only-for-guests": false
             }
           },
@@ -668,8 +671,7 @@
           ],
           "continue-shopping": "",
           "wishlist-timeout": 3,
-          "max_value": 75,
-          "courtesy-banner": true
+          "max_value": 75
         }
       },
       "cart-pair-upsell": {
@@ -723,28 +725,28 @@
         "blocks": {
           "04605ea0-0820-4c21-b443-99943fd24488": {
             "type": "media-block",
+            "disabled": true,
             "settings": {
-              "title": "Shop: Shop Labor Day Sale",
+              "title": "Shop: Shop Compakt Duo Flash Sale",
               "menu": "shop",
               "submenu-number": 0,
-              "image": "shopify:\/\/shop_images\/AO2A7970-2-3.jpg",
+              "image": "shopify:\/\/shop_images\/alis145-084-4.jpg",
               "link": "shopify:\/\/collections\/sale",
               "media-title": "",
               "description": "",
-              "button-text": "Shop Labor Day Sale",
+              "button-text": "Compakt Duo Flash Sale",
               "link-for-button": false,
               "text-color-scheme": "white"
             }
           },
           "adc05d65-da10-4314-9243-585b3e5e1c66": {
             "type": "media-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: All",
               "menu": "shop",
               "submenu-number": 0,
               "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION1019_1-5.jpg",
-              "link": "shopify:\/\/collections\/all",
+              "link": "shopify:\/\/collections\/best-sellers",
               "media-title": "",
               "description": "",
               "button-text": "Shop All",
@@ -762,24 +764,24 @@
               "override-title": "Explore Our Best Sellers"
             }
           },
-          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae": {
-            "type": "featured-collection",
-            "settings": {
-              "title": "SHOP: Luggage Collection Carousel",
-              "menu": "shop",
-              "submenu-number": 2,
-              "collection": "carry-on-luggage",
-              "override-title": "Which Carry-On Will You Pick?"
-            }
-          },
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74": {
             "type": "featured-collection",
             "settings": {
               "title": "SHOP: Bags Collection Carousel",
               "menu": "shop",
-              "submenu-number": 3,
-              "collection": "trolley-pass-through",
+              "submenu-number": 2,
+              "collection": "bags",
               "override-title": "Discover Bags Made For Every Occasion"
+            }
+          },
+          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "SHOP: Luggage Collection Carousel",
+              "menu": "shop",
+              "submenu-number": 3,
+              "collection": "carry-on-luggage",
+              "override-title": "Which Carry-On Will You Pick?"
             }
           },
           "2780beb4-0ab0-4333-a417-c3bb8c18a553": {
@@ -821,7 +823,7 @@
             "type": "edit",
             "settings": {
               "title": "Duffels",
-              "image": "shopify:\/\/shop_images\/Frame_35_4.jpg",
+              "image": "shopify:\/\/shop_images\/Frame_35_4.png",
               "edit-title": "The best duffels for travel.",
               "description": "<p>Our CALPAK duffels shines in its own unique way.<\/p>",
               "link": "shopify:\/\/pages\/get-to-know-the-best-duffels-for-travel"
@@ -842,8 +844,8 @@
           "04605ea0-0820-4c21-b443-99943fd24488",
           "adc05d65-da10-4314-9243-585b3e5e1c66",
           "f5a4c06a-d12a-43fb-9fe9-e4db0f78af7e",
-          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "00fbd845-d56c-44ed-b49d-b36e2e7b9b74",
+          "b29803a9-aad1-4d1a-bc4c-30c8d79dc9ae",
           "2780beb4-0ab0-4333-a417-c3bb8c18a553",
           "4552f1b4-22d2-4133-8804-c2cfd261dae7",
           "657418bd-98df-44f4-9363-2b2a9c4cf77e",
@@ -851,7 +853,7 @@
           "d2ba66ed-5e0b-464d-9e7a-e2dcc3cdf036"
         ],
         "settings": {
-          "shop-menu": "shop",
+          "shop-menu": "mothers-day-menu",
           "discover-menu": "discover",
           "edits-title": "Latest Stories"
         }
@@ -930,14 +932,15 @@
         "blocks": {
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
               "collections": false,
               "pdp": false,
               "other": false,
-              "content": "<p>Goodbye summer! Get Up to 60% off NOW<\/p>",
-              "url": "shopify:\/\/collections\/sale",
+              "content": "<p>LIMITED TIME: 50% OFF Compakt Duo ((countdown))<\/p>",
+              "url": "",
               "background": "#f7f177",
               "text-color": ""
             }
@@ -1016,8 +1019,8 @@
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
           "countdown-active": false,
-          "countdown-show": "48",
-          "countdown-to": "August 14, 2023 11:00am"
+          "countdown-show": "always",
+          "countdown-to": "September 7, 2023 6:00pm"
         }
       }
     },
@@ -1029,6 +1032,13 @@
         "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {
+        }
+      },
+      "733389323033596483": {
+        "type": "shopify:\/\/apps\/okendo-product-reviews-ugc\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
         }
       }
     }

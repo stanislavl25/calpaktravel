@@ -57,7 +57,11 @@
     align-self: flex-start;
     height: 22px;
     line-height: 22px;
-    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.template-index .slider .product-unit__image-wrapper~.product-label {
+    display: none;
 }
 
 .product-unit__wishlist,
@@ -172,7 +176,7 @@
 }
 
 .product-unit__title--wishlist {
-    padding-right: 24px;
+    padding-right: 28px;
 }
 
 .product-unit__title a {
@@ -269,7 +273,7 @@ div.product-label.product.label--memorial-day {
     justify-content: space-between;
     width: 95%;
     height: 88px;
-    
+
 }
 div.product-label.product.label--memorial-day label {
     font-size: 50px;
@@ -293,15 +297,15 @@ div.product-label.product.label--memorial-day label {
     padding: 0 8px;
 }
 
-.hot-deals-mobile.product-label--active,
-.template-collection .hot-deals-mobile.product-label--active{
-    display: none;
+@media (min-width: 900px) {
+    .hot-deals-mobile {
+        display: none !important;
+    }
 }
 
+
 @media (max-width: 900px) {
-    .hot-deals-banner-wrapper .hot-deals-mobile.product-label--active,
-    .hot-deals-banner-wrapper-sale .hot-deals-mobile.product-label--active,
-    .hot-deals-banner-wrapper-school .hot-deals-mobile.product-label--active {
+    .hot-deals-mobile.product-label--active {
         padding: 2px 10px;
         background: red;
         color: white;
@@ -313,5 +317,9 @@ div.product-label.product.label--memorial-day label {
 
     .product-unit__title a {
         font-size: 16px;
+    }
+
+    .product-label--badge.product-label--badge-collection-page {
+        top: unset !important;
     }
 }

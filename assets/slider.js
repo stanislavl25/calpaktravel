@@ -455,7 +455,7 @@ function runSlider(slider, autoslide) {
     
 }
 
-const sliderDots = document.querySelectorAll('.slider__dot button');
+const sliderDots = document.querySelectorAll('.slider__dot');
 if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', e => {
     let index = 0;
     let dots = e.target.parentNode.querySelectorAll('.slider__dot');
@@ -507,5 +507,5 @@ const changeSlides = e => {
 };
 if(sliderDots.length > 0) sliderDots.forEach(sliderDot => sliderDot.addEventListener('click', changeSlides));
 
-const sliderDotsButton = document.querySelectorAll('.slider__dot button');
+const sliderDotsButton = document.querySelectorAll('.slider__dot');
 if(sliderDots.length > 0) sliderDots.forEach(sliderDotButton => sliderDotButton.addEventListener('click', changeSlides));

@@ -871,12 +871,7 @@ button.play-pause-reviews {
     font-size: 14px;
 
 }
-a:focus {
-    border: 1px solid #000;
-}
-div:focus {
-    border: 1px solid #000;
-}
+
 button:focus {
     border: 2px solid #000;
 }
@@ -1135,7 +1130,8 @@ button:focus {
   position: inherit;
   height: 100%;
 }
-.free-gift__selector .free-gift__selector-product .product-unit .product-label--badge.product-label--badge-collection-page {
+.free-gift__selector .free-gift__selector-product .product-unit .product-label--badge.product-label--badge-collection-page,
+.product-label--disclaimer {
   display: none !important;
 
 }
@@ -1426,7 +1422,29 @@ img.accessibility-img{
   .page__description.moreBTN_wrap {
     max-height: none;
   }
+  /** QA: Checkout Buttons  8-28-23 **/
+  .hide-desktop{
+    display: none !important;
+  }
+  /** QA: Checkout Buttons **/
 }
+
+/** QA: Checkout Buttons  8-28-23 **/
+@media (max-width: 599.98px){
+  .hide-mobile{
+    display: none !important;
+  }
+  .cart__courtesy-banner.hide-desktop .cart__courtesy-banner-text{
+    margin-left: 0px;
+    padding: 5px 12px 5px 18px;
+  }
+  .cart__courtesy-banner-disclaimer.hide-desktop{
+    font-size: 13px;
+    margin-top: -5px;
+  }
+}
+/** QA: Checkout Buttons **/
+
 .page__description.moreBTN_wrap.showFull {
   max-height: unset;
 }
@@ -1443,4 +1461,4 @@ img.accessibility-img{
 img.accessibility-img{
   margin: 0px !important;
 }
-/** end Page CALPAK Accessibility Statement **/	
+/** end Page CALPAK Accessibility Statement **/	  

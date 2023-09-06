@@ -9,7 +9,7 @@
         if show-for-all
             assign show = true
         endif
-        
+
         if product_exclusion_list != blank and show == false
             for prod in product_exclusion_list
                 if prod == product
@@ -29,7 +29,7 @@
                             break
                         endif
                     endfor
-                  endpaginate 
+                  endpaginate
                 else
                 paginate collections[col.handle].products by 1000
                     for pr in collections[col].products
@@ -39,6 +39,15 @@
                         endif
                     endfor
                     endpaginate
+                endif
+            endfor
+        endif
+
+        if product_exclude_list != blank
+            for prod in product_exclude_list
+                if prod == product
+                    assign show = false
+                    break
                 endif
             endfor
         endif

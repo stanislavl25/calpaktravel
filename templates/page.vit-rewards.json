@@ -2,6 +2,7 @@
   "sections": {
     "hero": {
       "type": "hero",
+      "disabled": true,
       "blocks": {
         "2c965d8f-2457-454a-a651-b4d589db05a8": {
           "type": "media-block",
@@ -55,7 +56,6 @@
         "2846884e-b8cd-4474-a152-7bf4ea6fb5a8",
         "d413d89b-94af-4456-8fd1-1f9c05a566d3"
       ],
-      "disabled": true,
       "settings": {
         "hero-height": "limited",
         "height-limit": 80,

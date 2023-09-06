@@ -54,8 +54,15 @@ body.modal-open {
     display: flex;
     align-items: center;
     position: relative;
-    /*z-index: 1;*/
 }
+
+.site-header__nav[aria-label="primary"] {
+    border-radius: 0 0 9px;
+    padding: 0 var(--gap);
+    z-index: 3;
+
+}
+
 
 .site-header__nav > ul {
     position: static;
@@ -67,6 +74,10 @@ body.modal-open {
     padding: 0;
     margin: 0;
     font-size: 18px;
+}
+
+.site-header__nav .header__nav--full {
+    z-index: 3;
 }
 
 .site-header__dropdown {

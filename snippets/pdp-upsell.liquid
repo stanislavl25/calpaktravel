@@ -56,7 +56,7 @@
         if upsell_items != false
           for upsell_item in upsell_items
             if upsell_item.handle != blank and upsell_item != blank
-              render 'product-unit' with upsell_item, wishlist: true, class: 'slide', quick_view: quick_view, add_to_cart: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
+              render 'product-unit' with upsell_item, wishlist: true, class: 'slide', quick_view: quick_view, add_to_cart: true, all_colors: true, all_colors_quickadd: true init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
             endif
           endfor
         else
@@ -64,7 +64,7 @@
             assign set_product = set_product | split: ':' | first
             assign prod = all_products[set_product]
             if prod.handle != blank and prod != blank
-              render 'product-unit' with prod, wishlist: true, class: 'slide', quick_view: quick_view, add_to_cart: true, init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
+              render 'product-unit' with prod, wishlist: true, class: 'slide', quick_view: quick_view, add_to_cart: true, all_colors: true, all_colors_quickadd: true init_option1: opt1, sizes: '(min-width: 901px) 22vw, 50vw'
             endif
           endfor
         endif
@@ -72,8 +72,9 @@
     </div>
   </section>
   <style>
-
-
+    body .pdp__upsell .product-label--final {
+      display: none!important;
+    }
 
     body .pdp__upsell > .slider--ab-test-variant {
       display: flex;
