@@ -115,6 +115,7 @@
           },
           "0066fcc3-11cd-4e67-8864-e6c0a00bfab6": {
             "type": "featured-collection",
+            "disabled": true,
             "settings": {
               "title": "Shop: Featured: Back to School",
               "submenu-number": 1,
@@ -124,7 +125,6 @@
           },
           "e331480d-2d4f-4d45-9833-0284975a6965": {
             "type": "shop-block",
-            "disabled": true,
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
