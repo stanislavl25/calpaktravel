@@ -128,13 +128,13 @@
             "settings": {
               "title": "Shop: Featured",
               "submenu-number": 1,
-              "button-url": "shopify:\/\/collections\/back-to-school",
-              "block-title": "Back To School Essentials",
+              "button-url": "shopify:\/\/collections\/new-arrivals",
+              "block-title": "Shop Our Best Selling Luggage",
               "description": "",
-              "button-text": "Shop Now",
+              "button-text": "Shop New Arrivals",
               "link-for-button": false,
               "text-color-scheme": "white",
-              "image": "shopify:\/\/shop_images\/Calpak_Back_to_School_July_20235055.jpg",
+              "image": "shopify:\/\/shop_images\/CALPAK.5.19.STUDIO1183-2_da568be1-1e11-4c04-afb0-81332296ebc6.jpg",
               "video": "",
               "video-ratio-w": "16",
               "video-ratio-h": "9"
