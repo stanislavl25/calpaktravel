@@ -482,10 +482,6 @@
   border-top: 1px dashed #aeaeae;
   padding-top: 10px;
 }
-.cart__footer-total .cart__total-row--total {
-  border-top: none;
-  padding: 0;
-}
 
 .cart__footer {
   padding: var(--gap);
