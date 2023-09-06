@@ -75,7 +75,6 @@
     "checkout_accent_color": "#6aabb6",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#ea1b19",
-    "final-sale-text": true,
     "sale-text-pdp-mixed": "Up to %% off",
     "sale-text-col-mixed": "Up to %% off",
     "sections": {
@@ -933,6 +932,7 @@
         "blocks": {
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
