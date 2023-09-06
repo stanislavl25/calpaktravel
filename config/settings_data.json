@@ -33,7 +33,7 @@
     "countdown-label-collection-enabled": true,
     "desktop-badge-placement": "top",
     "mobile-badge-placement": "top",
-    "badge_display": "collection",
+    "badge_display": "both",
     "select_collection": [
 
     ],
