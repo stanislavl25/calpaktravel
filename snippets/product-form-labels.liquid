@@ -116,16 +116,16 @@
                 {%- endif -%}
             {%- else -%}
                 <strong>This item is Final Sale</strong>
-                <span>Not eligible for additional discount</span>
+                {%- if disclaimer != false -%}
+                    <span class="{% if settings.product-disclaimer-no-final %} product-label--disclaimer--no-final{% endif %}{% if disclaimer contains opt1 and disclaimer != true %} product-label--active{% endif %}"
+                        {% if disclaimer != true %}data-options="{{ disclaimer | join: ' ' }}"{% endif %}>
+                        {{- settings.product-disclaimer-text -}}
+                    </span>
+                {%- endif -%}
             {%- endif -%}
         </div>
     {%- endif -%}
 
-    {%- if disclaimer != false -%}
-        <div class="product-label product-label--disclaimer{% if settings.product-disclaimer-no-final %} product-label--disclaimer--no-final{% endif %}{% if disclaimer contains opt1 and disclaimer != true %} product-label--active{% endif %}"
-            {% if disclaimer != true %}data-options="{{ disclaimer | join: ' ' }}"{% endif %}>
-            {{- settings.product-disclaimer-text -}}
-        </div>
-    {%- endif -%}
+    
 {%- endif -%}
 
