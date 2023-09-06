@@ -7,6 +7,7 @@
     "new-arrivals": "new-arrivals",
     "free-shipping": 75,
     "show-cart-gamification": false,
+    "courtesy-banner": true,
     "form-alert-non-classic": "An email with an activation link has been sent. Please click on the link to activate your account.\n<br> Please check your spam folder, if you do not receive this email.",
     "final-sale-text": false,
     "product-disclaimer": false,
@@ -670,8 +671,7 @@
           ],
           "continue-shopping": "",
           "wishlist-timeout": 3,
-          "max_value": 75,
-          "courtesy-banner": true
+          "max_value": 75
         }
       },
       "cart-pair-upsell": {
