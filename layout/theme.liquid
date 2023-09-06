@@ -363,5 +363,43 @@
   {% if template contains 'product' or template contains 'collection' %}
     <script src="{{ 'component-recently-viewed.js' | asset_url }}" defer></script>
   {% endif %}
+  <script text="text/javascript">
+var _learnq = _learnq || [];
+var item = {
+  Name: {{ product.title|json }},
+  ProductID: {{ product.id|json }},
+  Categories: {{ product.collections|map:'title'|json }},
+  ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+  URL: "{{ shop.secure_url }}{{ product.url }}",
+  Brand: {{ product.vendor|json }},
+  Price: {{ product.price|money|json }},
+  CompareAtPrice: {{ product.compare_at_price_max|money|json }},
+  {% assign klVariant = product.selected_or_first_available_variant %}
+  {% if klVariant %}
+  VariantTitle: {{ klVariant.title|json }},
+  VariantPrice: {{ klVariant.price|money|json }},
+  VariantImage: "https:{{ variant.image.src|img_url:'grande' }}",
+  VariantSKU: {{ klVariant.sku|json }},
+  VariantID: {{ klVariant.id|json }},
+  VariantOption1: {{ klVariant.option1|json }},
+  VariantOption2: {{ klVariant.option2|json }},
+  VariantOption3: {{ klVariant.option3|json }}
+  {% endif %}
+ };
+
+_learnq.push(['track', 'Viewed Product', item]);
+_learnq.push(['trackViewedItem', {
+  Title: item.Name,
+  ItemId: item.ProductID,
+  Categories: item.Categories,
+  ImageUrl: item.ImageURL,
+  Url: item.URL,
+  Metadata: {
+    Brand: item.Brand,
+    Price: item.Price,
+    CompareAtPrice: item.CompareAtPrice
+  }
+}]);
+</script>
   </body>
   </html>
