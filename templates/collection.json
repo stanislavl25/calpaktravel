@@ -1306,6 +1306,31 @@
             "image": "shopify:\/\/shop_images\/Group_4540.jpg"
           }
         },
+        "f0227f74-28dd-42cf-a630-a9daf5b0ebfb": {
+          "type": "module",
+          "disabled": true,
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Luka Duffel",
+            "pictured_link": false,
+            "display": "both",
+            "row": 6,
+            "column": 4,
+            "col_span": 2,
+            "mobile_row": 15,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "luka-duffel"
+            ],
+            "image": "shopify:\/\/shop_images\/Group_4540.jpg"
+          }
+        },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
           "type": "module",
           "disabled": true,
@@ -1669,6 +1694,7 @@
         "dd6a12c7-c3d0-4292-8ce5-94f359065eb9",
         "aed8dba9-21ec-4959-a754-d579a3f13ed0",
         "e4ecfc4e-fa9f-4364-b107-58bde7b0bcda",
+        "f0227f74-28dd-42cf-a630-a9daf5b0ebfb",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
         "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81",
