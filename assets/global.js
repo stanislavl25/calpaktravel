@@ -188,7 +188,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
   tablist = document.querySelector('#featured-col__navigation');
   tabs = document.querySelectorAll('#featured-col__navigation .tabs__button');
   tabpanels = document.querySelectorAll('#featured-col__navigation .tabs__content');
-  
+
 if(tablist){
       // Focus previous/next tabs using Left and Right arrow keys
   tablist.addEventListener('keydown', function(e) {
@@ -196,16 +196,16 @@ if(tablist){
       case 'ArrowLeft':
         focusPreviousTab();
         break;
-        
+
       case 'ArrowRight':
         focusNextTab();
         break;
-        
+
       case 'Home':  // optional
         e.preventDefault();  // prevent page scroll
         focusFirstTab();
         break;
-        
+
       case 'End':  // optional
         e.preventDefault();  // prevent page scroll
         focusLastTab();
@@ -213,7 +213,7 @@ if(tablist){
     }
   });
 }
-  
+
   // Activate tabs when they are clicked (also handles Enter and Space keys)
   /*tabs.forEach(function(tab) {
     tab.addEventListener('click', function(e) {
@@ -227,13 +227,13 @@ if(tablist){
 /**
   Tab selection
 */
-function focusPreviousTab() {  
+function focusPreviousTab() {
   if(focusedTabIndex > 0) {
     focusedTabIndex -= 1;
   } else {
     focusedTabIndex = tabs.length - 1;
   }
-  
+
   tabs[focusedTabIndex].focus();
 }
 
@@ -243,7 +243,7 @@ function focusNextTab() {
   } else {
     focusedTabIndex = 0;
   }
-  
+
   tabs[focusedTabIndex].focus();
 }
 
@@ -263,18 +263,18 @@ function selectTab(index) {
     tab.setAttribute('aria-selected', false);
     tab.setAttribute('tabindex', -1);
   });
-  
+
   // Activate only the requested tab, and set focus to it
   tabs[index].setAttribute('aria-selected', true);
   tabs[index].setAttribute('tabindex', 0);
   tabs[index].focus();
   focusedTabIndex = index;
-  
+
   // Hide all tabpanels
   tabpanels.forEach(function(tabpanel) {
     tabpanel.classList.remove('is-visible');
   });
-  
+
   // Show only the tabpanel for the requested tab
   var nextTabpanel = document.querySelector('#' + tabs[index].getAttribute('aria-controls'));
   nextTabpanel.classList.add('is-visible');
@@ -737,7 +737,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
                         atcBtn.classList.add('ready');
                     });
-                
+
                     const sizeSwatches = target.querySelectorAll('.size-swatch');
                     sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
                         component.classList.remove('focused');
@@ -805,7 +805,13 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                     if(swatchesElements[pushGroupIndex] === undefined) swatchesElements[pushGroupIndex] = '';
 
                     let img = '';
-                    if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
+                    if(varHandle === 'pink-sand' && handle === 'travel-wallet-croc') {
+                      img = `<img src='${filesUrl.replace('file.svg', `swatch_pink-sand-croc.png`)}'>`
+                    } else if(varHandle === 'iris' && handle === 'travel-wallet-croc') {
+                      img = `<img src='${filesUrl.replace('file.svg', `swatch_iris-croc.png`)}'>`
+                    } else {
+                      if(colors_img.indexOf(varHandle) > -1) img = `<img src='${filesUrl.replace('file.svg', `${varHandle}.png`)}'>`;
+                    }
 
                     let earlyAccess = false;
                     if(meta.earlyAccess == true && meta.variants[variant.id].earlyAccess == true) earlyAccess = true;
@@ -826,7 +832,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         <input type="radio" style="display: none"/><label class="visually-hidden">${capitalize(variant.option1)}</label>
                         </a>`;
                 }
-            }  
+            }
         });
 
         const swatchesGroupsEl = target.querySelector('.pdp__swatches-groups');
@@ -965,7 +971,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 target.querySelector('.button-msg-add').textContent="Select Size";
             }
         }
-        
+
         for (const size in sizes) {
             if(size == '_count') continue;
 
@@ -1158,7 +1164,7 @@ function activateProductUnit(target) {
             if(window.debug) console.log('Done product', handle);
             resolve(true);
         });
-    })  
+    })
 }
 
 function closeAllDropdowns() {
@@ -1242,7 +1248,7 @@ window.addEventListener("click", async (e) => {
 
         const actives = e.target.closest('.swatches-container').querySelectorAll('.color-swatch--active');
         actives.forEach( active => {
-            active.classList.remove('color-swatch--active'); 
+            active.classList.remove('color-swatch--active');
             active.setAttribute('aria-checked', 'false');
         });
         e.target.classList.add('color-swatch--active');
@@ -1585,7 +1591,7 @@ document.addEventListener('DOMContentLoaded', function () {
               if (colorsQuickAdd) {
                 if (!colorsQuickAdd.contains(colors)) {
                   colors.classList.add('product-unit__colors--all', 'slide');
-                  
+
                   colorsQuickAdd.appendChild(colors);
                 }
               }
@@ -1723,7 +1729,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 const getAllElementAtributes = (element) => {
     return element.getAttributeNames().map(attrName => ({key: attrName, value: element.getAttribute(attrName)}));
-}; 
+};
 
 
 const changeHtmlTagType = (element, htmlTag) => {
@@ -1747,31 +1753,31 @@ const changeHtmlTagType = (element, htmlTag) => {
 window.addEventListener("DOMContentLoaded", () => {
     function selectPreviousColorButton(colorButton) {
         var index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-        
+
         if(index > 0) {
           selectColorButton(colorButtons[index - 1]);
         } else {
           selectColorButton(colorButtons[colorButtons.length - 1]);
         }
       }
-      
+
       function selectNextColorButton(colorButton) {
         var index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-        
+
         if(index < colorButtons.length - 1) {
           selectColorButton(colorButtons[index + 1]);
         } else {
           selectColorButton(colorButtons[0]);
         }
       }
-      
+
       function selectColorButton(colorButton) {
         // Deselect all other color buttons
         colorButtons.forEach(function(otherColorButton) {
           otherColorButton.setAttribute('tabindex', -1);
           otherColorButton.setAttribute('aria-checked', false);
         });
-        
+
         // Select the provided color button
         colorButton.setAttribute('tabindex', 0);
         colorButton.setAttribute('aria-checked', true);
@@ -1782,14 +1788,14 @@ window.addEventListener("DOMContentLoaded", () => {
         function handleMouseOutAndBlur() {
             const swatches = item.querySelector('.product-unit__swatches');
             const ariaHidden = swatches.getAttribute('aria-hidden');
-        
+
             if (ariaHidden === 'true') {
                 swatches.setAttribute('aria-hidden', 'false');
             } else {
                 swatches.setAttribute('aria-hidden', 'true');
             }
         }
-        
+
         item.addEventListener('mouseout', handleMouseOutAndBlur);
         item.addEventListener('blur', handleMouseOutAndBlur);
     });
@@ -1801,12 +1807,12 @@ window.addEventListener("DOMContentLoaded", () => {
             panel.addEventListener('mouseover', () => {
                 [].map.call(controls, (control) => {
                     control.setAttribute('aria-expanded', 'true');
-                });    
+                });
             });
             panel.addEventListener('mouseout', () => {
                 [].map.call(controls, (control) => {
                     control.setAttribute('aria-expanded', 'false');
-                });    
+                });
             });
             const spanNext = document.createElement('span');
             spanNext.className = 'visually-hidden';
@@ -1827,9 +1833,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector('div.cart__footer-total > div > svg').removeAttribute("aria-hidden");
 
     const headerBannerShopifySection = document.getElementById('shopify-section-header-banner')
-    headerBannerShopifySection.setAttribute('aria-label', 'announcement') 
-    headerBannerShopifySection.setAttribute('role', 'region') 
-    
+    headerBannerShopifySection.setAttribute('aria-label', 'announcement')
+    headerBannerShopifySection.setAttribute('role', 'region')
+
     let a = document.querySelectorAll('.content-block > .floating-link > a .span-simulating-button')
     console.log(a);
     [...a].map(ac => ac.parentElement.replaceWith(...ac.parentElement.childNodes))
@@ -1843,7 +1849,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             pdp__payments_svg.insertAdjacentHTML('beforeend', `<title id="${randomId}">External Payment Logo</title>`)
             pdp__payments_svg.setAttribute('aria-labelledby', randomId)
-        }) 
+        })
     }
 
 
@@ -1875,19 +1881,19 @@ window.addEventListener("DOMContentLoaded", () => {
                 })
             }
             [...document.querySelectorAll('.ratio-container img')].map(image => image.setAttribute('alt', 'SQUARESPACE Logo'))
-            
+
             const textSlider = document.querySelector('.shopify-section--text--slider');
             textSlider.setAttribute('role', 'region');
             textSlider.setAttribute('aria-label', 'carousel');
-        
+
             let screenReaderForCarrousel = `<span class="sr-only">This is a carousel with quotes and a track of thumbnails below. Select any of the image buttons to change the main slide above</span>`;
             textSlider.insertAdjacentHTML('afterbegin', screenReaderForCarrousel);
-        
+
             [...textSlider.querySelectorAll('.slide.text-slider__slide')].map((slide, index, { length }) => {
                 slide.setAttribute("aria-label", `Slide ${index+1} of ${length}`);
                 slide.setAttribute("role", 'group');
             });
-        
+
             [...textSlider.querySelectorAll('.slider__dots .slider__dot button')].map((slideDot, index, { length }) => {
                 slideDot.setAttribute("aria-label", `Go to slide ${index+1}`)
                 slideDot.querySelector('button img').setAttribute('alt', 'SQUARESPACE Logo');
@@ -1900,7 +1906,7 @@ window.addEventListener("DOMContentLoaded", () => {
         [...document.querySelectorAll('.hero__block--media-block .ratio-container img')].map(heroImage => {
             heroImage.setAttribute('alt', '');
         });
-        
+
         [...document.querySelectorAll('.hero__media img')].map(heroNavImage => {
             heroNavImage.setAttribute('alt', '');
         });
@@ -1912,7 +1918,7 @@ window.addEventListener("DOMContentLoaded", () => {
         [...document.querySelectorAll('.hero__block--media-block .ratio-container img')].map(heroImage => {
             heroImage.setAttribute('alt', '');
         });
-        
+
         [...document.querySelectorAll('.hero__media img')].map(heroNavImage => {
             heroNavImage.setAttribute('alt', '');
         });
@@ -1952,7 +1958,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 ytpHead.setAttribute('style', ytpStyle);
                 ytpHead.setAttribute('class', ytpClass);
                 yotpoTitle.replaceWith(ytpHead);
-            })       
+            })
         }, 2000);
         setTimeout(() => {
             const yotpoTitles = document.querySelectorAll('#yotpoReferralTitleText');
@@ -1965,9 +1971,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 ytpHead.setAttribute('style', ytpStyle);
                 ytpHead.setAttribute('class', ytpClass);
                 yotpoTitle.replaceWith(ytpHead);
-            })       
+            })
         }, 2000);
-        
+
     }
 
     if(window.location.pathname === '/pages/about-us') {
@@ -2008,35 +2014,35 @@ window.addEventListener("DOMContentLoaded", () => {
 }
 });
     // ADA custom radio JS solution for keyboard navigation - Promo - Featured
-    
+
 function customRadioButtonsPromo(){
-    const swatchesKeyContainerUnit = document.querySelectorAll('.promo-collection .product-unit .product-unit__swatches'); 
+    const swatchesKeyContainerUnit = document.querySelectorAll('.promo-collection .product-unit .product-unit__swatches');
     [].map.call(swatchesKeyContainerUnit, (container => {
     customRadioKeyboardNav(container);
-    }));      
+    }));
 }
-    
+
    function customRadioButtonsFeatured(){
-    const swatchesKeyContainerUnit = document.querySelectorAll('.featured-col__lists .product-unit .product-unit__swatches'); 
+    const swatchesKeyContainerUnit = document.querySelectorAll('.featured-col__lists .product-unit .product-unit__swatches');
   [].map.call(swatchesKeyContainerUnit, (container => {
-    customRadioKeyboardNav(container);        
-  }));    
+    customRadioKeyboardNav(container);
+  }));
 }
 
 function customRadioButtonsQuickAdd(){
-    const swatchesKeyContainerUnit = document.querySelectorAll('.product-unit__colors--quickadd'); 
+    const swatchesKeyContainerUnit = document.querySelectorAll('.product-unit__colors--quickadd');
   [].map.call(swatchesKeyContainerUnit, (container => {
-    customRadioKeyboardNav(container);  
-    //console.log(container.querySelectorAll('.product-unit__swatches .color-swatch'));      
-  }));    
+    customRadioKeyboardNav(container);
+    //console.log(container.querySelectorAll('.product-unit__swatches .color-swatch'));
+  }));
 }
 
 function customMenuTabDesk(){
-    const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom'); 
+    const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom');
   [].map.call(swatchesKeyContainerUnit, (container => {
-    customTabKeyboardNav(container);        
+    customTabKeyboardNav(container);
   }));
-        
+
 }
 
 window.addEventListener('load', () => {
@@ -2120,7 +2126,7 @@ window.addEventListener('click', () => {
 function customRadioKeyboardNav(container) {
 
     container.addEventListener('keyup', function(e) {
-        
+
         let colorButtons = container.querySelectorAll('.color-swatch');
         [].map.call(colorButtons, (colorButton) => {
             colorButton.addEventListener('click', function(e) {
@@ -2133,13 +2139,13 @@ function customRadioKeyboardNav(container) {
                 e.preventDefault();
               selectPreviousColorButton(e.target);
               break;
-              
+
             case 'ArrowDown':
             case 'ArrowRight':
                 e.preventDefault();
               selectNextColorButton(e.target);
               break;
-              
+
             case ' ':
             case '':
             case 'Enter':
@@ -2151,31 +2157,31 @@ function customRadioKeyboardNav(container) {
           // secondary functions
         function selectPreviousColorButton(colorButton) {
             let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-            
+
             if(index > 0) {
               selectColorButton(colorButtons[index - 1]);
             } else {
               selectColorButton(colorButtons[colorButtons.length - 1]);
             }
           }
-          
+
           function selectNextColorButton(colorButton) {
             let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-            
+
             if(index < colorButtons.length - 1) {
               selectColorButton(colorButtons[index + 1]);
             } else {
               selectColorButton(colorButtons[0]);
             }
           }
-          
+
           function selectColorButton(colorButton) {
-            // Deselect all other color buttons 
+            // Deselect all other color buttons
             colorButtons.forEach(function(otherColorButton) {
               otherColorButton.setAttribute('tabindex', '-1');
               otherColorButton.setAttribute('aria-checked', false);
             });
-            
+
             // Select the provided color button
             colorButton.setAttribute('tabindex', '0');
             colorButton.setAttribute('aria-checked', true);
@@ -2184,7 +2190,7 @@ function customRadioKeyboardNav(container) {
         });
 }
 function customTabKeyboardNav(container) {
-      
+
     container.addEventListener('keyup', function(e) {
 
         let colorButtons = container.querySelectorAll('li > a');
@@ -2193,20 +2199,20 @@ function customTabKeyboardNav(container) {
                 selectColorButton(e.target);
             });
         });
- 
+
           switch(e.key) {
             case 'ArrowUp':
             case 'ArrowLeft':
                 e.preventDefault();
               selectPreviousColorButton(e.target);
               break;
-              
+
             case 'ArrowDown':
             case 'ArrowRight':
                 e.preventDefault();
               selectNextColorButton(e.target);
               break;
-              
+
             case ' ':
             case '':
             case 'Enter':
@@ -2218,31 +2224,31 @@ function customTabKeyboardNav(container) {
           // secondary functions
         function selectPreviousColorButton(colorButton) {
             let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-            
+
             if(index > 0) {
               selectColorButton(colorButtons[index - 1]);
             } else {
               selectColorButton(colorButtons[colorButtons.length - 1]);
             }
           }
-          
+
           function selectNextColorButton(colorButton) {
             let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-            
+
             if(index < colorButtons.length - 1) {
               selectColorButton(colorButtons[index + 1]);
             } else {
               selectColorButton(colorButtons[0]);
             }
           }
-          
+
           function selectColorButton(colorButton) {
-            // Deselect all other color buttons 
+            // Deselect all other color buttons
             colorButtons.forEach(function(otherColorButton) {
               otherColorButton.setAttribute('tabindex', '-1');
               otherColorButton.setAttribute('aria-checked', false);
             });
-            
+
             // Select the provided color button
             colorButton.setAttribute('tabindex', '0');
             colorButton.setAttribute('aria-checked', true);
@@ -3876,7 +3882,7 @@ aria.Utils.bindMethods = function (object /* , ...methodNames */) {
   });
 };
 
-/* Code end for custom product size dropdown */ 
+/* Code end for custom product size dropdown */
 const reloadStaticBlocks = () => {
     [...document.querySelectorAll('.static-block-script')].map(script => {
         let scriptInnerHtml = script.innerText;
@@ -3912,7 +3918,7 @@ btnWishlistfloat.addEventListener('click', function() {
     mainWishlist.classList.remove('wishlist__button--added');
     mainWishlist.classList.remove('wishlist__button--loading');
   } else  {
-  
+
     mainWishlist.setAttribute('title', 'Remove from Wishlist');
     mainWishlist.classList.add('wishlist__button--added');
     mainWishlist.classList.remove('wishlist__button--loading');
