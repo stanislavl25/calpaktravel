@@ -1,8 +1,10 @@
+<ul class="cart__items">
 {%- render 'cart-item' for cart.items -%}
-
+</ul>
 {% schema %}
-    {
+    {   
         "name": "Cart Items",
+        "tag": "section",
         "class": "cart__items",
         "settings": [
         

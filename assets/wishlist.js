@@ -59,7 +59,7 @@ function showWishlistPopup(item, status) {
 
 function processWishlistClick(target, data = false) {
     const btn = target;
-
+    const upd = document.querySelector('.pdp__floating-submit-inner .pdp__submit-row .button--pdp__wishlist');
     let container = target.closest('.shopify-product-form, .product-unit');
     let select = container.querySelector('.variant-select');
 
@@ -106,15 +106,22 @@ function processWishlistClick(target, data = false) {
         removeFromWishlist(obj, () => {
             btn.setAttribute('title', 'Add to Wishlist');
             btn.classList.remove('wishlist__button--added');
-            btn.classList.remove('wishlist__button--loading')
+            btn.classList.remove('wishlist__button--loading');
+            upd.setAttribute('title', 'Add to Wishlist');
+            upd.classList.remove('wishlist__button--added');
         });
     } else {
         addToWishlist(obj, () => {
             btn.setAttribute('title', 'Remove from Wishlist');
             btn.classList.add('wishlist__button--added');
             btn.classList.remove('wishlist__button--loading');
+            upd.setAttribute('title', 'Remove from Wishlist');
+            upd.classList.add('wishlist__button--added');
+            console.log('ADDED')
+
         });
     }
+
 }
 
 function removeFromWishlist(obj, callback = false) {

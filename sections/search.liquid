@@ -10,8 +10,9 @@
   data-status="init"
   data-src="{{ 'search.js' | asset_url }}">
   <div class="search-popup__overlay"></div>
-  <div class="search-popup__content">
-    <div class="search__top">
+    <h2 id="search-results-modal" class="visually-hidden">Search results modal</h2>
+    <div class="search-popup__content" aria-labelledby="search-results-modal" role="dialog" aria-modal="true" aria-label="Search results modal">
+        <div class="search__top">
       <button
         aria-label="Close Search"
         class="menu-close menu-close--search"
@@ -25,11 +26,22 @@
           class="search-button"
           type="submit"><img loading="lazy" src="{{ 'icon-search.svg' | asset_url }}"></button>
         <div class="search-input__container">
+          <label id="search-form-label" for="search-form" aria-hidden="false" class="visually-hidden">Search form</label>
+          <span id="search-by-sr" class="sr-only">Use the top bar to enter your search query, results will be placed in the next following sections where you can select product items or category links.</span>
           <input
+            id="search-form"
             class="search-input"
             required="required"
             type="text"
-            name="s">
+            name="s"
+            aria-label="search form site wide"
+            aria-describedby="search-by-sr"
+            aria-autocomplete="list"
+            aria-controls="menu-popup__content_search-section"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-describedby="search-input"
+            >
 
           <div class="search-placeholders" data-num="0">
             <div class="search-placeholders__inner"></div>
@@ -42,7 +54,7 @@
         {%- if section.settings.welcome-collection != blank -%}
           <div class="content-section">
             {%- if section.settings.welcome-title != blank -%}
-              <div class="content-section__title">{{- section.settings.welcome-title | strip_html | escape -}}</div>
+              <h3 class="content-section__title">{{- section.settings.welcome-title | strip_html | escape -}}</h3>
             {%- endif -%}
 
             <div class="products__grid products__grid--flex">
@@ -58,7 +70,7 @@
       <aside class="menu-side">
         <div class="menu-popup__collections-buttons">
           <section class="content-section">
-            <div class="content-section__title">Search by Category</div>
+            <di class="content-section__title">Search by Category</di>
             <div class="search__collections-buttons">
               {%- for category in section.settings.search-by-category -%}
                 <a
@@ -79,7 +91,7 @@
         {%- if section.settings.empty-collection != blank -%}
           <div class="content-section">
             {%- if section.settings.empty-title != blank -%}
-              <div class="content-section__title">{{- section.settings.empty-title | strip_html | escape -}}</div>
+              <h3 class="content-section__title">{{- section.settings.empty-title | strip_html | escape -}}</h3>
             {%- endif -%}
 
             <div class="products__grid products__grid--flex">
@@ -95,7 +107,7 @@
       <aside class="menu-side">
         <div class="menu-popup__collections-buttons">
           <section class="content-section">
-            <div class="content-section__title">Search by Category</div>
+            <h3 class="content-section__title">Search by Category</h3>
             <div class="search__collections-buttons">
               {%- for category in section.settings.search-by-category -%}
                 <a
@@ -113,7 +125,7 @@
 
     <nav class="menu-popup__mobile-nav" data-page="0">
       <ul>
-        <li>
+        <li class="mobile-header">
           <button data-target="0">Products
             <span class="search-num"></span>
           </button>
@@ -128,24 +140,25 @@
 
     <div class="menu-popup__content search-section" data-id="results">
       <div class="menu-popup__main">
-        <div class="content-section">
-          <div class="content-section__title">
+        <div class="content-section" role="group" aria-labelledby="search-form-label">
+          <h3 class="content-section__title search_title">
             Products
-            <span class="search-num"></span>
-          </div>
-          <div class="products__grid search-product-sec"></div>
+            <span aria-live="assertive" class="search-num"></span>
+          </h3>
+          <div class="products__grid search-product-sec" role="listbox" aria-labelledby="search-form-label search-product-sec"></div>
+          <div class="pages-grid"></div>
         </div>
       </div>
       <aside class="menu-side">
         <section class="content-section content-section--collections">
-          <div class="content-section__title">Collections
+          <h3 class="content-section__title">Collections
             <span class="search-col-num"></span>
-          </div>
+          </h3>
           <div class="search__cards"></div>
         </section>
 
         <section class="content-section content-section--stories">
-          <div class="content-section__title">Stories ()</div>
+          <h3 class="content-section__title">Stories ()</h3>
           <div class="search__cards"></div>
         </section>
       </aside>

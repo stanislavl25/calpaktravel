@@ -5,7 +5,10 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 2;
+    z-index: 3;
+}
+.menu li:not(:first-child) div.submenu div:last-child {
+    text-decoration: underline;
 }
 
 /* body.modal-open #shopify-section-promo-bar {
@@ -14,11 +17,11 @@
  } */
 
 
-@media (min-width: 1728px) {
+/* @media (min-width: 1728px) {
     .menu-popup.menu-popup--shop {
         height: auto;
     }
-}
+} */
 
 [data-menu="discover"] [data-target="discover"]::before,
 [data-menu="shop"] [data-target="shop"]::before {

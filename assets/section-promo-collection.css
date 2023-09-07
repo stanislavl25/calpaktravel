@@ -37,6 +37,7 @@
     display: grid;
     gap: var(--gap);
     min-width: 10px;
+    margin: 0;
 }
 
 .promo-collection__media {

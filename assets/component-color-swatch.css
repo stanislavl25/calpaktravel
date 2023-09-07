@@ -16,6 +16,10 @@
     gap: 3px;
 }
 
+.product-recommendations .product-grid .product-unit__swatches-container {
+    position: absolute;
+}
+
 .product-grid .product-unit__swatches-container {
     position: relative;
 }
@@ -123,8 +127,8 @@ a.color-swatch--active::after {
 }
 
 .color-swatch-sale.product-option--na::before {
-    height: 0;
-    border-radius: 0;
+  /*  height: 0;
+    border-radius: 0; */
 }
 
 .color-swatch img {
@@ -149,12 +153,29 @@ a.color-swatch--active::after {
     width: 20px;
     left: 50%;
     top: 50%;
+    height: 2px;
+    background-color: #fff;
     border-top: 2px solid #f7f7f7;
     content: '';
     position: absolute;
     transform: translate(-50%, -50%) rotate(-45deg);
     z-index: 3;
 }
+
+.product-recommendations .product-unit__swatches-container:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    border-radius: 20px;
+    background: #f7f7f7;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
 
 .extra-colors {
     text-decoration: underline;
@@ -318,6 +339,14 @@ a.color-swatch--active::after {
 
 .color-rosewood {
     --background: #AC6879;
+}
+
+.color-cranberry {
+    --background: #D35A5A;
+}
+
+.color-stargaze {
+    --background: #848DB8;
 }
 
 .color-bubblegum {

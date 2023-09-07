@@ -1,12 +1,12 @@
-<section class="menu-popup menu-popup--discover" data-id="discover">
+<section class="menu-popup menu-popup--discover" data-id="discover" aria-labelledby="discover-label" role="region">
     <div class="menu-popup__background"></div>
     <button aria-label="Close the Discover menu" class="menu-close menu-close--discover" title="Close"></button>
     <div class="menu-popup__content">
         <section class="menu-popup__main">
             {% if section.settings.discover-menu != blank %}
-            <ul class="menu">
+            <ul class="menu" role="tablist">
                 {% for link in linklists[section.settings.discover-menu].links %}
-                <li data-id="{{ forloop.index }}" class="menu-item">
+                <li id="menu-item-tab__discover-{{ forloop.index }}" data-id="{{ forloop.index }}" class="menu-item" role="tab">
                     <a href="{{ link.url }}">{{ link.title | escape }}</a>
                 </li>
                 {% endfor %}
@@ -25,13 +25,13 @@
                             <div class="article__card-image">
                                 {%- if block.settings.link != blank -%}
                                     <a href="{{ block.settings.link }}">
-                                        {% render 'image' with block.settings.image, sizes: '20vw', height: '53.937' %}
+                                        {% render 'image' with block.settings.image, sizes: '20vw', height: '53.937', alt: 'Article card image' %}
                                     </a>
                                 {%- else -%}
-                                    {% render 'image' with block.settings.image, sizes: '20vw', height: '53.937' %}
+                                    {% render 'image' with block.settings.image, sizes: '20vw', height: '53.937', alt: 'Article card image' %}
                                 {%- endif -%}
                             </div>
-                            <div class="article__card-title">
+                            <h3 class="article__card-title">
                                 {%- if block.settings.link != blank -%}
                                     <a href="{{ block.settings.link }}">
                                         {{- block.settings.edit-title | escape -}}
@@ -39,7 +39,7 @@
                                 {%- else -%}
                                     {{- block.settings.edit-title | escape -}}
                                 {%- endif -%}
-                            </div>
+                            </h3>
                             <div class="article__card-description">{{- block.settings.description -}}</div>
                         </div>
 
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </section>
-        <aside class="menu-side">
+        <section class="menu-side">
 
             {%- assign media_num = 0 -%}
             {%- capture media_cells -%}
@@ -70,8 +70,9 @@
                     {% if outsideLink %}<a href="{{- block.settings.button-url -}}"{% else %}<div{% endif %}
                         class="media-cell media-cell--color-{{ block.settings.text-color-scheme }} menu__dynamic-element menu__dynamic-element--active">
                         {%- liquid
+                            assign alt = block.settings.block-title | default: block.settings.image.alt | default: block.settings.video.alt | default: 'Discover our recommendations'
                             if block.settings.image != blank
-                                render 'image' with block.settings.image, sizes: '50vw', lazy: true, no_wrapper: true
+                                render 'image' with block.settings.image, sizes: '50vw', lazy: true, no_wrapper: true, alt: alt
                             endif
 
                             if block.settings.video != blank
@@ -86,11 +87,11 @@
                         -%}
 
                         {%- if block.settings.block-title != blank -%}
-                        <div class="media-cell__title">{{- block.settings.block-title | escape -}}</div>
+                            <h3 class="media-cell__title">{{- block.settings.block-title | escape -}}</h3>
                         {%- endif -%}
                         
                         {%- if block.settings.description != blank -%}
-                        <div class="media-cell__description">{{- block.settings.description -}}</div>
+                            <div class="media-cell__description">{{- block.settings.description -}}</div>
                         {%- endif -%}
 
                         {%- if block.settings.button-text != blank -%}
@@ -107,6 +108,6 @@
             <section data-num="{{- media_num -}}" class="media-grid">
                 {{- media_cells -}}
             </section>
-        </aside> 
+        </section> 
     </div>
 </section>

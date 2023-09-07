@@ -2,7 +2,7 @@
 
 window.addEventListener('load', async (e) => {
 
-    endrockExperiment('yhiK_GY6RE2CH3HINFUxYw').then(variant => {
+    endrockExperiment('t2JukFdpQPi69Bc-HwB7yQ').then(variant => {
         if(variant === '1'){
             document.querySelector('.pdp-bundle').classList.remove('hidden');
         }

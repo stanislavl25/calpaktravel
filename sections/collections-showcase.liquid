@@ -15,34 +15,38 @@
 <div class="collection-showcase__switch-cont">
     <div class="collection-showcase__switch-text">{{- section.settings.text | escape -}}</div>
     <div class="text-dropdown" data-target=".collection-showcase__list--{{- section.id -}}">
-        <div class="text-dropdown__value">
+        <label id="showcase_dropdown_label" class="visually-hidden" aria-labelledby="showcase_dropdown">Showcase featured designs</label>
+        <button id="showcase_dropdown" class="text-dropdown__value" aria-labelledby="text-dropdown__option__1" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-activedescendant="text-dropdown__option__1">
             {%- assign firstBlock = section.blocks | first -%}
             {{- firstBlock.settings.dropdown-title | escape -}}
-        </div>
-        <div class="text-dropdown__inner">
+            <span aria-hidden="true"><span>
+        </button>
+        <ul id="text-dropdown__list" class="text-dropdown__inner" role="listbox">
             {%- for block in section.blocks -%}
-            <div class="text-dropdown__option{% if forloop.first %} text-dropdown__option--selected{% endif %}">
-                {{- block.settings.dropdown-title | escape -}}
-            </div>
+            <li class="text-dropdown__option{% if forloop.first %} text-dropdown__option--selected{% endif %}" role="option" aria-selected="true">
+                <button id="text-dropdown__option__{{forloop.index}}">{{- block.settings.dropdown-title | escape -}}</button>
+            </li>
             {%- endfor -%}
-        </div>
+        </ul>
     </div>
 </div>
 <div class="collection-showcase__list collection-showcase__list--{{- section.id -}}">
     {%- for block in section.blocks -%}
     <div class="collection-showcase{% if forloop.first %} collection-showcase--active{% endif %}">
         <div class="collection-showcase__media">
-            {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true -%}
+            {%- render 'image' with block.settings.image, sizes: '(min-width: 901px) 50vw, 100vw', lazy: true, alt: 'collection showcase product' -%}
 
             {%- if block.settings.button-text != blank -%}
             <div class="floating-link">
                 <a href="{{ block.settings.main-link }}" class="button button--secondary">
-                    <span>{{- block.settings.button-text | escpe -}}</span>
+                    <span>{{- block.settings.button-text | escape -}}</span>
                 </a>
 
                 {% if block.settings.product_title != blank %}
                 <div class="floating-link__pictured">
-                    Pictured: <a href="{{ block.settings.pictured_product }}">{{- block.settings.product_title | escape -}}</a>
+                    Pictured:
+                    {% if  block.settings.pictured_product !=blank %}<a class="pirc" href="{{ block.settings.pictured_product }}">{{- block.settings.product_title -}}</a>{% endif %}
+                
                 </div>
                 {% endif %}
             </div>

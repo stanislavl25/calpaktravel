@@ -15,8 +15,10 @@
     <div class="pdp__price">
         <div class="pdp__price-inner">
             {%- if current_variant.compare_at_price > current_variant.price -%}
+            <span class="sr-only">Original price</span>
             <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
             {%- endif -%}
+            <span class="sr-only">Current price</span>
             <b>{{- current_variant.price | money_without_trailing_zeros -}}</b>
         </div>
     </div>

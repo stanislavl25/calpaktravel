@@ -1,7 +1,8 @@
 <!doctype html>
   <html class="no-js" lang="{{ request.locale.iso_code }}">
       <head>
-      {% render 'okendo-preview-head' %}
+          <script src="https://rapid-cdn.yottaa.com/rapid/lib/Wj61WP6TdVcgKg.js"></script>
+
   <link rel='preconnect dns-prefetch' href='https://triplewhale-pixel.web.app/' crossorigin />
   <link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin />
   <script>
@@ -307,10 +308,12 @@
           {% unless settings.speed_debug %}
           <div class="header-container">
           {% section 'promo-bar' %}
-          {% section 'header' %}
+          <div class="header-wrap" aria-modal="true" role="dialog" aria-labelledby="mobile-menu-label-h2">
+            {% section 'header' %}
+            {% section 'mobile-menu' %}
+          </div>
 
               {% render 'wishlist-popup' %}
-              {% section 'mobile-menu' %}
               {% section 'search' %}
 
               {% section 'gwp' %}
@@ -355,6 +358,10 @@
   {% if template == 'index' %}
     <script src="{{ 'handlebars-v4.0.5.js' | asset_url }}"  defer="defer"></script>
     {% render 'welcome-back' %}
+  {% endif %}
+
+  {% if template contains 'product' or template contains 'collection' %}
+    <script src="{{ 'component-recently-viewed.js' | asset_url }}" defer></script>
   {% endif %}
   </body>
   </html>

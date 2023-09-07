@@ -2,28 +2,36 @@
 
 {% if section.settings.enable-sticky-promo %}
 
-<link rel="stylesheet" href="{{ 'component-sticky-promo.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'component-sticky-promo.css' | asset_url | stylesheet_tag }}</noscript>
+  <link
+    rel="stylesheet"
+    href="{{ 'component-sticky-promo.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'">
+  <noscript>{{ 'component-sticky-promo.css' | asset_url | stylesheet_tag }}</noscript>
 
-<div class="sticky-promo sticky-promo--only-hero">
-    <button aria-label="Close promo" class="close-button close-button--{{ section.settings.close-color-scheme }} sticky-promo__close" title="Close"></button>
+  <div class="sticky-promo sticky-promo--only-hero">
+    <button
+      aria-label="Close promo box"
+      class="close-button close-button--{{ section.settings.close-color-scheme }} sticky-promo__close"
+      title="Close"></button>
     <a href="{{ section.settings.promo-link }}">
-    {% render 'image' with section.settings.promo-image, sizes: '220px', lazy: true %}
+      {% render 'image' with section.settings.promo-image, sizes: '220px', lazy: true %}
     </a>
     {%- if section.settings.promo-text != blank -%}
-        <div class="sticky-promo__info">
-            <a href="{{ section.settings.promo-link }}">{{- section.settings.promo-text | escape -}}</a>
-        </div>
+      <div class="sticky-promo__info">
+        <a href="{{ section.settings.promo-link }}">{{- section.settings.promo-text | escape -}}</a>
+      </div>
     {%- endif -%}
-</div>
+  </div>
 {% endif %}
 
 {%- assign num = 0 -%}
 {% assign mobile_num = 0 %}
+{% assign mobile_num = 0 %}
 {%- capture content -%}
-    {% for block in section.blocks %}
-        {%- if block.type == 'text-block' -%}
-            {%- liquid
+  {% for block in section.blocks %}
+    {%- if block.type == 'text-block' -%}
+      {%- liquid
                 if customer == blank and block.settings.show-condition == 'logged-in'
                     continue
                 endif
@@ -32,82 +40,87 @@
                     continue
                 endif
             -%}
-            <div class="hero__block{% if block.settings.show-screens == 'desktop' %} hide-small{% elsif block.settings.show-screens == 'mobile' %} hide-large{% endif %} hero__block-{{ num }} hero__block-mobile-{{ mobile_num }} hero__block--color-{{ block.settings.text-color-scheme }} hero__block--align-{{ block.settings.text-alignment }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
-                {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
-                    <a href="{{ block.settings.main-link }}">
-                {%- endif -%}
+      <div class="hero__block{% if block.settings.show-screens == 'desktop' %} hide-small{% elsif block.settings.show-screens == 'mobile' %} hide-large{% endif %} hero__block-{{ num }} hero__block-mobile-{{ mobile_num }} hero__block--color-{{ block.settings.text-color-scheme }} hero__block--align-{{ block.settings.text-alignment }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
+        {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
+          <a href="{{ block.settings.main-link }}">
+          {%- endif -%}
 
-                {%- if block.settings.title != blank -%}
-                <div class="hero__block-title">{{- block.settings.title | replace: '[name]', customer.first_name | escape -}}</div>
-                {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h1 class="hero__block-title">{{- block.settings.title | replace: '[name]', customer.first_name | escape -}}</h1>
+          {%- endif -%}
 
-                {%- if block.settings.description != blank -%}
-                <div class="hero__block-description">
-                    {{- block.settings.description | replace: '[name]', customer.first_name -}}
-                </div>
-                {%- endif -%}
-
-                {%- if block.settings.button-text != blank -%}
-                    {%- if block.settings.add-link-to-button-only -%}
-                    <a href="{{ block.settings.main-link }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
-                        <span>{{- block.settings.button-text | escape -}}</span>
-                    </a>
-                    {%- else -%}
-                    <span class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
-                        <span>{{- block.settings.button-text | escape -}}</span>
-                    </span>
-                    {%- endif -%}
-                {%- endif -%}
-
-                {%- style -%}
-                    .hero__block--{{ block.id }} {
-                        background: {{ block.settings.background }};
-                    }
-                {%- endstyle -%}
-
-                {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
-                    </a>
-                {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <div class="hero__block-description">
+              {{- block.settings.description | replace: '[name]', customer.first_name -}}
             </div>
-        {%- elsif block.type == 'media-block' -%}
-            <div class="hero__block{% if block.settings.show-screens == 'desktop' %} hide-small{% elsif block.settings.show-screens == 'mobile' %}  hide-large{% endif %} hero__block-{{ num }} hero__block-mobile-{{ mobile_num }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
-                {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
-                    <a href="{{ block.settings.main-link }}">
+          {%- endif -%}
+
+          {%- if block.settings.button-text != blank -%}
+            {%- if block.settings.add-link-to-button-only -%}
+              <a href="{{ block.settings.main-link }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
+                <span>{{- block.settings.button-text | escape -}}</span>
+              </a>
+            {%- else -%}
+              <span class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %} hero__block-button">
+                <span>{{- block.settings.button-text | escape -}}</span>
+              </span>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- style -%}
+            .hero__block--{{ block.id }}{
+              background: {{ block.settings.background }}
+              ;
+            }
+          {%- endstyle -%}
+
+          {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- elsif block.type == 'media-block' -%}
+      <div class="hero__block{% if block.settings.show-screens == 'desktop' %} hide-small{% elsif block.settings.show-screens == 'mobile' %}  hide-large{% endif %} hero__block-{{ num }} hero__block-mobile-{{ mobile_num }} hero__block--{{ block.type }} hero__block--{{ block.id }}">
+        {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
+          <a href="{{ block.settings.main-link }}">
+          {%- endif -%}
+
+
+          {%- if block.settings.title != blank or block.settings.description != blank or block.settings.button-text != blank -%}
+            <div class="hero__block-content hero__block-content--{{ block.settings.text-color-scheme }} hero__block-content--{{ block.settings.text-alignment }}">
+              {% if block.settings.block_overlay %}
+                <div class="block-overlay" style="background-color:{{ block.settings.block_overlay_color }}; opacity:{{ block.settings.block_overlay_opacity }};"></div>
+              {% endif %}
+              {%- if block.settings.title != blank -%}
+                <h1 class="hero__block-title">{{- block.settings.title | escape -}}</h1>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <div class="hero__block-description">{{- block.settings.description -}}</div>
+              {%- endif -%}
+
+              {%- if block.settings.button-text != blank -%}
+                {%- if block.settings.add-link-to-button-only -%}
+                  <a href="{{ block.settings.main-link }}" class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %}">
+                    <span>{{- block.settings.button-text | escape -}}</span>
+                  </a>
+                {%- else -%}
+                  <span class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %}">
+                    <span>{{- block.settings.button-text | escape -}}</span>
+                  </span>
                 {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
 
-
-                {%- if block.settings.title != blank or block.settings.description != blank or block.settings.button-text != blank -%}
-                <div class="hero__block-content hero__block-content--{{ block.settings.text-color-scheme }} hero__block-content--{{ block.settings.text-alignment }}">
-
-                    {%- if block.settings.title != blank -%}
-                    <div class="hero__block-title">{{- block.settings.title | escape -}}</div>
-                    {%- endif -%}
-
-                    {%- if block.settings.description != blank -%}
-                    <div class="hero__block-description">{{- block.settings.description -}}</div>
-                    {%- endif -%}
-
-                    {%- if block.settings.button-text != blank -%}
-                        {%- if block.settings.add-link-to-button-only -%}
-                            <a
-                                href="{{ block.settings.main-link }}"
-                                class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
-                                <span>{{- block.settings.button-text | escape -}}</span>
-                            </a>
-                        {%- else -%}
-                            <span
-                                class="button{% if block.settings.text-color-scheme == 'white' %} button--secondary{% endif %}" >
-                                <span>{{- block.settings.button-text | escape -}}</span>
-                            </span>
-                        {%- endif -%}
-                    {%- endif -%}
-                </div>
-                {%- endif -%}
-
-                {%- if block.settings.video != blank -%}
-                    <iframe src="https://player.vimeo.com/video/{{ block.settings.video.id }}?playsinline=1&title=0&byline=0&color=ffffff&portrait=0&muted=1&controls=0&sidedock=0&autoplay=1&loop=1&api=1" class="js-vimeo" allow="autoplay; encrypted-media" allowfullscreen title="{{ block.settings.description | escape }}"></iframe>
-                {%- elsif block.settings.image != blank -%}
-                    {%- liquid
+          {%- if block.settings.video != blank -%}
+            <iframe
+              src="https://player.vimeo.com/video/{{ block.settings.video.id }}?playsinline=1&title=0&byline=0&color=ffffff&portrait=0&muted=1&controls=0&sidedock=0&autoplay=1&loop=1&api=1"
+              class="js-vimeo"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+              title="{{ block.settings.description | escape }}"></iframe>
+          {%- elsif block.settings.image != blank -%}
+            {%- liquid
                         if block.settings.image-mobile != blank
                             render 'image' with block.settings.image-mobile, preload: true, class: 'hide-large', sizes: '100vw'
                             render 'image' with block.settings.image, preload: true, class: 'hide-small', sizes: '50vw'
@@ -115,13 +128,13 @@
                             render 'image' with block.settings.image, preload: true, sizes: '(min-width: 901px) 50vw, 100vw'
                         endif
                     -%}
-                {%- endif -%}
+          {%- endif -%}
 
-                {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
-                    </a>
-                {%- endif -%}
-            </div>
+          {%- if block.settings.main-link != blank and block.settings.add-link-to-button-only == false or block.settings.button-text == blank -%}
+          </a>
         {%- endif -%}
+      </div>
+    {%- endif -%}
 
         {%- if block.settings.show-screens != 'mobile' -%}
             {%- assign num = num | plus: 1 -%}
@@ -137,16 +150,16 @@
 </section>
 
 {%- if section.settings.hero-height == 'limited' -%}
-{% style %}
-    @media (min-width: 901px) {
-        .hero-{{ section.id }} {
-            height: {{ section.settings.height-limit }}vh;
-        }
+  {% style %}
+    @media(min-width: 901px) {
+      .hero-{{ section.id }}{
+        height: {{ section.settings.height-limit }}vh;
+      }
     }
-{% endstyle %}
+  {% endstyle %}
 {%- endif -%}
 
-        {% comment %} {{ media | media_tag: image_size: "2048x", autoplay: true, loop: loop, controls: true, preload: "none" }}{% endcomment %}
+{% comment %} {{ media | media_tag: image_size: "2048x", autoplay: true, loop: loop, controls: true, preload: "none" }}{% endcomment %}
 
 {% schema %}
     {

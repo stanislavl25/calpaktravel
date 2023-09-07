@@ -19,11 +19,26 @@
     border-radius: 9px;
     transition: all 0.3s ease;
 }
+.menu-popup[data-id=discover] .menu-item > a {
+    border: none;
+}
+.menu-popup[data-id=discover] .menu-item > a:hover {
+    border: 1px solid #000;
+    background: #f7f177;
+}
 
 .menu-item--active > a,
-.menu-item > a:hover {
+.menu-item > a:hover,
+.menu-item--active > button,
+.menu-item > a:hover,
+.menu-item > button:hover {
     border: 1px solid #000;
     border-radius: 9px;
+    background: #fff;
+}
+
+.menu-item--active > a,
+.menu-item--active > button {
     background: #fff;
 }
 

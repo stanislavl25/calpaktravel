@@ -8,14 +8,14 @@
         assign imgHeight = '133.33'
     endif
 -%}
-<div class="cart__item{% if gwpItem %} cart__item--gwp{% endif %} {%- if item.properties['_gift'] == 'true' -%}cart__item--gift{%- endif -%}"
+<li class="cart__item{% if gwpItem %} cart__item--gwp{% endif %} {%- if item.properties['_gift'] == 'true' -%}cart__item--gift{%- endif -%}"
     data-id="{{ item.product.id }}"
     data-handle="{{ item.product.handle }}"
     data-variant="{{ item.variant.id }}"
     data-key="{{ item.key }}"
     {% if item.properties['_final-sale'] == 'true' or item.properties['_final-sale'] == true %} data-final{% endif %}
     {% if item.properties['_preorder'] != blank and item.properties['_preorder'] != false and item.properties['_preorder'] != 'false' %} data-preorder="{{ item.properties['_preorder'] }}"{% endif %}
-    >
+     role="group" aria-label="cart product item">
     <div class="cart__item-image">
         <a href="{{ item.product.url }}/{{ item.variant.option1 | handleize }}{%- if item.variant.option2 !=false and item.variant.option1 == 'size' and item.variant.option2 != blank -%}/{{ item.variant.option2 | handleize }}{%- endif -%}">
             {%- liquid
@@ -43,13 +43,13 @@
         <a href="{{ item.url_to_remove }}" class="cart__item-remove" title="Remove"><img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17"></a>
 
 
-        <div class="cart__item-title">
+        <h3 class="cart__item-title">
             {{ item.product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}
             {% if gwpItem and item.quantity > 1 %}x {{ item.quantity }}
             {% endif %}
-        </div>
+        </h3>
 
-        <div class="cart__item-description"></div>
+        <h3 class="cart__item-description"></h3>
 
         {% unless gwpItem %}
             <div class="cart__item-price-row">
@@ -62,19 +62,13 @@
                         endif
                     -%}
                     {%- if compare_at_price > item.final_line_price -%}
-                    <s>{{- compare_at_price | money_without_trailing_zeros -}}</s>
+                        <span class="sr-only">Original price: </span>
+                        <s>{{- compare_at_price | money_without_trailing_zeros -}}</s>
+                        <span class="sr-only">Current price: </span>
                     {%- endif -%}
                     <b>{{- item.final_line_price | money_without_trailing_zeros -}}</b>
                 </div>
-                <div class="cart__item-qty qty-selector">
-                    {%- if item.properties['_gwp'] != 'true' -%}
-                        <button aria-label="Reduce product quantity" class="qty-button qty-button--less" title="Less">Less</button>
-                        <input type="text" name="qty" readonly="readonly" value="{{ item.quantity }}" autocomplete="off">
-                        <button aria-label="Increase product quantity" class="qty-button qty-button--more" title="More">More</button>
-                    {%- else -%}
-                        <input type="text" name="qty" readonly="readonly" value="{{ item.quantity }}" autocomplete="off">
-                    {%- endif -%}
-                </div>
+
             </div>
 
             {%- if item.product.handle != 'gift-card' -%}
@@ -154,11 +148,24 @@
             {%- endif -%}
 
             {%- if settings.enable-save-for-later -%}
-            <button aria-label="Remove from cart and add to wishlist" class="cart__item-wishlist" title="Remove and add to Wishlist">
-                <img width="18" height="18" src="{{ 'icon-wishlist-arrow.svg' | asset_url }}" loading="lazy" alt="Wishlist">
+            <button class="cart__item-wishlist" title="Remove and add to Wishlist">
+                <img width="18" height="18" src="{{ 'icon-wishlist-arrow.svg' | asset_url }}" loading="lazy" alt="">
                 {{- settings.save-for-later-text | strip_html | escape -}}
             </button>
             {%- endif -%}
         {% endunless %}
+        <div class="cart__item-qty qty-selector">
+            {%- if item.properties['_gwp'] != 'true' -%}
+                <button aria-label="Reduce product quantity" class="qty-button qty-button--less" title="Less">Less</button>
+                <input type="text" name="qty" readonly="readonly" value="{{ item.quantity }}" autocomplete="off">
+                <button aria-label="Increase product quantity" class="qty-button qty-button--more" title="More">More</button>
+            {%- else -%}
+                <input type="text" name="qty" readonly="readonly" value="{{ item.quantity }}" autocomplete="off">
+            {%- endif -%}
+        </div>
+        {%- unless gwpItem -%}
+        <button href="{{ item.url_to_remove }}" class="cart__item-remove" title="Remove"><img loading="lazy" src="{{ 'icon-rubbish.svg' | asset_url }}" alt="Remove" width="17" height="17"></button>
+        {%- endunless -%}
+
     </div>
-</div>
+</li>

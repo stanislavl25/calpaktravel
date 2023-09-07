@@ -1,163 +1,183 @@
 {%- liquid
-    assign product = product-unit
-    assign hotDealsTag = false
-    assign hotDealsVariants = false
+  assign product = product-unit
+  assign hotDealsTag = false
+  assign hotDealsVariants = false
 
-    if product.product != blank
-        assign product = product.product
-    endif
+  if product.product != blank
+      assign product = product.product
+  endif
 
-    assign cancelDisplay = false
-    assign hide = ''
+  assign cancelDisplay = false
+  assign hide = ''
 
-    if current_variant == blank
-        if in_collection != blank
-            assign firstSearch = 'first:' | append: in_collection.handle | append: ':'
-            assign limitSearch = in_collection.handle | append: ':'
+  if current_variant == blank
+      if in_collection != blank
+          assign firstSearch = 'first:' | append: in_collection.handle | append: ':'
+          assign limitSearch = in_collection.handle | append: ':'
 
-            for tag in product.tags
-                assign splitted_tag = tag | split: ":"
-                if splitted_tag[0] == 'hot-deals'
-                    assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
-                endif
+          for tag in product.tags
+              assign splitted_tag = tag | split: ":"
+              if splitted_tag[0] == 'hot-deals'
+                  assign hotDealsVariants = splitted_tag[1] | downcase | split: ';'
+              endif
 
-                if tag contains 'hide:'
-                    assign val = tag | split: ":" | last
-                    unless hide == ''
-                        assign hide = hide | append: ';'
-                    endunless
-                    assign hide = hide | append: val
-                elsif tag contains firstSearch
-                    assign firstSearch = tag | replace: firstSearch, '' | handleize
-                    for variant in product.variants
-                        assign opt1 = variant.option1 | handleize
-                        if opt1 == firstSearch
-                            assign current_variant = variant
-                            break
-                        endif
-                    endfor
-                elsif tag contains limitSearch and current_variant == blank
-                    assign limitSearch = tag | replace: limitSearch, '' | split: ';' | first | handleize
-                    for variant in product.variants
-                        assign opt1 = variant.option1 | handleize
-                        if opt1 == limitSearch
-                            assign current_variant = variant
-                            break
-                        endif
-                    endfor
-                endif
-            endfor
-        endif
+              if tag contains 'hide:'
+                  assign val = tag | split: ":" | last
+                  unless hide == ''
+                      assign hide = hide | append: ';'
+                  endunless
+                  assign hide = hide | append: val
+              elsif tag contains firstSearch
+                  assign firstSearch = tag | replace: firstSearch, '' | handleize
+                  for variant in product.variants
+                      assign opt1 = variant.option1 | handleize
+                      if opt1 == firstSearch
+                          assign current_variant = variant
+                          break
+                      endif
+                  endfor
+              elsif tag contains limitSearch and current_variant == blank
+                  assign limitSearch = tag | replace: limitSearch, '' | split: ';' | first | handleize
+                  for variant in product.variants
+                      assign opt1 = variant.option1 | handleize
+                      if opt1 == limitSearch
+                          assign current_variant = variant
+                          break
+                      endif
+                  endfor
+              endif
+          endfor
+      endif
 
-        if hide != ''
-            assign hide = hide | split: ';'
-        endif
+      if hide != ''
+          assign hide = hide | split: ';'
+      endif
 
-        if current_variant == blank
-            assign current_variant = product.selected_or_first_available_variant
-        endif
+      if current_variant == blank
+          assign current_variant = product.selected_or_first_available_variant
+      endif
 
-        if early_access == 'only'
-            assign earlyAccessVariantFound = false
-            for var in product.variants
-                assign varOpt1 = var.option1 | handleize
-                if hide contains varOpt1
-                    continue
-                endif
-                if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
-                    assign current_variant = var
-                    assign earlyAccessVariantFound = true
-                    break
-                endif
-            endfor
+      if early_access == 'only'
+          assign earlyAccessVariantFound = false
+          for var in product.variants
+              assign varOpt1 = var.option1 | handleize
+              if hide contains varOpt1
+                  continue
+              endif
+              if product.metafields.custom.early_access == true and var.metafields.custom.early_access == true
+                  assign current_variant = var
+                  assign earlyAccessVariantFound = true
+                  break
+              endif
+          endfor
 
-            unless earlyAccessVariantFound
-                assign cancelDisplay = true
+          unless earlyAccessVariantFound
+              assign cancelDisplay = true
 
-            endunless
-        endif
-    endif
+          endunless
+      endif
+  endif
 
-    assign opt1 = current_variant.option1 | handleize
+  assign opt1 = current_variant.option1 | handleize
 
-    if location == blank
-        assign location = 'list'
-    endif
+  if location == blank
+      assign location = 'list'
+  endif
 
-    if sizes == false or sizes == blank
-        assign sizes = '(min-width: 1181px) 20vw, 25vw'
-    endif
+  if sizes == false or sizes == blank
+      assign sizes = '(min-width: 1181px) 20vw, 25vw'
+  endif
 
-    assign unit_url = product.url | append: '/'
-    if current_variant.metafields.custom.early_access and product.metafields.custom.early_access
-        assign unit_url = unit_url | append: 'early-access-'
-    endif
-    assign unit_url = unit_url | append: opt1
+  assign unit_url = product.url | append: '/'
+  if current_variant.metafields.custom.early_access and product.metafields.custom.early_access
+      assign unit_url = unit_url | append: 'early-access-'
+  endif
+  assign unit_url = unit_url | append: opt1
 
-    assign extraSale = false
-    if settings.extra-sale-enabled
-        for tag in product.tags
-            assign tagSpl = tag | split: ':'
-            assign handle = tagSpl[0] | handleize
+  assign extraSale = false
+  if settings.extra-sale-enabled
+      for tag in product.tags
+          assign tagSpl = tag | split: ':'
+          assign handle = tagSpl[0] | handleize
 
-            if settings.extra-sale-tag == tagSpl[0]
-                if tagSpl.size == 1
-                    assign extraSale = true
-                else
-                    assign extraSale = tagSpl[1] | downcase | split: ';'
-                endif
+          if settings.extra-sale-tag == tagSpl[0]
+              if tagSpl.size == 1
+                  assign extraSale = true
+              else
+                  assign extraSale = tagSpl[1] | downcase | split: ';'
+              endif
+          endif
+      endfor
+  endif
+
+  if settings.sale-badge-tag == blank
+          assign saleBadge = true
+      else
+          assign saleBadge = false
+          for tag in product.tags
+              assign tagSpl = tag | split: ':'
+              if settings.sale-badge-tag == tagSpl[0]
+                  if tagSpl.size == 1
+                      assign saleBadge = true
+                  else init_option1
+                      assign saleBadge = tagSpl[1] | downcase | split: ';'
+                  endif
+              endif
+          endfor
+  endif
+  
+  if settings.final-sale-text
+    for tag in product.tags
+        assign tagSpl = tag | split: ':'
+        assign handle = tagSpl[0] | handleize
+
+        if 'final-sale' == handle
+            if tagSpl.size == 1
+                assign finalSale = true
+            else
+                assign finalSale = tagSpl[1] | downcase | split: ';'
             endif
-        endfor
-    endif
-
-    if settings.sale-badge-tag == blank
-            assign saleBadge = true
-        else
-            assign saleBadge = false
-            for tag in product.tags
-                assign tagSpl = tag | split: ':'
-                if settings.sale-badge-tag == tagSpl[0]
-                    if tagSpl.size == 1
-                        assign saleBadge = true
-                    else init_option1
-                        assign saleBadge = tagSpl[1] | downcase | split: ';'
-                    endif
-                endif
-            endfor
-    endif
-    if settings.sale-badge-tag-bundle == blank
-            assign saleBadge-bundle = true
-        else
-            assign saleBadge-bundle = false
-            for tag in product.tags
-                assign tagSpl = tag | split: ':'
-                if settings.sale-badge-tag-bundle == tagSpl[0]
-                    if tagSpl.size == 1
-                        assign saleBadge-bundle = true
-                    else
-                        assign saleBadge-bundle = tagSpl[1] | downcase | split: ';'
-                    endif
-                endif
-            endfor
-    endif
-
-    if settings.hot-deals-ends != blank
-        assign hotDealsTag = true
-        assign now = "now" | date: '%s' | times: 1
-        assign ends = settings.hot-deals-ends | date: '%s' | times: 1
-        assign timeLeft = ends | minus: now
-        assign countdownTimer = false
-
-        if timeLeft < 172800
-            assign countdownTimer = true
-        else if timeLeft < 0
-            assign countdownTimer = false
         endif
-    endif
+    endfor
+  endif
+  
+  if settings.sale-badge-tag-bundle == blank
+          assign saleBadge-bundle = true
+      else
+          assign saleBadge-bundle = false
+          for tag in product.tags
+              assign tagSpl = tag | split: ':'
+              if settings.sale-badge-tag-bundle == tagSpl[0]
+                  if tagSpl.size == 1
+                      assign saleBadge-bundle = true
+                  else
+                      assign saleBadge-bundle = tagSpl[1] | downcase | split: ';'
+                  endif
+              endif
+          endfor
+  endif
+
+  if settings.hot-deals-ends != blank
+      assign hotDealsTag = true
+      assign now = "now" | date: '%s' | times: 1
+      assign ends = settings.hot-deals-ends | date: '%s' | times: 1
+      assign timeLeft = ends | minus: now
+      assign countdownTimer = false
+
+      if timeLeft < 172800
+          assign countdownTimer = true
+      else if timeLeft < 0
+          assign countdownTimer = false
+      endif
+  endif
 -%}
 
 {%- unless cancelDisplay -%}
-  <div
+  {% if isList %}
+    <li
+  {% else %}
+    <div
+  {% endif%}
     id="product-card__{{index}}"
     data-suffix="{{ product.template_suffix }}"
     data-handle="{{ product.handle }}"
@@ -173,7 +193,10 @@
     data-early-access="{{ early_access }}"
     {%- endif -%}
     data-variant="{{ current_variant.id }}"
-    class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false and settings.sale-msg-starter != false %} customBadge-class {% endif %}{% if cardlayout %} card-{{ cardlayout}}{% endif %}">
+    class="product-unit product-unit{% if extraSale contains opt1 or extraSale == true %} extra-sale-active{% endif %}{% if current_variant.available == false %} product-unit--na{% endif %}{% if class != blank %} {{ class }}{% endif %}{% if settings.sale-badge-text != blank and saleBadge != false %} product-unit--add-sale-badge{% endif %}{% if settings.sale-badge-hide-textog != false and saleBadge-bundle != false %} product-unit--add-sale-badge-bundle{% endif %} {% if saleBadge-bundle != false and settings.sale-msg-starter != false %} customBadge-class {% endif %}"
+    role="group"
+    aria-label="product"
+  >
     <div class="product-unit__image-wrapper splash {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}">
       {%- if quick_view == true -%}
         <a
@@ -229,7 +252,6 @@
               </div>
             </div>
           {%- endif -%}
-
         {%- endfor -%}
       {% endif %}
 
@@ -292,86 +314,93 @@
 
     <div class="product-unit__colors--quickadd"></div>
 
+
+    {%- if finalSale != false and add_to_cart == true-%}
+      <div class="product-label product-label--final {% if finalSale contains opt1 and finalSale != true %} product-label--active{% endif %}"
+          {% if finalSale != true %}data-options="{{ finalSale | join: ' ' }}"{% endif %}>
+          <strong>This item is Final Sale</strong>
+      </div>
+    {%- endif -%}
+
     <div class="product-unit__main-content">
-      <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
-        <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
+    <div class="product-unit__title{% if wishlist == true %} product-unit__title--wishlist{% endif %}">
+      <a href="{{ product.url }}" class="product-link">{{ product.title | replace: ' - Final', '' | replace: ' - FW', '' | escape }}</a>
+    </div>
+
+    {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
+      <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
+    {%- endif -%}
+
+    {% comment %} {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
+    <div class="product-unit__reviews">
+    {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
+    </div>
+    {%- endif -%} {% endcomment %}
+
+    {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
+      <p class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</p>
+    {%- endif -%}
+
+    <div class="product-unit__row">
+      <div class="product-unit__price">
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          <s><span class="sr-only">Original price: </span>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
+          <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
+        {%- else -%}
+          <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
+        {%- endif -%}
       </div>
+    </div>
 
-      {%- if product.metafields.product.short-info != blank and product.metafields.custom.enable_short_info == true and show_short_info == true -%}
-        <div class="product-unit__info">{{- product.metafields.product.short-info | strip_html | escape -}}</div>
-      {%- endif -%}
-
-      {% comment %} {%- if product.metafields.okendo.summaryData.reviewCount > 0 -%}
-      <div class="product-unit__reviews">
-      {% render 'star-rating' with product.metafields.okendo.summaryData.reviewAverageValue, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
-      </div>
-      {%- endif -%} {% endcomment %}
-
-      {%- if product.metafields.product.size-label != blank and show_luggage_size == true -%}
-        <div class="product-unit__info">{{- product.metafields.product.size-label | strip_html | escape -}}</div>
-      {%- endif -%}
-
-      <div class="product-unit__row">
-        <div class="product-unit__price">
-          {%- if current_variant.compare_at_price > current_variant.price -%}
-            <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-            <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-          {%- else -%}
-            <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-          {%- endif -%}
+    {%- if hotDealsVariants != false and settings.hot-deals-badge-enabled -%}
+        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}"
+            {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
+            Hot Deal
         </div>
-      </div>
+    {%- endif -%}
 
-      {%- if hotDealsVariants != false and settings.hot-deals-badge-enabled -%}
-        <div class="product-label product-label--final hot-deals-mobile {% if hotDealsVariants contains opt1 and hotDealsVariants != true %} product-label--active{% endif %}" {% if hotDealsVariants != true %}data-options="{{ hotDealsVariants | join: ' ' }}"{% endif %}>
-          Hot Deal
-        </div>
-      {%- endif -%}
+    {% comment %} {%- if hotDealsVariants contains opt1 -%}
+    <div class="product-label hot-deals-countdown-wrapper">
+    <label>Sale ends</label>
+    <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
+    </div>
+    {%- endif -%} {% endcomment %}
 
-      {% comment %} {%- if hotDealsVariants contains opt1 -%}
-      <div class="product-label hot-deals-countdown-wrapper">
-      <label>Sale ends</label>
-      <div class="countdown-timer" data-time="{{- timeLeft -}}">{{timeLeft}}</div>
-      </div>
-      {%- endif -%} {% endcomment %}
-
-      {%- liquid
+    {%- liquid
         if floatingLabels != false and floatingLabels != true and labels != false
             render 'flash-sale-label', current_variant: current_variant, product: product
-            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true
+            render 'product-form-labels', location: location, product: product, current_variant: current_variant, unit: true, add_to_cart: add_to_cart
         endif
     -%}
 
-      <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
+    <div class="sale-badge-wrapper">{% comment %} Look at theme.liquid line 315 its the js which renders the sale badge {% endcomment %}</div>
     </div>
     {%- if add_to_cart == true -%}
 
 
       <div class="product-unit__button">
-        <button aria-label="Add product to cart" class="button button--tertiary button--add-to-cart">
+        <button class="button button--tertiary button--add-to-cart">
           <div class="button-msg-add">Add to Bag</div>
           <div class="button-msg-adding">Adding...</div>
           <div class="button-msg-added">Added!</div>
           <div class="button-msg-so">Sold Out</div>
-          <div class="button-msg-jw">
-            <a
-              class="join-waitlist product-link"
-              style="text-decoration: none"
-              href="{{ product.url }}">Join Waitlist</a>
-          </div>
+          <div class="button-msg-jw"><a class="join-waitlist product-link" style="text-decoration: none" href="{{ product.url }}">Join Waitlist</a></div>
           {% comment %} <div class="button-msg-na">Not Available</div>{% endcomment %}
           <div class="product-unit__row">
-            <div class="product-unit__price">
-              {%- if current_variant.compare_at_price > current_variant.price -%}
-                <s>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s>
-                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-              {%- else -%}
-                <b>{{ current_variant.price | money_without_trailing_zeros }}</b>
-              {%- endif -%}
-            </div>
+          <div class="product-unit__price">
+          {%- if current_variant.compare_at_price > current_variant.price -%}
+          <s><span class="sr-only">Original price: </span>{{ current_variant.compare_at_price | money_without_trailing_zeros }}</s><b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
+          {%- else -%}
+          <b><span class="sr-only">Current price: </span>{{ current_variant.price | money_without_trailing_zeros }}</b>
+          {%- endif -%}
           </div>
+          </div> 
         </button>
       </div>
     {%- endif -%}
+  {% if isList %}
+  </li>
+  {% else %}
   </div>
+  {% endif%}
 {% endunless %}

@@ -1,7 +1,7 @@
 <div class="reviews__slide-img">
     {%- liquid
         if block.settings.image-link != blank
-            echo '<a href="' | append: block.settings.image-link | append: '">'
+            echo '<a href="' | append: block.settings.image-link | append: '" tabindex="-1">'
         endif
 
         if block.settings.image-mobile != blank
@@ -21,7 +21,7 @@
         {%- if block.settings.pictured-product != blank -%}
         <div class="review-slide__pictured">
             {%- assign product = all_products[block.settings.pictured-product] -%}
-            Pictured: <a href="{{ product.url }}">
+            Pictured: <a href="{{ product.url }}" tabindex="-1">
                 {%- if block.settings.pictured-product-title != blank -%}
                     {{- block.settings.pictured-product-title | escape -}}
                 {%- else -%}
@@ -30,28 +30,36 @@
             </a>
             <span class="review-slide__pictured-price">
             {%- if product.compare_at_price > product.price -%}
+                <span class="sr-only">Original price</span>
                 <s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>
             {%- endif -%}
+            <span class="sr-only">Current price</span>
             {{ product.price | money_without_trailing_zeros }}
             </span>
         </div>
         {%- endif -%}
 
-        <a href="{{ product.url }}/reviews" class="review-slide__reviews">
+        <a href="{{ product.url }}/reviews" class="review-slide__reviews" tabindex="-1">
         {% render 'star-rating' with block.settings.stars, number_of_reviews: product.metafields.okendo.summaryData.reviewCount %}
         </a>
     </div>
     
     <div class="review-slide__main">
-        <div class="review-slide__review{% if block.settings.add-quotes %} review-slide__review--quotes{% endif %}">{{ block.settings.review }}</div>
+        <div class="review-slide__review{% if block.settings.add-quotes %} review-slide__review--quotes{% endif %}">
+            <p>
+                
+                <blockquote style="margin:0;"><span aria-hidden="true">“</span>{{ block.settings.review | strip_html }}<span aria-hidden="true">”</span></blockquote>
+                
+            </p>
+        </div>
         {%- if block.settings.name != blank -%}
-        <div class="review-slide__author">&ndash; {{ block.settings.name | escape }}</div>
+            <div class="review-slide__author">&ndash; {{ block.settings.name | escape }}</div>
         {%- endif -%}
     </div>
     
     <div class="review-slide__footer">
         {%- if block.settings.button-text != blank -%}
-        <a href="{{ block.settings.button-link }}" class="button">
+        <a href="{{ block.settings.button-link }}" class="button" tabindex="-1">
             <span>{{- block.settings.button-text | escape -}}</span>
         </a>
         {%- endif -%}

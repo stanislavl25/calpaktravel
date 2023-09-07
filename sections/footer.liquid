@@ -10,9 +10,9 @@
             {%- case block.type -%}
                 {%- when 'link_list' -%}
                     {%- if block.settings.heading != blank -%}
-                        <div class="footer__widget-title">
+                        <h2 class="footer__widget-title" style="font-size:1rem;">
                             {{- block.settings.heading | escape -}}
-                        </div>
+                        </h2>
                     {%- endif -%}
                     {%- if block.settings.menu != blank -%}
                     <ul class="list-menu list-unstyled">
@@ -27,30 +27,42 @@
                     {%- endif -%}
                 {%- when 'social' -%}
                     {%- if block.settings.heading != blank -%}
-                        <div class="footer__widget-title footer__widget-title--big">
+                        <h2 class="footer__widget-title footer__widget-title--big">
                             {{- block.settings.heading | escape -}}
-                        </div>
+                        </h2>
                     {%- endif -%}
-                    <div class="footer-socials">
+                    <ul class="footer-socials">
                         {% if settings.facebook != blank %}
-                        <a href="{{ settings.facebook }}" title="Facebook"><img alt="Facebook" loading="lazy" src="{{ 'facebook.svg' | asset_url }}"></a>
+                        <li>
+                            <a href="{{ settings.facebook }}" title="Facebook"><img alt="Facebook" loading="lazy" src="{{ 'facebook.svg' | asset_url }}"></a>
+                        </li>
                         {% endif %}
                         {% if settings.instagram != blank %}
-                        <a href="{{ settings.instagram }}" title="Instagram"><img alt="Instagram" loading="lazy" src="{{ 'instagram.svg' | asset_url }}"></a>
+                        <li>
+                            <a href="{{ settings.instagram }}" title="Instagram"><img alt="Instagram" loading="lazy" src="{{ 'instagram.svg' | asset_url }}"></a>
+                        </li>
                         {% endif %}
                         {% if settings.twitter != blank %}
-                        <a href="{{ settings.twitter }}" title="Twitter"><img alt="Twitter" loading="lazy" src="{{ 'twitter.svg' | asset_url }}"></a>
+                        <li>
+                            <a href="{{ settings.twitter }}" title="Twitter"><img alt="Twitter" loading="lazy" src="{{ 'twitter.svg' | asset_url }}"></a>
+                        </li>
                         {% endif %}
                         {% if settings.youtube != blank %}
-                        <a href="{{ settings.youtube }}" title="Youtube"><img alt="Youtube" loading="lazy" src="{{ 'youtube.svg' | asset_url }}"></a>
+                        <li>
+                            <a href="{{ settings.youtube }}" title="Youtube"><img alt="Youtube" loading="lazy" src="{{ 'youtube.svg' | asset_url }}"></a>
+                        </li>
                         {% endif %}
                         {% if settings.pinterest != blank %}
-                        <a href="{{ settings.pinterest }}" title="Pinterest"><img alt="Pinterest" loading="lazy" src="{{ 'pinterest.svg' | asset_url }}"></a>
+                        <li>
+                            <a href="{{ settings.pinterest }}" title="Pinterest"><img alt="Pinterest" loading="lazy" src="{{ 'pinterest.svg' | asset_url }}"></a>
+                        </li>
                         {% endif %}
                         {% if settings.tiktok != blank %}
-                        <a href="{{ settings.tiktok }}" title="TikTok"><img width="17" alt="TikTok" loading="lazy" src="{{ 'tiktok.svg' | asset_url }}"></a>
+                        <li>
+                            <a href="{{ settings.tiktok }}" title="TikTok"><img width="17" alt="TikTok" loading="lazy" src="{{ 'tiktok.svg' | asset_url }}"></a>
+                        </li>
                         {% endif %}
-                    </div>
+                    </ul>
             {%- endcase -%}
             </div>
         {%- endfor -%}

@@ -31,6 +31,7 @@
     display: none;
 }
 .pdp__gallery-container > .product-label--badge.product-label--active,
+.pdp__gallery-container > .product-label--badge.product-label--active,
 .product-label--badge.badge-active {
     width: 117px;
     height: 117px;
@@ -66,10 +67,11 @@
 .product-label--badge.product-label--badge-collection-page {
     right: 11.01px;
     bottom: 11.01px;
-    width: 74px;
-    height: 74px;
+    width: 82px;
+    height: 82px;
     font-size: 14px;
     display: flex !important;
+    top: calc(100% - 85.45px);
 }
 
 .hot-deals-badge.product-label--active {
@@ -94,7 +96,8 @@
     top: 35px;
 }
 
-.shopify-section--pdp-featured .product-label--promo {
+.shopify-section--pdp-featured .product-label--promo,
+.shopify-section--pdp-featured .product-label--final {
     display: none;
 }
 .slider .product-label--badge.product-label--badge-collection-page {
@@ -156,6 +159,10 @@
     width: 74px;
     height: 74px;
     font-size: 14px;
+}
+
+.cart__upsell .product-unit__main-content .product-label--final {
+    display: none;
 }
 
 .pdp__upsell .product-label--badge.product-label--active,
@@ -311,7 +318,8 @@ body .floating-labels .product-label--extra-sale {
         padding-inline: 6px 6px;
         margin-top: 8px;
         margin-bottom: 0px;
-        position: absolute; 
+        position: absolute;
+        top: auto; 
         bottom: 0;
         right: 0;
         border-radius: 0 0 9px 9px;

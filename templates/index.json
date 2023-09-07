@@ -3,6 +3,15 @@
     "d8d0b7e4-3911-46eb-8ac8-474bcc2193dd": {
       "type": "scrollable-menu",
       "blocks": {
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "sale",
+            "title": "Flash Sale",
+            "image": "shopify:\/\/shop_images\/COMPAKT-DUO-PALM-LIFESTYLE1_f9fc065a-b2ed-4139-95f2-545b53390223.jpg"
+          }
+        },
         "5c9b298a-373d-4e25-ba9f-69fd566cd278": {
           "type": "collection",
           "settings": {
@@ -16,16 +25,31 @@
           "settings": {
             "collection": "sale",
             "title": "",
-            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
+            "image": "shopify:\/\/shop_images\/Group_3788.jpg"
           }
         },
-        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc": {
+        "69fb0fb6-9c79-400a-bb23-2f808700224d": {
           "type": "collection",
-          "disabled": true,
           "settings": {
-            "collection": "sale",
-            "title": "Labor Day Sale",
-            "image": "shopify:\/\/shop_images\/Calpak_Royal_woods20211-2.jpg"
+            "collection": "bags",
+            "title": "",
+            "image": "shopify:\/\/shop_images\/CALPAK.4.24.LOCATION0512_1-4.jpg"
+          }
+        },
+        "362872c0-7216-4058-b7dd-9ea455af3c06": {
+          "type": "collection",
+          "settings": {
+            "collection": "duffel",
+            "title": "Duffels",
+            "image": "shopify:\/\/shop_images\/CALPACK_HOLIDAY2035-3.jpg"
+          }
+        },
+        "4111bd46-fc19-4115-8246-79ab089db6c3": {
+          "type": "collection",
+          "settings": {
+            "collection": "backpacks",
+            "title": "Backpacks",
+            "image": "shopify:\/\/shop_images\/Calpak_8th_st0042A-3_4f093335-fb3b-4ab0-8ec8-1dde29e51149.jpg"
           }
         },
         "1a9f7649-d924-4b41-be44-f921b6e301dc": {
@@ -52,23 +76,53 @@
             "image": "shopify:\/\/shop_images\/Calpak_Royal_woods_20249-4_1.jpg"
           }
         },
-        "69fb0fb6-9c79-400a-bb23-2f808700224d": {
+        "2b8a58eb-0009-4905-980e-ebdf5174e34a": {
           "type": "collection",
           "settings": {
-            "collection": "bags",
-            "title": "",
-            "image": "shopify:\/\/shop_images\/Shot_7.jpg"
+            "collection": "cosmetics-cases",
+            "title": "Makeup Bags",
+            "image": "shopify:\/\/shop_images\/Calpak-KayaSummer1229.jpg"
+          }
+        },
+        "f6463f35-c9f6-478e-98df-9f3118414909": {
+          "type": "collection",
+          "settings": {
+            "collection": "packing-cubes",
+            "title": "Packing Cubes",
+            "image": "shopify:\/\/shop_images\/210608_CALPAK_LaptopTote_27115_Hi-4.jpg"
+          }
+        },
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913": {
+          "type": "collection",
+          "settings": {
+            "collection": "organizers",
+            "title": "Organizers",
+            "image": "shopify:\/\/shop_images\/Astrology-TechPouch-2.jpg"
+          }
+        },
+        "32e50f94-5f97-4a2d-a987-14288f76d944": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": "Accessories",
+            "image": "shopify:\/\/shop_images\/CALPAK.1_24.STUDIO_Mini_Backpack_0215-3.jpg"
           }
         }
       },
       "block_order": [
+        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
         "5c9b298a-373d-4e25-ba9f-69fd566cd278",
         "ff3d9ee9-9421-4522-8d9a-9f7ba83efb05",
-        "d42cbf3e-01f9-4cc1-a30a-a63277b970dc",
+        "69fb0fb6-9c79-400a-bb23-2f808700224d",
+        "362872c0-7216-4058-b7dd-9ea455af3c06",
+        "4111bd46-fc19-4115-8246-79ab089db6c3",
         "1a9f7649-d924-4b41-be44-f921b6e301dc",
         "ce735a9c-f2b4-42f0-a9b2-579dc7b49bce",
         "b4f87340-14ff-4b77-aa89-5840cb4efcc2",
-        "69fb0fb6-9c79-400a-bb23-2f808700224d"
+        "2b8a58eb-0009-4905-980e-ebdf5174e34a",
+        "f6463f35-c9f6-478e-98df-9f3118414909",
+        "ad27f39e-da40-4f5d-ba4a-e7b308801913",
+        "32e50f94-5f97-4a2d-a987-14288f76d944"
       ],
       "settings": {
         "display-menu": true
@@ -81,9 +135,9 @@
           "type": "text-block",
           "disabled": true,
           "settings": {
-            "title": "Labor Day Sale",
-            "description": "<p>Wave goodbye to summer with up to 60% off best sellers<\/p><p><a href=\"\/pages\/promotion-terms\" title=\"Promotion Terms\">* Terms and Conditions<\/a><\/p>",
-            "main-link": "shopify:\/\/collections\/sale",
+            "title": "LIMITED TIME: 50% OFF",
+            "description": "<p>Compakt Duo Flash Sale is happening now!<\/p>",
+            "main-link": "",
             "button-text": "Shop Now",
             "add-link-to-button-only": true,
             "show-screens": "all",
@@ -97,9 +151,9 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Petal-HavenTote-OnPillars-6.jpg",
+            "image": "shopify:\/\/shop_images\/alis145-071-3.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/sale",
+            "main-link": "",
             "title": "",
             "description": "",
             "button-text": "",
@@ -113,9 +167,9 @@
           "type": "media-block",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/22_DEC_15_Calpak_Winter_Lifestyle_Bubblegum_1831-3.jpg",
+            "image": "shopify:\/\/shop_images\/alis145-075-2.jpg",
             "video": "",
-            "main-link": "shopify:\/\/collections\/sale",
+            "main-link": "",
             "title": "",
             "description": "",
             "button-text": "",
@@ -199,7 +253,7 @@
       ],
       "settings": {
         "hero-height": "limited",
-        "height-limit": 105,
+        "height-limit": 85,
         "enable-sticky-promo": false,
         "promo-text": "•Trnk Collection Live Now",
         "promo-link": "shopify:\/\/products\/ambeur-vanity-case",
@@ -259,7 +313,7 @@
             "description": "",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/kaya-laptop-backpack",
-            "product_title": "Kaya Laptop Backpack",
+            "product_title": "",
             "button_text_mobile": "Shop Best Sellers",
             "button_url_mobile": "shopify:\/\/collections\/best-sellers",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0042A-3.jpg",
@@ -277,7 +331,7 @@
             "description": "",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/ambeur-collection",
-            "product_title": "Ambeur Collection",
+            "product_title": "",
             "button_text_mobile": "Shop Luggage",
             "button_url_mobile": "shopify:\/\/collections\/luggage",
             "image": "shopify:\/\/shop_images\/5X3A0397-4.jpg",
@@ -295,7 +349,7 @@
             "description": "",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/packing-cubes",
-            "product_title": "Packing Cubes",
+            "product_title": "",
             "button_text_mobile": "Shop Organizers",
             "button_url_mobile": "shopify:\/\/collections\/organizers",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0075A-5-2.jpg",
@@ -313,7 +367,7 @@
             "description": "",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/collections\/luka-collection",
-            "product_title": "Luka Collection",
+            "product_title": "",
             "button_text_mobile": "Shop Bags",
             "button_url_mobile": "shopify:\/\/collections\/bags",
             "image": "shopify:\/\/shop_images\/Calpak_8th_st0019A-2.jpg",
@@ -335,7 +389,7 @@
         "gap": false,
         "general-layout": "text-media",
         "content-position": "stretch",
-        "mobile-layout": "stacked",
+        "mobile-layout": "grid",
         "button-text": "",
         "button-link": ""
       }
@@ -543,7 +597,7 @@
             "description": "<p>Discover which cosmetics bag you should pack for your next adventure.<\/p>",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/large-clear-cosmetic-case",
-            "product_title": "Large Clear Cosmetics Case",
+            "product_title": "",
             "button_text_mobile": "",
             "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Toiletry_Bags-2.jpg",
@@ -560,7 +614,7 @@
             "description": "<p>Packing cubes come in all shapes and sizes—let's find the right ones for you.<\/p>",
             "button-text": "Shop now",
             "pictured_product": "shopify:\/\/products\/medium-compression-packing-cubes",
-            "product_title": "Compression Packing Cubes",
+            "product_title": "",
             "button_text_mobile": "",
             "button_url_mobile": "",
             "image": "shopify:\/\/shop_images\/Packing_Cubes.jpg",

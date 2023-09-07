@@ -2,18 +2,24 @@
 
 <div class="page-anchor"></div>
 
-<section class="content-slider content-slider--{{ section.id }}">
-    <div class="slider__wrapper slider__wrapper--nav slider__wrapper--content-slider">
-        <div class="slider slider-nav content-slider__nav" data-nav-for=".content-slider--{{ section.id }} .content-slider__main">
+<section class="content-slider content-slider--{{ section.id }}" aria-label="carousel" role="region">
+    <div class="slider__wrapper slider__wrapper--nav slider__wrapper--content-slider" role="region">
+        <span class="sr-only">
+            Click the slider dots to move the slider
+        </span>
+        <ul style="list-style: none" class="slider slider-nav content-slider__nav" data-nav-for=".content-slider--{{ section.id }} .content-slider__main">
             {%- for block in section.blocks -%}
-            <div class="{% if forloop.first %} slide--selected{% endif %} content-slider__nav-slide slide">{{- block.settings.title | escape -}}</div>
+            <li class="{% if forloop.first %} slide--selected{% endif %} content-slider__nav-slide slide" {% if forloop.first %} aria-current="true"{% endif %}>{{- block.settings.title | escape -}}</li>
             {%- endfor -%}
-        </div>
+        </ul>
     </div>
     <div class="slider__wrapper">
-        <div class="slider content-slider__main" data-nav=".content-slider--{{ section.id }} .content-slider__nav">
+        <ul style="list-style: none" class="slider content-slider__main" data-nav=".content-slider--{{ section.id }} .content-slider__nav">
+            <span class="sr-only">
+                Click the slider dots to move the slider
+            </span>
             {%- for block in section.blocks -%}
-            <div class="content-slider__main-slide slide">
+            <li class="content-slider__main-slide slide">
                 {%- liquid
                     if block.settings.image1 != blank and block.settings.image2 != blank
                         assign size = '(min-width: 901px) 25vw, 50vw'
@@ -31,7 +37,7 @@
 
                     {%- if block.settings.image2 != blank -%}
                     <div class="content-slider__media">
-                        {% render 'image' with block.settings.image2, sizes: size, lazy: true %}
+                        {% render 'image' with block.settings.image2, sizes: size, lazy: true, alt: alt %}
                     </div>
                     {%- endif -%}
                 </div>
@@ -40,9 +46,9 @@
                 <div class="content-slider__main-text">
                     {{- block.settings.text -}}
                 </div>
-            </div>
+            </li>
             {%- endfor -%}
-        </div>
+        </ul>
     </div>
 </section>
 

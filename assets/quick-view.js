@@ -67,7 +67,55 @@ function setQuickViewContent(data, variant, qvParent) {
                 return index + 1;
             }, 1);
         });
+        qvRatingADA();
+        trappingKeyboardFocus();
+        customRadioButtons();
     }, 1);
+
+// ADA custom radio JS solution
+function customRadioButtonsQV(){
+  const swatchesKeyContainerUnit = document.querySelectorAll('.qv__body .pdp__swatches-group > .pdp__swatches'); 
+[].map.call(swatchesKeyContainerUnit, (container => {
+  customRadioKeyboardNav(container);        
+}));
+      
+}
+
+setTimeout(()=>{
+  customRadioButtonsQV();
+}, 500);
+// End ADA custom radio JS solution
+
+    function trappingKeyboardFocus(){
+        const firstFocusableElement = document.querySelector('.qv__close');
+        const lastFocusableElement = document.querySelector('.qv__full-details-link');
+        const qvBody = document.querySelector('.qv__body');
+        const qvOverlay = document.querySelector('.qv__overlay');
+        qvBody.addEventListener('keydown', function(e) {
+        if(e.target === firstFocusableElement && e.key === 'Tab' && e.shiftKey) {
+            e.preventDefault();
+            lastFocusableElement.focus();
+        } else if(e.target === lastFocusableElement && e.key === 'Tab' && !e.shiftKey) {
+            e.preventDefault();
+            firstFocusableElement.focus();
+        }
+        });
+
+        firstFocusableElement.addEventListener('click', function(e) {
+            previousElement.focus();
+            previousElement = null;
+            });
+        qvOverlay.addEventListener('click', function(e) {
+            previousElement.focus();
+            previousElement = null;
+            });
+    }
+
+    /*const qvRatingADA = () => {
+      [...document.querySelectorAll('.star-icon')].map(star => star.insertAdjacentHTML("afterend", "<span class='visually-hidden'>Star icon for rating</span>"));
+      [...document.querySelectorAll('.star-background')].map(star => star.insertAdjacentHTML("afterend", "<span class='visually-hidden'>Rating of product is 5 out of 5 stars</span>"));
+    }*/
+    
 }
 
 async function getQuickView(link, variant = false) {
@@ -75,15 +123,22 @@ async function getQuickView(link, variant = false) {
     if(!qvParent) {
         qvParent = document.createElement('div');
         qvParent.classList.add('quick-view__container');
+        qvParent.setAttribute("aria-label", "Product quick view modal");
+        qvParent.setAttribute("aria-modal", "true");
+        qvParent.setAttribute("role", "dialog");
+        
         
         qvParent.innerHTML = `<div class="qv__overlay"></div>
         <div class="qv__body">
-        <button class="close-button qv__close" title="Close"></button>
+        <button class="close-button qv__close" title="Close" aria-label="Close Quick View"></button>
         <div class="qv__body-inner"></div>
         </div>`;
-        
-        document.body.appendChild(qvParent);
+
+        document.body.appendChild(qvParent);       
     }
+    previousElement = ( document.activeElement || document.body );
+    document.querySelector('.qv__close').focus();
+    
     qvParent.classList.add('loading-animation', 'quick-view__container--nudge');
 
     document.body.classList.add('modal-open');
@@ -124,5 +179,3 @@ window.addEventListener("click", async (e) => {
         }, 305)
     }
 });
-
-/* Change for git */

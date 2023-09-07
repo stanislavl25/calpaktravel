@@ -325,6 +325,8 @@ window.addEventListener("load", () => {
         }, 20);
     }
     checkPDPSwatches();
+    
+    
 
     const bambuserButton = document.querySelector('.bambuser__live-activator button');
     if(bambuserButton) bambuserButton.addEventListener('click', function(e) {
@@ -461,6 +463,51 @@ window.addEventListener("load", () => {
         });
 
         bindWaitlist(pdpGrid);
+    }
+    // ADA custom radio JS solution
+        let colorButtonsPdp = document.querySelectorAll('.pdp__info .color-swatch'); 
+        let swatchesKeyContainerPdp = document.querySelectorAll('.pdp__info .pdp__swatches-group > .pdp__swatches');
+        function customRadioButtons(){
+
+
+            [].map.call(colorButtonsPdp, (colorButton) => {
+            colorButton.addEventListener('click', function(e) {
+                selectColorButton(e.target);
+                });
+            });
+
+
+        [].map.call(swatchesKeyContainerPdp, (container => {
+            container.addEventListener('keyup', function(e) {
+                switch(e.key) {
+                    case 'ArrowUp':
+                    case 'ArrowLeft':
+                    selectPreviousColorButton(e.target);
+                    break;
+                    
+                    case 'ArrowDown':
+                    case 'ArrowRight':
+                    selectNextColorButton(e.target);
+                    break;
+                    
+                    case ' ':
+                    selectColorButton(e.target);
+                    break;
+                }
+                });
+        }));
+
+        const waitlistInputs = document.querySelectorAll('.pdp__waitlist input[type="email"]');
+        waitlistInputs.forEach(waitlistInput => waitlistInput.addEventListener('keyup', function(event) {
+            if (event.defaultPrevented) return;
+
+            if((typeof event.key != 'undefined' && event.key === "Enter") || event.keyCode === 13) {
+                event.preventDefault();
+                event.stopPropagation();
+                const waitlistCont = this.closest('.pdp__waitlist');
+                triggerWaitlist(waitlistCont);
+            }
+        }));
     }
 });
 
@@ -816,4 +863,6 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         })
     }
+    // Additional ADA rules
+    document.querySelector('.pdp__payments svg').removeAttribute("aria-hidden");
 });

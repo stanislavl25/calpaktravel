@@ -6,12 +6,12 @@
 <script type="text/javascript" src="{{ 'contact-form.js' | asset_url  }}" defer="defer"></script>
 
 <div class="section__contact-form" data-id="{{ section.id }}">
-    <aside class="contact-form__text">
-        <div class="contact-form__title">{{ section.settings.title | escape }}</div>
+    <div class="contact-form__text">
+        <h2 class="contact-form__title">{{ section.settings.title | escape }}</h2>
         {% if section.settings.description != blank %}
         <div class="contact-form__description">{{ section.settings.description }}</div>
         {% endif %}
-    </aside>
+    </div>
 
     {% form 'customer', class: 'newsletter-form klaviyo_subscription_form', action: '//manage.kmail-lists.com/subscriptions/subscribe', method: 'POST' %}
         <input type="hidden" name="g" value="{{ section.settings.klaviyo-list }}">
@@ -27,11 +27,13 @@
 
 
         <div class="form__field-line">
+            <label class="floating-label" for="form__email">
             <input
+                id="form__email"
                 type="email"
                 name="email"
                 required="required"
-                placeholder="Email"
+                placeholder="Email*"
                 class="field__input"
                 value="{{ form.email }}"
                 aria-required="true"
@@ -47,7 +49,9 @@
                 {% endif %}>
             
             {%- if section.settings.show-phone -%}
+                <label class="floating-label" for="form__phone">
                 <input
+                    id="form__phone"
                     type="tel"
                     placeholder="Phone (optional)"
                     name="phone"
@@ -56,7 +60,7 @@
                     aria-required="false"
                     autocorrect="off"
                     autocapitalize="off"
-                    autocomplete="phone"
+                    autocomplete="tel"
                     {% if form.errors %}
                         autofocus
                         aria-invalid="true"
@@ -64,6 +68,8 @@
                     {% elsif form.posted_successfully? %}
                         aria-describedby="Newsletter-success--{{ section.id }}"
                     {% endif %}>
+                    <span>Phone</span>
+                    </label>
             {%- endif -%}
 
 
@@ -72,8 +78,8 @@
             </button>
         </div>
 
-        {%- if section.settings.disclaimer != blank -%}
-        <div class="form__disclaimer">{{- section.settings.disclaimer -}}</div>
+        {%- if section.settings.disclaimer != blank -%}	
+        <div class="form__disclaimer">{{- section.settings.disclaimer -}}</div>	
         {%- endif -%}
 
         {%- if form.errors -%}

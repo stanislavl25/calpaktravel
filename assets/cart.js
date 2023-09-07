@@ -634,9 +634,11 @@ function setFreeShippingProgress(cart) {
         if(!freeShippingIndicator) return false;
 
         freeShippingIndicator.style.setProperty('--shipping-progress', `${freeShippingPercent}%`);
+        freeShippingIndicator.setAttribute('aria-valuenow', `${freeShippingPercent}`);
 
         if(freeShippingPercent > 0) cartContainer.querySelector('.shipping-value').innerHTML = formatPrice((freeShippingStarts - cart.items_subtotal_price) / 100);
     });
+    
 
     return freeShippingPercent == 100;
 }
@@ -920,6 +922,49 @@ async function cartItemMoveToWishlist(target) {
         cartContainer.classList.remove('cart__container--wishlist');
     }, settings.cartWishlistTimeout * 1000);
 }
+
+function trappingCartFocus(){
+    const firstFocusableElement = document.querySelector('.cart__container .close-button--cart');
+    const lastFocusableElement = document.querySelector('.cart__container .button--checkout');
+    const qvBody = document.querySelector('.cart__container .cart__body');
+    const qvOverlay = document.querySelector('.cart__container .cart__overlay');
+    qvBody.addEventListener('keydown', function(e) {
+    if(e.target === firstFocusableElement && e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        lastFocusableElement.focus();
+    } else if(e.target === lastFocusableElement && e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault();
+        firstFocusableElement.focus();
+    }
+    });
+
+    firstFocusableElement.addEventListener('click', function(e) {
+        previousElement.focus();
+        previousElement = null;
+        });
+    qvOverlay.addEventListener('click', function(e) {
+        previousElement.focus();
+        previousElement = null;
+        });
+}
+setTimeout(() => {
+    trappingCartFocus();
+}, 10);
+
+window.addEventListener('load', function() {
+console.log('cart js loaded');
+    setTimeout(() => {
+        const svgs = document.querySelectorAll('svg');
+        const btnPay = document.querySelectorAll('.dynamic-checkout__content div[role="button"], .dynamic-checkout__content iframe');
+        [].map.call(svgs, (svg) => {
+            svg.setAttribute('aria-hidden', 'true');
+        });
+        [].map.call(btnPay, (btn) => {
+            btn.setAttribute('role', 'link');
+            btn.setAttribute('tabindex', '0');
+        });
+    }, 1500);
+});
 
 /* eslint-disable no-undef */
 function support() {

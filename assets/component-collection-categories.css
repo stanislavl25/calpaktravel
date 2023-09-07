@@ -3,6 +3,10 @@
     position: relative;
 }
 
+.filter__collection--active:focus {
+    border: none;
+}
+
 .collection-categories__wrapper::after {
     position: absolute;
     bottom: 0;

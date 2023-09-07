@@ -20,7 +20,7 @@
           "settings": {
             "form_type": "klaviyo",
             "iframe-url": "",
-            "klaviyo_id": "Ycfuvm",
+            "klaviyo_id": "ST8jGP",
             "vertical_alignment": "center",
             "height": "300",
             "height-mobile": "300"
@@ -53,7 +53,9 @@
         "94643254-b42b-41a1-beab-db1490c76688"
       ],
       "settings": {
-        "quick-view": true
+        "quick-view": true,
+        "add-to-cart": false,
+        "select_card_layout": "layout1"
       }
     }
   },

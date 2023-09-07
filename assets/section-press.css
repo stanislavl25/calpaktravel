@@ -99,6 +99,14 @@
     position: relative;
 }
 
+.press-block__product .button--add-to-cart .product-unit__row {
+    display: none;
+}
+
+.press-block__product .product-unit__image-wrapper~.product-label {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .shopify-section--press {
         grid-template-columns: repeat(2, 1fr);

@@ -23,7 +23,7 @@
 }
 
 .filt-col-group {
-    --filt-order: 1;
+    /* --filt-order: 1; */
     height: 42px;
     padding: 0 10px;
     border: 1px solid var(--gray);

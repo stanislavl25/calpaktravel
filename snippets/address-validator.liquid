@@ -1,231 +1,243 @@
 <style>
-.modal-val {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 99; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.35); /* Black w/ opacity */
-}
- 
-.modal-content {
-    font-family: proxima-nova;
-    text-align: left;
-    background-color: #fff;
-    padding: 25px 30px;
-    border: 0;
-    max-width: 80%;
-    width: 314px;
-    border-radius: 0;
-    box-sizing: border-box;
-    font-size: 14px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 90vh;
-}
-
-.modal-content .close {
-    display: none;
-}
-
-/* The Close Button */
-/*.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }*/
-  .modal-btns {
-    margin-top: 15px;
+  .modal-val {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 99; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.35); /* Black w/ opacity */
   }
-    .modal-btns button {
-        margin-bottom: 5px;
-        cursor: pointer;
-        display: block;
-        background-color: #000;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        border: 1px solid #000;
-        border-radius: 0;
-        color: white;
+   
+  .modal-content {
+      font-family: proxima-nova;
+      text-align: left;
+      background-color: #fff;
+      padding: 25px 30px;
+      border: 0;
+      max-width: 80%;
+      width: 314px;
+      border-radius: 0;
+      box-sizing: border-box;
+      font-size: 14px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-height: 90vh;
+  }
+  
+  .modal-content .close {
+      display: none;
+  }
+  
+  /* The Close Button */
+  /*.close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+  }
+  
+  .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }*/
+    .modal-btns {
+      margin-top: 15px;
+    }
+      .modal-btns button {
+          margin-bottom: 5px;
+          cursor: pointer;
+          display: block;
+          background-color: #000;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          border: 1px solid #000;
+          border-radius: 0;
+          color: white;
+          font-weight: 600;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.1em;
+          padding: 0 20px;
+          text-align: center;
+          position: relative;
+          transition: background 0.3s, color 0.3s;
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+      }
+  
+    .modal-btns button.btn--black-border {
+        background: transparent;
+        color: #000;
+    }
+  
+    .js-error {
+      font-weight: normal;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-family: proxima-nova;
+    }
+  
+    .js-message {
+        color: #ea1b19;
         font-weight: 600;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        padding: 0 20px;
-        text-align: center;
-        position: relative;
-        transition: background 0.3s, color 0.3s;
-        width: 100%;
-        height: 40px;
-        line-height: 40px;
+        line-height: 1.3em;
     }
-
-  .modal-btns button.btn--black-border {
-      background: transparent;
-      color: #000;
-  }
-
-  .js-error {
-    font-weight: normal;
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-family: proxima-nova;
-  }
-
-  .js-message {
-      color: #ea1b19;
-      font-weight: 600;
-      line-height: 1.3em;
-  }
-
-  .js-address {
-      color: #6e6e6e;
-      margin-top: 5px;
-  }
-
-    @media (max-width: 900px) {
-        .modal-content {
-            padding: 15px 20px;
-        }
+  
+    .js-address {
+        color: #6e6e6e;
+        margin-top: 5px;
     }
-</style>
-
-<div id="validator" class="modal-val"> 
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2 class="js-error">Error With Address</h2>
-    <p class="js-message"></p>
-    <p class="js-address"></p> 
-    <div class="modal-btns">
-      <button class="js-edit btn btn--black-border">Edit Address</button>
-      <button class="js-override btn"  name="button" type="submit" data-trekkie-id="continue_to_shipping_method_button" aria-busy="false">Continue to shipping</button>
- 
-      
-    </div>
-  </div> 
-</div>
-
-
- 
-<script>
-  $(function () {
-
-    if ("contact_information" === Shopify.Checkout.step) { 
-
-      var addressCalled = false; 
-      var $modal = $('#validator');
-/*      var $close = $(".close");
-
-      $close.on('click', function () {
-        $modal.hide()
-      })*/
-
-      $('.js-override').on('click', function () {
-        $modal.hide();
-        $('.step__footer__continue-btn').click();
-      })
-
-      window.editLine = function (line) {
-        $modal.hide();
-        if (line == 1) {
-          $('#checkout_shipping_address_address1').focus()
-        }
-        if (line == 2) {
-          $('#checkout_shipping_address_address2').focus()
-        }
-      } 
-      
-      function getAddress() { 
-        var address = {
-          addres1: $('#checkout_shipping_address_address1').val(),
-          addres2: $('#checkout_shipping_address_address2').val(),
-          city: $('#checkout_shipping_address_city').val(),
-          state: $('#checkout_shipping_address_province').val(),
-          counrty: $('#checkout_shipping_address_country').val(),
-          zip: $('#checkout_shipping_address_zip').val(),
-        } 
-        return address
-      }
-
-      function handleSuccess(data) {
-        if (data.error != 0 || data.message != 0) {
-          $('.js-message').text(data.message)
-          if (data.error == 'Address Not Found.') {
-            $('.js-edit').attr('onClick', 'editLine(1)')
-          } else {
-            $('.js-edit').attr('onClick', 'editLine(2)')
+  
+      @media (max-width: 900px) {
+          .modal-content {
+              padding: 15px 20px;
           }
-          $modal.show()
-        } else { 
-          $('.step__footer__continue-btn').trigger("click");
+      }
+  </style>
+  
+  <div id="validator" class="modal-val"> 
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="js-error">Error With Address</h2>
+      <p class="js-message"></p>
+      <p class="js-address"></p> 
+      <div class="modal-btns">
+        <button class="js-edit btn btn--black-border">Edit Address</button>
+        <button class="js-override btn"  name="button" type="submit" data-trekkie-id="continue_to_shipping_method_button" aria-busy="false">Continue to shipping</button>
+   
+        
+      </div>
+    </div> 
+  </div>
+  
+  
+   
+  <script>
+    $(function () {
+  
+      if ("contact_information" === Shopify.Checkout.step) { 
+  
+        var addressCalled = false; 
+        var $modal = $('#validator');
+  /*      var $close = $(".close");
+  
+        $close.on('click', function () {
+          $modal.hide()
+        })*/
+  
+        $('.js-override').on('click', function () {
+          $modal.hide();
+          $('.step__footer__continue-btn').click();
+        })
+  
+        window.editLine = function (line) {
+          $modal.hide();
+          if (line == 1) {
+            $('#checkout_shipping_address_address1').focus()
+          }
+          if (line == 2) {
+            $('#checkout_shipping_address_address2').focus()
+          }
         } 
         
-		var address = getAddress();	
-        var addressTwo = address.adress2 ? ' ' + address.adress2 : '';
-        var formattedAddress = '' + address.addres1 + addressTwo + '<br>' + address.city + ', ' + address.state + ' ' + address.zip + '<br>USA'
-        $('.js-address').html(formattedAddress)
-
-      }
-
-      function handleError(xhr, error) {
-        console.debug(xhr);
-        console.debug(error);
-        $('.step__footer__continue-btn').click();
-      } 
-
-      function checkAddress() {
-		var address = getAddress();
-        var url = "https://upsaddresscheck.herokuapp.com/"
-        var pararemters = `?address1=${address.addres1}&address2=${address.addres2}&city=${address.city}&state=${address.state}&zip=${address.zip}`
-
-        if(address.city.length == 0 || (address.addres1.length == 0 && address.addres2.length == 0)) {
-
-            $('.js-message').text('Looks like we need more information. Please be sure to check if you\'ve entered the whole address.')
-
-            $('.js-address').html('');
-
-            $('.modal-btns').addClass('modal-btns--no-continue');
-            $modal.show();
-            $('.js-edit').attr('onClick', 'editLine(1)')
-
-            return;
+        function getAddress() { 
+          var address = {
+            addres1: $('#checkout_shipping_address_address1').val(),
+            addres2: $('#checkout_shipping_address_address2').val(),
+            city: $('#checkout_shipping_address_city').val(),
+            state: $('#checkout_shipping_address_province').val(),
+            counrty: $('#checkout_shipping_address_country').val(),
+            zip: $('#checkout_shipping_address_zip').val(),
+          } 
+          return address
         }
-        $('.modal-btns').removeClass('modal-btns--no-continue');
-        
-        addressCalled = true;
-        $.ajax({
-          url: url + pararemters,
-          dataType: "json",
-          success: handleSuccess ,
-          error: handleError 
-        });
-
-      }
-
-      $('.step__footer__continue-btn').on("click", function (e) {
-        if (addressCalled == false) {
-          e.preventDefault()
-          checkAddress();
+  
+        function handleSuccess(data) {
+          if (data.error != 0 || data.message != 0) {
+            $('.js-message').text(data.message)
+            if (data.error == 'Address Not Found.') {
+              $('.js-edit').attr('onClick', 'editLine(1)')
+            } else {
+              $('.js-edit').attr('onClick', 'editLine(2)')
+            }
+            $modal.show()
+          } else { 
+            $('.step__footer__continue-btn').trigger("click");
+          } 
+          
+      var address = getAddress();	
+          var addressTwo = address.adress2 ? ' ' + address.adress2 : '';
+          var formattedAddress = "";
+          if (address.addres1 || addressTwo) {
+            formattedAddress += address.addres1 + addressTwo + "<br >";
+          }
+          if (address.city) {
+            formattedAddress += address.city;
+          }
+          if (address.state) {
+            formattedAddress += ", " + address.state;
+          }
+          if (address.zip) {
+            formattedAddress += " " + address.zip + "<br>USA";
+          }
+          $('.js-address').html(formattedAddress)
+  
         }
-      })
-
-    }
-  });
-</script>
+  
+        function handleError(xhr, error) {
+          console.debug(xhr);
+          console.debug(error);
+          $('.step__footer__continue-btn').click();
+        } 
+  
+        function checkAddress() {
+      var address = getAddress();
+          var url = "https://upsaddresscheck.herokuapp.com/"
+          var pararemters = `?address1=${address.addres1}&address2=${address.addres2}&city=${address.city}&state=${address.state}&zip=${address.zip}`
+  
+          if(address.city?.length == 0 || (address.addres1?.length == 0 && address.addres2?.length == 0)) {
+  
+              $('.js-message').text('Looks like we need more information. Please be sure to check if you\'ve entered the whole address.')
+  
+              $('.js-address').html('');
+  
+              $('.modal-btns').addClass('modal-btns--no-continue');
+              $modal.show();
+              $('.js-edit').attr('onClick', 'editLine(1)')
+  
+              return;
+          }
+          $('.modal-btns').removeClass('modal-btns--no-continue');
+          
+          addressCalled = true;
+          $.ajax({
+            url: url + pararemters,
+            dataType: "json",
+            success: handleSuccess ,
+            error: handleError 
+          });
+  
+        }
+  
+        $('.step__footer__continue-btn').on("click", function (e) {
+          if (addressCalled == false) {
+            e.preventDefault()
+            checkAddress();
+          }
+        })
+  
+      }
+    });
+  </script>

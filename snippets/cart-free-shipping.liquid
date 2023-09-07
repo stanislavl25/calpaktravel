@@ -5,9 +5,9 @@
         <div class="cart__free-ship-progress">{{ shippingMessage[0] }} <span class="shipping-value">{% if priceDifference > 0 %}
             {{ priceDifference | money_without_trailing_zeros }}
          {% endif %}</span> {{ shippingMessage[1] }}</div>
-        <div class="cart__free-ship-success">{{ settings.shipping_message_beyond }}</div>
+        <h2 class="cart__free-ship-success">{{ settings.shipping_message_beyond }}</h2>
     </div>
     <div class="cart__free-shipping-progress">
-        <div class="cart__free-shipping-indicator" style="--shipping-progress: {{ free_shipping_progress }}%;"></div>
+        <div class="cart__free-shipping-indicator" style="--shipping-progress: {{ free_shipping_progress }}%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ free_shipping_progress }}"></div>
     </div>
 </div>

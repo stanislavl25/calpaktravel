@@ -235,6 +235,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--gap);
+  padding: 0;
 }
 
 .cart__item {
@@ -347,6 +348,7 @@
   font-weight: var(--font-body-weight-bold);
   line-height: 1.2em;
   margin-bottom: 0.3em;
+  font-size: 16px;
 }
 
 .cart__item-option {
@@ -385,19 +387,25 @@
   width: 100%;
   content: "";
 }
-
 .cart__item-price b {
   font-weight: var(--font-body-weight);
+  color: #000;
 }
 
-.cart__item-price s + b {
-  color: var(--sale-price-color);
+.cart__item-price span+b {
+  font-weight: var(--font-body-weight);
+  color: #ff0000;
 }
+
 
 .qty-selector {
-  display: flex;
-  border: 1px solid #000;
-  border-radius: 6px;
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 6px;
+    width: fit-content;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
 }
 
 .qty-selector--no-control {
@@ -462,16 +470,24 @@
   justify-content: space-between;
 }
 
+.cart__total-row--shipping {
+  padding-bottom: var(--gap);
+}
 .cart__total-row--subtotal,
 .cart__total-row--total {
   font-weight: var(--font-body-weight-bold);
 }
 
-.cart__footer {
+.cart__total-row--total {
   border-top: 1px dashed #aeaeae;
+  padding-top: 10px;
+}
+
+.cart__footer {
   padding: var(--gap);
   display: flex;
   flex-direction: column;
+  z-index: 10;
 }
 
 .cart__footer > *:not(:nth-last-child(-n+2)) {
@@ -854,6 +870,10 @@ border-radius: 8px;
   height: 42px;
 }
 
+#dynamic-checkout-cart {
+  min-height: fit-content !important;
+}
+
 #dynamic-checkout-cart .shopify-cleanslate [data-shopify-buttoncontainer] {
   margin: 0 !important;
   gap: var(--gap);
@@ -900,6 +920,7 @@ border-radius: 8px;
   display: block;
   line-height: 21px;
   text-align: center;
+  font-size: 16px;
 }
 
 @media (max-width: 900px) {
@@ -1056,6 +1077,9 @@ border-radius: 8px;
   .cart__gam-verbose {
     padding: 0 25px;
   }
+  .close-button--cart {
+    height: 32px;
+  }
 }
 
 .cart__free-shipping {
@@ -1117,3 +1141,14 @@ border-radius: 8px;
 .cart-page .slider .product-unit .product-unit__image-wrapper {
   border-radius: 9px;
 }
+
+/** QA: Checkout Buttons  8-28-23 **/
+@media (min-width: 600px){
+  .cart__footer .button--checkout {
+    margin-bottom: calc(var(--gap) / 2);
+  }
+  .cart__footer .cart__extra-checkout{
+    margin-bottom: initial;
+  }
+}
+/** QA: Checkout Buttons  8-28-23 **/
