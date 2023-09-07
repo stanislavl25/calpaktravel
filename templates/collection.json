@@ -1233,6 +1233,30 @@
             "image": "shopify:\/\/shop_images\/image_197.jpg"
           }
         },
+        "e4ecfc4e-fa9f-4364-b107-58bde7b0bcda": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Luka Duffel",
+            "pictured_link": false,
+            "display": "both",
+            "row": 6,
+            "column": 4,
+            "col_span": 2,
+            "mobile_row": 12,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Group_4540.jpg"
+          }
+        },
         "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
           "type": "module",
           "settings": {
@@ -1280,142 +1304,6 @@
               "medium-clear-cosmetics-case"
             ],
             "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
-          }
-        },
-        "d069cb25-8ad8-48ef-baef-185bfbd99234": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Luka Duffel",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 2,
-            "column": 4,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "luka-duffel"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3710.jpg"
-          }
-        },
-        "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Padded Laptop Sleeve",
-            "pictured_link": true,
-            "display": "both",
-            "row": 3,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 5,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "padded-laptop-sleeve"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3711.jpg"
-          }
-        },
-        "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3": {
-          "type": "static",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Video: Tablet Tech Organizer",
-            "index": 9,
-            "enable_static_for_desktop": true,
-            "static_media_type_desktop": "video",
-            "desktop_static_video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4",
-            "enable_static_for_mobile": true,
-            "static_media_type_mobile": "video",
-            "mobile_static_video": "shopify:\/\/files\/videos\/PDP-VIDEO_TABLET-ORGANIZER_1.mp4"
-          }
-        },
-        "095699f0-711f-4640-a656-2b4741be09b6": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Lunch Bag +",
-            "pictured_link": true,
-            "display": "desktop",
-            "row": 4,
-            "column": 4,
-            "col_span": 2,
-            "mobile_row": 1,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "insulated-lunch-bag"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3712.jpg"
-          }
-        },
-        "42b77a18-3805-4d6a-9e4a-5e6cad3181bc": {
-          "type": "modular-section",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: 2-Blocks",
-            "pictured_link": true,
-            "display": "desktop",
-            "gap": 10,
-            "section_height": 90,
-            "row": 5,
-            "mobile_row": 8,
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3707.jpg",
-            "title_r": "",
-            "description_r": "",
-            "pictured_products_r": [
-              "tech-organizer",
-              "luka-laptop-backpack"
-            ],
-            "image_r": "shopify:\/\/shop_images\/TechOrganizer_1.gif"
-          }
-        },
-        "ecee2052-9cc8-4273-af8e-35f65453ef8b": {
-          "type": "curalate-gallery",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Curalate Gallery",
-            "gallery_id": "gallery-iM0lBFp1",
-            "title": "Back to School + You",
-            "subtitle": "",
-            "desktop_row": 6,
-            "mobile_row": 11
           }
         },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
@@ -1778,14 +1666,9 @@
         "86ee41c2-c924-4ee5-b4f7-613734d13be4",
         "dd6a12c7-c3d0-4292-8ce5-94f359065eb9",
         "aed8dba9-21ec-4959-a754-d579a3f13ed0",
+        "e4ecfc4e-fa9f-4364-b107-58bde7b0bcda",
         "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
         "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98",
-        "d069cb25-8ad8-48ef-baef-185bfbd99234",
-        "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
-        "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
-        "095699f0-711f-4640-a656-2b4741be09b6",
-        "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
-        "ecee2052-9cc8-4273-af8e-35f65453ef8b",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
         "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81",
