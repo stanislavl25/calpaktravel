@@ -737,7 +737,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                         atcBtn.querySelector('.button--add-to-cart').style.pointerEvents = 'auto';
                         atcBtn.classList.add('ready');
                     });
-                
+
                     const sizeSwatches = target.querySelectorAll('.size-swatch');
                     sizeSwatches.forEach(sizeSwatch => sizeSwatch.addEventListener('click', (e) => {
                         component.classList.remove('focused');
@@ -965,7 +965,7 @@ function setProductData(product, meta, target, current_variant_id = false, init1
                 target.querySelector('.button-msg-add').textContent="Select Size";
             }
         }
-        
+
         for (const size in sizes) {
             if(size == '_count') continue;
 
@@ -1647,6 +1647,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 { selector: '.pdp__upsell', differentSwatches: false },
                 { selector: '.product-grid', differentSwatches: false },
                 { selector: '.featured-col__lists', differentSwatches: false },
+                { selector: '.live-shopping-events', differentSwatches: false },
                 //{ selector: '.shopify-section--featured-collections', differentSwatches: true },
                 { selector: '.cart__upsell-items', differentSwatches: true }
             ];

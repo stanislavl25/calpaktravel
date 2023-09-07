@@ -7,7 +7,7 @@ const processSection = ({selector, differentSwatches}) => {
             let firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .color-swatch--active');
             if (differentSwatches) {
                 firstSwatch = productUnit.querySelector('.product-unit__colors .product-unit__swatches-container .swatches-container .color-swatch--active');
-            } 
+            }
             if (firstSwatch) {
                 variantUpdateProcess(firstSwatch);
             }
@@ -21,6 +21,7 @@ const initializeSections = () => {
         { selector: '.pdp__upsell', differentSwatches: false },
         { selector: '.product-grid', differentSwatches: false },
         { selector: '.featured-col__lists', differentSwatches: false },
+        { selector: '.live-shopping-events', differentSwatches: false },
         { selector: '.shopify-section--featured-collections', differentSwatches: true }
     ];
 
@@ -76,14 +77,14 @@ window.addEventListener("click", (e) => {
         const sliderItems = Array.from(document.querySelectorAll('.product-unit'));
 
         if(!firstSlide) firstSlide = slider.querySelector('*');
-    
+
         let slideWidth = firstSlide.offsetWidth;
         let currentScroll = slider.scrollLeft;
         let maxScroll = slider.scrollWidth - slider.clientWidth;
-    
+
         let maxPage = Math.round(maxScroll / slideWidth);
         let currentPage = Math.round(currentScroll / slideWidth);
-    
+
         if(e.target.classList.contains('slider__control--next')) {
             if(currentPage < maxPage) {
                 currentPage += slideNum;
@@ -93,8 +94,8 @@ window.addEventListener("click", (e) => {
                     let isVisible =
                                     sliderItems[i].offsetLeft >= currentScroll &&
                                     sliderItems[i].offsetLeft < currentScroll + slider.clientWidth - 1;
-                    
-                    
+
+
                     if(firstSlide) {
                         sliderItems[i].setAttribute('aria-hidden', 'false')
                     }
@@ -114,19 +115,19 @@ window.addEventListener("click", (e) => {
                 currentScroll = maxScroll;
                 slider.scrollLeft = maxScroll;
             }
-    
+
         } else if(e.target.classList.contains('slider__control--prev')) {
             if(currentScroll > 0) currentPage -= slideNum;
             if(currentPage < 0) currentPage = 0;
-    
+
             currentScroll = currentPage * slideWidth - gap;
             slider.scrollLeft = currentScroll;
             for(let i=0; i < sliderItems.length; i++){
                 let isVisible =
                 sliderItems[i].offsetLeft <= currentScroll &&
                 sliderItems[i].offsetLeft > currentScroll - slider.clientWidth;
-                
-                
+
+
                 if(firstSlide) {
                     sliderItems[i].setAttribute('aria-hidden', 'true')
                 }
@@ -143,14 +144,14 @@ window.addEventListener("click", (e) => {
                 }
             }
         }
-    
+
         if(maxScroll - currentScroll < 20) {
             wrapper.classList.add('slider__wrapper--end');
             wrapper.classList.remove('slider__wrapper--start');
         } else {
             wrapper.classList.remove('slider__wrapper--end');
         }
-        
+
         if(currentPage == 0) {
             wrapper.classList.add('slider__wrapper--start');
             wrapper.classList.remove('slider__wrapper--end');
@@ -176,12 +177,12 @@ window.addEventListener("click", (e) => {
     //         timesTryed += 1;
     //     }
     // }, 500)
-    
+
 });
 
 function moveToSlide(slider, currentPage = 0, sliderCheckNum = 0) {
     // if(currentPage > 0) currentPage--;
-    
+
     let wrapper = slider.closest('.slider__wrapper');
     let gap = 0;
     if(wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
@@ -190,7 +191,7 @@ function moveToSlide(slider, currentPage = 0, sliderCheckNum = 0) {
     let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
 
     let maxScroll = 0;
-    
+
     if(vertical) maxScroll = slider.scrollHeight - slider.clientHeight;
     else maxScroll = slider.scrollWidth - slider.clientWidth;
 
@@ -234,7 +235,7 @@ function sliderThumbClick(thumb, indexFilter = false, sliderCheckNum = 0) {
         active.classList.remove('slide--selected')
         active.removeAttribute('aria-current');
     });
-    
+
     thumb.classList.add('slide--selected');
     thumb.setAttribute('aria-current', 'true');
 
@@ -322,10 +323,10 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
         let nav = document.querySelector(slider.getAttribute('data-nav'));
         if(nav) {
             checkSlider(nav);
-            
+
             let actives = nav.querySelectorAll('.slide--selected');
             if(actives.length > 0) actives.forEach(active => active.classList.remove('slide--selected'));
-            
+
             let activate = nav.querySelectorAll('.slide');
 
             if(indexFilter !== false) activate[indexFilter(currentPage)].classList.add('slide--selected');
@@ -356,7 +357,7 @@ function checkSlider(slider, sliderCheckNum = 0, indexFilter = false) {
 let sliderThrottle = false;
 window.addEventListener("load", () => {
     const sliders = document.querySelectorAll(".slider");
-    
+
     let observer = new IntersectionObserver(function(entries){
         entries.forEach(entry => {
             if (entry.intersectionRatio > 0) {
@@ -380,14 +381,14 @@ function runSlider(slider, autoslide) {
     setInterval(function() {
         let wrapper = slider.closest('.slider__wrapper');
         if(wrapper.matches(':hover')) return;
-        
+
         let vertical = slider.classList.contains('slider--vertical') || (slider.classList.contains('slider--vertical-on-desktop') && window.innerWidth > 900);
         let slideWidth = 0;
         let currentScroll = slider.scrollLeft;
         if(vertical) currentScroll = slider.scrollTop;
 
         let maxScroll = 0;
-        
+
         if(vertical) {
             maxScroll = slider.scrollHeight - slider.clientHeight;
             slideWidth = slider.offsetHeight;
@@ -398,12 +399,12 @@ function runSlider(slider, autoslide) {
 
         let gap = 0;
         if(wrapper && wrapper.hasAttribute('data-gap')) gap = Number(wrapper.getAttribute('data-gap'));
-        
+
         let maxPage = Math.round(maxScroll / slideWidth);
         let currentPage = Math.round(currentScroll / slideWidth);
-    
+
         currentPage++;
-    
+
         if(vertical) slider.scrollTop = currentPage * slideWidth + gap;
         else slider.scrollLeft = currentPage * slideWidth + gap;
 
@@ -440,7 +441,7 @@ function runSlider(slider, autoslide) {
                         slides[i].classList.remove('reviews__slide--active');
                         slides[i].setAttribute("tabindex", "-1");
                         slides[i].setAttribute("aria-hidden", "true");
-                        const childNodes = slides[i].querySelectorAll('a, button'); 
+                        const childNodes = slides[i].querySelectorAll('a, button');
                         console.log(childNodes);
                         childNodes.forEach(child => {
                             child.setAttribute("tabindex", "-1");
@@ -452,7 +453,7 @@ function runSlider(slider, autoslide) {
         }
 
     }, autoslide * 1000);
-    
+
 }
 
 const sliderDots = document.querySelectorAll('.slider__dot');

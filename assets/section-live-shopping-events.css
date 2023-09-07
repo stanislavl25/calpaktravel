@@ -1,0 +1,165 @@
+.live-shopping-events {
+  padding: 40px 18px;
+}
+
+.live-shopping-events h2 {
+  font-size: 48px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-align: center;
+  width: fit-content;
+  position: relative;
+  margin: auto;
+}
+
+.live-shopping-events h2::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 16px;
+  height: 16px;
+  transform: translate(-8px, -8px);
+  background-color: #FF6B0E;
+  border-radius: 50%;
+}
+
+.live-shopping-events .description {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.live-shopping-events .event-item {
+  flex: 0 0 25%;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 13px;
+}
+
+
+
+.live-shopping-events .event-image {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.live-shopping-events .event-image img {
+  width: 100%;
+}
+
+.live-shopping-events .watch-icon {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.live-shopping-events .watch-icon svg {
+  width: 100%;
+}
+
+.live-shopping-events .event-title {
+  font-size: 24px;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  margin-top: 10px;
+}
+
+.live-shopping-events .event-date,
+.live-shopping-events .event-time {
+  margin: 8px 0;
+  display: flex;
+  gap: 5px;
+  font-size: 16px;
+  line-height: 1.5;
+  align-items: center;
+}
+
+.live-shopping-events .button {
+  margin-top: 5px;
+  width: 160px;
+}
+
+.live-shopping-events .slider__control {
+  transform: none !important;
+  top: 7vw;
+}
+
+@media (max-width: 900px) {
+  .live-shopping-events .event-item {
+    flex: 0 0 50%;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .live-shopping-events .slider__control {
+    transform: none !important;
+    top: 13.5vw;
+  }
+
+  .live-shopping-events {
+    padding: 28px 12px;
+  }
+
+  .live-shopping-events h2 {
+    font-size: 30px;
+  }
+
+  .live-shopping-events h2::before {
+    width: 9px;
+    height: 9px;
+    left: -10px;
+  }
+
+  .live-shopping-events .description {
+    margin-bottom: 18px;
+  }
+
+  .live-shopping-events .watch-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .live-shopping-events .event-title {
+    font-size: 22px;
+  }
+
+  .live-shopping-events .event-date,
+  .live-shopping-events .event-time {
+    font-size: 15px;
+  }
+
+  .live-shopping-events .button-tri-left, .live-shopping-events  .button-tri-right {
+    width: 25px;
+    height: 25px;
+    margin-top: -12px;
+  }
+
+  .live-shopping-events .button-tri-left:before, .live-shopping-events .button-tri-right:before {
+    border-width: 3px 6px;
+  }
+
+  .live-shopping-events .button-tri-left:before {
+    margin: -3px 0 0 -10px;
+  }
+
+  .live-shopping-events .button-tri-right:before {
+    margin: -3px 0 0 -3px;
+  }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .live-shopping-events .slider__wrapper--buttons-side .button-tri-left, .live-shopping-events .slider__wrapper--buttons-side .button-tri-right {
+    display: block;
+  }
+}
