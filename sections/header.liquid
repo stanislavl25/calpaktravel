@@ -26,10 +26,10 @@
             date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
             return date;
         }
-    
+
         var startTime = moment.tz("{{ section.settings['live-start-time'] }}", "MMMM DD, YYYY hh:mma", 'America/Los_Angeles').toDate();
         var endTime = moment.tz("{{ section.settings['live-end-time'] }}", "MMMM DD, YYYY hh:mma", 'America/Los_Angeles').toDate();
-    
+
         function updateLiveLink() {
             var currentTime = new Date();
             if(liveStatus == "true" && currentTime >= startTime && currentTime <= endTime) {
@@ -38,7 +38,7 @@
               liveLinkElement.classList.remove('header__live-link--active');
             }
         }
-        
+
         // Check and update immediately
         updateLiveLink();
         // Then keep checking every 15 seconds
@@ -53,15 +53,49 @@
         {% render 'shop-menu' %}
         {% render 'discover-menu' %}
         <ul id="nav-header-top" class="header__nav header__nav--excerpt hide-large" role="tabpanel" aria-labelledby="site-header__menu-item-top" role="tablist">
+
             <li class="site-header__menu-item">
-                <a aria-controls="nav-header-top" tabindex="0" role="button" href="#" class="mobile-menu__activator burger-link" data-target="shop">
-                    Shop
+                <a
+                href="{% if customer == blank %}/pages/wishlist{% else %}{{ routes.account_url }}?view=wishlist{% endif %}"
+                class="header__wishlist-link"
+                title="Wishlist"
+                aria-label="wishlist">
+                {% render 'icon-heart' %}
                 </a>
             </li>
-            <li class="site-header__menu-item">
-                <a aria-controls="nav-header-top" tabindex="0" role="button" href="#" class="header__search-link">
-                    <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
+            <li class="site-header__dropdown subnav__container site-header__menu-item">
+                <a
+                href="{{ routes.account_url }}"
+                class="subnav__activator"
+                role="button"
+                aria-controls="account-links"
+                aria-expanded="false">
+                {%- if customer -%}
+                    {% comment %} Hi, {{ customer.first_name | escape }} {% endcomment %}
+                    {% render 'icon-account' %}
+                    {%- else -%}
+                    {% comment %} My Account {% endcomment %}
+                    {% render 'icon-account' %}
+                {%- endif -%}
                 </a>
+
+                <ul id="account-links" class="site-header__subnav list-unstyled">
+                {%- if customer -%}
+                    <li>
+                    <a href="{{ routes.account_url }}">My Account</a>
+                    </li>
+                    <li>
+                    {{ 'Logout' | customer_logout_link }}
+                    </li>
+                {% else %}
+                    <li>
+                    {{ 'Log in' | customer_login_link }}
+                    </li>
+                    <li>
+                    {{ 'Register' | customer_register_link }}
+                    </li>
+                {% endif %}
+                </ul>
             </li>
         </ul>
         <ul id="nav-header-bottom" class="header__nav header__nav--full" aria-labelledby="site-header__menu-item-bottom">
@@ -78,23 +112,33 @@
                 <a href="/pages/live-shopping" class="header__live-link" aria-label="Live shopping page">Live</a>
                 <span class="visually-hidden">Indicator for live event in progress</span>
             </li>
-            <li class="site-header__menu-item">
-                <a role="button" href="#" class="header__search-link">
-                    <img alt="Search" loading="lazy" src="{{ 'icon-search.svg' | asset_url }}">
+            <li class="site-header__menu-item search-item">
+                <a
+                role="button"
+                href="#"
+                class="header__search-link">
+                <img
+                    alt="Search"
+                    loading="lazy"
+                    src="{{ 'icon-search.svg' | asset_url }}">
 
-                    {%- assign placeholders = section.settings.placeholder-text | newline_to_br | split: '<br />' -%}
-                    {%- if placeholders.size > 0 -%}
+                {%- assign placeholders = section.settings.placeholder-text | newline_to_br | split: '<br />' -%}
+                {%- if placeholders.size > 0 -%}
                     <div class="search-placeholders" data-num="{{- placeholders.size -}}">
-                        <div class="search-placeholders__inner">
-                            {%- for placeholder in placeholders -%}
-                            <div class="search-placeholder"><em>{{- placeholder | escape -}}</em></div>
-                            {%- endfor -%}
-                            {%- if placeholders.size > 1 -%}
-                            <div class="search-placeholder"><em>{{- placeholders | first | escape -}}</em></div>
-                            {%- endif -%}
+                    <div class="search-placeholders__inner">
+                        {%- for placeholder in placeholders -%}
+                        <div class="search-placeholder">
+                            <em>{{- placeholder | escape -}}</em>
                         </div>
+                        {%- endfor -%}
+                        {%- if placeholders.size > 1 -%}
+                        <div class="search-placeholder">
+                            <em>{{- placeholders | first | escape -}}</em>
+                        </div>
+                        {%- endif -%}
                     </div>
-                    {%- endif -%}
+                    </div>
+                {%- endif -%}
                 </a>
             </li>
         </ul>
@@ -116,43 +160,13 @@
                     {%- endif -%}
                 </a>
             </li>
-            <li class="site-header__dropdown subnav__container site-header__menu-item hide-small">
-                <a href="{{ routes.account_url }}" class="subnav__activator" role="button" aria-controls="account-links" aria-expanded="false">
-                    {%- if customer -%}
-                        Hi, {{ customer.first_name | escape }}
-                    {%- else -%}
-                        My Account
-                    {%- endif -%}
-                </a>
 
-                <ul id="account-links" class="site-header__subnav list-unstyled">
-                    {%- if customer -%}
-                    <li>
-                        <a href="{{ routes.account_url }}">My Account</a>
-                    </li>
-                    <li>
-                        {{ 'Logout' | customer_logout_link }}
-                    </li>
-                    {% else %}
-                    <li>
-                        {{ 'Log in' | customer_login_link }}
-                    </li>
-                    <li>
-                        {{ 'Register' | customer_register_link }}
-                    </li>
-                    {% endif %}
-                </ul>
-            </li>
             <li class="site-header__menu-item hide-small">
                 <a href="#" class="header__notifications-link notifications-icon" role="button" title="Notifications" aria-label="notifications">
                     {% render 'icon-notifications' %}
                 </a>
             </li>
-            <li class="site-header__menu-item">
-                <a href="{% if customer == blank %}/pages/wishlist{% else %}{{ routes.account_url }}?view=wishlist{% endif %}" class="header__wishlist-link" title="Wishlist" aria-label="wishlist">
-                    {% render 'icon-heart' %}
-                </a>
-            </li>
+
             <li class="site-header__menu-item">
                 <a href="{{ routes.cart_url }}" class="header__bag-link{% if template != 'cart' %} open-cart-link{% endif %}" title="Cart" aria-label="cart" role="button">
                     <span class="header__bag-title hide-small">Bag</span>
@@ -162,9 +176,50 @@
                     </span>
                 </a>
             </li>
+            <li class="site-header__menu-item side-menu" style="display: none;">
+                <a
+                aria-controls="nav-header-top"
+                tabindex="0"
+                role="button"
+                href="#"
+                class="mobile-menu__activator burger-link"
+                data-target="shop">
+                Shop
+                </a>
+            </li>
         </ul>
     </nav>
 </section>
+
+<li class="site-header__mobile search-item" style="display: none;">
+  <a
+    role="button"
+    href="#"
+    class="header__search-link">
+    <img
+      alt="Search"
+      loading="lazy"
+      src="{{ 'icon-search.svg' | asset_url }}">
+
+    {%- assign placeholders = section.settings.placeholder-text | newline_to_br | split: '<br />' -%}
+    {%- if placeholders.size > 0 -%}
+      <div class="search-placeholders" data-num="{{- placeholders.size -}}">
+        <div class="search-placeholders__inner">
+          {%- for placeholder in placeholders -%}
+            <div class="search-placeholder">
+              <em>{{- placeholder | escape -}}</em>
+            </div>
+          {%- endfor -%}
+          {%- if placeholders.size > 1 -%}
+            <div class="search-placeholder">
+              <em>{{- placeholders | first | escape -}}</em>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </a>
+</li>
 
 {% schema %}
 {

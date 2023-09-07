@@ -8,7 +8,7 @@
                     if block.settings.submenu-number == 0 and block.settings.menu == type and block.type == 'media-block'
                         render 'mobile-menu-promo' with block
                     endif
-                endfor            
+                endfor
             -%}
 
             {% for link in linklists[menu].links %}
@@ -60,43 +60,46 @@
             </li>
             {% endfor %}
 
-            {%- if type == "shop" -%}
-            <li class="slide-menu-item slide-menu-item--push-bottom">
-                <a id="click-mobile-nav-rewards" href="/pages/rewards" class="slide-menu__icon-link">
-                    <img width="22" height="22" src="{{ 'icon-star-outline.svg' | asset_url }}" alt="Star" loading="lazy"> My Rewards
-                </a>
-            </li>
-            <li class="slide-menu-item">
-                <a class="slide-menu__icon-link" href="{{ routes.account_url }}">
-                    {% render 'icon-account' %}
-                    {%- if customer != blank -%}
-                    My Account
-                    {%- else -%}
-                    Log in / Register
-                    {%- endif -%}
-                </a>
-            </li>
-            <li class="slide-menu-item">
-                <a href="#" class="header__notifications-link notifications-icon">
-                    {% render 'icon-notifications' %} Notifications
-                </a>
-                <span class="visually-hidden">Indicator for unread notifications</span>
-            </li>
-            {%- elsif type == 'discover' -%}
-                <li class="slide-menu-item slide-menu-item--edits">
-                    {%- if section.settings.edits-title != blank -%}
-                        <h2 class="slide-menu__edits-heading">{{- section.settings.edits-title | escape -}}</h2>
-                    {%- endif -%}
+            <div class="side-menu__bottom">
 
-                    {%- liquid
-                        for block in section.blocks
-                            if block.type == 'edit'
-                                render 'mobile-menu-edit' with block
-                            endif
-                        endfor
-                    -%}
+                {%- if type == "shop" -%}
+                <li class="slide-menu-item slide-menu-item--push-bottom">
+                    <a id="click-mobile-nav-rewards" href="/pages/rewards" class="slide-menu__icon-link">
+                        <img width="22" height="22" src="{{ 'icon-star-outline.svg' | asset_url }}" alt="Star" loading="lazy"> My Rewards
+                    </a>
                 </li>
-            {%- endif -%}
+                <li class="slide-menu-item">
+                    <a class="slide-menu__icon-link" href="{{ routes.account_url }}">
+                        {% render 'icon-account' %}
+                        {%- if customer != blank -%}
+                        My Account
+                        {%- else -%}
+                        Log in / Register
+                        {%- endif -%}
+                    </a>
+                </li>
+                <li class="slide-menu-item">
+                    <a href="#" class="header__notifications-link notifications-icon">
+                        {% render 'icon-notifications' %} Notifications
+                    </a>
+                    <span class="visually-hidden">Indicator for unread notifications</span>
+                </li>
+                {%- elsif type == 'discover' -%}
+                    <li class="slide-menu-item slide-menu-item--edits">
+                        {%- if section.settings.edits-title != blank -%}
+                            <h2 class="slide-menu__edits-heading">{{- section.settings.edits-title | escape -}}</h2>
+                        {%- endif -%}
+
+                        {%- liquid
+                            for block in section.blocks
+                                if block.type == 'edit'
+                                    render 'mobile-menu-edit' with block
+                                endif
+                            endfor
+                        -%}
+                    </li>
+                {%- endif -%}
+            </div>
         </ul>
     </div>
 </div>

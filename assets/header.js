@@ -9,14 +9,14 @@ if(searchPlaceholders.length > 0) {
         setTimeout(() => searchPlaceholder.style.setProperty('--page', 0), 570);
         setTimeout(() => searchPlaceholder.classList.remove('search-placeholders--no-anim'), 620);
     }
-    
+
     setInterval(() => {
         for(let i = 0; i < searchPlaceholders.length; i++) {
             const num = parseInt(searchPlaceholders[i].getAttribute('data-num'));
             let page = searchPlaceholders[i].style.getPropertyValue('--page');
             page++;
             searchPlaceholders[i].style.setProperty('--page', page);
-            
+
             if(page >= num) {
                 page = 0;
                 restoreSearchPlaceholder(searchPlaceholders[i]);
@@ -34,13 +34,13 @@ if(headerOverlay) headerOverlay.addEventListener('click', () => {
 let searchActivators = document.querySelectorAll('.header__search-link');
 for(let i = 0; i < searchActivators.length; i++) searchActivators[i].addEventListener('click', async function(e) {
     e.preventDefault();
-    
+
     const actives = document.querySelectorAll('.menu-popup--visible');
     actives.forEach(active => active.classList.remove('menu-popup--visible'));
 
     const header = document.querySelector('.shopify-section--header');
     setTimeout(() => header.removeAttribute('data-menu'), 500);
-    
+
     document.querySelector('.menu-popup--search').classList.add('menu-popup--visible');
     document.body.classList.add('modal-open');
 
@@ -51,7 +51,7 @@ for(let i = 0; i < searchActivators.length; i++) searchActivators[i].addEventLis
             let src = document.querySelector('.menu-popup--search').getAttribute('data-src');
             await loadScript(src);
         }
-        
+
     } catch (e) {
         console.log(e);
     }
@@ -75,7 +75,7 @@ for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListene
         return;
     }
 
-    
+
     const actives = document.querySelectorAll('.menu-popup--visible');
     for(let i = 0; i < actives.length; i++) {
         actives[i].classList.remove('menu-popup--visible');
@@ -84,7 +84,7 @@ for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListene
         menu.setAttribute('aria-selected', 'false');
         menu.setAttribute('tabindex', '-1');
     }
-    
+
     if(actives.length > 0) {
         setTimeout(() => {
             header.setAttribute('data-menu', target);
@@ -122,15 +122,15 @@ for(let i = 0; i < menuActivators.length; i++) menuActivators[i].addEventListene
 let menuDeactivators = document.querySelectorAll('.menu-close--shop, .menu-close--mobile-menu, .menu-close--discover, .menu-close--search');
 menuDeactivators.forEach(menuDeactivator => menuDeactivator.addEventListener('click', function() {
     let menuPopup = this.closest('.menu-popup');
-    
+
     if(menuPopup){
-        if(menuPopup.classList.contains('menu-popup--shop')){    
+        if(menuPopup.classList.contains('menu-popup--shop')){
             menuPopup.querySelector('.slider').setAttribute('aria-hidden','true');
             let headerSlides = menuPopup.querySelectorAll('.slide');
             [].map.call(headerSlides, (slide) => {
                 slide.setAttribute('tabindex','-1');
             });
-        }    
+        }
     }
     if(menuPopup){
         menuPopup.classList.remove('menu-popup--visible');
@@ -146,7 +146,7 @@ menuDeactivators.forEach(menuDeactivator => menuDeactivator.addEventListener('cl
     } else {
         header.removeAttribute('data-menu');
     }
-    
+
     document.body.classList.remove('modal-open');
 }));
 
@@ -186,8 +186,8 @@ if(notifiactionsActivators.length > 0 && notifiactionPopup) {
         e.stopPropagation();
         closeAllDropdowns();
         notifiactionPopup.classList.add('notifications-popup--active');
-        notifiactionPopup.setAttribute('role', 'dialog'); 
-        notifiactionPopup.setAttribute('aria-modal', 'true');              
+        notifiactionPopup.setAttribute('role', 'dialog');
+        notifiactionPopup.setAttribute('aria-modal', 'true');
         setTimeout(() => {
             localStorage.setItem('notificationsSeen', JSON.stringify(activeNotifications));
             document.body.classList.remove('notifications-unread');
@@ -199,8 +199,8 @@ if(notifiactionsActivators.length > 0 && notifiactionPopup) {
         } else {
             document.querySelector('#shop__mobile_tab').focus();
         }
-        
-    }));    
+
+    }));
     notifiactionPopup.querySelector('.menu-close--notifications').addEventListener('click', function(e) {
         e.preventDefault();
         notifiactionPopup.classList.remove('notifications-popup--active');
@@ -233,19 +233,19 @@ if(mobileMenuActivator) mobileMenuActivator.addEventListener('click', async func
 
 // ADA swatches keyboard navigation
 function customMobileTabNavigation(){
-    const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom'); 
+    const swatchesKeyContainerUnit = document.querySelectorAll('#nav-header-bottom');
     [].map.call(swatchesKeyContainerUnit, (container => {
       customMobileKeyNav(container);
-    }));     
+    }));
   }
     setTimeout(()=>{
         customMobileTabNavigation();
     }, 500)
-  
+
   /* GENERAL RADIO BUTTONS KAYBOARD NAVIGATION */
   function customMobileKeyNav(container) {
-      
-          
+
+
     container.addEventListener('keyup', function(e) {
         console.log(e.target);
         let colorButtons = container.querySelectorAll('.menu-popup__activator');
@@ -254,22 +254,22 @@ function customMobileTabNavigation(){
                 selectColorButton(e.target);
             });
         });
-  
-  
-        
+
+
+
           switch(e.key) {
             case 'ArrowUp':
             case 'ArrowLeft':
               e.preventDefault();
               selectPreviousColorButton(e.target);
               break;
-              
+
             case 'ArrowDown':
             case 'ArrowRight':
               e.preventDefault();
               selectNextColorButton(e.target);
               break;
-              
+
             case ' ':
               selectColorButton(e.target);
               break;
@@ -277,31 +277,31 @@ function customMobileTabNavigation(){
           // secondary functions
         function selectPreviousColorButton(colorButton) {
             let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-            
+
             if(index > 0) {
               selectColorButton(colorButtons[index - 1]);
             } else {
               selectColorButton(colorButtons[colorButtons.length - 1]);
             }
           }
-          
+
           function selectNextColorButton(colorButton) {
             let index = Array.prototype.slice.call(colorButtons).indexOf(colorButton);
-            
+
             if(index < colorButtons.length - 1) {
               selectColorButton(colorButtons[index + 1]);
             } else {
               selectColorButton(colorButtons[0]);
             }
           }
-          
+
           function selectColorButton(colorButton) {
-            // Deselect all other color buttons 
+            // Deselect all other color buttons
             colorButtons.forEach(function(otherColorButton) {
               otherColorButton.setAttribute('tabindex', '-1');
               otherColorButton.setAttribute('aria-checked', false);
             });
-            
+
             // Select the provided color button
             colorButton.setAttribute('tabindex', '0');
             colorButton.setAttribute('aria-checked', true);
@@ -317,3 +317,30 @@ function customMobileTabNavigation(){
         moreButtonWrap.classList.add('showFull');
     });
  }
+
+
+
+ document.querySelector('.mobile-menu__activator.burger-link').addEventListener('click', function() {
+    document.querySelector('.header__bag-link').classList.add('active');
+    document.querySelector('.site-header__menu-item.search-item').classList.add('active');
+    document.querySelector('.site-header__mobile.search-item').style.display = "none";
+    document.querySelector('.promo-bar-text-container').style.display = "none";
+
+});
+document.querySelector('.menu-close.menu-close--mobile-menu').addEventListener('click', function() {
+    document.querySelector('.header__bag-link').classList.remove('active');
+    document.querySelector('.site-header__menu-item.search-item').classList.remove('active');
+    document.querySelector('.site-header__mobile.search-item').style.display = "block";
+    document.querySelector('.promo-bar-text-container').style.display = "block";
+});
+
+window.addEventListener('scroll', scrollTop)
+function scrollTop(){
+    if(document.documentElement.scrollTop >= 100){
+        document.querySelector('.site-header__mobile.search-item').classList.add('fixed');
+        document.querySelector('section.site-header').classList.add('active');
+    }else {
+        document.querySelector('.site-header__mobile.search-item').classList.remove('fixed');
+        document.querySelector('section.site-header').classList.remove('active');
+    }
+}
