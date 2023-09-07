@@ -1061,6 +1061,30 @@
             "image": "shopify:\/\/shop_images\/image_194.jpg"
           }
         },
+        "d9d1c142-e59c-4d22-98a6-85ad6bcfd897": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Water Bottle Holders",
+            "pictured_link": false,
+            "display": "both",
+            "row": 1,
+            "column": 4,
+            "col_span": 2,
+            "mobile_row": 3,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "water-bottle-holder"
+            ],
+            "image": "shopify:\/\/shop_images\/image_194.jpg"
+          }
+        },
         "012e7a1e-9410-4813-82ee-2dc17542a424": {
           "type": "module",
           "settings": {
@@ -1623,6 +1647,7 @@
         "7f629c14-61ca-4cfa-b514-756101b71ede",
         "26121484-6047-4828-919f-49c8e5363c7d",
         "004c300c-cbfd-42d4-b36d-d32f6356e801",
+        "d9d1c142-e59c-4d22-98a6-85ad6bcfd897",
         "012e7a1e-9410-4813-82ee-2dc17542a424",
         "d935e740-5879-405c-863d-b21bed01bc1c",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
