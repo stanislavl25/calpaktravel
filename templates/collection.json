@@ -1157,6 +1157,30 @@
             "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
           }
         },
+        "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Mobile: Clear Cosmetic Cases",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 6,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "medium-clear-cosmetics-case"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
+          }
+        },
         "d069cb25-8ad8-48ef-baef-185bfbd99234": {
           "type": "module",
           "disabled": true,
@@ -1650,6 +1674,7 @@
         "012e7a1e-9410-4813-82ee-2dc17542a424",
         "d935e740-5879-405c-863d-b21bed01bc1c",
         "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
+        "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
