@@ -1161,6 +1161,7 @@
         },
         "86ee41c2-c924-4ee5-b4f7-613734d13be4": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1178,7 +1179,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-
+              "haven-laptop-tote-bag"
             ],
             "image": "shopify:\/\/shop_images\/image_196.jpg"
           }
