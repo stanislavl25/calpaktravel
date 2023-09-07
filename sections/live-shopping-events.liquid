@@ -16,7 +16,7 @@
       title="Next"></button>
     <div class="events-slider slider slider--scrollbar">
       {% for block in section.blocks %}
-        {% assign date_time = block.settings.date | append: 'T' | append: block.settings.end_time | replace: 'PT', '' %}
+        {% assign date_time = block.settings.date | append: 'T' | append: block.settings.start_time | replace: 'PT', '' %}
         {% assign event_date = date_time | date: "%s" %}
         {% assign now_date = "now" | date: "%s" %}
         <div class="event-item">
