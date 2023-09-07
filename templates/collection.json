@@ -1063,6 +1063,7 @@
         },
         "d9d1c142-e59c-4d22-98a6-85ad6bcfd897": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1111,6 +1112,7 @@
         },
         "d935e740-5879-405c-863d-b21bed01bc1c": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1159,6 +1161,7 @@
         },
         "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
