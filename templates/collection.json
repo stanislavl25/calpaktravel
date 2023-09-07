@@ -1135,6 +1135,55 @@
             "image": "shopify:\/\/shop_images\/image_195.jpg"
           }
         },
+        "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Mobile: Clear Cosmetic Cases",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 6,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
+          }
+        },
+        "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98": {
+          "type": "module",
+          "disabled": true,
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Mobile: Clear Cosmetic Cases",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 6,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "medium-clear-cosmetics-case"
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
+          }
+        },
         "e76bc741-0a8b-4369-bfcc-12c7c621b6e0": {
           "type": "module",
           "settings": {
@@ -1255,55 +1304,6 @@
 
             ],
             "image": "shopify:\/\/shop_images\/Group_4540.jpg"
-          }
-        },
-        "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
-          "type": "module",
-          "settings": {
-            "collection_list_display": [
-              "best-sellers"
-            ],
-            "heading": "Best Sellers: Mobile: Clear Cosmetic Cases",
-            "pictured_link": true,
-            "display": "mobile",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 6,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
-          }
-        },
-        "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "best-sellers"
-            ],
-            "heading": "Best Sellers: Mobile: Clear Cosmetic Cases",
-            "pictured_link": true,
-            "display": "mobile",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 6,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-              "medium-clear-cosmetics-case"
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3700.jpg"
           }
         },
         "d83347fe-83d2-4af3-bf0e-611f7feabf38": {
@@ -1662,13 +1662,13 @@
         "d9d1c142-e59c-4d22-98a6-85ad6bcfd897",
         "012e7a1e-9410-4813-82ee-2dc17542a424",
         "d935e740-5879-405c-863d-b21bed01bc1c",
+        "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
+        "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98",
         "e76bc741-0a8b-4369-bfcc-12c7c621b6e0",
         "86ee41c2-c924-4ee5-b4f7-613734d13be4",
         "dd6a12c7-c3d0-4292-8ce5-94f359065eb9",
         "aed8dba9-21ec-4959-a754-d579a3f13ed0",
         "e4ecfc4e-fa9f-4364-b107-58bde7b0bcda",
-        "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
-        "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
         "b9a2ba78-cd1b-4109-aee4-5e85d78ddb81",
