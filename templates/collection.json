@@ -1039,13 +1039,12 @@
         },
         "004c300c-cbfd-42d4-b36d-d32f6356e801": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
-              "back-to-school"
+              "best-sellers"
             ],
-            "heading": "BTS: Terra",
-            "pictured_link": true,
+            "heading": "Best Sellers: Water Bottle Holders",
+            "pictured_link": false,
             "display": "both",
             "row": 1,
             "column": 1,
@@ -1057,9 +1056,9 @@
             "title": "",
             "description": "",
             "pictured_products": [
-              "terra-26l-backpack-duffel"
+
             ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3705.jpg"
+            "image": "shopify:\/\/shop_images\/image_194.jpg"
           }
         },
         "9f76d9d7-269c-4ec6-91f1-ffa35090ff1b": {
