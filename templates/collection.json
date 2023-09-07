@@ -1210,6 +1210,7 @@
         },
         "aed8dba9-21ec-4959-a754-d579a3f13ed0": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
