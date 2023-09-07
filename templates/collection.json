@@ -1071,7 +1071,7 @@
             "pictured_link": false,
             "display": "both",
             "row": 2,
-            "column": 2,
+            "column": 1,
             "col_span": 2,
             "mobile_row": 3,
             "column_mobile": 1,
@@ -1082,7 +1082,31 @@
             "pictured_products": [
 
             ],
-            "image": "shopify:\/\/shop_images\/image_194.jpg"
+            "image": "shopify:\/\/shop_images\/image_195.jpg"
+          }
+        },
+        "d935e740-5879-405c-863d-b21bed01bc1c": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Kaya Laptop Back",
+            "pictured_link": false,
+            "display": "both",
+            "row": 2,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 3,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+              "kaya-laptop-backpack"
+            ],
+            "image": "shopify:\/\/shop_images\/image_195.jpg"
           }
         },
         "d069cb25-8ad8-48ef-baef-185bfbd99234": {
@@ -1600,6 +1624,7 @@
         "26121484-6047-4828-919f-49c8e5363c7d",
         "004c300c-cbfd-42d4-b36d-d32f6356e801",
         "012e7a1e-9410-4813-82ee-2dc17542a424",
+        "d935e740-5879-405c-863d-b21bed01bc1c",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
