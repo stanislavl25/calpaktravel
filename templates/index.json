@@ -656,6 +656,39 @@
         "signed-in-button-text": "",
         "signed-in-link": ""
       }
+    },
+    "1c3263d8-d3ca-4bea-acad-906ba36b8ff6": {
+      "type": "live-shopping-events",
+      "blocks": {
+        "b223a263-ea0a-4084-bcd5-7ba01f98378e": {
+          "type": "event",
+          "settings": {
+            "title": "Croc Wallet",
+            "date": "September 7, 2023",
+            "start_time": "12:20PM",
+            "end_time": "12:20PM PT",
+            "event_link": ""
+          }
+        },
+        "9cba9aec-3910-4d5f-b547-eed5701608b6": {
+          "type": "event",
+          "settings": {
+            "title": "Flash Sale #2",
+            "date": "September 14, 2023",
+            "start_time": "12:00PM",
+            "end_time": "1:00PM PT",
+            "event_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b223a263-ea0a-4084-bcd5-7ba01f98378e",
+        "9cba9aec-3910-4d5f-b547-eed5701608b6"
+      ],
+      "disabled": true,
+      "settings": {
+        "description": ""
+      }
     }
   },
   "order": [
@@ -669,6 +702,7 @@
     "bf1595a2-f835-4ec8-a13d-aefc3dd5cd47",
     "1645aa0b-1a41-4be9-906e-35c475633190",
     "b12b4161-2d41-4027-a740-a9f3f7ced561",
-    "5a6f5490-2467-4517-8d4e-1b098c285ad9"
+    "5a6f5490-2467-4517-8d4e-1b098c285ad9",
+    "1c3263d8-d3ca-4bea-acad-906ba36b8ff6"
   ]
 }
