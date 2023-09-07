@@ -1133,6 +1133,30 @@
             "image": "shopify:\/\/shop_images\/image_195.jpg"
           }
         },
+        "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
+          "type": "module",
+          "settings": {
+            "collection_list_display": [
+              "best-sellers"
+            ],
+            "heading": "Best Sellers: Mobile: Clear Cosmetic Cases",
+            "pictured_link": true,
+            "display": "mobile",
+            "row": 1,
+            "column": 1,
+            "col_span": 2,
+            "mobile_row": 10,
+            "column_mobile": 1,
+            "col_span_mobile": 2,
+            "target_link": "",
+            "title": "",
+            "description": "",
+            "pictured_products": [
+
+            ],
+            "image": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
+          }
+        },
         "d069cb25-8ad8-48ef-baef-185bfbd99234": {
           "type": "module",
           "disabled": true,
@@ -1252,31 +1276,6 @@
               "luka-laptop-backpack"
             ],
             "image_r": "shopify:\/\/shop_images\/TechOrganizer_1.gif"
-          }
-        },
-        "8ab4b566-a3a4-4da3-8f09-0b36108496c8": {
-          "type": "module",
-          "disabled": true,
-          "settings": {
-            "collection_list_display": [
-              "back-to-school"
-            ],
-            "heading": "BTS: Mobile: Students",
-            "pictured_link": true,
-            "display": "mobile",
-            "row": 1,
-            "column": 1,
-            "col_span": 2,
-            "mobile_row": 10,
-            "column_mobile": 1,
-            "col_span_mobile": 2,
-            "target_link": "",
-            "title": "",
-            "description": "",
-            "pictured_products": [
-
-            ],
-            "image": "shopify:\/\/shop_images\/Rectangle_3707.jpg"
           }
         },
         "ecee2052-9cc8-4273-af8e-35f65453ef8b": {
@@ -1650,12 +1649,12 @@
         "d9d1c142-e59c-4d22-98a6-85ad6bcfd897",
         "012e7a1e-9410-4813-82ee-2dc17542a424",
         "d935e740-5879-405c-863d-b21bed01bc1c",
+        "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
         "d069cb25-8ad8-48ef-baef-185bfbd99234",
         "be9411b9-c26e-4f32-9fb7-1f5d95a6f9e3",
         "be4f5b6e-d02f-41d4-9004-b0c2ab0f58b3",
         "095699f0-711f-4640-a656-2b4741be09b6",
         "42b77a18-3805-4d6a-9e4a-5e6cad3181bc",
-        "8ab4b566-a3a4-4da3-8f09-0b36108496c8",
         "ecee2052-9cc8-4273-af8e-35f65453ef8b",
         "d83347fe-83d2-4af3-bf0e-611f7feabf38",
         "8896a19e-17ab-456f-9fdf-a352ee417a57",
