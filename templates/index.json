@@ -665,8 +665,8 @@
           "settings": {
             "title": "Croc Wallet",
             "date": "September 7, 2023",
-            "start_time": "12:20PM",
-            "end_time": "12:20PM PT",
+            "start_time": "5:30PM",
+            "end_time": "5:35PM PT",
             "event_link": ""
           }
         },
@@ -685,7 +685,6 @@
         "b223a263-ea0a-4084-bcd5-7ba01f98378e",
         "9cba9aec-3910-4d5f-b547-eed5701608b6"
       ],
-      "disabled": true,
       "settings": {
         "description": ""
       }
