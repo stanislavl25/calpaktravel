@@ -664,6 +664,7 @@
           "type": "event",
           "settings": {
             "title": "Flash Sale #2",
+            "image": "shopify:\/\/shop_images\/Frame_163.jpg",
             "date": "September 14, 2023",
             "start_time": "12:00PM",
             "end_time": "1:00PM PT",
@@ -674,9 +675,10 @@
           "type": "event",
           "settings": {
             "title": "Flash Sale #3",
+            "image": "shopify:\/\/shop_images\/Frame_164.jpg",
             "date": "September 21, 2023",
             "start_time": "12:00PM",
-            "end_time": "",
+            "end_time": "1:00PM PT",
             "event_link": ""
           }
         },
@@ -684,7 +686,30 @@
           "type": "event",
           "settings": {
             "title": "Flash Sale #4",
+            "image": "shopify:\/\/shop_images\/Frame_165.jpg",
             "date": "September 28, 2023",
+            "start_time": "12:00PM",
+            "end_time": "1:00PM PT",
+            "event_link": ""
+          }
+        },
+        "4be3797d-24ff-4e6e-add2-8c690a835d76": {
+          "type": "event",
+          "settings": {
+            "title": "",
+            "image": "shopify:\/\/shop_images\/IMG_0841-8_2.jpg",
+            "date": "",
+            "start_time": "",
+            "end_time": "",
+            "event_link": ""
+          }
+        },
+        "780e24bf-4128-4295-b342-dbbaa84542d3": {
+          "type": "event",
+          "settings": {
+            "title": "",
+            "image": "shopify:\/\/shop_images\/Frame_165.jpg",
+            "date": "",
             "start_time": "",
             "end_time": "",
             "event_link": ""
@@ -694,10 +719,12 @@
       "block_order": [
         "9cba9aec-3910-4d5f-b547-eed5701608b6",
         "659dc34f-732c-4109-82bb-cf96ef705162",
-        "61fc8424-e633-47fb-8414-1d447607eb9c"
+        "61fc8424-e633-47fb-8414-1d447607eb9c",
+        "4be3797d-24ff-4e6e-add2-8c690a835d76",
+        "780e24bf-4128-4295-b342-dbbaa84542d3"
       ],
       "settings": {
-        "description": ""
+        "description": "Tune in live to shop with the guidance of CALPAK experts, learn more about fan favorite pieces, access exclusive discounts, and more."
       }
     }
   },
