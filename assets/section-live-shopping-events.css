@@ -46,6 +46,7 @@
   overflow: hidden;
   position: relative;
   display: block;
+  line-height: 0;
 }
 
 .live-shopping-events .event-image img {
@@ -137,8 +138,8 @@
   }
 
   .live-shopping-events .button-tri-left, .live-shopping-events  .button-tri-right {
-    width: 25px;
-    height: 25px;
+    width: 32px;
+    height: 32px;
     margin-top: -12px;
   }
 
