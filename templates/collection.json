@@ -1310,12 +1310,11 @@
         },
         "f0227f74-28dd-42cf-a630-a9daf5b0ebfb": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
             ],
-            "heading": "Best Sellers: Luka Duffel",
+            "heading": "Best Sellers: Compakt Zippered Pouch",
             "pictured_link": false,
             "display": "both",
             "row": 6,
@@ -1328,7 +1327,7 @@
             "title": "",
             "description": "",
             "pictured_products": [
-              "luka-duffel"
+              "compakt-zippered-pouch-set"
             ],
             "image": "shopify:\/\/shop_images\/Group_4540.jpg"
           }
