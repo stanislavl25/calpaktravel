@@ -1064,6 +1064,7 @@
         },
         "d9d1c142-e59c-4d22-98a6-85ad6bcfd897": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1088,6 +1089,7 @@
         },
         "012e7a1e-9410-4813-82ee-2dc17542a424": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1162,6 +1164,7 @@
         },
         "2dc0ff3c-f3c4-4c5d-ae51-99202eec4b98": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1211,6 +1214,7 @@
         },
         "86ee41c2-c924-4ee5-b4f7-613734d13be4": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1260,6 +1264,7 @@
         },
         "aed8dba9-21ec-4959-a754-d579a3f13ed0": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
@@ -1309,6 +1314,7 @@
         },
         "f0227f74-28dd-42cf-a630-a9daf5b0ebfb": {
           "type": "module",
+          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
