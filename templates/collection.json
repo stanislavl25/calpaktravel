@@ -1064,7 +1064,6 @@
         },
         "d9d1c142-e59c-4d22-98a6-85ad6bcfd897": {
           "type": "module",
-          "disabled": true,
           "settings": {
             "collection_list_display": [
               "best-sellers"
