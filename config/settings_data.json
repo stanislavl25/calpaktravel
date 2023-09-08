@@ -932,6 +932,7 @@
         "blocks": {
           "b2e335e7-f994-4ad9-8b75-77d7e3494d9f": {
             "type": "promo-bar-line",
+            "disabled": true,
             "settings": {
               "everywhere": true,
               "homepage": false,
@@ -1017,9 +1018,9 @@
           "holiday_banner": false,
           "holiday-banner-background": "#f7f177",
           "holiday-banner-color": "#000000",
-          "countdown-active": true,
+          "countdown-active": false,
           "countdown-show": "always",
-          "countdown-to": "September 7, 2023 7:00pm"
+          "countdown-to": "September 7, 2023 6:00pm"
         }
       }
     },
